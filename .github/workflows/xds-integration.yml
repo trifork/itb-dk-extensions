@@ -59,6 +59,7 @@ jobs:
           python3 tests/check-rulesets.py
           python3 tests/test_xds_packaging.py
           python3 tests/test_session_catalogue.py
+          python3 tests/test_startup.py
           for script in get-up-and-running/*.sh; do bash -n "$script"; done
       - name: Authenticate for explicitly selected GHCR CDA image reads
         if: startsWith(env.CDA_RUNTIME_IMAGE, 'ghcr.io/')

@@ -15,7 +15,9 @@ Compose passes its `gitb-ui` image pin to the build using a YAML anchor. The bui
 rejects a mismatch with the reviewed source/image pair in `upstream.json`.
 Update both pins together when upgrading ITB.
 
-`get-up-and-running/start.sh` builds the gateway. To update only the gateway:
+`get-up-and-running/start.sh` pulls the published gateway from Docker Hub.
+Use `ITB_BUILD_FROM_SOURCE=true` to build the checkout instead. To build and update
+only the gateway during development:
 
 ```bash
 docker compose --env-file get-up-and-running/.itb.env up -d --build --no-deps gitb-ui-gateway

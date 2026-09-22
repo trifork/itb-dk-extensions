@@ -27,11 +27,28 @@ Requires Docker Compose, Python 3.12+, curl, jq, zip and openssl.
 ITB_ENABLE_XDS=true ./get-up-and-running/start.sh
 ```
 
-Bootstrap builds the services and frontend extension, configures ITB, runs a
-connection check and provisions `cda-test@itb` with a session for each release.
+Bootstrap pulls the published services and frontend extension from Docker Hub,
+configures ITB, runs a connection check and provisions `cda-test@itb` with a session
+for each release.
 Credentials and session state are saved in ignored `get-up-and-running/.itb*.env`
 files. Existing test history is preserved; do not use `reset.sh` or remove Docker
 volumes unless you intend to delete it.
+
+Startup refreshes the published `latest` images and stops if any pull fails;
+it never falls back to a source build. No `dhi.io` login or local Java/Node build
+toolchain is needed. To use specific image tags or digests, set `CDA_RUNTIME_IMAGE`,
+`ITB_UI_RUNTIME_IMAGE` and, when XDS is enabled, `XDS_RUNTIME_IMAGE` in the environment
+or ignored `get-up-and-running/.itb.env`.
+
+For development, explicitly build the current checkout instead:
+
+```bash
+ITB_BUILD_FROM_SOURCE=true ./get-up-and-running/start.sh
+```
+
+Source builds need access to their build dependencies, including `docker login dhi.io`
+for the hardened Node image. The base `docker-compose.yml` remains the source-build
+configuration; startup adds `get-up-and-running/compose.published.yml` by default.
 
 | Interface | Local address |
 | --- | --- |
@@ -128,7 +145,8 @@ by XDS integration, including browser tests, and includes build provenance/SBOM
 attestations plus image provenance and asset checksums. See the
 [publisher](.github/workflows/publish-images.yml) and
 [XDS release workflow](.github/workflows/publish-xds.yml).
-Compose builds local service images; it does not automatically use published images.
+`get-up-and-running/start.sh` pulls these images by default. Direct use of the base
+`docker-compose.yml` remains available for source builds and CI.
 
 The publishers authenticate through [Docker Hub OIDC](https://docs.docker.com/security/authentication/oidc-connections/create-manage/)
 using `docker/login-action` and publish with `docker/build-push-action`.

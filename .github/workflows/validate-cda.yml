@@ -73,6 +73,7 @@ jobs:
           python3 tests/check-rulesets.py
           python3 scripts/conformance-rule-inventory.py --check
           python3 tests/test_validator_image.py
+          python3 tests/test_startup.py
           python3 cda-validator/tests/test_reporting_summary.py
           python3 cda-validator/tests/test_example_report.py
 

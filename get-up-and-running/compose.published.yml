@@ -1,0 +1,12 @@
+# Default bootstrap deployment: complete service images, with no source builds.
+# Keep the base Compose file's stock ITB pins, volumes and runtime configuration.
+services:
+  cda-validator:
+    image: ${CDA_RUNTIME_IMAGE:-docker.io/trifork/itb-dk-extensions-cda:latest}
+    build: !reset null
+  gitb-ui-gateway:
+    image: ${ITB_UI_RUNTIME_IMAGE:-docker.io/trifork/itb-dk-extensions-itb-ui:latest}
+    build: !reset null
+  xds-api:
+    image: ${XDS_RUNTIME_IMAGE:-docker.io/trifork/itb-dk-extensions-xds:latest}
+    build: !reset null

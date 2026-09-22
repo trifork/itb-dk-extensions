@@ -6,7 +6,8 @@ Scripts and test definitions that stand up the Interoperability Test Bed (ITB) l
 
 | File | What it does | Used by |
 | --- | --- | --- |
-| `start.sh` | Generates the ITB automation master key on first run, builds and starts Docker Compose, waits for the ITB API and validator, then runs the two setup scripts below. `ITB_ENABLE_XDS=true` adds the XDS profile. | Developers, root `README.md` |
+| `start.sh` | Generates the ITB automation master key on first run, pulls published Docker Hub images and starts Compose, waits for readiness, then runs the two setup scripts below. `ITB_ENABLE_XDS=true` adds XDS; `ITB_BUILD_FROM_SOURCE=true` explicitly builds local images. | Users, root `README.md`, `tests/test_startup.py` |
+| `compose.published.yml` | Replaces local service images with published Docker Hub images and removes build definitions; supports per-service tag/digest overrides while retaining stock ITB pins and volumes. | `start.sh` by default |
 | `setup-itb.sh` | Configures ITB through its REST API: domain, community, specification, actor, the `cdaValidator` service and optionally `xdsConnector`, packages and deploys the release test suite, runs the temporary connection check, and creates or reuses one pending session per release. Saves API keys and session IDs to `.itb-bootstrap.env`. | `start.sh`, `xds-integration.yml` |
 | `setup-test-user.sh` | Logs in as the ITB admin, creates the `cda-test@itb` user and its organisation, replaces the one-time password and verifies the release sessions are visible to that user. Saves credentials to `.itb-users.env`. | `start.sh`, `xds-integration.yml` |
 | `reset.sh` | Removes containers, volumes, test history and all generated `.itb*.env` files, then runs `start.sh`. Destructive by design. | Developers only |

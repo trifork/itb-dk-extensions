@@ -6,10 +6,11 @@ Enable the optional XDS integration with:
 ITB_ENABLE_XDS=true ./get-up-and-running/start.sh
 ```
 
-This builds the combined Java 25 service from `xds-service/` and deploys all
+This pulls the published combined Java 25 service from Docker Hub and deploys all
 registered release tests. The `xds-api` container serves both REST and GITB SOAP;
 the GITB adapter calls the shared XDS Java services directly. It uses process-local
 storage and needs no Redis. ITB's own Redis service remains required.
+Set `ITB_BUILD_FROM_SOURCE=true` to build the services from the checkout instead.
 The CDA plugin and XDS service are independent Maven projects with separate POMs.
 Each test offers **Local file upload** or **IHE XDS (DDS) retrieval**. These labels
 also appear in the document-source step report. Both sources feed the same
@@ -326,7 +327,7 @@ references; named credentials reload from their configured files.
 GITB adapter, tests, Maven build and Dockerfile. It builds without a sibling
 `ihe-xds-api` checkout or a published backend image. Successful default-branch
 XDS integration runs publish `docker.io/trifork/itb-dk-extensions-xds` for amd64 and
-arm64 with commit and current-head `latest` tags; Compose builds locally.
+arm64 with commit and current-head `latest` tags; bootstrap pulls published images.
 The existing manual/`xds-v*` release workflow remains available. See
 [container publishing](../README.md#published-container-images) for details.
 See [service architecture](xds-service.md) and [build instructions](../xds-service/README.md).

@@ -32,8 +32,18 @@ export ITB_AUTOMATION_API_MASTER_KEY
 ITB_ENABLE_XDS=${ITB_ENABLE_XDS:-false}
 case "$ITB_ENABLE_XDS" in true|false) ;; *) printf 'ITB_ENABLE_XDS must be true or false.\n' >&2; exit 1 ;; esac
 export ITB_ENABLE_XDS
-ITB_COMPOSE_OPTIONS=()
+ITB_BUILD_FROM_SOURCE=${ITB_BUILD_FROM_SOURCE:-false}
+case "$ITB_BUILD_FROM_SOURCE" in true|false) ;; *) printf 'ITB_BUILD_FROM_SOURCE must be true or false.\n' >&2; exit 1 ;; esac
+ITB_COMPOSE_OPTIONS=(-f "$ITB_REPOSITORY_ROOT/docker-compose.yml")
 ITB_UP_OPTIONS=()
+if [[ "$ITB_BUILD_FROM_SOURCE" == true ]]; then
+    ITB_UP_OPTIONS+=(--build)
+    printf 'Building the service images from this checkout.\n'
+else
+    ITB_COMPOSE_OPTIONS+=(-f "$ITB_SCRIPT_DIR/compose.published.yml")
+    ITB_UP_OPTIONS+=(--no-build --pull always)
+    printf 'Pulling published service images from Docker Hub. A failed pull stops startup.\n'
+fi
 if [[ "$ITB_ENABLE_XDS" == true ]]; then
     ITB_COMPOSE_OPTIONS+=(--profile xds)
     ITB_UP_OPTIONS+=(--wait --wait-timeout 180)
@@ -44,7 +54,7 @@ fi
 docker compose \
     --project-directory "$ITB_REPOSITORY_ROOT" \
     --env-file "$ITB_ENV_FILE" \
-    "${ITB_COMPOSE_OPTIONS[@]}" up -d --build "${ITB_UP_OPTIONS[@]}"
+    "${ITB_COMPOSE_OPTIONS[@]}" up -d "${ITB_UP_OPTIONS[@]}"
 
 printf 'Waiting for the ITB REST API and CDA validator'
 ITB_READY=false
