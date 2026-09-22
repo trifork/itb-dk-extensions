@@ -16,7 +16,7 @@
     </properties>
 
     <!-- Prefer Central for standard libraries. Reuse Gazelle's legacy repository
-         ID so transitive POMs resolve through the restored HTTPS Nexus endpoint. -->
+         ID so transitive POMs resolve through Trifork's HTTPS IHE Nexus proxy. -->
     <repositories>
         <repository>
             <id>central</id>
@@ -26,7 +26,7 @@
         </repository>
         <repository>
             <id>irisa-sumo</id>
-            <url>https://nexus.ihe-catalyst.net/repository/maven-public/</url>
+            <url>https://nexus3.trifork.com/repository/maven-ihe-proxy/</url>
             <releases><checksumPolicy>fail</checksumPolicy></releases>
             <snapshots><enabled>false</enabled></snapshots>
         </repository>

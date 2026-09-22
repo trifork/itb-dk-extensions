@@ -254,7 +254,8 @@ Schematrons come from [MedCom](https://github.com/medcomdk/cda-validator-schemat
 and [KvalitetsIT](https://github.com/KvalitetsIT/cda-validator); confirm redistribution
 terms with MedCom where upstream has no explicit licence. Pinned Gazelle artifacts
 are downloaded with their original POMs from the
-[IHE Nexus repository](https://nexus.ihe-catalyst.net/repository/maven-public/);
+[IHE Nexus repository](https://nexus.ihe-catalyst.net/repository/maven-public/)
+through [Trifork's anonymous Maven proxy](https://nexus3.trifork.com/repository/maven-ihe-proxy/);
 upstream licence declarations and notices remain in those POMs and JARs.
 The XDS service retains its [MIT licence](xds-service/LICENSE); the ITB frontend
 retains upstream EUPL and third-party notices.

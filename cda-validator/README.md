@@ -22,10 +22,12 @@ PropertiesLauncher; its provided runtime dependencies must match the upstream im
 
 ## Build and verify
 
-Maven downloads pinned Gazelle dependencies from the
-[IHE Nexus repository](https://nexus.ihe-catalyst.net/repository/maven-public/)
+Maven downloads pinned Gazelle dependencies through
+[Trifork's IHE Nexus proxy](https://nexus3.trifork.com/repository/maven-ihe-proxy/)
 and standard libraries from Maven Central. An empty Maven cache requires access
-to both repositories; no Maven artifacts are checked into this project.
+to both repositories; no credentials or checked-in Maven artifacts are needed.
+The proxy fetches uncached artifacts from IHE Nexus and retains cached artifacts
+for subsequent host and Docker builds.
 
 Run from the repository root with Java 25 and Maven:
 

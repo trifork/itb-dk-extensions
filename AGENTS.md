@@ -40,7 +40,8 @@ Owned Java packages use `com.trifork`; preserve upstream namespaces.
   its documented envelope, not single-document registration.
 - `samples/validation-cases.json` records expected outcomes, including negative
   official examples. Keep per-case execution and reporting.
-- CDA resolves pinned Gazelle dependencies from the HTTPS IHE Nexus repository.
+- CDA resolves pinned Gazelle dependencies from HTTPS IHE Nexus via Trifork's
+  anonymous `maven-ihe-proxy` repository.
   Keep its `irisa-sumo` repository ID to override legacy HTTP URLs in upstream POMs.
   Never commit Maven caches, downloaded JARs or repository credentials.
 

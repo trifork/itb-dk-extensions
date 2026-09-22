@@ -112,13 +112,19 @@ UCUM dependencies. `cdabasic-validator-jar` is distinct from the direct
 changed by this recheck; adopting candidates requires Java 25 verification,
 Sonar analysis and actual container integration tests.
 
-The project now resolves these pinned dependencies directly from HTTPS IHE Nexus;
+The project resolves these pinned dependencies from HTTPS IHE Nexus through
+[Trifork's Maven proxy](https://nexus3.trifork.com/repository/maven-ihe-proxy/)
+(switched on 22 September 2026 after repeated connection timeouts from GitHub runners);
 the checked-in Maven artifacts and their Docker/CI inventory checks were removed.
 Maven Central is listed first for standard libraries. The Nexus entry uses
 `irisa-sumo`, matching the upstream POM repository ID to replace its legacy HTTP
 URL. Release checksum verification remains mandatory, snapshots are disabled,
-and CI still uses a fresh Maven cache. Clean builds therefore require access to
-Nexus and Central. Upstream POMs and JARs retain their original licence declarations
+and CI still uses a fresh Maven cache. Host Maven and Docker source builds use the
+same POM repository URL and require no Nexus credentials. The proxy's anonymous
+role grants read/browse only for `maven-ihe-proxy`. Clean builds require access to
+Trifork Nexus and Central; uncached IHE artifacts also require the proxy to reach
+IHE Nexus. Retain cached release artifacts and configure their cache age to avoid
+unnecessary upstream revalidation during outages. Upstream POMs and JARs retain their original licence declarations
 and notices; they are not relicensed as this repository's code.
 
 ## Version inventory
