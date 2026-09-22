@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<cases>
+  <case profile="qfdd-v1.2" name="Complete synthetic profile fixture"/>
+  <case profile="qfdd-v1.2" name="Missing realmCode" fails="QFDD-DK-1.2-C1">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:realmCode"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Missing title" fails="QFDD-DK-1.2-C13">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:title"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Missing recordTarget" fails="QFDD-DK-1.2-C19">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:recordTarget"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Missing author" fails="QFDD-DK-1.2-C23">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Missing custodian" fails="QFDD-DK-1.2-C37">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Missing component" fails="QFDD-DK-1.2-C47">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Duplicate document code" fails="QFDD-DK-1.2-C10">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:code"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Wrong typeId" fails="QFDD-DK-1.2-C5">
+    <edit action="set" select="/v3:ClinicalDocument/v3:typeId/@extension" value="WRONG"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Wrong LOINC code" fails="QFDD-DK-1.2-DK3-CODE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@code" value="WRONG"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Missing author address" fails="QFDD-DK-1.2-C27">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:addr"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Wrong observation class 7" fails="QFDD-DK-1.2-C149">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.7']/@classCode" value="ACT"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Wrong observation class 8" fails="QFDD-DK-1.2-C168">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.8']/@classCode" value="ACT"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Wrong observation class 9" fails="QFDD-DK-1.2-C197">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.9']/@classCode" value="ACT"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Wrong observation mood" fails="QFDD-DK-1.2-C150">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.7']/@moodCode" value="EVN"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Missing question text" fails="QFDD-DK-1.2-C157">
+    <edit action="remove" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.7']/v3:code/v3:originalText"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Missing organiser sequence" fails="QFDD-DK-1.2-C79">
+    <edit action="remove" select="//v3:organizer/v3:component/v3:sequenceNumber"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Duplicate question in component" fails="QFDD-DK-1.2-C80-85">
+    <edit action="duplicate" select="//v3:organizer/v3:component/v3:observation"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Unknown question template" fails="QFDD-DK-1.2-C80-85">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.7']/v3:templateId/@root" value="1.2.3.999"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Wrong help text datatype" fails="QFDD-DK-1.2-SHARED-C109">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.19']/v3:value/@xsi:type" value="INT"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Wrong options LOINC" fails="QFDD-DK-1.2-SHARED-C125">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:code/@code" value="WRONG"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Wrong copyright text datatype" fails="QFDD-DK-1.2-SHARED-C147">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.21']/v3:value/@xsi:type" value="CE"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Wrong help relationship" fails="QFDD-DK-1.2-REL-C160-161">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.7']/v3:entryRelationship[v3:observation/v3:templateId/@root='2.16.840.1.113883.10.20.32.4.19']/@typeCode" value="REFR"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Media template removed" fails="QFDD-DK-1.2-REL-MEDIA-TEMPLATE-7">
+    <edit action="remove" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.7']/v3:entryRelationship/v3:observationMedia/v3:templateId"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Analog slider missing numeric inheritance" fails="QFDD-DK-1.2-C214">
+    <edit action="remove" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.10']/v3:templateId[@root='2.16.840.1.113883.10.20.32.4.7']"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Analog slider missing denominator" fails="QFDD-DK-1.2-C225">
+    <edit action="remove" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.10']/v3:referenceRange/v3:observationRange/v3:value/@denominator"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Analog slider wrong datatype" fails="QFDD-DK-1.2-C222">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.10']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_INT"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Discrete slider allows two answers" fails="QFDD-DK-1.2-C229">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.11']/v3:entryRelationship/v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:value/v3:high/@value" value="2"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Datatype namespace alias is accepted">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.19']/v3:value/@xsi:type" value="v3:ST"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Undeclared datatype prefix" fails="QFDD-DK-1.2-SHARED-C109">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.19']/v3:value/@xsi:type" value="missing:ST"/>
+  </case>
+  <case profile="qfdd-v1.2" name="Duplicate optional section title warns" fails="QFDD-DK-1.2-C55">
+    <edit action="duplicate" select="//v3:section/v3:title"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Complete synthetic profile fixture"/>
+  <case profile="qrd-v1.3.2" name="Missing realmCode" fails="QRD-DK-1.3.2-C1">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:realmCode"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Missing title" fails="QRD-DK-1.3.2-C14">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:title"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Missing recordTarget" fails="QRD-DK-1.3.2-C18">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:recordTarget"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Missing author" fails="QRD-DK-1.3.2-C29">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author"/>
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author"/>
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Missing custodian" fails="QRD-DK-1.3.2-C60">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Missing component" fails="QRD-DK-1.3.2-C114">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Duplicate document code" fails="QRD-DK-1.3.2-C11">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:code"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Wrong typeId" fails="QRD-DK-1.3.2-C5">
+    <edit action="set" select="/v3:ClinicalDocument/v3:typeId/@extension" value="WRONG"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Wrong LOINC code" fails="QRD-DK-1.3.2-DK3-CODE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@code" value="WRONG"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Missing author address" fails="QRD-DK-1.3.2-C36">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:addr"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Wrong observation class 4" fails="QRD-DK-1.3.2-C158">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.4']/@classCode" value="ACT"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Wrong observation class 5" fails="QRD-DK-1.3.2-C179">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.5']/@classCode" value="ACT"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Wrong observation class 6" fails="QRD-DK-1.3.2-C204">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.6']/@classCode" value="ACT"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Wrong observation mood" fails="QRD-DK-1.3.2-C159">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.4']/@moodCode" value="DEF"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Missing question text" fails="QRD-DK-1.3.2-C166">
+    <edit action="remove" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.4']/v3:code/v3:originalText"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Missing organiser sequence" fails="QRD-DK-1.3.2-C137">
+    <edit action="remove" select="//v3:organizer/v3:component/v3:sequenceNumber"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Duplicate question in component" fails="QRD-DK-1.3.2-C138-143">
+    <edit action="duplicate" select="//v3:organizer/v3:component/v3:observation"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Unknown question template" fails="QRD-DK-1.3.2-C138-143">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.4']/v3:templateId/@root" value="1.2.3.999"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Wrong help text datatype" fails="QRD-DK-1.3.2-SHARED-C109">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.19']/v3:value/@xsi:type" value="INT"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Wrong options LOINC" fails="QRD-DK-1.3.2-SHARED-C125">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:code/@code" value="WRONG"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Wrong copyright text datatype" fails="QRD-DK-1.3.2-SHARED-C147">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.21']/v3:value/@xsi:type" value="CE"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Wrong help relationship" fails="QRD-DK-1.3.2-REL-C173-174">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.4']/v3:entryRelationship[v3:observation/v3:templateId/@root='2.16.840.1.113883.10.20.32.4.19']/@typeCode" value="REFR"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Media template removed" fails="QRD-DK-1.3.2-REL-MEDIA-TEMPLATE-4">
+    <edit action="remove" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.4']/v3:entryRelationship/v3:observationMedia/v3:templateId"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Analog slider missing numeric inheritance" fails="QRD-DK-1.3.2-C224">
+    <edit action="remove" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.7']/v3:templateId[@root='2.16.840.1.113883.10.20.33.4.4']"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Analog slider missing denominator" fails="QRD-DK-1.3.2-C235">
+    <edit action="remove" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.7']/v3:referenceRange/v3:observationRange/v3:value/@denominator"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Analog slider wrong datatype" fails="QRD-DK-1.3.2-C232">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.7']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_INT"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Discrete slider allows two answers" fails="QRD-DK-1.3.2-C240">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.8']/v3:entryRelationship/v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:value/v3:high/@value" value="2"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Datatype namespace alias is accepted">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.19']/v3:value/@xsi:type" value="v3:ST"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Undeclared datatype prefix" fails="QRD-DK-1.3.2-SHARED-C109">
+    <edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.19']/v3:value/@xsi:type" value="missing:ST"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Duplicate optional section title warns" fails="QRD-DK-1.3.2-DK22">
+    <edit action="duplicate" select="//v3:section/v3:title"/>
+  </case>
+  <case profile="qfdd-v1.2" name="QFDD UUID must be version four" fails="QFDD-DK-1.2-DK14">
+    <edit action="set" select="/v3:ClinicalDocument/v3:id/@extension" value="12345678-1234-1123-8123-123456789abc"/>
+  </case>
+  <case profile="qfdd-v1.2" name="QFDD missing responsible organisation name" fails="QFDD-DK-1.2-DK16">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id/@assigningAuthorityName"/>
+  </case>
+  <case profile="qfdd-v1.2" name="QFDD single answer option forbidden" fails="QFDD-DK-1.2-C178">
+    <edit action="remove" select="(//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.8'])[1]/v3:value[1]"/>
+  </case>
+  <case profile="qfdd-v1.2" name="QFDD patient id must be NI" fails="QFDD-DK-1.2-C22">
+    <edit action="set" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:id/@nullFlavor" value="NA"/>
+  </case>
+  <case profile="qfdd-v1.2" name="QFDD grouper needs conditions" fails="QFDD-DK-1.2-C246">
+    <edit action="remove" select="//v3:allTrue/sdtc:precondition"/>
+  </case>
+  <case profile="qfdd-v1.2" name="QFDD precondition needs criterion" fails="QFDD-DK-1.2-C100">
+    <edit action="remove" select="//v3:precondition/v3:criterion"/>
+  </case>
+  <case profile="qfdd-v1.2" name="QFDD precondition wrong relationship" fails="QFDD-DK-1.2-C230">
+    <edit action="set" select="//sdtc:precondition/@typeCode" value="COMP"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Numeric no-answer is allowed">
+    <edit action="remove" select="(//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.4'])[1]/v3:value"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Text no-answer is allowed">
+    <edit action="remove" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.6']/v3:value"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Multiple choice no-answer is allowed">
+    <edit action="remove" select="(//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.5'])[1]/v3:value"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Numeric duplicate answer forbidden" fails="QRD-DK-1.3.2-C170">
+    <edit action="duplicate" select="(//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.4'])[1]/v3:value"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Numeric string answer forbidden" fails="QRD-DK-1.3.2-C171">
+    <edit action="set" select="(//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.4'])[1]/v3:value/@xsi:type" value="ST"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="QRD discrete no-answer forbidden" fails="QRD-DK-1.3.2-C239">
+    <edit action="remove" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.8']/v3:value"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="QRD author requires SOR organisation" fails="QRD-DK-1.3.2-AUTHOR-ORGANISATION">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:representedOrganization"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="QRD organisation root must be SOR" fails="QRD-DK-1.3.2-DK41">
+    <edit action="set" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:representedOrganization/v3:id/@root" value="1.2.3"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Patient role SELF required" fails="QRD-DK-1.3.2-DK37">
+    <edit action="set" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:code/@code" value="GUARD"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Invalid calendar birth date" fails="QRD-DK-1.3.2-DK6-8">
+    <edit action="set" select="//v3:patient/v3:birthTime/@value" value="19740230000000+0000"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Missing external QFDD reference" fails="QRD-DK-1.3.2-DK25">
+    <edit action="remove" select="(//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.4'])[1]/v3:reference"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Wrong external QFDD root" fails="QRD-DK-1.3.2-REFERENCE-ROOT">
+    <edit action="set" select="//v3:reference/v3:externalDocument/v3:id/@root" value="1.2.3"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Wrong external QFDD UUID" fails="QRD-DK-1.3.2-REFERENCE-UUID">
+    <edit action="set" select="//v3:reference/v3:externalDocument/v3:id/@extension" value="not-a-uuid"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Missing end time" fails="QRD-DK-1.3.2-DK17-HIGH">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf[2]/v3:serviceEvent/v3:effectiveTime/v3:high"/>
+  </case>
+  <case profile="qrd-v1.3.2" name="Wrong QRD release" fails="QRD-DK-1.3.2-DK14">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf[1]/v3:serviceEvent/v3:id/@extension" value="qrd-v9.9"/>
+  </case>
+<case profile="qrd-qfdd-pair" name="Matching QFDD and QRD pair"/><case profile="qrd-qfdd-pair" name="Pair missing QFDD" fails="PRO-PAIR-INPUT"><edit select="/pro:documents/pro:qfdd" action="remove"/></case><case profile="qrd-qfdd-pair" name="Pair unknown question" fails="PRO-PAIR-QUESTION-ID"><edit select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.5']/v3:id/@extension" action="set" value="unknown"/></case><case profile="qrd-qfdd-pair" name="Pair wrong question code" fails="PRO-PAIR-QUESTION-CODE"><edit select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.5']/v3:code/@code" action="set" value="wrong"/></case><case profile="qrd-qfdd-pair" name="Pair answer not in QFDD" fails="PRO-PAIR-ANSWER-OPTION"><edit select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.5']/v3:value/@code" action="set" value="not-an-option"/></case><case profile="qrd-qfdd-pair" name="Pair answer label differs" fails="PRO-PAIR-ANSWER-OPTION"><edit select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.5']/v3:value/@displayName" action="set" value="wrong"/></case><case profile="qrd-qfdd-pair" name="Pair changed option limits" fails="PRO-PAIR-OPTION-LIMITS"><edit select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.5']/v3:entryRelationship/v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:value/v3:high/@value" action="set" value="2"/></case><case profile="qrd-qfdd-pair" name="Pair too many selected values" fails="PRO-PAIR-ANSWER-COUNT"><edit select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.5']/v3:value" action="duplicate"/></case><case profile="qrd-qfdd-pair" name="Pair references another QFDD" fails="PRO-PAIR-QFDD-REFERENCE"><edit select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.5']/v3:reference/v3:externalDocument/v3:id/@extension" action="set" value="87654321-1234-4123-8123-123456789abc"/></case><case profile="qrd-qfdd-pair" name="Pair modified media" fails="PRO-PAIR-MEDIA"><edit select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.5']/v3:entryRelationship/v3:observationMedia/v3:value/text()" action="set" value="AQ=="/></case><case profile="qrd-qfdd-pair" name="Pair allows unanswered choice"><edit select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.5']/v3:value" action="remove"/></case><case name="Malformed datatype QName reports a finding" profile="qfdd-v1.2" fails="QFDD-DK-1.2-SHARED-C109"><edit action="set" select="//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.19']/v3:value/@xsi:type" value="not a QName"/></case><case profile="qfdd-v1.2" name="Invalid OID second arc" fails="QFDD-DK-1.2-DK15"><edit action="set" select="/v3:ClinicalDocument/v3:id/@root" value="1.99.3"/></case><case name="Grouper allTrue requires GROUPER class" profile="qfdd-v1.2" fails="QFDD-DK-1.2-GROUPER-allTrue-classCode"><edit action="set" select="//v3:allTrue/@classCode" value="OBS"/></case><case name="Grouper allFalse requires GROUPER class" profile="qfdd-v1.2" fails="QFDD-DK-1.2-GROUPER-allFalse-classCode"><edit action="set" select="//v3:allFalse/@classCode" value="OBS"/></case><case name="Grouper atLeastOneTrue requires GROUPER class" profile="qfdd-v1.2" fails="QFDD-DK-1.2-GROUPER-atLeastOneTrue-classCode"><edit action="set" select="//v3:atLeastOneTrue/@classCode" value="OBS"/></case><case name="Grouper atLeastOneFalse requires GROUPER class" profile="qfdd-v1.2" fails="QFDD-DK-1.2-GROUPER-atLeastOneFalse-classCode"><edit action="set" select="//v3:atLeastOneFalse/@classCode" value="OBS"/></case><case name="Grouper onlyOneTrue requires GROUPER class" profile="qfdd-v1.2" fails="QFDD-DK-1.2-GROUPER-onlyOneTrue-classCode"><edit action="set" select="//v3:onlyOneTrue/@classCode" value="OBS"/></case><case name="Grouper onlyOneFalse requires GROUPER class" profile="qfdd-v1.2" fails="QFDD-DK-1.2-GROUPER-onlyOneFalse-classCode"><edit action="set" select="//v3:onlyOneFalse/@classCode" value="OBS"/></case></cases>

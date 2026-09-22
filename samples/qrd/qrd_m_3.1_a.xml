@@ -1,0 +1,836 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<?xml-stylesheet type="text/xsl" href="http://svn.medcom.dk/svn/drafts/Standarder/HL7/CDA-Stylesheet/HL7_CDA/HL7_CDA_stylesheet.xsl"?>
+<!--
+........................................................................
+Besvarelse til testprotokol teststep 3.1 
+........................................................................
+
+Datotid             Ver Bld Sign
+=================== === === ============================================
+20220601080000+0200 1   001 MedCom, SGA
+20220808154800+0200 1   002 MedCom, SGA
+20220831143200+0200 1   003 MedCom, SGA
+20221205125100+0100 1   004 MedCom, SGA
+20221220135200+0100 1   005 MedCom, SGA
+- Fejl i flere templateID's
+- Fejl i narrativ numerisk værdi
+........................................................................
+-->
+<ClinicalDocument classCode="DOCCLIN" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 http://svn.medcom.dk/svn/releases/Standarder/HL7/Generic/Schema/CDA_SDTC.xsd">
+	<realmCode code="DK"/>
+	<typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+	<templateId root="1.2.208.184.13.1"/>
+	<templateId root="1.2.208.184.13.1.1.1"/>
+	<id assigningAuthorityName="MedCom" extension="51bc094a-df4c-479f-8f0a-050bf9ceb3d2" root="1.2.208.184"/>
+	<code code="74465-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Questionnaire Response Document"/>
+	<title>MedCom test eksempel, teststep 3.1</title>
+	<effectiveTime value="20221220135200+0100"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<versionNumber value="1"/>
+	<recordTarget contextControlCode="OP" typeCode="RCT">
+		<patientRole classCode="PAT">
+			<id assigningAuthorityName="CPR" extension="2910534703" root="1.2.208.176.1.2"/>
+			<addr use="H">
+				<streetAddressLine>Ved landet 3</streetAddressLine>
+				<postalCode>2900</postalCode>
+				<city>Hellerup</city>
+				<country>DK</country>
+			</addr>
+			<patient classCode="PSN">
+				<name>
+					<given>Tjørn</given>
+					<given>Egon</given>
+					<family>Simonsen</family>
+				</name>
+				<administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
+				<birthTime value="19531029000000+0000"/>
+			</patient>
+		</patientRole>
+	</recordTarget>
+	<author contextControlCode="OP" typeCode="AUT">
+		<time value="20221220135200+0100"/>
+		<assignedAuthor classCode="ASSIGNED">
+			<id assigningAuthorityName="CPR" extension="2910534703" root="1.2.208.176.1.2"/>
+			<addr use="H">
+				<streetAddressLine>Ved landet 3</streetAddressLine>
+				<postalCode>2900</postalCode>
+				<city>Hellerup</city>
+				<country>DK</country>
+			</addr>
+			<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+				<name>
+					<given>Tjørn</given>
+					<given>Egon</given>
+					<family>Simonsen</family>
+				</name>
+			</assignedPerson>
+			<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id assigningAuthorityName="SOR" extension="310541000016007" root="1.2.208.176.1.1"/>
+				<name>Odense Universitetshospital - Svendborg Sygehus</name>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id assigningAuthorityName="SOR" extension="310541000016007" root="1.2.208.176.1.1"/>
+				<name>Odense Universitetshospital - Svendborg Sygehus</name>
+				<telecom use="WP" value="tel:65112233"/>
+				<addr use="WP">
+					<streetAddressLine>Neurologisk afdeling C</streetAddressLine>
+					<streetAddressLine>Valdemarsgade 53</streetAddressLine>
+					<postalCode>5700</postalCode>
+					<city>Svendborg</city>
+					<country>Danmark</country>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<documentationOf>
+		<serviceEvent>
+			<templateId root="1.2.208.184.10.1.10"/>
+			<id assigningAuthorityName="MedCom" extension="qrd-v1.3" root="1.2.208.184.100.10"/>
+		</serviceEvent>
+	</documentationOf>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="MPROT" moodCode="EVN">
+			<effectiveTime>
+				<low value="20221220133700+0100"/>
+				<high value="20221220135200+0100"/>
+			</effectiveTime>
+		</serviceEvent>
+	</documentationOf>
+	<component contextConductionInd="true" typeCode="COMP">
+		<structuredBody classCode="DOCBODY" moodCode="EVN">
+			<!-- INFO-SEKTION
+			==========================================
+			Test af anvendelse af info-sektion
+			SPØRGSMÅLSEKTION_TC01
+			========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Numeric Question</title>
+					<text>
+						<paragraph>Dette spørgsmål indeholder udelukkende numeriske spørgsmål.</paragraph>
+						<list listType="unordered">
+							<item>Ved spørgsmål 1 er afgivet et heltal</item>
+							<item>Ved spørgsmål 2 er afgivet et decimaltal</item>
+							<item>Ved spørgsmål 3 er afgivet et tidspunkt</item>
+						</list>
+						<content styleCode="Bold">Note:</content>
+						<content styleCode="Italics">Ved spørgsmål 1 testes håndtering af Response Reference Range Pattern.</content>
+					</text>
+				</section>
+			</component>
+			<!-- SPØRGSMÅLSEKTION_TC01-->
+			<!-- ========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.33.2.1"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>1. Numerisk spørgsmål</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<td>Angiv et heltal mellem 8 og 24</td>
+									<td>
+										<content styleCode="Bold Underline">8<!-- TC01_01 --></content>
+									</td>
+								</tr>
+								<tr>
+									<td>Angiv et decimaltal</td>
+									<td>
+										<content styleCode="Bold Underline">4.9<!-- TC01_02 --></content>
+									</td>
+								</tr>
+								<tr>
+									<td>Angiv et tidspunkt</td>
+									<td>
+										<content styleCode="Bold Underline">01-09-2024 11:57:55<!-- TC01_03 --></content>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry contextConductionInd="true" typeCode="COMP">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+							<id assigningAuthorityName="MedCom" extension="TC01" root="1.2.208.184.12.2"/>
+							<code code="TC01" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+							<statusCode code="completed"/>
+							<!-- SPØRGSMÅL_01_01
+							*********************************************************
+							* Angiv et heltal mellem 8 og 24
+							********************************************************* -->
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.4"/>
+									<id assigningAuthorityName="MedCom" extension="01_01" root="1.2.208.184.12.2"/>
+									<code code="TC01_01" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Angiv et heltal mellem 8 og 24</originalText>
+									</code>
+									<statusCode code="completed"/>
+									<value value="8" xsi:type="INT"/>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="0dd98de0-f3d3-4270-88bd-eaa93d311ef2" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+									<referenceRange typeCode="REFV">
+										<templateId root="2.16.840.1.113883.10.20.33.4.3"/>
+										<observationRange>
+											<value xsi:type="IVL_INT">
+												<low value="8"/>
+												<high value="24"/>
+											</value>
+										</observationRange>
+									</referenceRange>
+								</observation>
+							</component>
+							<!-- SPØRGSMÅL_01_02
+							*********************************************************
+							* Angiv et decimaltal
+							********************************************************* -->
+							<component>
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.4"/>
+									<id assigningAuthorityName="MedCom" extension="01_02" root="1.2.208.184.12.2"/>
+									<code code="TC01_02" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Angiv et decimaltal</originalText>
+									</code>
+									<statusCode code="completed"/>
+									<value value="4.9" xsi:type="REAL"/>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="0dd98de0-f3d3-4270-88bd-eaa93d311ef2" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+							<!-- SPØRGSMÅL_01_03
+							*********************************************************
+							* Angiv et tidspunkt
+							********************************************************* -->
+							<component>
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.4"/>
+									<id assigningAuthorityName="MedCom" extension="01_02" root="1.2.208.184.12.2"/>
+									<code code="TC01_03" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Angiv et tidspunkt</originalText>
+									</code>
+									<statusCode code="completed"/>
+									<value value="20220901115755+0200" xsi:type="TS"/>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="0dd98de0-f3d3-4270-88bd-eaa93d311ef2" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+			<!-- INFO-SEKTION
+			==========================================
+			Test af anvendelse af info-sektion
+			SPØRGSMÅLSEKTION_TC02
+			========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Multiple Choice Question</title>
+					<text>
+						<paragraph>Dette spørgsmål indeholder udelukkende multiple choice spørgsmål.</paragraph>
+						<list listType="unordered">
+							<item>Ved spørgsmål 1 er afgivet <content styleCode="Underline">et</content> svar</item>
+							<item>Ved spørgsmål 2 er afgivet <content styleCode="Underline">mere end ét</content> svar</item>
+						</list>
+					</text>
+				</section>
+			</component>
+			<!-- SPØRGSMÅLSEKTION_TC02-->
+			<!-- ========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.33.2.1"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>2. Multiple Choice Question</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">Hvad er dit køn?</th>
+								</tr>
+								<tr>
+									<td>Mand</td>
+									<td styleCode="Bold Underline"><!-- TC02_01_01 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Kvinde</td>
+									<td styleCode="Bold Underline"><!-- TC02_01_02 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Andet</td>
+									<td styleCode="Bold Underline">X<!-- TC02_01_03 -->
+									</td>
+								</tr>
+								<tr>
+									<th align="left" colspan="2">Hvilke ugedag(e) starter med bogstavet 'T'?</th>
+								</tr>
+								<tr>
+									<td>Mandag</td>
+									<td styleCode="Bold Underline">X<!-- TC02_02_01 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Tirsdag</td>
+									<td styleCode="Bold Underline"><!-- TC02_02_02 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Onsdag</td>
+									<td styleCode="Bold Underline"><!-- TC02_02_03 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Torsdag</td>
+									<td styleCode="Bold Underline">X<!-- TC02_02_04 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Fredag</td>
+									<td styleCode="Bold Underline"><!-- TC02_02_05 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lørdag</td>
+									<td styleCode="Bold Underline"><!-- TC02_02_06 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Søndag</td>
+									<td styleCode="Bold Underline"><!-- TC02_02_07 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<languageCode code="da-DK"/>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+							<id assigningAuthorityName="MedCom" extension="TC02" root="1.2.208.184.12.2"/>
+							<code code="TC02" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+							<statusCode code="completed"/>
+							<!-- SPØRGSMÅL_02_01
+							*********************************************************
+							* Hvad er dit køn?
+							********************************************************* -->
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.5"/>
+									<id assigningAuthorityName="MedCom" extension="02_01" root="1.2.208.184.12.2"/>
+									<code code="TC02_01" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Hvad er dit køn?</originalText>
+									</code>
+									<statusCode code="completed"/>
+									<value code="TC02_01_03" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" displayName="Andet" xsi:type="CE"/>
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="0dd98de0-f3d3-4270-88bd-eaa93d311ef2" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+							<!-- SPØRGSMÅL_02_02
+							*********************************************************
+							* Hvilke ugedag(e) starter med bogstavet 'T'?
+							********************************************************* -->
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.5"/>
+									<id assigningAuthorityName="MedCom" extension="02_02" root="1.2.208.184.12.2"/>
+									<code code="TC02_02" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Hvilke ugedag(e) starter med bogstavet 'T'?</originalText>
+									</code>
+									<statusCode code="completed"/>
+									<value code="TC02_02_01" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" displayName="Mandag" xsi:type="CE"/>
+									<value code="TC02_02_04" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" displayName="Torsdag" xsi:type="CE"/>
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="7"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="0dd98de0-f3d3-4270-88bd-eaa93d311ef2" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+			<!-- INFO-SEKTION
+			==========================================
+			Test af anvendelse af info-sektion
+			SPØRGSMÅLSEKTION_TC03
+			========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Text Question</title>
+					<text>
+						<paragraph>Der er afgivet to tekst besvarelser hvor der for:</paragraph>
+						<list listType="unordered">
+							<item>Spørgsmål 1 indgår en kort besvarelse</item>
+							<item>Spørgsmål 2 indgår en lang besvarelse</item>
+						</list>
+					</text>
+				</section>
+			</component>
+			<!-- SPØRGSMÅLSEKTION_TC03-->
+			<!-- ========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>3. Tekstuel besvarelse</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">Afgiv en KORT tekst besvarelse</th>
+								</tr>
+								<tr>
+									<td align="right" colspan="2" styleCode="Bold Underline">Dette er et kort svar<!-- TC03_01 --></td>
+								</tr>
+								<tr>
+									<th align="left" colspan="2">Afgiv en LANG tekst besvarelse</th>
+								</tr>
+								<tr>
+									<td align="right" colspan="2" styleCode="Bold Underline"
+										>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris maximus libero quis erat finibus mattis. Mauris ligula nulla, fringilla et dolor volutpat, pulvinar pretium ante. Fusce quam odio, cursus non viverra sed, rhoncus sed ligula. Cras varius nisl urna, non dapibus erat tincidunt eu. Quisque at justo eu lectus rhoncus ullamcorper. Nam vulputate sapien sed orci volutpat, at mattis sapien ultrices. Morbi vehicula sodales lectus sit amet hendrerit. Pellentesque faucibus tortor dapibus varius vestibulum. Mauris convallis orci ac ipsum tempus rutrum. Nunc eros nunc, auctor quis leo sed, hendrerit tincidunt lectus. Quisque efficitur nunc quis nulla convallis auctor. Ut vehicula dolor vitae turpis sagittis condimentum. Ut eu lobortis ligula. Cras aliquet libero urna, accumsan ornare dui vehicula a. Proin tempus dapibus nisi, id cursus ex faucibus vel. Maecenas ipsum risus, viverra sed mattis in, consequat a ex. Vestibulum id justo dapibus, ornare sapien in, ullamcorper velit. Mauris justo turpis, lobortis facilisis elementum vel, suscipit in urna. Donec aliquam nunc sollicitudin iaculis varius. Proin eget odio ut quam finibus blandit. Suspendisse libero mi, feugiat nec tempus eget, varius ut ipsum. Fusce augue lacus, commodo vitae molestie et, eleifend in dui. Phasellus eu mi vel tortor venenatis aliquam sit amet sed felis. Pellentesque fermentum iaculis purus mattis viverra. Etiam sem nisi, tempor quis vehicula eget, hendrerit ac urna. Praesent at ante placerat elit semper lobortis. Sed interdum sagittis leo, ac lacinia arcu condimentum ut. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas sagittis hendrerit quam vel fermentum. Mauris at commodo turpis. Integer dignissim, massa nec congue molestie, nisi mauris scelerisque augue, eget auctor libero massa eu orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec maximus posuere tortor molestie placerat. Maecenas leo augue, iaculis quis metus vel, sagittis hendrerit libero. Morbi dictum nulla neque, quis molestie orci finibus sed. Morbi eu quam sed dolor malesuada volutpat vitae ac lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed at est non turpis vestibulum vestibulum. Mauris malesuada nisi sapien. Sed in orci tristique tortor pharetra ornare sed non elit. Vivamus id velit sit amet libero rutrum volutpat. Vestibulum massa est, egestas in congue vel, mattis vitae metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In hac habitasse platea dictumst. Donec at nisi maximus, pharetra ligula non, consequat leo. Mauris mollis, lacus id sagittis iaculis, metus magna varius tortor, sed convallis justo diam id dui. Donec arcu velit, tincidunt sed est vitae, tincidunt sagittis massa. Phasellus porta massa in congue lobortis. Praesent hendrerit id felis sed euismod. Etiam nulla risus, blandit eget iaculis a, vulputate non tortor. Ut commodo accumsan justo non dictum. Curabitur iaculis placerat mauris. Nullam tristique maximus est, eu facilisis odio pharetra ut. Donec malesuada convallis nibh eu sodales. Nulla facilisi. Aliquam aliquam ipsum feugiat urna euismod luctus. Vivamus scelerisque ultrices lectus ut semper. Curabitur sit amet elementum magna, vitae cursus nunc. Cras luctus vestibulum ipsum, a luctus massa semper id. Integer dui nisi, lobortis pharetra justo nec, laoreet consequat ex. Fusce pellentesque consequat congue. Curabitur tempus egestas venenatis. Integer accumsan nisi non quam euismod molestie. Etiam mollis, odio vel viverra molestie, nisi erat tincidunt risus, sit amet lacinia nisi neque nec sapien. Vivamus pharetra ipsum non ullamcorper efficitur. Proin non augue vel sapien pharetra porta. Phasellus id mauris tellus. Duis semper porta orci, at tincidunt erat vehicula a. Nam ut sodales diam, in euismod enim. Praesent iaculis odio leo, eu laoreet diam euismod sit amet. Aenean a varius leo. Suspendisse lobortis sollicitudin enim et cursus. Integer ultrices imperdiet porta. Vestibulum a lorem sed enim consequat euismod. Curabitur commodo nunc quis aliquam vulputate. Quisque ac pellentesque lacus. Curabitur eu urna rutrum, rhoncus libero ac, ultricies nisl. Quisque a tincidunt nisl. Ut ut hendrerit neque, ut vestibulum odio. In nec metus ullamcorper, fermentum odio et, dictum leo. Curabitur molestie, ante in elementum volutpat, est est ultricies erat, in aliquet tortor ex ut mauris. Vestibulum dignissim augue volutpat neque vehicula, in sodales sem vulputate. Cras id dui non massa rhoncus finibus. Suspendisse viverra lectus sit amet eleifend porttitor. Cras urna justo, ultrices nec mi in, dapibus mattis purus. Donec vestibulum est nec urna consequat, at porttitor orci sagittis. Praesent sit amet diam id leo sollicitudin ornare ut eu quam. Vivamus erat lectus, scelerisque sodales elit in, pellentesque gravida velit. Etiam nec commodo quam. Nullam dapibus, diam at malesuada consequat, augue ante aliquam eros, facilisis consectetur risus sem aliquet urna. Etiam eu risus quis velit malesuada semper sit amet ut est. Ut eget odio quis tellus molestie lacinia in ac odio. Ut orci ipsum, aliquam quis mauris vel, feugiat fermentum tortor. Pellentesque erat ex, tempor placerat convallis id, finibus vitae nunc. In dignissim dolor et sapien euismod, sed varius nulla tempor. Nullam non risus sed nibh condimentum imperdiet id in elit. Suspendisse eu tellus sodales enim consectetur gravida. Integer suscipit elit vitae tortor eleifend porta. Etiam iaculis ante in aliquet pharetra. Aliquam vitae lorem a dolor fringilla convallis et et diam. Donec feugiat posuere pharetra. Aenean finibus, enim et commodo auctor, dui neque commodo lorem, in condimentum ligula risus id arcu. Quisque quis auctor nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fringilla laoreet tellus, imperdiet viverra ligula cursus sed. Phasellus molestie blandit metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris porta cursus fermentum. Vivamus efficitur efficitur nisi, quis consectetur orci euismod vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Aliquam pulvinar eget leo sit amet tempus. Ut pellentesque feugiat condimentum. Praesent tristique, orci porta auctor tempor, magna metus dapibus turpis, sit amet efficitur sapien nisl sed massa. Nulla lacus augue, venenatis nec feugiat id, accumsan id felis. Integer lectus libero, placerat et auctor a, efficitur et justo. Maecenas pellentesque facilisis est, at convallis massa lacinia et. Aliquam dapibus fringilla turpis eget posuere. Curabitur dapibus sed sem mollis vestibulum. Nullam blandit ut elit non blandit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque pulvinar at massa nec vulputate. Maecenas eget velit eu massa eleifend consectetur at in nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus euismod turpis ac odio scelerisque pretium. Vivamus eu erat justo. Cras quis risus pharetra, sagittis tellus ac, interdum nibh. Suspendisse tincidunt nec enim sed consectetur. Nullam laoreet augue ac molestie ornare. Sed lacus ante, sagittis ac mattis sit amet, semper viverra quam. Duis ullamcorper ipsum nec est dignissim porta vel sed nisl. Donec in mauris magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent pretium bibendum magna quis finibus. Maecenas efficitur non magna non laoreet. In tincidunt augue enim, eu rhoncus tellus aliquet id. Aenean lacus turpis, semper nec quam et, tempor tristique lectus. Ut molestie nulla vel nunc fermentum, nec iaculis lorem consequat. Nam porttitor nisl faucibus dolor pulvinar, a eleifend sem blandit. Vestibulum nulla diam, ultrices eu laoreet quis, blandit at dolor. Praesent bibendum convallis turpis, eu tempus purus aliquet eget. Aliquam non elementum augue, non malesuada tortor. Vivamus vitae diam non sapien faucibus efficitur id ac nisi. Vivamus egestas, libero id finibus facilisis, ipsum orci interdum ex, non aliquet purus ipsum ut ex. Donec ac massa ut purus sodales fermentum. Quisque feugiat facilisis aliquam. Nullam non libero elementum, accumsan eros at, fermentum metus. Ut ut tempor nunc. Nam id arcu mi. Vivamus malesuada commodo dolor, vel varius elit vestibulum et. Quisque rutrum dolor non tempor ullamcorper. Curabitur at arcu viverra, dapibus ante euismod, ultricies purus. Nunc suscipit malesuada augue sit amet imperdiet. Maecenas commodo lacus a metus auctor fermentum. Proin et tellus eros. Suspendisse posuere eros quam, vel finibus enim tincidunt nec. Proin orci turpis, euismod in tortor at, vehicula eleifend nisl. Praesent finibus fermentum augue vel sollicitudin. Etiam eu egestas est. Nulla blandit enim eget est venenatis maximus. Sed elementum dui id orci interdum interdum. Suspendisse id porta augue, in posuere orci. Donec ac dolor quam. In ut quam quis nulla faucibus sollicitudin. Vestibulum mollis lectus a dui finibus aliquam. Aenean quis eros ultricies, vehicula diam vitae, euismod diam. Integer sit amet ligula volutpat, tempor mauris vel, bibendum quam. Vivamus eget est quis eros dignissim feugiat ut a ipsum. Nam porta sit amet mauris eget malesuada. Nam rhoncus blandit est, a faucibus dui aliquam vitae. Maecenas vel nisl in justo condimentum porttitor. Suspendisse semper, dui et congue sodales, turpis eros cursus augue, in molestie enim orci a leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent tincidunt, tellus quis condimentum aliquet, neque diam tempus augue, quis ornare velit ligula id erat. Sed ut orci quam. Cras sagittis sapien consequat nisl vestibulum, et tincidunt magna egestas. Etiam aliquam odio quis luctus sagittis. Nulla facilisi. In pulvinar faucibus dolor, ut imperdiet massa. Aenean viverra at nulla ut aliquam.<!-- TC03_02 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+							<id assigningAuthorityName="MedCom" extension="TC03" root="1.2.208.184.12.2"/>
+							<code code="TC03" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+							<statusCode code="completed"/>
+							<!-- SPØRGSMÅL_03_01
+							*********************************************************
+							* Afgiv en KORT tekst besvarelse
+							********************************************************* -->
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.6"/>
+									<id assigningAuthorityName="MedCom" extension="03_01" root="1.2.208.184.12.2"/>
+									<code code="TC03_01" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Afgiv en KORT tekst besvarelse</originalText>
+									</code>
+									<statusCode code="completed"/>
+									<value xsi:type="ST">Dette er et kort svar</value>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="0dd98de0-f3d3-4270-88bd-eaa93d311ef2" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+							<!-- SPØRGSMÅL_03_02
+							*********************************************************
+							* Afgiv en LANG tekst besvarelse
+							********************************************************* -->
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.6"/>
+									<id assigningAuthorityName="MedCom" extension="03_02" root="1.2.208.184.12.2"/>
+									<code code="TC03_02" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Afgiv en LANG tekst besvarelse</originalText>
+									</code>
+									<statusCode code="completed"/>
+									<value xsi:type="ST"
+										>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris maximus libero quis erat finibus mattis. Mauris ligula nulla, fringilla et dolor volutpat, pulvinar pretium ante. Fusce quam odio, cursus non viverra sed, rhoncus sed ligula. Cras varius nisl urna, non dapibus erat tincidunt eu. Quisque at justo eu lectus rhoncus ullamcorper. Nam vulputate sapien sed orci volutpat, at mattis sapien ultrices. Morbi vehicula sodales lectus sit amet hendrerit. Pellentesque faucibus tortor dapibus varius vestibulum. Mauris convallis orci ac ipsum tempus rutrum. Nunc eros nunc, auctor quis leo sed, hendrerit tincidunt lectus. Quisque efficitur nunc quis nulla convallis auctor. Ut vehicula dolor vitae turpis sagittis condimentum. Ut eu lobortis ligula. Cras aliquet libero urna, accumsan ornare dui vehicula a. Proin tempus dapibus nisi, id cursus ex faucibus vel. Maecenas ipsum risus, viverra sed mattis in, consequat a ex. Vestibulum id justo dapibus, ornare sapien in, ullamcorper velit. Mauris justo turpis, lobortis facilisis elementum vel, suscipit in urna. Donec aliquam nunc sollicitudin iaculis varius. Proin eget odio ut quam finibus blandit. Suspendisse libero mi, feugiat nec tempus eget, varius ut ipsum. Fusce augue lacus, commodo vitae molestie et, eleifend in dui. Phasellus eu mi vel tortor venenatis aliquam sit amet sed felis. Pellentesque fermentum iaculis purus mattis viverra. Etiam sem nisi, tempor quis vehicula eget, hendrerit ac urna. Praesent at ante placerat elit semper lobortis. Sed interdum sagittis leo, ac lacinia arcu condimentum ut. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas sagittis hendrerit quam vel fermentum. Mauris at commodo turpis. Integer dignissim, massa nec congue molestie, nisi mauris scelerisque augue, eget auctor libero massa eu orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec maximus posuere tortor molestie placerat. Maecenas leo augue, iaculis quis metus vel, sagittis hendrerit libero. Morbi dictum nulla neque, quis molestie orci finibus sed. Morbi eu quam sed dolor malesuada volutpat vitae ac lacus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed at est non turpis vestibulum vestibulum. Mauris malesuada nisi sapien. Sed in orci tristique tortor pharetra ornare sed non elit. Vivamus id velit sit amet libero rutrum volutpat. Vestibulum massa est, egestas in congue vel, mattis vitae metus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In hac habitasse platea dictumst. Donec at nisi maximus, pharetra ligula non, consequat leo. Mauris mollis, lacus id sagittis iaculis, metus magna varius tortor, sed convallis justo diam id dui. Donec arcu velit, tincidunt sed est vitae, tincidunt sagittis massa. Phasellus porta massa in congue lobortis. Praesent hendrerit id felis sed euismod. Etiam nulla risus, blandit eget iaculis a, vulputate non tortor. Ut commodo accumsan justo non dictum. Curabitur iaculis placerat mauris. Nullam tristique maximus est, eu facilisis odio pharetra ut. Donec malesuada convallis nibh eu sodales. Nulla facilisi. Aliquam aliquam ipsum feugiat urna euismod luctus. Vivamus scelerisque ultrices lectus ut semper. Curabitur sit amet elementum magna, vitae cursus nunc. Cras luctus vestibulum ipsum, a luctus massa semper id. Integer dui nisi, lobortis pharetra justo nec, laoreet consequat ex. Fusce pellentesque consequat congue. Curabitur tempus egestas venenatis. Integer accumsan nisi non quam euismod molestie. Etiam mollis, odio vel viverra molestie, nisi erat tincidunt risus, sit amet lacinia nisi neque nec sapien. Vivamus pharetra ipsum non ullamcorper efficitur. Proin non augue vel sapien pharetra porta. Phasellus id mauris tellus. Duis semper porta orci, at tincidunt erat vehicula a. Nam ut sodales diam, in euismod enim. Praesent iaculis odio leo, eu laoreet diam euismod sit amet. Aenean a varius leo. Suspendisse lobortis sollicitudin enim et cursus. Integer ultrices imperdiet porta. Vestibulum a lorem sed enim consequat euismod. Curabitur commodo nunc quis aliquam vulputate. Quisque ac pellentesque lacus. Curabitur eu urna rutrum, rhoncus libero ac, ultricies nisl. Quisque a tincidunt nisl. Ut ut hendrerit neque, ut vestibulum odio. In nec metus ullamcorper, fermentum odio et, dictum leo. Curabitur molestie, ante in elementum volutpat, est est ultricies erat, in aliquet tortor ex ut mauris. Vestibulum dignissim augue volutpat neque vehicula, in sodales sem vulputate. Cras id dui non massa rhoncus finibus. Suspendisse viverra lectus sit amet eleifend porttitor. Cras urna justo, ultrices nec mi in, dapibus mattis purus. Donec vestibulum est nec urna consequat, at porttitor orci sagittis. Praesent sit amet diam id leo sollicitudin ornare ut eu quam. Vivamus erat lectus, scelerisque sodales elit in, pellentesque gravida velit. Etiam nec commodo quam. Nullam dapibus, diam at malesuada consequat, augue ante aliquam eros, facilisis consectetur risus sem aliquet urna. Etiam eu risus quis velit malesuada semper sit amet ut est. Ut eget odio quis tellus molestie lacinia in ac odio. Ut orci ipsum, aliquam quis mauris vel, feugiat fermentum tortor. Pellentesque erat ex, tempor placerat convallis id, finibus vitae nunc. In dignissim dolor et sapien euismod, sed varius nulla tempor. Nullam non risus sed nibh condimentum imperdiet id in elit. Suspendisse eu tellus sodales enim consectetur gravida. Integer suscipit elit vitae tortor eleifend porta. Etiam iaculis ante in aliquet pharetra. Aliquam vitae lorem a dolor fringilla convallis et et diam. Donec feugiat posuere pharetra. Aenean finibus, enim et commodo auctor, dui neque commodo lorem, in condimentum ligula risus id arcu. Quisque quis auctor nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fringilla laoreet tellus, imperdiet viverra ligula cursus sed. Phasellus molestie blandit metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris porta cursus fermentum. Vivamus efficitur efficitur nisi, quis consectetur orci euismod vel. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Aliquam pulvinar eget leo sit amet tempus. Ut pellentesque feugiat condimentum. Praesent tristique, orci porta auctor tempor, magna metus dapibus turpis, sit amet efficitur sapien nisl sed massa. Nulla lacus augue, venenatis nec feugiat id, accumsan id felis. Integer lectus libero, placerat et auctor a, efficitur et justo. Maecenas pellentesque facilisis est, at convallis massa lacinia et. Aliquam dapibus fringilla turpis eget posuere. Curabitur dapibus sed sem mollis vestibulum. Nullam blandit ut elit non blandit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque pulvinar at massa nec vulputate. Maecenas eget velit eu massa eleifend consectetur at in nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus euismod turpis ac odio scelerisque pretium. Vivamus eu erat justo. Cras quis risus pharetra, sagittis tellus ac, interdum nibh. Suspendisse tincidunt nec enim sed consectetur. Nullam laoreet augue ac molestie ornare. Sed lacus ante, sagittis ac mattis sit amet, semper viverra quam. Duis ullamcorper ipsum nec est dignissim porta vel sed nisl. Donec in mauris magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent pretium bibendum magna quis finibus. Maecenas efficitur non magna non laoreet. In tincidunt augue enim, eu rhoncus tellus aliquet id. Aenean lacus turpis, semper nec quam et, tempor tristique lectus. Ut molestie nulla vel nunc fermentum, nec iaculis lorem consequat. Nam porttitor nisl faucibus dolor pulvinar, a eleifend sem blandit. Vestibulum nulla diam, ultrices eu laoreet quis, blandit at dolor. Praesent bibendum convallis turpis, eu tempus purus aliquet eget. Aliquam non elementum augue, non malesuada tortor. Vivamus vitae diam non sapien faucibus efficitur id ac nisi. Vivamus egestas, libero id finibus facilisis, ipsum orci interdum ex, non aliquet purus ipsum ut ex. Donec ac massa ut purus sodales fermentum. Quisque feugiat facilisis aliquam. Nullam non libero elementum, accumsan eros at, fermentum metus. Ut ut tempor nunc. Nam id arcu mi. Vivamus malesuada commodo dolor, vel varius elit vestibulum et. Quisque rutrum dolor non tempor ullamcorper. Curabitur at arcu viverra, dapibus ante euismod, ultricies purus. Nunc suscipit malesuada augue sit amet imperdiet. Maecenas commodo lacus a metus auctor fermentum. Proin et tellus eros. Suspendisse posuere eros quam, vel finibus enim tincidunt nec. Proin orci turpis, euismod in tortor at, vehicula eleifend nisl. Praesent finibus fermentum augue vel sollicitudin. Etiam eu egestas est. Nulla blandit enim eget est venenatis maximus. Sed elementum dui id orci interdum interdum. Suspendisse id porta augue, in posuere orci. Donec ac dolor quam. In ut quam quis nulla faucibus sollicitudin. Vestibulum mollis lectus a dui finibus aliquam. Aenean quis eros ultricies, vehicula diam vitae, euismod diam. Integer sit amet ligula volutpat, tempor mauris vel, bibendum quam. Vivamus eget est quis eros dignissim feugiat ut a ipsum. Nam porta sit amet mauris eget malesuada. Nam rhoncus blandit est, a faucibus dui aliquam vitae. Maecenas vel nisl in justo condimentum porttitor. Suspendisse semper, dui et congue sodales, turpis eros cursus augue, in molestie enim orci a leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent tincidunt, tellus quis condimentum aliquet, neque diam tempus augue, quis ornare velit ligula id erat. Sed ut orci quam. Cras sagittis sapien consequat nisl vestibulum, et tincidunt magna egestas. Etiam aliquam odio quis luctus sagittis. Nulla facilisi. In pulvinar faucibus dolor, ut imperdiet massa. Aenean viverra at nulla ut aliquam.</value>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="0dd98de0-f3d3-4270-88bd-eaa93d311ef2" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+			<!-- INFO-SEKTION
+			==========================================
+			Test af anvendelse af info-sektion
+			SPØRGSMÅLSEKTION_TC04
+			========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Analog Slider Question</title>
+					<text>
+						<paragraph>Der vises to analog slider besvarelser (numeriske besvarelser) hvor der for:</paragraph>
+						<list listType="unordered">
+							<item>Spørgsmål 1 er afgivet et heltal</item>
+							<item>Spørgsmål 2 er afgivet et decimaltal</item>
+						</list>
+					</text>
+				</section>
+			</component>
+			<!-- SPØRGSMÅLSEKTION_TC04-->
+			<!-- ========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.33.2.1"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>4. Analog skyder</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="10%"/>
+								<col width="80%"/>
+								<col width="10%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="3">Hvad er din makspuls?</th>
+								</tr>
+								<tr>
+									<td align="left">Min</td>
+									<td/>
+									<td align="right">Max</td>
+								</tr>
+								<tr>
+									<td align="left">50</td>
+									<td align="center">
+										<content styleCode="Bold Underline">178<!-- TC04_01 --></content>
+									</td>
+									<td align="right">300</td>
+								</tr>
+							</tbody>
+						</table>
+						<table>
+							<colgroup>
+								<col width="10%"/>
+								<col width="80%"/>
+								<col width="10%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="3">Hvad er din højde, i meter?</th>
+								</tr>
+								<tr>
+									<td align="left">Min</td>
+									<td/>
+									<td align="right">Max</td>
+								</tr>
+								<tr>
+									<td align="left">0.5</td>
+									<td align="center">
+										<content styleCode="Bold Underline">1.7<!-- TC04_02 --></content>
+									</td>
+									<td align="right">2.5</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry contextConductionInd="true" typeCode="COMP">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+							<id assigningAuthorityName="MedCom" extension="TC04" root="1.2.208.184.12.2"/>
+							<code code="TC04" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+							<statusCode code="completed"/>
+							<!-- SPØRGSMÅL_04_01
+							*********************************************************
+							* Hvad er din makspuls?
+							********************************************************* -->
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.4"/>
+									<templateId root="2.16.840.1.113883.10.20.33.4.7"/>
+									<id assigningAuthorityName="MedCom" extension="04_01" root="1.2.208.184.12.2"/>
+									<code code="TC04_01" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Hvad er din makspuls?</originalText>
+									</code>
+									<value unit="bpm" value="178" xsi:type="PQ"/>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="0dd98de0-f3d3-4270-88bd-eaa93d311ef2" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+									<referenceRange typeCode="REFV">
+										<observationRange classCode="OBS" moodCode="EVN.CRT">
+											<value denominator="300" xsi:type="GLIST_PQ">
+												<head value="50"/>
+												<increment value="1"/>
+											</value>
+										</observationRange>
+									</referenceRange>
+								</observation>
+							</component>
+							<!-- SPØRGSMÅL_04_02
+							*********************************************************
+							* Hvad er din højde, i meter?
+							********************************************************* -->
+							<component>
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<!--templateID for the Numeric Question Pattern-->
+									<templateId root="2.16.840.1.113883.10.20.33.4.4"/>
+									<templateId root="2.16.840.1.113883.10.20.33.4.7"/>
+									<id assigningAuthorityName="MedCom" extension="04_01" root="1.2.208.184.12.2"/>
+									<code code="TC04_02" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Hvad er din højde, i meter?</originalText>
+									</code>
+									<value unit="m" value="1.7" xsi:type="PQ"/>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="0dd98de0-f3d3-4270-88bd-eaa93d311ef2" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+									<referenceRange typeCode="REFV">
+										<observationRange classCode="OBS" moodCode="EVN.CRT">
+											<value denominator="3" xsi:type="GLIST_PQ">
+												<head value="0.5"/>
+												<increment value="0.1"/>
+											</value>
+										</observationRange>
+									</referenceRange>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+			<!-- INFO-SEKTION
+			==========================================
+			Test af anvendelse af info-sektion
+			SPØRGSMÅLSEKTION_TC05
+			========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Discrete Slider Question</title>
+					<text>
+						<paragraph>Der vises to discrete slider (Multiple Choice besvarelser) hvor der for:</paragraph>
+						<list listType="unordered">
+							<item>Spørgsmål 1 indgår to svarmuligheder</item>
+							<item>Spørgsmål 2 indgår mere end to svarmuligheder</item>
+						</list>
+					</text>
+				</section>
+			</component>
+			<!-- SPØRGSMÅLSEKTION_TC05-->
+			<!-- ========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.33.2.1"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>5. Skyder ved Multiple Choice besvarelser</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">Følger du dig fuldstændig rask?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td styleCode="Bold Underline">X<!-- TC05_01_01 --></td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td styleCode="Bold Underline"><!-- TC05_01_02 --></td>
+								</tr>
+							</tbody>
+						</table>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">Jeg har over de seneste 6 måneder fået mere energi</th>
+								</tr>
+								<tr>
+									<td>Meget uenig</td>
+									<td styleCode="Bold Underline"><!-- TC05_02_01 --></td>
+								</tr>
+								<tr>
+									<td>Uenig</td>
+									<td styleCode="Bold Underline"><!-- TC05_02_02 --></td>
+								</tr>
+								<tr>
+									<td>Enig</td>
+									<td styleCode="Bold Underline">X<!-- TC05_02_03 --></td>
+								</tr>
+								<tr>
+									<td>Meget enig</td>
+									<td styleCode="Bold Underline"><!-- TC05_02_04 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+							<id assigningAuthorityName="MedCom" extension="TC05" root="1.2.208.184.12.2"/>
+							<code code="TC05" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+							<statusCode code="completed"/>
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.5"/>
+									<templateId root="2.16.840.1.113883.10.20.33.4.8"/>
+									<id assigningAuthorityName="MedCom" extension="05_01" root="1.2.208.184.12.2"/>
+									<code code="TC05_01" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Følger du dig fuldstændig rask?</originalText>
+									</code>
+									<value code="TC05_01_02" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" displayName="Nej" xsi:type="CE"/>
+									<entryRelationship contextConductionInd="true" typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="0dd98de0-f3d3-4270-88bd-eaa93d311ef2" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="EVN">
+										<templateId root="2.16.840.1.113883.10.20.33.4.5"/>
+										<templateId root="2.16.840.1.113883.10.20.33.4.8"/>
+									<id assigningAuthorityName="MedCom" extension="05_02" root="1.2.208.184.12.2"/>
+									<code code="TC05_02" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Jeg har over de seneste 6 måneder fået mere energi</originalText>
+									</code>
+									<value code="TC05_02_03" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" displayName="Enig" xsi:type="CE"/>
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="0dd98de0-f3d3-4270-88bd-eaa93d311ef2" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+			<!-- COPY-RIGHT-SECTION
+			==========================================
+			Test af anvendelse af copyright-sektion
+			========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.2"/>
+					<title>Copyright information</title>
+					<text>
+						<paragraph>Copyright informationer for benyttede spørgsmål fremgår her</paragraph>
+					</text>
+					<languageCode code="da-DK"/>
+					<entry contextConductionInd="true" typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.21"/>
+							<code code="COPY" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Code for Copyright"/>
+							<value xsi:type="ST">Copyright informationer for benyttede spørgsmål fremgår her</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+		</structuredBody>
+	</component>
+</ClinicalDocument>

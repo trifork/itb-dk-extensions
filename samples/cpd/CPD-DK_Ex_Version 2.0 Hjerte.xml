@@ -1,0 +1,1255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ Title:        Care Plan Document. Example 1. Hjerte Forløbsplan.
+ Filename:     CPD-v2.0.0 Sverre-Hjerte-v01
+ Created by:   Morten Bruun-Rasmussen. MEDIQ
+ 
+ $LastChangedDate: 2023-12-30 $
+  
+ ********************************************************
+ Disclaimer: This sample file contains representative data elements to represent an Personal Health Attachment Document. 
+ The file depicts a fictional character's health data. Any resemblance to a real person is coincidental. 
+ The data in this sample file is not intended to represent real patients, people or clinical events. 
+ This sample is designed to be used in conjunction with CPD-DK v2.0.0
+ ********************************************************
+ -->
+<ClinicalDocument xsi:schemaLocation="urn:hl7-org:v3 https://svn.medcom.dk/svn/releases/Standarder/HL7/Generic/Schema/CDA_SDTC.xsd" xmlns="urn:hl7-org:v3" 
+			      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc" xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+			      xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:fp2016="http://www.medcom.dk/forloebsplan/2016/08/01/" xmlns:fp2021="http://www.medcom.dk/forloebsplan/2021/01/26/">
+	<realmCode 
+		code="DK"/>
+	<typeId 
+		root="2.16.840.1.113883.1.3" 
+		extension="POCD_HD000040"/>
+	<!-- MedCom templateID for Care Plan Document -->
+	<templateId 
+		root="1.2.208.184.15.1"/>
+	<!-- id for the assigningAuthority who generated the extension (UUID version 4) -->
+	<id 
+		assigningAuthorityName="MedCom" 
+		extension="dd5c9e72-1724-42f8-b83a-79d3e2d52b78"
+		root="1.2.208.184"/>
+	<code 
+		code="81215-6" 
+		codeSystem="2.16.840.1.113883.6.1" 
+		codeSystemName="LOINC" 
+		displayName="Care plan - recommended C-CDA R2.0 &amp; R2.1 sections"/>
+	<title>Forløbsplan for Hjerte</title>
+	<!-- Date and time for the creation of this CPD document -->
+	<effectiveTime 
+		value="20210625122938+0200"/>
+	<confidentialityCode 
+		code="N" 
+		codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode 
+	code="da-DK"/>
+	<!-- Patient and Providerorganization -->
+	<recordTarget>
+		<patientRole 
+			classCode="PAT">
+			<id 
+				root="1.2.208.176.1.2" 
+				assigningAuthorityName="CPR" 
+				extension="0104909995"/>
+			<addr 
+				use="H">
+				<streetAddressLine>Testgrusgraven 3, 3.tv</streetAddressLine>
+				<postalCode>3400</postalCode>
+				<city>Hillerød</city>
+				<country>Danmark</country>
+			</addr>
+			<telecom 
+				use="H" 
+				value="tel:12345678"/>
+			<patient 
+				classCode="PSN" 
+				determinerCode="INSTANCE">
+				<name>
+					<given>Sverre Test</given>
+					<family>Mosebryggeren</family>
+				</name>
+				<administrativeGenderCode 
+					code="M"
+					codeSystem="2.16.840.1.113883.5.1"/>
+				<birthTime 
+					value="19900401"/>
+			</patient>
+			<providerOrganization>
+				<id 
+					root="1.2.208.176.1.1" 
+					assigningAuthorityName="SOR" 
+					extension="486081000016003"/>
+				<name>Lægehus Test</name>
+				<telecom 
+					use="WP" 
+					value="tel:11223344"/>
+				<addr 
+					use="WP">
+					<streetAddressLine>Testvej 85 1</streetAddressLine>
+					<postalCode>3400</postalCode>
+					<city>Hillerød</city>
+					<country>Danmark</country>
+				</addr>
+			</providerOrganization>
+		</patientRole>
+	</recordTarget>
+	<!-- Author of the Care Plan -->
+	<author>
+		<time 
+			value="20210625122906+0200"/>
+		<assignedAuthor>
+			<id 
+				root="1.2.208.176.1.1" 
+				assigningAuthorityName="SOR" 
+				extension="486081000016003"/>
+			<addr 
+				use="WP">
+				<streetAddressLine>Testvej 85 1</streetAddressLine>
+				<postalCode>3400</postalCode>
+				<city>Hillerød</city>
+				<country>Danmark</country>
+			</addr>
+			<telecom 
+				use="WP" 
+				value="tel:11223344"/>
+			<assignedPerson>
+				<name>
+					<family>Læge, Henrik</family>
+				</name>
+			</assignedPerson>
+			<representedOrganization>
+				<id 
+					root="1.2.208.176.1.1" 
+					assigningAuthorityName="SOR" 
+					extension="486081000016003"/>
+				<name>Lægehus Test</name>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+	
+	<!-- Custodian - PLSP is in charge for maintaining the document -->
+	<custodian>
+		<assignedCustodian>
+			<representedCustodianOrganization>
+				<id 
+					root="1.2.208.176.1.1" 
+					assigningAuthorityName="SOR" 
+					extension="919851000016006"/>
+				<name>PLSP A/S</name>
+				<telecom 
+					use="WP" 
+					value="tel:88743057"/>
+				<addr 
+					use="WP">
+					<streetAddressLine>Krøyer Kielsbergsvej 3, 1.</streetAddressLine>
+					<postalCode>8660</postalCode>
+					<city>Skanderborg</city>
+					<country>Danmark</country>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	
+	<!-- CarePlan start and stop -->
+	<documentationOf>
+		<serviceEvent 
+			classCode="PCPR">
+			<effectiveTime>
+				<low 
+					value="20230625122906+0200"/>
+				<high 
+					nullFlavor="NI"/>
+			</effectiveTime>
+		</serviceEvent>
+	</documentationOf>
+	
+	<!-- CPD DK version -->
+	<documentationOf 
+		typeCode="DOC">
+		<serviceEvent 
+			classCode="MPROT" 
+			moodCode="EVN">
+			<templateId 
+				root="1.2.208.184.10.1.10"/>
+			<id 
+				root="1.2.208.184" 
+				extension="cpd-v2.0.0" 
+				assigningAuthorityName="MedCom"/>
+		</serviceEvent>
+	</documentationOf>
+	
+	<!-- Episode of care label -->
+	<documentationOf>
+		<serviceEvent>
+			<templateId 
+				root="1.2.208.184.10.1.12"/>
+			<code 
+				code="ALAL02"
+				codeSystem="1.2.208.176.2.4" 
+				codeSystemName="Sundhedsvæsenets Klassifikations System" 
+				displayName="Hjertesygdomme"/>
+		</serviceEvent>
+	</documentationOf>
+	
+	<!--
+	*******************************************************************************************************************************************************
+	CDA Body
+	*******************************************************************************************************************************************************
+	-->
+	<component>
+		<structuredBody>
+			<!--
+			*******************************************************
+			Health Concerns section
+			*******************************************************
+			-->
+			<component 
+				typeCode="COMP" 
+				contextConductionInd="true">
+				<section 
+					classCode="DOCSECT" 
+					moodCode="EVN">
+					<templateId 
+						root="1.2.208.184.15.1.10.20.1" 
+						extension="2018-09-28"/>
+					<code 
+						code="75310-3" 
+						codeSystem="2.16.840.1.113883.6.1" 
+						codeSystemName="LOINC"
+						displayName="Health Concerns Document" />
+					<title>Tilstande, diagnoser</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="50"/>
+								<col width="200"/>
+								<col width="100"/>
+							</colgroup>
+
+							<thead>
+								<tr>
+									<th align="left">Kode</th>
+									<th align="left">Diagnose</th>
+									<th align="left">Dato</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr>
+									<td>K86</td>
+									<td>Akut myokardieinfarkt</td>
+									<td>04.05.2019 19.01</td>
+								</tr>
+							</tbody>
+
+							<tbody>
+								<tr>
+									<td>K74</td>
+									<td>Iskæmisk hjertesygdom med angina pectoris</td>
+									<td>01.02.2019 19.02</td>
+								</tr>
+							</tbody>
+						
+						</table>
+					</text>
+					
+					<component 
+						typeCode="COMP" 
+						contextConductionInd="true">
+						<section 
+							classCode="DOCSECT" 
+							moodCode="EVN">
+							<templateId 
+								root="1.2.208.184.15.1.10.20.1.2" 
+								extension="2018-11-28"/>
+							<code 
+								code="ALGA" 
+								codeSystem="1.2.208.176.2.4" 
+								codeSystemName="Sundhedsvæsenets Klassifikations System" 
+								displayName="Diagnoseart"/>
+							<title 
+								nullFlavor="NI"/>
+							<text/>
+							
+							<!-- Diagnose: K86, Ukompliceret Hypertension, 04.05.2019 19.01.00 -->		
+							<entry 
+								typeCode="DRIV" 
+								contextConductionInd="true">
+								<act 
+									classCode="ACT" 
+									moodCode="EVN">
+									<templateId 
+										root="1.2.208.184.15.1.10.20.1.21" 
+										extension="2018-09-28"/>
+									<id 
+										root="1.2.208.184" 
+										extension="e3200c9f-f289-31bd-b1d3-2f1cdb7e078e"/>
+									<code 
+										code="75310-3" 
+										codeSystem="2.16.840.1.113883.6.1" 
+										codeSystemName="LOINC" 
+										displayName="Health Concern"/>
+									<statusCode 
+										code="active"/>
+									<effectiveTime 
+										value="20190504190100+0200"/>
+									
+									<author 
+										typeCode="AUT" 
+										contextControlCode="OP">
+										<time 
+											value="20181120230000+0100" />
+										<assignedAuthor>
+											<id 
+												root="1.2.208.176.1.1" 
+												assigningAuthorityName="SOR" 
+												extension="238881000016000" />
+											<addr use="WP">
+												<streetAddressLine>J. B. Winsløvvej 4, 1</streetAddressLine>
+												<postalCode>5000</postalCode>
+												<city>Odense C</city>
+												<country>Danmark</country>
+											</addr>
+											<telecom 
+												use="WP" 
+												value="tel:66113333" />
+											<assignedPerson>
+												<name>
+													<family nullFlavor="NA"/>
+												</name>
+											</assignedPerson>
+											<representedOrganization>
+												<id 
+													root="1.2.208.176.1.1" 
+													assigningAuthorityName="SOR" 
+													extension="238881000016000" />
+													<name>OUH Hjertemedicinsk Afdeling B</name>
+												</representedOrganization>
+										</assignedAuthor>
+									  </author>									
+																							
+									<entryRelationship 
+										typeCode="REFR">
+										<observation 
+											classCode="OBS" 
+											moodCode="EVN">
+											<id 
+												root="1.2.208.184" 
+												extension="e3200c9f-f289-31bd-b1d3-2f1cdb7e078e"/>
+											<code 
+												code="ALGA" 
+												codeSystem="1.2.208.176.2.4" 
+												codeSystemName="Sundhedsvæsenets Klassifikations System"  
+												displayName="Diagnoseart"/>
+											<effectiveTime>
+												<low 
+													value="20180504190200+0200"/>
+												<high 
+													nullFlavor="NI"/>
+											</effectiveTime>
+											<value 
+												xsi:type="CD" 
+												code="K86"
+												codeSystem="1.2.208.176.2.31" 
+												codeSystemName="ICPC-2-DK" 
+												displayName="Ukompliceret Hypertension"/>
+										</observation>
+									</entryRelationship>
+								</act>
+							</entry>
+							
+							<!-- Diagnose: K74, Iskæmisk hjertesygdom med angina pectoris, 01.02.2019 19.02 -->
+							<entry 
+								typeCode="DRIV" 
+								contextConductionInd="true">
+								<act 
+									classCode="ACT" 
+									moodCode="EVN">
+									<templateId 
+										root="1.2.208.184.15.1.10.20.1.21" 
+										extension="2018-09-28"/>
+									<id 
+										root="1.2.208.184" 
+										extension="130e439d-b2ab-30c8-a716-1f0e8a40e72f"/>
+									<code 
+										code="75310-3" 
+										codeSystem="2.16.840.1.113883.6.1" 
+										codeSystemName="LOINC" 
+										displayName="Health Concern"/>
+									<statusCode 
+										code="active"/>
+									<effectiveTime 
+										value="20190201190201+0200"/>
+
+									<author 
+										typeCode="AUT" 
+										contextControlCode="OP">
+										<time 
+											value="20171120230000+0100" />
+										<assignedAuthor>
+											<id 
+												root="1.2.208.176.1.1" 
+												assigningAuthorityName="SOR" 
+												extension="238881000016003" />
+											<addr use="WP">
+												<streetAddressLine>J. B. Winsløvvej 4, 1</streetAddressLine>
+												<postalCode>5000</postalCode>
+												<city>Odense C</city>
+												<country>Danmark</country>
+											</addr>
+											<telecom 
+												use="WP" 
+												value="tel:66113333" />
+											<assignedPerson>
+												<name>
+													<family>TT</family>
+												</name>
+											</assignedPerson>
+											<representedOrganization>
+												<id 
+													root="1.2.208.176.1.1" 
+													assigningAuthorityName="SOR" 
+													extension="238881000016000" />
+													<name>OUH Hjertemedicinsk Afsnit B</name>
+												</representedOrganization>
+										</assignedAuthor>
+									  </author>									
+
+									<entryRelationship 
+										typeCode="REFR">
+										<observation 
+											classCode="OBS" 
+											moodCode="EVN">
+											<id 
+												root="1.2.208.184" 
+												extension="130e439d-b2ab-30c8-a716-1f0e8a40e72f"/>
+											<code 
+												code="ALGA"
+												codeSystem="1.2.208.176.2.4" 
+												codeSystemName="Sundhedsvæsenets Klassifikations System" 
+												displayName="Diagnoseart"/>
+											<effectiveTime>
+												<low 
+													value="20170201190200+0200"/>
+												<high 
+													nullFlavor="NI"/>
+											</effectiveTime>
+											<value 
+												xsi:type="CD" 
+												code="K74"
+												codeSystem="1.2.208.176.2.31" 
+												codeSystemName="ICPC-2-DK" 
+												displayName="Iskæmisk hjertesygdom med angina pectoris"/>
+										</observation>
+									</entryRelationship>
+								</act>
+							</entry>							
+							
+						</section>
+					</component>
+					
+				</section>
+			</component>
+			
+			
+			<!--
+			*******************************************************
+			Goal section
+			*******************************************************
+			-->			
+			<component 
+				typeCode="COMP" 
+				contextConductionInd="true">
+				<section 
+					classCode="DOCSECT" 
+					moodCode="EVN">
+					<templateId 
+						root="1.2.208.184.15.1.10.20.2" 
+						extension="2018-09-28"/>
+					<code 
+						code="61146-7"
+					    codeSystem="2.16.840.1.113883.6.1" 
+					    codeSystemName="LOINC" 
+					    displayName="Goals"  />
+					<title>Individuelle mål</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="80"/>
+								<col width="80"/>
+								<col width="300"/>
+								<col width="80"/>
+							</colgroup>
+						
+							<thead>
+								<tr>
+									<th align="left">Dato</th>
+									<th align="left">Kode</th>
+									<th align="left">Kodebetydning</th>
+									<th align="left">Aftalt mål</th>
+									<th align="left">Enhed</th>
+								</tr>
+							</thead>
+						
+							<tbody>
+								<tr>
+									<td>02.06.2021</td>
+									<td>MCS88026</td>
+									<td>LDL kolesterol aftalt mål</td>
+									<td>&lt;5</td>
+									<td>mmol/L</td>
+								</tr>
+							
+								<tr>
+									<td>15.05.2020</td>
+									<td>MCS88026</td>
+									<td>LDL kolesterol aftalt mål</td>
+									<td>&lt;6</td>
+									<td>mmHg</td>
+								</tr>
+						
+								<tr>
+									<td>15.05.2020</td>
+									<td>MCS88026</td>
+									<td>Aftalt vægt</td>
+									<td>85</td>
+									<td>kg</td>
+								</tr>
+						
+							</tbody>
+						
+						</table>
+						
+						<table>
+						  <colgroup>
+							<col width="80" />
+							<col width="300" />
+							<col width="80"/>
+						  </colgroup>
+						
+						  <tbody>
+							<tr>
+								<td align="left">Egne mål</td>
+								<td align="left">Jeg vil gerne kunne ... max. 300 tegn.</td>
+								<td></td>
+							</tr>
+						  </tbody>
+						</table>
+					</text>
+					
+					<!-- Goal: MCS88026, LDL kolesterol -->								
+					<component 
+						typeCode="COMP" 
+						contextConductionInd="true">
+						<section 
+							classCode="DOCSECT" 
+							moodCode="EVN">
+							<templateId 
+								root="1.2.208.184.15.1.10.20.2.2" 
+								extension="2018-11-28" />
+														
+							<entry 
+								typeCode="DRIV" 
+								contextConductionInd="true">
+								<observation 
+									classCode="OBS" 
+									moodCode="GOL">
+									<templateId 
+										root="1.2.208.184.15.1.10.20.2.20" 
+										extension="2018-09-28" />
+									<id 
+										root="1.2.208.184" 
+										extension="26bd12cb-2646-4ecf-8c31-9af29b54f477" />
+									<code 
+										code="MCS88026" 
+										codeSystem="1.2.208.176.2.1"  
+										codeSystemName="NPU terminologien" 
+										displayName="LDL kolesterol aftalt mål" />
+									<statusCode 
+										code="active" />
+									<effectiveTime 
+										value="20210602" />
+									<value 
+										xsi:type="IVL_PQ" 
+										unit="mmol/L">
+									<low 
+										nullFlavor="NA" />
+									<high 
+										inclusive="false" 
+										value="4" />
+									</value>
+								</observation>
+							</entry>
+
+							<entry 
+								typeCode="DRIV" 
+								contextConductionInd="true">
+								<observation 
+									classCode="OBS" 
+									moodCode="GOL">
+									<templateId 
+										root="1.2.208.184.15.1.10.20.2.20" 
+										extension="2018-09-28" />
+									<id 
+										root="1.2.208.184" 
+										extension="26bd12cb-2646-4ecf-8c31-9af29b54f477" />
+									<code 
+										code="MCS88026" 
+										codeSystem="1.2.208.176.2.1"  
+										codeSystemName="NPU terminologien" 
+										displayName="LDL kolesterol aftalt mål" />
+									<statusCode 
+										code="active" />
+									<effectiveTime 
+										value="20200515" />
+									<value 
+										xsi:type="IVL_PQ" 
+										unit="mmol/L">
+									<low 
+										nullFlavor="NA" />
+									<high 
+										inclusive="false" 
+										value="5" />
+									</value>
+								</observation>
+							</entry>							
+							
+							
+						</section>
+					</component>
+					
+					<!-- Goal: MCS88028, Aftalt vægt -->								
+					<component 
+						typeCode="COMP" 
+						contextConductionInd="true">
+						<section 
+							classCode="DOCSECT" 
+							moodCode="EVN">
+							<templateId 
+								root="1.2.208.184.15.1.10.20.2.2" 
+								extension="2018-11-28" />
+														
+							<entry 
+								typeCode="DRIV" 
+								contextConductionInd="true">
+								<observation 
+									classCode="OBS" 
+									moodCode="GOL">
+									<templateId 
+										root="1.2.208.184.15.1.10.20.2.20" 
+										extension="2018-09-28" />
+									<id 
+										root="1.2.208.184" 
+										extension="26bd12cb-2646-4ecf-8c31-9af29b54f477" />
+									<code 
+										code="MCS88028" 
+										codeSystem="1.2.208.176.2.1"  
+										codeSystemName="NPU terminologien" 
+										displayName="Aftalt væt" />
+									<statusCode 
+										code="active" />
+									<effectiveTime 
+										value="20200515" />
+									<value 
+										xsi:type="IVL_PQ" 
+										unit="k">
+									<low 
+										nullFlavor="NA" />
+									<high 
+										inclusive="false" 
+										value="85" />
+									</value>
+								</observation>
+							</entry>
+						</section>
+					</component>
+						  
+					<!-- Goal: The patients own formulated goal, plain text. -->  
+					<component 
+						typeCode="COMP" 
+						contextConductionInd="true">
+						<section 
+							classCode="DOCSECT" 
+							moodCode="EVN">
+							<templateId 
+								root="1.2.208.184.15.1.10.20.2.2" 
+								extension="2018-11-28" />
+							<text/>						  
+				 
+							<entry 
+								typeCode="DRIV" 
+								contextConductionInd="true">
+								<observation 
+									classCode="OBS" 
+									moodCode="GOL">
+									<templateId 
+										root="1.2.208.184.15.1.10.20.2.20" 
+										extension="2018-09-28" />
+									<id 
+										root="1.2.208.184" 
+										extension="26bd12cb-2646-4ecf-8c31-9af29b54f477" />
+									<code 
+										code="FlpGoalText" 
+										codeSystem="1.2.208.184.100.1"  
+										codeSystemName="MedCom Message Codes" 
+										displayName="Patientens egne mål" />
+									<statusCode 
+										code="active" />
+									<effectiveTime 
+										value="20210602" />
+									<value 
+										xsi:type="ST">Jeg vil gerne kunne ... max. 300 tegn.</value>
+								</observation>
+							</entry>						  
+						</section>
+					</component>						
+					
+				</section>
+			</component>
+			
+			<!--
+			*******************************************************
+			Outcome section
+			*******************************************************
+			-->					
+			
+			<component 
+				typeCode="COMP" 
+				contextConductionInd="true">
+				<section 
+					classCode="DOCSECT" 
+					moodCode="EVN">
+					<templateId 
+						root="1.2.208.184.15.1.10.20.4" 
+						extension="2018-09-28"/>
+					<code 
+						code="11383-7"  
+						codeSystem="2.16.840.1.113883.6.1" 
+						codeSystemName="LOINC" 
+						displayName="Patient Problem Outcome Section"/>
+					<title>Resultater</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="80"/>
+								<col width="80"/>
+								<col width="300"/>
+								<col width="80"/>
+							</colgroup>
+						
+							<thead>
+								<tr>
+									<th align="left">Dato</th>
+									<th align="left">Kode</th>
+									<th align="left">Kodebetydning</th>
+									<th align="left">Værdi</th>
+									<th align="left">Enhed</th>
+								</tr>
+							</thead>
+						
+							<tbody>
+								<tr>
+									<td>20.05.2021</td>
+									<td>DNK05473</td>
+									<td>Diastolisk blodtryk</td>
+									<td>80</td>
+									<td>mmHg</td>
+								</tr>
+						
+								<tr>
+									<td>20.05.2020</td>
+									<td>DNK05473</td>
+									<td>Diastolisk blodtryk</td>
+									<td>85</td>
+									<td>mmHg</td>
+								</tr>
+						
+								<tr>
+									<td>20.05.2021</td>
+									<td>DNK05472</td>
+									<td>Systolisk blodtryk</td>
+									<td>130</td>
+									<td>mmHg</td>
+								</tr>
+						
+								<tr>
+									<td>20.05.2020</td>
+									<td>DNK05472</td>
+									<td>Systolisk blodtryk</td>
+									<td>140</td>
+									<td>mmHg</td>
+								</tr>
+						
+								
+							</tbody>
+						
+						</table>		
+					</text>
+					
+					<!-- Prøveresultat: DNK05473, Diastolisk blodtryk -->							
+					<component 
+						typeCode="COMP" 
+						contextConductionInd="true">
+						<section 
+							classCode="DOCSECT" 
+							moodCode="EVN">
+							<templateId 
+								root="1.2.208.184.15.1.10.20.4.2" 
+								extension="2018-11-28" />
+							<title></title>
+							<text></text>
+				
+							<entry 
+								typeCode="COMP" 
+								contextConductionInd="true">
+								<observation 
+									classCode="OBS" 
+									moodCode="EVN">
+									<templateId 
+										root="1.2.208.184.15.1.10.20.4.20" 
+										extension="2018-09-28" />
+									<id 
+										root="1.2.208.184" 
+										extension="c095c040-2715-419a-9ef6-463ceefcc9f1" />
+									<code 
+										code="DNK05473"
+										codeSystem="1.2.208.176.2.1" 
+										codeSystemName="DNK" 
+										displayName="Diastolisk blodtryk" />
+								  <statusCode 
+									  code="completed" />
+								  <effectiveTime 
+									  value="20210520" />
+								  <value 
+									  xsi:type="PQ" 
+									  unit="mmHg" 
+									  value="80" />
+								</observation>
+							</entry>
+							
+							<entry 
+								typeCode="COMP" 
+								contextConductionInd="true">
+								<observation 
+									classCode="OBS" 
+									moodCode="EVN">
+									<templateId 
+										root="1.2.208.184.15.1.10.20.4.20" 
+										extension="2018-09-28" />
+									<id 
+										root="1.2.208.184" 
+										extension="c095c040-2715-419a-9ef6-463ceefcc9f1" />
+									<code 
+										code="DNK05473"
+										codeSystem="1.2.208.176.2.1" 
+										codeSystemName="DNK" 
+										displayName="Diastolisk blodtryk" />
+								  <statusCode 
+									  code="completed" />
+								  <effectiveTime 
+									  value="20200520" />
+								  <value 
+									  xsi:type="PQ" 
+									  unit="mmHg" 
+									  value="85" />
+								</observation>
+							</entry>
+							
+						</section>
+					</component>
+					
+					<!-- Prøveresultat: DNK05472, Systolisk blodtryk -->
+					<component 
+						typeCode="COMP" 
+						contextConductionInd="true">
+						<section 
+							classCode="DOCSECT" 
+							moodCode="EVN">
+							<templateId 
+								root="1.2.208.184.15.1.10.20.4.2" 
+								extension="2018-11-28" />
+							<title></title>
+							<text></text>						  
+							
+							<entry 
+								typeCode="COMP" 
+								contextConductionInd="true">
+								<observation 
+									classCode="OBS" 
+									moodCode="EVN">
+									<templateId 
+										root="1.2.208.184.15.1.10.20.4.20" 
+										extension="2018-09-28" />
+									<id 
+										root="1.2.208.184" 
+										extension="e104771f-8a87-47e9-8b28-ef2e4c93adac" />
+									<code 
+										code="DNK05472"
+										codeSystem="1.2.208.176.2.1" 
+										codeSystemName="DNK" 
+										displayName="Systolisk blodtryk" />
+									<statusCode 
+									    code="completed" />
+									<effectiveTime value="20210520" />
+									<value 
+										xsi:type="PQ" 
+										unit="mmHg" 
+										value="130" />
+								</observation>
+							</entry>
+							
+							<entry 
+								typeCode="COMP" 
+								contextConductionInd="true">
+								<observation 
+									classCode="OBS" 
+									moodCode="EVN">
+									<templateId 
+										root="1.2.208.184.15.1.10.20.4.20" 
+										extension="2018-09-28" />
+									<id 
+										root="1.2.208.184" 
+										extension="e104771f-8a87-47e9-8b28-ef2e4c93adac" />
+									<code 
+										code="DNK05472"
+										codeSystem="1.2.208.176.2.1" 
+										codeSystemName="DNK" 
+										displayName="Systolisk blodtryk" />
+									<statusCode 
+									    code="completed" />
+									<effectiveTime value="20200520" />
+									<value 
+										xsi:type="PQ" 
+										unit="mmHg" 
+										value="140" />
+								</observation>
+							</entry>							
+							
+						</section>
+					</component>
+							
+				</section>
+			</component>
+			
+			
+			<!--
+			*******************************************************
+			Interventions section
+			*******************************************************
+			-->					
+			
+			<component 
+				typeCode="COMP" 
+				contextConductionInd="true">
+				<section 
+					classCode="DOCSECT" 
+					moodCode="EVN">
+					<templateId 
+						root="1.2.208.184.15.1.10.20.3" 
+						extension="2018-09-28"/>
+					<code 
+						code="62387-6" 
+						codeSystem="2.16.840.1.113883.6.1" 
+						codeSystemName="LOINC"
+						displayName="Interventions"/>
+					<title>Planlagte og udførte aktiviteter</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="300" />
+							</colgroup>
+						
+							<thead>
+								<tr>
+									<th align="left">Hust at</th>
+								</tr>
+							</thead>
+						
+							<tbody>
+								<tr>
+									<td align="left">Bestil tid hos egen læge i mm måned</td>
+								</tr>
+								<tr>
+									<td align="left">Bestil tid hos xx i mm måned</td>
+								</tr>
+							</tbody>
+						</table>
+						
+						<table>
+							<colgroup>
+								<col width="80"/>
+								<col width="80"/>
+								<col width="300"/>
+								<col width="80"/>
+							</colgroup>
+						
+							<thead>
+								<tr>
+									<th align="left">Dato</th>
+									<th align="left">Kode</th>
+									<th align="left">Kodebetydning</th>
+								</tr>
+							</thead>
+						
+							<tbody>
+								<tr>
+									<td>16.06.2021</td>
+									<td>0101</td>
+									<td>Konsultation</td>
+								</tr>
+							
+								<tr>
+									<td>16.06.2021</td>
+									<td>0120</td>
+									<td>Aftalt specifik forebyggende indsats</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					
+					<!-- Planned interventions. Health Concerns Services. (HUSK at ...) -->
+					<component 
+						typeCode="COMP" 
+						contextConductionInd="true">
+						<section 
+							classCode="DOCSECT" 
+							moodCode="EVN">
+							<templateId 
+								root="1.208.184.15.1.10.20.3.2" 
+								extension="2018-11-28"/>
+							<title />
+							<text />
+				
+							<!-- ** HUSK 1 -->	
+							<entry 
+								typeCode="DRIV" 
+								contextConductionInd="true"> 
+								<encounter
+									classCode="OBS" 
+									moodCode="INT">
+									<templateId 
+										root="1.2.208.184.15.1.10.20.3.20" 
+										extension="2018-09-28"/>
+									<id 
+										root="1.2.208.184" 
+										extension="e104771f-8a87-47e9-8b28-ef2e4c93adac"/>
+										<code 
+											code="AWB4" 
+											codeSystem="1.2.208.176.2.4" 
+											codeSystemName="Sundhedsvæsenets Klassifikations System" 
+											displayName="Planlagt opfølgning" />
+									<statusCode 
+										code="active" />
+									<effectiveTime 
+										value="20210602" />
+										
+										
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<id root="1.2.208.184" extension="351b7424-5653-315d-bc4d-357caa513595" />
+										<code 
+											code="FLP10001" 
+											codeSystem="1.2.208.176.2.1" 
+											codeSystemName="FLP" 
+											displayName="Kontrol egen læge"/>											
+											<effectiveTime>
+												<low value="20210602" />
+												<high nullFlavor="NI" />
+											</effectiveTime>
+											<value 
+												xsi:type="ST">Bestil tid hos egen læge i mm måned</value>
+										</observation>
+									</entryRelationship>									
+																		
+								</encounter> 
+							</entry>
+						</section>
+					</component>
+								
+					<component 
+						typeCode="COMP" 
+						contextConductionInd="true">
+						<section 
+							classCode="DOCSECT" 
+							moodCode="EVN">
+							<templateId 
+								root="1.208.184.15.1.10.20.3.2" 
+								extension="2018-11-28"/>
+							<title />
+							<text />								
+								
+							<!-- ** HUSK 2 -->	
+							<entry 
+								typeCode="DRIV" 
+								contextConductionInd="true"> 
+								<encounter
+									classCode="OBS" 
+									moodCode="INT">
+									<templateId 
+										root="1.2.208.184.15.1.10.20.3.20" 
+										extension="2018-09-28"/>
+									<id 
+										root="1.2.208.184" 
+										extension="e104771f-8a87-47e9-8b28-ef2e4c93adac"/>
+										<code 
+											code="AWB4" 
+											codeSystem="1.2.208.176.2.4" 
+											codeSystemName="Sundhedsvæsenets Klassifikations System" 
+											displayName="Planlagt opfølgning" />
+									<statusCode 
+										code="active" />
+									<effectiveTime 
+										value="20210602" />
+										
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<id root="1.2.208.184" extension="351b7424-5653-315d-bc4d-357caa513595" />
+										<code 
+											code="FLP10001" 
+											codeSystem="1.2.208.176.2.1" 
+											codeSystemName="FLP" 
+											displayName="Kontrol egen læge"/>											
+											<effectiveTime>
+												<low value="20210602" />
+												<high nullFlavor="NI" />
+											</effectiveTime>
+											<value 
+												xsi:type="ST">Bestil tid hos xx i mm måned</value>
+										</observation>
+									</entryRelationship>									
+																		
+								</encounter> 
+							</entry>							
+						
+							
+						</section>					
+					</component>
+					
+					<!-- Completed interventions. Health Concerns Services. (Ydelser) -->
+					<component 
+						typeCode="COMP" 
+						contextConductionInd="true">
+						<section 
+							classCode="DOCSECT" 
+							moodCode="EVN">
+							<templateId 
+								root="1.2.208.184.15.1.10.20.1.2" 
+								extension="2018-11-28" />
+							<code 
+								code="FLPServicesCode" 
+								codeSystem="1.2.208.184.100.1" 
+								codeSystemName="MedCom Message Codes" 
+								displayName="Ydelser"/>
+							<title 
+								nullFlavor="NI" />
+							<text />
+						  
+							<entry 
+								typeCode="DRIV" 
+								contextConductionInd="true">
+								<encounter 
+									classCode="ACT" 
+									moodCode="EVN">
+									<templateId 
+										root="1.2.208.184.15.1.10.20.1.21" 
+										extension="2018-09-28" />
+									<id 
+										root="1.2.208.184" 
+										extension="351b7424-5653-315d-bc4d-357caa513595" />
+									<code 
+										code="75310-3" 
+										codeSystem="2.16.840.1.113883.6.1" 
+										codeSystemName="LOINC" 
+										displayName="Health Concern" />
+									<statusCode 
+										code="completed" />
+									<effectiveTime 
+										value="20210616" />
+							  
+									<entryRelationship 
+										typeCode="REFR">
+										<observation 
+											classCode="OBS" 
+											moodCode="EVN">
+											<id 
+												root="1.2.208.184" 
+												extension="351b7424-5653-315d-bc4d-357caa513595" />
+											<code 
+												code="ALC" 
+												codeSystem="1.2.208.176.2.4" 
+												codeSystemName="Sundhedsvæsenets Klassifikations System" 
+												displayName="Koder vedr. kontakt" />
+											<effectiveTime>
+												<low 
+													value="20210616" />
+												<high 
+													nullFlavor="NI" />
+											</effectiveTime>
+											<value 
+												xsi:type="CD" 
+												code="0101"
+												codeSystem="1.2.208.176.88.88.88" 
+												codeSystemName="RLTN" 
+												displayName="[Konsultationer] Konsultation" />
+										</observation>
+									</entryRelationship>
+								</encounter>
+							</entry>
+						 
+							<entry 
+								typeCode="DRIV" 
+								contextConductionInd="true">
+								<encounter 
+									classCode="ACT" 
+									moodCode="EVN">
+									<templateId 
+										root="1.2.208.184.15.1.10.20.1.21" 
+										extension="2018-09-28" />
+									<id 
+										root="1.2.208.184" 
+										extension="9eb68605-3311-3dab-a3f4-2b94bd7d4313" />
+									<code 
+										code="75310-3" 
+										codeSystem="2.16.840.1.113883.6.1" 
+										codeSystemName="LOINC" 
+										displayName="Health Concern" />
+									<statusCode 
+										code="completed" />
+							  
+									<entryRelationship 
+										typeCode="REFR">
+										<observation 
+											classCode="OBS" 
+											moodCode="EVN">
+											<id 
+												root="1.2.208.184" 
+												extension="9eb68605-3311-3dab-a3f4-2b94bd7d4313" />
+											<code 
+												code="ALC" 
+												codeSystem="1.2.208.176.2.4" 
+												codeSystemName="Sundhedsvæsenets Klassifikations System" 
+												displayName="Koder vedr. kontakt" />
+											<effectiveTime>
+												<low 
+													value="20210616" />
+												<high 
+													nullFlavor="NI" />
+											</effectiveTime>
+											<value 
+												xsi:type="CD" 
+												code="0120"
+												codeSystem="1.2.208.176.88.88.88" 
+												codeSystemName="RLTN" 
+												displayName="Aftalt specifik forebyggelsesindsats" />
+										</observation>
+									</entryRelationship>
+								</encounter>
+						  </entry>
+						</section>
+					</component>
+					
+				</section>
+			</component>
+		</structuredBody>
+	</component>
+</ClinicalDocument>

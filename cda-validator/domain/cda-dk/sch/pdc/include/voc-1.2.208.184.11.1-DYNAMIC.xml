@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<valueSets xmlns="urn:hl7-org:v3" xmlns:hl7="urn:hl7-org:v3" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:local="http://art-decor.org/functions">
+    <valueSet xmlns="" id="1.2.208.184.11.1" name="dummy" displayName="Health Concerns document code" effectiveDate="2018-11-19T22:14:04" statusCode="draft">
+        <sourceCodeSystem id="2.16.840.1.113883.6.1" identifierName="Logical&#160;Observation&#160;Identifier&#160;Names&#160;and&#160;Codes" canonicalUri="http://loinc.org" canonicalUriDSTU2="http://loinc.org" canonicalUriSTU3="http://loinc.org" canonicalUriR4="http://loinc.org"/>
+        <publishingAuthority name="admin"/>
+        <conceptList>
+            <concept code="75310-3" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Health concerns Document" level="0" type="L"/>
+        </conceptList>
+    </valueSet>
+</valueSets>

@@ -1,0 +1,742 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<cases>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.1 — negative" fails="PSCR-DK-2.0.0-HEADER-TEMPLATE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:templateId[@root='1.2.208.184.20.1']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Document requires one id — negative" fails="PSCR-DK-2.0.0-HEADER-ID">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Document requires one code — negative" fails="PSCR-DK-2.0.0-HEADER-CODE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Document requires one title — negative" fails="PSCR-DK-2.0.0-HEADER-TITLE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Document requires one effectiveTime — negative" fails="PSCR-DK-2.0.0-HEADER-EFFECTIVETIME">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:effectiveTime" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Document requires one author — negative" fails="PSCR-DK-2.0.0-HEADER-AUTHOR">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Document requires one custodian — negative" fails="PSCR-DK-2.0.0-HEADER-CUSTODIAN">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Document code @code must be PSCR — negative" fails="PSCR-DK-2.0.0-DOCUMENT-CODE-code">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Document code @codeSystem must be 1.2.208.184.100.1 — negative" fails="PSCR-DK-2.0.0-DOCUMENT-CODE-codeSystem">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Document code @codeSystemName must be MedCom Message Codes — negative" fails="PSCR-DK-2.0.0-DOCUMENT-CODE-codeSystemName">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@codeSystemName" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Document code @displayName must be Pregnancy Shared Care Record — negative" fails="PSCR-DK-2.0.0-DOCUMENT-CODE-displayName">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@displayName" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@root must be present and non-empty — negative" fails="PSCR-DK-2.0.0-DOCUMENT-ID-root">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id/@root" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@assigningAuthorityName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-DOCUMENT-ID-assigningAuthorityName">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id/@assigningAuthorityName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@extension must be present and non-empty — negative" fails="PSCR-DK-2.0.0-DOCUMENT-ID-extension">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id/@extension" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Document identifier extension must be a UUID version 4 — negative" fails="PSCR-DK-2.0.0-DOCUMENT-UUID">
+    <edit action="set" select="/v3:ClinicalDocument/v3:id/@extension" value="123" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Document identifier root must be an OID — negative" fails="PSCR-DK-2.0.0-DOCUMENT-OID">
+    <edit action="set" select="/v3:ClinicalDocument/v3:id/@root" value="not-an-oid" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Patient role requires one provider organisation — negative" fails="PSCR-DK-2.0.0-PROVIDER">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one time — negative" fails="PSCR-DK-2.0.0-AUTHOR-TIME">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:time" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one assignedAuthor — negative" fails="PSCR-DK-2.0.0-ASSIGNED-AUTHOR">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one assignedPerson — negative" fails="PSCR-DK-2.0.0-AUTHOR-PERSON">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:assignedPerson" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one name — negative" fails="PSCR-DK-2.0.0-AUTHOR-PERSON-NAME">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:assignedPerson/v3:name" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one representedOrganization — negative" fails="PSCR-DK-2.0.0-AUTHOR-ORG">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:representedOrganization" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one name — negative" fails="PSCR-DK-2.0.0-AUTHOR-ORG-NAME">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:representedOrganization/v3:name" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one assignedCustodian — negative" fails="PSCR-DK-2.0.0-ASSIGNED-CUSTODIAN">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one representedCustodianOrganization — negative" fails="PSCR-DK-2.0.0-CUSTODIAN-ORG">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@value must be present and non-empty — negative" fails="PSCR-DK-2.0.0-AUTHOR-TIME-VALUE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:time/@value" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Provider needs one identifier — negative" fails="PSCR-DK-2.0.0-PROVIDER-ID">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization/v3:id" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Provider identifier authority must be SOR — negative" fails="PSCR-DK-2.0.0-PROVIDER-AUTHORITY">
+    <edit action="set" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization/v3:id/@assigningAuthorityName" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Provider identifier root must be SOR — negative" fails="PSCR-DK-2.0.0-PROVIDER-ROOT">
+    <edit action="set" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization/v3:id/@root" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@extension must be present and non-empty — negative" fails="PSCR-DK-2.0.0-PROVIDER-EXTENSION">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization/v3:id/@extension" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Provider needs one name — negative" fails="PSCR-DK-2.0.0-PROVIDER-NAME">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization/v3:name" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Author needs one identifier — negative" fails="PSCR-DK-2.0.0-AUTHOR-ID">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:id" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Author identifier authority must be SOR — negative" fails="PSCR-DK-2.0.0-AUTHOR-AUTHORITY">
+    <edit action="set" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:id/@assigningAuthorityName" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Author identifier root must be SOR — negative" fails="PSCR-DK-2.0.0-AUTHOR-ROOT">
+    <edit action="set" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:id/@root" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@extension must be present and non-empty — negative" fails="PSCR-DK-2.0.0-AUTHOR-EXTENSION">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:id/@extension" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Custodian needs one identifier — negative" fails="PSCR-DK-2.0.0-CUSTODIAN-ID">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization/v3:id" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Custodian identifier authority must be SOR — negative" fails="PSCR-DK-2.0.0-CUSTODIAN-AUTHORITY">
+    <edit action="set" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization/v3:id/@assigningAuthorityName" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Custodian identifier root must be SOR — negative" fails="PSCR-DK-2.0.0-CUSTODIAN-ROOT">
+    <edit action="set" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization/v3:id/@root" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@extension must be present and non-empty — negative" fails="PSCR-DK-2.0.0-CUSTODIAN-EXTENSION">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization/v3:id/@extension" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Custodian needs one name — negative" fails="PSCR-DK-2.0.0-CUSTODIAN-NAME">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization/v3:name" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Provider organisation must not contain addr — negative" fails="PSCR-DK-2.0.0-PROVIDER-NO-addr">
+    <edit action="append" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization" value="&lt;addr xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Provider organisation must not contain telecom — negative" fails="PSCR-DK-2.0.0-PROVIDER-NO-telecom">
+    <edit action="append" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization" value="&lt;telecom xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Header must not contain dataEnterer — negative" fails="PSCR-DK-2.0.0-NO-dataEnterer">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;dataEnterer xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Header must not contain informant — negative" fails="PSCR-DK-2.0.0-NO-informant">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;informant xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Header must not contain informationRecipient — negative" fails="PSCR-DK-2.0.0-NO-informationRecipient">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;informationRecipient xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Header must not contain legalAuthenticator — negative" fails="PSCR-DK-2.0.0-NO-legalAuthenticator">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;legalAuthenticator xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Header must not contain authenticator — negative" fails="PSCR-DK-2.0.0-NO-authenticator">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;authenticator xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Header must not contain inFulfillmentOf — negative" fails="PSCR-DK-2.0.0-NO-inFulfillmentOf">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;inFulfillmentOf xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Document requires two or three documentationOf elements — negative" fails="PSCR-DK-2.0.0-DOCUMENTATION-COUNT">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:documentationOf" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one profile version event — negative" fails="PSCR-DK-2.0.0-VERSION-EVENT">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Version event requires one id — negative" fails="PSCR-DK-2.0.0-VERSION-ID">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Profile version @root must be 1.2.208.184.100.10 — negative" fails="PSCR-DK-2.0.0-VERSION-root">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id/@root" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Profile version @extension must be PSCR-v2.0 — negative" fails="PSCR-DK-2.0.0-VERSION-extension">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Profile version @assigningAuthorityName must be MedCom — negative" fails="PSCR-DK-2.0.0-VERSION-assigningAuthorityName">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id/@assigningAuthorityName" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one clinical content time event — negative" fails="PSCR-DK-2.0.0-TIME-EVENT">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Time event requires one effectiveTime — negative" fails="PSCR-DK-2.0.0-TIME-INTERVAL">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Time interval requires one low — negative" fails="PSCR-DK-2.0.0-TIME-low">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:low" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Time interval requires one high — negative" fails="PSCR-DK-2.0.0-TIME-high">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:high" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@value must be present and non-empty — negative" fails="PSCR-DK-2.0.0-TIME-START">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:low/@value" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Clinical content end must use nullFlavor NA — negative" fails="PSCR-DK-2.0.0-TIME-END">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:high/@nullFlavor" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one episode event may be supplied — negative" fails="PSCR-DK-2.0.0-EPISODE-CARDINALITY">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.12']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="A supplied episode event needs at least one identifier — negative" fails="PSCR-DK-2.0.0-EPISODE-ID">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.12']/v3:id" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Episode identifier extension must be a UUID version 4 — negative" fails="PSCR-DK-2.0.0-EPISODE-UUID">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.12']/v3:id/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@root must be present and non-empty — negative" fails="PSCR-DK-2.0.0-EPISODE-root">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.12']/v3:id/@root" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@assigningAuthorityName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-EPISODE-assigningAuthorityName">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.12']/v3:id/@assigningAuthorityName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Pregnancy episode authority must be Sundhedsdatastyrelsen — negative" fails="PSCR-DK-2.0.0-PREGNANCY-AUTHORITY">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.12']/v3:id[@root='1.2.208.176.7.4.1']/@assigningAuthorityName" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Document requires one component — negative" fails="PSCR-DK-2.0.0-B0005">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Document requires one structuredBody — negative" fails="PSCR-DK-2.0.0-B0006">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one Estimated Date of Delivery Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-1">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.1']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Estimated Date of Delivery Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0039">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.1']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Estimated Date of Delivery Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0040">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.1']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.1 — negative" fails="PSCR-DK-2.0.0-B0041">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.1']/v3:templateId[@root='1.2.208.184.20.2.1']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.1 must use 2024-04-19 — negative" fails="PSCR-DK-2.0.0-B0041-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.1']/v3:templateId[@root='1.2.208.184.20.2.1']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Estimated Date of Delivery Section requires one code — negative" fails="PSCR-DK-2.0.0-B0044">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.1']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Estimated Date of Delivery Section requires one title — negative" fails="PSCR-DK-2.0.0-B0049">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.1']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Estimated Date of Delivery Section requires one text — negative" fails="PSCR-DK-2.0.0-B0050">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.1']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Estimated Date of Delivery Section @code must be 161714006 — negative" fails="PSCR-DK-2.0.0-B0045">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.1']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Estimated Date of Delivery Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0046">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.1']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0048">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.1']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one Education Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-6">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.6']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Education Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0061">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.6']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Education Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0062">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.6']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.6 — negative" fails="PSCR-DK-2.0.0-B0063">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.6']/v3:templateId[@root='1.2.208.184.20.2.6']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.6 must use 2025-01-15 — negative" fails="PSCR-DK-2.0.0-B0063-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.6']/v3:templateId[@root='1.2.208.184.20.2.6']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Education Section requires one code — negative" fails="PSCR-DK-2.0.0-B0066">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.6']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Education Section requires one title — negative" fails="PSCR-DK-2.0.0-B0071">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.6']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Education Section requires one text — negative" fails="PSCR-DK-2.0.0-B0072">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.6']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Education Section @code must be 224285004 — negative" fails="PSCR-DK-2.0.0-B0067">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.6']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Education Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0068">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.6']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0070">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.6']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one Employment Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-8">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.8']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Employment Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0077">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.8']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Employment Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0078">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.8']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.8 — negative" fails="PSCR-DK-2.0.0-B0079">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.8']/v3:templateId[@root='1.2.208.184.20.2.8']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.8 must use 2024-04-19 — negative" fails="PSCR-DK-2.0.0-B0079-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.8']/v3:templateId[@root='1.2.208.184.20.2.8']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Employment Section requires one code — negative" fails="PSCR-DK-2.0.0-B0082">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.8']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Employment Section requires one title — negative" fails="PSCR-DK-2.0.0-B0087">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.8']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Employment Section requires one text — negative" fails="PSCR-DK-2.0.0-B0088">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.8']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Employment Section @code must be 364703007 — negative" fails="PSCR-DK-2.0.0-B0083">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.8']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Employment Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0084">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.8']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0086">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.8']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one Tobacco Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-10">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.10']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Tobacco Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0093">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.10']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Tobacco Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0094">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.10']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.10 — negative" fails="PSCR-DK-2.0.0-B0095">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.10']/v3:templateId[@root='1.2.208.184.20.2.10']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.10 must use 2024-04-19 — negative" fails="PSCR-DK-2.0.0-B0095-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.10']/v3:templateId[@root='1.2.208.184.20.2.10']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Tobacco Section requires one code — negative" fails="PSCR-DK-2.0.0-B0098">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.10']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Tobacco Section requires one title — negative" fails="PSCR-DK-2.0.0-B0103">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.10']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Tobacco Section requires one text — negative" fails="PSCR-DK-2.0.0-B0104">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.10']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Tobacco Section @code must be 229819007 — negative" fails="PSCR-DK-2.0.0-B0099">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.10']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Tobacco Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0100">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.10']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0102">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.10']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one Nicotine Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-17">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.17']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Nicotine Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0117">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.17']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Nicotine Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0118">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.17']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.17 — negative" fails="PSCR-DK-2.0.0-B0119">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.17']/v3:templateId[@root='1.2.208.184.20.2.17']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.17 must use 2024-04-19 — negative" fails="PSCR-DK-2.0.0-B0119-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.17']/v3:templateId[@root='1.2.208.184.20.2.17']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Nicotine Section requires one code — negative" fails="PSCR-DK-2.0.0-B0122">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.17']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Nicotine Section requires one title — negative" fails="PSCR-DK-2.0.0-B0127">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.17']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Nicotine Section requires one text — negative" fails="PSCR-DK-2.0.0-B0128">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.17']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Nicotine Section @code must be 647981000005104 — negative" fails="PSCR-DK-2.0.0-B0123">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.17']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Nicotine Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0124">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.17']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0126">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.17']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one Alcohol Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-26">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.26']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Alcohol Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0147">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.26']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Alcohol Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0148">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.26']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.26 — negative" fails="PSCR-DK-2.0.0-B0149">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.26']/v3:templateId[@root='1.2.208.184.20.2.26']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.26 must use 2024-04-19 — negative" fails="PSCR-DK-2.0.0-B0149-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.26']/v3:templateId[@root='1.2.208.184.20.2.26']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Alcohol Section requires one code — negative" fails="PSCR-DK-2.0.0-B0152">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.26']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Alcohol Section requires one title — negative" fails="PSCR-DK-2.0.0-B0157">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.26']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Alcohol Section requires one text — negative" fails="PSCR-DK-2.0.0-B0158">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.26']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Alcohol Section @code must be 363905002 — negative" fails="PSCR-DK-2.0.0-B0153">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.26']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Alcohol Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0154">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.26']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0156">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.26']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one Drugs Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-33">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.33']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Drugs Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0167">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.33']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Drugs Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0168">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.33']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.33 — negative" fails="PSCR-DK-2.0.0-B0169">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.33']/v3:templateId[@root='1.2.208.184.20.2.33']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.33 must use 2024-04-19 — negative" fails="PSCR-DK-2.0.0-B0169-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.33']/v3:templateId[@root='1.2.208.184.20.2.33']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Drugs Section requires one code — negative" fails="PSCR-DK-2.0.0-B0172">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.33']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Drugs Section requires one title — negative" fails="PSCR-DK-2.0.0-B0177">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.33']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Drugs Section requires one text — negative" fails="PSCR-DK-2.0.0-B0178">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.33']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Drugs Section @code must be 363908000 — negative" fails="PSCR-DK-2.0.0-B0173">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.33']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Drugs Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0174">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.33']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0176">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.33']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one Nutrition Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-35">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.35']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Nutrition Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0181">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.35']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Nutrition Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0182">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.35']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.35 — negative" fails="PSCR-DK-2.0.0-B0183">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.35']/v3:templateId[@root='1.2.208.184.20.2.35']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.35 must use 2024-04-19 — negative" fails="PSCR-DK-2.0.0-B0183-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.35']/v3:templateId[@root='1.2.208.184.20.2.35']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Nutrition Section requires one code — negative" fails="PSCR-DK-2.0.0-B0186">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.35']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Nutrition Section requires one title — negative" fails="PSCR-DK-2.0.0-B0191">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.35']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Nutrition Section requires one text — negative" fails="PSCR-DK-2.0.0-B0192">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.35']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Nutrition Section @code must be 364393001 — negative" fails="PSCR-DK-2.0.0-B0187">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.35']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Nutrition Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0188">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.35']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0190">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.35']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one Exercise Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-36">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.36']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Exercise Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0195">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.36']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Exercise Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0196">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.36']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.36 — negative" fails="PSCR-DK-2.0.0-B0197">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.36']/v3:templateId[@root='1.2.208.184.20.2.36']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.36 must use 2024-04-19 — negative" fails="PSCR-DK-2.0.0-B0197-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.36']/v3:templateId[@root='1.2.208.184.20.2.36']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Exercise Section requires one code — negative" fails="PSCR-DK-2.0.0-B0200">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.36']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Exercise Section requires one title — negative" fails="PSCR-DK-2.0.0-B0205">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.36']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Exercise Section requires one text — negative" fails="PSCR-DK-2.0.0-B0206">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.36']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Exercise Section @code must be 256235009 — negative" fails="PSCR-DK-2.0.0-B0201">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.36']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Exercise Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0202">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.36']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0204">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.36']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one Partner Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-37">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.37']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Partner Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0209">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.37']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Partner Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0210">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.37']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.37 — negative" fails="PSCR-DK-2.0.0-B0211">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.37']/v3:templateId[@root='1.2.208.184.20.2.37']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.37 must use 2024-04-19 — negative" fails="PSCR-DK-2.0.0-B0211-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.37']/v3:templateId[@root='1.2.208.184.20.2.37']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Partner Section requires one code — negative" fails="PSCR-DK-2.0.0-B0214">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.37']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Partner Section requires one title — negative" fails="PSCR-DK-2.0.0-B0219">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.37']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Partner Section requires one text — negative" fails="PSCR-DK-2.0.0-B0220">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.37']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Partner Section @code must be 648091000005104 — negative" fails="PSCR-DK-2.0.0-B0215">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.37']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Partner Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0216">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.37']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0218">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.37']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one Place of Delivery Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-44">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.44']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Place of Delivery Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0235">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.44']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Place of Delivery Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0236">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.44']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.44 — negative" fails="PSCR-DK-2.0.0-B0237">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.44']/v3:templateId[@root='1.2.208.184.20.2.44']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.44 must use 2024-04-19 — negative" fails="PSCR-DK-2.0.0-B0237-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.44']/v3:templateId[@root='1.2.208.184.20.2.44']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Place of Delivery Section requires one code — negative" fails="PSCR-DK-2.0.0-B0240">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.44']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Place of Delivery Section requires one title — negative" fails="PSCR-DK-2.0.0-B0245">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.44']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Place of Delivery Section requires one text — negative" fails="PSCR-DK-2.0.0-B0246">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.44']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Place of Delivery Section @code must be 169812000 — negative" fails="PSCR-DK-2.0.0-B0241">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.44']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Place of Delivery Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0242">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.44']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0244">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.44']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one Midwife Clinic Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-48">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.48']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Midwife Clinic Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0253">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.48']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Midwife Clinic Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0254">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.48']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.48 — negative" fails="PSCR-DK-2.0.0-B0255">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.48']/v3:templateId[@root='1.2.208.184.20.2.48']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.48 must use 2024-04-19 — negative" fails="PSCR-DK-2.0.0-B0255-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.48']/v3:templateId[@root='1.2.208.184.20.2.48']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Midwife Clinic Section requires one code — negative" fails="PSCR-DK-2.0.0-B0258">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.48']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Midwife Clinic Section requires one title — negative" fails="PSCR-DK-2.0.0-B0263">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.48']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Midwife Clinic Section requires one text — negative" fails="PSCR-DK-2.0.0-B0264">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.48']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Midwife Clinic Section @code must be 550631000005103 — negative" fails="PSCR-DK-2.0.0-B0259">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.48']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Midwife Clinic Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0260">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.48']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0262">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.48']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one Health Visitors Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-54">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.54']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Health Visitors Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0275">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.54']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Health Visitors Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0276">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.54']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.54 — negative" fails="PSCR-DK-2.0.0-B0277">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.54']/v3:templateId[@root='1.2.208.184.20.2.54']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.54 must use 2024-04-19 — negative" fails="PSCR-DK-2.0.0-B0277-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.54']/v3:templateId[@root='1.2.208.184.20.2.54']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Health Visitors Section requires one code — negative" fails="PSCR-DK-2.0.0-B0280">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.54']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Health Visitors Section requires one title — negative" fails="PSCR-DK-2.0.0-B0285">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.54']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Health Visitors Section requires one text — negative" fails="PSCR-DK-2.0.0-B0286">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.54']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Health Visitors Section @code must be 554021000005101 — negative" fails="PSCR-DK-2.0.0-B0281">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.54']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Health Visitors Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0282">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.54']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0284">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.54']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one General Clinical State Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-56">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.56']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="General Clinical State Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0289">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.56']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="General Clinical State Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0290">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.56']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.56 — negative" fails="PSCR-DK-2.0.0-B0291">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.56']/v3:templateId[@root='1.2.208.184.20.2.56']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.56 must use 2024-04-19 — negative" fails="PSCR-DK-2.0.0-B0291-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.56']/v3:templateId[@root='1.2.208.184.20.2.56']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="General Clinical State Section requires one code — negative" fails="PSCR-DK-2.0.0-B0294">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.56']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="General Clinical State Section requires one title — negative" fails="PSCR-DK-2.0.0-B0299">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.56']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="General Clinical State Section requires one text — negative" fails="PSCR-DK-2.0.0-B0300">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.56']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="General Clinical State Section @code must be 278844005 — negative" fails="PSCR-DK-2.0.0-B0295">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.56']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="General Clinical State Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0296">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.56']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0298">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.56']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one Summary Report Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-65">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.65']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Summary Report Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0311">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.65']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Summary Report Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0312">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.65']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.65 — negative" fails="PSCR-DK-2.0.0-B0313">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.65']/v3:templateId[@root='1.2.208.184.20.2.65']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.65 must use 2024-04-19 — negative" fails="PSCR-DK-2.0.0-B0313-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.65']/v3:templateId[@root='1.2.208.184.20.2.65']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Summary Report Section requires one code — negative" fails="PSCR-DK-2.0.0-B0316">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.65']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Summary Report Section requires one title — negative" fails="PSCR-DK-2.0.0-B0321">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.65']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Summary Report Section requires one text — negative" fails="PSCR-DK-2.0.0-B0322">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.65']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Summary Report Section @code must be 371534008 — negative" fails="PSCR-DK-2.0.0-B0317">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.65']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Summary Report Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0318">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.65']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0320">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.65']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="At most one Receipt of Benefit Status Section may be supplied — negative" fails="PSCR-DK-2.0.0-SECTION-MAX-67">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.67']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Receipt of Benefit Status Section @classCode must be DOCSECT — negative" fails="PSCR-DK-2.0.0-B0325">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.67']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Receipt of Benefit Status Section @moodCode must be EVN — negative" fails="PSCR-DK-2.0.0-B0326">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.67']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Require one declaration of template 1.2.208.184.20.2.67 — negative" fails="PSCR-DK-2.0.0-B0327">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.67']/v3:templateId[@root='1.2.208.184.20.2.67']" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Template 1.2.208.184.20.2.67 must use 2024-04-19 — negative" fails="PSCR-DK-2.0.0-B0327-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.67']/v3:templateId[@root='1.2.208.184.20.2.67']/@extension" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Receipt of Benefit Status Section requires one code — negative" fails="PSCR-DK-2.0.0-B0330">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.67']/v3:code" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Receipt of Benefit Status Section requires one title — negative" fails="PSCR-DK-2.0.0-B0335">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.67']/v3:title" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Receipt of Benefit Status Section requires one text — negative" fails="PSCR-DK-2.0.0-B0336">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.67']/v3:text" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Receipt of Benefit Status Section @code must be 228163007 — negative" fails="PSCR-DK-2.0.0-B0331">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.67']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Receipt of Benefit Status Section @codeSystem must be 2.16.840.1.113883.6.96 — negative" fails="PSCR-DK-2.0.0-B0332">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.67']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pscr-v2.0.0" name="@displayName must be present and non-empty — negative" fails="PSCR-DK-2.0.0-B0334">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.20.2.67']/v3:code/@displayName" />
+  </case>
+  <case profile="pscr-v2.0.0" name="Pregnancy episode event may be omitted">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.12']/.." />
+  </case>
+  <case profile="pscr-v2.0.0" name="Complete synthetic fixture" />
+  <case profile="pscr-v2.0.0" name="Reject nullFlavor outside the restricted profile vocabulary" fails="PSCR-DK-2.0.0-NULL-FLAVOR">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent/v3:effectiveTime/v3:high/@nullFlavor" value="UNK" />
+  </case>
+</cases>

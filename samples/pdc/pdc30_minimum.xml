@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://svn.medcom.dk/svn/drafts/Standarder/HL7/CDA-Stylesheet/HL7_CDA/HL7_CDA_stylesheet.xsl"?>
+<ClinicalDocument moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:ns2="urn:hl7-org:sdtc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 http://svn.medcom.dk/svn/releases/Standarder/HL7/Generic/Schema/CDA_SDTC.xsd">
+	<realmCode code="DK"/>
+	<typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+	<templateId extension="2.0" root="1.2.208.184.10.1.13"/>
+	<templateId extension="3.0" root="1.2.208.184.16.1"/>
+	<id assigningAuthorityName="MedCom" extension="e361c3a7-6d99-47bb-9503-2628d7ed72ba" root="1.2.208.184"/>
+	<code code="PDC" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Stamkort"/>
+	<title>Personal Data Card for 0108589995</title>
+	<effectiveTime value="20231108131636+0100"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<recordTarget contextControlCode="OP" typeCode="RCT">
+		<patientRole classCode="PAT">
+			<id assigningAuthorityName="CPR" extension="0108589995" root="1.2.208.176.1.2"/>
+			<addr use="H">
+				<streetAddressLine>Testgrusgraven 3</streetAddressLine>
+				<postalCode>3400</postalCode>
+				<city>Hillerød</city>
+				<country>DK</country>
+			</addr>
+			<patient classCode="PSN">
+				<name>
+					<given>Schwendlund</given>
+					<given>Test</given>
+					<family>Mosebryggeren</family>
+				</name>
+				<administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
+				<birthTime value="19580801"/>
+			</patient>
+			<providerOrganization>
+                <id assigningAuthorityName="Yderregisteret" extension="017735" root="1.2.208.176.1.4"/>
+                <name>Læge Lars Jørgensen</name>
+                <telecom use="WP" value="tel:69591553"/>
+                <addr use="H">
+                    <streetAddressLine>Mosegårdsparken32</streetAddressLine>
+                    <postalCode>5642</postalCode>
+                    <city>Millinge</city>
+                </addr>
+            </providerOrganization>
+		</patientRole>
+	</recordTarget>
+	<author>
+		<time value="20231108131636+0100"/>
+		<assignedAuthor>
+			<id assigningAuthorityName="SOR" extension="1126211000016009" root="1.2.208.176.1.1"/>
+			<representedOrganization>
+				<name>Sundhedsdatastyrelsen</name>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+	<custodian>
+		<assignedCustodian>
+			<representedCustodianOrganization>
+				<id assigningAuthorityName="SOR" extension="1126211000016009" root="1.2.208.176.1.1"/>
+				<name>Sundhedsdatastyrelsen</name>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="ACT" moodCode="EVN">
+			<templateId root="1.2.208.184.10.1.11"/>
+			<effectiveTime>
+				<low value="20231108131636+0100"/>
+				<high nullFlavor="NA"/>
+			</effectiveTime>
+		</serviceEvent>
+	</documentationOf>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="ACT" moodCode="EVN">
+			<templateId extension="2019-09-10" root="1.2.208.184.10.1.10"/>
+			<id assigningAuthorityName="MedCom" extension="pdc-v3.0" root="1.2.208.184.100.10"/>
+		</serviceEvent>
+	</documentationOf>
+	<component contextConductionInd="true" typeCode="COMP">
+		<structuredBody classCode="DOCBODY" moodCode="EVN">
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1"/>
+					<text>
+						<paragraph>Øvrige oplysninger</paragraph>
+						<table width="100%">
+							<tbody>
+								<tr>
+									<th>Oplysning</th>
+									<th>Værdi</th>
+									<th>Kilde/Indtastet af</th>
+									<th>Sidst ændret/Indtastet den</th>
+								</tr>
+								<tr>
+									<td>Borgerens navn og adresse</td>
+									<td>
+										<list>
+											<item>Schwendlund Test Mosebryggeren</item>
+											<item>Testgrusgraven 3</item>
+											<item>3400 Hillerød</item>
+											<item>DK</item>
+										</list>
+									</td>
+									<td>CPR</td>
+									<td>Ikke oplyst</td>
+								</tr>
+								<tr>
+									<td>Sygesikringsgruppe</td>
+									<td>
+										<list>
+											<item>1</item>
+										</list>
+									</td>
+									<td>CPR</td>
+									<td>Ikke oplyst</td>
+								</tr>
+								<tr>
+									<td>Registreret organdonor</td>
+									<td>
+										<list>
+											<item>Ja</item>
+										</list>
+									</td>
+									<td>Dansk Center For Organdonation</td>
+									<td>Ikke oplyst</td>
+								</tr>
+								<tr>
+									<td>Registreret behandlingstestamente</td>
+									<td>
+										<list>
+											<item>Ja</item>
+										</list>
+									</td>
+									<td>Sundhedsdatastyrelsen</td>
+									<td>Ikke oplyst</td>
+								</tr>
+								<tr>
+									<td>Registreret livstestamente</td>
+									<td>
+										<list>
+											<item>Nej</item>
+										</list>
+									</td>
+									<td>Sundhedsdatastyrelsen</td>
+									<td>Ikke oplyst</td>
+								</tr>
+								<tr>
+									<td>Registreret fravalg af genoplivningsforsøg v. hjertestop</td>
+									<td>
+										<list>
+											<item>Borger ønsker genoplivningsforsøg ved hjertestop</item>
+										</list>
+									</td>
+									<td>Sundhedsdatastyrelsen</td>
+									<td>Ikke oplyst</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.26"/>
+							<id extension="6f45a54d-3338-4e63-9056-866919a7aff5" root="1.2.208.184"/>
+							<code code="CitizenNameAddr" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Borgerens navn og adresse"/>
+							<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PN">
+								<given>Schwendlund</given>
+								<given>Test</given>
+								<family>Mosebryggeren</family>
+							</value>
+							<value use="H" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AD">
+								<streetAddressLine>Testgrusgraven 3</streetAddressLine>
+								<postalCode>3400</postalCode>
+								<city>Hillerød</city>
+								<country>DK</country>
+							</value>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.31"/>
+								<time nullFlavor="NI"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="CPR" extension="NI" root="1.2.208.176.1.2"/>
+									<representedOrganization>
+										<name>CPR</name>
+									</representedOrganization>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.27"/>
+							<id extension="261f4b73-ab44-4c5d-bf8a-7476a11bdbca" root="1.2.208.184"/>
+							<code code="CoverageGroup" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Sygesikringsgruppe"/>
+							<value assigningAuthorityName="Sygesikringen" extension="1" root="1.2.208.176.1.99.99.99" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="II"/>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.31"/>
+								<time nullFlavor="NI"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="Sygesikringen" extension="NI" root="1.2.208.176.2.7"/>
+									<representedOrganization>
+										<name>Sygesikringen</name>
+									</representedOrganization>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.28"/>
+							<id extension="2ffdee02-d8d3-4d53-8b13-e542affa96f6" root="1.2.208.184"/>
+							<code code="OrganDonorRegistration" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Registreret organdonor"/>
+							<value assigningAuthorityName="Dansk Center For Organdonation" extension="true" root="1.2.208.176.1.10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="II"/>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.31"/>
+								<time nullFlavor="NI"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="CPR" extension="NI" root="1.2.208.176.1.10"/>
+									<representedOrganization>
+										<name>Dansk Center For Organdonation</name>
+									</representedOrganization>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.29"/>
+							<id extension="1feac1cb-ad27-4ecd-a36b-35d37036a644" root="1.2.208.184"/>
+							<code code="TreatmentWillRegistration" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Registreret behandlingstestamente"/>
+							<value assigningAuthorityName="Sundhedsdatastyrelsen" extension="true" root="1.2.208.176.1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="II"/>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.31"/>
+								<time nullFlavor="NI"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="Sundhedsdatastyrelsen" extension="NI" root="1.2.208.176.1.9"/>
+									<representedOrganization>
+										<name>Sundhedsdatastyrelsen</name>
+									</representedOrganization>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.30"/>
+							<id extension="5b6e9f76-818f-4c2b-ac11-521eca6136e5" root="1.2.208.184"/>
+							<code code="LivingWillRegistration" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Registreret livstestamente"/>
+							<value assigningAuthorityName="Sundhedsdatastyrelsen" extension="false" root="1.2.208.176.1.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="II"/>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.31"/>
+								<time nullFlavor="NI"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="Sundhedsdatastyrelsen" extension="NI" root="1.2.208.176.1.8"/>
+									<representedOrganization>
+										<name>Sundhedsdatastyrelsen</name>
+									</representedOrganization>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2023-07-01" root="1.2.208.184.16.1.10.20.1.31"/>
+							<id extension="d90df5cb-602c-44d5-8cc6-9fb7ed9b8df9" root="1.2.208.184"/>
+							<code code="NoResuscitationRegistration" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Registreret fravalg af genoplivningsforsøg v. hjertestop"/>
+							<value assigningAuthorityName="Sundhedsdatastyrelsen" extension="false" root="1.2.208.176.1.11" xsi:type="II"/>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.31"/>
+								<time nullFlavor="NI"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="Sundhedsdatastyrelsen" extension="NI" root="1.2.208.176.1.8"/>
+									<representedOrganization>
+										<name>Sundhedsdatastyrelsen</name>
+									</representedOrganization>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+				</section>
+			</component>
+		</structuredBody>
+	</component>
+</ClinicalDocument>

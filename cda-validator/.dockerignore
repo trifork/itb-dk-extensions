@@ -1,0 +1,9 @@
+**
+!Dockerfile
+!pom.xml
+!src/
+!src/**
+!domain/
+!domain/**
+# The runtime plugin must come from the Maven build, never a local binary.
+domain/cda-dk/plugins/

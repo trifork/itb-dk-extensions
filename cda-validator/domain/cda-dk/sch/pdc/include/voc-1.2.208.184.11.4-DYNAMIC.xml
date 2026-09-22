@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<valueSets xmlns="urn:hl7-org:v3" xmlns:hl7="urn:hl7-org:v3" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:local="http://art-decor.org/functions">
+    <valueSet xmlns="" id="1.2.208.184.11.4" name="icpc-2-dk" displayName="ICPC-DK-2" effectiveDate="2019-03-11T23:52:18" statusCode="draft">
+        <sourceCodeSystem id="2.16.840.1.113883.6.138.2" identifierName="International&#160;Classification&#160;of&#160;Primary&#160;Care&#160;1993&#160;Danish" canonicalUri="urn:oid:2.16.840.1.113883.6.138.2" canonicalUriDSTU2="urn:oid:2.16.840.1.113883.6.138.2" canonicalUriSTU3="urn:oid:2.16.840.1.113883.6.138.2" canonicalUriR4="urn:oid:2.16.840.1.113883.6.138.2"/>
+        <publishingAuthority name="admin"/>
+        <conceptList>
+            <concept code="A01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Almen/udbredt smerte" level="0" type="L"/>
+            <concept code="A02" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kulderystelse" level="0" type="L"/>
+            <concept code="A03" codeSystem="2.16.840.1.113883.6.138.2" displayName="Feber" level="0" type="L"/>
+            <concept code="A04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Almen svækkelse/træthed" level="0" type="L"/>
+            <concept code="A05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sygdomsfølelse" level="0" type="L"/>
+            <concept code="A06" codeSystem="2.16.840.1.113883.6.138.2" displayName="Besvimelse" level="0" type="L"/>
+            <concept code="A07" codeSystem="2.16.840.1.113883.6.138.2" displayName="Koma" level="0" type="L"/>
+            <concept code="A08" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hævelse" level="0" type="L"/>
+            <concept code="A09" codeSystem="2.16.840.1.113883.6.138.2" displayName="Svedproblem" level="0" type="L"/>
+            <concept code="A10" codeSystem="2.16.840.1.113883.6.138.2" displayName="Blødning IKA" level="0" type="L"/>
+            <concept code="A11" codeSystem="2.16.840.1.113883.6.138.2" displayName="Smerte i brystet, IKA" level="0" type="L"/>
+            <concept code="A13" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for behandling" level="0" type="L"/>
+            <concept code="A16" codeSystem="2.16.840.1.113883.6.138.2" displayName="Irritabelt spædbarn" level="0" type="L"/>
+            <concept code="A18" codeSystem="2.16.840.1.113883.6.138.2" displayName="Bekymring vedr udseende" level="0" type="L"/>
+            <concept code="A20" codeSystem="2.16.840.1.113883.6.138.2" displayName="Anmodning/samtale om dødshjælp" level="0" type="L"/>
+            <concept code="A21" codeSystem="2.16.840.1.113883.6.138.2" displayName="Risikofaktor for kræft" level="0" type="L"/>
+            <concept code="A23" codeSystem="2.16.840.1.113883.6.138.2" displayName="Risikofaktor IKA" level="0" type="L"/>
+            <concept code="A25" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for død/dødsproces" level="0" type="L"/>
+            <concept code="A26" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for kræft IKA" level="0" type="L"/>
+            <concept code="A27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for sygdom IKA" level="0" type="L"/>
+            <concept code="A28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap IKA" level="0" type="L"/>
+            <concept code="A29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Alment symptom/almen klage IKA" level="0" type="L"/>
+            <concept code="A70" codeSystem="2.16.840.1.113883.6.138.2" displayName="Tuberkulose" level="0" type="L"/>
+            <concept code="A71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Mæslinger" level="0" type="L"/>
+            <concept code="A72" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skoldkopper" level="0" type="L"/>
+            <concept code="A73" codeSystem="2.16.840.1.113883.6.138.2" displayName="Malaria" level="0" type="L"/>
+            <concept code="A74" codeSystem="2.16.840.1.113883.6.138.2" displayName="Røde hunde" level="0" type="L"/>
+            <concept code="A75" codeSystem="2.16.840.1.113883.6.138.2" displayName="Mononukleose" level="0" type="L"/>
+            <concept code="A76" codeSystem="2.16.840.1.113883.6.138.2" displayName="Virusinfektion med udslæt IKA" level="0" type="L"/>
+            <concept code="A77" codeSystem="2.16.840.1.113883.6.138.2" displayName="Virusinfektion IKA" level="0" type="L"/>
+            <concept code="A78" codeSystem="2.16.840.1.113883.6.138.2" displayName="Infektionssygdom IKA" level="0" type="L"/>
+            <concept code="A79" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft IKA" level="0" type="L"/>
+            <concept code="A80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skade IKA" level="0" type="L"/>
+            <concept code="A81" codeSystem="2.16.840.1.113883.6.138.2" displayName="Multiple skader" level="0" type="L"/>
+            <concept code="A82" codeSystem="2.16.840.1.113883.6.138.2" displayName="Følgetilstand efter skade" level="0" type="L"/>
+            <concept code="A84" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medicinforgiftning" level="0" type="L"/>
+            <concept code="A85" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medicinbivirkning" level="0" type="L"/>
+            <concept code="A86" codeSystem="2.16.840.1.113883.6.138.2" displayName="Forgiftning med ikke-medicinsk stof" level="0" type="L"/>
+            <concept code="A87" codeSystem="2.16.840.1.113883.6.138.2" displayName="Komplikation til lægelig behandling" level="0" type="L"/>
+            <concept code="A88" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skadevirkning af ydre fysisk faktor" level="0" type="L"/>
+            <concept code="A89" codeSystem="2.16.840.1.113883.6.138.2" displayName="Komplikation til protese/implantat/transplantat" level="0" type="L"/>
+            <concept code="A90" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medfødte misdannelser IKA/multiple" level="0" type="L"/>
+            <concept code="A91" codeSystem="2.16.840.1.113883.6.138.2" displayName="Undersøgelse med abnormt fund IKA" level="0" type="L"/>
+            <concept code="A92" codeSystem="2.16.840.1.113883.6.138.2" displayName="Allergi/allergisk reaktion IKA" level="0" type="L"/>
+            <concept code="A93" codeSystem="2.16.840.1.113883.6.138.2" displayName="Præmaturt barn" level="0" type="L"/>
+            <concept code="A94" codeSystem="2.16.840.1.113883.6.138.2" displayName="Perinatal sygdom IKA" level="0" type="L"/>
+            <concept code="A95" codeSystem="2.16.840.1.113883.6.138.2" displayName="Perinatal død" level="0" type="L"/>
+            <concept code="A96" codeSystem="2.16.840.1.113883.6.138.2" displayName="Død" level="0" type="L"/>
+            <concept code="A97" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ingen sygdom" level="0" type="L"/>
+            <concept code="A98" codeSystem="2.16.840.1.113883.6.138.2" displayName="Helbredsbevar/forebyggende tiltag" level="0" type="L"/>
+            <concept code="A99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sygdom/tilstand af uspecifik natur/lokalisation" level="0" type="L"/>
+            <concept code="B04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage vedr blod" level="0" type="L"/>
+            <concept code="B25" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for AIDS/HIV" level="0" type="L"/>
+            <concept code="B26" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for kræft i blod/lymfesystem" level="0" type="L"/>
+            <concept code="B27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for sygdom i blod/lymfesystem IKA" level="0" type="L"/>
+            <concept code="B28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr blod/lymfe/immunsystem" level="0" type="L"/>
+            <concept code="B29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage vedr lymfe/immunsystem" level="0" type="L"/>
+            <concept code="B70" codeSystem="2.16.840.1.113883.6.138.2" displayName="Akut lymfadenit" level="0" type="L"/>
+            <concept code="B71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kronisk/uspecifik lymfadenit" level="0" type="L"/>
+            <concept code="B72" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hodgkins sygdom/lymfom" level="0" type="L"/>
+            <concept code="B73" codeSystem="2.16.840.1.113883.6.138.2" displayName="Leukæmi" level="0" type="L"/>
+            <concept code="B74" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i blod/lymfesystem IKA" level="0" type="L"/>
+            <concept code="B75" codeSystem="2.16.840.1.113883.6.138.2" displayName="Godartet/uspecifik svulst i blod/lymfesystem" level="0" type="L"/>
+            <concept code="B76" codeSystem="2.16.840.1.113883.6.138.2" displayName="Traumatisk miltruptur" level="0" type="L"/>
+            <concept code="B77" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skade på blod/lymfe/milt IKA" level="0" type="L"/>
+            <concept code="B78" codeSystem="2.16.840.1.113883.6.138.2" displayName="Arvelig hæmolytisk anæmi" level="0" type="L"/>
+            <concept code="B79" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medfødt abnormitet i blod/lymfesystem IKA" level="0" type="L"/>
+            <concept code="B80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Jernmangelanæmi" level="0" type="L"/>
+            <concept code="B81" codeSystem="2.16.840.1.113883.6.138.2" displayName="Vitamin B12-/folinsyremangelanæmi" level="0" type="L"/>
+            <concept code="B82" codeSystem="2.16.840.1.113883.6.138.2" displayName="Uspecifik anæmi IKA" level="0" type="L"/>
+            <concept code="B83" codeSystem="2.16.840.1.113883.6.138.2" displayName="Purpura/koagulationsdefekt" level="0" type="L"/>
+            <concept code="B84" codeSystem="2.16.840.1.113883.6.138.2" displayName="Abnorme hvide blodlegemer uden kendt årsag" level="0" type="L"/>
+            <concept code="B87" codeSystem="2.16.840.1.113883.6.138.2" displayName="Forstørret milt" level="0" type="L"/>
+            <concept code="B90" codeSystem="2.16.840.1.113883.6.138.2" displayName="HIV-infektion/AIDS" level="0" type="L"/>
+            <concept code="B99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sygdom i blod/lymfe/milt/immunsystem IKA" level="0" type="L"/>
+            <concept code="D01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Udbredt/turevis smerte i abdomen" level="0" type="L"/>
+            <concept code="D02" codeSystem="2.16.840.1.113883.6.138.2" displayName="Smerte i epigastriet" level="0" type="L"/>
+            <concept code="D03" codeSystem="2.16.840.1.113883.6.138.2" displayName="Halsbrand" level="0" type="L"/>
+            <concept code="D04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Smerte i rectum/anus" level="0" type="L"/>
+            <concept code="D05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Perianal kløe" level="0" type="L"/>
+            <concept code="D06" codeSystem="2.16.840.1.113883.6.138.2" displayName="Lokaliseret smerte i abdomen IKA" level="0" type="L"/>
+            <concept code="D07" codeSystem="2.16.840.1.113883.6.138.2" displayName="Dyspepsi/fordøjelsesbesvær" level="0" type="L"/>
+            <concept code="D08" codeSystem="2.16.840.1.113883.6.138.2" displayName="Flatulens/luft i maven/ræben" level="0" type="L"/>
+            <concept code="D09" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kvalme" level="0" type="L"/>
+            <concept code="D10" codeSystem="2.16.840.1.113883.6.138.2" displayName="Opkastning" level="0" type="L"/>
+            <concept code="D11" codeSystem="2.16.840.1.113883.6.138.2" displayName="Diare" level="0" type="L"/>
+            <concept code="D12" codeSystem="2.16.840.1.113883.6.138.2" displayName="Forstoppelse" level="0" type="L"/>
+            <concept code="D13" codeSystem="2.16.840.1.113883.6.138.2" displayName="Gulsot" level="0" type="L"/>
+            <concept code="D14" codeSystem="2.16.840.1.113883.6.138.2" displayName="Blodopkastning" level="0" type="L"/>
+            <concept code="D15" codeSystem="2.16.840.1.113883.6.138.2" displayName="Melæna" level="0" type="L"/>
+            <concept code="D16" codeSystem="2.16.840.1.113883.6.138.2" displayName="Blødning fra endetarm" level="0" type="L"/>
+            <concept code="D17" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ufrivillig afgang af afføring" level="0" type="L"/>
+            <concept code="D18" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ændret afføringsmønster" level="0" type="L"/>
+            <concept code="D19" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra tand/tandkød" level="0" type="L"/>
+            <concept code="D20" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra mund/tunge/læbe" level="0" type="L"/>
+            <concept code="D21" codeSystem="2.16.840.1.113883.6.138.2" displayName="Synkebesvær" level="0" type="L"/>
+            <concept code="D23" codeSystem="2.16.840.1.113883.6.138.2" displayName="Forstørret lever" level="0" type="L"/>
+            <concept code="D24" codeSystem="2.16.840.1.113883.6.138.2" displayName="Udfyldning i abdomen IKA" level="0" type="L"/>
+            <concept code="D25" codeSystem="2.16.840.1.113883.6.138.2" displayName="Udspilet abdomen" level="0" type="L"/>
+            <concept code="D26" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for kræft i fordøjelsessystem" level="0" type="L"/>
+            <concept code="D27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for sygdom i fordøjelsessystem IKA" level="0" type="L"/>
+            <concept code="D28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr fordøjelsessystem" level="0" type="L"/>
+            <concept code="D29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra fordøjelsessystem IKA" level="0" type="L"/>
+            <concept code="D70" codeSystem="2.16.840.1.113883.6.138.2" displayName="Gastrointestinal infektion" level="0" type="L"/>
+            <concept code="D71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fåresyge" level="0" type="L"/>
+            <concept code="D71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Virushepatit" level="0" type="L"/>
+            <concept code="D73" codeSystem="2.16.840.1.113883.6.138.2" displayName="Formodet infektiøs gastroenterit" level="0" type="L"/>
+            <concept code="D74" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i mavesæk" level="0" type="L"/>
+            <concept code="D75" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i tyktarm/endetarm" level="0" type="L"/>
+            <concept code="D76" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i bugspytkirtel" level="0" type="L"/>
+            <concept code="D77" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i fordøjelsessystem IKA" level="0" type="L"/>
+            <concept code="D78" codeSystem="2.16.840.1.113883.6.138.2" displayName="Godartet/uspecifik svulst i fordøjelsessystem" level="0" type="L"/>
+            <concept code="D79" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fremmedlegeme i fordøjelsessystem" level="0" type="L"/>
+            <concept code="D80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skade på fordøjelsessystem IKA" level="0" type="L"/>
+            <concept code="D81" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medfødt misdannelse i fordøjelsessystem" level="0" type="L"/>
+            <concept code="D82" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sygdom i tand/tandkød" level="0" type="L"/>
+            <concept code="D83" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sygdom i mund/tunge/læbe" level="0" type="L"/>
+            <concept code="D84" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sygdom i spiserør" level="0" type="L"/>
+            <concept code="D85" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sår på tolvfingertarm" level="0" type="L"/>
+            <concept code="D87" codeSystem="2.16.840.1.113883.6.138.2" displayName="Mavekatar" level="0" type="L"/>
+            <concept code="D88" codeSystem="2.16.840.1.113883.6.138.2" displayName="Blindtarmsbetændelse" level="0" type="L"/>
+            <concept code="D89" codeSystem="2.16.840.1.113883.6.138.2" displayName="Lyskebrok" level="0" type="L"/>
+            <concept code="D90" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hiatushernie" level="0" type="L"/>
+            <concept code="D91" codeSystem="2.16.840.1.113883.6.138.2" displayName="Abdominalt brok IKA" level="0" type="L"/>
+            <concept code="D92" codeSystem="2.16.840.1.113883.6.138.2" displayName="Divertikelsygdom i tarm" level="0" type="L"/>
+            <concept code="D93" codeSystem="2.16.840.1.113883.6.138.2" displayName="Colon irritabile" level="0" type="L"/>
+            <concept code="D94" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kronisk enterit/ulcerøs kolit" level="0" type="L"/>
+            <concept code="D95" codeSystem="2.16.840.1.113883.6.138.2" displayName="Analfissur/perianal absces" level="0" type="L"/>
+            <concept code="D96" codeSystem="2.16.840.1.113883.6.138.2" displayName="Orm/parasit IKA" level="0" type="L"/>
+            <concept code="D97" codeSystem="2.16.840.1.113883.6.138.2" displayName="Leversygdom IKA" level="0" type="L"/>
+            <concept code="D98" codeSystem="2.16.840.1.113883.6.138.2" displayName="Galdeblærebetændelse/galdesten" level="0" type="L"/>
+            <concept code="D99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sygdom i fordøjelsessystem IKA" level="0" type="L"/>
+            <concept code="F01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Smerte i øje" level="0" type="L"/>
+            <concept code="F02" codeSystem="2.16.840.1.113883.6.138.2" displayName="Rødt øje" level="0" type="L"/>
+            <concept code="F03" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sekretion fra øje" level="0" type="L"/>
+            <concept code="F04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Synlig mobil tråd/plet i synsfelt" level="0" type="L"/>
+            <concept code="F05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Synsklage IKA" level="0" type="L"/>
+            <concept code="F13" codeSystem="2.16.840.1.113883.6.138.2" displayName="Abnorm fornemmelse i øje" level="0" type="L"/>
+            <concept code="F14" codeSystem="2.16.840.1.113883.6.138.2" displayName="Abnorm øjenbevægelse" level="0" type="L"/>
+            <concept code="F15" codeSystem="2.16.840.1.113883.6.138.2" displayName="Abnormt udseende af øje" level="0" type="L"/>
+            <concept code="F16" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra øjenlåg" level="0" type="L"/>
+            <concept code="F17" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage vedr briller" level="0" type="L"/>
+            <concept code="F18" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage vedr kontaktlinser" level="0" type="L"/>
+            <concept code="F27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for øjensygdom" level="0" type="L"/>
+            <concept code="F28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr øje" level="0" type="L"/>
+            <concept code="F29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra øje IKA" level="0" type="L"/>
+            <concept code="F70" codeSystem="2.16.840.1.113883.6.138.2" displayName="Infektiøs konjunktivit" level="0" type="L"/>
+            <concept code="F71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Allergisk konjunktivit" level="0" type="L"/>
+            <concept code="F72" codeSystem="2.16.840.1.113883.6.138.2" displayName="Øjenlågsbetændelse" level="0" type="L"/>
+            <concept code="F73" codeSystem="2.16.840.1.113883.6.138.2" displayName="Infektion/inflammation i øje IKA" level="0" type="L"/>
+            <concept code="F74" codeSystem="2.16.840.1.113883.6.138.2" displayName="Svulst i øje/øjenomgivelser" level="0" type="L"/>
+            <concept code="F75" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kontusion/blødning i øje/øjenomgivelser" level="0" type="L"/>
+            <concept code="F76" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fremmedlegeme i øje" level="0" type="L"/>
+            <concept code="F79" codeSystem="2.16.840.1.113883.6.138.2" displayName="Øjenskade IKA" level="0" type="L"/>
+            <concept code="F80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Tårekanalstenose hos spædbarn" level="0" type="L"/>
+            <concept code="F81" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medfødt misdannelse af øje IKA" level="0" type="L"/>
+            <concept code="F82" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nethindeløsning" level="0" type="L"/>
+            <concept code="F83" codeSystem="2.16.840.1.113883.6.138.2" displayName="Retinopati" level="0" type="L"/>
+            <concept code="F84" codeSystem="2.16.840.1.113883.6.138.2" displayName="Maculadegeneration" level="0" type="L"/>
+            <concept code="F85" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ulcus corneae" level="0" type="L"/>
+            <concept code="F86" codeSystem="2.16.840.1.113883.6.138.2" displayName="Trakom" level="0" type="L"/>
+            <concept code="F91" codeSystem="2.16.840.1.113883.6.138.2" displayName="Refraktionsanomali" level="0" type="L"/>
+            <concept code="F92" codeSystem="2.16.840.1.113883.6.138.2" displayName="Katarakt" level="0" type="L"/>
+            <concept code="F93" codeSystem="2.16.840.1.113883.6.138.2" displayName="Glaukom" level="0" type="L"/>
+            <concept code="F94" codeSystem="2.16.840.1.113883.6.138.2" displayName="Blindhed/svagsyn" level="0" type="L"/>
+            <concept code="F95" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skelen" level="0" type="L"/>
+            <concept code="F99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sygdom i øje/øjenomgivelser IKA" level="0" type="L"/>
+            <concept code="H01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Øresmerte" level="0" type="L"/>
+            <concept code="H02" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage vedr hørelsen" level="0" type="L"/>
+            <concept code="H03" codeSystem="2.16.840.1.113883.6.138.2" displayName="Tinnitus" level="0" type="L"/>
+            <concept code="H04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Øreflåd" level="0" type="L"/>
+            <concept code="H05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Blødning fra øre" level="0" type="L"/>
+            <concept code="H13" codeSystem="2.16.840.1.113883.6.138.2" displayName="Klapfornemmelse for øre" level="0" type="L"/>
+            <concept code="H15" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kosmetisk øreproblem" level="0" type="L"/>
+            <concept code="H27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for øresygdom" level="0" type="L"/>
+            <concept code="H28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr øre" level="0" type="L"/>
+            <concept code="H29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra øre IKA" level="0" type="L"/>
+            <concept code="H70" codeSystem="2.16.840.1.113883.6.138.2" displayName="Betændelse i ydre øregang" level="0" type="L"/>
+            <concept code="H71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Akut mellemørebetændelse/myringit" level="0" type="L"/>
+            <concept code="H72" codeSystem="2.16.840.1.113883.6.138.2" displayName="Serøs mellemørebetændelse" level="0" type="L"/>
+            <concept code="H73" codeSystem="2.16.840.1.113883.6.138.2" displayName="Tillukning af eustakiske rør" level="0" type="L"/>
+            <concept code="H74" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kronisk mellemørebetændelse" level="0" type="L"/>
+            <concept code="H75" codeSystem="2.16.840.1.113883.6.138.2" displayName="Svulst i øre" level="0" type="L"/>
+            <concept code="H76" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fremmedlegeme i øre" level="0" type="L"/>
+            <concept code="H77" codeSystem="2.16.840.1.113883.6.138.2" displayName="Perforation af trommehinde" level="0" type="L"/>
+            <concept code="H78" codeSystem="2.16.840.1.113883.6.138.2" displayName="Overfladisk skade på øre" level="0" type="L"/>
+            <concept code="H79" codeSystem="2.16.840.1.113883.6.138.2" displayName="Øreskade IKA" level="0" type="L"/>
+            <concept code="H80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medfødt misdannelse af øre" level="0" type="L"/>
+            <concept code="H81" codeSystem="2.16.840.1.113883.6.138.2" displayName="Voksprop i øregang" level="0" type="L"/>
+            <concept code="H82" codeSystem="2.16.840.1.113883.6.138.2" displayName="Vertigosyndrom" level="0" type="L"/>
+            <concept code="H83" codeSystem="2.16.840.1.113883.6.138.2" displayName="Otosklerose" level="0" type="L"/>
+            <concept code="H84" codeSystem="2.16.840.1.113883.6.138.2" displayName="Aldersbetinget tunghørhed" level="0" type="L"/>
+            <concept code="H85" codeSystem="2.16.840.1.113883.6.138.2" displayName="Støjskade" level="0" type="L"/>
+            <concept code="H86" codeSystem="2.16.840.1.113883.6.138.2" displayName="Døvhed" level="0" type="L"/>
+            <concept code="H99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sygdom i øre/mastoideus IKA" level="0" type="L"/>
+            <concept code="K01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Smerte i hjerte" level="0" type="L"/>
+            <concept code="K02" codeSystem="2.16.840.1.113883.6.138.2" displayName="Trykken/knugen i hjerte" level="0" type="L"/>
+            <concept code="K03" codeSystem="2.16.840.1.113883.6.138.2" displayName="Smerte i kardiovaskulære system IKA" level="0" type="L"/>
+            <concept code="K04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hjertebanken" level="0" type="L"/>
+            <concept code="K05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Uregelmæssig hjerterytme IKA" level="0" type="L"/>
+            <concept code="K06" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fremtrædende vener" level="0" type="L"/>
+            <concept code="K07" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ødem" level="0" type="L"/>
+            <concept code="K22" codeSystem="2.16.840.1.113883.6.138.2" displayName="Risikofaktor for hjerte/karsygdom" level="0" type="L"/>
+            <concept code="K24" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for hjertesygdom" level="0" type="L"/>
+            <concept code="K25" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for forhøjet blodtryk" level="0" type="L"/>
+            <concept code="K27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for hjerte/karsygdom IKA" level="0" type="L"/>
+            <concept code="K28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr hjerte/karsygdom" level="0" type="L"/>
+            <concept code="K29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra hjerte/karsystem IKA" level="0" type="L"/>
+            <concept code="K70" codeSystem="2.16.840.1.113883.6.138.2" displayName="Infektion i hjerte/karsystem" level="0" type="L"/>
+            <concept code="K71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Gigtfeber/reumatisk hjertesygdom" level="0" type="L"/>
+            <concept code="K72" codeSystem="2.16.840.1.113883.6.138.2" displayName="Svulst i hjerte/karsystem" level="0" type="L"/>
+            <concept code="K73" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medfødt misdannelse i hjerte/karsystem" level="0" type="L"/>
+            <concept code="K74" codeSystem="2.16.840.1.113883.6.138.2" displayName="Iskæmisk hjertesygdom med angina pectoris" level="0" type="L"/>
+            <concept code="K75" codeSystem="2.16.840.1.113883.6.138.2" displayName="Akut myokardieinfarkt" level="0" type="L"/>
+            <concept code="K76" codeSystem="2.16.840.1.113883.6.138.2" displayName="Iskæmisk hjertesygdom uden angina pectoris" level="0" type="L"/>
+            <concept code="K77" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hjertesvigt" level="0" type="L"/>
+            <concept code="K78" codeSystem="2.16.840.1.113883.6.138.2" displayName="Atrieflimren/flagren" level="0" type="L"/>
+            <concept code="K79" codeSystem="2.16.840.1.113883.6.138.2" displayName="Anfaldsvis takykardi" level="0" type="L"/>
+            <concept code="K80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hjerterytmeforstyrrelse IKA" level="0" type="L"/>
+            <concept code="K81" codeSystem="2.16.840.1.113883.6.138.2" displayName="Mislyd over hjerte/arterie IKA" level="0" type="L"/>
+            <concept code="K82" codeSystem="2.16.840.1.113883.6.138.2" displayName="Pulmonal hjertesygdom" level="0" type="L"/>
+            <concept code="K83" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hjerteklapsygdom IKA" level="0" type="L"/>
+            <concept code="K84" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hjertesygdom IKA" level="0" type="L"/>
+            <concept code="K85" codeSystem="2.16.840.1.113883.6.138.2" displayName="Forhøjet blodtryk" level="0" type="L"/>
+            <concept code="K86" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ukompliceret hypertension" level="0" type="L"/>
+            <concept code="K87" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kompliceret hypertension" level="0" type="L"/>
+            <concept code="K88" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ortostatisk hypotension" level="0" type="L"/>
+            <concept code="K89" codeSystem="2.16.840.1.113883.6.138.2" displayName="Transitorisk cerebral iskæmi" level="0" type="L"/>
+            <concept code="K90" codeSystem="2.16.840.1.113883.6.138.2" displayName="Apopleksi" level="0" type="L"/>
+            <concept code="K91" codeSystem="2.16.840.1.113883.6.138.2" displayName="Cerebrovaskulær sygdom" level="0" type="L"/>
+            <concept code="K92" codeSystem="2.16.840.1.113883.6.138.2" displayName="Aterosklerose/perifer karsygdom" level="0" type="L"/>
+            <concept code="K93" codeSystem="2.16.840.1.113883.6.138.2" displayName="Lungeemboli" level="0" type="L"/>
+            <concept code="K94" codeSystem="2.16.840.1.113883.6.138.2" displayName="Årebetændelse" level="0" type="L"/>
+            <concept code="K95" codeSystem="2.16.840.1.113883.6.138.2" displayName="Åreknude på ben" level="0" type="L"/>
+            <concept code="K96" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hæmoride" level="0" type="L"/>
+            <concept code="K99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kredsløbssygdom IKA" level="0" type="L"/>
+            <concept code="L01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra cervikalregion" level="0" type="L"/>
+            <concept code="L02" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra ryg" level="0" type="L"/>
+            <concept code="L03" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra lænd" level="0" type="L"/>
+            <concept code="L04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra brystkasse" level="0" type="L"/>
+            <concept code="L05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra flanke/armhule" level="0" type="L"/>
+            <concept code="L07" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra kæbe" level="0" type="L"/>
+            <concept code="L08" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra skulder" level="0" type="L"/>
+            <concept code="L09" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra arm" level="0" type="L"/>
+            <concept code="L10" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra albue" level="0" type="L"/>
+            <concept code="L11" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra håndled" level="0" type="L"/>
+            <concept code="L12" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra hånd/finger" level="0" type="L"/>
+            <concept code="L13" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra hofte" level="0" type="L"/>
+            <concept code="L14" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra lår/underben" level="0" type="L"/>
+            <concept code="L15" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra knæ" level="0" type="L"/>
+            <concept code="L16" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra ankel" level="0" type="L"/>
+            <concept code="L17" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra fod/tå" level="0" type="L"/>
+            <concept code="L18" codeSystem="2.16.840.1.113883.6.138.2" displayName="Muskelsmerte" level="0" type="L"/>
+            <concept code="L19" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra muskel IKA" level="0" type="L"/>
+            <concept code="L20" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra led IKA" level="0" type="L"/>
+            <concept code="L26" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for kræft i muskel/skeletsystem" level="0" type="L"/>
+            <concept code="L27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for sygdom i muskel/skeletsystem IKA" level="0" type="L"/>
+            <concept code="L28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr muskel/skeletsystem" level="0" type="L"/>
+            <concept code="L29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra muskel/skeletsystem IKA" level="0" type="L"/>
+            <concept code="L70" codeSystem="2.16.840.1.113883.6.138.2" displayName="Infektion i muskel/skeletsystem" level="0" type="L"/>
+            <concept code="L71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i muskel/skeletsystem" level="0" type="L"/>
+            <concept code="L72" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fraktur af underarm" level="0" type="L"/>
+            <concept code="L73" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fraktur af underben" level="0" type="L"/>
+            <concept code="L74" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fraktur i hånd/fod" level="0" type="L"/>
+            <concept code="L75" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fraktur af lårben" level="0" type="L"/>
+            <concept code="L76" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fraktur IKA" level="0" type="L"/>
+            <concept code="L77" codeSystem="2.16.840.1.113883.6.138.2" displayName="Forstuvning af ankel" level="0" type="L"/>
+            <concept code="L78" codeSystem="2.16.840.1.113883.6.138.2" displayName="Forstuvning af knæ" level="0" type="L"/>
+            <concept code="L79" codeSystem="2.16.840.1.113883.6.138.2" displayName="Forstuvning af led IKA" level="0" type="L"/>
+            <concept code="L80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Luksation/subluksation" level="0" type="L"/>
+            <concept code="L81" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skade på muskel/skeletsystem IKA" level="0" type="L"/>
+            <concept code="L82" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medfødt misdannelse i muskel/skeletsystem" level="0" type="L"/>
+            <concept code="L83" codeSystem="2.16.840.1.113883.6.138.2" displayName="Cervikalsyndrom" level="0" type="L"/>
+            <concept code="L84" codeSystem="2.16.840.1.113883.6.138.2" displayName="Rygsyndrom uden smerteudstråling" level="0" type="L"/>
+            <concept code="L85" codeSystem="2.16.840.1.113883.6.138.2" displayName="Erhvervet rygdeformitet" level="0" type="L"/>
+            <concept code="L86" codeSystem="2.16.840.1.113883.6.138.2" displayName="Rygsyndrom med smerteudstråling" level="0" type="L"/>
+            <concept code="L87" codeSystem="2.16.840.1.113883.6.138.2" displayName="Bursit/tendinit/synovit IKA" level="0" type="L"/>
+            <concept code="L88" codeSystem="2.16.840.1.113883.6.138.2" displayName="Reumatoid artrit" level="0" type="L"/>
+            <concept code="L89" codeSystem="2.16.840.1.113883.6.138.2" displayName="Artrose i hofteled" level="0" type="L"/>
+            <concept code="L90" codeSystem="2.16.840.1.113883.6.138.2" displayName="Artrose i knæ" level="0" type="L"/>
+            <concept code="L91" codeSystem="2.16.840.1.113883.6.138.2" displayName="Artrose IKA" level="0" type="L"/>
+            <concept code="L92" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skuldersyndrom" level="0" type="L"/>
+            <concept code="L93" codeSystem="2.16.840.1.113883.6.138.2" displayName="Tennisalbue" level="0" type="L"/>
+            <concept code="L94" codeSystem="2.16.840.1.113883.6.138.2" displayName="Osteokondrose" level="0" type="L"/>
+            <concept code="L95" codeSystem="2.16.840.1.113883.6.138.2" displayName="Osteoporose" level="0" type="L"/>
+            <concept code="L96" codeSystem="2.16.840.1.113883.6.138.2" displayName="Akut indre knæskade" level="0" type="L"/>
+            <concept code="L97" codeSystem="2.16.840.1.113883.6.138.2" displayName="Godartet/uspecifik svulst i muskel/skeletsystem" level="0" type="L"/>
+            <concept code="L98" codeSystem="2.16.840.1.113883.6.138.2" displayName="Erhvervet deformitet af ekstremitet" level="0" type="L"/>
+            <concept code="L99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sygdom i muskel/skeletsystem IKA" level="0" type="L"/>
+            <concept code="N01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hovedpine" level="0" type="L"/>
+            <concept code="N03" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ansigtssmerte" level="0" type="L"/>
+            <concept code="N04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Rastløse ben" level="0" type="L"/>
+            <concept code="N05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Paræstesi" level="0" type="L"/>
+            <concept code="N06" codeSystem="2.16.840.1.113883.6.138.2" displayName="Føleforstyrrelse IKA" level="0" type="L"/>
+            <concept code="N07" codeSystem="2.16.840.1.113883.6.138.2" displayName="Krampeanfald" level="0" type="L"/>
+            <concept code="N08" codeSystem="2.16.840.1.113883.6.138.2" displayName="Abnorm ufrivillig bevægelse" level="0" type="L"/>
+            <concept code="N16" codeSystem="2.16.840.1.113883.6.138.2" displayName="Forstyrrelse af lugte/smagssans" level="0" type="L"/>
+            <concept code="N17" codeSystem="2.16.840.1.113883.6.138.2" displayName="Svimmelhed" level="0" type="L"/>
+            <concept code="N18" codeSystem="2.16.840.1.113883.6.138.2" displayName="Lammelse" level="0" type="L"/>
+            <concept code="N19" codeSystem="2.16.840.1.113883.6.138.2" displayName="Taleforstyrrelse" level="0" type="L"/>
+            <concept code="N26" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for kræft i nervesystem" level="0" type="L"/>
+            <concept code="N27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for neurologisk sygdom IKA" level="0" type="L"/>
+            <concept code="N28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr nervesystem" level="0" type="L"/>
+            <concept code="N29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra nervesystem IKA" level="0" type="L"/>
+            <concept code="N70" codeSystem="2.16.840.1.113883.6.138.2" displayName="Poliomyelit" level="0" type="L"/>
+            <concept code="N71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Meningit/encefalit" level="0" type="L"/>
+            <concept code="N72" codeSystem="2.16.840.1.113883.6.138.2" displayName="Tetanus" level="0" type="L"/>
+            <concept code="N73" codeSystem="2.16.840.1.113883.6.138.2" displayName="Infektion i nervesystem IKA" level="0" type="L"/>
+            <concept code="N74" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i nervesystem" level="0" type="L"/>
+            <concept code="N75" codeSystem="2.16.840.1.113883.6.138.2" displayName="Godartet svulst i nervesystem" level="0" type="L"/>
+            <concept code="N76" codeSystem="2.16.840.1.113883.6.138.2" displayName="Uspecifik svulst i nervesystem" level="0" type="L"/>
+            <concept code="N79" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hjernerystelse" level="0" type="L"/>
+            <concept code="N80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hjernelæsion IKA" level="0" type="L"/>
+            <concept code="N81" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skade på nervesystem IKA" level="0" type="L"/>
+            <concept code="N85" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medfødt misdannelse i nervesystem" level="0" type="L"/>
+            <concept code="N86" codeSystem="2.16.840.1.113883.6.138.2" displayName="Dissemineret sklerose" level="0" type="L"/>
+            <concept code="N87" codeSystem="2.16.840.1.113883.6.138.2" displayName="Parkinsons sygdom" level="0" type="L"/>
+            <concept code="N88" codeSystem="2.16.840.1.113883.6.138.2" displayName="Epilepsi" level="0" type="L"/>
+            <concept code="N89" codeSystem="2.16.840.1.113883.6.138.2" displayName="Migræne" level="0" type="L"/>
+            <concept code="N90" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hortons hovedpine" level="0" type="L"/>
+            <concept code="N91" codeSystem="2.16.840.1.113883.6.138.2" displayName="Facialisparese" level="0" type="L"/>
+            <concept code="N92" codeSystem="2.16.840.1.113883.6.138.2" displayName="Trigeminusneuralgi" level="0" type="L"/>
+            <concept code="N93" codeSystem="2.16.840.1.113883.6.138.2" displayName="Karpaltunnelsyndrom" level="0" type="L"/>
+            <concept code="N94" codeSystem="2.16.840.1.113883.6.138.2" displayName="Perifer neuropati" level="0" type="L"/>
+            <concept code="N95" codeSystem="2.16.840.1.113883.6.138.2" displayName="Spændingshovedpine" level="0" type="L"/>
+            <concept code="N99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Neurologisk sygdom IKA" level="0" type="L"/>
+            <concept code="P01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Angst/nervøsitet/anspændthed" level="0" type="L"/>
+            <concept code="P02" codeSystem="2.16.840.1.113883.6.138.2" displayName="Akut belastningsreaktion" level="0" type="L"/>
+            <concept code="P03" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedtrykthed" level="0" type="L"/>
+            <concept code="P04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Irritabel/vredladen følelse/adfærd" level="0" type="L"/>
+            <concept code="P05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Alderspræget følelse/adfærd" level="0" type="L"/>
+            <concept code="P06" codeSystem="2.16.840.1.113883.6.138.2" displayName="Søvnforstyrrelse" level="0" type="L"/>
+            <concept code="P07" codeSystem="2.16.840.1.113883.6.138.2" displayName="Manglende seksuel lyst" level="0" type="L"/>
+            <concept code="P08" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat seksuel tilfredsstillelse" level="0" type="L"/>
+            <concept code="P09" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt vedr. seksuel afvigelse" level="0" type="L"/>
+            <concept code="P10" codeSystem="2.16.840.1.113883.6.138.2" displayName="Stammen/støden/tic" level="0" type="L"/>
+            <concept code="P11" codeSystem="2.16.840.1.113883.6.138.2" displayName="Spiseproblem hos barn" level="0" type="L"/>
+            <concept code="P12" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ikke-organisk enurese" level="0" type="L"/>
+            <concept code="P13" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ikke-organisk enkoprese" level="0" type="L"/>
+            <concept code="P15" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kronisk alkoholmisbrug" level="0" type="L"/>
+            <concept code="P16" codeSystem="2.16.840.1.113883.6.138.2" displayName="Akut alkoholforgiftning" level="0" type="L"/>
+            <concept code="P17" codeSystem="2.16.840.1.113883.6.138.2" displayName="Tobaksmisbrug" level="0" type="L"/>
+            <concept code="P18" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medicinmisbrug" level="0" type="L"/>
+            <concept code="P19" codeSystem="2.16.840.1.113883.6.138.2" displayName="Stofmisbrug" level="0" type="L"/>
+            <concept code="P20" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hukommelsessvigt" level="0" type="L"/>
+            <concept code="P22" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage vedr barns adfærd" level="0" type="L"/>
+            <concept code="P23" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage vedr adfærd i pubertet" level="0" type="L"/>
+            <concept code="P24" codeSystem="2.16.840.1.113883.6.138.2" displayName="Specifikt indlæringsproblem" level="0" type="L"/>
+            <concept code="P25" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr forandring i livsfase hos voksen" level="0" type="L"/>
+            <concept code="P27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for psykisk sygdom" level="0" type="L"/>
+            <concept code="P28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr psykisk sygdom" level="0" type="L"/>
+            <concept code="P29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Psykisk symptom/klage IKA" level="0" type="L"/>
+            <concept code="P70" codeSystem="2.16.840.1.113883.6.138.2" displayName="Demens" level="0" type="L"/>
+            <concept code="P71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Organisk psykose IKA" level="0" type="L"/>
+            <concept code="P72" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skizofreni" level="0" type="L"/>
+            <concept code="P73" codeSystem="2.16.840.1.113883.6.138.2" displayName="Maniodepressiv psykose" level="0" type="L"/>
+            <concept code="P74" codeSystem="2.16.840.1.113883.6.138.2" displayName="Angsttilstand" level="0" type="L"/>
+            <concept code="P75" codeSystem="2.16.840.1.113883.6.138.2" displayName="Somatoform forstyrrelse" level="0" type="L"/>
+            <concept code="P76" codeSystem="2.16.840.1.113883.6.138.2" displayName="Depression" level="0" type="L"/>
+            <concept code="P77" codeSystem="2.16.840.1.113883.6.138.2" displayName="Selvmord/selvmordsforsøg" level="0" type="L"/>
+            <concept code="P78" codeSystem="2.16.840.1.113883.6.138.2" displayName="Neurasteni" level="0" type="L"/>
+            <concept code="P79" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fobisk/obsessiv/kompulsiv tilstand" level="0" type="L"/>
+            <concept code="P80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Personlighedsforstyrrelse" level="0" type="L"/>
+            <concept code="P81" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hyperkinetisk forstyrrelse" level="0" type="L"/>
+            <concept code="P82" codeSystem="2.16.840.1.113883.6.138.2" displayName="Posttraumatisk belastningsreaktion" level="0" type="L"/>
+            <concept code="P85" codeSystem="2.16.840.1.113883.6.138.2" displayName="Mental retardering" level="0" type="L"/>
+            <concept code="P86" codeSystem="2.16.840.1.113883.6.138.2" displayName="Anoreksi/bulimi" level="0" type="L"/>
+            <concept code="P98" codeSystem="2.16.840.1.113883.6.138.2" displayName="Psykose IKA" level="0" type="L"/>
+            <concept code="P99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Psykisk sygdom IKA" level="0" type="L"/>
+            <concept code="R01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Smerte fra luftveje" level="0" type="L"/>
+            <concept code="R02" codeSystem="2.16.840.1.113883.6.138.2" displayName="Åndenød" level="0" type="L"/>
+            <concept code="R03" codeSystem="2.16.840.1.113883.6.138.2" displayName="Piben/hvæsen i bryst" level="0" type="L"/>
+            <concept code="R04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Vejrtrækningsproblem IKA" level="0" type="L"/>
+            <concept code="R05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hoste" level="0" type="L"/>
+            <concept code="R06" codeSystem="2.16.840.1.113883.6.138.2" displayName="Næseblod" level="0" type="L"/>
+            <concept code="R07" codeSystem="2.16.840.1.113883.6.138.2" displayName="Snue/nysen" level="0" type="L"/>
+            <concept code="R08" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra næse IKA" level="0" type="L"/>
+            <concept code="R09" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra bihule" level="0" type="L"/>
+            <concept code="R21" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra svælg" level="0" type="L"/>
+            <concept code="R23" codeSystem="2.16.840.1.113883.6.138.2" displayName="Stemmeændring/hæshed" level="0" type="L"/>
+            <concept code="R24" codeSystem="2.16.840.1.113883.6.138.2" displayName="Blodopspytning" level="0" type="L"/>
+            <concept code="R25" codeSystem="2.16.840.1.113883.6.138.2" displayName="Abnormt opspyt" level="0" type="L"/>
+            <concept code="R26" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for kræft i luftveje" level="0" type="L"/>
+            <concept code="R27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for luftvejssygdom IKA" level="0" type="L"/>
+            <concept code="R28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr luftveje" level="0" type="L"/>
+            <concept code="R29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra luftveje IKA" level="0" type="L"/>
+            <concept code="R71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kighoste" level="0" type="L"/>
+            <concept code="R72" codeSystem="2.16.840.1.113883.6.138.2" displayName="Streptokokfaryngit" level="0" type="L"/>
+            <concept code="R73" codeSystem="2.16.840.1.113883.6.138.2" displayName="Byld i næse IKA" level="0" type="L"/>
+            <concept code="R74" codeSystem="2.16.840.1.113883.6.138.2" displayName="Akut øvre luftvejsinfektion" level="0" type="L"/>
+            <concept code="R75" codeSystem="2.16.840.1.113883.6.138.2" displayName="Akut/kronisk bihulebetændelse" level="0" type="L"/>
+            <concept code="R76" codeSystem="2.16.840.1.113883.6.138.2" displayName="Akut tonsillit" level="0" type="L"/>
+            <concept code="R77" codeSystem="2.16.840.1.113883.6.138.2" displayName="Akut laryngit/trakeit" level="0" type="L"/>
+            <concept code="R78" codeSystem="2.16.840.1.113883.6.138.2" displayName="Akut bronkit/bronkiolit" level="0" type="L"/>
+            <concept code="R79" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kronisk bronkit" level="0" type="L"/>
+            <concept code="R80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Influenza" level="0" type="L"/>
+            <concept code="R81" codeSystem="2.16.840.1.113883.6.138.2" displayName="Lungebetændelse" level="0" type="L"/>
+            <concept code="R82" codeSystem="2.16.840.1.113883.6.138.2" displayName="Pleurit/pleuraekssudat" level="0" type="L"/>
+            <concept code="R83" codeSystem="2.16.840.1.113883.6.138.2" displayName="Infektion i luftveje IKA" level="0" type="L"/>
+            <concept code="R84" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i bronkie/lunge" level="0" type="L"/>
+            <concept code="R85" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i luftveje IKA" level="0" type="L"/>
+            <concept code="R86" codeSystem="2.16.840.1.113883.6.138.2" displayName="Godartet svulst i luftveje" level="0" type="L"/>
+            <concept code="R87" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fremmedlegeme i næse/strube/bronkie" level="0" type="L"/>
+            <concept code="R88" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skade på luftveje IKA" level="0" type="L"/>
+            <concept code="R89" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medfødt misdannelse i luftveje" level="0" type="L"/>
+            <concept code="R90" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hypertrofi af tonsiller/polypper" level="0" type="L"/>
+            <concept code="R92" codeSystem="2.16.840.1.113883.6.138.2" displayName="Uspecifik svulst i luftveje" level="0" type="L"/>
+            <concept code="R95" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kronisk obstruktiv lungesygdom" level="0" type="L"/>
+            <concept code="R96" codeSystem="2.16.840.1.113883.6.138.2" displayName="Astma" level="0" type="L"/>
+            <concept code="R97" codeSystem="2.16.840.1.113883.6.138.2" displayName="Høfeber" level="0" type="L"/>
+            <concept code="R98" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hyperventilation" level="0" type="L"/>
+            <concept code="R99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Luftvejssygdom IKA" level="0" type="L"/>
+            <concept code="S01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Smerte/ømhed i hud" level="0" type="L"/>
+            <concept code="S02" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kløe" level="0" type="L"/>
+            <concept code="S03" codeSystem="2.16.840.1.113883.6.138.2" displayName="Vorte" level="0" type="L"/>
+            <concept code="S04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Lokal knude/fortykkelse i hud" level="0" type="L"/>
+            <concept code="S05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Udbredte knuder/fortykkelser i hud" level="0" type="L"/>
+            <concept code="S06" codeSystem="2.16.840.1.113883.6.138.2" displayName="Lokaliseret udslæt" level="0" type="L"/>
+            <concept code="S07" codeSystem="2.16.840.1.113883.6.138.2" displayName="Generaliseret udslæt" level="0" type="L"/>
+            <concept code="S08" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ændret hudfarve" level="0" type="L"/>
+            <concept code="S09" codeSystem="2.16.840.1.113883.6.138.2" displayName="Infektion i finger/tå" level="0" type="L"/>
+            <concept code="S10" codeSystem="2.16.840.1.113883.6.138.2" displayName="Byld i hud" level="0" type="L"/>
+            <concept code="S11" codeSystem="2.16.840.1.113883.6.138.2" displayName="Posttraumatisk hudinfektion" level="0" type="L"/>
+            <concept code="S12" codeSystem="2.16.840.1.113883.6.138.2" displayName="Insektstik" level="0" type="L"/>
+            <concept code="S13" codeSystem="2.16.840.1.113883.6.138.2" displayName="Bid af dyr/menneske" level="0" type="L"/>
+            <concept code="S14" codeSystem="2.16.840.1.113883.6.138.2" displayName="Forbrænding/skoldning" level="0" type="L"/>
+            <concept code="S15" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fremmedlegeme i hud" level="0" type="L"/>
+            <concept code="S16" codeSystem="2.16.840.1.113883.6.138.2" displayName="Læsion/kontusion med intakt hud" level="0" type="L"/>
+            <concept code="S17" codeSystem="2.16.840.1.113883.6.138.2" displayName="Overfladisk hudlæsion/hudafskrabning" level="0" type="L"/>
+            <concept code="S18" codeSystem="2.16.840.1.113883.6.138.2" displayName="Laceration/snitsår" level="0" type="L"/>
+            <concept code="S19" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skade på hud IKA" level="0" type="L"/>
+            <concept code="S20" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hård hud/ligtorn" level="0" type="L"/>
+            <concept code="S21" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage vedr hudforandring" level="0" type="L"/>
+            <concept code="S22" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra negl" level="0" type="L"/>
+            <concept code="S23" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hårtab/skaldethed" level="0" type="L"/>
+            <concept code="S24" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra hår/hovedbund" level="0" type="L"/>
+            <concept code="S26" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for hudkræft" level="0" type="L"/>
+            <concept code="S27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for hudsygdom IKA" level="0" type="L"/>
+            <concept code="S28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr hudsygdom" level="0" type="L"/>
+            <concept code="S29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra hud IKA" level="0" type="L"/>
+            <concept code="S70" codeSystem="2.16.840.1.113883.6.138.2" displayName="Herpes zoster" level="0" type="L"/>
+            <concept code="S71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Herpes simplex-infektion" level="0" type="L"/>
+            <concept code="S72" codeSystem="2.16.840.1.113883.6.138.2" displayName="Scabies" level="0" type="L"/>
+            <concept code="S73" codeSystem="2.16.840.1.113883.6.138.2" displayName="Pedikulose/hudinfestation IKA" level="0" type="L"/>
+            <concept code="S74" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hudsvamp" level="0" type="L"/>
+            <concept code="S75" codeSystem="2.16.840.1.113883.6.138.2" displayName="Candida-infektion i hud" level="0" type="L"/>
+            <concept code="S76" codeSystem="2.16.840.1.113883.6.138.2" displayName="Infektion i hud IKA" level="0" type="L"/>
+            <concept code="S77" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hudkræft" level="0" type="L"/>
+            <concept code="S78" codeSystem="2.16.840.1.113883.6.138.2" displayName="Lipom i hud" level="0" type="L"/>
+            <concept code="S79" codeSystem="2.16.840.1.113883.6.138.2" displayName="Godartet/uspecifik svulst i hud IKA" level="0" type="L"/>
+            <concept code="S80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Solskoldning/aktinisk keratose" level="0" type="L"/>
+            <concept code="S81" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hæmangiom/lymfangiom" level="0" type="L"/>
+            <concept code="S82" codeSystem="2.16.840.1.113883.6.138.2" displayName="Modermærke" level="0" type="L"/>
+            <concept code="S83" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medfødt misdannelse i hud IKA" level="0" type="L"/>
+            <concept code="S84" codeSystem="2.16.840.1.113883.6.138.2" displayName="Impetigo" level="0" type="L"/>
+            <concept code="S85" codeSystem="2.16.840.1.113883.6.138.2" displayName="Pilonidalcyste/-fistel" level="0" type="L"/>
+            <concept code="S86" codeSystem="2.16.840.1.113883.6.138.2" displayName="Seboroisk dermatit" level="0" type="L"/>
+            <concept code="S87" codeSystem="2.16.840.1.113883.6.138.2" displayName="Atopisk dermatit" level="0" type="L"/>
+            <concept code="S88" codeSystem="2.16.840.1.113883.6.138.2" displayName="Allergisk/toksisk kontaktdermatit" level="0" type="L"/>
+            <concept code="S89" codeSystem="2.16.840.1.113883.6.138.2" displayName="Bledermatit" level="0" type="L"/>
+            <concept code="S90" codeSystem="2.16.840.1.113883.6.138.2" displayName="Pityriasis rosea" level="0" type="L"/>
+            <concept code="S91" codeSystem="2.16.840.1.113883.6.138.2" displayName="Psoriasis" level="0" type="L"/>
+            <concept code="S92" codeSystem="2.16.840.1.113883.6.138.2" displayName="Svedkirtelsygdom" level="0" type="L"/>
+            <concept code="S93" codeSystem="2.16.840.1.113883.6.138.2" displayName="Aterom" level="0" type="L"/>
+            <concept code="S94" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedgroet negl" level="0" type="L"/>
+            <concept code="S95" codeSystem="2.16.840.1.113883.6.138.2" displayName="Molluscum contagiosum" level="0" type="L"/>
+            <concept code="S96" codeSystem="2.16.840.1.113883.6.138.2" displayName="Akne" level="0" type="L"/>
+            <concept code="S97" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kronisk sår i hud" level="0" type="L"/>
+            <concept code="S98" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nældefeber" level="0" type="L"/>
+            <concept code="S99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hudsygdom IKA" level="0" type="L"/>
+            <concept code="T01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Overdreven tørst" level="0" type="L"/>
+            <concept code="T02" codeSystem="2.16.840.1.113883.6.138.2" displayName="Overdreven appetit" level="0" type="L"/>
+            <concept code="T03" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat appetit" level="0" type="L"/>
+            <concept code="T04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ernæringsproblem hos spædbarn/barn" level="0" type="L"/>
+            <concept code="T05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ernæringsproblem hos voksen" level="0" type="L"/>
+            <concept code="T07" codeSystem="2.16.840.1.113883.6.138.2" displayName="Abnorm vægtstigning" level="0" type="L"/>
+            <concept code="T08" codeSystem="2.16.840.1.113883.6.138.2" displayName="Abnormt vægttab" level="0" type="L"/>
+            <concept code="T10" codeSystem="2.16.840.1.113883.6.138.2" displayName="Forsinket vækst" level="0" type="L"/>
+            <concept code="T11" codeSystem="2.16.840.1.113883.6.138.2" displayName="Dehydrering" level="0" type="L"/>
+            <concept code="T26" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for kræft i endokrine system" level="0" type="L"/>
+            <concept code="T27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for endokrin/metabolisk sygdom IKA" level="0" type="L"/>
+            <concept code="T28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr endokrin/metabolisk sygdom" level="0" type="L"/>
+            <concept code="T29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage vedr endokrine/metaboliske/ernæringsmæssige forh IKA" level="0" type="L"/>
+            <concept code="T70" codeSystem="2.16.840.1.113883.6.138.2" displayName="Infektion i endokrine system" level="0" type="L"/>
+            <concept code="T71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i skjoldbruskkirtel" level="0" type="L"/>
+            <concept code="T72" codeSystem="2.16.840.1.113883.6.138.2" displayName="Godartet svulst i skjoldbruskkirtel" level="0" type="L"/>
+            <concept code="T73" codeSystem="2.16.840.1.113883.6.138.2" displayName="Svulst i endokrine system IKA" level="0" type="L"/>
+            <concept code="T78" codeSystem="2.16.840.1.113883.6.138.2" displayName="Thyroglossuscyste" level="0" type="L"/>
+            <concept code="T80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medfødt misdannelse i endokrine/metaboliske system" level="0" type="L"/>
+            <concept code="T81" codeSystem="2.16.840.1.113883.6.138.2" displayName="Struma" level="0" type="L"/>
+            <concept code="T82" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fedme" level="0" type="L"/>
+            <concept code="T83" codeSystem="2.16.840.1.113883.6.138.2" displayName="Overvægt" level="0" type="L"/>
+            <concept code="T85" codeSystem="2.16.840.1.113883.6.138.2" displayName="Tyrotoksikose" level="0" type="L"/>
+            <concept code="T86" codeSystem="2.16.840.1.113883.6.138.2" displayName="Myksødem" level="0" type="L"/>
+            <concept code="T87" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hypoglykæmi" level="0" type="L"/>
+            <concept code="T89" codeSystem="2.16.840.1.113883.6.138.2" displayName="Diabetes type 1" level="0" type="L"/>
+            <concept code="T90" codeSystem="2.16.840.1.113883.6.138.2" displayName="Diabetes type 2" level="0" type="L"/>
+            <concept code="T91" codeSystem="2.16.840.1.113883.6.138.2" displayName="Mangel på vitamin/ernæring" level="0" type="L"/>
+            <concept code="T92" codeSystem="2.16.840.1.113883.6.138.2" displayName="Urinsur gigt" level="0" type="L"/>
+            <concept code="T93" codeSystem="2.16.840.1.113883.6.138.2" displayName="Lipidforstyrrelse" level="0" type="L"/>
+            <concept code="T99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sygdom vedr endokrine/metaboliske/ernæringsmæssige forhold IKA" level="0" type="L"/>
+            <concept code="U01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Smerte ved vandladning" level="0" type="L"/>
+            <concept code="U02" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hyppig vandladning" level="0" type="L"/>
+            <concept code="U04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Urininkontinens" level="0" type="L"/>
+            <concept code="U05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Vandladningsproblem IKA" level="0" type="L"/>
+            <concept code="U06" codeSystem="2.16.840.1.113883.6.138.2" displayName="Blod i urin" level="0" type="L"/>
+            <concept code="U07" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage vedr urin IKA" level="0" type="L"/>
+            <concept code="U08" codeSystem="2.16.840.1.113883.6.138.2" displayName="Urinretention" level="0" type="L"/>
+            <concept code="U13" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra urinblære IKA" level="0" type="L"/>
+            <concept code="U14" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra nyre" level="0" type="L"/>
+            <concept code="U26" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for kræft i urinveje" level="0" type="L"/>
+            <concept code="U27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for urinvejssygdom IKA" level="0" type="L"/>
+            <concept code="U28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr urinveje" level="0" type="L"/>
+            <concept code="U29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra urinveje IKA" level="0" type="L"/>
+            <concept code="U70" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nyrebækkenbetændelse" level="0" type="L"/>
+            <concept code="U71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Blærebetændelse/urinvejsinfekt IKA" level="0" type="L"/>
+            <concept code="U72" codeSystem="2.16.840.1.113883.6.138.2" displayName="Urinrørsbetændelse" level="0" type="L"/>
+            <concept code="U75" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i nyre" level="0" type="L"/>
+            <concept code="U76" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i urinblære" level="0" type="L"/>
+            <concept code="U77" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i urinveje IKA" level="0" type="L"/>
+            <concept code="U78" codeSystem="2.16.840.1.113883.6.138.2" displayName="Godartet svulst i urinveje" level="0" type="L"/>
+            <concept code="U79" codeSystem="2.16.840.1.113883.6.138.2" displayName="Uspecifik svulst i urinveje" level="0" type="L"/>
+            <concept code="U80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skade på urinveje" level="0" type="L"/>
+            <concept code="U85" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medfødt misdannelse i urinveje" level="0" type="L"/>
+            <concept code="U88" codeSystem="2.16.840.1.113883.6.138.2" displayName="Glomerulonefrit/nefropati" level="0" type="L"/>
+            <concept code="U90" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ortostatisk albuminuri" level="0" type="L"/>
+            <concept code="U95" codeSystem="2.16.840.1.113883.6.138.2" displayName="Urinvejssten" level="0" type="L"/>
+            <concept code="U98" codeSystem="2.16.840.1.113883.6.138.2" displayName="Abnorm urinprøve" level="0" type="L"/>
+            <concept code="U99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Urinvejssygdom IKA" level="0" type="L"/>
+            <concept code="W01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Spørgsmål om svangerskab" level="0" type="L"/>
+            <concept code="W02" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for svangerskab" level="0" type="L"/>
+            <concept code="W03" codeSystem="2.16.840.1.113883.6.138.2" displayName="Blødning i svangerskab" level="0" type="L"/>
+            <concept code="W05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Opkastning i svangerskab" level="0" type="L"/>
+            <concept code="W10" codeSystem="2.16.840.1.113883.6.138.2" displayName="Postkoital svangerskabsforebyggelse" level="0" type="L"/>
+            <concept code="W11" codeSystem="2.16.840.1.113883.6.138.2" displayName="Peroral svangerskabsforebyggelse" level="0" type="L"/>
+            <concept code="W12" codeSystem="2.16.840.1.113883.6.138.2" displayName="Intrauterin svangerskabsforebyggelse" level="0" type="L"/>
+            <concept code="W13" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sterilisation ?" level="0" type="L"/>
+            <concept code="W14" codeSystem="2.16.840.1.113883.6.138.2" displayName="Svangerskabsforebyggelse ? IKA" level="0" type="L"/>
+            <concept code="W15" codeSystem="2.16.840.1.113883.6.138.2" displayName="Infertilitet/subfertilitet ?" level="0" type="L"/>
+            <concept code="W17" codeSystem="2.16.840.1.113883.6.138.2" displayName="Puerperal blødning" level="0" type="L"/>
+            <concept code="W18" codeSystem="2.16.840.1.113883.6.138.2" displayName="Puerperalt symptom/klage IKA" level="0" type="L"/>
+            <concept code="W19" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage vedr amning" level="0" type="L"/>
+            <concept code="W21" codeSystem="2.16.840.1.113883.6.138.2" displayName="Bekymring vedr udseende i svangerskab" level="0" type="L"/>
+            <concept code="W27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for svangerskabskomplikation" level="0" type="L"/>
+            <concept code="W28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr svangerskab" level="0" type="L"/>
+            <concept code="W29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage vedr svangerskab IKA" level="0" type="L"/>
+            <concept code="W70" codeSystem="2.16.840.1.113883.6.138.2" displayName="Puerperal infektion/sepsis" level="0" type="L"/>
+            <concept code="W71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Infektion som komplikation til svangerskab/pueriet IKA" level="0" type="L"/>
+            <concept code="W72" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i forbindelse med svangerskab" level="0" type="L"/>
+            <concept code="W73" codeSystem="2.16.840.1.113883.6.138.2" displayName="Godartet/uspecifik svulst vedr svangerskab" level="0" type="L"/>
+            <concept code="W75" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skade som komplikation til svangerskab" level="0" type="L"/>
+            <concept code="W76" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medfødt misdannelse som svangerskabskomplikation" level="0" type="L"/>
+            <concept code="W78" codeSystem="2.16.840.1.113883.6.138.2" displayName="Svangerskab" level="0" type="L"/>
+            <concept code="W79" codeSystem="2.16.840.1.113883.6.138.2" displayName="Uønsket svangerskab" level="0" type="L"/>
+            <concept code="W80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Svangerskab uden for livmoder" level="0" type="L"/>
+            <concept code="W81" codeSystem="2.16.840.1.113883.6.138.2" displayName="Svangerskabsforgiftning" level="0" type="L"/>
+            <concept code="W82" codeSystem="2.16.840.1.113883.6.138.2" displayName="Spontan abort" level="0" type="L"/>
+            <concept code="W83" codeSystem="2.16.840.1.113883.6.138.2" displayName="Provokeret abort" level="0" type="L"/>
+            <concept code="W84" codeSystem="2.16.840.1.113883.6.138.2" displayName="Svangerskab med høj risiko" level="0" type="L"/>
+            <concept code="W85" codeSystem="2.16.840.1.113883.6.138.2" displayName="Debuterende diabetes i svangerskab" level="0" type="L"/>
+            <concept code="W90" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ukompliceret fødsel med levendefødt barn" level="0" type="L"/>
+            <concept code="W91" codeSystem="2.16.840.1.113883.6.138.2" displayName="Ukompliceret fødsel med dødfødt barn" level="0" type="L"/>
+            <concept code="W92" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kompliceret fødsel med levendefødt barn" level="0" type="L"/>
+            <concept code="W93" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kompliceret fødsel med dødfødt barn" level="0" type="L"/>
+            <concept code="W94" codeSystem="2.16.840.1.113883.6.138.2" displayName="Puerperal mastit" level="0" type="L"/>
+            <concept code="W95" codeSystem="2.16.840.1.113883.6.138.2" displayName="Puerperal mammasygdom IKA" level="0" type="L"/>
+            <concept code="W96" codeSystem="2.16.840.1.113883.6.138.2" displayName="Puerperal komplikation IKA" level="0" type="L"/>
+            <concept code="W99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sygdom under svangerskab/fødsel IKA" level="0" type="L"/>
+            <concept code="X01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Smerte i kønsorgan (Kvinde)" level="0" type="L"/>
+            <concept code="X02" codeSystem="2.16.840.1.113883.6.138.2" displayName="Menstruationssmerte" level="0" type="L"/>
+            <concept code="X03" codeSystem="2.16.840.1.113883.6.138.2" displayName="Smerte mellem menstruationer" level="0" type="L"/>
+            <concept code="X04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Smerte ved samleje (Kvinde)" level="0" type="L"/>
+            <concept code="X05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Manglende/sparsom menstruation" level="0" type="L"/>
+            <concept code="X06" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kraftig menstruation" level="0" type="L"/>
+            <concept code="X07" codeSystem="2.16.840.1.113883.6.138.2" displayName="Uregelmæssig/hyppig menstruation" level="0" type="L"/>
+            <concept code="X08" codeSystem="2.16.840.1.113883.6.138.2" displayName="Blødning mellem menstruationer" level="0" type="L"/>
+            <concept code="X09" codeSystem="2.16.840.1.113883.6.138.2" displayName="Præmenstruelt symptom/klage" level="0" type="L"/>
+            <concept code="X10" codeSystem="2.16.840.1.113883.6.138.2" displayName="Udsættelse af menstruation" level="0" type="L"/>
+            <concept code="X11" codeSystem="2.16.840.1.113883.6.138.2" displayName="Klimakterielt symptom/klage" level="0" type="L"/>
+            <concept code="X12" codeSystem="2.16.840.1.113883.6.138.2" displayName="Blødning efter menopause" level="0" type="L"/>
+            <concept code="X13" codeSystem="2.16.840.1.113883.6.138.2" displayName="Blødning efter samleje" level="0" type="L"/>
+            <concept code="X14" codeSystem="2.16.840.1.113883.6.138.2" displayName="Udflåd fra vagina" level="0" type="L"/>
+            <concept code="X15" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra vagina IKA" level="0" type="L"/>
+            <concept code="X16" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra vulva" level="0" type="L"/>
+            <concept code="X17" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra underliv (Kvinde)" level="0" type="L"/>
+            <concept code="X18" codeSystem="2.16.840.1.113883.6.138.2" displayName="Smerte i mamma (Kvinde)" level="0" type="L"/>
+            <concept code="X19" codeSystem="2.16.840.1.113883.6.138.2" displayName="Knude i mamma (Kvinde)" level="0" type="L"/>
+            <concept code="X20" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra brystvorte (Kvinde)" level="0" type="L"/>
+            <concept code="X21" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra bryst (Kvinde) IKA" level="0" type="L"/>
+            <concept code="X22" codeSystem="2.16.840.1.113883.6.138.2" displayName="Bekymring vedr brystets udseende (Kvinde)" level="0" type="L"/>
+            <concept code="X23" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for seksuelt overført sygdom (Kvinde)" level="0" type="L"/>
+            <concept code="X24" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for seksuel dysfunktion (Kvinde)" level="0" type="L"/>
+            <concept code="X25" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for kræft i kønsorgan (Kvinde)" level="0" type="L"/>
+            <concept code="X26" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for brystkræft (Kvinde)" level="0" type="L"/>
+            <concept code="X27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for sygdom i kønsorgan/mamma (Kvinde) IKA" level="0" type="L"/>
+            <concept code="X28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr kønsorgan (Kvinde)" level="0" type="L"/>
+            <concept code="X29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra kønsorgan (Kvinde) IKA" level="0" type="L"/>
+            <concept code="X70" codeSystem="2.16.840.1.113883.6.138.2" displayName="Syfilis (Kvinde)" level="0" type="L"/>
+            <concept code="X71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Gonore (Kvinde)" level="0" type="L"/>
+            <concept code="X72" codeSystem="2.16.840.1.113883.6.138.2" displayName="Candida-infektion i kønsorgan (Kvinde)" level="0" type="L"/>
+            <concept code="X73" codeSystem="2.16.840.1.113883.6.138.2" displayName="Trichomonas-infektion i kønsorgan (Kvinde)" level="0" type="L"/>
+            <concept code="X74" codeSystem="2.16.840.1.113883.6.138.2" displayName="Underlivsbetændelse" level="0" type="L"/>
+            <concept code="X75" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i livmoderhals" level="0" type="L"/>
+            <concept code="X76" codeSystem="2.16.840.1.113883.6.138.2" displayName="Brystkræft (Kvinde)" level="0" type="L"/>
+            <concept code="X77" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i kvindeligt kønsorgan IKA" level="0" type="L"/>
+            <concept code="X78" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fibrom i livmoder" level="0" type="L"/>
+            <concept code="X79" codeSystem="2.16.840.1.113883.6.138.2" displayName="Godartet svulst i bryst (Kvinde)" level="0" type="L"/>
+            <concept code="X80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Godartet svulst i kønsorgan (Kvinde)" level="0" type="L"/>
+            <concept code="X81" codeSystem="2.16.840.1.113883.6.138.2" displayName="Uspecifik svulst i kønsorgan (Kvinde) IKA" level="0" type="L"/>
+            <concept code="X82" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skade på kønsorgan (Kvinde)" level="0" type="L"/>
+            <concept code="X83" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medfødt misdannelse i kønsorgan (Kvinde)" level="0" type="L"/>
+            <concept code="X84" codeSystem="2.16.840.1.113883.6.138.2" displayName="Vaginit/vulvit IKA" level="0" type="L"/>
+            <concept code="X85" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sygdom i livmoderhals IKA" level="0" type="L"/>
+            <concept code="X86" codeSystem="2.16.840.1.113883.6.138.2" displayName="Abnorm cytologisk prøve fra livmoderhals" level="0" type="L"/>
+            <concept code="X87" codeSystem="2.16.840.1.113883.6.138.2" displayName="Prolaps af livmoder/skede" level="0" type="L"/>
+            <concept code="X88" codeSystem="2.16.840.1.113883.6.138.2" displayName="Fibrocystisk sygdom i mamma (Kvinde)" level="0" type="L"/>
+            <concept code="X89" codeSystem="2.16.840.1.113883.6.138.2" displayName="Præmenstruelt syndrom" level="0" type="L"/>
+            <concept code="X90" codeSystem="2.16.840.1.113883.6.138.2" displayName="Herpes genitalis (Kvinde)" level="0" type="L"/>
+            <concept code="X91" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kondylom (Kvinde)" level="0" type="L"/>
+            <concept code="X92" codeSystem="2.16.840.1.113883.6.138.2" displayName="Chlamydiainfektion i kønsorgan (Kvinde)" level="0" type="L"/>
+            <concept code="X99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sygdom i kønsorgan (Kvinde) IKA" level="0" type="L"/>
+            <concept code="Y01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Smerte i penis" level="0" type="L"/>
+            <concept code="Y02" codeSystem="2.16.840.1.113883.6.138.2" displayName="Smerte i testikel/pung" level="0" type="L"/>
+            <concept code="Y03" codeSystem="2.16.840.1.113883.6.138.2" displayName="Udflåd fra urinrør (Mand)" level="0" type="L"/>
+            <concept code="Y04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra penis IKA" level="0" type="L"/>
+            <concept code="Y05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra testikel/pung IKA" level="0" type="L"/>
+            <concept code="Y06" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra prostata" level="0" type="L"/>
+            <concept code="Y07" codeSystem="2.16.840.1.113883.6.138.2" displayName="Erektiv dysfunktion" level="0" type="L"/>
+            <concept code="Y08" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage vedr seksuel funktion (Mand) IKA" level="0" type="L"/>
+            <concept code="Y10" codeSystem="2.16.840.1.113883.6.138.2" displayName="Infertilitet/subfertilitet (Mand)" level="0" type="L"/>
+            <concept code="Y13" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sterilisation (Mand)" level="0" type="L"/>
+            <concept code="Y14" codeSystem="2.16.840.1.113883.6.138.2" displayName="Svangerskabsforebyggelse (Mand) IKA" level="0" type="L"/>
+            <concept code="Y16" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra mamma (Mand)" level="0" type="L"/>
+            <concept code="Y24" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for seksuel dysfunktion (Mand)" level="0" type="L"/>
+            <concept code="Y25" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for seksuelt overført sygdom (Mand)" level="0" type="L"/>
+            <concept code="Y26" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for kræft i kønsorgan (Mand)" level="0" type="L"/>
+            <concept code="Y27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for sygdom i kønsorgan (Mand) IKA" level="0" type="L"/>
+            <concept code="Y28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr kønsorgan (Mand)" level="0" type="L"/>
+            <concept code="Y29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Symptom/klage fra kønsorgan (Mand) IKA" level="0" type="L"/>
+            <concept code="Y70" codeSystem="2.16.840.1.113883.6.138.2" displayName="Syfilis (Mand)" level="0" type="L"/>
+            <concept code="Y71" codeSystem="2.16.840.1.113883.6.138.2" displayName="Gonore (Mand)" level="0" type="L"/>
+            <concept code="Y72" codeSystem="2.16.840.1.113883.6.138.2" displayName="Herpes genitalis (Mand)" level="0" type="L"/>
+            <concept code="Y73" codeSystem="2.16.840.1.113883.6.138.2" displayName="Betændelse i prostata/sædblære" level="0" type="L"/>
+            <concept code="Y74" codeSystem="2.16.840.1.113883.6.138.2" displayName="Betændelse i testikel/bitestikel" level="0" type="L"/>
+            <concept code="Y75" codeSystem="2.16.840.1.113883.6.138.2" displayName="Forhudsbetændelse" level="0" type="L"/>
+            <concept code="Y76" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kondylom (Mand)" level="0" type="L"/>
+            <concept code="Y77" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i prostata" level="0" type="L"/>
+            <concept code="Y78" codeSystem="2.16.840.1.113883.6.138.2" displayName="Kræft i kønsorgan (Mand) IKA" level="0" type="L"/>
+            <concept code="Y79" codeSystem="2.16.840.1.113883.6.138.2" displayName="Godartet/uspecifik svulst i kønsorgan (Mand)" level="0" type="L"/>
+            <concept code="Y80" codeSystem="2.16.840.1.113883.6.138.2" displayName="Skade på kønsorgan (Mand)" level="0" type="L"/>
+            <concept code="Y81" codeSystem="2.16.840.1.113883.6.138.2" displayName="Forhudsforsnævring" level="0" type="L"/>
+            <concept code="Y82" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hypospadi" level="0" type="L"/>
+            <concept code="Y83" codeSystem="2.16.840.1.113883.6.138.2" displayName="Retentio testis" level="0" type="L"/>
+            <concept code="Y84" codeSystem="2.16.840.1.113883.6.138.2" displayName="Medfødt misdannelse i kønsorgan (Mand) IKA" level="0" type="L"/>
+            <concept code="Y85" codeSystem="2.16.840.1.113883.6.138.2" displayName="Prostatahypertrofi" level="0" type="L"/>
+            <concept code="Y86" codeSystem="2.16.840.1.113883.6.138.2" displayName="Hydrocele" level="0" type="L"/>
+            <concept code="Y99" codeSystem="2.16.840.1.113883.6.138.2" displayName="Sygdom i kønsorgan (Mand) IKA" level="0" type="L"/>
+            <concept code="Z01" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr fattigdom/økonomi" level="0" type="L"/>
+            <concept code="Z02" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr mad/vand" level="0" type="L"/>
+            <concept code="Z03" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr bolig/naboskab" level="0" type="L"/>
+            <concept code="Z04" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr sociale/kulturelle forhold" level="0" type="L"/>
+            <concept code="Z05" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr arbejde" level="0" type="L"/>
+            <concept code="Z06" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr arbejdsløshed" level="0" type="L"/>
+            <concept code="Z07" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr uddannelse" level="0" type="L"/>
+            <concept code="Z08" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr social sikring/velfærd" level="0" type="L"/>
+            <concept code="Z09" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr juridisk forhold" level="0" type="L"/>
+            <concept code="Z10" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr sundhedsvæsen" level="0" type="L"/>
+            <concept code="Z11" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr komplians/sygdomsforståelse" level="0" type="L"/>
+            <concept code="Z12" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr partner" level="0" type="L"/>
+            <concept code="Z13" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr partners adfærd" level="0" type="L"/>
+            <concept code="Z14" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr partners sygdom" level="0" type="L"/>
+            <concept code="Z15" codeSystem="2.16.840.1.113883.6.138.2" displayName="Tab/dødsfald vedr partner" level="0" type="L"/>
+            <concept code="Z16" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr barn" level="0" type="L"/>
+            <concept code="Z18" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr barns sygdom" level="0" type="L"/>
+            <concept code="Z19" codeSystem="2.16.840.1.113883.6.138.2" displayName="Tab/dødsfald vedr barn" level="0" type="L"/>
+            <concept code="Z20" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr forældre/familie" level="0" type="L"/>
+            <concept code="Z21" codeSystem="2.16.840.1.113883.6.138.2" displayName="Adfærdsproblem hos forældre/familie" level="0" type="L"/>
+            <concept code="Z22" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr sygdom hos forældre/familie" level="0" type="L"/>
+            <concept code="Z23" codeSystem="2.16.840.1.113883.6.138.2" displayName="Tab/dødsfald vedr forældre/familiemedlemmer" level="0" type="L"/>
+            <concept code="Z24" codeSystem="2.16.840.1.113883.6.138.2" displayName="Problem vedr forhold til venner" level="0" type="L"/>
+            <concept code="Z25" codeSystem="2.16.840.1.113883.6.138.2" displayName="Offer for fysisk vold" level="0" type="L"/>
+            <concept code="Z27" codeSystem="2.16.840.1.113883.6.138.2" displayName="Frygt for socialt problem" level="0" type="L"/>
+            <concept code="Z28" codeSystem="2.16.840.1.113883.6.138.2" displayName="Nedsat funktion/handicap vedr socialt problem" level="0" type="L"/>
+            <concept code="Z29" codeSystem="2.16.840.1.113883.6.138.2" displayName="Socialt problem IKA" level="0" type="L"/>
+        </conceptList>
+    </valueSet>
+</valueSets>

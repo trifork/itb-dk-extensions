@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.3.6.1.4.1.12559.11.18.2" version="1.0" displayName="ActStatus">
+        <ConceptList xml:lang="en-US">
+            <Concept displayName="aborted" codeSystemName="HL7:ActStatus" codeSystem="2.16.840.1.113883.5.14" code="aborted"/>
+            <Concept displayName="active" codeSystemName="HL7:ActStatus" codeSystem="2.16.840.1.113883.5.14" code="active"/>
+            <Concept displayName="cancelled" codeSystemName="HL7:ActStatus" codeSystem="2.16.840.1.113883.5.14" code="cancelled"/>
+            <Concept displayName="completed" codeSystemName="HL7:ActStatus" codeSystem="2.16.840.1.113883.5.14" code="completed"/>
+            <Concept displayName="held" codeSystemName="HL7:ActStatus" codeSystem="2.16.840.1.113883.5.14" code="held"/>
+            <Concept displayName="new" codeSystemName="HL7:ActStatus" codeSystem="2.16.840.1.113883.5.14" code="new"/>
+            <Concept displayName="normal" codeSystemName="HL7:ActStatus" codeSystem="2.16.840.1.113883.5.14" code="normal"/>
+            <Concept displayName="nullified" codeSystemName="HL7:ActStatus" codeSystem="2.16.840.1.113883.5.14" code="nullified"/>
+            <Concept displayName="obsolete" codeSystemName="HL7:ActStatus" codeSystem="2.16.840.1.113883.5.14" code="obsolete"/>
+            <Concept displayName="suspended" codeSystemName="HL7:ActStatus" codeSystem="2.16.840.1.113883.5.14" code="suspended"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

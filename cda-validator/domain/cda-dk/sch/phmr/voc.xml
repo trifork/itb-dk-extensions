@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<systems xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.lantanagroup.com/voc">
+  <system valueSetOid="2.16.840.1.113883.1.11.16926" valueSetName="HL7 BasicConfidentialityKind">
+    <code value="N" displayName="normal" codeSystemName="ConfidentialityCode" codeSystem="2.16.840.1.113883.5.25" />
+    <code value="R" displayName="restricted" codeSystemName="ConfidentialityCode" codeSystem="2.16.840.1.113883.5.25" />
+    <code value="V" displayName="very restricted" codeSystemName="ConfidentialityCode" codeSystem="2.16.840.1.113883.5.25" />
+  </system>
+  <system valueSetOid="2.16.840.1.113883.1.11.78" valueSetName="Observation Interpretation (HL7)">
+    <code value="A" displayName="abnormal" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="B" displayName="better" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="Carrier" displayName="carrier" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="D" displayName="decreased" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="HX" displayName="above high threshold" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="I" displayName="intermediate" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="IND" displayName="indeterminate" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="LX" displayName="below low threshold" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="MS" displayName="moderately susceptible" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="N" displayName="normal" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="NEG" displayName="negative" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="POS" displayName="positive" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="R" displayName="resistent" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="S" displayName="susceptible" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="U" displayName="increased" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="VS" displayName="very susceptible" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="W" displayName="worse" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="EX" displayName="outside threshold" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="HX" displayName="above high threshold" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="&lt;" displayName="low off scale" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="&gt;" displayName="high off scale" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="AA" displayName="abnormal alert" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="HH" displayName="high alert" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="LL" displayName="low alert" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="H" displayName="high" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+    <code value="L" displayName="low" codeSystemName="HITSP-CS-83" codeSystem="2.16.840.1.113883.5.83" />
+  </system>
+  <system valueSetOid="2.16.840.1.113883.11.20.12.1" valueSetName="Personal And Legal Relationship Role Type">
+    <code value="SELF" displayName="self" codeSystemName="RoleCode" codeSystem="2.16.840.1.113883.5.111" />
+    <code value="MTH" displayName="mother" codeSystemName="RoleCode" codeSystem="2.16.840.1.113883.5.111" />
+    <code value="FTH" displayName="father" codeSystemName="RoleCode" codeSystem="2.16.840.1.113883.5.111" />
+    <code value="DAU" displayName="natural daughter" codeSystemName="RoleCode" codeSystem="2.16.840.1.113883.5.111" />
+    <code value="SON" displayName="natural son" codeSystemName="RoleCode" codeSystem="2.16.840.1.113883.5.111" />
+    <code value="DAUINLAW" displayName="daughter in-law" codeSystemName="RoleCode" codeSystem="2.16.840.1.113883.5.111" />
+    <code value="SONINLAW" displayName="son in-law" codeSystemName="RoleCode" codeSystem="2.16.840.1.113883.5.111" />
+    <code value="GUARD" displayName="guardian  " codeSystemName="RoleCode" codeSystem="2.16.840.1.113883.5.111" />
+    <code value="HPOWATT" displayName="healthcare power of attorney" codeSystemName="RoleCode" codeSystem="2.16.840.1.113883.5.111" />
+  </system>
+  <system valueSetOid="2.16.840.1.113883.11.20.9.39" valueSetName="Result Status">
+    <code value="aborted" displayName="aborted" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14" />
+    <code value="active" displayName="active" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14" />
+    <code value="cancelled" displayName="cancelled" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14" />
+    <code value="completed" displayName="completed" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14" />
+    <code value="held" displayName="held" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14" />
+    <code value="suspended" displayName="suspended" codeSystemName="ActStatus" codeSystem="2.16.840.1.113883.5.14" />
+  </system>
+  <system valueSetOid="2.16.840.1.113883.1.11.12839" valueSetName="UnitsOfMeasureCaseSensitive">
+    <code value="min" displayName="minute" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="hour" displayName="hr" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="%" displayName="percent" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="cm" displayName="centimeter" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="g" displayName="gram" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="g/(12.h)" displayName="gram per 12 hour" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="g/L" displayName="gram per liter" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="mol" displayName="mole" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[IU]" displayName="international unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Hz" displayName="Hertz" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="N" displayName="Newton" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Pa" displayName="Pascal" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="J" displayName="Joule" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="W" displayName="Watt" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="A" displayName="Amp?re" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="V" displayName="Volt" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="F" displayName="Farad" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Ohm" displayName="Ohm" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="S" displayName="Siemens" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Wb" displayName="Weber" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Cel" displayName="degree Celsius" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="T" displayName="Tesla" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="H" displayName="Henry" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="lm" displayName="lumen" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="lx" displayName="lux" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Bq" displayName="Becquerel" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Gy" displayName="Gray" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Sv" displayName="Sievert" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="gon" displayName="gon" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="deg" displayName="degree" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="l" displayName="liter" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="L" displayName="liter" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="ar" displayName="are" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="min" displayName="minute" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="h" displayName="hour" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="d" displayName="day" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="a_t" displayName="tropical year" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="a_j" displayName="mean Julian year" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="a_g" displayName="mean Gregorian year" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="a" displayName="year" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="wk" displayName="week" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="mo_s" displayName="synodal month" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="mo_j" displayName="mean Julian month" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="mo_g" displayName="mean Gregorian month" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="mo" displayName="month" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="t" displayName="tonne" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="bar" displayName="bar" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="u" displayName="unified atomic mass unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="eV" displayName="electronvolt" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="AU" displayName="astronomic unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="pc" displayName="parsec" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[c]" displayName="velocity of light" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[h]" displayName="Planck constant" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[k]" displayName="Boltzmann constant" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[eps_0]" displayName="permittivity of vacuum" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[mu_0]" displayName="permeability of vacuum" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[e]" displayName="elementary charge" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[m_e]" displayName="electron mass" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[m_p]" displayName="proton mass" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[G]" displayName="Newtonian constant of gravitation" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[g]" displayName="standard acceleration of free fall" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="atm" displayName="standard atmosphere" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[ly]" displayName="light-year" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="gf" displayName="gram-force" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[lbf_av]" displayName="pound force" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Ky" displayName="Kayser" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Gal" displayName="Gal" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="dyn" displayName="dyne" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="erg" displayName="erg" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="P" displayName="Poise" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Bi" displayName="Biot" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="St" displayName="Stokes" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Mx" displayName="Maxwell" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="G" displayName="Gauss" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Oe" displayName="Oersted" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Gb" displayName="Gilbert" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="sb" displayName="stilb" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Lmb" displayName="Lambert" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="ph" displayName="phot" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Ci" displayName="Curie" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="R" displayName="Roentgen" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="RAD" displayName="radiation absorbed dose" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="REM" displayName="radiation equivalent man" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[in_i]" displayName="inch" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[ft_i]" displayName="foot" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[yd_i]" displayName="yard" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[mi_i]" displayName="statute mile" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[fth_i]" displayName="fathom" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[nmi_i]" displayName="nautical mile" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[kn_i]" displayName="knot" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[sin_i]" displayName="square inch" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[sft_i]" displayName="square foot" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[syd_i]" displayName="square yard" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[cin_i]" displayName="cubic inch" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[cft_i]" displayName="cubic foot" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[cyd_i]" displayName="cubic yard" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[bf_i]" displayName="board foot" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[cr_i]" displayName="cord" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[mil_i]" displayName="mil" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[cml_i]" displayName="circular mil" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[hd_i]" displayName="hand" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[ft_us]" displayName="foot" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[yd_us]" displayName="yard" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[in_us]" displayName="inch" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[rd_us]" displayName="rod" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[ch_us]" displayName="Gunter's chain" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[lk_us]" displayName="link for Gunter's chain" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[rch_us]" displayName="Ramden's chain" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[rlk_us]" displayName="link for Ramden's chain" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[fth_us]" displayName="fathom" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[fur_us]" displayName="furlong" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[mi_us]" displayName="mile" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[acr_us]" displayName="acre" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[srd_us]" displayName="square rod" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[smi_us]" displayName="square mile" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[sct]" displayName="section" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[twp]" displayName="township" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[mil_us]" displayName="mil" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[in_br]" displayName="inch" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[ft_br]" displayName="foot" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[rd_br]" displayName="rod" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[ch_br]" displayName="Gunter's chain" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[lk_br]" displayName="link for Gunter's chain" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[fth_br]" displayName="fathom" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[pc_br]" displayName="pace" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[yd_br]" displayName="yard" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[mi_br]" displayName="mile" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[nmi_br]" displayName="nautical mile" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[kn_br]" displayName="knot" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[acr_br]" displayName="acre" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[gal_us]" displayName="Queen?Anne's wine gallon" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[bbl_us]" displayName="barrel" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[qt_us]" displayName="quart" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[pt_us]" displayName="pint" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[gil_us]" displayName="gill" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[foz_us]" displayName="fluid ounce" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[fdr_us]" displayName="fluid dram" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[min_us]" displayName="minim" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[crd_us]" displayName="cord" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[bu_us]" displayName="bushel" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[gal_wi]" displayName="historical winchester gallon" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[pk_us]" displayName="peck" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[dqt_us]" displayName="dry quart" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[dpt_us]" displayName="dry pint" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[tbs_us]" displayName="tablespoon" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[tsp_us]" displayName="teaspoon" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[cup_us]" displayName="cup" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[gal_br]" displayName="gallon" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[pk_br]" displayName="peck" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[bu_br]" displayName="bushel" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[qt_br]" displayName="quart" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[pt_br]" displayName="pint" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[gil_br]" displayName="gill" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[foz_br]" displayName="fluid ounce" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[fdr_br]" displayName="fluid dram" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[min_br]" displayName="minim" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[gr]" displayName="grain" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[lb_av]" displayName="pound" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[oz_av]" displayName="ounce" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[dr_av]" displayName="dram" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[scwt_av]" displayName="short hundredweight" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[lcwt_av]" displayName="long hunderdweight" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[ston_av]" displayName="short ton" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[lton_av]" displayName="long ton" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[stone_av]" displayName="stone" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[pwt_tr]" displayName="pennyweight" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[oz_tr]" displayName="ounce" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[lb_tr]" displayName="pound" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[sc_ap]" displayName="scruple" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[dr_ap]" displayName="dram" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[oz_ap]" displayName="ounce" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[lb_ap]" displayName="pound" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[lne]" displayName="line" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[pnt]" displayName="point" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[pca]" displayName="pica" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[pnt_pr]" displayName="Printer's point" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[pca_pr]" displayName="Printer's pica" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[pied]" displayName="pied" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[pouce]" displayName="pouce" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[ligne]" displayName="ligne" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[didot]" displayName="didot" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[cicero]" displayName="cicero" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[degF]" displayName="degree Fahrenheit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="cal_[15]" displayName="calorie at 15??C" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="cal_[20]" displayName="calorie at 20??C" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="cal_m" displayName="mean calorie" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="cal_IT" displayName="international table calorie" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="cal_th" displayName="thermochemical calorie" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="cal" displayName="calorie" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[Cal]" displayName="nutrition label Calories" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[Btu_39]" displayName="British thermal unit at 39??F" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[Btu_59]" displayName="British thermal unit at 59??F" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[Btu_60]" displayName="British thermal unit at 60??F" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[Btu_m]" displayName="mean British thermal unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[Btu_IT]" displayName="international table British thermal unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[Btu_th]" displayName="thermochemical British thermal unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[Btu]" displayName="British thermal unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[HP]" displayName="horsepower" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="m[H2O]" displayName="meter of water column" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="m[Hg]" displayName="meter of mercury column" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[in_i'H2O]" displayName="inch of water column" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[in_i'Hg]" displayName="inch of mercury column" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[PRU]" displayName="peripheral vascular resistance unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[wood'U]" displayName="Wood unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[diop]" displayName="diopter" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[p'diop]" displayName="prism diopter" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="%[slope]" displayName="percent of slope" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[mesh_i]" displayName="mesh" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[Ch]" displayName="Charri?re" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[drp]" displayName="drop" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[hnsf'U]" displayName="Hounsfield unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[MET]" displayName="metabolic equivalent" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[hp'_X]" displayName="homeopathic potency of decimal series (retired)" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[hp'_C]" displayName="homeopathic potency of centesimal series (retired)" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[hp'_M]" displayName="homeopathic potency of millesimal series (retired)" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[hp'_Q]" displayName="homeopathic potency of quintamillesimal series (retired)" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[hp_X]" displayName="homeopathic potency of decimal hahnemannian series" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[hp_C]" displayName="homeopathic potency of centesimal hahnemannian series" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[hp_M]" displayName="homeopathic potency of millesimal hahnemannian series" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[hp_Q]" displayName="homeopathic potency of quintamillesimal hahnemannian series" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[kp_X]" displayName="homeopathic potency of decimal korsakovian series" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[kp_C]" displayName="homeopathic potency of centesimal korsakovian series" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[kp_M]" displayName="homeopathic potency of millesimal korsakovian series" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[kp_Q]" displayName="homeopathic potency of quintamillesimal korsakovian series" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="eq" displayName="equivalents" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="osm" displayName="osmole" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[pH]" displayName="pH" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="g%" displayName="gram percent" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[S]" displayName="Svedberg unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[HPF]" displayName="high power field" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[LPF]" displayName="low power field" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="kat" displayName="katal" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="U" displayName="Unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[iU]" displayName="international unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[IU]" displayName="international unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[arb'U]" displayName="arbitary unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[USP'U]" displayName="United States Pharmacopeia unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[GPL'U]" displayName="GPL unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[MPL'U]" displayName="MPL unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[APL'U]" displayName="APL unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[beth'U]" displayName="Bethesda unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[todd'U]" displayName="Todd unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[dye'U]" displayName="Dye unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[smgy'U]" displayName="Somogyi unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[bdsk'U]" displayName="Bodansky unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[ka'U]" displayName="King-Armstrong unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[knk'U]" displayName="Kunkel unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[mclg'U]" displayName="Mac Lagan unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[tb'U]" displayName="tuberculin unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[CCID_50]" displayName="50% cell culture infectious dose" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[TCID_50]" displayName="50% tissue culture infectious dose" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[PFU]" displayName="plaque forming units" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[FFU]" displayName="focus forming units" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[CFU]" displayName="colony forming units" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[BAU]" displayName="bioequivalent allergen unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[AU]" displayName="allergen unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[Amb'a'1'U]" displayName="allergen unit for Ambrosia artemisiifolia" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[PNU]" displayName="protein nitrogen unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[Lf]" displayName="Limit of flocculation" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[D'ag'U]" displayName="D-antigen unit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Np" displayName="neper" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="B" displayName="bel" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="B[SPL]" displayName="bel sound pressure" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="B[V]" displayName="bel volt" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="B[mV]" displayName="bel millivolt" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="B[uV]" displayName="bel microvolt" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="B[10.nV]" displayName="bel 10 nanovolt" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="B[W]" displayName="bel watt" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="B[kW]" displayName="bel kilowatt" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="st" displayName="stere" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Ao" displayName="?ngstr?m" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="b" displayName="barn" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="att" displayName="technical atmosphere" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="mho" displayName="mho" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[psi]" displayName="pound per sqare inch" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="circ" displayName="circle" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="sph" displayName="spere" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[car_m]" displayName="metric carat" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[car_Au]" displayName="carat of gold alloys" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="[smoot]" displayName="Smoot" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="bit_s" displayName="bit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="bit" displayName="bit" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="By" displayName="byte" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+    <code value="Bd" displayName="baud" codeSystemName="UCUM" codeSystem="2.16.840.1.113883.6.8" />
+  </system>
+</systems>

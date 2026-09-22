@@ -1,0 +1,158 @@
+{
+  "apd.v2.0.1": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/APD-DK-v2.0.1.pdf",
+    "sha256": "e4d12b43fd83ab531f1e8884ee49791e9f2585bb7f386cf6d98506b079e80cb0",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "cpd.v2.0.0": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/CPD/Dokumentation/CPD-DK.pdf",
+    "sha256": "126d38084f3d92d325c5f36dae20608fa7924125b48ca1dc033d4bcea7180f71",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "pdc.v2.0": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v2.0.pdf",
+    "sha256": "53eccf755442d2170cc3f01396ec99a25a168dc0c9c52fe74ac7d4d15db41ad0",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "pdc.v3.0.0": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v3.0.0.pdf",
+    "sha256": "dd76ec10a3a77185ff84def9df0d1e996df6b5013f8043a183399b3aa012f804",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "phmr.v2.1.0": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Dokumentation/PHMR-DK-v2.1.0.pdf",
+    "sha256": "239f6bec9bdab874bcb2b51cd2771bd97cedb677d3ddb5aa4e0c8c31197c6328",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "phmr.v1.3": {
+    "url": "https://svn.medcom.dk/svn/releases/!svn/bc/2690/Standarder/HL7/PHMR/Dokumentation/PHMR-DK-Profile-v1.3.pdf",
+    "sha256": "2668d09424be1957d9bd167c0945819a63b01797b38abb6484fdc35337d353e0",
+    "retrieved": "2026-09-15",
+    "svnRevision": 2690
+  },
+  "Appointment-Errata_APD-DK-v2.0.1_2021_11_24": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/Errata_APD-DK-v2.0.1_2021_11_24.pdf",
+    "sha256": "facae708272e94397b00aa73d555cb745d176506c1b0870cdcb3d2dcc69043f2",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "Appointment-Errata_APD-DK-v2.0.1_20_10_2020": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/Errata_APD-DK-v2.0.1_20_10_2020.pdf",
+    "sha256": "1c16b487d4b9c3281f68876de0801f538b433055289b60f8ddc75a300fddc4f0",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "Appointment-APD-DK_Testprotokol_Afsendelse": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Testprotokol/APD-DK_Testprotokol_Afsendelse.docx",
+    "sha256": "79d9681e32051ca75daa4b1403fbe2633db96b6fc49c25c3d189af3c798d3f07",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "Appointment-APD-DK_Testprotokol_Modtagelse": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Testprotokol/APD-DK_Testprotokol_Modtagelse.docx",
+    "sha256": "e2b4108f914a884a3a97cd825fd3f447ca18ab959a644b0fb8b50e337f0f09cd",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "PDC-Errata_PDC-DK-v.2.0_2022-10-07": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/Errata_PDC-DK-v.2.0_2022-10-07.pdf",
+    "sha256": "3c1a713909ff50a1fc189218d98cffc6230564b293c5698cd1a166bd2c02aae8",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "PDC-Errata_PDC-DK-v2.0": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/Errata_PDC-DK-v2.0.docx",
+    "sha256": "af12ada5bbe3630e2dfe9384710a306b9f345b94e2f1cbebe402363b20a76261",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "PDC-PDC-DK_2_0_Testprotokol_Modtagelse_v1_0": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Testprotokol/PDC-DK_2_0_Testprotokol_Modtagelse_v1_0.docx",
+    "sha256": "93d3f49175fd8ea6113477bd24d7a3bf4f421584a6c19e43c7d9c774b63542df",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "PDC-PDC-DK_2_0_Testprotokol_Modtagelse_v1_1": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Testprotokol/PDC-DK_2_0_Testprotokol_Modtagelse_v1_1.docx",
+    "sha256": "e70989ae91529d977dfc45b53848d1398877576c487d9e264b5aa2eb21c0c098",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "PDC-PDC-DK_Testprotokol_Afsendelse": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Testprotokol/PDC-DK_Testprotokol_Afsendelse.docx",
+    "sha256": "3f14ac7c17b8c5c0183cfb80bf6a17ac5b18b07b5a6afd31f9b9e8db204a43e4",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "PDC-PDC-DK_Testprotokol_Modtagelse": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Testprotokol/PDC-DK_Testprotokol_Modtagelse.docx",
+    "sha256": "e8c8ab408efa82b2ef9ad5f26ae4512df4d0d39c90c40e7530d378763abcfd0d",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "CPD-CPD-DK_Testprotokol_Afsendelse": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/CPD/Testprotokol/CPD-DK_Testprotokol_Afsendelse.docx",
+    "sha256": "694b174b08afd31c82b53b31088344d9ccd4f57b495a2370499a6f0e9750519d",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "CPD-CPD-DK_Testprotokol_Modtagelse": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/CPD/Testprotokol/CPD-DK_Testprotokol_Modtagelse.docx",
+    "sha256": "e0ea97daef98c199c110707783afd9c5a7a6968309f084dc22f253da81eea408",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "PHMR-PHMR_Testprotokol_Afsendelse": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Testprotokol/PHMR_Testprotokol_Afsendelse.docx",
+    "sha256": "38b3952d42641147d8f06023bb8218882fa797e052eade12e6954371f9f20f7e",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "PHMR-PHMR_Testprotokol_Modtagelse": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Testprotokol/PHMR_Testprotokol_Modtagelse.docx",
+    "sha256": "2fad72cf548db4cfd94cadcf62976abfc28c705dafe327944a97f8f6dab93f4d",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "CDA-Header-DK-CDA-Header": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/CDA-Header/Dokumentation/DK-CDA-Header.pdf",
+    "sha256": "50d4fe97abe64bc6feb5bfcb1ce6cd97e9f2e582246285a5ed52e966116afd15",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "pdc-errata": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/Errata_PDC-DK-v.2.0_2022-10-07.pdf",
+    "sha256": "3c1a713909ff50a1fc189218d98cffc6230564b293c5698cd1a166bd2c02aae8",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "phad": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHAD/Dokumentation/PHAD-DK.pdf",
+    "sha256": "0c17df58d71c6298951cc926844ddd99b35f77a09e9e8357e0d8b5b9cafc26f9",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "pmr": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Dokumentation/PMR-DK-2.0.0.pdf",
+    "sha256": "43bc60b5075184a998a16eb8745b1ba9b40cbd8f467f854547a83f75f257290d",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "prf": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRF/Dokumentation/PRF-DK-v3.0.0.pdf",
+    "sha256": "f8aedbb7566c77bfb65a9a4e2ed3f95fb7f9a0247b78ec869b7c17e85351a029",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "pscr": {
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Dokumentation/PSCR-DK-v2.0.0.pdf",
+    "sha256": "96b39189189cd22932ffb90384bd90eb19a500c544c11991c3f67999fadb753d",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  }
+}

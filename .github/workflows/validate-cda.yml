@@ -1,0 +1,123 @@
+name: Validate CDA Docker integration
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      validator_image:
+        description: Optional upstream base-image override (blank uses the Compose build argument)
+        required: false
+        type: string
+  workflow_call:
+    inputs:
+      validator_image:
+        type: string
+        required: false
+        default: ''
+      source_ref:
+        description: Exact source commit to validate
+        type: string
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cda-validation-${{ github.workflow }}-${{ github.ref }}-${{ inputs.validator_image }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate inside isaitb/xml-validator
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CDA_VALIDATOR_MEMORY: 4g
+      CDA_VALIDATOR_JAVA_OPTIONS: -Xms256m -Xmx3g
+      CDA_TEST_RESULTS_DIR: ${{ github.workspace }}/test-results
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ inputs.source_ref || github.sha }}
+
+      - uses: actions/setup-java@v6.0.1
+        with:
+          distribution: temurin
+          java-version: '25'
+
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Select the pinned validator base image from Compose
+        env:
+          CDA_IMAGE_OVERRIDE: ${{ inputs.validator_image }}
+        run: |
+          CDA_SELECTED_IMAGE="$CDA_IMAGE_OVERRIDE"
+          if [[ -z "$CDA_SELECTED_IMAGE" ]]; then
+            CDA_SELECTED_IMAGE=$(python3 scripts/validator_image.py --print-image)
+          fi
+          if [[ -z "$CDA_SELECTED_IMAGE" || "$CDA_SELECTED_IMAGE" =~ [[:space:]] ]]; then
+            printf '%s\n' 'Expected a non-empty Docker image reference without whitespace.' >&2
+            exit 1
+          fi
+          printf 'CDA_VALIDATOR_IMAGE=%s\n' "$CDA_SELECTED_IMAGE" >> "$GITHUB_ENV"
+          printf 'Testing validator image: %s\n' "$CDA_SELECTED_IMAGE"
+
+      - name: Check release configuration and test coverage
+        id: checks
+        run: |
+          python3 tests/check-rulesets.py
+          python3 scripts/conformance-rule-inventory.py --check
+          python3 tests/test_validator_image.py
+          python3 cda-validator/tests/test_reporting_summary.py
+          python3 cda-validator/tests/test_example_report.py
+
+      - name: Use a fresh Maven cache
+        run: |
+          CDA_MAVEN_CACHE=$(mktemp -d "$RUNNER_TEMP/cda-maven.XXXXXX")
+          printf 'MAVEN_OPTS=%s -Dmaven.repo.local=%s\n' "${MAVEN_OPTS:-}" "$CDA_MAVEN_CACHE" >> "$GITHUB_ENV"
+
+      - name: Build, unit-test and check Java formatting
+        id: build
+        run: mvn --batch-mode --no-transfer-progress -f cda-validator/pom.xml clean verify
+
+      - name: Install pinned Sonar Java analyzers
+        id: sonar_install
+        run: python3 xds-service/scripts/install-sonar.py
+
+      - name: Sonar Java gate (zero findings and no failed files)
+        id: sonar
+        run: python3 xds-service/scripts/sonar-java.py --project cda-validator --extension xds-service/target/sonar-analyzer --java-home "$JAVA_HOME"
+
+      - name: Build the CDA image from source and run container tests
+        id: docker
+        run: bash cda-validator/tests/run-container-tests.sh
+
+      - name: Upload validation reports and container logs
+        id: artifacts
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: cda-validation-results
+          path: |
+            test-results/
+            cda-validator/target/surefire-reports/
+            cda-validator/target/failsafe-reports/
+            cda-validator/target/reports/sonar-java.json
+          if-no-files-found: warn
+          retention-days: 14
+
+      - name: Publish test summary
+        if: always()
+        env:
+          CHECKS_OUTCOME: ${{ steps.checks.outcome }}
+          BUILD_OUTCOME: ${{ steps.build.outcome }}
+          SONAR_INSTALL_OUTCOME: ${{ steps.sonar_install.outcome }}
+          SONAR_OUTCOME: ${{ steps.sonar.outcome }}
+          DOCKER_OUTCOME: ${{ steps.docker.outcome }}
+          ARTIFACT_URL: ${{ steps.artifacts.outputs.artifact-url }}
+        run: python3 cda-validator/tests/write-summary.py

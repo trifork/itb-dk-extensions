@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--			
+
+ Title:        		Pregnancy Measurement Report - Example 2.1
+ Filename:     		PMR 2.1 UL vægt uge 12.xml
+ LastChangedDate: 2025-09-02
+
+ Changelog:
+
+ 2025-09-02: Initial version
+ 
+
+
+ ********************************************************
+ Thes example file contains: 
+ UL vægt - foster 1,2,3
+ Gestationsalder
+ ********************************************************
+ -->
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd" moodCode="EVN">
+  <realmCode code="DK"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <templateId root="1.2.208.184.21.1" extension="2.0"/>
+  <id assigningAuthorityName="Region Syddanmark" root="1.2.208.183" extension="397e25a8-95ff-400c-a422-7fef144f9371"/>
+  <code code="PMR" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Pregnancy Measurement Report"/>
+  <title>Pregnancy Measurement Report for 0201919996</title>
+  <effectiveTime value="20250827155958+0200"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+  <languageCode code="da-DK"/>
+  <recordTarget typeCode="RCT" contextControlCode="OP">
+    <patientRole classCode="PAT">
+      <id root="1.2.208.176.1.2" extension="0201919996" assigningAuthorityName="CPR"/>
+      <addr use="H">
+        <streetAddressLine>Testgrusgraven 3</streetAddressLine>
+        <streetAddressLine>1.th</streetAddressLine>
+        <postalCode>3400</postalCode>
+        <city>Hillerød</city>
+      </addr>
+      <patient classCode="PSN">
+        <name><family>Lauridsen</family><given>Ellen</given><given>Louise</given><given>Test</given></name> 
+        <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" displayName="Female"/>
+        <birthTime value="19910102000000+0000"/>
+      </patient>
+      <providerOrganization>
+        <id assigningAuthorityName="SOR" root="1.2.208.176.1.1" extension="8071000016009"/>
+        <name>Odense Universitetshospital - Svendborg</name>
+      </providerOrganization>
+    </patientRole>
+  </recordTarget>
+  <author typeCode="AUT" contextControlCode="OP">
+    <time value="20250701153100+0200"/>
+    <assignedAuthor classCode="ASSIGNED">
+      <id assigningAuthorityName="SOR" root="1.2.208.176.1.1" extension="615941000016004"/>
+      <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+        <name>
+          <prefix>Sonograf</prefix>
+          <family>Sørensen</family>
+          <given>Birthe</given>
+          <given>F.</given>
+        </name>
+      </assignedPerson>
+      <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+        <name>OUH FødeAfsnit (Svendborg)</name>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <custodian typeCode="CST">
+    <assignedCustodian classCode="ASSIGNED">
+      <representedCustodianOrganization>
+        <id assigningAuthorityName="SOR" root="1.2.208.176.1.1" extension="6101000016001"/>
+        <name>Region Syddanmark</name>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <documentationOf typeCode="DOC">
+    <serviceEvent classCode="ACT" moodCode="EVN">
+      <templateId root="1.2.208.184.10.1.11"/>
+      <effectiveTime>
+        <low value="20250827153100+0200"/>
+        <high value="20250827153300+0200"/>
+      </effectiveTime>
+    </serviceEvent>
+  </documentationOf>
+  <documentationOf typeCode="DOC">
+    <serviceEvent classCode="MPROT" moodCode="EVN">
+      <templateId root="1.2.208.184.10.1.10"/>
+      <id assigningAuthorityName="MedCom" root="1.2.208.184.100.10" extension="PMR-v2.0"/>
+    </serviceEvent>
+  </documentationOf>
+  <component typeCode="COMP" contextConductionInd="true">
+    <structuredBody classCode="DOCBODY" moodCode="EVN">
+      <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.22.2.3" extension="2015-08-01"/>
+          <templateId root="1.2.208.184.21.2.1" extension="2024-06-01"/>
+          <code code="30954-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+          <title>Resultater</title>
+          <text>
+            <table>
+                <thead>
+                    <tr>
+                        <th>SNOMED kode</th>
+                        <th>Tekst</th>
+                        <th>Værdi</th>
+                        <th>NPU kode</th>
+                        <th>NPU tekst</th>
+                        <th>Foster id</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>627991000005103</td>
+                        <td>skønnet fostervægt ved ultralyd</td>
+                        <td>17,5 g</td>
+                        <td/>
+                        <td/>
+                        <td>Foster 1</td>
+                    </tr>
+                    <tr>
+                        <td>627991000005103</td>
+                        <td>skønnet fostervægt ved ultralyd</td>
+                        <td>15 g</td>
+                        <td/>
+                        <td/>
+                        <td>Foster 2</td>
+                    </tr>
+                    <tr>
+                        <td>627991000005103</td>
+                        <td>skønnet fostervægt ved ultralyd</td>
+                        <td>20 g</td>
+                        <td/>
+                        <td/>
+                        <td>Foster 3</td>
+                    </tr>
+                    <tr>
+                        <td>598151000005105</td>
+                        <td>gestationsalder</td>
+                        <td>57 d</td>
+                        <td/>
+                        <td/>
+                        <td/>
+                    </tr>
+                </tbody>
+            </table>
+        </text>
+        <entry typeCode="COMP" contextConductionInd="true">
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.1" extension="2023-05-01"/>
+              <templateId root="1.2.208.184.21.2.2" extension="2025-01-15"/>
+              <id root="1.2.208.183" extension="40b23948-f392-4d90-ab5b-921b9fba9790" assigningAuthorityName="Region Syddanmark"/>
+              <code xsi:type="CE" nullFlavor="NI"/>
+              <statusCode code="completed"/>
+              <effectiveTime>
+                <low value="20250827153100+0200"/>
+                <high value="20250827153300+0200"/>
+              </effectiveTime>
+              <component typeCode="COMP" contextConductionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.2.208.184.21.2.3" extension="2025-01-15"/>
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2023-05-01"/>
+                  <id root="1.2.208.183" extension="33860793-c53f-4485-a92e-b1ea176fe5a0" assigningAuthorityName="Region Syddanmark"/>
+                  <code code="627991000005103" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="skønnet fostervægt ved ultralyd"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20250827153100+0200"/>
+                  <value xsi:type="PQ" value="17.5" unit="g"/>
+                  <subject>
+                    <relatedSubject>
+                      <code code="1" codeSystem="1.2.208.184.100.4" codeSystemName="Pregnancy Codes" displayName="Foster 1"/>
+                    </relatedSubject>
+                  </subject>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.2.208.184.21.2.3" extension="2025-01-15"/>
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2023-05-01"/>
+                  <id root="1.2.208.183" extension="33860793-c53f-4485-a92e-a1cf176fe7a0" assigningAuthorityName="Region Syddanmark"/>
+                  <code code="627991000005103" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="skønnet fostervægt ved ultralyd"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20250827153100+0200"/>
+                  <value xsi:type="PQ" value="15" unit="g"/>
+                  <subject>
+                    <relatedSubject>
+                      <code code="2" codeSystem="1.2.208.184.100.4" codeSystemName="Pregnancy Codes" displayName="Foster 3"/>
+                    </relatedSubject>
+                  </subject>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.2.208.184.21.2.3" extension="2025-01-15"/>
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2023-05-01"/>
+                  <id root="1.2.208.183" extension="33860793-c53f-4485-a92e-c1ee176fe8a0" assigningAuthorityName="Region Syddanmark"/>
+                  <code code="627991000005103" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="skønnet fostervægt ved ultralyd"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20250827153100+0200"/>
+                  <value xsi:type="PQ" value="20" unit="g"/>
+                  <subject>
+                    <relatedSubject>
+                      <code code="3" codeSystem="1.2.208.184.100.4" codeSystemName="Pregnancy Codes" displayName="Foster 3"/>
+                    </relatedSubject>
+                  </subject>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.2.208.184.21.2.3" extension="2025-01-15"/>
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" extension="2023-05-01"/>
+                  <id root="1.2.208.183" extension="40b23948-f392-4c90-aa5b-926b9fbe9790" assigningAuthorityName="Region Syddanmark"/>
+                  <code code="598151000005105" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="gestationsalder"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20250827153300+0200"/>
+                  <value xsi:type="PQ" value="57" unit="d"/>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

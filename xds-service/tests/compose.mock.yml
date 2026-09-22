@@ -1,0 +1,10 @@
+# Test-only image: real GITB adapter with synthetic in-process XDS operations.
+services:
+  xds-api:
+    image: itb-dk-xds:fixture
+    build:
+      context: ./xds-service
+      target: fixture
+    user: !reset null
+    volumes: !override
+      - ./samples:/samples:ro

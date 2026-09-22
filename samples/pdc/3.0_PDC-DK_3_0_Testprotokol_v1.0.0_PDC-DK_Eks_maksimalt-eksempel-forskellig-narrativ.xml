@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://svn.medcom.dk/svn/drafts/Standarder/HL7/CDA-Stylesheet/HL7_CDA/HL7_CDA_stylesheet.xsl"?>
+<ClinicalDocument moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:ns2="urn:hl7-org:sdtc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 http://svn.medcom.dk/svn/releases/Standarder/HL7/Generic/Schema/CDA_SDTC.xsd">
+	<realmCode code="DK"/>
+	<typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+	<templateId extension="2.0" root="1.2.208.184.10.1.13"/>
+	<templateId extension="3.0" root="1.2.208.184.16.1"/>
+	<id assigningAuthorityName="MedCom" extension="3a19500b-f4b7-4b8b-b80a-d5b631316a1a" root="1.2.208.184"/>
+	<code code="PDC" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Stamkort"/>
+	<title>Personal Data Card for 0107729995</title>
+	<effectiveTime value="20231108144254+0100"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<recordTarget contextControlCode="OP" typeCode="RCT">
+		<patientRole classCode="PAT">
+			<id assigningAuthorityName="CPR" extension="0107729995" root="1.2.208.176.1.2"/>
+			<addr use="H">
+				<streetAddressLine>Testervej 18</streetAddressLine>
+				<postalCode>6200</postalCode>
+				<city>København V</city>
+				<country>DK</country>
+			</addr>
+			<patient classCode="PSN">
+				<name>
+					<given>Max</given>
+					<given>Test</given>
+					<family>Berggren</family>
+				</name>
+				<administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
+				<birthTime value="19720701"/>
+			</patient>
+			<providerOrganization>
+                <id assigningAuthorityName="Yderregisteret" extension="733536" root="1.2.208.176.1.4"/>
+                <name>Læge Ane Svendsen</name>
+                <telecom use="WP" value="tel:45553728"/>
+                <addr use="H">
+                    <streetAddressLine>Randersvej10</streetAddressLine>
+                    <postalCode>1567</postalCode>
+                    <city>København V</city>
+                </addr>
+            </providerOrganization>
+		</patientRole>
+	</recordTarget>
+	<author>
+		<time value="20231108144254+0100"/>
+		<assignedAuthor>
+			<id assigningAuthorityName="SOR" extension="1126211000016009" root="1.2.208.176.1.1"/>
+			<representedOrganization>
+				<name>Sundhedsdatastyrelsen</name>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+	<custodian>
+		<assignedCustodian>
+			<representedCustodianOrganization>
+				<id assigningAuthorityName="SOR" extension="1126211000016009" root="1.2.208.176.1.1"/>
+				<name>Sundhedsdatastyrelsen</name>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="ACT" moodCode="EVN">
+			<templateId root="1.2.208.184.10.1.11"/>
+			<effectiveTime>
+				<low value="20231108144254+0100"/>
+				<high nullFlavor="NA"/>
+			</effectiveTime>
+		</serviceEvent>
+	</documentationOf>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="ACT" moodCode="EVN">
+			<templateId extension="2019-09-10" root="1.2.208.184.10.1.10"/>
+			<id assigningAuthorityName="MedCom" extension="pdc-v3.0" root="1.2.208.184.100.10"/>
+		</serviceEvent>
+	</documentationOf>
+	<component contextConductionInd="true" typeCode="COMP">
+		<structuredBody classCode="DOCBODY" moodCode="EVN">
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1"/>
+					<text>
+						<paragraph>Øvrige oplysninger</paragraph>
+						<table width="100%">
+							<tbody>
+								<tr>
+									<th>Oplysning</th>
+									<th>Værdi</th>
+									<th>Kilde/Indtastet af</th>
+									<th>Sidst ændret/Indtastet den</th>
+								</tr>
+								<tr>
+									<td>Forældremyndighed over</td>
+									<td>
+										<list>
+											<item>Relation: Far</item>
+											<item>CPR: 0505109990</item>
+											<item>Navn: Gitte Forkert Efternavn</item>
+										</list>
+									</td>
+									<td>CPR</td>
+									<td>Ikke oplyst</td>
+								</tr>
+								<tr>
+									<td>Borgerens navn og adresse</td>
+									<td>
+										<list>
+											<item>Max XXX Berggren</item>
+											<item>Testervej 18</item>
+											<item>6200 København V</item>
+											<item>DK</item>
+										</list>
+									</td>
+									<td>CPR</td>
+									<td>Ikke oplyst</td>
+								</tr>
+								<tr>
+									<td>Sygesikringsgruppe</td>
+									<td>
+										<list>
+											<item>1</item>
+										</list>
+									</td>
+									<td>CPR</td>
+									<td>Ikke oplyst</td>
+								</tr>
+								<tr>
+									<td>Registreret organdonor</td>
+									<td>
+										<list>
+											<item>Ja</item>
+										</list>
+									</td>
+									<td>Dansk Center For Organdonation</td>
+									<td>Ikke oplyst</td>
+								</tr>
+								<tr>
+									<td>Registreret behandlingstestamente</td>
+									<td>
+										<list>
+											<item>Ja</item>
+										</list>
+									</td>
+									<td>Sundhedsdatastyrelsen</td>
+									<td>Ikke oplyst</td>
+								</tr>
+								<tr>
+									<td>Registreret livstestamente</td>
+									<td>
+										<list>
+											<item>Nej</item>
+										</list>
+									</td>
+									<td>Sundhedsdatastyrelsen</td>
+									<td>Ikke oplyst</td>
+								</tr>
+								<tr>
+									<td>Registreret fravalg af genoplivningsforsøg v. hjertestop</td>
+									<td>
+										<list>
+											<item>Borger ønsker genoplivningsforsøg ved hjertestop</item>
+										</list>
+									</td>
+									<td>Sundhedsdatastyrelsen</td>
+									<td>Ikke oplyst</td>
+								</tr>
+								<tr>
+									<td>Talt sprog, indtastet</td>
+									<td>
+										<list>
+											<item>Danish</item>
+										</list>
+									</td>
+									<td>Max Test Berggren</td>
+									<td>2023-08-18 10:34:16 +0200</td>
+								</tr>
+								<tr>
+									<td>Midlertidig adresse, indtastet</td>
+									<td>
+										<list>
+											<item>Periode: 2023-08-08</item>
+											<item>Forskerparken 10</item>
+											<item>5230 Odense</item>
+											<item>Danmark</item>
+										</list>
+									</td>
+									<td>Max Test Berggren</td>
+									<td>2023-11-08 14:03:06 +0100</td>
+								</tr>
+								<tr>
+									<td>Tandlæge indtastet</td>
+									<td>
+										<list>
+											<item>Tandklinikken smil. nu </item>
+											<item>Nivå Center 40 b</item>
+											<item>2990 Nivå</item>
+											<item>Danmark</item>
+										</list>
+									</td>
+									<td>Max Test Berggren</td>
+									<td>2023-11-08 14:13:06 +0100</td>
+								</tr>
+								<tr>
+									<td>Kontaktoplysninger, indtastet</td>
+									<td>
+										<list>
+											<item>tel:+4589898989</item>
+										</list>
+									</td>
+									<td>Max Test Berggren</td>
+									<td>2023-11-08 14:00:11 +0100</td>
+								</tr>
+								<tr>
+									<td>Pårørende, indtastet</td>
+									<td>
+										<list>
+											<item>Lise Berggren</item>
+											<item>Uspecificeret pårørende</item>
+											<item>tel:96856523</item>
+											<item>Kommentar til Lise</item>
+										</list>
+									</td>
+									<td>Max Test Berggren</td>
+									<td>2023-08-18 11:23:14 +0200</td>
+								</tr>
+								<tr>
+									<td>Pårørende, indtastet</td>
+									<td>
+										<list>
+											<item>Bente Test Berggren</item>
+											<item>mor</item>
+											<item>tel:+4589898989</item>
+											<item>Dette er en "prøve" på 'nogle' særlige &lt;tegn&gt; ; til test &amp; certificering @ / \ ^ * .”</item>
+										</list>
+									</td>
+									<td>Max Test Berggren</td>
+									<td>2023-08-18 11:22:01 +0200</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.23"/>
+							<id extension="db52d28b-e825-35ff-bf96-3cafaad9bbd0" root="1.2.208.184"/>
+							<code code="ChildCustody" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Forældremyndighed over"/>
+							<value assigningAuthorityName="CPR" extension="0505109990" root="1.2.208.176.1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="II"/>
+							<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PN">
+								<given>Gitte</given>
+								<given>Nancy</given>
+								<given>Test</given>
+								<family>Berggren</family>
+							</value>
+							<value code="far" codeSystem="1.2.208.184.100.2" codeSystemName="MedCom Relation Codes" displayName="Far" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CD"/>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.31"/>
+								<time nullFlavor="NI"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="CPR" extension="MSK" root="1.2.208.176.1.2"/>
+									<code code="EnteredCitizen" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Indtastet af borger"/>
+									<assignedPerson>
+										<name>
+											<given>Max</given>
+											<given>Test</given>
+											<family>Berggren</family>
+										</name>
+									</assignedPerson>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.26"/>
+							<id extension="ef690fd7-0fb4-4c6a-8ad2-883fe48efd8f" root="1.2.208.184"/>
+							<code code="CitizenNameAddr" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Borgerens navn og adresse"/>
+							<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PN">
+								<given>Max</given>
+								<given>Test</given>
+								<family>Berggren</family>
+							</value>
+							<value use="H" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AD">
+								<streetAddressLine>Testervej 18</streetAddressLine>
+								<postalCode>6200</postalCode>
+								<city>København V</city>
+								<country>DK</country>
+							</value>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.31"/>
+								<time nullFlavor="NI"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="CPR" extension="MSK" root="1.2.208.176.1.2"/>
+									<representedOrganization>
+										<name>CPR</name>
+									</representedOrganization>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.27"/>
+							<id extension="d54eeb91-726c-482d-a1c5-9abc47da1c93" root="1.2.208.184"/>
+							<code code="CoverageGroup" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Sygesikringsgruppe"/>
+							<value assigningAuthorityName="Sygesikringen" extension="1" root="1.2.208.176.1.99.99.99" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="II"/>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.31"/>
+								<time nullFlavor="NI"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="Sygesikringen" extension="NI" root="1.2.208.176.2.7"/>
+									<representedOrganization>
+										<name>Sygesikringen</name>
+									</representedOrganization>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.28"/>
+							<id extension="6a4f70af-011e-48e8-9b53-949e4be40e3b" root="1.2.208.184"/>
+							<code code="OrganDonorRegistration" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Registreret organdonor"/>
+							<value assigningAuthorityName="Dansk Center For Organdonation" extension="true" root="1.2.208.176.1.10" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="II"/>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.31"/>
+								<time nullFlavor="NI"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="CPR" extension="NI" root="1.2.208.176.1.10"/>
+									<representedOrganization>
+										<name>Dansk Center For Organdonation</name>
+									</representedOrganization>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.29"/>
+							<id extension="74d782a1-ac64-411a-8160-68fbf16dd2f8" root="1.2.208.184"/>
+							<code code="TreatmentWillRegistration" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Registreret behandlingstestamente"/>
+							<value assigningAuthorityName="Sundhedsdatastyrelsen" extension="true" root="1.2.208.176.1.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="II"/>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.31"/>
+								<time nullFlavor="NI"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="Sundhedsdatastyrelsen" extension="NI" root="1.2.208.176.1.9"/>
+									<representedOrganization>
+										<name>Sundhedsdatastyrelsen</name>
+									</representedOrganization>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.30"/>
+							<id extension="7a4d9bd3-f9d3-4e99-a02e-c59f6f3691da" root="1.2.208.184"/>
+							<code code="LivingWillRegistration" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Registreret livstestamente"/>
+							<value assigningAuthorityName="Sundhedsdatastyrelsen" extension="false" root="1.2.208.176.1.8" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="II"/>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.31"/>
+								<time nullFlavor="NI"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="Sundhedsdatastyrelsen" extension="NI" root="1.2.208.176.1.8"/>
+									<representedOrganization>
+										<name>Sundhedsdatastyrelsen</name>
+									</representedOrganization>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2023-07-01" root="1.2.208.184.16.1.10.20.1.31"/>
+							<id extension="d90df5cb-602c-44d5-8cc6-9fb7ed9b8df9" root="1.2.208.184"/>
+							<code code="NoResuscitationRegistration" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Registreret fravalg af genoplivningsforsøg v. hjertestop"/>
+							<value assigningAuthorityName="Sundhedsdatastyrelsen" extension="false" root="1.2.208.176.1.11" xsi:type="II"/>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.31"/>
+								<time value="20231102102256+0100"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="Sundhedsdatastyrelsen" extension="NI" root="1.2.208.176.1.8"/>
+									<representedOrganization>
+										<name>Sundhedsdatastyrelsen</name>
+									</representedOrganization>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.20"/>
+							<id assigningAuthorityName="FSK" extension="985deaf5-bc3a-4d7a-a513-ba70ed45dc6b" root="1.2.208.184.15.7"/>
+							<code code="LanguageTypedIn" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Talt sprog, indtastet"/>
+							<value code="de" codeSystem="1.0.639.1" codeSystemName="ISO-639-1" displayName="Deutsch" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CD"/>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.30"/>
+								<time nullFlavor="NI"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="CPR" extension="MSK" root="1.2.208.176.1.2"/>
+									<code code="EnteredCitizen" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Indtastet af borger"/>
+									<assignedPerson>
+										<name>
+											<given>Max</given>
+											<given>Test</given>
+											<family>Berggren</family>
+										</name>
+									</assignedPerson>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.21"/>
+							<id extension="690f19b0-661f-4048-ac55-0d7b48395a27" root="1.2.208.184.15.2"/>
+							<code code="TempAddrTypedIn" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Midlertidig adresse, indtastet"/>
+							<effectiveTime>
+								<low value="20230808000000+0200"/>
+								<high value="20250419000000+0200"/>
+							</effectiveTime>
+							<value use="H" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AD">
+								<streetAddressLine>Forskerparken 10</streetAddressLine>
+								<postalCode>5230</postalCode>
+								<city>Odense</city>
+								<country>Danmark</country>
+							</value>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.30"/>
+								<time value="20231108140306+0100"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="CPR" extension="MSK" root="1.2.208.176.1.2"/>
+									<code code="EnteredCitizen" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Indtastet af borger"/>
+									<assignedPerson>
+										<name>
+											<given>Max</given>
+											<given>Test</given>
+											<family>Berggren</family>
+										</name>
+									</assignedPerson>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.22"/>
+							<id extension="753ccb9e-eaec-40c0-948e-5726d397400b" root="1.2.208.184.15.13"/>
+							<code code="DentistTypedIn" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Tandlæge indtastet"/>
+							<value assigningAuthorityName="Yderregisteret" extension="410845" root="1.2.208.176.1.4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="II"/>
+							<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="EN">
+								<given>Tandklinikken smil. nu</given>
+								<family/>
+							</value>
+							<value use="WP" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="AD">
+								<streetAddressLine>Nivå Center 40 b</streetAddressLine>
+								<postalCode>2990</postalCode>
+								<city>Nivå</city>
+								<country>Danmark</country>
+							</value>
+							<value use="WP" value="tel:80308060" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TEL"/>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.30"/>
+								<time value="20231108140306+0100"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="CPR" extension="MSK" root="1.2.208.176.1.2"/>
+									<code code="EnteredCitizen" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Indtastet af borger"/>
+									<assignedPerson>
+										<name>
+											<given>Max</given>
+											<given>Test</given>
+											<family>Berggren</family>
+										</name>
+									</assignedPerson>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.24"/>
+							<id extension="b297745a-d2cd-4957-895d-beffa06396da" root="1.2.208.184"/>
+							<code code="PatientContactTypedIn" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Kontaktoplysninger, indtastet"/>
+							<value use="H" value="tel:+4589898989" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TEL"/>
+							<value use="MC" value="tel:98765432" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TEL"/>
+							<value use="WP" value="tel:004586006500" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TEL"/>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.30"/>
+								<time value="20231108140011+0100"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="CPR" extension="MSK" root="1.2.208.176.1.2"/>
+									<code code="EnteredCitizen" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Indtastet af borger"/>
+									<assignedPerson>
+										<name>
+											<given>Max</given>
+											<given>Test</given>
+											<family>Berggren</family>
+										</name>
+									</assignedPerson>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.25"/>
+							<id extension="23d21334-a665-40d7-b6f2-157bdeabea79" root="1.2.208.184.15.3"/>
+							<code code="RelativeTypedIn" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Pårørende, indtastet"/>
+							<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PN">
+								<given>Lise</given>
+								<family>Berggren</family>
+							</value>
+							<value code="uspec_paaroerende" codeSystem="1.2.208.184.100.2" codeSystemName="MedCom Relation Codes" displayName="Uspecificeret pårørende" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CD"/>
+							<value use="H" value="tel:004523232323" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TEL"/>
+							<value use="WP" value="tel:96856523" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TEL"/>
+							<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Kommentar til Lise</value>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.30"/>
+								<time value="20230818112314+0200"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="SOR" extension="953741000016009" root="1.2.208.176.1.1"/>
+									<code code="EnteredHealthcareprofessional" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Indtastet af sundhedsprofessionel"/>
+									<representedOrganization>
+										<name>Plejecenter Herlev</name>
+									</representedOrganization>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+					<entry typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.1.25"/>
+							<id extension="657e7afa-6753-4625-ba2e-a032b48d21d7" root="1.2.208.184.15.3"/>
+							<code code="RelativeTypedIn" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Pårørende, indtastet"/>
+							<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="PN">
+								<given>Bente Test</given>
+								<family>Berggren</family>
+							</value>
+							<value code="uspec_paaroerende" codeSystem="1.2.208.184.100.2" codeSystemName="MedCom Relation Codes" displayName="Uspecificeret pårørende" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CD"/>
+							<value use="H" value="tel:+4589898989" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TEL"/>
+							<value use="WP" value="tel:96856523" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="TEL"/>
+							<value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Dette er en "prøve" på 'nogle' særlige &lt;tegn&gt; ; til test &amp; certificering @ / \ ^ * .”</value>
+							<author>
+								<templateId extension="2019-08-14" root="1.2.208.184.16.1.10.20.30"/>
+								<time value="20230818112201+0200"/>
+								<assignedAuthor>
+									<id assigningAuthorityName="CPR" extension="MSK" root="1.2.208.176.1.2"/>
+									<code code="EnteredCitizenRelative" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Indtastet af borgers pårørende"/>
+									<assignedPerson>
+										<name>
+											<given>Bente</given>
+											<given>Test</given>
+											<family>Berggren</family>
+										</name>
+									</assignedPerson>
+								</assignedAuthor>
+							</author>
+						</observation>
+					</entry>
+				</section>
+			</component>
+		</structuredBody>
+	</component>
+</ClinicalDocument>

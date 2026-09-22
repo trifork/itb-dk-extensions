@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Title:				Pregnancy Shared Care Record - Example 7.
+ Filename:			PSCR-DK v2.0 example 7
+ LastChangedDate:	2025-11-11
+
+ Changes:
+ 2025-11-11:		Initial version - employment section/Pertinent information only
+
+ ********************************************************
+ This example file contains employment section/Pertinent information only
+ ********************************************************
+-->
+<ClinicalDocument moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!--xsi:schemaLocation="urn:hl7-org:v3 ../Schema/infrastructure/cda/CDA_SDTC.xsd">-->
+	<realmCode code="DK"/>
+	<typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+	<!--MedCom templateId for Pregnancy Shared Care Record-->
+	<templateId extension="2.0" root="1.2.208.184.20.1"/>
+	<!--Unik ID for this PSCR-DK instance-->
+	<id assigningAuthorityName="PLSP" extension="b8f0ac2f-895f-4cff-9984-e5d2b09f68d2" root="1.2.208.193"/>
+	<code code="PSCR" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Pregnancy Shared Care Record"/>
+	<title>Pregnancy Shared Care Record for 1912890324</title>
+	<!--PSCR-DK generated at: -->
+	<effectiveTime value="20250707132210+0200"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<!--This recordTarget indentifies the patient and related information from CPR-->
+	<recordTarget contextControlCode="OP" typeCode="RCT">
+		<patientRole classCode="PAT">
+			<id assigningAuthorityName="CPR" extension="1912890324" root="1.2.208.176.1.2"/>
+			<!--This is the address from CPR-->
+			<addr use="H">
+				<streetAddressLine>Vedbæk Strandvej 464</streetAddressLine>
+				<postalCode>7000</postalCode>
+				<city>Fredericia</city>
+				<country>DK</country>
+			</addr>
+			<patient classCode="PSN">
+				<name>
+					<given>Frida</given>
+					<given>MedCom</given>
+					<family>Andersen</family>
+				</name>
+				<administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+				<birthTime value="19891219000000+0000"/>
+			</patient>
+			<providerOrganization>
+				<id assigningAuthorityName="SOR" extension="191901000016999" root="1.2.208.176.1.1"/>
+				<name>Lægehuset Valdemarsgade</name>
+			</providerOrganization>
+		</patientRole>
+	</recordTarget>
+	<author typeCode="AUT" contextControlCode="OP">
+		<time value="20250707130510+0200"/>
+		<!--ClinicalDocument.author.assignedAuthor 1..1-->
+		<assignedAuthor classCode="ASSIGNED">
+			<id extension="393421000016009" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+			<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+				<name>
+					<!--Shall contain at least one given name-->
+					<prefix>Læge</prefix>
+					<given>Karen</given>
+					<!--Shall contain one family name-->
+					<family>Jensen</family>
+				</name>
+			</assignedPerson>
+			<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<name>Lægehuset Valdemarsgade</name>
+				<telecom use="WP" value="tel:+4512345678"/>
+				<addr use="WP">
+					<streetAddressLine>Valdemarsgade 10</streetAddressLine>
+					<streetAddressLine>Lægehuset</streetAddressLine>
+					<postalCode>5700</postalCode>
+					<city>Svendborg</city>
+				</addr>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+	<custodian>
+		<assignedCustodian>
+			<representedCustodianOrganization>
+				<!--id @root is set to SDS-root-->
+				<id assigningAuthorityName="SOR" extension="393421000016009" root="1.2.208.176.1.1"/>
+				<name>Lægehuset Valdemarsgade</name>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="MPROT" moodCode="EVN">
+			<!--This templateId tells that this serviceEvent holds the PSCR-v2.0 CDA profile-->
+			<templateId root="1.2.208.184.10.1.10"/>
+			<!--This id @extension equals the identification and version of the CDA profile-->
+			<id assigningAuthorityName="MedCom" extension="PSCR-v2.0" root="1.2.208.184.100.10"/>
+		</serviceEvent>
+	</documentationOf>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="ACT" moodCode="EVN">
+			<!--This templateId tells that this serviceEvent holds the creation time of clinical content in this document-->
+			<templateId root="1.2.208.184.10.1.11"/>
+			<effectiveTime>
+				<low value="20250707130510+0200"/>
+				<high nullFlavor="NA"/>
+			</effectiveTime>
+		</serviceEvent>
+	</documentationOf>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="MPROT" moodCode="EVN">
+			<!--This templateId tells that this serviceEvent holds the dokument episode-of-care UUID-->
+			<templateId root="1.2.208.184.10.1.12"/>
+			<!--This id @extension equals the episode-of-care UUID-->
+			<id assigningAuthorityName="Sundhedsdatastyrelsen" extension="f5024504-7694-4f44-8c40-3b71b1038396" root="1.2.208.176.7.4.1"/>
+		</serviceEvent>
+	</documentationOf>
+	<component contextConductionInd="true" typeCode="COMP">
+		<structuredBody classCode="DOCBODY" moodCode="EVN">
+			<!--Employment - section-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Employment - section template-->
+					<templateId root="1.2.208.184.20.2.8" extension="2024-04-19"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="364703007" displayName="oplysning om beskæftigelse" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>oplysning om beskæftigelse</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>relevant information</td>
+									<td>eksempel tekst - bemærkninger til beskæftigelses status #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt. Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!--Pertinent information - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Pertinent information" template-->
+							<templateId root="1.2.208.184.20.2.66" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Pertinent information-->
+							<code code="398005008" displayName="relevant information" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="ST">eksempel tekst - bemærkninger til beskæftigelses status #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt. Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+		</structuredBody>
+	</component>
+</ClinicalDocument>

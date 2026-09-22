@@ -1,0 +1,89 @@
+name: Daily public QFDD validation
+
+on:
+  schedule:
+    - cron: '23 4 * * *'
+  workflow_dispatch:
+    inputs:
+      runtime_image:
+        description: Complete CDA image tag or digest (blank uses CDA_RUNTIME_IMAGE variable or Docker Hub latest)
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  packages: read
+
+concurrency:
+  group: spgdef-qfdd-validation
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      CDA_TEST_RESULTS_DIR: ${{ github.workspace }}/test-results/spgdef-qfdd
+      CDA_VALIDATOR_MEMORY: 4g
+      CDA_VALIDATOR_JAVA_OPTIONS: -Xms256m -Xmx3g
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v6.0.1
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: maven
+          cache-dependency-path: cda-validator/tests/pom.xml
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Select the published CDA service image
+        env:
+          SELECTED_IMAGE: ${{ inputs.runtime_image || vars.CDA_RUNTIME_IMAGE }}
+        run: |
+          if [[ -z "$SELECTED_IMAGE" ]]; then
+            SELECTED_IMAGE="docker.io/trifork/itb-dk-extensions-cda:latest"
+          fi
+          if [[ "$SELECTED_IMAGE" =~ [[:space:]] ]]; then
+            printf '%s\n' 'Expected one Docker image tag or digest without whitespace.' >&2
+            exit 1
+          fi
+          printf 'CDA_RUNTIME_IMAGE=%s\n' "$SELECTED_IMAGE" >> "$GITHUB_ENV"
+
+      - name: Authenticate for explicitly selected GHCR image reads
+        if: startsWith(env.CDA_RUNTIME_IMAGE, 'ghcr.io/')
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GHCR_ACTOR: ${{ github.actor }}
+        run: printf '%s' "$GHCR_TOKEN" | docker login ghcr.io --username "$GHCR_ACTOR" --password-stdin
+
+      # Pull the already verified service; compile only the independent HTTP test client.
+      - name: Fetch and validate every published QFDD against QFDD-DK 1.2
+        run: bash cda-validator/tests/run-container-tests.sh spgdef-qfdd
+
+      - name: Upload documents, validation reports and diagnostics
+        id: artifacts
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: spgdef-qfdd-validation
+          path: |
+            test-results/spgdef-qfdd/
+            cda-validator/target/failsafe-reports/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Publish validation summary
+        if: always()
+        env:
+          ARTIFACT_URL: ${{ steps.artifacts.outputs.artifact-url }}
+        run: |
+          if [[ -f "$CDA_TEST_RESULTS_DIR/summary.md" ]]; then
+            cat "$CDA_TEST_RESULTS_DIR/summary.md" >> "$GITHUB_STEP_SUMMARY"
+          else
+            printf '%s\n' '# Daily public QFDD validation' '' 'Validation did not start or reporting failed. See the job log and diagnostics.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+          printf '\n[Download documents and reports](%s)\n' "$ARTIFACT_URL" >> "$GITHUB_STEP_SUMMARY"

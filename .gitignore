@@ -1,0 +1,31 @@
+cda-validator/target/
+cda-validator/domain/cda-dk/plugins/*.jar
+.DS_Store
+
+# Local ITB bootstrap state and generated test-suite archives.
+get-up-and-running/.itb-bootstrap.env
+get-up-and-running/.itb.env
+get-up-and-running/.itb-users.env
+get-up-and-running/build/
+
+# Docker integration test diagnostics.
+test-results/
+scripts/__pycache__
+tests/__pycache__/
+cda-validator/tests/__pycache__/
+
+xds-service/local/*
+!xds-service/local/.gitkeep
+xds-service/tests/__pycache__/
+get-up-and-running/__pycache__/
+
+# Java 25 XDS service build and local IDE state.
+xds-service/target/
+.idea/
+*.iml
+
+# ITB frontend extension test dependencies and reports.
+itb-ui/node_modules/
+itb-ui/playwright-report/
+itb-ui/__pycache__/
+itb-ui/target/

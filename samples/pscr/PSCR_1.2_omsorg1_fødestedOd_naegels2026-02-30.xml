@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Title:        		Pregnancy Shared Care Record - Example 1.2
+ Filename:     		PSCR_1.2_omsorg1_fødestedOd_naegels2026-02-30.xml
+ LastChangedDate: 2026-01-08
+ 
+ Changes:
+ 2025-01-08: documentationOf typecode corrected to "PSCR-v2.0", documentationOf/serviceEvent/effectiveTime corrected
+             documentID/UUID changed from "397e25b7-95ff-400c-a409-7fef144f9371" to "b8fa146c-5ce6-4284-999b-8217bfcb7f42"
+ 2025-09-08: Narrative text corrected
+ 2025-09-02: Initial version
+  
+ ********************************************************
+ This example file contains:
+ Omsorgsniveu: 1
+ Fødested: Odense
+ Beregnet Terminsdato: 2026-02-30
+ ********************************************************
+ -->
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3"
+  xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd" moodCode="EVN">
+  <realmCode code="DK"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <templateId root="1.2.208.184.20.1" extension="2.0"/>
+  <id assigningAuthorityName="Region Syddanmark" root="1.2.208.183"
+    extension="b8fa146c-5ce6-4284-999b-8217bfcb7f42"/>
+  <code code="PSCR" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes"
+    displayName="Pregnancy Shared Care Record"/>
+  <title>Pregnancy Shared Care Record for 0201919990</title>
+  <effectiveTime value="20250820155958+0200"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+  <languageCode code="da-DK"/>
+  <recordTarget typeCode="RCT" contextControlCode="OP">
+    <patientRole classCode="PAT">
+      <id root="1.2.208.176.1.2" extension="0201919990" assigningAuthorityName="CPR"/>
+      <addr use="H">
+        <streetAddressLine>Testgrusgraven 3</streetAddressLine>
+        <streetAddressLine>1.th</streetAddressLine>
+        <postalCode>3400</postalCode>
+        <city>Hillerød</city>
+      </addr>
+      <patient classCode="PSN">
+        <name>
+          <family>Lauridsen</family>
+          <given>Else</given>
+          <given>Test</given>
+        </name>
+        <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" displayName="Female"/>
+        <birthTime value="19910102000000+0000"/>
+      </patient>
+      <providerOrganization>
+        <id assigningAuthorityName="SOR" root="1.2.208.176.1.1" extension="8071000016009"/>
+        <name>Odense Universitetshospital - Svendborg</name>
+      </providerOrganization>
+    </patientRole>
+  </recordTarget>
+  <author typeCode="AUT" contextControlCode="OP">
+    <time value="20250820153300+0200"/>
+    <assignedAuthor classCode="ASSIGNED">
+      <id assigningAuthorityName="SOR" root="1.2.208.176.1.1" extension="615941000016004"/>
+      <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+        <name>
+          <family>Sørensen</family>
+          <given>Birthe</given>
+          <given>F.</given>
+        </name>
+      </assignedPerson>
+      <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+        <name>OUH FødeAfsnit (Svendborg)</name>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <custodian typeCode="CST">
+    <assignedCustodian classCode="ASSIGNED">
+      <representedCustodianOrganization>
+        <id assigningAuthorityName="SOR" root="1.2.208.176.1.1" extension="6101000016001"/>
+        <name>Region Syddanmark</name>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <documentationOf typeCode="DOC">
+    <serviceEvent classCode="ACT" moodCode="EVN">
+      <templateId root="1.2.208.184.10.1.11"/>
+      <effectiveTime>
+        <low value="20250820153100+0200"/>
+        <high nullFlavor="NA"/>
+      </effectiveTime>
+    </serviceEvent>
+  </documentationOf>
+  <documentationOf typeCode="DOC">
+    <serviceEvent classCode="MPROT" moodCode="EVN">
+      <templateId root="1.2.208.184.10.1.10"/>
+      <id assigningAuthorityName="MedCom" root="1.2.208.184.100.10" extension="PSCR-v2.0"/>
+    </serviceEvent>
+  </documentationOf>
+  <component typeCode="COMP" contextConductionInd="true">
+    <structuredBody classCode="DOCBODY" moodCode="EVN">
+      <component>
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="1.2.208.184.20.2.44" extension="2024-04-19"/>
+          <templateId root="2.16.840.1.113883.10.12.201"/>
+          <code code="169812000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
+            displayName="fødested"/>
+          <title>fødested</title>
+          <text>
+            <table>
+              <thead>
+                <tr>
+                  <th>SNOMED kode</th>
+                  <th>Tekst</th>
+                  <th>Værdi</th>
+                  <th>NPU kode</th>
+                  <th>NPU tekst</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>648011000005107</td>
+                  <td>planlagt fødested</td>
+                  <td>OUH FødeAfsnit (Odense) </td>
+                  <td/>
+                  <td/>
+                </tr>
+                <tr>
+                  <td>2903011000005107</td>
+                  <td>hjemmefødsel ønsket</td>
+                  <td>Ja</td>
+                  <td/>
+                  <td/>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.2.208.184.20.2.47" extension="2024-04-19"/>
+              <templateId root="2.16.840.1.113883.10.12.303"/>
+              <code code="648011000005107" codeSystem="2.16.840.1.113883.6.96"
+                codeSystemName="SNOMED CT" displayName="planlagt fødested"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20250820153100+0200"/>
+              <performer typeCode="PRF">
+                <assignedEntity classCode="ASSIGNED">
+                  <id root="1.2.208.176.1.1" extension="347701000016005"
+                    assigningAuthorityName="SOR"/>
+                  <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+                    <name>OUH FødeAfsnit (Odense)</name>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+            </observation>
+          </entry>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.2.208.184.20.2.46" extension="2024-04-19"/>
+              <templateId root="2.16.840.1.113883.10.12.303"/>
+              <code code="2903011000005107" codeSystem="2.16.840.1.113883.6.96"
+                codeSystemName="SNOMED CT" displayName="hjemmefødsel ønsket"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20250820153100+0200"/>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="1.2.208.184.20.2.56" extension="2024-04-19"/>
+          <templateId root="2.16.840.1.113883.10.12.201"/>
+          <code code="278844005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
+            displayName="almen klinisk tilstand"/>
+          <title>almen klinisk tilstand</title>
+          <text>
+            <table>
+              <thead>
+                <tr>
+                  <th>SNOMED kode</th>
+                  <th>Tekst</th>
+                  <th>Værdi</th>
+                  <th>NPU kode</th>
+                  <th>NPU tekst</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>710824005</td>
+                  <td>vurdering af helbredsmæssige og sociale behov</td>
+                  <td>basistilbud ved graviditet</td>
+                  <td/>
+                  <td/>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.2.208.184.20.2.58" extension="2024-04-19"/>
+              <templateId root="2.16.840.1.113883.10.12.303"/>
+              <code code="710824005" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
+                displayName="vurdering af helbredsmæssige og sociale behov"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20250820153100+0200"/>
+              <value xsi:type="CD" code="577951000005100" codeSystem="2.16.840.1.113883.6.96"
+                codeSystemName="SNOMED CT" displayName="basistilbud ved graviditet"/>
+            </observation>
+          </entry>
+        </section>
+      </component>
+          <component>
+            <section classCode="DOCSECT" moodCode="EVN">
+              <templateId root="1.2.208.184.20.2.1" extension="2024-04-19"/>
+              <templateId root="2.16.840.1.113883.10.12.201"/>
+              <code code="161714006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
+                displayName="Terminsberegning"/>
+              <title>Terminsberegning</title>
+              <text>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>SNOMED kode</th>
+                      <th>Tekst</th>
+                      <th>Værdi</th>
+                      <th>NPU kode</th>
+                      <th>NPU tekst</th>
+                      <th>Foster id</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>289206005</td>
+                      <td>beregnet terminsdato fra seneste menstruation</td>
+                      <td>20260230</td>
+                      <td/>
+                      <td/>
+                      <td>N/A</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </text>
+              <entry>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.2.208.184.20.2.4" extension="2024-04-19"/>
+                  <templateId root="2.16.840.1.113883.10.12.303"/>
+                  <code code="289206005" codeSystem="2.16.840.1.113883.6.96"
+                    codeSystemName="SNOMED CT"
+                    displayName="beregnet terminsdato fra seneste menstruation"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20260230"/>
+                </observation>
+              </entry>
+            </section>
+          </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

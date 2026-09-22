@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.3.6.1.4.1.12559.11.18.5" version="1.0" displayName="ObservationInterpretation">
+        <ConceptList xml:lang="en-US">
+            <Concept displayName="low off scale" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="&lt;"/>
+            <Concept displayName="high off scale" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="&gt;"/>
+            <Concept displayName="Abnormal" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="A"/>
+            <Concept displayName="Abnormal alert" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="AA"/>
+            <Concept displayName="better" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="B"/>
+            <Concept displayName="decreased" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="D"/>
+            <Concept displayName="High" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="H"/>
+            <Concept displayName="High alert" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="HH"/>
+            <Concept displayName="intermediate" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="I"/>
+            <Concept displayName="Low" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="L"/>
+            <Concept displayName="Low alert" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="LL"/>
+            <Concept displayName="moderately susceptible" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="MS"/>
+            <Concept displayName="Normal" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="N"/>
+            <Concept displayName="resistent" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="R"/>
+            <Concept displayName="susceptible" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="S"/>
+            <Concept displayName="increased" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="U"/>
+            <Concept displayName="very susceptible" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="VS"/>
+            <Concept displayName="worse" codeSystemName="HL7:ObservationInterpretation" codeSystem="2.16.840.1.113883.5.83" code="W"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

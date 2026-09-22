@@ -1,0 +1,2003 @@
+[
+  {
+    "file": "samples/apd/apd_invalid.xml",
+    "validationType": "apd.v2.0.1",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 7,
+      "warnings": 0
+    },
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_16_apd_invalid.xml"
+    ],
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_16_apd_invalid.xml",
+    "sourceSha256": "5f2081e72081051acf5e0fe4be294d4a7ccce1d80a2871b239c2e4a80d40dcb8",
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-40d4",
+      "APD-DK-2.0.1-69ee-5363",
+      "APD-DK-2.0.1-bf38",
+      "APD-DK-2.0.1-cd01"
+    ]
+  },
+  {
+    "file": "samples/apd/apd_minimum.xml",
+    "validationType": "apd.v2.0.1",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 1,
+      "warnings": 0
+    },
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_1_apd_minimum.xml"
+    ],
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_1_apd_minimum.xml",
+    "sourceSha256": "b4dbaccadf7970b9e25c6864b758eb4f3b2ce6ba317163070775a82695ae7d3d",
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-c79d"
+    ]
+  },
+  {
+    "file": "samples/cpd/cpd_kol.xml",
+    "validationType": "cpd.v2.0.0",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 11,
+      "warnings": 5
+    },
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/CPD/Eksempler/CPD-DK_Ex_Version%202.0%20KOL.xml"
+    ],
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/CPD/Eksempler/CPD-DK_Ex_Version%202.0%20KOL.xml",
+    "sourceSha256": "fe3a40e72905a8ef2367436a5d5ea79d94f6f07dfb6e6698125d605fd9996b82",
+    "conformanceAssertions": [
+      "CPD-DK-2.0.0-C241",
+      "CPD-DK-2.0.0-C36",
+      "CPD-DK-2.0.0-C46",
+      "CPD-DK-2.0.0-H3"
+    ]
+  },
+  {
+    "file": "samples/pdc/pdc20_minimum.xml",
+    "validationType": "pdc.v2.0",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 6,
+      "warnings": 0
+    },
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1.2/PDC20_Example-minimum_data.xml"
+    ],
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1.2/PDC20_Example-minimum_data.xml",
+    "sourceSha256": "2696bf1bc11c0fb87eec3313bcdea6c877666abe21e36b3a44cb7eae6c30a243",
+    "conformanceAssertions": [
+      "PDC-DK-2.0-C114",
+      "PDC-DK-2.0-C120-NAME",
+      "PDC-DK-2.0-C129-NAME",
+      "PDC-DK-2.0-C136"
+    ]
+  },
+  {
+    "file": "samples/pdc/pdc30_minimum.xml",
+    "validationType": "pdc.v3.0.0",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 2,
+      "warnings": 0
+    },
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/3.0/PDC-DK_3_0_Testprotokol_v1.0.0/PDC-DK_Eks_minimalt-eksempel.xml"
+    ],
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/3.0/PDC-DK_3_0_Testprotokol_v1.0.0/PDC-DK_Eks_minimalt-eksempel.xml",
+    "sourceSha256": "2730ee383168bba45091f4f1dc7a16d14f6aecdce3d73ad561eb9f7aa480479f"
+  },
+  {
+    "file": "samples/phmr/phmr_example01.xml",
+    "validationType": "phmr.v2.1.0",
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    },
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-01.xml"
+    ],
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-01.xml",
+    "sourceSha256": "5c064a3c97ce92d971f8bd71a4e89d64eaea865a9f8bbec49ddea3b7482854bf"
+  },
+  {
+    "file": "samples/qfdd/qfdd_example.xml",
+    "validationType": "qfdd.v1.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 4,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/0397c59c-a93f-470a-b8ff-2bc5c5f42b13",
+    "sourceSha256": "e7795d74d17ef81cf20899c1893b5270c89b9c88f2bc0f69c0e4ec53227f20ff",
+    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QFDD-DK-1.2-C76",
+      "QFDD-DK-1.2-COPY-C67",
+      "QFDD-DK-1.2-SHARED-C145"
+    ]
+  },
+  {
+    "file": "samples/qrd/qrd_numeric.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 12,
+      "warnings": 0
+    },
+    "note": "Published unchanged; omits the qrd-v1.3 declaration required by QRD-DK 1.3.2 section 2.2.11. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_1.0_Numeric_Question.xml",
+    "sourceSha256": "db4fb003500ad2021bcb1b6f1b6940ca41dc330e43e44db3f712701ce0b73e00",
+    "conformanceAssertions": [
+      "QRD-DK-1.3.2-AUTHOR-ORGANISATION",
+      "QRD-DK-1.3.2-C121-CODE",
+      "QRD-DK-1.3.2-C126",
+      "QRD-DK-1.3.2-C168",
+      "QRD-DK-1.3.2-COPY-C67",
+      "QRD-DK-1.3.2-DK11",
+      "QRD-DK-1.3.2-DK37",
+      "QRD-DK-1.3.2-REFERENCE-SYSTEM",
+      "QRD-DK-1.3.2-SHARED-C145"
+    ],
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_1.0_Numeric_Question.xml"
+    ]
+  },
+  {
+    "file": "samples/phmr/phmr_v1_3_weight.xml",
+    "validationType": "phmr.v1.3",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 1,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/!svn/bc/2690/Standarder/HL7/PHMR/Eksempler/Ex1-Weight_measurement.xml",
+    "conformanceAssertions": [
+      "PHMR-DK-1.3-SERVICE-MPROT"
+    ]
+  },
+  {
+    "file": "samples/qfdd/qfdd_text.xml",
+    "validationType": "qfdd.v1.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 3,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/1251f3c7-07d6-4d7d-aa89-cf33cb5cdb9f",
+    "sourceSha256": "baa27699266c460ed966a7ec4e47d5ce3c64f81bbdb94f470affbcb40c7e9742",
+    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QFDD-DK-1.2-C76",
+      "QFDD-DK-1.2-SHARED-C145"
+    ]
+  },
+  {
+    "file": "samples/qfdd/qfdd_numeric_graphics.xml",
+    "validationType": "qfdd.v1.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 4,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/1fdb7308-f4fb-4eb1-af62-c8a429915dc1",
+    "sourceSha256": "fd8dc3ce274bebb116d9c71e0354714a2fb19983f6a962ca5d5b9d44d7035641",
+    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QFDD-DK-1.2-C76",
+      "QFDD-DK-1.2-COPY-C67",
+      "QFDD-DK-1.2-SHARED-C145"
+    ]
+  },
+  {
+    "file": "samples/qfdd/qfdd_numeric.xml",
+    "validationType": "qfdd.v1.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 5,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/20ee1a5c-d574-4c04-b315-24e644cef53a",
+    "sourceSha256": "58ca3895615d31e4b7ab3e26eb62ba30d4f3bcb5e0ba9853758fd70860a28b8f",
+    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QFDD-DK-1.2-C59",
+      "QFDD-DK-1.2-C76",
+      "QFDD-DK-1.2-COPY-C67",
+      "QFDD-DK-1.2-SHARED-C145"
+    ]
+  },
+  {
+    "file": "samples/qfdd/qfdd_associated_text.xml",
+    "validationType": "qfdd.v1.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 3,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/2c8f8bd7-059d-410d-aed9-afe37ce389ed",
+    "sourceSha256": "cfa2a1cd351886fbc58b21151719e9eede0d11cc7eab20f73c8e9cf7d4993f5e",
+    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QFDD-DK-1.2-C76",
+      "QFDD-DK-1.2-SHARED-C145"
+    ]
+  },
+  {
+    "file": "samples/qfdd/qfdd_discrete_slider.xml",
+    "validationType": "qfdd.v1.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 3,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/391bb19d-6ccd-4a3d-a3df-ea4ec58155cc",
+    "sourceSha256": "4e9bb6e64515e622d4b5c6597aa88e7f15c21104c377d8bec0f2a279b1f6a3cd",
+    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QFDD-DK-1.2-C76",
+      "QFDD-DK-1.2-SHARED-C145"
+    ]
+  },
+  {
+    "file": "samples/qfdd/qfdd_multiple_choice_grouped.xml",
+    "validationType": "qfdd.v1.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 8,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/3aa7cec1-2718-47a5-8161-767e87c28a35",
+    "sourceSha256": "14ed77b0b518ef7c2ba472fc0b6102456ac02d28c99c2018174b7b6cc4f5c0f4",
+    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QFDD-DK-1.2-C73",
+      "QFDD-DK-1.2-C76",
+      "QFDD-DK-1.2-SHARED-C145"
+    ]
+  },
+  {
+    "file": "samples/qfdd/qfdd_analog_slider_feedback.xml",
+    "validationType": "qfdd.v1.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 5,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/a8aea6f4-d4ab-4926-8328-f92e0b91d68e",
+    "sourceSha256": "86ed541db5b16439227457d950ab5c67350bf42f2c4a9e170d61f077dfb36223",
+    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QFDD-DK-1.2-C59",
+      "QFDD-DK-1.2-C76",
+      "QFDD-DK-1.2-COPY-C67",
+      "QFDD-DK-1.2-SHARED-C145"
+    ]
+  },
+  {
+    "file": "samples/qfdd/qfdd_analog_slider.xml",
+    "validationType": "qfdd.v1.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 5,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/b178eac3-f194-4b53-aaab-78807db7ed42",
+    "sourceSha256": "05ce4823516a16699ba654048a62a633b858b77fc5f443d26ef98ed333113aa5",
+    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QFDD-DK-1.2-C59",
+      "QFDD-DK-1.2-C76",
+      "QFDD-DK-1.2-COPY-C67",
+      "QFDD-DK-1.2-SHARED-C145"
+    ]
+  },
+  {
+    "file": "samples/qrd/qrd_numeric_graphics.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 13,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_1.1_Numeric_Question_-_Graphics.xml",
+    "sourceSha256": "bf27deb62d36c56700ab1a75dbcc83eca0cb4740e31ce68b80c17926faa57018",
+    "note": "Published unchanged; omits the qrd-v1.3 declaration required by QRD-DK 1.3.2 section 2.2.11. Additional schema findings concern observation/reference ordering, reported by both the shared XSD and Gazelle. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QRD-DK-1.3.2-AUTHOR-ORGANISATION",
+      "QRD-DK-1.3.2-C121-CODE",
+      "QRD-DK-1.3.2-C126",
+      "QRD-DK-1.3.2-C168",
+      "QRD-DK-1.3.2-COPY-C67",
+      "QRD-DK-1.3.2-DK11",
+      "QRD-DK-1.3.2-DK37",
+      "QRD-DK-1.3.2-REFERENCE-SYSTEM",
+      "QRD-DK-1.3.2-REL-MEDIA-TEMPLATE-4",
+      "QRD-DK-1.3.2-SHARED-C145"
+    ],
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_1.1_Numeric_Question_-_Graphics.xml"
+    ]
+  },
+  {
+    "file": "samples/qrd/qrd_multiple_choice.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 9,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_2.0_Multiple_Choise_Question.xml",
+    "sourceSha256": "4b0c0353492e72063a6dc04a1434b4f615863b15b92d3442640ceea21642b073",
+    "note": "Published unchanged; omits the qrd-v1.3 declaration required by QRD-DK 1.3.2 section 2.2.11. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QRD-DK-1.3.2-AUTHOR-ORGANISATION",
+      "QRD-DK-1.3.2-C121-CODE",
+      "QRD-DK-1.3.2-C189",
+      "QRD-DK-1.3.2-COPY-C67",
+      "QRD-DK-1.3.2-DK11",
+      "QRD-DK-1.3.2-DK37",
+      "QRD-DK-1.3.2-REFERENCE-SYSTEM",
+      "QRD-DK-1.3.2-SHARED-C145"
+    ],
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_2.0_Multiple_Choise_Question.xml"
+    ]
+  },
+  {
+    "file": "samples/qrd/qrd_multiple_choice_grouped.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 26,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_2.1_Multiple_Choise_Question_-_Grouped.xml",
+    "sourceSha256": "e66adbb52bf88c8351af6b27faecb831862cf35d7d2e8f09af1861a4035164d6",
+    "note": "Published unchanged; omits the qrd-v1.3 declaration required by QRD-DK 1.3.2 section 2.2.11. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QRD-DK-1.3.2-AUTHOR-ORGANISATION",
+      "QRD-DK-1.3.2-C121-CODE",
+      "QRD-DK-1.3.2-C132",
+      "QRD-DK-1.3.2-C135",
+      "QRD-DK-1.3.2-C180",
+      "QRD-DK-1.3.2-C189",
+      "QRD-DK-1.3.2-C236",
+      "QRD-DK-1.3.2-DK11",
+      "QRD-DK-1.3.2-DK37",
+      "QRD-DK-1.3.2-INFO-NO-ENTRY",
+      "QRD-DK-1.3.2-REFERENCE-SYSTEM",
+      "QRD-DK-1.3.2-SHARED-C145"
+    ],
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_2.1_Multiple_Choise_Question_-_Grouped.xml"
+    ]
+  },
+  {
+    "file": "samples/qrd/qrd_text.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 10,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_3.0_Text_Question.xml",
+    "sourceSha256": "0dfff87c780db74d2a3132503ff0e7a0a50e17a8d8d8f7f77c72d3a2809c1ba7",
+    "note": "Published unchanged; omits the qrd-v1.3 declaration required by QRD-DK 1.3.2 section 2.2.11. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QRD-DK-1.3.2-AUTHOR-ORGANISATION",
+      "QRD-DK-1.3.2-C121-CODE",
+      "QRD-DK-1.3.2-C126",
+      "QRD-DK-1.3.2-C214",
+      "QRD-DK-1.3.2-COPY-C67",
+      "QRD-DK-1.3.2-DK11",
+      "QRD-DK-1.3.2-DK37",
+      "QRD-DK-1.3.2-REFERENCE-SYSTEM",
+      "QRD-DK-1.3.2-SHARED-C145"
+    ],
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_3.0_Text_Question.xml"
+    ]
+  },
+  {
+    "file": "samples/qrd/qrd_associated_text_1.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 9,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_3.1.1_Text_Question_-_Associated%20Text%20Question.xml",
+    "sourceSha256": "897d2b9551503cc041443e92273f12930ef6046475bd32e414bcc71ce2b37c60",
+    "note": "Published unchanged; omits the qrd-v1.3 declaration required by QRD-DK 1.3.2 section 2.2.11. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QRD-DK-1.3.2-AUTHOR-ORGANISATION",
+      "QRD-DK-1.3.2-C121-CODE",
+      "QRD-DK-1.3.2-C189",
+      "QRD-DK-1.3.2-COPY-C67",
+      "QRD-DK-1.3.2-DK11",
+      "QRD-DK-1.3.2-DK37",
+      "QRD-DK-1.3.2-REFERENCE-SYSTEM",
+      "QRD-DK-1.3.2-SHARED-C145"
+    ],
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_3.1.1_Text_Question_-_Associated%20Text%20Question.xml"
+    ]
+  },
+  {
+    "file": "samples/qrd/qrd_associated_text_2.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 9,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_3.1.2_Text_Question_-_Associated%20Text%20Question.xml",
+    "sourceSha256": "346a484098b5602153888fe8d369940bce32e577eedd9248bba6c5a9475ddbb2",
+    "note": "Published unchanged; omits the qrd-v1.3 declaration required by QRD-DK 1.3.2 section 2.2.11. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QRD-DK-1.3.2-AUTHOR-ORGANISATION",
+      "QRD-DK-1.3.2-C121-CODE",
+      "QRD-DK-1.3.2-C189",
+      "QRD-DK-1.3.2-COPY-C67",
+      "QRD-DK-1.3.2-DK11",
+      "QRD-DK-1.3.2-DK37",
+      "QRD-DK-1.3.2-REFERENCE-SYSTEM",
+      "QRD-DK-1.3.2-SHARED-C145"
+    ],
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_3.1.2_Text_Question_-_Associated%20Text%20Question.xml"
+    ]
+  },
+  {
+    "file": "samples/qrd/qrd_analog_slider.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 16,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_4.0_Analog_Slider_Question.xml",
+    "sourceSha256": "2d509983f1c5a3ac155b56cc271acf2b393204830fce5c7e4843820559f1b50d",
+    "note": "Published unchanged; omits the qrd-v1.3 declaration required by QRD-DK 1.3.2 section 2.2.11. Additional schema findings concern observation/reference ordering, reported by both the shared XSD and Gazelle. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QRD-DK-1.3.2-AUTHOR-ORGANISATION",
+      "QRD-DK-1.3.2-C121-CODE",
+      "QRD-DK-1.3.2-C126",
+      "QRD-DK-1.3.2-C168",
+      "QRD-DK-1.3.2-COPY-C67",
+      "QRD-DK-1.3.2-DK11",
+      "QRD-DK-1.3.2-DK37",
+      "QRD-DK-1.3.2-REFERENCE-SYSTEM",
+      "QRD-DK-1.3.2-SHARED-C145"
+    ],
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_4.0_Analog_Slider_Question.xml"
+    ]
+  },
+  {
+    "file": "samples/qrd/qrd_analog_slider_feedback.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 12,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_4.1_Analog_Slider_Question_-_Question%20Feedback%20Pattern%20Observation.xml",
+    "sourceSha256": "505f54b95bd5eed2a2ee3636e8e74bedf904b693a54b566d6720602411fc150e",
+    "note": "Published unchanged; omits the qrd-v1.3 declaration required by QRD-DK 1.3.2 section 2.2.11. Additional schema findings concern observation/reference ordering, reported by both the shared XSD and Gazelle. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QRD-DK-1.3.2-AUTHOR-ORGANISATION",
+      "QRD-DK-1.3.2-C121-CODE",
+      "QRD-DK-1.3.2-C126",
+      "QRD-DK-1.3.2-C168",
+      "QRD-DK-1.3.2-COPY-C67",
+      "QRD-DK-1.3.2-DK11",
+      "QRD-DK-1.3.2-DK37",
+      "QRD-DK-1.3.2-REFERENCE-SYSTEM",
+      "QRD-DK-1.3.2-SHARED-C145"
+    ],
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_4.1_Analog_Slider_Question_-_Question%20Feedback%20Pattern%20Observation.xml"
+    ]
+  },
+  {
+    "file": "samples/qrd/qrd_discrete_slider.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 9,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_5.0_Discrete_Slider_Question.xml",
+    "sourceSha256": "4adcaa412fdb75d718a22c49effd1e5f708ecff4f0c440f3324ccc1dd1599ff2",
+    "note": "Published unchanged; omits the qrd-v1.3 declaration required by QRD-DK 1.3.2 section 2.2.11. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QRD-DK-1.3.2-AUTHOR-ORGANISATION",
+      "QRD-DK-1.3.2-C121-CODE",
+      "QRD-DK-1.3.2-C189",
+      "QRD-DK-1.3.2-COPY-C67",
+      "QRD-DK-1.3.2-DK11",
+      "QRD-DK-1.3.2-DK37",
+      "QRD-DK-1.3.2-REFERENCE-SYSTEM",
+      "QRD-DK-1.3.2-SHARED-C145"
+    ],
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_5.0_Discrete_Slider_Question.xml"
+    ]
+  },
+  {
+    "file": "samples/qrd/qrd_m_3.19.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 39,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.19.xml",
+    "sourceSha256": "92709c7b0cc3919583e9051164d8b5e303efad19facf30608d8863e4192d6c71",
+    "note": "Published test-protocol example; filename numbers identify test steps, not profile versions. Declares qrd-v9.9 and must fail the profile-version check. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QRD-DK-1.3.2-C121-CODE",
+      "QRD-DK-1.3.2-C126",
+      "QRD-DK-1.3.2-C138-143",
+      "QRD-DK-1.3.2-C159",
+      "QRD-DK-1.3.2-C180",
+      "QRD-DK-1.3.2-C189",
+      "QRD-DK-1.3.2-C205",
+      "QRD-DK-1.3.2-C22",
+      "QRD-DK-1.3.2-C34",
+      "QRD-DK-1.3.2-C37",
+      "QRD-DK-1.3.2-COPY-C67",
+      "QRD-DK-1.3.2-DK14",
+      "QRD-DK-1.3.2-DK37",
+      "QRD-DK-1.3.2-DK43",
+      "QRD-DK-1.3.2-DK44",
+      "QRD-DK-1.3.2-REFERENCE-SYSTEM",
+      "QRD-DK-1.3.2-SHARED-C125",
+      "QRD-DK-1.3.2-SHARED-C145"
+    ],
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.19.xml"
+    ]
+  },
+  {
+    "file": "samples/qrd/qrd_m_3.1_a.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 34,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.1_A.xml",
+    "sourceSha256": "9bb710e18f2e66cc313a62c04ea9f7ce4458a36251b0afa32c096f62c2e2070b",
+    "note": "Published test-protocol example; filename numbers identify test steps, not profile releases. Fails the expanded source-traced QRD-DK 1.3.2 rules; see conformanceAssertions and docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QRD-DK-1.3.2-C121-CODE",
+      "QRD-DK-1.3.2-C126",
+      "QRD-DK-1.3.2-C168",
+      "QRD-DK-1.3.2-C171",
+      "QRD-DK-1.3.2-C189",
+      "QRD-DK-1.3.2-C22",
+      "QRD-DK-1.3.2-C34",
+      "QRD-DK-1.3.2-C37",
+      "QRD-DK-1.3.2-COPY-C67",
+      "QRD-DK-1.3.2-DK37",
+      "QRD-DK-1.3.2-DK43",
+      "QRD-DK-1.3.2-DK44",
+      "QRD-DK-1.3.2-REFERENCE-SYSTEM",
+      "QRD-DK-1.3.2-SHARED-C125",
+      "QRD-DK-1.3.2-SHARED-C145"
+    ],
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.1_A.xml"
+    ]
+  },
+  {
+    "file": "samples/qrd/qrd_m_3.22_a.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 35,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.22_A.xml",
+    "sourceSha256": "e1e595bc3f1a555876c5ac20232f425c464d3bed98e75df4f55ac9e24ef83779",
+    "note": "Published test-protocol example; filename numbers identify test steps, not profile releases. Fails the expanded source-traced QRD-DK 1.3.2 rules; see conformanceAssertions and docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QRD-DK-1.3.2-C121-CODE",
+      "QRD-DK-1.3.2-C135",
+      "QRD-DK-1.3.2-C168",
+      "QRD-DK-1.3.2-C189",
+      "QRD-DK-1.3.2-C214",
+      "QRD-DK-1.3.2-C34",
+      "QRD-DK-1.3.2-COPY-C67",
+      "QRD-DK-1.3.2-DK25",
+      "QRD-DK-1.3.2-DK26",
+      "QRD-DK-1.3.2-DK27",
+      "QRD-DK-1.3.2-DK37",
+      "QRD-DK-1.3.2-DK43",
+      "QRD-DK-1.3.2-DK44",
+      "QRD-DK-1.3.2-INFO-NO-ENTRY",
+      "QRD-DK-1.3.2-REFERENCE-SYSTEM",
+      "QRD-DK-1.3.2-SHARED-C125",
+      "QRD-DK-1.3.2-SHARED-C145"
+    ],
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.22_A.xml"
+    ]
+  },
+  {
+    "file": "samples/qrd/qrd_m_3.9_a.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 35,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.9_A.xml",
+    "sourceSha256": "23d15ae9169dd83d02e4beb1d25d1e311f6f2e9f878e4676b7e2852bec51b0d9",
+    "note": "Published test-protocol example; filename numbers identify test steps, not profile releases. Fails the expanded source-traced QRD-DK 1.3.2 rules; see conformanceAssertions and docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QRD-DK-1.3.2-C121-CODE",
+      "QRD-DK-1.3.2-C135",
+      "QRD-DK-1.3.2-C168",
+      "QRD-DK-1.3.2-C189",
+      "QRD-DK-1.3.2-C214",
+      "QRD-DK-1.3.2-C22",
+      "QRD-DK-1.3.2-C34",
+      "QRD-DK-1.3.2-C37",
+      "QRD-DK-1.3.2-COPY-C67",
+      "QRD-DK-1.3.2-DK25",
+      "QRD-DK-1.3.2-DK26",
+      "QRD-DK-1.3.2-DK27",
+      "QRD-DK-1.3.2-DK37",
+      "QRD-DK-1.3.2-DK43",
+      "QRD-DK-1.3.2-DK44",
+      "QRD-DK-1.3.2-INFO-NO-ENTRY",
+      "QRD-DK-1.3.2-REFERENCE-SYSTEM",
+      "QRD-DK-1.3.2-SHARED-C125",
+      "QRD-DK-1.3.2-SHARED-C145"
+    ],
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.9_A.xml"
+    ]
+  },
+  {
+    "file": "samples/qrd/qrd_m_3.9_b.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 37,
+      "warnings": 0
+    },
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.9_B.xml",
+    "sourceSha256": "0edfec1c5d61fdad477e8d050d1ece2fc6584cbb6c1b61e18f392b5b9858022d",
+    "note": "Published test-protocol example; filename numbers identify test steps, not profile releases. Fails the expanded source-traced QRD-DK 1.3.2 rules; see conformanceAssertions and docs/pro-conformance/sample-findings.json.",
+    "conformanceAssertions": [
+      "QRD-DK-1.3.2-C121-CODE",
+      "QRD-DK-1.3.2-C135",
+      "QRD-DK-1.3.2-C168",
+      "QRD-DK-1.3.2-C189",
+      "QRD-DK-1.3.2-C214",
+      "QRD-DK-1.3.2-C22",
+      "QRD-DK-1.3.2-C34",
+      "QRD-DK-1.3.2-C37",
+      "QRD-DK-1.3.2-COPY-C67",
+      "QRD-DK-1.3.2-DK25",
+      "QRD-DK-1.3.2-DK26",
+      "QRD-DK-1.3.2-DK27",
+      "QRD-DK-1.3.2-DK37",
+      "QRD-DK-1.3.2-DK43",
+      "QRD-DK-1.3.2-DK44",
+      "QRD-DK-1.3.2-INFO-NO-ENTRY",
+      "QRD-DK-1.3.2-REFERENCE-SYSTEM",
+      "QRD-DK-1.3.2-SHARED-C125",
+      "QRD-DK-1.3.2-SHARED-C145"
+    ],
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.9_B.xml"
+    ]
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_10_apd_municipality_morning_sbj.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_10_apd_municipality_morning_sbj.xml",
+    "sourceSha256": "21bf121fbea6808b97d07c51c9fb960826c5ed24d5e300e3ad0631f0954166ab",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_10_apd_municipality_morning_sbj.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 1,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-c79d"
+    ]
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_12_apd_region_days.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_12_apd_region_days.xml",
+    "sourceSha256": "cc4e3a678df96d1b8b0a7d056124d673db8ece21b6ecfc687848790e0e0809e0",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_12_apd_region_days.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_17_apd_with_co_author_and_extra_data.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_17_apd_with_co_author_and_extra_data.xml",
+    "sourceSha256": "62849c04c28fcb116c1584c1c6a7293c4255cf2658379157423af42604f3a52e",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_17_apd_with_co_author_and_extra_data.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 1,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-61c6"
+    ]
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_18_apd_overlappende.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_18_apd_overlappende.xml",
+    "sourceSha256": "4f6fab599940932c52d896e7eea807d9f2e8243988a43abc521da327b0b541fa",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_18_apd_overlappende.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 1,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-c79d"
+    ]
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_19_apd_historisk.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_19_apd_historisk.xml",
+    "sourceSha256": "0fa40212c251c859a4ee00807c814da9c9c81288659c67b941ea43723b562182",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_19_apd_historisk.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 1,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-c79d"
+    ]
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_20_apd_week53.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_20_apd_week53.xml",
+    "sourceSha256": "0aeba4118c9223721a23efe1409f6b253b497d6cf8c21da717ebf29c645a528a",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_20_apd_week53.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 1,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-c79d"
+    ]
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_21_apd_no_author_address.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_21_apd_no_author_address.xml",
+    "sourceSha256": "a620cefd905ecd593270cefd6ee9e011fdb2102503b9f597a22005ad0ff680d3",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_21_apd_no_author_address.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_2_apd_maximum.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_2_apd_maximum.xml",
+    "sourceSha256": "dee1affdb76f787d1f7995fe14a62ca5c0b8740bb8e02cda856720c6fb371f3c",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_2_apd_maximum.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 2,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-40d4",
+      "APD-DK-2.0.1-bf38"
+    ]
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_4_apd_municipality_a.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_4_apd_municipality_a.xml",
+    "sourceSha256": "b3345b383465c80d925e764df90dbabfa7c053f6ce10a9e54fde79cd25fdf971",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_4_apd_municipality_a.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 1,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-c79d"
+    ]
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_4_apd_municipality_b.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_4_apd_municipality_b.xml",
+    "sourceSha256": "02c523cb66500a93790b887ef23dfa97cecf7af63126c0f24b11e03d5c301458",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_4_apd_municipality_b.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 1,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-c79d"
+    ]
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_4_apd_municipality_c.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_4_apd_municipality_c.xml",
+    "sourceSha256": "a6788eaa71039fc01971cad4ab6a41185c833b75bfb8e2120330d7fa208536b3",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_4_apd_municipality_c.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 1,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-c79d"
+    ]
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_4_apd_municipality_d.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_4_apd_municipality_d.xml",
+    "sourceSha256": "c006e7fcf7566c6d93b678e3159aab6dbcfcb8a05a477ed176ad2b52f220c612",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_4_apd_municipality_d.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 3,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-7e5c",
+      "APD-DK-2.0.1-ad38",
+      "APD-DK-2.0.1-c79d"
+    ]
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_4_apd_municipality_e.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_4_apd_municipality_e.xml",
+    "sourceSha256": "4df1bf7677c922389866c22432ef63c146d89340f7de028a7b0229ae9d5ee6b8",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_4_apd_municipality_e.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 1,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-c79d"
+    ]
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_4_apd_municipality_f.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_4_apd_municipality_f.xml",
+    "sourceSha256": "1b1b87f2fbe55861c47abd41aecf5ae5a4e7266337ea2b2e9cc9a5208266c775",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_4_apd_municipality_f.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 1,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-c79d"
+    ]
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_5_apd_region.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_5_apd_region.xml",
+    "sourceSha256": "8924ddb5989738f69f2df2db52d06dcc0822da9f5b1575da7a525fc37a22bdcf",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_5_apd_region.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_6_apd_gp.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_6_apd_gp.xml",
+    "sourceSha256": "c37fc5c7df855a65ebc5c494bf90a49ac71501b916ec5b02ffc510090c55dd4b",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_6_apd_gp.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_7_apd_gp_specialist_yder.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_7_apd_gp_specialist_yder.xml",
+    "sourceSha256": "5971f5ed068d61999b507b688c6ac768311041bab5a66e2fafb92f3b5509d40b",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_7_apd_gp_specialist_yder.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 3,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-91ea-062f"
+    ]
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_8_apd_gp_citizen.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_8_apd_gp_citizen.xml",
+    "sourceSha256": "0c28fed85988d691a935724d191cb4b9903a83da01d93360f010d80fed767d23",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_8_apd_gp_citizen.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/apd/2.0_DK-APD_Example_1_9_apd_v11.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_9_apd_v11.xml",
+    "sourceSha256": "0e4a683d13bdbae607bef00aac0066d262ef5fb8911c412509c95205e708529b",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/2.0/DK-APD_Example_1_9_apd_v11.xml"
+    ],
+    "comparisonNote": "Official APD 2.0 folder includes an example deliberately declaring apd-v1.1; expected release mismatch.",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 9,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-49d8-ad5b",
+      "APD-DK-2.0.1-9245",
+      "APD-DK-2.0.1-9b39-efbf",
+      "APD-DK-2.0.1-c362-7e02",
+      "APD-DK-2.0.1-cce6-7df6",
+      "APD-DK-2.0.1-ed37"
+    ]
+  },
+  {
+    "file": "samples/apd/Tidligere versioner_DK-APD_Example_1.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/Tidligere%20versioner/DK-APD_Example_1.xml",
+    "sourceSha256": "5b0dad5526685b1c51e00f94480576e8b08435ceaaa36f25e51548a0ae973ff1",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/Tidligere%20versioner/DK-APD_Example_1.xml"
+    ],
+    "comparisonNote": "Archived APD example; historical release is not registered. Compared with APD-DK 2.0.1 for migration diagnostics, not claimed to validate its original release.",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 14,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-49d8-ad5b",
+      "APD-DK-2.0.1-69ee-5363",
+      "APD-DK-2.0.1-7e5c",
+      "APD-DK-2.0.1-851d-37d2",
+      "APD-DK-2.0.1-9245",
+      "APD-DK-2.0.1-9b39-efbf",
+      "APD-DK-2.0.1-ad38",
+      "APD-DK-2.0.1-c362-7e02",
+      "APD-DK-2.0.1-cce6-7df6",
+      "APD-DK-2.0.1-ed37"
+    ]
+  },
+  {
+    "file": "samples/apd/Tidligere versioner_DK-APD_Example_No_Time_Place.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/Tidligere%20versioner/DK-APD_Example_No_Time_Place.xml",
+    "sourceSha256": "8bce51f7b8540b00899d0d9cf294330ad7b43dc0abd27bf4ceacc9e580a27a64",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/Tidligere%20versioner/DK-APD_Example_No_Time_Place.xml"
+    ],
+    "comparisonNote": "Archived APD example; historical release is not registered. Compared with APD-DK 2.0.1 for migration diagnostics, not claimed to validate its original release.",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 10,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-69ee-5363",
+      "APD-DK-2.0.1-8506",
+      "APD-DK-2.0.1-851d-37d2",
+      "APD-DK-2.0.1-9b39-efbf",
+      "APD-DK-2.0.1-C14749",
+      "APD-DK-2.0.1-d9f0"
+    ]
+  },
+  {
+    "file": "samples/apd/Tidligere versioner_DK-APD_Example_apd-2-0.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/Tidligere%20versioner/DK-APD_Example_apd-2-0.xml",
+    "sourceSha256": "15ce98eb778717718c867280a9343e5f8b0d67e75591e212305ccabf6b49b999",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/Tidligere%20versioner/DK-APD_Example_apd-2-0.xml"
+    ],
+    "comparisonNote": "Archived APD example; historical release is not registered. Compared with APD-DK 2.0.1 for migration diagnostics, not claimed to validate its original release.",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 11,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-69ee-5363",
+      "APD-DK-2.0.1-7e5c",
+      "APD-DK-2.0.1-851d-37d2",
+      "APD-DK-2.0.1-8cd7",
+      "APD-DK-2.0.1-CODE-4",
+      "APD-DK-2.0.1-ad38",
+      "APD-DK-2.0.1-c79d",
+      "APD-DK-2.0.1-cce6-7df6"
+    ]
+  },
+  {
+    "file": "samples/apd/Tidligere versioner_DK-APD_Example_minimum.xml",
+    "validationType": "apd.v2.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/Tidligere%20versioner/DK-APD_Example_minimum.xml",
+    "sourceSha256": "f34e96cf60a0517e8a2ec989fd7f482741848316a767075acbe0fe4d13470b0b",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Eksempler/Tidligere%20versioner/DK-APD_Example_minimum.xml"
+    ],
+    "comparisonNote": "Archived APD example; historical release is not registered. Compared with APD-DK 2.0.1 for migration diagnostics, not claimed to validate its original release.",
+    "expected": {
+      "result": "FAILURE",
+      "errors": 17,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "APD-DK-2.0.1-49d8-ad5b",
+      "APD-DK-2.0.1-69ee-5363",
+      "APD-DK-2.0.1-7e5c",
+      "APD-DK-2.0.1-851d-37d2",
+      "APD-DK-2.0.1-8cd7",
+      "APD-DK-2.0.1-9245",
+      "APD-DK-2.0.1-9b39-efbf",
+      "APD-DK-2.0.1-ad38",
+      "APD-DK-2.0.1-b770",
+      "APD-DK-2.0.1-c362-7e02",
+      "APD-DK-2.0.1-c79d",
+      "APD-DK-2.0.1-cce6-7df6",
+      "APD-DK-2.0.1-ed37"
+    ]
+  },
+  {
+    "file": "samples/cpd/CPD-DK_Ex_Version 2.0 Diabetes.xml",
+    "validationType": "cpd.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/CPD/Eksempler/CPD-DK_Ex_Version%202.0%20Diabetes.xml",
+    "sourceSha256": "57d0cbb784b66ae26cdd1e5bea3b32e6cecc77ceee95a65624541cd7850c2559",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/CPD/Eksempler/CPD-DK_Ex_Version%202.0%20Diabetes.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 18,
+      "warnings": 4
+    },
+    "conformanceAssertions": [
+      "CPD-DK-2.0.0-C241",
+      "CPD-DK-2.0.0-C36",
+      "CPD-DK-2.0.0-C46",
+      "CPD-DK-2.0.0-H3"
+    ]
+  },
+  {
+    "file": "samples/cpd/CPD-DK_Ex_Version 2.0 Hjerte.xml",
+    "validationType": "cpd.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/CPD/Eksempler/CPD-DK_Ex_Version%202.0%20Hjerte.xml",
+    "sourceSha256": "4cd81c8383454179334e161909ddd6468673ccc8b9dc75723eb6982f87764953",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/CPD/Eksempler/CPD-DK_Ex_Version%202.0%20Hjerte.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 14,
+      "warnings": 5
+    },
+    "conformanceAssertions": [
+      "CPD-DK-2.0.0-C241",
+      "CPD-DK-2.0.0-C36",
+      "CPD-DK-2.0.0-C46",
+      "CPD-DK-2.0.0-H3"
+    ]
+  },
+  {
+    "file": "samples/pdc/2.0_PDC-DK_2_0_Testprotokol_v1.0_PDC20_Example-maximum_data.xml",
+    "validationType": "pdc.v2.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.0/PDC20_Example-maximum_data.xml",
+    "sourceSha256": "3a8f5f5fa5efa0f28890b5629c243545fc4fc5259e15465254fdf6e73934055a",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.0/PDC20_Example-maximum_data.xml",
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1/PDC20_Example-maximum_data.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 5,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "PDC-DK-2.0-C114",
+      "PDC-DK-2.0-C120-NAME",
+      "PDC-DK-2.0-C129-NAME"
+    ]
+  },
+  {
+    "file": "samples/pdc/2.0_PDC-DK_2_0_Testprotokol_v1.0_PDC20_Example-minimum_data.xml",
+    "validationType": "pdc.v2.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.0/PDC20_Example-minimum_data.xml",
+    "sourceSha256": "90f0e3ec61815362711927c373d3b7fbebde1935734ee9b4a9bc7926e99d14ad",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.0/PDC20_Example-minimum_data.xml",
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1/PDC20_Example-minimum_data.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 5,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "PDC-DK-2.0-C114",
+      "PDC-DK-2.0-C120-NAME",
+      "PDC-DK-2.0-C129-NAME"
+    ]
+  },
+  {
+    "file": "samples/pdc/2.0_PDC-DK_2_0_Testprotokol_v1.0_PDC20_Example_confidential_address.xml",
+    "validationType": "pdc.v2.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.0/PDC20_Example_confidential_address.xml",
+    "sourceSha256": "946386e52bda6332e5d4a6542a1579659e7270da5676cc19a72ffb3162afb89e",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.0/PDC20_Example_confidential_address.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 4,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "PDC-DK-2.0-C120-NAME",
+      "PDC-DK-2.0-C129-NAME"
+    ]
+  },
+  {
+    "file": "samples/pdc/2.0_PDC-DK_2_0_Testprotokol_v1.1_PDC20_Example_confidential_address.xml",
+    "validationType": "pdc.v2.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1/PDC20_Example_confidential_address.xml",
+    "sourceSha256": "8608b96a4ccb0dd20741faa9827b6ed3be7c908c7f9273f1df3762ed1a91791f",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1/PDC20_Example_confidential_address.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 4,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "PDC-DK-2.0-C120-NAME",
+      "PDC-DK-2.0-C129-NAME"
+    ]
+  },
+  {
+    "file": "samples/pdc/2.0_PDC-DK_2_0_Testprotokol_v1.1.1_PDC20_Example-maximum_data.xml",
+    "validationType": "pdc.v2.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1.1/PDC20_Example-maximum_data.xml",
+    "sourceSha256": "cd888778fa6877303c497b473c71d7fa4531a48b0d0d28d30b4c93d9eea1de93",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1.1/PDC20_Example-maximum_data.xml",
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1.2/PDC20_Example-maximum_data.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 6,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "PDC-DK-2.0-C114",
+      "PDC-DK-2.0-C120-NAME",
+      "PDC-DK-2.0-C129-NAME",
+      "PDC-DK-2.0-C136"
+    ]
+  },
+  {
+    "file": "samples/pdc/2.0_PDC-DK_2_0_Testprotokol_v1.1.1_PDC20_Example-maximum_data_differentNarrativeText.xml",
+    "validationType": "pdc.v2.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1.1/PDC20_Example-maximum_data_differentNarrativeText.xml",
+    "sourceSha256": "39ef6b749e0febbdf6d14bfab17cda8beaa0aa5f3b973c92fc0407a1976f1e52",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1.1/PDC20_Example-maximum_data_differentNarrativeText.xml",
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1.2/PDC20_Example-maximum_data_differentNarrativeText.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 6,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "PDC-DK-2.0-C114",
+      "PDC-DK-2.0-C120-NAME",
+      "PDC-DK-2.0-C129-NAME",
+      "PDC-DK-2.0-C136"
+    ]
+  },
+  {
+    "file": "samples/pdc/2.0_PDC-DK_2_0_Testprotokol_v1.1.1_PDC20_Example-minimum_data.xml",
+    "validationType": "pdc.v2.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1.1/PDC20_Example-minimum_data.xml",
+    "sourceSha256": "7c972aa2d17ec0938cdb3eb756e8f6d21965c888f7d88251b50f0191ee720b36",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1.1/PDC20_Example-minimum_data.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 6,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "PDC-DK-2.0-C114",
+      "PDC-DK-2.0-C120-NAME",
+      "PDC-DK-2.0-C129-NAME",
+      "PDC-DK-2.0-C136"
+    ]
+  },
+  {
+    "file": "samples/pdc/2.0_PDC-DK_2_0_Testprotokol_v1.1.1_PDC20_Example_confidential_address.xml",
+    "validationType": "pdc.v2.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1.1/PDC20_Example_confidential_address.xml",
+    "sourceSha256": "1237259c3ad9af7b6975eabb326bcc6949ce90b9843873d2047b9b8b08dab3f5",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1.1/PDC20_Example_confidential_address.xml",
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1.2/PDC20_Example_confidential_address.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 6,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "PDC-DK-2.0-C114",
+      "PDC-DK-2.0-C120-NAME",
+      "PDC-DK-2.0-C129-NAME",
+      "PDC-DK-2.0-C136"
+    ]
+  },
+  {
+    "file": "samples/pdc/3.0_PDC-DK_3_0_Testprotokol_v1.0.0_PDC-DK_Eks_maksimalt-eksempel-forskellig-narrativ.xml",
+    "validationType": "pdc.v3.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/3.0/PDC-DK_3_0_Testprotokol_v1.0.0/PDC-DK_Eks_maksimalt-eksempel-forskellig-narrativ.xml",
+    "sourceSha256": "6e214b6d14f33b1973b498d3fdf62a4b042597abfe280738608e4d303b69678b",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/3.0/PDC-DK_3_0_Testprotokol_v1.0.0/PDC-DK_Eks_maksimalt-eksempel-forskellig-narrativ.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 2,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pdc/3.0_PDC-DK_3_0_Testprotokol_v1.0.0_PDC-DK_Eks_maksimalt-eksempel.xml",
+    "validationType": "pdc.v3.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/3.0/PDC-DK_3_0_Testprotokol_v1.0.0/PDC-DK_Eks_maksimalt-eksempel.xml",
+    "sourceSha256": "98f9fbee80db355168a017182c995f074380a24aee07bd69faeb9a2cde350105",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/3.0/PDC-DK_3_0_Testprotokol_v1.0.0/PDC-DK_Eks_maksimalt-eksempel.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 2,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pdc/3.0_PDC-DK_3_0_Testprotokol_v1.0.0_PDC-DK_Eks_navne-og-adressebeskyttelse.xml",
+    "validationType": "pdc.v3.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/3.0/PDC-DK_3_0_Testprotokol_v1.0.0/PDC-DK_Eks_navne-og-adressebeskyttelse.xml",
+    "sourceSha256": "d16e8ce9164f5251565ef7e920e0451df7d971fba03e2dd9cf2714d6216bdd55",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/3.0/PDC-DK_3_0_Testprotokol_v1.0.0/PDC-DK_Eks_navne-og-adressebeskyttelse.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 2,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pdc/3.0_PDC-DK_3_0_Testprotokol_v1.0.0_PDC-DK_Eks_nullFlavor-ved-FGVH.xml",
+    "validationType": "pdc.v3.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/3.0/PDC-DK_3_0_Testprotokol_v1.0.0/PDC-DK_Eks_nullFlavor-ved-FGVH.xml",
+    "sourceSha256": "4c937ed253a5e2e647b714134a712c127f3d73a169924f23beab5a9b026e6a8d",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/3.0/PDC-DK_3_0_Testprotokol_v1.0.0/PDC-DK_Eks_nullFlavor-ved-FGVH.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 4,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/phmr/PHMR-example-02.xml",
+    "validationType": "phmr.v2.1.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-02.xml",
+    "sourceSha256": "4ddccd5ffc71aa03674533a24c9466c76b145292f7799a3a93c0cf545d531216",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-02.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 1,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "PHMR-DK-2.1.0-TITLE"
+    ]
+  },
+  {
+    "file": "samples/phmr/PHMR-example-03.xml",
+    "validationType": "phmr.v2.1.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-03.xml",
+    "sourceSha256": "4b61684f8c9be1664731c0777565e2418357fa82bd2c846519861a80f47ba875",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-03.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/phmr/PHMR-example-04.xml",
+    "validationType": "phmr.v2.1.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-04.xml",
+    "sourceSha256": "34f47822e953047cbd26d59663c740a97b63019dbed3e914e9a2dab3e5df52d1",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-04.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 1,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/phmr/PHMR-example-05.xml",
+    "validationType": "phmr.v2.1.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-05.xml",
+    "sourceSha256": "d7c7a435cfd0b33fd72502793b4b37b0d055b91c3398a3afd5129663ef952b1c",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-05.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/phmr/PHMR-example-06.xml",
+    "validationType": "phmr.v2.1.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-06.xml",
+    "sourceSha256": "f673a5a4eb07b15f85441e03966fa0e8640512713e743db942ba76d69e3289eb",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-06.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/phmr/PHMR-example-07.xml",
+    "validationType": "phmr.v2.1.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-07.xml",
+    "sourceSha256": "5102f67fd7d4d42f4b5d2ca7be1d7a6ecf885f7c2bd4003833b0e924f9feaa24",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-07.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/phmr/PHMR-example-08.xml",
+    "validationType": "phmr.v2.1.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-08.xml",
+    "sourceSha256": "ba1d0e042342c21f031f5fd2802879c5e017e2187739709e313cfb2c3b7b054b",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-08.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/phmr/PHMR-example-09.xml",
+    "validationType": "phmr.v2.1.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-09.xml",
+    "sourceSha256": "ac9e9d0b24838b9a3452246fbbd740329a7ff7d9c340af42956ca0f4bcd9c57b",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-09.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/phmr/PHMR-example-10.xml",
+    "validationType": "phmr.v2.1.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-10.xml",
+    "sourceSha256": "b2805fdac9500c1a3d8bf66fe7bc39c5775953034bc4e114937a1ecc66ff2788",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-10.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/phmr/PHMR-example-11.xml",
+    "validationType": "phmr.v2.1.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-11.xml",
+    "sourceSha256": "5152f66b01b816b2f6bff6026e302827612db8a7e864ef4c6946f3dc918424dc",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-11.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/phmr/PHMR-example-12.xml",
+    "validationType": "phmr.v2.1.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-12.xml",
+    "sourceSha256": "63fc2454e4fe404cf7cea2713f5bde0addac31f886f47fbfd7cd7f7d8893ee24",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-12.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/phmr/PHMR-example-13.xml",
+    "validationType": "phmr.v2.1.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-13.xml",
+    "sourceSha256": "17e820ecc8ab76e1f1116e8b3f689ddcd69514b1f24812e81a7bb155e535ee22",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Eksempler/PHMR-example-13.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/phad/PHAD-DK-Ex_v1.0 Grete Bruun Svendsen Udskrivningsaftale.xml",
+    "validationType": "phad.v1.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHAD/Eksempler/PHAD-DK-Ex_v1.0%20Grete%20Bruun%20Svendsen%20Udskrivningsaftale.xml",
+    "sourceSha256": "6222d0addb3f6c93f9405c5d18762eb842028fd982fdbdee3f616e0c8bb03cec",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHAD/Eksempler/PHAD-DK-Ex_v1.0%20Grete%20Bruun%20Svendsen%20Udskrivningsaftale.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 1,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "PHAD-DK-1.0.1-H3"
+    ]
+  },
+  {
+    "file": "samples/phad/PHAD-DK_Ex_v1.0 Grete Bruun Svendsen Netværksmøde.xml",
+    "validationType": "phad.v1.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHAD/Eksempler/PHAD-DK_Ex_v1.0%20Grete%20Bruun%20Svendsen%20Netv%c3%a6rksm%c3%b8de.xml",
+    "sourceSha256": "4fff2cd4cf54338b3f54501143917b54bb12a72f2bf780af12eb6d26c3e710d0",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHAD/Eksempler/PHAD-DK_Ex_v1.0%20Grete%20Bruun%20Svendsen%20Netv%c3%a6rksm%c3%b8de.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 3,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "PHAD-DK-1.0.1-H3",
+      "PHAD-DK-1.0.1-TEMPLATE"
+    ]
+  },
+  {
+    "file": "samples/phad/PHAD-DK_Ex_v1.0 Rasmus Test Lauridsen Netværksmøde.xml",
+    "validationType": "phad.v1.0.1",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHAD/Eksempler/PHAD-DK_Ex_v1.0%20Rasmus%20Test%20Lauridsen%20Netv%c3%a6rksm%c3%b8de.xml",
+    "sourceSha256": "09edb21e72bf34b535bf454c4b187dc8e128bbc713c3883065369a7fb6af26df",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHAD/Eksempler/PHAD-DK_Ex_v1.0%20Rasmus%20Test%20Lauridsen%20Netv%c3%a6rksm%c3%b8de.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 3,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "PHAD-DK-1.0.1-H3",
+      "PHAD-DK-1.0.1-TEMPLATE"
+    ]
+  },
+  {
+    "file": "samples/pmr/PMR 1.1 UL vægt uge 12.xml",
+    "validationType": "pmr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%201.1%20UL%20v%c3%a6gt%20uge%2012.xml",
+    "sourceSha256": "6485266066ec5f28535f0cd2ca7deb188652640d96e20fa15a7bd09c1a79193f",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%201.1%20UL%20v%c3%a6gt%20uge%2012.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pmr/PMR 1.2 fosterskøn uge 15.xml",
+    "validationType": "pmr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%201.2%20fostersk%c3%b8n%20uge%2015.xml",
+    "sourceSha256": "2eb4cd39bf0330304102f294187dfbce48a2392405092b7a3cadc7943e2bf6c9",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%201.2%20fostersk%c3%b8n%20uge%2015.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 2,
+      "warnings": 0
+    },
+    "conformanceAssertions": [
+      "PMR-DK-2.0.0-DOCUMENT-UUID",
+      "PMR-DK-2.0.0-OBS-3-UUID"
+    ]
+  },
+  {
+    "file": "samples/pmr/PMR 1.3 ULvægt ULtermin uge 20 .xml",
+    "validationType": "pmr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%201.3%20ULv%c3%a6gt%20ULtermin%20uge%2020%20.xml",
+    "sourceSha256": "a8a52ebbda3a7c8ba2696491cc5aedac579ae85dfd1d09d0d005e43a4c2094bc",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%201.3%20ULv%c3%a6gt%20ULtermin%20uge%2020%20.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pmr/PMR 1.4 fosterskøn uge 21.xml",
+    "validationType": "pmr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%201.4%20fostersk%c3%b8n%20uge%2021.xml",
+    "sourceSha256": "7b28166a00965602b8d93dcc8f512fac716bc3d16cd8d8192cdc76ff44d2d9dd",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%201.4%20fostersk%c3%b8n%20uge%2021.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pmr/PMR 1.5 fosterskøn uge 29.xml",
+    "validationType": "pmr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%201.5%20fostersk%c3%b8n%20uge%2029.xml",
+    "sourceSha256": "3d38d5404bc6358c6b7ab209c3cf8483fae29ef3cb1d9e476d163cbdf1201e2d",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%201.5%20fostersk%c3%b8n%20uge%2029.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pmr/PMR 2.1 UL vægt uge 12.xml",
+    "validationType": "pmr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%202.1%20UL%20v%c3%a6gt%20uge%2012.xml",
+    "sourceSha256": "90425bad2b251780c2b26194a5e9b6dafe4cb81e169c6b2784064f9116fe7e5b",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%202.1%20UL%20v%c3%a6gt%20uge%2012.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pmr/PMR 2.2 fosterskøn uge 15.xml",
+    "validationType": "pmr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%202.2%20fostersk%c3%b8n%20uge%2015.xml",
+    "sourceSha256": "5b878ad845525ab63af1374b39409074a2e73a1568e0eaea389e361e6d844845",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%202.2%20fostersk%c3%b8n%20uge%2015.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pmr/PMR 2.3 ULvægt ULtermin uge 20.xml",
+    "validationType": "pmr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%202.3%20ULv%c3%a6gt%20ULtermin%20uge%2020.xml",
+    "sourceSha256": "bb847cc2b091b9b33ccd782434d9415fd8827655d789ccabf8db96f8a5687bfb",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%202.3%20ULv%c3%a6gt%20ULtermin%20uge%2020.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pmr/PMR 2.4 fosterskøn uge 21.xml",
+    "validationType": "pmr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%202.4%20fostersk%c3%b8n%20uge%2021.xml",
+    "sourceSha256": "a3f0694096386426a0986e72cc2490e1bb6ad6a7f00846357bf441fe030b90fe",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR%202.4%20fostersk%c3%b8n%20uge%2021.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pmr/PMR-DK 2.0 example 1 max.xml",
+    "validationType": "pmr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR-DK%202.0%20example%201%20max.xml",
+    "sourceSha256": "72c12c3b5b64d10a3e42b2db7ffe557047a9c7860f572d5a50722c30414026c7",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR-DK%202.0%20example%201%20max.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pmr/PMR-DK 2.0 example 2 max.xml",
+    "validationType": "pmr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR-DK%202.0%20example%202%20max.xml",
+    "sourceSha256": "70186e5f7d0feef31580ac596dbcd58dd8bdc2293f42dc95436b65c446a01868",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR-DK%202.0%20example%202%20max.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pmr/PMR-DK 2.0 example 3 max.xml",
+    "validationType": "pmr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR-DK%202.0%20example%203%20max.xml",
+    "sourceSha256": "1e736547ada5a1c0ff9fb1cc185e8458bdde9a9787c3ae5a34a49585ee74458d",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Eksempler/PMR-DK%202.0%20example%203%20max.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/prf/PRF-DK v3.0 example 1.xml",
+    "validationType": "prf.v3.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRF/Eksempler/PRF-DK%20v3.0%20example%201.xml",
+    "sourceSha256": "1aaef27fda0eb933459625364037a5d4f27fe14d88297d834735f2bc5834a3f1",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRF/Eksempler/PRF-DK%20v3.0%20example%201.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/prf/PRF-DK v3.0 example 2.xml",
+    "validationType": "prf.v3.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRF/Eksempler/PRF-DK%20v3.0%20example%202.xml",
+    "sourceSha256": "48585d88a57e6f09ddf6d8ff7359130fad39fa6876872472207d87604e7ca2c7",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRF/Eksempler/PRF-DK%20v3.0%20example%202.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/prf/PRF-DK v3.0 example 3.xml",
+    "validationType": "prf.v3.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRF/Eksempler/PRF-DK%20v3.0%20example%203.xml",
+    "sourceSha256": "d62c5fe4dd121cd8daece9446a0702ae234c0eee3ae46ca68c2af2aec3d2216f",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRF/Eksempler/PRF-DK%20v3.0%20example%203.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/prf/PRF-DK v3.0 example 4.xml",
+    "validationType": "prf.v3.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRF/Eksempler/PRF-DK%20v3.0%20example%204.xml",
+    "sourceSha256": "55a2203a0c8f268d5831aa1e17bcb57ccf09350b184f94d84b895c69fb274f5a",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRF/Eksempler/PRF-DK%20v3.0%20example%204.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pscr/PSCR-DK v2.0 example 1.xml",
+    "validationType": "pscr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR-DK%20v2.0%20example%201.xml",
+    "sourceSha256": "86794ee3019d53ca815125c1441eb30d1dcc1062b4bd2f0ecb70c22c7c52f908",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR-DK%20v2.0%20example%201.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pscr/PSCR-DK v2.0 example 2.xml",
+    "validationType": "pscr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR-DK%20v2.0%20example%202.xml",
+    "sourceSha256": "f764e1aa5841d18bd06fb7429e8f9d24f6424b5cd840946730f090b800786c7f",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR-DK%20v2.0%20example%202.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pscr/PSCR-DK v2.0 example 3.xml",
+    "validationType": "pscr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR-DK%20v2.0%20example%203.xml",
+    "sourceSha256": "c5b5b7f4005f643724f96b6a4d6941da98edc6c533966e9e33052cbbc5b16727",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR-DK%20v2.0%20example%203.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pscr/PSCR-DK v2.0 example 4.xml",
+    "validationType": "pscr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR-DK%20v2.0%20example%204.xml",
+    "sourceSha256": "a65be9f6150a8f152d9108c369a612aba969b75a896694380574ce2e39bdcc83",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR-DK%20v2.0%20example%204.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pscr/PSCR-DK v2.0 example 5.xml",
+    "validationType": "pscr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR-DK%20v2.0%20example%205.xml",
+    "sourceSha256": "d5a7237fe24b17e6e2f8a94e9fffd6e255b6c5c2cbaf9d45a0b2314e60bc10c3",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR-DK%20v2.0%20example%205.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pscr/PSCR-DK v2.0 example 6.xml",
+    "validationType": "pscr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR-DK%20v2.0%20example%206.xml",
+    "sourceSha256": "54312da4ee076daaa804f01611dfb2e8c093743d94a1e2a45cbb8494c2824051",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR-DK%20v2.0%20example%206.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pscr/PSCR-DK v2.0 example 7.xml",
+    "validationType": "pscr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR-DK%20v2.0%20example%207.xml",
+    "sourceSha256": "aae0ecd55b638198be6b4eb01585d5a44908b0773dab32013baa640eab221f61",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR-DK%20v2.0%20example%207.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pscr/PSCR_1.1_omsorg2_ fødestedSV_naegels2026-02-20.xml",
+    "validationType": "pscr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR_1.1_omsorg2_%20f%c3%b8destedSV_naegels2026-02-20.xml",
+    "sourceSha256": "0ec0c47d333de545d8385f13da38a0db17719b4e38fd87d69dad1e1d6f3a20e7",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR_1.1_omsorg2_%20f%c3%b8destedSV_naegels2026-02-20.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pscr/PSCR_1.2_omsorg1_fødestedOd_naegels2026-02-30.xml",
+    "validationType": "pscr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR_1.2_omsorg1_f%c3%b8destedOd_naegels2026-02-30.xml",
+    "sourceSha256": "74b1f02365efd4189c5370252ea699d96626337e2b34c782f9cb26071b06c521",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR_1.2_omsorg1_f%c3%b8destedOd_naegels2026-02-30.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pscr/PSCR_2.1_resume_specialtegn.xml",
+    "validationType": "pscr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR_2.1_resume_specialtegn.xml",
+    "sourceSha256": "e7019cf90f86f43b464e8aef066514fd52645a523440a6c4cbcaea66a63b962e",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR_2.1_resume_specialtegn.xml"
+    ],
+    "expected": {
+      "result": "FAILURE",
+      "errors": 4,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pscr/PSCR_2.2_resume kort.xml",
+    "validationType": "pscr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR_2.2_resume%20kort.xml",
+    "sourceSha256": "40b7902c0f4348a492429ce8131de41cf6e7831c2db474cda6ca6e216797cbb1",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR_2.2_resume%20kort.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  },
+  {
+    "file": "samples/pscr/PSCR_2.2_resume_langt.xml",
+    "validationType": "pscr.v2.0.0",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR_2.2_resume_langt.xml",
+    "sourceSha256": "9a0ad6ef6aefe9885437b2dd30cb68d9762a103bb4f27b99c4406e80d5ebf3a9",
+    "publishedSources": [
+      "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Eksempler/PSCR_2.2_resume_langt.xml"
+    ],
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    }
+  }
+]

@@ -1,0 +1,1740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Title:				Pregnancy Shared Care Record - Example 3.
+ Filename:			PSCR-DK v2.0 example 3
+ LastChangedDate:	2026-02-16
+ 
+ Changes:
+ 2026-02-16: 	   negationInd="true" removed from "Date ceased smoking" (templateId root="1.2.208.184.20.2.13")
+ 				   "relevant information" observation removed from "træk vedr. uddannelse og skolegang" section due to GMv2 busines rule #7 - data rule #20.
+ 				   DocumentID changed from "9db436c2-ff07-4194-aa27-0b8d0d7cdc90" to "562c0e43-2325-491b-b7e5-49cd5cd3aa00"
+ 2026-01-21:        Date ceased using nicotine-observation changed from 20240221 to 20240323
+ 2025-12-04: 	   Removed assignedPerson from "allocated midwife observation"
+ 				   DocumentID changed from "db4dce50-67ca-412a-b6b6-6eaaa8e3d922" to "9db436c2-ff07-4194-aa27-0b8d0d7cdc90"
+ 2025-11-11:		Due to buisiness rule 21: Employment section removed, Receives social assistance observation removed
+					Days of the week-observation: corrected to monday only
+					Duration of menstrual cycle observation: corrected to inclusive=true
+					Correted whitespaces for ST values
+					pateientID changed from 191289-0704 to 191289-0324, UUID's changed
+ 2025-10-30:		Changed "Receives social assistance observation" to "no"
+ 2025-09-23:		recordTaget changed, documentId changed, section "Terminsberegning" changed, episode-of-care UUID, Lorem Ipsum added to values of xsi:type "ST"
+ 2025-06-11:		documentationOf corrected from "PSCR-DK-v2.0" to "PSCR-v2.0"
+ 2025-01-15:		recordTaget/patientRole/representedOrganization added. 
+					PSCR-DK version changed to v2.0
+					section[templateId/@root="1.2.208.184.20.2.6" @extension="2025-01-15"] @code corrected from 228163007 to 224285004
+					observation[templateId/@root="1.2.208.184.20.2.29" @extension="2025-01-15"]: value datatype changed from PQ to INT
+
+ 2024-09-30:		Initial version
+
+ ********************************************************
+ This example file contains all possible sections and entries for a PSCR-DK profile 
+ ********************************************************
+-->
+<ClinicalDocument moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<!--xsi:schemaLocation="urn:hl7-org:v3 ../Schema/infrastructure/cda/CDA_SDTC.xsd">-->
+	<realmCode code="DK"/>
+	<typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+	<!--MedCom templateId for Pregnancy Shared Care Record-->
+	<templateId extension="2.0" root="1.2.208.184.20.1"/>
+	<!--Unik ID for this PSCR-DK instance-->
+	<id assigningAuthorityName="PLSP" extension="562c0e43-2325-491b-b7e5-49cd5cd3aa00" root="1.2.208.193"/>
+	<code code="PSCR" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes" displayName="Pregnancy Shared Care Record"/>
+	<title>Pregnancy Shared Care Record for 1912890324</title>
+	<!--PSCR-DK generated at:-->
+	<effectiveTime value="20250505132210+0200"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<!--This recordTarget indentifies the patient and related information from CPR-->
+	<recordTarget contextControlCode="OP" typeCode="RCT">
+		<patientRole classCode="PAT">
+			<id assigningAuthorityName="CPR" extension="1912890324" root="1.2.208.176.1.2"/>
+			<!--This is the address from CPR-->
+			<addr use="H">
+				<streetAddressLine>Vedbæk Strandvej 464</streetAddressLine>
+				<postalCode>7000</postalCode>
+				<city>Fredericia</city>
+				<country>DK</country>
+			</addr>
+			<patient classCode="PSN">
+				<name>
+					<given>Frida</given>
+					<given>MedCom</given>
+					<family>Andersen</family>
+				</name>
+				<administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+				<birthTime value="19891219000000+0000"/>
+			</patient>
+			<providerOrganization>
+				<id assigningAuthorityName="SOR" extension="191901000016999" root="1.2.208.176.1.1"/>
+				<name>Lægehuset Valdemarsgade</name>
+			</providerOrganization>
+		</patientRole>
+	</recordTarget>
+	<author typeCode="AUT" contextControlCode="OP">
+		<time value="20250505130510+0200"/>
+		<!--ClinicalDocument.author.assignedAuthor 1..1-->
+		<assignedAuthor classCode="ASSIGNED">
+			<id extension="393421000016009" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+			<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+				<name>
+					<!--Shall contain at least one given name-->
+					<prefix>Læge</prefix>
+					<given>Karen</given>
+					<!--Shall contain one family name-->
+					<family>Jensen</family>
+				</name>
+			</assignedPerson>
+			<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<name>Lægehuset Valdemarsgade</name>
+				<telecom use="WP" value="tel:+4512345678"/>
+				<addr use="WP">
+					<streetAddressLine>Valdemarsgade 10</streetAddressLine>
+					<streetAddressLine>Lægehuset</streetAddressLine>
+					<postalCode>5700</postalCode>
+					<city>Svendborg</city>
+				</addr>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+	<custodian>
+		<assignedCustodian>
+			<representedCustodianOrganization>
+				<!--id @root is set to SDS-root-->
+				<id assigningAuthorityName="SOR" extension="393421000016009" root="1.2.208.176.1.1"/>
+				<name>Lægehuset Valdemarsgade</name>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="MPROT" moodCode="EVN">
+			<!--This templateId tells that this serviceEvent holds the PSCR-v2.0 CDA profile-->
+			<templateId root="1.2.208.184.10.1.10"/>
+			<!--This id @extension equals the identification and version of the CDA profile-->
+			<id assigningAuthorityName="MedCom" extension="PSCR-v2.0" root="1.2.208.184.100.10"/>
+		</serviceEvent>
+	</documentationOf>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="ACT" moodCode="EVN">
+			<!--This templateId tells that this serviceEvent holds the creation time of clinical content in this document-->
+			<templateId root="1.2.208.184.10.1.11"/>
+			<effectiveTime>
+				<low value="20250505130510+0200"/>
+				<high nullFlavor="NA"/>
+			</effectiveTime>
+		</serviceEvent>
+	</documentationOf>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="MPROT" moodCode="EVN">
+			<!--This templateId tells that this serviceEvent holds the dokument episode-of-care UUID-->
+			<templateId root="1.2.208.184.10.1.12"/>
+			<!--This id @extension equals the episode-of-care UUID-->
+			<id assigningAuthorityName="Sundhedsdatastyrelsen" extension="f5024504-7694-4f44-8c40-3b71b1038396" root="1.2.208.176.7.4.1"/>
+		</serviceEvent>
+	</documentationOf>
+	<component contextConductionInd="true" typeCode="COMP">
+		<structuredBody classCode="DOCBODY" moodCode="EVN">
+			<!--Estimated date of delivery-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Estimated date of delivery - section template-->
+					<templateId root="1.2.208.184.20.2.1" extension="2024-04-19"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="161714006" displayName="Terminsberegning" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>Terminsberegning</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>seneste menstruationsperiodes 1. dag</td>
+									<td>20250304</td>
+								</tr>
+								<tr>
+									<td>varighed af menstruationscyklus</td>
+									<td>[26;27]</td>
+								</tr>
+								<tr>
+									<td>beregnet terminsdato fra seneste menstruation</td>
+									<td>20251209</td>
+								</tr>
+								<tr>
+									<td>graviditet med sikker termin</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>relevant information</td>
+									<td>En relevant tekst vedr. terminsberegning #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt. Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!--Last menstrual period - First day - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Last menstrual period - First day" template-->
+							<templateId root="1.2.208.184.20.2.2" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Last menstrual period - First day-->
+							<code code="161713000" displayName="seneste menstruationsperiodes 1. dag" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime value="20250304"/>
+						</observation>
+					</entry>
+					<entry>
+						<!--Duration of menstrual cycle - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Duration of menstrual cycle" template-->
+							<templateId root="1.2.208.184.20.2.3" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Duration of menstrual cycle-->
+							<code code="364310004" displayName="varighed af menstruationscyklus" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="IVL_INT">
+								<low value="26" inclusive="true"/>
+								<high value="27" inclusive="true"/>
+							</value>
+						</observation>
+					</entry>
+					<entry>
+						<!--Estimated date of delivery from last period - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Estimated date of delivery from last period" template-->
+							<templateId root="1.2.208.184.20.2.4" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Estimated date of delivery from last period-->
+							<code code="289206005" displayName="beregnet terminsdato fra seneste menstruation" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime value="20251209"/>
+						</observation>
+					</entry>
+					<entry>
+						<!--Pregnancy with certain dates - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.5" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="567941000005109" displayName="graviditet med sikker termin" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+						</observation>
+					</entry>
+					<entry>
+						<!--Pertinent information - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Pertinent information" template-->
+							<templateId root="1.2.208.184.20.2.66" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Pertinent information-->
+							<code code="398005008" displayName="relevant information" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="ST">En relevant tekst vedr. terminsberegning #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt. Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!--Highest level of education and occupational status of the pregnant citizen-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Highest level of education and occupational status of the pregnant citizen - section template-->
+					<templateId root="1.2.208.184.20.2.6" extension="2025-01-15"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="224285004" displayName="træk vedr. uddannelse og skolegang" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>træk vedr. uddannelse og skolegang</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>gennemført uddannelse</td>
+									<td>modtaget erhvervsuddannelse</td>
+								</tr>
+								<tr>
+									<td>relevant information</td>
+									<td>Ingen information</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!--Educational achievement - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Highest level of education - observation template-->
+							<templateId root="1.2.208.184.20.2.7" extension="2024-04-19"/>
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--HL7 CDA observation template-->
+							<code code="105421008" displayName="gennemført uddannelse" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="CD" code="440586004" displayName="modtaget erhvervsuddannelse" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+						</observation>
+					</entry>
+					<entry>
+						<!--Pertinent information - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Pertinent information" template-->
+							<templateId root="1.2.208.184.20.2.66" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Pertinent information-->
+							<code code="398005008" displayName="relevant information" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="ST" nullFlavor="NI"/>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!--Employment - section - NOT INCLUDED-->
+			<!--Tobacco-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Tobacco - section template-->
+					<templateId root="1.2.208.184.20.2.10" extension="2024-04-19"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="229819007" displayName="brug af og udsættelse for tobak" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>brug af og udsættelse for tobak</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>røg før bekræftet graviditet</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>moders forbrug af røgtobak under graviditet</td>
+									<td>stoppet med rygning i 1. trimester</td>
+								</tr>
+								<tr>
+									<td>dato for rygeophør</td>
+									<td>20240221</td>
+								</tr>
+								<tr>
+									<td>udsat for tobaksrøg i hjemmet</td>
+									<td>nej</td>
+								</tr>
+								<tr>
+									<td>udsat for tobaksrøg på jobbet</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>henvisning til rygestopklinik</td>
+									<td>udført</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!--Smoked before confirmation of pregnancy - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.11" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="449345000" displayName="røg før bekræftet graviditet" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+						</observation>
+					</entry>
+					<entry>
+						<!--Maternal tobacco smoking consumption during pregnancy - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Smoking status during pregnancy - observation template-->
+							<templateId root="1.2.208.184.20.2.12" extension="2024-04-19"/>
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--HL7 CDA observation template-->
+							<code code="598171000005102" displayName="moders forbrug af røgtobak under graviditet" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="CD" code="598071000005103" displayName="stoppet med rygning i 1. trimester" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+						</observation>
+					</entry>
+					<entry>
+						<!--Date Ceased Smoking - [0..1]-->
+						<!--Medcom "Date ceased smoking" template-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.13" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Date ceased smoking-->
+							<code code="160625004" displayName="dato for rygeophør" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime value="20240221"/>
+						</observation>
+					</entry>
+					<entry>
+						<!--Exposed To Tobacco Smoke At Home - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN" negationInd="true">
+							<templateId root="1.2.208.184.20.2.14" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="228524006" displayName="udsat for tobaksrøg i hjemmet" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+						</observation>
+					</entry>
+					<entry>
+						<!--Exposed To Tobacco Smoke At Work - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.15" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="228523000" displayName="udsat for tobaksrøg på jobbet" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+						</observation>
+					</entry>
+					<entry>
+						<!--Referral to stop-smoking clinic - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Henvist til tobaks- og nikotinstop - observation template-->
+							<templateId root="1.2.208.184.20.2.16" extension="2024-04-19"/>
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--HL7 CDA observation template-->
+							<code code="315232003" displayName="henvisning til rygestopklinik" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="CD" code="385658003" displayName="udført" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!--Nicotine-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Nicotine - section template-->
+					<templateId root="1.2.208.184.20.2.17" extension="2024-04-19"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="647981000005104" displayName="brug af nikotin" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>brug af nikotin</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>bruger af nicotin før bekræftet graviditet</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>bruger af nicotin under graviditet</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>dato for ophør med brug af nicotin</td>
+									<td>20240221</td>
+								</tr>
+								<tr>
+									<td>nikotinpose</td>
+									<td>5 antal/dag</td>
+								</tr>
+								<tr>
+									<td>tyggetobak</td>
+									<td>11 antal/dag</td>
+								</tr>
+								<tr>
+									<td>vandpibe</td>
+									<td>lejlighedsvis</td>
+								</tr>
+								<tr>
+									<td>nikotintyggegummi</td>
+									<td>3 antal/dag</td>
+								</tr>
+								<tr>
+									<td>elektronisk cigaret</td>
+									<td>15 ml/dag</td>
+								</tr>
+								<tr>
+									<td>relevant information</td>
+									<td>En relevant tekst vedr. nikotinforbrug #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt. Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!--Nicotine user before confirmation of pregnancy - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.18" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="598091000005102" displayName="bruger af nicotin før bekræftet graviditet" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+						</observation>
+					</entry>
+					<entry>
+						<!--Nicotine user during pregnancy - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Nicotine User During Pregnancy - observation template-->
+							<templateId root="1.2.208.184.20.2.19" extension="2024-04-19"/>
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--HL7 CDA observation template-->
+							<code code="598221000005106" displayName="bruger af nicotin under graviditet" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="CD" code="373066001" displayName="ja" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+						</observation>
+					</entry>
+					<entry>
+						<!--Date ceased using nicotine - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Date ceased using nicotine" template-->
+							<templateId root="1.2.208.184.20.2.20" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Date ceased using nicotine-->
+							<code code="598261000005102" displayName="dato for ophør med brug af nicotin" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime value="20240323"/>
+						</observation>
+					</entry>
+					<entry>
+						<!--Necotine pouch - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Nicotine pouch" template-->
+							<templateId root="1.2.208.184.20.2.21" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Nicotine pouch-->
+							<code code="598111000005109" displayName="nikotinpose" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="PQ" unit="/d" value="5"/>
+						</observation>
+					</entry>
+					<entry>
+						<!--Chewing tobacco - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Chewing tobacco" template-->
+							<templateId root="1.2.208.184.20.2.22" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Chewing tobacco-->
+							<code code="81911001" displayName="tyggetobak" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="PQ" unit="/d" value="11"/>
+						</observation>
+					</entry>
+					<entry>
+						<!--Hookah pipe - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Hookah pipe - observation template-->
+							<templateId root="1.2.208.184.20.2.23" extension="2024-04-19"/>
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--HL7 CDA observation template-->
+							<code code="722495000" displayName="vandpibe" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="CD" code="84638005" displayName="lejlighedsvis" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+						</observation>
+					</entry>
+					<entry>
+						<!--Nicotine chewing gum - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Nicotine chewing gum " template-->
+							<templateId root="1.2.208.184.20.2.24" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Nicotine chewing gum-->
+							<code code="598101000005106" displayName="nikotintyggegummi" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="PQ" unit="/d" value="3"/>
+						</observation>
+					</entry>
+					<entry>
+						<!--Electronic cigarette - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Electronic cigarette" template-->
+							<templateId root="1.2.208.184.20.2.25" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Electronic cigarette-->
+							<code code="722498003" displayName="elektronisk cigaret" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="PQ" unit="ml/d" value="15"/>
+						</observation>
+					</entry>
+					<entry>
+						<!--Pertinent information - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Pertinent information" template-->
+							<templateId root="1.2.208.184.20.2.66" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Pertinent information-->
+							<code code="398005008" displayName="relevant information" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="ST">En relevant tekst vedr. nikotinforbrug #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt. Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!--Alcohol-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Alcohol - section template-->
+					<templateId root="1.2.208.184.20.2.26" extension="2024-04-19"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="363905002" displayName="detaljer vedr. adfærd ifm. indtag af alkohol" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>detaljer vedr. adfærd ifm. indtag af alkohol</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>bruger af alkohol før bekræftet graviditet</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>alkoholgenstande/uge</td>
+									<td>10</td>
+								</tr>
+								<tr>
+									<td>alkoholindtag under graviditet</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>alkoholgenstande/uge</td>
+									<td>5</td>
+								</tr>
+								<tr>
+									<td>binge-drinking</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>graviditetsuge</td>
+									<td>2</td>
+								</tr>
+								<tr>
+									<td>graviditetsuge</td>
+									<td>3</td>
+								</tr>
+								<tr>
+									<td>graviditetsuge</td>
+									<td>4</td>
+								</tr>
+								<tr>
+									<td>graviditetsuge</td>
+									<td>10</td>
+								</tr>
+								<tr>
+									<td>graviditetsuge</td>
+									<td>11</td>
+								</tr>
+								<tr>
+									<td>TWEAK-score</td>
+									<td>7</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!--Drinker of alcohol before confirmation of pregnancy - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.27" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="568171000005100" displayName="bruger af alkohol før bekræftet graviditet" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+							<!--alcohol units/week - [0..1]-->
+							<entryRelationship typeCode="COMP">
+								<observation classCode="OBS" moodCode="EVN">
+									<!--Medcom "alcohol units/week" template-->
+									<templateId root="1.2.208.184.20.2.29" extension="2025-01-15"/>
+									<!--HL7 CDA observation template-->
+									<templateId root="2.16.840.1.113883.10.12.303"/>
+									<!--The SNOMED code for the value being observed: alcohol units/week-->
+									<code code="228958009" displayName="alkoholgenstande/uge" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NI"/>
+									<value xsi:type="INT" value="10"/>
+								</observation>
+							</entryRelationship>
+						</observation>
+					</entry>
+					<entry>
+						<!--Alcohol consumption during pregnancy - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.28" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="427013000" displayName="alkoholindtag under graviditet" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+							<!--alcohol units/week - [0..1]-->
+							<entryRelationship typeCode="COMP">
+								<observation classCode="OBS" moodCode="EVN">
+									<!--Medcom "alcohol units/week" template-->
+									<templateId root="1.2.208.184.20.2.29" extension="2025-01-15"/>
+									<!--HL7 CDA observation template-->
+									<templateId root="2.16.840.1.113883.10.12.303"/>
+									<!--The SNOMED code for the value being observed: alcohol units/week-->
+									<code code="228958009" displayName="alkoholgenstande/uge" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NI"/>
+									<value xsi:type="INT" value="5"/>
+								</observation>
+							</entryRelationship>
+						</observation>
+					</entry>
+					<entry>
+						<!--Drinking binge - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Drinking binge" template-->
+							<templateId root="1.2.208.184.20.2.30" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Drinking binge-->
+							<code code="228326007" displayName="binge-drinking" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="INT" value="7"/>
+							<!--Gestational week - [0..1]-->
+							<entryRelationship typeCode="COMP">
+								<observation classCode="OBS" moodCode="EVN">
+									<!--Medcom "Gestational week" template-->
+									<templateId root="1.2.208.184.20.2.31" extension="2024-04-19"/>
+									<!--HL7 CDA observation template-->
+									<templateId root="2.16.840.1.113883.10.12.303"/>
+									<!--The SNOMED code for the value being observed: Gestational week-->
+									<code code="598141000005108" displayName="graviditetsuge" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NI"/>
+									<value xsi:type="INT" value="2"/>
+									<value xsi:type="INT" value="3"/>
+									<value xsi:type="INT" value="4"/>
+									<value xsi:type="INT" value="10"/>
+									<value xsi:type="INT" value="11"/>
+								</observation>
+							</entryRelationship>
+						</observation>
+					</entry>
+					<entry>
+						<!--TWEAK score observation - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "TWEAK score observation" template-->
+							<templateId root="1.2.208.184.20.2.32" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: TWEAK score observation-->
+							<code code="568251000005102" displayName="TWEAK-score" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="INT" value="7"/>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!--Details of drug misuse behavior-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Details of drug misuse behavior - section template-->
+					<templateId root="1.2.208.184.20.2.33" extension="2024-04-19"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="363908000" displayName="detaljer vedr. adfærd i relation til brug af stof" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>detaljer vedr. adfærd i relation til brug af stof</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>misbruger stoffer</td>
+									<td>Ja</td>
+								</tr>
+								<tr>
+									<td>Rusmiddel</td>
+									<td>Cannabis</td>
+								</tr>
+								<tr>
+									<td>Rusmiddel</td>
+									<td>stimulerende middel</td>
+								</tr>
+								<tr>
+									<td>Rusmiddel</td>
+									<td>beroligende middel</td>
+								</tr>
+								<tr>
+									<td>Rusmiddel</td>
+									<td>analgetikum</td>
+								</tr>
+								<tr>
+									<td>Rusmiddel</td>
+									<td>præparat eller medikament</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!--Misuses drugs - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Use of Narcotics or or non-prescription addictive drugs during the last two years - observation template-->
+							<templateId root="1.2.208.184.20.2.34" extension="2024-04-19"/>
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--HL7 CDA observation template-->
+							<code code="361055000" displayName="misbruger stoffer" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="CD" code="398705004" displayName="Cannabis" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<value xsi:type="CD" code="373333006" displayName="stimulerende middel" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<value xsi:type="CD" code="45604009" displayName="beroligende middel" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<value xsi:type="CD" code="373265006" displayName="analgetikum" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<value xsi:type="CD" code="410942007" displayName="præparat eller medikament" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!--Remarks relating to nutrition-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Remarks relating to nutrition - section template-->
+					<templateId root="1.2.208.184.20.2.35" extension="2024-04-19"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="364393001" displayName="Kost" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>Kost</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>relevant information</td>
+									<td>En relevant bemærkning vedr. den gravides kost 1, En relevant bemærkning vedr. den gravides kost 2 #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt. Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!--Pertinent information - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Pertinent information" template-->
+							<templateId root="1.2.208.184.20.2.66" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Pertinent information-->
+							<code code="398005008" displayName="relevant information" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="ST">En relevant bemærkning vedr. den gravides kost 1, En relevant bemærkning vedr. den gravides kost 2 #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt. Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!--Remarks relating to exercise-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Remarks relating to exercise - section template-->
+					<templateId root="1.2.208.184.20.2.36" extension="2024-04-19"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="256235009" displayName="træning" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>træning</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>relevant information</td>
+									<td>En relevant bemærkning vedr. motion #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt.
+Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!--Pertinent information - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Pertinent information" template-->
+							<templateId root="1.2.208.184.20.2.66" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Pertinent information-->
+							<code code="398005008" displayName="relevant information" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="ST">En relevant bemærkning vedr. motion #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt.
+Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!--Details of partner-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Details of partner - section template-->
+					<templateId root="1.2.208.184.20.2.37" extension="2024-04-19"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="648091000005104" displayName="oplysninger om partner" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>oplysninger om partner</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>partner i arbejde eller under uddannelse</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>partner har udfordringer med fysisk helbred</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>partner har udfordringer med psykisk helbred</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>partner har problematisk alkoholforbrug</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>partner har rusmiddelmisbrug</td>
+									<td>nej</td>
+								</tr>
+								<tr>
+									<td>partner har socialt problem</td>
+									<td>nej</td>
+								</tr>
+								<tr>
+									<td>relevant information</td>
+									<td>En relevant tekst vedr. oplysnigner om partner #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt.Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!--Partner in employment or education - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.38" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="607951000005101" displayName="partner i arbejde eller under uddannelse" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+						</observation>
+					</entry>
+					<entry>
+						<!--Partner has physical health problem - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.39" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="608001000005102" displayName="partner har udfordringer med fysisk helbred" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+						</observation>
+					</entry>
+					<entry>
+						<!--Partner has mental health problem - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.40" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="608011000005104" displayName="partner har udfordringer med psykisk helbred" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+						</observation>
+					</entry>
+					<entry>
+						<!--Partner has drinking problem - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.41" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="648041000005106" displayName="partner har problematisk alkoholforbrug" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+						</observation>
+					</entry>
+					<entry>
+						<!--Partner has drug abuse - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN" negationInd="true">
+							<templateId root="1.2.208.184.20.2.42" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="608031000005108" displayName="partner har rusmiddelmisbrug" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+						</observation>
+					</entry>
+					<entry>
+						<!--Partner has social problem - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN" negationInd="true">
+							<templateId root="1.2.208.184.20.2.43" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="608041000005100" displayName="partner har socialt problem" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+						</observation>
+					</entry>
+					<entry>
+						<!--Pertinent information - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Pertinent information" template-->
+							<templateId root="1.2.208.184.20.2.66" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Pertinent information-->
+							<code code="398005008" displayName="relevant information" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="ST">En relevant tekst vedr. oplysnigner om partner #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt. Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!--Place of birth-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Place of birth - section template-->
+					<templateId root="1.2.208.184.20.2.44" extension="2024-04-19"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="169812000" displayName="fødested" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>fødested</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>ønsket fødested</td>
+									<td>Fødselsafdeling Svendborg Hospital - Mødested: SydFyns jordemoder center, Vestergade 17, Svendborg 5700</td>
+								</tr>
+								<tr>
+									<td>hjemmefødsels planlagt</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>planlagt fødested</td>
+									<td>Fødselsafdeling Svenborg Hospital - Borgers hjemmeadresse</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!--Wanted place of delivery - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Wanted place of delivery" template-->
+							<templateId root="1.2.208.184.20.2.45" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Wanted place of delivery-->
+							<code code="648021000005101" displayName="ønsket fødested" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--responsible performing health care organization/person-->
+							<performer typeCode="PRF">
+								<assignedEntity classCode="ASSIGNED">
+									<id extension="320161000016005" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+									<addr use="WP">
+										<streetAddressLine>Næsgade 31</streetAddressLine>
+										<postalCode>5700</postalCode>
+										<city>Svendborg</city>
+										<country>Danmark</country>
+									</addr>
+									<telecom value="tel:66113333-3" use="WP"/>
+									<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+										<name>Fødselsafdeling Svdenborg Hospital</name>
+									</representedOrganization>
+								</assignedEntity>
+							</performer>
+							<!--No value element-->
+							<participant typeCode="LOC">
+								<participantRole classCode="SDLOC">
+									<id extension="320161000016005" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+									<addr use="WP">
+										<streetAddressLine>Vestergade 17</streetAddressLine>
+										<postalCode>5700</postalCode>
+										<city>Svendborg</city>
+										<country>Danmark</country>
+									</addr>
+									<telecom value="tel:66113333-4" use="WP"/>
+									<playingEntity classCode="PLC">
+										<name>SydFyns jordemoder center</name>
+									</playingEntity>
+								</participantRole>
+							</participant>
+						</observation>
+					</entry>
+					<entry>
+						<!--Home delivery wanted - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.46" extension="2024-04-19"/>
+							<!--HL7 CDA observation-template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="2903011000005107" displayName="hjemmefødsel ønsket" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+						</observation>
+					</entry>
+					<entry>
+						<!--Planned place of delivery - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Planned place of delivery" template-->
+							<templateId root="1.2.208.184.20.2.47" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Planned place of delivery-->
+							<code code="648011000005107" displayName="planlagt fødested" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--responsible performing health care organization/person-->
+							<performer typeCode="PRF">
+								<assignedEntity classCode="ASSIGNED">
+									<id extension="320161000016005" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+									<addr use="WP">
+										<streetAddressLine>Næsgade 31</streetAddressLine>
+										<postalCode>5700</postalCode>
+										<city>Svendborg</city>
+										<country>Danmark</country>
+									</addr>
+									<telecom value="tel:66113333-3" use="WP"/>
+									<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+										<name>Fødelsesafdeling Svenborg Hospital</name>
+									</representedOrganization>
+								</assignedEntity>
+							</performer>
+							<!--Home delivery planned-->
+							<participant typeCode="SBJ">
+								<participantRole classCode="SDLOC">
+									<addr use="WP">
+										<streetAddressLine>Skovsbovej 251</streetAddressLine>
+										<postalCode>5700</postalCode>
+										<city>Svendborg</city>
+										<country>Danmark</country>
+									</addr>
+									<telecom value="tel:66121314" use="WP"/>
+									<playingEntity classCode="PLC">
+										<name>Borgers hjemmeadresse</name>
+									</playingEntity>
+								</participantRole>
+							</participant>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!--Midwife clinic-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Midwife clinic - section template-->
+					<templateId root="1.2.208.184.20.2.48" extension="2024-04-19"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="550631000005103" displayName="jordemoderklinik" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>jordemoderklinik</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>ønsket jordemoderklinik</td>
+									<td>Svendborg Jordemoderpraksis - Jordemoder Bente Gran - Mødested: Sundhedshuset, Vestergade 17, 5700, Svendborg, tlf: 66113333</td>
+								</tr>
+								<tr>
+									<td>ugedag</td>
+									<td>mandag</td>
+								</tr>
+								<tr>
+									<td>tildelt jordemoderklinik</td>
+									<td>Svenborg Jordemoderpraksis - Mødested: Sydbyens jordemodercenter, Vestergade 17, 5700, Svendborg, tel. tel:66113333-4 </td>
+								</tr>
+								<tr>
+									<td>fødselsforberedelse</td>
+									<td>nej</td>
+								</tr>
+								<tr>
+									<td>konsultation - handling</td>
+									<td>gruppekonsultation hos jordemoder</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!--Wanted midwife clinic - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Wanted midwife clinic" template-->
+							<templateId root="1.2.208.184.20.2.49" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Wanted midwife clinic-->
+							<code code="648071000005100" displayName="ønsket jordemoderklinik" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--responsible performing health care organization/person.-->
+							<performer typeCode="PRF">
+								<assignedEntity classCode="ASSIGNED">
+									<id extension="320161000016005" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+									<addr use="WP">
+										<streetAddressLine>Næsgade 53</streetAddressLine>
+										<postalCode>5700</postalCode>
+										<city>Svendborg</city>
+										<country>Danmark</country>
+									</addr>
+									<telecom value="tel:66113333-3" use="WP"/>
+									<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+										<name>
+											<prefix>Jordemoder</prefix>
+											<given>Bente</given>
+											<family>Gran</family>
+										</name>
+									</assignedPerson>
+									<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+										<name>Svendborg Jordemoderpraksis</name>
+									</representedOrganization>
+								</assignedEntity>
+							</performer>
+							<!--physical meeting address is different from the performer’s main address-->
+							<participant typeCode="DST">
+								<participantRole classCode="SDLOC">
+									<addr use="WP">
+										<streetAddressLine>Vestergade 17</streetAddressLine>
+										<postalCode>5700</postalCode>
+										<city>Svendborg</city>
+										<country>Danmark</country>
+									</addr>
+									<telecom value="tel:66113333" use="WP"/>
+									<playingEntity classCode="PLC">
+										<name>Sundhedshuset</name>
+									</playingEntity>
+								</participantRole>
+							</participant>
+						</observation>
+					</entry>
+					<entry>
+						<!--Days of the week - [1..7]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Prefered day of the week for consultations (if any) - observation template-->
+							<templateId root="1.2.208.184.20.2.50" extension="2024-04-19"/>
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--HL7 CDA observation template-->
+							<code code="307144000" displayName="ugedage" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="CD" code="307145004" displayName="mandag" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+						</observation>
+					</entry>
+					<entry>
+						<!--Allocated midwife clinic - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Allocated midwife clinic" template-->
+							<templateId root="1.2.208.184.20.2.51" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Allocated midwife clinic-->
+							<code code="648081000005102" displayName="tildelt jordemoderklinik" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--responsible performing health care organization/person.-->
+							<performer typeCode="PRF">
+								<assignedEntity classCode="ASSIGNED">
+									<id extension="320161000016005" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+									<addr use="WP">
+										<streetAddressLine>Næsgade 53</streetAddressLine>
+										<postalCode>5700</postalCode>
+										<city>Svendborg</city>
+										<country>Danmark</country>
+									</addr>
+									<telecom value="tel:66113333-3" use="WP"/>
+									<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+										<name>Svenborg Jordemoderpraksis</name>
+									</representedOrganization>
+								</assignedEntity>
+							</performer>
+							<!--physical meeting address is different from the performer’s main address-->
+							<participant typeCode="LOC">
+								<participantRole classCode="SDLOC">
+									<id extension="320161000016005" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+									<addr use="WP">
+										<streetAddressLine>Vestergade 17</streetAddressLine>
+										<postalCode>5700</postalCode>
+										<city>Svendborg</city>
+										<country>Danmark</country>
+									</addr>
+									<telecom value="tel:66113333-4" use="WP"/>
+									<playingEntity classCode="PLC">
+										<name>Sydbyens jordemoder center</name>
+									</playingEntity>
+								</participantRole>
+							</participant>
+						</observation>
+					</entry>
+					<entry>
+						<!--Childbirth preparation - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN" negationInd="true">
+							<templateId root="1.2.208.184.20.2.52" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="386235000" displayName="fødselsforberedelse" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+						</observation>
+					</entry>
+					<entry>
+						<!--Preferred Type of Midwife Consultation - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Type of midwife consultation - observation template-->
+							<templateId root="1.2.208.184.20.2.53" extension="2024-04-19"/>
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--HL7 CDA observation template-->
+							<code code="129430004" displayName="konsultation - handling" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="CD" code="1255637005" displayName="gruppekonsultation hos jordemoder" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!--Health care visitor-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Health care visitor - section template-->
+					<templateId root="1.2.208.184.20.2.54" extension="2024-04-19"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="554021000005101" displayName="sundhedsplejen" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>sundhedsplejen</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>sundhedsplejen</td>
+									<td>Svendborg Sundhedspleje - Sundhedsplejerske Hanne Svendsen - Mødested: Familiehuset Svendborg, Ramshedded 5, 5700, Svendborg, tlf. tel:66112233-4</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!--Health visitors - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Health visitors" template-->
+							<templateId root="1.2.208.184.20.2.55" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Health visitors-->
+							<code code="554021000005101" displayName="sundhedsplejen" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--responsible performing health care organization/person.-->
+							<performer typeCode="PRF">
+								<assignedEntity classCode="ASSIGNED">
+									<id extension="320161000016005" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+									<addr use="WP">
+										<streetAddressLine>Næsgade 11</streetAddressLine>
+										<postalCode>5700</postalCode>
+										<city>Svendborg</city>
+										<country>Danmark</country>
+									</addr>
+									<telecom value="tel:66113333-3" use="WP"/>
+									<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+										<name>
+											<prefix>Sundhedsplejerske</prefix>
+											<given>Hanne</given>
+											<family>Svendsen</family>
+										</name>
+									</assignedPerson>
+									<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+										<name>Svenborg Sundhedspleje</name>
+									</representedOrganization>
+								</assignedEntity>
+							</performer>
+							<!--physical meeting address is different from the performer’s main address-->
+							<participant typeCode="LOC">
+								<participantRole classCode="SDLOC">
+									<id extension="320161000016005" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+									<addr use="WP">
+										<streetAddressLine>Ramsherred 5</streetAddressLine>
+										<postalCode>5700</postalCode>
+										<city>Svendborg</city>
+										<country>Danmark</country>
+									</addr>
+									<telecom value="tel:66112233-4" use="WP"/>
+									<playingEntity classCode="PLC">
+										<name>Familiehuset Svendborg</name>
+									</playingEntity>
+								</participantRole>
+							</participant>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!--Overall assesment-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Overall assesment - section template-->
+					<templateId root="1.2.208.184.20.2.56" extension="2024-04-19"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="278844005" displayName="almen klinisk tilstand" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>almen klinisk tilstand</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>træk bestemt ved fortolkning af fund</td>
+									<td>eksempel tekst vedr. træk bestemt ved fortolkning af fund #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt.
+Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</td>
+								</tr>
+								<tr>
+									<td>vurdering af helbredsmæssige og sociale behov</td>
+									<td>udvidet basistilbud ved graviditet</td>
+								</tr>
+								<tr>
+									<td>henvisning mhp. obstetrisk og gynækologisk behandling</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>indikation for procedure</td>
+									<td>eksempeltekst: Årsag for henvisning til obstetrisk og gynækologisk behandling #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt.
+Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</td>
+								</tr>
+								<tr>
+									<td>henvisning til social- og sundhedsforvaltning</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>indikation for procedure</td>
+									<td>eksempeltekst: Årsag for henvisning til obstetrisk og gynækologisk behandling #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt.
+Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</td>
+								</tr>
+								<tr>
+									<td>flerfoldsgraviditet</td>
+									<td>ja</td>
+								</tr>
+								<tr>
+									<td>træk vedr. flerfoldsgraviditet med risikofaktorer</td>
+									<td>Eksempeltekst/bemærkning til flerfoldsgraviditet #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt.
+Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!--Interpretation of findings - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Interpretation of findings" template-->
+							<templateId root="1.2.208.184.20.2.57" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Interpretation of findings-->
+							<code code="243814003" displayName="træk bestemt ved fortolkning af fund" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="ST">eksempel tekst vedr. træk bestemt ved fortolkning af fund #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt.
+Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</value>
+						</observation>
+					</entry>
+					<entry>
+						<!--Assessment of health and social care needs - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Assessed level of health and social care needs - observation template-->
+							<templateId root="1.2.208.184.20.2.58" extension="2024-04-19"/>
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--HL7 CDA observation template-->
+							<code code="710824005" displayName="vurdering af helbredsmæssige og sociale behov" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="CD" code="577961000005103" displayName="udvidet basistilbud ved graviditet" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+						</observation>
+					</entry>
+					<entry>
+						<!--Referral to obstetrics and gynecology service - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.59" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="306133003" displayName="henvisning mhp. obstetrisk og gynækologisk behandling" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+							<!--Indication for procedure - [0..1]-->
+							<entryRelationship typeCode="COMP">
+								<observation classCode="OBS" moodCode="EVN">
+									<!--Medcom "Indication for procedure" template-->
+									<templateId root="1.2.208.184.20.2.60" extension="2024-04-19"/>
+									<!--HL7 CDA observation template-->
+									<templateId root="2.16.840.1.113883.10.12.303"/>
+									<!--The SNOMED code for the value being observed: Indication for procedure-->
+									<code code="432678004" displayName="indikation for procedure" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NI"/>
+									<value xsi:type="ST">eksempeltekst: Årsag for henvisning til obstetrisk og gynækologisk behandling #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt.
+Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</value>
+								</observation>
+							</entryRelationship>
+						</observation>
+					</entry>
+					<entry>
+						<!--Referral to Social Services - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.61" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="306238000" displayName="henvisning til social- og sundhedsforvaltning" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+							<!--Indication for procedure - [0..1]-->
+							<entryRelationship typeCode="COMP">
+								<observation classCode="OBS" moodCode="EVN">
+									<!--Medcom "Indication for procedure" template-->
+									<templateId root="1.2.208.184.20.2.60" extension="2024-04-19"/>
+									<!--HL7 CDA observation template-->
+									<templateId root="2.16.840.1.113883.10.12.303"/>
+									<!--The SNOMED code for the value being observed: Indication for procedure-->
+									<code code="432678004" displayName="indikation for procedure" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NI"/>
+									<value xsi:type="ST">Eksempel tekst: Årsag for henvisning til social- og sundhedsforvaltning #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt.
+Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</value>
+								</observation>
+							</entryRelationship>
+						</observation>
+					</entry>
+					<entry>
+						<!--Multiple pregnancy - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.63" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="16356006" displayName="flerfoldsgraviditet" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+							<!--Multiple pregnancy with risk factors - [0..1]-->
+							<entryRelationship typeCode="COMP">
+								<observation classCode="OBS" moodCode="EVN">
+									<!--Medcom "Multiple pregnancy with risk factors" template-->
+									<templateId root="1.2.208.184.20.2.64" extension="2024-04-19"/>
+									<!--HL7 CDA observation template-->
+									<templateId root="2.16.840.1.113883.10.12.303"/>
+									<!--The SNOMED code for the value being observed: Multiple pregnancy with risk factors-->
+									<code code="648101000005108" displayName="træk vedr. flerfoldsgraviditet med risikofaktorer" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+									<statusCode code="completed"/>
+									<effectiveTime nullFlavor="NI"/>
+									<value xsi:type="ST">Eksempeltekst/bemærkning til flerfoldsgraviditet #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt.
+Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</value>
+								</observation>
+							</entryRelationship>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!--Resumé-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Resumé - section template-->
+					<templateId root="1.2.208.184.20.2.65" extension="2024-04-19"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="371534008" displayName="Resume" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>Resume</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>relevant information</td>
+									<td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt.
+Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo. Suspendisse lobortis pulvinar ex, sed laoreet tortor luctus et. Quisque dictum libero lorem, sed commodo sapien imperdiet nec. Integer eu lacus vel magna venenatis finibus. Nullam pretium vel enim at commodo. Ut ut lectus quis arcu blandit aliquet sed et metus. Donec pharetra, lorem vitae dignissim ultrices, metus dui ultricies neque, ac suscipit nibh turpis non turpis. Aenean quis felis vitae libero egestas ultrices non eu urna. Mauris mi nisi, tempor ac ante id, pretium eleifend libero. Ut sit amet dictum sem. Integer ligula ex, fermentum blandit porta sit amet, condimentum consequat tortor.
+
+Aenean accumsan tincidunt mollis. Vivamus eget nisl nec lorem fermentum elementum. Nam molestie fermentum justo, ut maximus arcu vulputate a. Vestibulum dictum arcu id mauris aliquam bibendum. Nullam egestas urna massa, a pretium dolor faucibus at. Sed vestibulum pretium purus, quis mollis leo efficitur sit amet. Sed dictum odio ut dapibus sollicitudin. Pellentesque suscipit nisl at orci euismod molestie. Aliquam porta, tortor id sagittis dictum, justo ante pulvinar nisl, at ultrices felis orci a leo. Vestibulum hendrerit diam non turpis gravida mattis.
+Vivamus est dui, consectetur non interdum nec, vestibulum sit amet sem. Nunc blandit felis ante, id ornare velit malesuada in. Aliquam erat volutpat. Curabitur scelerisque turpis in eros bibendum, ut scelerisque nisi sollicitudin. Phasellus at blandit augue. Phasellus aliquet, magna in convallis efficitur, elit nulla dapibus tellus, vel euismod velit elit sollicitudin velit. Cras at elit elit.
+Donec blandit dapibus feugiat. Aenean imperdiet tortor auctor hendrerit aliquam. Pellentesque eleifend nibh ut sem commodo ultricies. In hac habitasse platea dictumst. Morbi porta ipsum sem, sed molestie sem pretium nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et tempor velit. Curabitur sit amet mauris felis. Maecenas efficitur porta nisi, eu luctus quam laoreet vitae. Aenean porta consectetur tristique. Donec hendrerit neque arcu, ac euismod ante congue in. Suspendisse scelerisque interdum orci at varius. Nunc sed magna viverra, sodales massa sagittis, mattis ante.
+Maecenas urna lacus, ultricies sit amet ante vitae, convallis hendrerit nisi. Nulla commodo ut leo sit amet placerat. Nam laoreet at enim sit amet rutrum. Nam vitae condimentum massa. Mauris ut scelerisque enim. Aliquam venenatis suscipit libero in pretium. Suspendisse metus augue, lacinia in convallis interdum, condimentum sit amet lacus. Aenean ultrices non ex quis tincidunt. Nunc feugiat porta dignissim. Nunc pharetra, tellus eu laoreet imperdiet, dui orci pretium massa, quis rhoncus est ipsum non neque. Curabitur eu auctor sapien. Etiam ac nunc id nunc condimentum rhoncus.
+Nunc rhoncus ut nisl convallis pulvinar. Integer dolor quam, consequat commodo eleifend sit amet, dictum at tortor. Cras quis porta lacus. Donec felis felis, blandit ac augue a, luctus maximus lorem. Morbi nec felis vel risus hendrerit luctus. Ut sit amet accumsan arcu, quis scelerisque enim. Donec scelerisque tellus ante, non finibus orci lacinia vel. Sed aliquam augue non dapibus suscipit. Phasellus nec fringilla est, eu egestas nibh. Suspendisse lacinia lobortis dolor non fringilla. Pellentesque vel semper nisl. Pellentesque ut odio sed nisl consectetur faucibus ac in urna. Vivamus risus risus, viverra vel cursus a, porta eget arcu. Morbi tincidunt metus urna, sed consequat est consectetur at. Phasellus non tellus ut mauris condimentum suscipit.
+Mauris consectetur nunc vitae metus sollicitudin varius. Curabitur bibendum congue sem, non consequat urna porta ut. Fusce porta laoreet efficitur. Vivamus enim risus, venenatis eget varius vitae, sodales ac eros. Suspendisse semper sem mi. Vestibulum quis vestibulum est. Suspendisse vitae placerat nisi. Fusce ac turpis velit. Nulla vestibulum enim eu laoreet porttitor. Proin feugiat id velit et commodo. In interdum vitae leo sit amet eleifend. Praesent lobortis dolor vel scelerisque aliquam. Fusce scelerisque lacus est, vitae pretium lectus tincidunt a.
+Aliquam erat volutpat. Maecenas eleifend enim vel metus tempus, at tempor quam fermentum. Phasellus imperdiet sit amet leo sit amet blandit. Vestibulum egestas, sapien in viverra dapibus, ligula quam tincidunt mauris, at mattis tortor eros in nisl. Vestibulum facilisis pellentesque ornare. Nunc luctus nunc at tempor dapibus. In feugiat placerat ante, blandit placerat enim congue sit amet.
+Fusce sed odio libero. Vestibulum accumsan laoreet orci, at aliquam dolor euismod eu. Morbi turpis nunc, suscipit cursus nulla feugiat, sagittis luctus tortor. Sed lacinia metus ac leo molestie convallis. Ut nec sodales sem. Curabitur eget lacinia diam. Cras ornare pharetra porttitor. Sed bibendum, lorem vitae laoreet tempor, purus ligula semper odio, a pretium quam enim eget tellus. Vivamus lobortis ultrices eros, a placerat lacus mattis non. Duis vitae vestibulum lacus, eget lobortis felis. Aliquam gravida rutrum ante, at volutpat tortor facilisis ac.
+Morbi non ex vel nisi iaculis eleifend eu et purus. Sed congue turpis quis enim pellentesque vulputate. Nunc scelerisque iaculis metus. Vestibulum congue semper eleifend. Curabitur tellus sapien, venenatis tempus massa in, hendrerit fringilla metus. Morbi quis eros quis orci euismod lacinia vel id diam. Donec posuere felis urna, eu molestie nulla dictum ac. Ut eu velit sodales nulla laoreet bibendum.
+Aenean lacinia ex at enim scelerisque pellentesque. Aenean non pellentesque dolor. Aliquam egestas, velit vitae consectetur pulvinar, orci nisi maximus est, ut facilisis elit lectus eu metus. Vestibulum sollicitudin magna et scelerisque tempus. Nulla dictum lacus et urna vestibulum vehicula. Ut tristique ornare massa, at lobortis ipsum congue vel. Maecenas pellentesque pulvinar convallis. Morbi ultrices venenatis justo et efficitur. Mauris efficitur risus vitae erat vehicula egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+Quisque ornare, nunc in iaculis faucibus, ligula diam pellentesque purus, eu aliquam lectus enim at ipsum. Sed mollis commodo sapien id cursus. Etiam vel ex diam. Nam nisl erat, pretium sit amet enim vel, egestas posuere risus. Sed suscipit vitae mauris nec viverra. Sed vestibulum dapibus ante sit amet ullamcorper. Maecenas sed blandit est, at ullamcorper odio.
+Sed interdum elit et metus rutrum maximus. Vivamus tristique ornare tortor, eget consectetur risus ornare ac. Donec id justo ac sem malesuada ultrices nec a sapien. Morbi efficitur mi condimentum blandit sodales. In sed pellentesque mi. Nam ultricies justo interdum convallis gravida. Mauris eu posuere massa, et fermentum dolor. Vestibulum pellentesque dolor sed aliquet sollicitudin. Sed massa ante, egestas nec est sed, blandit scelerisque dui. Nulla vel ligula id tortor facilisis facilisis eu nec enim.
+Quisque id eleifend libero. Duis ultrices augue a magna lobortis, ut euismod ligula laoreet. Sed urna nulla, tempus non ultrices at, luctus non sapien. Vestibulum quis orci sit amet turpis elementum rhoncus. Nulla dictum arcu rhoncus sem tincidunt lobortis. Mauris in libero nec lacus venenatis finibus. Proin quis porttitor ante, ac blandit diam. Etiam et erat elementum, lacinia ante nec, tristique sapien. Duis a sem orci. Vestibulum lobortis, est ut hendrerit rhoncus, eros massa porta eros, bibendum condimentum enim elit vel ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis vitae ipsum et mauris sodales commodo. In malesuada lorem in luctus tempus. Vivamus id dui at justo congue commodo ac non magna. Suspendisse potenti.
+Proin vulputate velit ut ex condimentum viverra. Fusce ac accumsan sapien. Sed aliquet scelerisque orci, nec eleifend odio luctus ut. Vestibulum vitae feugiat leo. Fusce ac enim ut sapien pulvinar imperdiet ac nec nibh. Phasellus ac vehicula nulla. Pellentesque nec ligula vehicula purus accumsan posuere. Fusce sed magna sed magna feugiat dignissim. Etiam facilisis mauris gravida turpis eleifend ornare.
+Donec malesuada dolor risus, vel fermentum tortor iaculis vitae. Suspendisse porta nisi eget est fringilla ullamcorper. Integer nulla elit, faucibus ac tortor ac, tempor auctor tortor. Integer pellentesque ornare ipsum a congue. Integer tempus erat sit amet arcu facilisis scelerisque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris varius pellentesque nisi sodales volutpat. Aenean ac maximus odio. Nulla facilisi. Suspendisse congue molestie tristique. In interdum molestie scelerisque.
+Praesent sit amet vulputate elit, at faucibus lectus. Maecenas consectetur ante purus, vel egestas velit pellentesque in. Curabitur quis vehicula ipsum. Vestibulum euismod in metus #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt.
+Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry>
+						<!--Pertinent information - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<!--Medcom "Pertinent information" template-->
+							<templateId root="1.2.208.184.20.2.66" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<!--The SNOMED code for the value being observed: Pertinent information-->
+							<code code="398005008" displayName="relevant information" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<value xsi:type="ST">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt.
+Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo. Suspendisse lobortis pulvinar ex, sed laoreet tortor luctus et. Quisque dictum libero lorem, sed commodo sapien imperdiet nec. Integer eu lacus vel magna venenatis finibus. Nullam pretium vel enim at commodo. Ut ut lectus quis arcu blandit aliquet sed et metus. Donec pharetra, lorem vitae dignissim ultrices, metus dui ultricies neque, ac suscipit nibh turpis non turpis. Aenean quis felis vitae libero egestas ultrices non eu urna. Mauris mi nisi, tempor ac ante id, pretium eleifend libero. Ut sit amet dictum sem. Integer ligula ex, fermentum blandit porta sit amet, condimentum consequat tortor.
+
+Aenean accumsan tincidunt mollis. Vivamus eget nisl nec lorem fermentum elementum. Nam molestie fermentum justo, ut maximus arcu vulputate a. Vestibulum dictum arcu id mauris aliquam bibendum. Nullam egestas urna massa, a pretium dolor faucibus at. Sed vestibulum pretium purus, quis mollis leo efficitur sit amet. Sed dictum odio ut dapibus sollicitudin. Pellentesque suscipit nisl at orci euismod molestie. Aliquam porta, tortor id sagittis dictum, justo ante pulvinar nisl, at ultrices felis orci a leo. Vestibulum hendrerit diam non turpis gravida mattis.
+Vivamus est dui, consectetur non interdum nec, vestibulum sit amet sem. Nunc blandit felis ante, id ornare velit malesuada in. Aliquam erat volutpat. Curabitur scelerisque turpis in eros bibendum, ut scelerisque nisi sollicitudin. Phasellus at blandit augue. Phasellus aliquet, magna in convallis efficitur, elit nulla dapibus tellus, vel euismod velit elit sollicitudin velit. Cras at elit elit.
+Donec blandit dapibus feugiat. Aenean imperdiet tortor auctor hendrerit aliquam. Pellentesque eleifend nibh ut sem commodo ultricies. In hac habitasse platea dictumst. Morbi porta ipsum sem, sed molestie sem pretium nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et tempor velit. Curabitur sit amet mauris felis. Maecenas efficitur porta nisi, eu luctus quam laoreet vitae. Aenean porta consectetur tristique. Donec hendrerit neque arcu, ac euismod ante congue in. Suspendisse scelerisque interdum orci at varius. Nunc sed magna viverra, sodales massa sagittis, mattis ante.
+Maecenas urna lacus, ultricies sit amet ante vitae, convallis hendrerit nisi. Nulla commodo ut leo sit amet placerat. Nam laoreet at enim sit amet rutrum. Nam vitae condimentum massa. Mauris ut scelerisque enim. Aliquam venenatis suscipit libero in pretium. Suspendisse metus augue, lacinia in convallis interdum, condimentum sit amet lacus. Aenean ultrices non ex quis tincidunt. Nunc feugiat porta dignissim. Nunc pharetra, tellus eu laoreet imperdiet, dui orci pretium massa, quis rhoncus est ipsum non neque. Curabitur eu auctor sapien. Etiam ac nunc id nunc condimentum rhoncus.
+Nunc rhoncus ut nisl convallis pulvinar. Integer dolor quam, consequat commodo eleifend sit amet, dictum at tortor. Cras quis porta lacus. Donec felis felis, blandit ac augue a, luctus maximus lorem. Morbi nec felis vel risus hendrerit luctus. Ut sit amet accumsan arcu, quis scelerisque enim. Donec scelerisque tellus ante, non finibus orci lacinia vel. Sed aliquam augue non dapibus suscipit. Phasellus nec fringilla est, eu egestas nibh. Suspendisse lacinia lobortis dolor non fringilla. Pellentesque vel semper nisl. Pellentesque ut odio sed nisl consectetur faucibus ac in urna. Vivamus risus risus, viverra vel cursus a, porta eget arcu. Morbi tincidunt metus urna, sed consequat est consectetur at. Phasellus non tellus ut mauris condimentum suscipit.
+Mauris consectetur nunc vitae metus sollicitudin varius. Curabitur bibendum congue sem, non consequat urna porta ut. Fusce porta laoreet efficitur. Vivamus enim risus, venenatis eget varius vitae, sodales ac eros. Suspendisse semper sem mi. Vestibulum quis vestibulum est. Suspendisse vitae placerat nisi. Fusce ac turpis velit. Nulla vestibulum enim eu laoreet porttitor. Proin feugiat id velit et commodo. In interdum vitae leo sit amet eleifend. Praesent lobortis dolor vel scelerisque aliquam. Fusce scelerisque lacus est, vitae pretium lectus tincidunt a.
+Aliquam erat volutpat. Maecenas eleifend enim vel metus tempus, at tempor quam fermentum. Phasellus imperdiet sit amet leo sit amet blandit. Vestibulum egestas, sapien in viverra dapibus, ligula quam tincidunt mauris, at mattis tortor eros in nisl. Vestibulum facilisis pellentesque ornare. Nunc luctus nunc at tempor dapibus. In feugiat placerat ante, blandit placerat enim congue sit amet.
+Fusce sed odio libero. Vestibulum accumsan laoreet orci, at aliquam dolor euismod eu. Morbi turpis nunc, suscipit cursus nulla feugiat, sagittis luctus tortor. Sed lacinia metus ac leo molestie convallis. Ut nec sodales sem. Curabitur eget lacinia diam. Cras ornare pharetra porttitor. Sed bibendum, lorem vitae laoreet tempor, purus ligula semper odio, a pretium quam enim eget tellus. Vivamus lobortis ultrices eros, a placerat lacus mattis non. Duis vitae vestibulum lacus, eget lobortis felis. Aliquam gravida rutrum ante, at volutpat tortor facilisis ac.
+Morbi non ex vel nisi iaculis eleifend eu et purus. Sed congue turpis quis enim pellentesque vulputate. Nunc scelerisque iaculis metus. Vestibulum congue semper eleifend. Curabitur tellus sapien, venenatis tempus massa in, hendrerit fringilla metus. Morbi quis eros quis orci euismod lacinia vel id diam. Donec posuere felis urna, eu molestie nulla dictum ac. Ut eu velit sodales nulla laoreet bibendum.
+Aenean lacinia ex at enim scelerisque pellentesque. Aenean non pellentesque dolor. Aliquam egestas, velit vitae consectetur pulvinar, orci nisi maximus est, ut facilisis elit lectus eu metus. Vestibulum sollicitudin magna et scelerisque tempus. Nulla dictum lacus et urna vestibulum vehicula. Ut tristique ornare massa, at lobortis ipsum congue vel. Maecenas pellentesque pulvinar convallis. Morbi ultrices venenatis justo et efficitur. Mauris efficitur risus vitae erat vehicula egestas. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+Quisque ornare, nunc in iaculis faucibus, ligula diam pellentesque purus, eu aliquam lectus enim at ipsum. Sed mollis commodo sapien id cursus. Etiam vel ex diam. Nam nisl erat, pretium sit amet enim vel, egestas posuere risus. Sed suscipit vitae mauris nec viverra. Sed vestibulum dapibus ante sit amet ullamcorper. Maecenas sed blandit est, at ullamcorper odio.
+Sed interdum elit et metus rutrum maximus. Vivamus tristique ornare tortor, eget consectetur risus ornare ac. Donec id justo ac sem malesuada ultrices nec a sapien. Morbi efficitur mi condimentum blandit sodales. In sed pellentesque mi. Nam ultricies justo interdum convallis gravida. Mauris eu posuere massa, et fermentum dolor. Vestibulum pellentesque dolor sed aliquet sollicitudin. Sed massa ante, egestas nec est sed, blandit scelerisque dui. Nulla vel ligula id tortor facilisis facilisis eu nec enim.
+Quisque id eleifend libero. Duis ultrices augue a magna lobortis, ut euismod ligula laoreet. Sed urna nulla, tempus non ultrices at, luctus non sapien. Vestibulum quis orci sit amet turpis elementum rhoncus. Nulla dictum arcu rhoncus sem tincidunt lobortis. Mauris in libero nec lacus venenatis finibus. Proin quis porttitor ante, ac blandit diam. Etiam et erat elementum, lacinia ante nec, tristique sapien. Duis a sem orci. Vestibulum lobortis, est ut hendrerit rhoncus, eros massa porta eros, bibendum condimentum enim elit vel ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Duis vitae ipsum et mauris sodales commodo. In malesuada lorem in luctus tempus. Vivamus id dui at justo congue commodo ac non magna. Suspendisse potenti.
+Proin vulputate velit ut ex condimentum viverra. Fusce ac accumsan sapien. Sed aliquet scelerisque orci, nec eleifend odio luctus ut. Vestibulum vitae feugiat leo. Fusce ac enim ut sapien pulvinar imperdiet ac nec nibh. Phasellus ac vehicula nulla. Pellentesque nec ligula vehicula purus accumsan posuere. Fusce sed magna sed magna feugiat dignissim. Etiam facilisis mauris gravida turpis eleifend ornare.
+Donec malesuada dolor risus, vel fermentum tortor iaculis vitae. Suspendisse porta nisi eget est fringilla ullamcorper. Integer nulla elit, faucibus ac tortor ac, tempor auctor tortor. Integer pellentesque ornare ipsum a congue. Integer tempus erat sit amet arcu facilisis scelerisque. Interdum et malesuada fames ac ante ipsum primis in faucibus. Mauris varius pellentesque nisi sodales volutpat. Aenean ac maximus odio. Nulla facilisi. Suspendisse congue molestie tristique. In interdum molestie scelerisque.
+Praesent sit amet vulputate elit, at faucibus lectus. Maecenas consectetur ante purus, vel egestas velit pellentesque in. Curabitur quis vehicula ipsum. Vestibulum euismod in metus #Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eget dui pulvinar, ultrices diam id, bibendum metus. Nullam volutpat ante sit amet est aliquet, vitae rutrum elit posuere. Sed quis scelerisque nisl. In bibendum lacinia enim in semper. Quisque egestas lobortis pretium. Aliquam neque orci, finibus nec dignissim et, convallis id ligula. Etiam at velit tincidunt, posuere ligula et, consequat tellus. In aliquet urna ac lacus venenatis facilisis. Donec pharetra dolor ipsum, interdum pharetra ligula dignissim et. Sed dapibus mauris nibh, at suscipit libero rutrum at. Cras rhoncus finibus rutrum. Vestibulum euismod malesuada condimentum. Morbi accumsan risus sem, eu lacinia felis volutpat id. Morbi in ante facilisis, porttitor orci ut, rhoncus leo. Vestibulum aliquet nibh vel velit bibendum tincidunt.
+Duis id elit sapien. Nunc gravida risus vel tincidunt maximus. Pellentesque ac cursus justo.SLUT</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			<!--Receipt of benefit status-->
+			<component>
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--Receipt of benefit status - section template-->
+					<templateId root="1.2.208.184.20.2.67" extension="2024-04-19"/>
+					<templateId root="2.16.840.1.113883.10.12.201"/>
+					<!--HL7 CDA section template-->
+					<code code="228163007" displayName="status for modtagelse af ydelse" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+					<title>status for modtagelse af ydelse</title>
+					<text>
+						<table>
+							<thead>
+								<tr>
+									<th>Udsagn</th>
+									<th>Værdi</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>modtager revalideringsydelse</td>
+									<td>ja</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!--Receives social assistance - not included-->
+					<entry>
+						<!--Receives rehabilitation benefits - [0..1]-->
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="1.2.208.184.20.2.69" extension="2024-04-19"/>
+							<!--HL7 CDA observation template-->
+							<templateId root="2.16.840.1.113883.10.12.303"/>
+							<code code="648121000005100" displayName="modtager revalideringsydelse" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"/>
+							<statusCode code="completed"/>
+							<effectiveTime nullFlavor="NI"/>
+							<!--No value element-->
+						</observation>
+					</entry>
+				</section>
+			</component>
+		</structuredBody>
+	</component>
+</ClinicalDocument>

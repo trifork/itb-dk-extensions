@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://svn.medcom.dk/svn/releases/Standarder/HL7/Generic/CDA-Stylesheet/HL7_CDA_stylesheet.xsl"?>
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:hl7-org:v3 ../../../Schema/infrastructure/cda/CDA_SDTC.xsd"
+    xmlns="urn:hl7-org:v3" moodCode="EVN">
+    <realmCode code="DK"/>
+    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+    <!-- MedCom templateId for Personal Data Card -->
+    <templateId root="1.2.208.184.16.1"/>
+    <!-- Unik ID for this PDC instance -->
+    <id assigningAuthorityName="MedCom" extension="94327cc4-491a-4b48-880a-e1b9dec20136"
+        root="1.2.208.184"/>
+    <code displayName="Stamkort" codeSystem="1.2.208.184.100.1" code="PDC"
+        codeSystemName="MedCom Message Codes"/>
+    <title>Personal Data Card for 2512489996</title>
+	<!-- Personal Data Card generated at:  -->    
+	<effectiveTime value="20211119125510+0100"/>
+    <confidentialityCode codeSystem="2.16.840.1.113883.5.25" code="N"/>
+    <languageCode code="da-DK"/>
+
+    <!-- This recordTarget indentifies the patient and related information from CPR -->
+    <!-- GP information is placed in the providerOrganizationt element -->
+    <recordTarget contextControlCode="OP" typeCode="RCT">
+        <patientRole classCode="PAT">
+            <id assigningAuthorityName="CPR" extension="2512489996" root="1.2.208.176.1.2"/>          
+             <addr use="H">
+                 <streetAddressLine>Hans Jensens Stræde 45</streetAddressLine>
+                 <postalCode>5000</postalCode> 
+                 <city>Odense</city> 
+                 <country>Danmark</country>
+            </addr>
+            <patient classCode="PSN">
+                <name>
+                    <given>Nancy</given>
+                    <given>Ann</given>
+                    <family>Berggren</family>
+                </name>
+                <administrativeGenderCode codeSystem="2.16.840.1.113883.5.1" code="F"/>
+                <birthTime value="19481225000000+0000"/>
+            </patient>
+            <!-- GP from CPR: Identified by ydernummer, could also be identified by SOR-id -->
+            <providerOrganization>
+                <id extension="123456" root="1.2.208.176.1.4"
+                    assigningAuthorityName="Yderregisteret"/>
+                <name>Testyder</name>
+                <telecom use="WP" value="tel:+4512345678"/>
+                <addr use="WP">
+                    <streetAddressLine>Ydervej 42</streetAddressLine>
+                    <postalCode>1234</postalCode>
+                    <city>Yderby</city>
+                  </addr>
+            </providerOrganization>
+        </patientRole>
+    </recordTarget>
+
+    <!-- The author of this document is the FSK on-demand-service, identified by SDS -->
+	<author>
+		<!-- time is set to document creating time=effectiveTime above-->
+		<time value="20190808160510+0200"/>
+		<assignedAuthor>
+			<id assigningAuthorityName="SOR" extension="1126211000016009" root="1.2.208.176.1.1"/>
+			<assignedPerson>
+				<name>Fælles Stamkort udstedelse</name> 
+			</assignedPerson>
+			<representedOrganization>
+				<name>Fælles Stamkort udstedelse</name> 
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+	
+	<!-- The custodian of this document is the FSK on-demand-service, identified by SDS -->
+	<custodian>
+		<assignedCustodian>
+			<representedCustodianOrganization>
+				<id assigningAuthorityName="SOR" extension="1126211000016009" root="1.2.208.176.1.1"/>
+				<name>Fælles Stamkort udstedelse</name>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+
+    <!--This documentationOf holds the creation time of this CDA instance -->
+    <documentationOf typeCode="DOC">
+        <serviceEvent classCode="ACT" moodCode="EVN">
+            <effectiveTime>
+                <low value="20210101000001+0100"/>
+                <high nullFlavor="NA"/>
+            </effectiveTime>
+        </serviceEvent>
+    </documentationOf>
+
+    <!--This documentationOf holds the version of the CDA-profile -->
+    <documentationOf typeCode="DOC">
+        <serviceEvent classCode="ACT" moodCode="EVN">
+            <!--This templateId tells that this serviceEvent holds the identification (pdc) and version (v2.0) of the CDA profile -->
+            <templateId root="1.2.208.184.10.1.10" />
+            <!--This id @extension equals the identification and version of the CDA profile-->
+            <id root="1.2.208.184.100.10" extension="pdc-v2.0" assigningAuthorityName="MedCom"/>
+        </serviceEvent>
+    </documentationOf>
+
+    <component typeCode="COMP" contextConductionInd="true">
+        <structuredBody classCode="DOCBODY" moodCode="EVN">
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <!-- Section templateId for additional information from registers and manually entered information-->
+                    <templateId root="1.2.208.184.16.1.10.20.1" extension="2019-08-14"/>
+                    <text>
+                        <paragraph>Øvrige oplysninger</paragraph>
+                        <!--           <table border="1" width="100%"> -->
+                        <table width="100%">
+                            <tbody>
+                                <tr>
+                                    <th>Oplysning</th>
+                                    <th>Værdi</th>
+                                    <th>Kilde/Indtastet af</th>
+                                    <th>Sidst ændret/Indtastet den</th>
+                                </tr>
+                 
+                                <tr>
+                                    <td>Borgerens navn og adresse</td>
+                                    <td>
+                                        <list>
+                                            <item>Nancy Ann Berggren</item>
+                                            <item>H C Andersens Hus </item>
+                                            <item>Den gamle bydel, Museum, Hans Jensens Stræde 45</item>
+                                            <item>5000 Odense, Danmark</item>                                          
+                                        </list>
+                                    </td>
+                                    <td>CPR</td>
+                                    <td>Ikke oplyst</td>
+                                </tr>
+                                <tr>
+                                    <td>Sygesikringsgruppe</td>
+                                    <td>
+                                        <list>
+                                            <item>2</item>
+                                        </list>
+                                    </td>
+                                    <td>Sygesikringen</td>
+                                    <td>Ikke oplyst</td>
+                                </tr>
+                                <tr>
+                                    <td>Registreret organdonor</td>
+                                    <td>
+                                        <list>
+                                            <item>Nej</item>
+                                        </list>
+                                    </td>
+                                    <td>Dansk Center For Organdonation</td>
+                                    <td>Ikke oplyst</td>
+                                </tr>
+                                <tr>
+                                    <td>Registreret behandlingstestamente</td>
+                                    <td>
+                                        <list>
+                                            <item>Nej</item>
+                                        </list>
+                                    </td>
+                                    <td>Sundhedsdatastyrelsen</td>
+                                    <td>Ikke oplyst</td>
+                                </tr>
+                                <tr>
+                                    <td>Registreret livstestamente</td>
+                                    <td>
+                                        <list>
+                                            <item>Nej</item>
+                                        </list>
+                                    </td>
+                                    <td>Sundhedsdatastyrelsen</td>
+                                    <td>Ikke oplyst</td>
+                                </tr>
+                              
+                            </tbody>
+                        </table>
+                    </text>
+                                        
+                    <!-- The citizen's name and address from CPR -->
+                    <entry typeCode="COMP">
+                        <!-- observation of citizen's name and address, from CPR -->
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- Observation templateId for citizen's name and address, from CPR -->
+                            <templateId root="1.2.208.184.16.1.10.20.1.26" extension="2019-08-14"/>
+                            <id extension="4ed01b10-ae6c-4e08-ae04-e0fe464f6a5f" root="1.2.208.184"/>
+                            <code code="CitizenNameAddr" codeSystem="1.2.208.184.100.1"
+                                codeSystemName="MedCom Message Codes"
+                                displayName="Borgerens navn og adresse"/>
+                            <value xsi:type="PN">
+                                <given>Nancy</given>
+                                <given>Ann</given>
+                                <family>Berggren</family>
+                            </value>
+                           <value xsi:type="AD" use="H">
+                               <streetAddressLine>H C Andersens Hus</streetAddressLine>
+                               <streetAddressLine>Den gamle bydel</streetAddressLine>
+                               <streetAddressLine>Museum</streetAddressLine>
+                               <streetAddressLine>Hans Jensens Stræde 45</streetAddressLine>
+                                <postalCode>5000</postalCode> 
+                                <city>Odense</city> 
+                                <country>Danmark</country>
+                            </value>
+                            <!-- Author of this register information is CPR -->
+                            <author>
+                                <!-- This templateId is the used when the author of information is a register -->
+                                <templateId root="1.2.208.184.16.1.10.20.31" extension="2019-08-14"/>
+                                <!-- time is unknown -->
+                                <time nullFlavor="NI"/>
+                                <assignedAuthor>
+                                    <!-- id @root is set to CPR-root-->
+                                    <id root="1.2.208.176.1.2" extension="NI"
+                                        assigningAuthorityName="CPR"/>
+                                    <!-- representedOrganization is mandatory when we don't have an authorPerson -->
+                                    <representedOrganization>
+                                        <name>CPR</name>
+                                    </representedOrganization>
+                                </assignedAuthor>
+                            </author>
+                        </observation>
+                    </entry>
+                    <!-- The citizen's coverage group (Sygesikringsgruppe) from CPR -->
+                    <entry typeCode="COMP">
+                        <!-- observation of citizen's coverage group (Sygesikringsgruppe), from CPR -->
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- Observation templateId for citizen's coverage group, from CPR -->
+                            <templateId root="1.2.208.184.16.1.10.20.1.27" extension="2019-08-14"/>
+                            <id extension="51a22378-fd6e-40f7-b429-db0fa927de11" root="1.2.208.184"/>
+                            <code code="CoverageGroup" codeSystem="1.2.208.184.100.1"
+                                codeSystemName="MedCom Message Codes"
+                                displayName="Sygesikringsgruppe"/>
+                            <value xsi:type="II" root="1.2.208.176.2.7" extension="2"
+                                assigningAuthorityName="Sygesikringen"/>
+                            <!-- Author of this information is sygesikringen -->
+                            <author>
+                                <!-- This templateId is the used when the author of information is a register -->
+                                <templateId root="1.2.208.184.16.1.10.20.31" extension="2019-08-14"/>
+                                <!-- time is unknown -->
+                                <time nullFlavor="NI"/>
+                                <assignedAuthor>
+                                    <!-- id @root is set to Sygesikringen -->
+                                    <id root="1.2.208.176.2.7" extension="NI"
+                                        assigningAuthorityName="Sygesikringen"/>
+                                    <!-- representedOrganization is mandatory when we don't have an authorPerson -->
+                                    <representedOrganization>
+                                        <name>Sygesikringen</name>
+                                    </representedOrganization>
+                                </assignedAuthor>
+                            </author>
+                        </observation>
+                    </entry>
+                    <!-- The citizen's Organ Donor Registration -->
+                    <entry typeCode="COMP">
+                        <!-- observation of citizen's Organ Donor Registration -->
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- Observation templateId for citizen's Organ Donor Registration -->
+                            <templateId root="1.2.208.184.16.1.10.20.1.28" extension="2019-08-14"/>
+                            <id extension="3231b4ea-b73d-480a-9715-f6290ffcda8e" root="1.2.208.184"/>
+                            <code code="OrganDonorRegistration" codeSystem="1.2.208.184.100.1"
+                                codeSystemName="MedCom Message Codes"
+                                displayName="Registreret organdonor"/>
+                            <value xsi:type="II" root="1.2.208.176.1.10" extension="false"
+                                assigningAuthorityName="Dansk Center For Organdonation"/>
+                            <!-- Author of this information is Danish Organ Donor Register -->
+                            <author>
+                                <!-- This templateId is the used when the author of information is a register -->
+                                <templateId root="1.2.208.184.16.1.10.20.31" extension="2019-08-14"/>
+                                <!-- time is unknown -->
+                                <time nullFlavor="NI"/>
+                                <assignedAuthor>
+                                    <!-- id @root is set to Danish Organ Donor Register -->
+                                    <id root="1.2.208.176.1.10" extension="NI"
+                                        assigningAuthorityName="Dansk Center For Organdonation"/>
+                                    <!-- representedOrganization is mandatory when we don't have an authorPerson -->
+                                    <representedOrganization>
+                                        <name>Dansk Center For Organdonation</name>
+                                    </representedOrganization>
+                                </assignedAuthor>
+                            </author>
+                        </observation>
+                    </entry>
+                    <!-- The citizen's Treatment Will Registration -->
+                    <entry typeCode="COMP">
+                        <!-- observation of citizen's Treatment Will Registration -->
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- Observation templateId for citizen's Treatment Will Registration -->
+                            <templateId root="1.2.208.184.16.1.10.20.1.29" extension="2019-08-14"/>
+                            <id extension="e16160e7-e00c-4f33-abaa-faa012bccda7" root="1.2.208.184"/>
+                            <code code="TreatmentWillRegistration" codeSystem="1.2.208.184.100.1"
+                                codeSystemName="MedCom Message Codes"
+                                displayName="Registreret behandlingstestamente"/>
+                            <value xsi:type="II" root="1.2.208.176.1.9" extension="false"
+                                assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                            <!-- Author of this information is a register at Sundhedsdatastyrelsen -->
+                            <author>
+                                <!-- This templateId is the used when the author of information is a register -->
+                                <templateId root="1.2.208.184.16.1.10.20.31" extension="2019-08-14"/>
+                                <!-- time is unknown -->
+                                <time nullFlavor="NI"/>
+                                <assignedAuthor>
+                                    <!-- id @root is set to 1.2.208.176.1.9 -->
+                                    <id root="1.2.208.176.1.9" extension="NI"
+                                        assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <!-- representedOrganization is mandatory when we don't have an authorPerson -->
+                                    <representedOrganization>
+                                        <name>Sundhedsdatastyrelsen</name>
+                                    </representedOrganization>
+                                </assignedAuthor>
+                            </author>
+                        </observation>
+                    </entry>
+                    <!-- The citizen's Living Will Registration -->
+                    <entry typeCode="COMP">
+                        <!-- observation of citizen's Living Will Registration -->
+                        <observation classCode="OBS" moodCode="EVN">
+                            <!-- Observation templateId for citizen's Living Will Registration -->
+                            <templateId root="1.2.208.184.16.1.10.20.1.30" extension="2019-08-14"/>
+                            <id extension="fdb6d2ce-ecee-4e89-a7e0-b86e76085f09" root="1.2.208.184"/>
+                            <code code="LivingWillRegistration" codeSystem="1.2.208.184.100.1"
+                                codeSystemName="MedCom Message Codes"
+                                displayName="Registreret livstestamente"/>
+                            <value xsi:type="II" root="1.2.208.176.1.8" extension="false"
+                                assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                            <!-- Author of this information is register at Sundhedsdatastyrelsen -->
+                            <author>
+                                <!-- This templateId is the used when the author of information is a register -->
+                                <templateId root="1.2.208.184.16.1.10.20.31" extension="2019-08-14"/>
+                                <!-- time is unknown -->
+                                <time nullFlavor="NI"/>
+                                <assignedAuthor>
+                                    <!-- id @root is set to Sundhedsdatastyrelsen -->
+                                    <id root="1.2.208.176.1.8" extension="NI"
+                                        assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <!-- representedOrganization is mandatory when we don't have an authorPerson -->
+                                    <representedOrganization>
+                                        <name>Sundhedsdatastyrelsen</name>
+                                    </representedOrganization>
+                                </assignedAuthor>
+                            </author>
+                        </observation>
+                    </entry>             
+                </section>
+            </component>
+        </structuredBody>
+    </component>
+</ClinicalDocument>

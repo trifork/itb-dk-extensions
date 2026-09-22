@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<cases>
+  <case profile="phmr-v1.3" name="Require one declaration of template 2.16.840.1.113883.10.20.9 — negative" fails="PHMR-DK-1.3-INTERNATIONAL-TEMPLATE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:templateId[@root='2.16.840.1.113883.10.20.9']" />
+  </case>
+  <case profile="phmr-v1.3" name="Require one declaration of template 1.2.208.184.11.1 — negative" fails="PHMR-DK-1.3-DANISH-TEMPLATE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:templateId[@root='1.2.208.184.11.1']" />
+  </case>
+  <case profile="phmr-v1.3" name="PHMR requires one document code — negative" fails="PHMR-DK-1.3-DOCUMENT-CODE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:code" />
+  </case>
+  <case profile="phmr-v1.3" name="PHMR document @code must be 53576-5 — negative" fails="PHMR-DK-1.3-CODE-code">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="phmr-v1.3" name="PHMR document @codeSystem must be 2.16.840.1.113883.6.1 — negative" fails="PHMR-DK-1.3-CODE-codeSystem">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="phmr-v1.3" name="PHMR requires a monitoring service event — negative" fails="PHMR-DK-1.3-SERVICE-EVENT">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent" />
+  </case>
+  <case profile="phmr-v1.3" name="PHMR service events must be monitoring programmes — negative" fails="PHMR-DK-1.3-SERVICE-MPROT">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent/@classCode" value="INVALID" />
+  </case>
+  <case profile="phmr-v1.3" name="PHMR needs the monitoring period — negative" fails="PHMR-DK-1.3-MONITORING-INTERVAL">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent/v3:effectiveTime" />
+  </case>
+  <case profile="phmr-v1.3" name="PHMR requires a structured body — negative" fails="PHMR-DK-1.3-STRUCTURED-BODY">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody" />
+  </case>
+  <case profile="phmr-v1.3" name="Complete synthetic fixture" />
+</cases>

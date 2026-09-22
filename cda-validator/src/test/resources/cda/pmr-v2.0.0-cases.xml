@@ -1,0 +1,519 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<cases>
+  <case profile="pmr-v2.0.0" name="Require one declaration of template 1.2.208.184.21.1 — negative" fails="PMR-DK-2.0.0-HEADER-TEMPLATE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:templateId[@root='1.2.208.184.21.1']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document requires one id — negative" fails="PMR-DK-2.0.0-HEADER-ID">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document requires one code — negative" fails="PMR-DK-2.0.0-HEADER-CODE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:code" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document requires one title — negative" fails="PMR-DK-2.0.0-HEADER-TITLE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:title" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document requires one effectiveTime — negative" fails="PMR-DK-2.0.0-HEADER-EFFECTIVETIME">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:effectiveTime" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document requires one author — negative" fails="PMR-DK-2.0.0-HEADER-AUTHOR">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document requires one custodian — negative" fails="PMR-DK-2.0.0-HEADER-CUSTODIAN">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document code @code must be PMR — negative" fails="PMR-DK-2.0.0-DOCUMENT-CODE-code">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document code @codeSystem must be 1.2.208.184.100.1 — negative" fails="PMR-DK-2.0.0-DOCUMENT-CODE-codeSystem">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document code @codeSystemName must be MedCom Message Codes — negative" fails="PMR-DK-2.0.0-DOCUMENT-CODE-codeSystemName">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@codeSystemName" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document code @displayName must be Pregnancy Measurement Report — negative" fails="PMR-DK-2.0.0-DOCUMENT-CODE-displayName">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@displayName" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="@root must be present and non-empty — negative" fails="PMR-DK-2.0.0-DOCUMENT-ID-root">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id/@root" />
+  </case>
+  <case profile="pmr-v2.0.0" name="@assigningAuthorityName must be present and non-empty — negative" fails="PMR-DK-2.0.0-DOCUMENT-ID-assigningAuthorityName">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id/@assigningAuthorityName" />
+  </case>
+  <case profile="pmr-v2.0.0" name="@extension must be present and non-empty — negative" fails="PMR-DK-2.0.0-DOCUMENT-ID-extension">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id/@extension" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document identifier extension must be a UUID version 4 — negative" fails="PMR-DK-2.0.0-DOCUMENT-UUID">
+    <edit action="set" select="/v3:ClinicalDocument/v3:id/@extension" value="123" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document identifier root must be an OID — negative" fails="PMR-DK-2.0.0-DOCUMENT-OID">
+    <edit action="set" select="/v3:ClinicalDocument/v3:id/@root" value="not-an-oid" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document title must contain the specified heading and patient CPR — negative" fails="PMR-DK-2.0.0-TITLE-CPR">
+    <edit action="text" select="/v3:ClinicalDocument/v3:title" value="Wrong title" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Patient role requires one provider organisation — negative" fails="PMR-DK-2.0.0-PROVIDER">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one time — negative" fails="PMR-DK-2.0.0-AUTHOR-TIME">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:time" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one assignedAuthor — negative" fails="PMR-DK-2.0.0-ASSIGNED-AUTHOR">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one assignedPerson — negative" fails="PMR-DK-2.0.0-AUTHOR-PERSON">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:assignedPerson" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one name — negative" fails="PMR-DK-2.0.0-AUTHOR-PERSON-NAME">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:assignedPerson/v3:name" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one representedOrganization — negative" fails="PMR-DK-2.0.0-AUTHOR-ORG">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:representedOrganization" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one name — negative" fails="PMR-DK-2.0.0-AUTHOR-ORG-NAME">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:representedOrganization/v3:name" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one assignedCustodian — negative" fails="PMR-DK-2.0.0-ASSIGNED-CUSTODIAN">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one representedCustodianOrganization — negative" fails="PMR-DK-2.0.0-CUSTODIAN-ORG">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization" />
+  </case>
+  <case profile="pmr-v2.0.0" name="@value must be present and non-empty — negative" fails="PMR-DK-2.0.0-AUTHOR-TIME-VALUE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:time/@value" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Provider needs one identifier — negative" fails="PMR-DK-2.0.0-PROVIDER-ID">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization/v3:id" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Provider identifier authority must be SOR — negative" fails="PMR-DK-2.0.0-PROVIDER-AUTHORITY">
+    <edit action="set" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization/v3:id/@assigningAuthorityName" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Provider identifier root must be SOR — negative" fails="PMR-DK-2.0.0-PROVIDER-ROOT">
+    <edit action="set" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization/v3:id/@root" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="@extension must be present and non-empty — negative" fails="PMR-DK-2.0.0-PROVIDER-EXTENSION">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization/v3:id/@extension" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Provider needs one name — negative" fails="PMR-DK-2.0.0-PROVIDER-NAME">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization/v3:name" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Author needs one identifier — negative" fails="PMR-DK-2.0.0-AUTHOR-ID">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:id" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Author identifier authority must be SOR — negative" fails="PMR-DK-2.0.0-AUTHOR-AUTHORITY">
+    <edit action="set" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:id/@assigningAuthorityName" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Author identifier root must be SOR — negative" fails="PMR-DK-2.0.0-AUTHOR-ROOT">
+    <edit action="set" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:id/@root" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="@extension must be present and non-empty — negative" fails="PMR-DK-2.0.0-AUTHOR-EXTENSION">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:id/@extension" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Custodian needs one identifier — negative" fails="PMR-DK-2.0.0-CUSTODIAN-ID">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization/v3:id" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Custodian identifier authority must be SOR — negative" fails="PMR-DK-2.0.0-CUSTODIAN-AUTHORITY">
+    <edit action="set" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization/v3:id/@assigningAuthorityName" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Custodian identifier root must be SOR — negative" fails="PMR-DK-2.0.0-CUSTODIAN-ROOT">
+    <edit action="set" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization/v3:id/@root" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="@extension must be present and non-empty — negative" fails="PMR-DK-2.0.0-CUSTODIAN-EXTENSION">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization/v3:id/@extension" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Custodian needs one name — negative" fails="PMR-DK-2.0.0-CUSTODIAN-NAME">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization/v3:name" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Provider organisation must not contain addr — negative" fails="PMR-DK-2.0.0-PROVIDER-NO-addr">
+    <edit action="append" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization" value="&lt;addr xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Provider organisation must not contain telecom — negative" fails="PMR-DK-2.0.0-PROVIDER-NO-telecom">
+    <edit action="append" select="/v3:ClinicalDocument/v3:recordTarget/v3:patientRole/v3:providerOrganization" value="&lt;telecom xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Header must not contain dataEnterer — negative" fails="PMR-DK-2.0.0-NO-dataEnterer">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;dataEnterer xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Header must not contain informant — negative" fails="PMR-DK-2.0.0-NO-informant">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;informant xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Header must not contain informationRecipient — negative" fails="PMR-DK-2.0.0-NO-informationRecipient">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;informationRecipient xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Header must not contain legalAuthenticator — negative" fails="PMR-DK-2.0.0-NO-legalAuthenticator">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;legalAuthenticator xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Header must not contain authenticator — negative" fails="PMR-DK-2.0.0-NO-authenticator">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;authenticator xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Header must not contain inFulfillmentOf — negative" fails="PMR-DK-2.0.0-NO-inFulfillmentOf">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;inFulfillmentOf xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document requires two or three documentationOf elements — negative" fails="PMR-DK-2.0.0-DOCUMENTATION-COUNT">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:documentationOf" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one profile version event — negative" fails="PMR-DK-2.0.0-VERSION-EVENT">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Version event requires one id — negative" fails="PMR-DK-2.0.0-VERSION-ID">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Profile version @root must be 1.2.208.184.100.10 — negative" fails="PMR-DK-2.0.0-VERSION-root">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id/@root" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Profile version @extension must be PMR-v2.0 — negative" fails="PMR-DK-2.0.0-VERSION-extension">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Profile version @assigningAuthorityName must be MedCom — negative" fails="PMR-DK-2.0.0-VERSION-assigningAuthorityName">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id/@assigningAuthorityName" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one clinical content time event — negative" fails="PMR-DK-2.0.0-TIME-EVENT">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Time event requires one effectiveTime — negative" fails="PMR-DK-2.0.0-TIME-INTERVAL">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Time interval requires one low — negative" fails="PMR-DK-2.0.0-TIME-low">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:low" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Time interval requires one high — negative" fails="PMR-DK-2.0.0-TIME-high">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:high" />
+  </case>
+  <case profile="pmr-v2.0.0" name="@value must be present and non-empty — negative" fails="PMR-DK-2.0.0-TIME-START">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:low/@value" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Clinical content end needs a value or nullFlavor NA — negative" fails="PMR-DK-2.0.0-TIME-END">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:high/@nullFlavor" />
+  </case>
+  <case profile="pmr-v2.0.0" name="At most one episode event may be supplied — negative" fails="PMR-DK-2.0.0-EPISODE-CARDINALITY">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.12']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="A supplied episode event needs at least one identifier — negative" fails="PMR-DK-2.0.0-EPISODE-ID">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.12']/v3:id" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Episode identifier extension must be a UUID — negative" fails="PMR-DK-2.0.0-EPISODE-UUID">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.12']/v3:id/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="@root must be present and non-empty — negative" fails="PMR-DK-2.0.0-EPISODE-root">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.12']/v3:id/@root" />
+  </case>
+  <case profile="pmr-v2.0.0" name="@assigningAuthorityName must be present and non-empty — negative" fails="PMR-DK-2.0.0-EPISODE-assigningAuthorityName">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.12']/v3:id/@assigningAuthorityName" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Pregnancy episode authority must be Sundhedsdatastyrelsen — negative" fails="PMR-DK-2.0.0-PREGNANCY-AUTHORITY">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.12']/v3:id[@root='1.2.208.176.7.4.1']/@assigningAuthorityName" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document requires one component — negative" fails="PMR-DK-2.0.0-B0005">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Document requires one structuredBody — negative" fails="PMR-DK-2.0.0-B0006">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR requires one Results section — negative" fails="PMR-DK-2.0.0-B0008">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Result Section @classCode must be DOCSECT — negative" fails="PMR-DK-2.0.0-B0009">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Result Section @moodCode must be EVN — negative" fails="PMR-DK-2.0.0-B0010">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one declaration of template 1.2.208.184.21.2.1 — negative" fails="PMR-DK-2.0.0-B0011">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:templateId[@root='1.2.208.184.21.2.1']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Template 1.2.208.184.21.2.1 must use 2024-06-01 — negative" fails="PMR-DK-2.0.0-B0011-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:templateId[@root='1.2.208.184.21.2.1']/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Result Section requires one code — negative" fails="PMR-DK-2.0.0-B0017">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:code" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Result Section requires one title — negative" fails="PMR-DK-2.0.0-B0022">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:title" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Result Section requires one text — negative" fails="PMR-DK-2.0.0-B0023">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:text" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Result Section @code must be 30954-2 — negative" fails="PMR-DK-2.0.0-B0018">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Result Section @codeSystem must be 2.16.840.1.113883.6.1 — negative" fails="PMR-DK-2.0.0-B0019">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Pregnancy episode event may be omitted">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.12']/.." />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one declaration of template 2.16.840.1.113883.10.20.22.2.3 — negative" fails="PMR-DK-2.0.0-B0014">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:templateId[@root='2.16.840.1.113883.10.20.22.2.3']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Template 2.16.840.1.113883.10.20.22.2.3 must use 2015-08-01 — negative" fails="PMR-DK-2.0.0-B0014-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:templateId[@root='2.16.840.1.113883.10.20.22.2.3']/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR results section requires exactly one entry — negative" fails="PMR-DK-2.0.0-B0024">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR results entry requires one organizer — negative" fails="PMR-DK-2.0.0-B0025">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one declaration of template 1.2.208.184.21.2.2 — negative" fails="PMR-DK-2.0.0-B0028">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:templateId[@root='1.2.208.184.21.2.2']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Template 1.2.208.184.21.2.2 must use 2025-01-15 — negative" fails="PMR-DK-2.0.0-B0028-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:templateId[@root='1.2.208.184.21.2.2']/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one declaration of template 2.16.840.1.113883.10.20.22.4.1 — negative" fails="PMR-DK-2.0.0-B0031">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:templateId[@root='2.16.840.1.113883.10.20.22.4.1']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Template 2.16.840.1.113883.10.20.22.4.1 must use 2023-05-01 — negative" fails="PMR-DK-2.0.0-B0031-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:templateId[@root='2.16.840.1.113883.10.20.22.4.1']/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Result organizer @classCode must be CLUSTER — negative" fails="PMR-DK-2.0.0-B0026">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/@classCode" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Result organizer @moodCode must be EVN — negative" fails="PMR-DK-2.0.0-B0027">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR organizer requires one id — negative" fails="PMR-DK-2.0.0-B0034">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:id" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR organizer requires one code — negative" fails="PMR-DK-2.0.0-B0038">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:code" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR organizer requires one statusCode — negative" fails="PMR-DK-2.0.0-B0040">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:statusCode" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR organizer requires one effectiveTime — negative" fails="PMR-DK-2.0.0-B0042">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:effectiveTime" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR organizer code uses nullFlavor NI — negative" fails="PMR-DK-2.0.0-B0039">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:code/@nullFlavor" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR organizer status must be completed — negative" fails="PMR-DK-2.0.0-B0041">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:statusCode/@code" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR organizer requires at least one component — negative" fails="PMR-DK-2.0.0-B0271">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component" />
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component" />
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component" />
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR organizer component requires one observation — negative" fails="PMR-DK-2.0.0-B0046">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one declaration of template 1.2.208.184.21.2.3 — negative" fails="PMR-DK-2.0.0-OBS-3-TEMPLATE">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:templateId[@root='1.2.208.184.21.2.3']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Template 1.2.208.184.21.2.3 must use 2025-01-15 — negative" fails="PMR-DK-2.0.0-OBS-3-TEMPLATE-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:templateId[@root='1.2.208.184.21.2.3']/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one declaration of template 2.16.840.1.113883.10.20.22.4.2 — negative" fails="PMR-DK-2.0.0-OBS-3-CCDA">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:templateId[@root='2.16.840.1.113883.10.20.22.4.2']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Template 2.16.840.1.113883.10.20.22.4.2 must use 2023-05-01 — negative" fails="PMR-DK-2.0.0-OBS-3-CCDA-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:templateId[@root='2.16.840.1.113883.10.20.22.4.2']/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation @classCode must be OBS — negative" fails="PMR-DK-2.0.0-OBS-3-classCode">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation @moodCode must be EVN — negative" fails="PMR-DK-2.0.0-OBS-3-moodCode">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one id — negative" fails="PMR-DK-2.0.0-OBS-3-id">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:id" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one code — negative" fails="PMR-DK-2.0.0-OBS-3-code">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:code" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one statusCode — negative" fails="PMR-DK-2.0.0-OBS-3-statusCode">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:statusCode" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one effectiveTime — negative" fails="PMR-DK-2.0.0-OBS-3-effectiveTime">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:effectiveTime" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one value — negative" fails="PMR-DK-2.0.0-OBS-3-value">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:value" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation identifier must be a UUID version 4 — negative" fails="PMR-DK-2.0.0-OBS-3-UUID">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:id/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation status must be completed — negative" fails="PMR-DK-2.0.0-OBS-3-STATUS">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:statusCode/@code" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation code must use SNOMED CT — negative" fails="PMR-DK-2.0.0-OBS-3-SNOMED">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR PQ observation value must use xsi:type PQ — negative" fails="PMR-DK-2.0.0-B0072">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:value/@xsi:type" value="BL" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation time must include seconds and UTC offset — negative" fails="PMR-DK-2.0.0-OBS-3-TIME">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:effectiveTime/@value" value="20260101" />
+  </case>
+  <case profile="pmr-v2.0.0" name="@unit must be present and non-empty — negative" fails="PMR-DK-2.0.0-B0073">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:value/@unit" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Numeric result requires a decimal value — negative" fails="PMR-DK-2.0.0-B0074">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:value/@value" value="bad" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one declaration of template 1.2.208.184.21.2.5 — negative" fails="PMR-DK-2.0.0-OBS-5-TEMPLATE">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/v3:templateId[@root='1.2.208.184.21.2.5']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Template 1.2.208.184.21.2.5 must use 2025-01-15 — negative" fails="PMR-DK-2.0.0-OBS-5-TEMPLATE-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/v3:templateId[@root='1.2.208.184.21.2.5']/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one declaration of template 2.16.840.1.113883.10.20.22.4.2 — negative" fails="PMR-DK-2.0.0-OBS-5-CCDA">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/v3:templateId[@root='2.16.840.1.113883.10.20.22.4.2']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Template 2.16.840.1.113883.10.20.22.4.2 must use 2023-05-01 — negative" fails="PMR-DK-2.0.0-OBS-5-CCDA-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/v3:templateId[@root='2.16.840.1.113883.10.20.22.4.2']/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation @classCode must be OBS — negative" fails="PMR-DK-2.0.0-OBS-5-classCode">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation @moodCode must be EVN — negative" fails="PMR-DK-2.0.0-OBS-5-moodCode">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one id — negative" fails="PMR-DK-2.0.0-OBS-5-id">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/v3:id" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one code — negative" fails="PMR-DK-2.0.0-OBS-5-code">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/v3:code" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one statusCode — negative" fails="PMR-DK-2.0.0-OBS-5-statusCode">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/v3:statusCode" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one effectiveTime — negative" fails="PMR-DK-2.0.0-OBS-5-effectiveTime">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/v3:effectiveTime" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one value — negative" fails="PMR-DK-2.0.0-OBS-5-value">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/v3:value" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation identifier must be a UUID version 4 — negative" fails="PMR-DK-2.0.0-OBS-5-UUID">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/v3:id/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation status must be completed — negative" fails="PMR-DK-2.0.0-OBS-5-STATUS">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/v3:statusCode/@code" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation code must use SNOMED CT — negative" fails="PMR-DK-2.0.0-OBS-5-SNOMED">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR CD observation value must use xsi:type CD — negative" fails="PMR-DK-2.0.0-B0138">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/v3:value/@xsi:type" value="BL" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation time must include seconds and UTC offset — negative" fails="PMR-DK-2.0.0-OBS-5-TIME">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.5']/v3:effectiveTime/@value" value="20260101" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one declaration of template 1.2.208.184.21.2.6 — negative" fails="PMR-DK-2.0.0-OBS-6-TEMPLATE">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/v3:templateId[@root='1.2.208.184.21.2.6']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Template 1.2.208.184.21.2.6 must use 2025-01-15 — negative" fails="PMR-DK-2.0.0-OBS-6-TEMPLATE-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/v3:templateId[@root='1.2.208.184.21.2.6']/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one declaration of template 2.16.840.1.113883.10.20.22.4.2 — negative" fails="PMR-DK-2.0.0-OBS-6-CCDA">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/v3:templateId[@root='2.16.840.1.113883.10.20.22.4.2']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Template 2.16.840.1.113883.10.20.22.4.2 must use 2023-05-01 — negative" fails="PMR-DK-2.0.0-OBS-6-CCDA-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/v3:templateId[@root='2.16.840.1.113883.10.20.22.4.2']/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation @classCode must be OBS — negative" fails="PMR-DK-2.0.0-OBS-6-classCode">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation @moodCode must be EVN — negative" fails="PMR-DK-2.0.0-OBS-6-moodCode">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one id — negative" fails="PMR-DK-2.0.0-OBS-6-id">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/v3:id" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one code — negative" fails="PMR-DK-2.0.0-OBS-6-code">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/v3:code" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one statusCode — negative" fails="PMR-DK-2.0.0-OBS-6-statusCode">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/v3:statusCode" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one effectiveTime — negative" fails="PMR-DK-2.0.0-OBS-6-effectiveTime">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/v3:effectiveTime" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one value — negative" fails="PMR-DK-2.0.0-OBS-6-value">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/v3:value" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation identifier must be a UUID version 4 — negative" fails="PMR-DK-2.0.0-OBS-6-UUID">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/v3:id/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation status must be completed — negative" fails="PMR-DK-2.0.0-OBS-6-STATUS">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/v3:statusCode/@code" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation code must use SNOMED CT — negative" fails="PMR-DK-2.0.0-OBS-6-SNOMED">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR TS observation value must use xsi:type TS — negative" fails="PMR-DK-2.0.0-B0265">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/v3:value/@xsi:type" value="BL" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation time must include seconds and UTC offset — negative" fails="PMR-DK-2.0.0-OBS-6-TIME">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/v3:effectiveTime/@value" value="20260101" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Timestamp result must be a valid date in YYYYMMDD format — negative" fails="PMR-DK-2.0.0-B0266">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.6']/v3:value/@value" value="20260230" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one declaration of template 1.2.208.184.21.2.7 — negative" fails="PMR-DK-2.0.0-OBS-7-TEMPLATE">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:templateId[@root='1.2.208.184.21.2.7']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Template 1.2.208.184.21.2.7 must use 2025-01-15 — negative" fails="PMR-DK-2.0.0-OBS-7-TEMPLATE-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:templateId[@root='1.2.208.184.21.2.7']/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Require one declaration of template 2.16.840.1.113883.10.20.22.4.2 — negative" fails="PMR-DK-2.0.0-OBS-7-CCDA">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:templateId[@root='2.16.840.1.113883.10.20.22.4.2']" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Template 2.16.840.1.113883.10.20.22.4.2 must use 2023-05-01 — negative" fails="PMR-DK-2.0.0-OBS-7-CCDA-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:templateId[@root='2.16.840.1.113883.10.20.22.4.2']/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation @classCode must be OBS — negative" fails="PMR-DK-2.0.0-OBS-7-classCode">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/@classCode" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation @moodCode must be EVN — negative" fails="PMR-DK-2.0.0-OBS-7-moodCode">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/@moodCode" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one id — negative" fails="PMR-DK-2.0.0-OBS-7-id">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:id" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one code — negative" fails="PMR-DK-2.0.0-OBS-7-code">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:code" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one statusCode — negative" fails="PMR-DK-2.0.0-OBS-7-statusCode">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:statusCode" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one effectiveTime — negative" fails="PMR-DK-2.0.0-OBS-7-effectiveTime">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:effectiveTime" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation requires one value — negative" fails="PMR-DK-2.0.0-OBS-7-value">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:value" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation identifier must be a UUID version 4 — negative" fails="PMR-DK-2.0.0-OBS-7-UUID">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:id/@extension" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation status must be completed — negative" fails="PMR-DK-2.0.0-OBS-7-STATUS">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:statusCode/@code" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation code must use SNOMED CT — negative" fails="PMR-DK-2.0.0-OBS-7-SNOMED">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR IVL_PQ observation value must use xsi:type IVL_PQ — negative" fails="PMR-DK-2.0.0-B0207">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:value/@xsi:type" value="BL" />
+  </case>
+  <case profile="pmr-v2.0.0" name="PMR observation time must include seconds and UTC offset — negative" fails="PMR-DK-2.0.0-OBS-7-TIME">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:effectiveTime/@value" value="20260101" />
+  </case>
+  <case profile="pmr-v2.0.0" name="A supplied numeric interval boundary needs a decimal value, inclusive flag and no nullFlavor — negative" fails="PMR-DK-2.0.0-INTERVAL-low">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:value/v3:low/@inclusive" />
+  </case>
+  <case profile="pmr-v2.0.0" name="A supplied numeric interval boundary needs a decimal value, inclusive flag and no nullFlavor — negative" fails="PMR-DK-2.0.0-INTERVAL-high">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.21.2.1']/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.7']/v3:value/v3:high/@inclusive" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Complete synthetic fixture" />
+  <case profile="pmr-v2.0.0" name="Reject nullFlavor outside the restricted profile vocabulary" fails="PMR-DK-2.0.0-NULL-FLAVOR">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent/v3:effectiveTime/v3:high/@nullFlavor" value="UNK" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Observation time may be NI under section 5.4">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:effectiveTime" />
+    <edit action="append" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']" value="&lt;effectiveTime xmlns=&quot;urn:hl7-org:v3&quot; nullFlavor=&quot;NI&quot;/&gt;" />
+  </case>
+  <case profile="pmr-v2.0.0" name="Observation time may be NA under section 5.4">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']/v3:effectiveTime" />
+    <edit action="append" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section/v3:entry/v3:organizer/v3:component/v3:observation[v3:templateId/@root='1.2.208.184.21.2.3']" value="&lt;effectiveTime xmlns=&quot;urn:hl7-org:v3&quot; nullFlavor=&quot;NA&quot;/&gt;" />
+  </case>
+</cases>

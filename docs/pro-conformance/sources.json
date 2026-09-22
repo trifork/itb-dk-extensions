@@ -1,0 +1,51 @@
+{
+  "qfdd": {
+    "file": "DK-QFDD-v1.2.pdf",
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf",
+    "sha256": "0f38821e878c6dad77bf9dfbe3ee60191300d09d04dd5a8110b4697c8b3f6273",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "qrd": {
+    "file": "QRD-DK_1.3.2.pdf",
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf",
+    "sha256": "c9b7b9cf972d2d80638aadd64a4cff49941f9bf4269d60a722599d0fb5be35f4",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "sender": {
+    "file": "DK-QRD_Testprotokol_Afsendelse.docx",
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/DK-QRD_Testprotokol_Afsendelse.docx",
+    "sha256": "d82ef156398727c2320bce995728122edea8982b0e871709f95cbdee0659e7eb",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "receiver": {
+    "file": "DK-QRD_Testprotokol_Modtagelse.docx",
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/DK-QRD_Testprotokol_Modtagelse.docx",
+    "sha256": "5089b63310dca37a1e229e2f638bd1f560fa4cd8145051d54a94dac9c7b5757c",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "qfdd-narrative": {
+    "file": "NarrativeBlock_QFDD_-_Implementation_Guidance-v1.0.pdf",
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/NarrativeBlock_QFDD_-_Implementation_Guidance-v1.0.pdf",
+    "sha256": "b33a2090f8fa452d55de982c3e623664c211b702345dcedd3f3810dad1cd98e5",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "qrd-narrative": {
+    "file": "NarrativeBlock_QRD_-_Implementation_Guidance-v1.0.pdf",
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/NarrativeBlock_QRD_-_Implementation_Guidance-v1.0.pdf",
+    "sha256": "c9edb03164e7f0f24d39620e7cfd81982f61e9179f3599239d274fd0ae875c76",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  },
+  "links": {
+    "file": "QFDD-QRD-link-resolving-v1.1.pdf",
+    "url": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QFDD-QRD-link-resolving-v1.1.pdf",
+    "sha256": "1d2f49cc44ac72b8569d3e14f31d05d17aa17e21f7c04c60d968fab91f913c51",
+    "retrieved": "2026-09-15",
+    "svnRevision": 4398
+  }
+}

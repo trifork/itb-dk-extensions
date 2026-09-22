@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.trifork.itb</groupId>
+    <artifactId>validator-plugin-cda-dk</artifactId>
+    <version>1.0.0</version>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>25</maven.compiler.release>
+        <junit.version>5.14.4</junit.version>
+        <version.gitbTypes>1.25.1</version.gitbTypes>
+    </properties>
+
+    <!-- Prefer Central for standard libraries. Reuse Gazelle's legacy repository
+         ID so transitive POMs resolve through the restored HTTPS Nexus endpoint. -->
+    <repositories>
+        <repository>
+            <id>central</id>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <releases><checksumPolicy>fail</checksumPolicy></releases>
+            <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+        <repository>
+            <id>irisa-sumo</id>
+            <url>https://nexus.ihe-catalyst.net/repository/maven-public/</url>
+            <releases><checksumPolicy>fail</checksumPolicy></releases>
+            <snapshots><enabled>false</enabled></snapshots>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <!-- Preview extension APIs are supplied by the pinned XML validator runtime.
+             Keep these out of the isolated Gazelle plugin's shaded dependencies. -->
+        <dependency>
+            <groupId>org.springframework</groupId><artifactId>spring-web</artifactId>
+            <version>7.0.9</version><scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId><artifactId>spring-context</artifactId>
+            <version>7.0.9</version><scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.servlet</groupId><artifactId>jakarta.servlet-api</artifactId>
+            <version>6.1.0</version><scope>provided</scope>
+        </dependency>
+        <!-- Runtime-provided preview HTML sanitisation; also used for QFDD catalogue tests. -->
+        <dependency>
+            <groupId>org.jsoup</groupId>
+            <artifactId>jsoup</artifactId>
+            <version>1.23.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.19.4</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Test-only ISO Schematron compiler resources; production uses the ITB compiler. -->
+        <dependency>
+            <groupId>com.helger.schematron</groupId>
+            <artifactId>ph-schematron-isosch</artifactId>
+            <version>10.0.2</version>
+            <scope>test</scope>
+            <!-- Only the ISO compiler XSLTs are used. Keep its Java engine and
+                 transitive Saxon/JAXB stack out of the Gazelle test classpath. -->
+            <exclusions>
+                <exclusion><groupId>*</groupId><artifactId>*</artifactId></exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>eu.europa.ec.itb</groupId>
+            <artifactId>gitb-types</artifactId>
+            <version>${version.gitbTypes}</version>
+        </dependency>
+        <!-- Gazelle ObjectsChecker for "CDA basic" (used for APD/CPD/PDC/QRD/QFDD). -->
+        <dependency>
+            <groupId>net.ihe.gazelle.cdabasic.validator</groupId>
+            <artifactId>cdabasicapp-validator-jar</artifactId>
+            <version>1.0.0</version>
+            <exclusions>
+                <!-- Gazelle uses non-Central coordinates for the standard HttpClient JAR. -->
+                <exclusion><groupId>apache-httpclient</groupId><artifactId>commons-httpclient</artifactId></exclusion>
+                <exclusion><groupId>org.slf4j</groupId><artifactId>slf4j-log4j12</artifactId></exclusion>
+                <exclusion><groupId>log4j</groupId><artifactId>log4j</artifactId></exclusion>
+                <!-- Same exclusions as KvalitetsIT/cda-validator. -->
+                <exclusion><groupId>com.ibm.icu</groupId><artifactId>icu4j</artifactId></exclusion>
+                <exclusion><groupId>saxon9he</groupId><artifactId>net.sf.saxon</artifactId></exclusion>
+                <exclusion><groupId>xerces</groupId><artifactId>xmlParserAPIs</artifactId></exclusion>
+                <!-- Gazelle already supplies org.jdom:jdom:1.1.2; Jaxen also pulls old coordinates. -->
+                <exclusion><groupId>jdom</groupId><artifactId>jdom</artifactId></exclusion>
+            </exclusions>
+        </dependency>
+        <!-- Gazelle ObjectsChecker used for PHMR. -->
+        <dependency>
+            <groupId>net.ihe.gazelle</groupId>
+            <artifactId>ccdav21-validator-jar</artifactId>
+            <version>0.0.2</version>
+            <exclusions>
+                <!-- Gazelle uses non-Central coordinates for the standard HttpClient JAR. -->
+                <exclusion><groupId>apache-httpclient</groupId><artifactId>commons-httpclient</artifactId></exclusion>
+                <exclusion><groupId>org.slf4j</groupId><artifactId>slf4j-log4j12</artifactId></exclusion>
+                <exclusion><groupId>log4j</groupId><artifactId>log4j</artifactId></exclusion>
+                <!-- Same exclusions as KvalitetsIT/cda-validator. -->
+                <exclusion><groupId>net.ihe.gazelle.cdabasic.validator</groupId><artifactId>cdabasicapp-validator-jar</artifactId></exclusion>
+                <exclusion><groupId>saxon9he</groupId><artifactId>net.sf.saxon</artifactId></exclusion>
+                <exclusion><groupId>org.jboss.seam</groupId><artifactId>jboss-seam-resteasy</artifactId></exclusion>
+            </exclusions>
+        </dependency>
+        <!-- Byte-identical to Gazelle's apache-httpclient:commons-httpclient:3.1,
+             but these canonical coordinates resolve from Maven Central. -->
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+        <!-- The generated ObjectsChecker code uses Saxon's XPath engine; the jars declare it
+             under broken coordinates (saxon9he:net.sf.saxon, excluded above), so provide the
+             real artifact. The current version is verified with Gazelle and the
+             complete CDA container integration suite. -->
+        <dependency>
+            <groupId>net.sf.saxon</groupId>
+            <artifactId>Saxon-HE</artifactId>
+            <version>13.0</version>
+        </dependency>
+        <!-- Used by the vendored (patched) net.ihe.gazelle XMLValidation classes. -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>33.4.8-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>xerces</groupId>
+            <artifactId>xercesImpl</artifactId>
+            <version>2.12.2</version>
+        </dependency>
+        <!-- JAXB (javax) required by the Gazelle jars on modern JVMs. -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sun.xml.bind</groupId>
+            <artifactId>jaxb-impl</artifactId>
+            <version>2.3.9</version>
+            <scope>runtime</scope>
+            <exclusions>
+                <!-- The explicit javax JAXB API above supplies these same packages. -->
+                <exclusion><groupId>jakarta.xml.bind</groupId><artifactId>jakarta.xml.bind-api</artifactId></exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.36</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions><execution>
+                    <id>preview-extension</id><phase>package</phase><goals><goal>jar</goal></goals>
+                    <configuration>
+                        <classifier>preview</classifier>
+                        <includes>
+                            <include>com/trifork/itb/preview/**</include>
+                            <include>rendering/**</include>
+                            <include>META-INF/spring/**</include>
+                        </includes>
+                    </configuration>
+                </execution></executions>
+            </plugin>
+            <plugin>
+                <groupId>com.diffplug.spotless</groupId>
+                <artifactId>spotless-maven-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <java>
+                        <includes>
+                            <include>src/main/java/**/*.java</include>
+                            <include>src/test/java/**/*.java</include>
+                        </includes>
+                        <removeUnusedImports />
+                        <googleJavaFormat>
+                            <version>1.30.0</version>
+                            <style>AOSP</style>
+                        </googleJavaFormat>
+                    </java>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>check-formatting</id>
+                        <phase>verify</phase>
+                        <goals><goal>check</goal></goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Explicit versions also support CI runners with older Maven defaults. -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.16.0</version>
+                <configuration>
+                    <showWarnings>true</showWarnings>
+                    <failOnWarning>true</failOnWarning>
+                    <compilerArgs>
+                        <arg>-Xlint:rawtypes,unchecked,cast,deprecation</arg>
+                    </compilerArgs>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.5.6</version>
+                <configuration>
+                    <statelessTestsetReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
+                        <usePhrasedTestCaseMethodName>true</usePhrasedTestCaseMethodName>
+                    </statelessTestsetReporter>
+                </configuration>
+            </plugin>
+            <!-- Shade (not assembly) so we can deterministically exclude the classes that
+                 this project patches (same FQCN as classes inside the Gazelle jars). -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.6.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>shade</goal></goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <filters>
+                                <filter>
+                                    <artifact>net.ihe.gazelle:ccdav21-validator-jar</artifact>
+                                    <excludes>
+                                        <exclude>net/ihe/gazelle/utils/XMLValidation*.class</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>net.ihe.gazelle.cdabasic.validator:cdabasicapp-validator-jar</artifact>
+                                    <excludes>
+                                        <exclude>net/ihe/gazelle/cdabasic/utils/XMLValidation*.class</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                        <!-- Individual dependency module descriptors cannot describe this classpath bundle. -->
+                                        <exclude>module-info.class</exclude>
+                                        <exclude>META-INF/versions/**/module-info.class</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <finalName>validator-plugin-cda-dk</finalName>
+    </build>
+    <profiles>
+        <profile>
+            <id>container-it</id>
+            <build><plugins><plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.5.6</version>
+                <configuration>
+                    <classesDirectory>${project.build.outputDirectory}</classesDirectory>
+                    <!-- Public-site checks run only when explicitly selected with -Dit.test. -->
+                    <includes><include>**/Cda*IT.java</include></includes>
+                    <statelessTestsetReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
+                        <usePhrasedTestCaseMethodName>true</usePhrasedTestCaseMethodName>
+                    </statelessTestsetReporter>
+                    <systemPropertyVariables>
+                        <repository.root>${project.basedir}/..</repository.root>
+                    </systemPropertyVariables>
+                    <failIfNoTests>true</failIfNoTests>
+                </configuration>
+                <executions><execution><goals>
+                    <goal>integration-test</goal><goal>verify</goal>
+                </goals></execution></executions>
+            </plugin></plugins></build>
+        </profile>
+    </profiles>
+</project>

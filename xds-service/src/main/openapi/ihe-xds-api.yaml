@@ -1,0 +1,798 @@
+# TODO MAke sure descriptions and summary fits. Did a lot of copy paste
+openapi: 3.0.0
+info:
+  title: ihe-xds-api
+  description: API til integration og test af IHE XDS infrastruktur
+  version: "1.0.0"
+  contact:
+    email: development@kvalitetitsit.dk
+tags:
+  - name: ihe-xds-api
+    description: Ihe Xds Api
+
+servers:
+  - url: '{protocol}://{environment}:{port}'
+    variables:
+      protocol:
+        enum:
+          - http
+          - https
+        default: http
+      environment:
+        enum:
+          - localhost # Local container setup
+        default: localhost # Development
+      port:
+        enum:
+          - 8080
+        default: 8080
+paths:
+  /v1/registries:
+    get:
+      operationId: v1RegistriesGet
+      tags:
+        - IHEXDS
+      summary: List configured registry IDs and display names
+      description: Select an ID in ITI-18 and ITI-43 requests. Endpoint URLs are operator configuration and are not returned.
+      responses:
+        '200':
+          description: Configured registries in default order
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/registryChoice'
+  /v1/iti18:
+    post:
+      operationId: v1Iti18Post
+      tags:
+        - IHEXDS
+      summary: search XDS as a healthcare professional
+      description: search XDS as a healthcare professional
+      requestBody:
+        description: The iti18 request body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/iti18Request'
+      responses:
+        '200':
+          description: Returns ok with list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/iti18Response'
+  /v1/iti18/uniqueID:
+    post:
+      operationId: v1Iti18UniqueIDPost
+      tags:
+        - IHEXDS
+      summary: search XDS as a healthcare professional with a uniqueID
+      description: search XDS as a healthcare professional with a uniqueID
+      requestBody:
+        description: The iti18 request body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/iti18RequestUnique'
+      responses:
+        '200':
+          description: Ok with list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/iti18ResponseUnique'
+  /v1/iti43:
+    post:
+      operationId: v1Iti43Post
+      tags:
+        - IHEXDS
+      summary: get XDS as a healthcare professional
+      description: get XDS as a healthcare professional
+      requestBody:
+        description: Your name
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/iti43Request'
+      responses:
+        '200':
+          description: Ok with list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/iti43Response'
+
+  /v1/codes/classCode:
+    get:
+      operationId: v1CodesClassCodeGet
+      tags:
+        - Class codes
+      summary: Get class code and name of class code
+      description: Get class code and name of class code
+      responses:
+        '200':
+          description: Ok with list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/code'
+
+  /v1/codes/availabilityStatusCode:
+    get:
+      operationId: v1CodesAvailabilityStatusCodeGet
+      tags:
+        - Availability codes
+      summary: Get code and name of availability
+      description: Get code and name of availability
+      responses:
+        '200':
+          description: Ok with list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/code'
+
+  /v1/codes/formatCode:
+    get:
+      operationId: v1CodesFormatCodeGet
+      tags:
+        - Format codes
+      summary: Get code and name of format codes
+      description: Get code and name of format codes
+      responses:
+        '200':
+          description: Ok with list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/code'
+  /v1/codes/healthCareFacilityType:
+    get:
+      operationId: v1CodesHealthCareFacilityTypeGet
+      tags:
+        - Health Care Facility Type Codes
+      summary: Get code and name of healthCareFacilityType codes
+      description: Get code and name of healthCareFacilityType codes
+      responses:
+        '200':
+          description: Ok with list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/code'
+
+  /v1/codes/practiceSettingCode:
+    get:
+      operationId: v1CodesPracticeSettingCodeGet
+      tags:
+        - Practice setting code
+      summary: Get code and name of practiceSettingCode
+      description: Get code and name of practiceSettingCode
+      responses:
+        '200':
+          description: Ok with list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/code'
+
+  /v1/codes/objectTypeCode:
+    get:
+      operationId: v1CodesObjectTypeCodeGet
+      tags:
+        - Object type code
+      summary: Get code and name of objectType
+      description: Get code and name of objectType
+      responses:
+        '200':
+          description: Ok with list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/code'
+
+  /v1/codes/eventCode:
+    get:
+      operationId: v1CodesEventCodeGet
+      tags:
+        - Event code
+        - Event code scheme
+      summary: Get code and name of event code and scheme
+      description: Get code and name of event code and scheme
+      responses:
+        '200':
+          description: Ok with list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/code'
+
+  /v1/codes/typeCode:
+    get:
+      operationId: v1CodesTypeCodeGet
+      tags:
+        - Type code
+      summary: Get code and name of type code and scheme
+      description: Get code and name of type code and scheme
+      responses:
+        '200':
+          description: Ok with list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/code'
+
+  /v1/request/{requestId}:
+    get:
+      operationId: v1RequestRequestIdGet
+      tags:
+        -  Request result
+      summary: Get  Request result SOAP/XML for search request
+      description: Get  Request result SOAP/XML for search request
+      parameters:
+        - in: path
+          name: requestId
+          schema:
+            type: string
+          required: true
+          description: UUID of the request to get
+      responses:
+        '200':
+          description: Ok with list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/downloadLog'
+
+
+
+  /v1/response/{responseId}:
+    get:
+      operationId: v1ResponseResponseIdGet
+      tags:
+        -  Response result
+      summary: Get  Response result as SOAP/XML for search response
+      description: Get  Response result SOAP/XML for search response
+      parameters:
+        - in: path
+          name: responseId
+          schema:
+            type: string
+          required: true
+          description: UUID of the response to get
+      responses:
+        '200':
+          description: Ok with list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/downloadLog'
+
+components:
+  responses:
+    '400':
+      description: "Bad Request. This could be because: * One of the required parameters/properties are missing or is empty <br> * Length of input is exceeding maximum length <br> (See a possible detailed error message in the in the response.)"
+    '401':
+      description: "Unauthorized. This could be because: <br> * The calling system has not been properly authenticated."
+    '403':
+      description: "Forbidden. This could be because: <br> * The requested information does not belong the organisation of the user <br> * The calling user does not have the required roles"
+  schemas:
+    registryChoice:
+      type: object
+      required: [id, name]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    iti18QueryResponse:
+      type: object
+      required:
+        - patientId
+        - documentId
+      properties:
+        patientId:
+          description: The patient's ID (CPR)
+          type: string
+          nullable: false
+          example: "2512489996"
+        documentId:
+          description: Document's Id Or unique ID
+          type: string
+          nullable: false
+          example: "1.2.208.184^74b28be0-4948-11ed-b878-0242a4cqt00f2"
+        repositoryID:
+          description: The repository ID
+          type: string
+          nullable: false
+          example : "1.2.208.192.100.101"
+        documentType:
+          description: The document type
+          type: string
+          nullable: false
+          example: "Dato og tidspunkt for møde mellem patient og sundhedsperson"
+        serviceStart:
+          description: The start service from date-time as Long
+          type: integer
+          format: int64
+          example: "1664349302510"
+        serviceEnd:
+          description: The start service to date-time as Long
+          type: integer
+          format: int64
+          example: "1664349302510"
+
+
+
+    iti18Response:
+      type: object
+      properties:
+        queryResponse:
+          description: The query responses results
+          type: array
+          items:
+            $ref: '#/components/schemas/iti18QueryResponse'
+          example: "[..], [..]"
+        requestId:
+          description: The request Id as UUID
+          type: string
+          example: "f638012a-8c49-44b2-b647-9c3595b9e398"
+        responseId:
+          description: The response Id as UUID
+          type: string
+          example: "f638012a-8c49-44b2-b647-9c3595b9e398"
+        errors:
+          description: registry errors list
+          type: array
+          items:
+            $ref: '#/components/schemas/registryError'
+          example: "[..], [..]"
+
+
+    code:
+      type: object
+      properties:
+        name:
+          description: The name of the code
+          type: string
+          example: "Clinical report"
+        code:
+          description: The code value
+          type: string
+          example: "001"
+        scheme:
+          description: the scheme for the code
+          type: string
+          example: "1.2.208.184.100.10"
+
+    healthcareProfessionalContext:
+      type: object
+      properties:
+        authorizationCode:
+          description: The doctor authrization for the person responseible for the request
+          type: string
+          example: "CX8324"
+        consentOverride:
+          description: 'Break the glass'
+          type: boolean
+          example: "false"
+        role:
+          description: 'Role of the actor'
+          type: string
+          example: "User, Læge"
+
+    iti18QueryParameter:
+      type: object
+      required:
+        - patientId
+        - availabilityStatus
+      properties:
+        patientId:
+          description: Patientens Id (CPR)
+          type: string
+          example: "2512489996"
+        typeCodes:
+          description: Optional OR-list of codes. Combined with typeCode using OR; different filter fields use AND. Empty or omitted means no additional restriction.
+          type: array
+          maxItems: 50
+          items:
+            $ref: '#/components/schemas/codeQuery'
+        typeCode:
+          description: Type Code
+          $ref: '#/components/schemas/codeQuery'
+        formatCodes:
+          description: Optional OR-list of codes. Combined with formatCode using OR; different filter fields use AND. Empty or omitted means no additional restriction.
+          type: array
+          maxItems: 50
+          items:
+            $ref: '#/components/schemas/codeQuery'
+        formatCode:
+          description: Format Code
+          $ref: '#/components/schemas/codeQuery'
+        healthcareFacilityTypeCode:
+          description: Healthcare facility code
+          $ref: '#/components/schemas/codeQuery'
+        eventCode:
+          description: Event Code
+          $ref: '#/components/schemas/codeQuery'
+        practiceSettingCode:
+          description: Practice setting code
+          $ref: '#/components/schemas/codeQuery'
+        documentType:
+          description: Document type
+          type: array
+          items:
+            type: string
+        startFromDate:
+          description: The start service from date-time as Long
+          type: integer
+          format: int64
+          example: "1664349302510"
+        startToDate:
+          description: The start service to date-time as Long
+          type: integer
+          format: int64
+          example: "1664349302510"
+        endFromDate:
+          description: The end service from date-time as Long
+          type: integer
+          format: int64
+          example: "1664349302510"
+        endToDate:
+          description: The end service to date-time as Long
+          type: integer
+          format: int64
+          example: "1664349302510"
+        availabilityStatus:
+          description: The availability result
+          type: string
+
+
+
+    iti18Request:
+      type: object
+      required:
+        - queryParameters
+        - credentialId
+        - context
+      properties:
+        registryId:
+          description: Configured registry ID; omitted uses the first configured registry (or the legacy single endpoint). Use the same ID for search and retrieval. URLs are never accepted.
+          type: string
+          maxLength: 64
+          pattern: '^[A-Za-z0-9_-]+$'
+        queryParameters:
+          description: query parameters related to iti-18 query
+          $ref: '#/components/schemas/iti18QueryParameter'
+        credentialId:
+          description: The credential to use (identified by id)
+          type: string
+          example: "credentialid"
+        context:
+          description: the context in which to make the query
+          $ref: '#/components/schemas/healthcareProfessionalContext'
+
+    codeQuery:
+      type: object
+      required:
+        - code
+        - codeScheme
+      properties:
+        code:
+          description: Code value from the search query
+          type: string
+          example: "74468-0"
+        codeScheme:
+          description: Code scheme from the search query
+          type: string
+          example: "2.16.840.1.113883.6.1"
+
+
+
+
+    registryError:
+      type: object
+      properties:
+        codeContext:
+          description: The error code contetext
+          type: string
+          example: "urn:dk:nsi:Consent Filter Applied"
+        errorCode:
+          description: The error codes opcode and name
+          type: string
+          example: "XDSRegistryError , REGISTRY_ERROR"
+        severity:
+          description: The severirty's opcode and name
+          type: string
+          enum:
+            - ERROR
+            - WARNING
+        customErrorCode:
+          description: A custom error code
+          type: string
+          example: "XDSObjectTypeError"
+
+
+    downloadLog:
+      type: object
+      properties:
+        payload:
+          description: They payload of the request or response
+          type: string
+          example: "<xml>...<xml>"
+
+    iti43Response:
+      type: object
+      properties:
+        response:
+          description: Formatted XML, included by default for compatibility.
+          type: string
+          example: "<xml>...<xml>"
+        responseBase64:
+          description: Original retrieved document bytes, without decoding or XML formatting (maximum 10 MiB).
+          type: string
+          format: byte
+        errors:
+          description: registry errors list
+          type: array
+          items:
+            $ref: '#/components/schemas/registryError'
+          example: "[..], [..]"
+
+    iti43Request:
+      type: object
+      required:
+        - queryParameters
+        - credentialId
+        - context
+      properties:
+        registryId:
+          description: Configured registry ID; omitted uses the first configured registry (or the legacy single endpoint). Use the same ID for search and retrieval. URLs are never accepted.
+          type: string
+          maxLength: 64
+          pattern: '^[A-Za-z0-9_-]+$'
+        queryParameters:
+          description: query parameters related to iti-43 query
+          $ref: '#/components/schemas/iti43QueryParameter'
+        credentialId:
+          description: The credential to use (identified by id)
+          type: string
+          example: "credentialid"
+        context:
+          description: the context in which to make the query
+          $ref: '#/components/schemas/healthcareProfessionalContext'
+
+
+
+    iti43QueryParameter:
+      type: object
+      required:
+        - patientId
+        - documentId
+        - repositoryId
+      properties:
+        includeFormattedResponse:
+          description: Set false to retrieve only original bytes, including non-XML documents, without parsing XML.
+          type: boolean
+          default: true
+        patientId:
+          description: Patient Id (CPR)
+          type: string
+          example: "2512489996"
+        documentId:
+          description: Document unique Id
+          type: string
+          example: "1.2.208.184^74b28be0-4948-11ed-b878-0242a4cqt00f2"
+        repositoryId:
+          description: Document repository Id
+          type: string
+          example: "1.2.208.192.100.101"
+
+
+
+# TODO Write descriptions
+  # Also meta data but used iti43 or showing the document
+    iti18ResponseUnique:
+      type: object
+      properties:
+        authorInstitution:
+          description: The authorInstitution object
+          $ref: '#/components/schemas/code'
+        authorPerson:
+          description: The authorPerson object as string
+          type: string
+          example: "Prefix : Mr  Name: Doe"
+        availabilityStatus:
+          description: The availability status
+          $ref: '#/components/schemas/code'
+        classCode :
+          description: The object of class close
+          $ref: '#/components/schemas/code'
+        comments:
+          description: The comments
+          type: string
+          example: "Some comment ...."
+        confidentialityCode:
+          description: The confidentiality code
+          $ref: '#/components/schemas/code'
+        creationTime:
+          description: The creation date-time as Long
+          type: integer
+          format: int64
+          example: "1664349302510"
+        documentAvailability:
+          description: The document availability
+          $ref: '#/components/schemas/code'
+        entryUuid:
+          description: Documents entry unique Id
+          type: string
+          example: "1.2.208.184^74b28be0-4948-11ed-b878-0242a4cqt00f2"
+        eventCode:
+          description: Event codes
+          type: array
+          items:
+            $ref: '#/components/schemas/code'
+          example: "[..], [..]"
+        errors:
+          description: registry errors list
+          type: array
+          items:
+            $ref: '#/components/schemas/registryError'
+          example: "[..], [..]"
+        extraMetadata:
+          description: The extra metadata
+          type: string
+          example:
+        formatCode:
+          description: The format code
+          $ref: '#/components/schemas/code'
+        hash:
+          description: The hash
+          type: string
+          example: "73649f7429da9388393"
+        healthCareFacilityType:
+          description: The healthcarefacilitytype code
+          $ref: '#/components/schemas/code'
+        homeComunity:
+          description: Home community
+          type: string
+          example: "73649f7429da9388393"
+        languageCode:
+          description: The language code
+          type: string
+          example: "da-DK"
+        legalAuthenticator:
+          description: The legalAuthenticator object
+          type: string
+          example: "Prefix : Mr  Name: Doe"
+        logicalUuid:
+          description: Generated uuId
+          type: string
+          example: "74b28be0-4948-11ed-b878-0242a4cqt00f2"
+        mimeType:
+          description: The mime type
+          type: string
+        objectType:
+          description: The object type
+          type: string
+          example: "Stable"
+        practiceSettingCode:
+          description: PracticeSettingCode object
+          $ref: '#/components/schemas/code'
+        repositoryUniqueId:
+          description: Repository unique Id
+          type: string
+          example: "74b28be0-4948-11ed-b878-0242a4cqt00f2"
+        serviceStartTime:
+          description: The start service from date-time as Long
+          type: integer
+          format: int64
+          example: "1664349302510"
+        serviceStopTime:
+          description: The start service to date-time as Long
+          type: integer
+          format: int64
+          example: "1664349302510"
+        size:
+          description: The start service from date-time as Long
+          type: integer
+          example: "1664349302510"
+        sourcePatientId:
+          description:
+          $ref: '#/components/schemas/code'
+        sourcePatientInfo:
+          description:
+          type: object
+          properties:
+            name:
+              description: credential ID
+              type: string
+              example: "2512489996"
+            gender:
+              description: The gender either M, F or UNI
+              type: string
+              enum:
+                - M
+                - F
+                - UNI
+            birthTime:
+              description: The birthTime from date-time as Long
+              type: integer
+              format: int64
+              example: "1664349302510"
+        title:
+          description: The title of the document
+          type: string
+          example: "2512489996"
+        type:
+          description: The type of the document
+          $ref: '#/components/schemas/code'
+        typeCode:
+          description: The type code of the document
+          $ref: '#/components/schemas/code'
+        uniqueId:
+          description: The unique ID
+          type: string
+          example: "2512489996"
+        uri:
+          description: THE uri
+          type: string
+          example: ""
+        version:
+          description: The version
+          type: string
+          example: "2512489996"
+
+
+
+
+    iti18RequestUnique:
+      type: object
+      properties:
+        registryId:
+          description: Configured registry ID; omitted uses the first configured registry (or the legacy single endpoint). Use the same ID for search and retrieval. URLs are never accepted.
+          type: string
+          maxLength: 64
+          pattern: '^[A-Za-z0-9_-]+$'
+        queryParameters:
+          description: query parameters related to ITI-18 GetDocuments query
+          $ref: '#/components/schemas/iti18UniqueQueryParameter'
+    iti18UniqueQueryParameter:
+      type: object
+      properties:
+        credentialId:
+          description: credential ID
+          type: string
+          example: "9038f177-d345-4c42-b2b4-6e27314e714f"
+        patientId:
+          description: Patient Id (CPR)
+          type: string
+          example: "2512489996"
+        documentId:
+          description: Document unique Id
+          type: string
+          example: "2512489996"
+        context:
+          description: the context in which to make the query
+          $ref: '#/components/schemas/healthcareProfessionalContext'

@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<cases>
+  <case profile="cpd-v2.0.0" name="Require one declaration of template 1.2.208.184.15.1 — negative" fails="CPD-DK-2.0.0-DOCUMENT-TEMPLATE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:templateId[@root='1.2.208.184.15.1']" />
+  </case>
+  <case profile="cpd-v2.0.0" name="@root must be present and non-empty — negative" fails="CPD-DK-2.0.0-ID-root">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id/@root" />
+  </case>
+  <case profile="cpd-v2.0.0" name="@assigningAuthorityName must be present and non-empty — negative" fails="CPD-DK-2.0.0-ID-assigningAuthorityName">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id/@assigningAuthorityName" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Care plan document code must be 81215-6 — negative" fails="CPD-DK-2.0.0-DOCUMENT-CODE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Care plan document code must use LOINC — negative" fails="CPD-DK-2.0.0-DOCUMENT-LOINC">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="CPD requires one validity interval event — negative" fails="CPD-DK-2.0.0-H3">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']" />
+  </case>
+  <case profile="cpd-v2.0.0" name="CPD requires one profile version event — negative" fails="CPD-DK-2.0.0-H4">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']" />
+  </case>
+  <case profile="cpd-v2.0.0" name="CPD requires one low — negative" fails="CPD-DK-2.0.0-H8">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:low" />
+  </case>
+  <case profile="cpd-v2.0.0" name="CPD requires one high — negative" fails="CPD-DK-2.0.0-H10">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:high" />
+  </case>
+  <case profile="cpd-v2.0.0" name="CPD requires one effectiveTime — negative" fails="CPD-DK-2.0.0-TIME">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime" />
+  </case>
+  <case profile="cpd-v2.0.0" name="CPD requires one id — negative" fails="CPD-DK-2.0.0-H14">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id" />
+  </case>
+  <case profile="cpd-v2.0.0" name="@value must be present and non-empty — negative" fails="CPD-DK-2.0.0-H9">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:low/@value" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Care plan end needs a value or nullFlavor — negative" fails="CPD-DK-2.0.0-H11">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:high/@nullFlavor" />
+  </case>
+  <case profile="cpd-v2.0.0" name="CPD version @root must be 1.2.208.184 — negative" fails="CPD-DK-2.0.0-VERSION-root">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id/@root" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="CPD version @extension must be cpd-v2.0.0 — negative" fails="CPD-DK-2.0.0-VERSION-extension">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id/@extension" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="CPD version @assigningAuthorityName must be MedCom — negative" fails="CPD-DK-2.0.0-VERSION-assigningAuthorityName">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id/@assigningAuthorityName" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Care plan requires one component — negative" fails="CPD-DK-2.0.0-C4">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Care plan requires one structuredBody — negative" fails="CPD-DK-2.0.0-C5">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Health concerns section cardinality must follow the document template — negative" fails="CPD-DK-2.0.0-SECTION-1">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.1']" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Require one declaration of template 1.2.208.184.15.1.10.20.1 — negative" fails="CPD-DK-2.0.0-C15">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.1']/v3:templateId[@root='1.2.208.184.15.1.10.20.1']" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Template 1.2.208.184.15.1.10.20.1 must use 2018-09-28 — negative" fails="CPD-DK-2.0.0-C15-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.1']/v3:templateId[@root='1.2.208.184.15.1.10.20.1']/@extension" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Health concerns section requires one code — negative" fails="CPD-DK-2.0.0-C18">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.1']/v3:code" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Health concerns section requires one title — negative" fails="CPD-DK-2.0.0-C21">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.1']/v3:title" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Health concerns section requires one text — negative" fails="CPD-DK-2.0.0-C22">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.1']/v3:text" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Health concerns section @code must be 75310-3 — negative" fails="CPD-DK-2.0.0-C19">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.1']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Health concerns section @codeSystem must be 2.16.840.1.113883.6.1 — negative" fails="CPD-DK-2.0.0-C20">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.1']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Health concerns needs a Health Status Observation or Health Concern Act — negative" fails="CPD-DK-2.0.0-C241">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.1']/v3:entry" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Goals section cardinality must follow the document template — negative" fails="CPD-DK-2.0.0-SECTION-2">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.2']" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Require one declaration of template 1.2.208.184.15.1.10.20.2 — negative" fails="CPD-DK-2.0.0-C28">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.2']/v3:templateId[@root='1.2.208.184.15.1.10.20.2']" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Template 1.2.208.184.15.1.10.20.2 must use 2018-09-28 — negative" fails="CPD-DK-2.0.0-C28-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.2']/v3:templateId[@root='1.2.208.184.15.1.10.20.2']/@extension" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Goals section requires one code — negative" fails="CPD-DK-2.0.0-C31">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.2']/v3:code" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Goals section requires one title — negative" fails="CPD-DK-2.0.0-C34">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.2']/v3:title" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Goals section requires one text — negative" fails="CPD-DK-2.0.0-C35">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.2']/v3:text" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Goals section @code must be 61146-7 — negative" fails="CPD-DK-2.0.0-C32">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.2']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Goals section @codeSystem must be 2.16.840.1.113883.6.1 — negative" fails="CPD-DK-2.0.0-C33">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.2']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Goals section needs at least one entry — negative" fails="CPD-DK-2.0.0-C36">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.2']/v3:entry" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Goals entry requires its prescribed observation — negative" fails="CPD-DK-2.0.0-C37">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.2']/v3:entry/v3:observation" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Interventions section cardinality must follow the document template — negative" fails="CPD-DK-2.0.0-SECTION-3">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.3']" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Require one declaration of template 1.2.208.184.15.1.10.20.3 — negative" fails="CPD-DK-2.0.0-C38">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.3']/v3:templateId[@root='1.2.208.184.15.1.10.20.3']" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Template 1.2.208.184.15.1.10.20.3 must use 2018-09-28 — negative" fails="CPD-DK-2.0.0-C38-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.3']/v3:templateId[@root='1.2.208.184.15.1.10.20.3']/@extension" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Interventions section requires one code — negative" fails="CPD-DK-2.0.0-C41">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.3']/v3:code" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Interventions section requires one title — negative" fails="CPD-DK-2.0.0-C44">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.3']/v3:title" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Interventions section requires one text — negative" fails="CPD-DK-2.0.0-C45">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.3']/v3:text" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Interventions section @code must be 62387-6 — negative" fails="CPD-DK-2.0.0-C42">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.3']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Interventions section @codeSystem must be 2.16.840.1.113883.6.1 — negative" fails="CPD-DK-2.0.0-C43">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.3']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Interventions section needs at least one entry — negative" fails="CPD-DK-2.0.0-C46">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.3']/v3:entry" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Interventions entry requires its prescribed act — negative" fails="CPD-DK-2.0.0-C47">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.3']/v3:entry/v3:act" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Outcomes section cardinality must follow the document template — negative" fails="CPD-DK-2.0.0-SECTION-4">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.4']" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Require one declaration of template 1.2.208.184.15.1.10.20.4 — negative" fails="CPD-DK-2.0.0-C49">
+    <edit action="duplicate" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.4']/v3:templateId[@root='1.2.208.184.15.1.10.20.4']" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Template 1.2.208.184.15.1.10.20.4 must use 2018-09-28 — negative" fails="CPD-DK-2.0.0-C49-DATE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.4']/v3:templateId[@root='1.2.208.184.15.1.10.20.4']/@extension" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Outcomes section requires one code — negative" fails="CPD-DK-2.0.0-C52">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.4']/v3:code" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Outcomes section requires one title — negative" fails="CPD-DK-2.0.0-C55">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.4']/v3:title" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Outcomes section requires one text — negative" fails="CPD-DK-2.0.0-C56">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.4']/v3:text" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Outcomes section @code must be 11383-7 — negative" fails="CPD-DK-2.0.0-C53">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.4']/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Outcomes section @codeSystem must be 2.16.840.1.113883.6.1 — negative" fails="CPD-DK-2.0.0-C54">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section[v3:templateId/@root='1.2.208.184.15.1.10.20.4']/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="cpd-v2.0.0" name="Complete synthetic fixture" />
+</cases>

@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Packaging inserts this flow into each existing release test when XDS is enabled. -->
+<steps xmlns="http://www.gitb.com/tdl/v1/">
+    <interact id="sourceChoice" with="cda-producer" desc="Choose document source" inputTitle="Document source" timeout="604800000">
+        <request name="source" desc="Document source" inputType="SELECT_SINGLE" options="Local file upload,IHE XDS (DDS) retrieval" optionLabels="Local file upload,IHE XDS (DDS) retrieval" required="true"/>
+    </interact>
+    <if desc="Load the document">
+        <cond>$sourceChoice{source} = 'Local file upload'</cond>
+        <then><!-- The release's existing upload interaction is inserted here. --></then>
+        <else>
+            <bptxn handlerTimeout="150000" txnId="xds" handler="$DOMAIN{xdsConnector}" stopOnError="true"/>
+            <process id="xdsChoices" txnId="xds" desc="Load XDS identities and search codes" hidden="false" stopOnError="false">
+                <operation>choices</operation>
+            </process>
+            <if hidden="true">
+                <cond>$STEP_STATUS{xdsChoices} = 'ERROR'</cond>
+                <then>
+                    <log level="ERROR">$xdsChoices{errorCode} || ": " || $xdsChoices{errorMessage} || " CDA validation has not run."</log>
+                    <exit success="false" desc="Stopped before CDA validation: XDS operation failed"/>
+                </then>
+            </if>
+            <assign to="searchAgain" type="boolean">true()</assign>
+            <while desc="Find a CDA document in DDS">
+                <cond>$searchAgain</cond>
+                <do>
+                    <assign to="selectedRegistry" type="string">$xdsChoices{defaultRegistry}</assign>
+                    <if desc="Choose a configured registry">
+                        <cond>number($xdsChoices{registryCount}) &gt; 1</cond>
+                        <then>
+                            <interact id="xdsRegistry" with="cda-producer" desc="Choose XDS registry" inputTitle="Choose XDS registry" timeout="1800000">
+                                <instruct desc="Registry selection" level="INFO" forceDisplay="true">"Choose where to search. Retrieval and authentication use the services configured for this registry. Repository filtering is available after the search."</instruct>
+                                <request name="registry" desc="Registry" inputType="SELECT_SINGLE" required="true" options="$xdsChoices{registryLabels}" optionLabels="$xdsChoices{registryLabels}"/>
+                            </interact>
+                            <assign to="selectedRegistry" type="string">$xdsRegistry{registry}</assign>
+                        </then>
+                    </if>
+                    <log level="INFO">"Selected XDS registry: " || $selectedRegistry</log>
+                    <interact id="xdsQuery" with="cda-producer" desc="Search DDS" inputTitle="Find in XDS" timeout="1800000">
+                        <instruct desc="Registry" level="INFO" forceDisplay="true">$selectedRegistry</instruct>
+                        <instruct desc="Search" level="INFO" forceDisplay="true">"Use a test CPR. Search returns Approved, Stable documents, with consent override disabled. Metadata does not determine the CDA profile release: this session still validates the release shown in its title. Optional dates use UTC, e.g. 2026-01-01T00:00:00Z."</instruct>
+                        <instruct desc="Filters" level="INFO" forceDisplay="true">"Type code and Format code both allow multiple selections: hold Command (⌘) on Mac or Ctrl on Windows/Linux while clicking to select or deselect individual options; use Shift-click for a range. Codes within a field are alternatives (OR); type, format and date filters are combined (AND). Leave a code field empty for Any, or select Any on its own. Date ranges include From and exclude To; leave either boundary empty for an open range. For a whole UTC day, use midnight on that day through midnight on the next day."</instruct>
+                        <instruct desc="Identity" level="INFO" forceDisplay="true">"Certificate labels show type and expiry date (UTC). Expired and system identities are listed for inspection. This search flow requires a current MOCES employee identity; selecting an expired or system-only identity reports an explanatory error."</instruct>
+                        <request name="patientId" desc="Test CPR (10 digits)" inputType="TEXT" required="true"/>
+                        <request name="professional" desc="Signing identity" inputType="SELECT_SINGLE" options="$xdsChoices{professionalLabels}" optionLabels="$xdsChoices{professionalLabels}" required="true"/>
+                        <request name="typeCode" desc="Type code (multiple allowed)" inputType="SELECT_MULTIPLE" size="6" options="$xdsChoices{typeLabels}" optionLabels="$xdsChoices{typeLabels}"/>
+                        <request name="formatCode" desc="Format code (multiple allowed)" inputType="SELECT_MULTIPLE" size="4" options="$xdsChoices{formatLabels}" optionLabels="$xdsChoices{formatLabels}"/>
+                        <request name="uniqueId" desc="Unique ID (optional exact match)" inputType="TEXT"/>
+                        <request name="startFromDate" desc="Service start from (inclusive, UTC, optional)" inputType="TEXT"/>
+                        <request name="startToDate" desc="Service start to (exclusive, UTC, optional)" inputType="TEXT"/>
+                        <request name="endFromDate" desc="Service stop from (inclusive, UTC, optional)" inputType="TEXT"/>
+                        <request name="endToDate" desc="Service stop to (exclusive, UTC, optional)" inputType="TEXT"/>
+                    </interact>
+                    <process id="xdsResults" txnId="xds" desc="Search XDS registry" hidden="false" stopOnError="false">
+                        <operation>search</operation>
+                        <input name="registry">$selectedRegistry</input>
+                        <input name="patientId">$xdsQuery{patientId}</input>
+                        <input name="professional">$xdsQuery{professional}</input>
+                        <input name="typeCode">$xdsQuery{typeCode}</input>
+                        <input name="formatCode">$xdsQuery{formatCode}</input>
+                        <input name="uniqueId">$xdsQuery{uniqueId}</input>
+                        <input name="startFromDate">$xdsQuery{startFromDate}</input>
+                        <input name="startToDate">$xdsQuery{startToDate}</input>
+                        <input name="endFromDate">$xdsQuery{endFromDate}</input>
+                        <input name="endToDate">$xdsQuery{endToDate}</input>
+                    </process>
+                    <if hidden="true">
+                        <cond>$STEP_STATUS{xdsResults} = 'ERROR'</cond>
+                        <then>
+                            <log level="ERROR">$xdsResults{errorCode} || ": " || $xdsResults{errorMessage} || " CDA validation has not run."</log>
+                            <exit success="false" desc="Stopped before CDA validation: XDS operation failed"/>
+                        </then>
+                    </if>
+                    <if desc="Select a search result">
+                        <cond>number($xdsResults{count}) &gt; 0</cond>
+                        <then>
+                            <assign to="selectAgain" type="boolean">true()</assign>
+                            <assign to="repositoryMode" type="string">"All repositories"</assign>
+                            <assign to="selectedRepositories" type="string">""</assign>
+                            <assign to="selectionNotice" type="string">""</assign>
+                            <while desc="Review fetched documents">
+                                <cond>$selectAgain</cond>
+                                <do>
+                                    <process id="xdsView" txnId="xds" desc="Filter fetched documents" hidden="false" stopOnError="false">
+                                        <operation>filter</operation>
+                                        <input name="repositoryMode">$repositoryMode</input>
+                                        <input name="repositories">$selectedRepositories</input>
+                                    </process>
+                                    <if hidden="true">
+                                        <cond>$STEP_STATUS{xdsView} = 'ERROR'</cond>
+                                        <then>
+                                            <log level="ERROR">$xdsView{errorCode} || ": " || $xdsView{errorMessage} || " CDA validation has not run."</log>
+                                            <exit success="false" desc="Stopped before CDA validation: XDS operation failed"/>
+                                        </then>
+                                    </if>
+                                    <if desc="Choose from visible documents">
+                                        <cond>number($xdsView{count}) &gt; 0</cond>
+                                        <then>
+                                            <assign to="documentAction" type="string">"View documents and choose one (" || $xdsView{count} || " available)"</assign>
+                                            <assign to="resultActions" type="list[string]">$documentAction</assign>
+                                            <assign to="resultActions" append="true">"Filter repositories"</assign>
+                                            <assign to="resultActions" append="true">"Search again"</assign>
+                                            <interact id="xdsAction" with="cda-producer" desc="Choose next action" inputTitle="XDS documents" timeout="1800000">
+                                                <instruct desc="Search results" level="INFO" forceDisplay="true">$xdsView{summary} || $selectionNotice</instruct>
+                                                <instruct desc="Review results" level="INFO" forceDisplay="true">"View the fetched documents to see their repository, document type, date and ID before choosing one to validate. You can also filter these results by repository or search again with different criteria. No document has been selected yet."</instruct>
+                                                <request name="action" desc="Next step" inputType="SELECT_SINGLE" options="$resultActions" optionLabels="$resultActions" required="true"/>
+                                            </interact>
+                                            <assign to="resultAction" type="string">$xdsAction{action}</assign>
+                                            <assign to="selectionNotice" type="string">""</assign>
+                                            <if>
+                                                <cond>$resultAction = $documentAction</cond>
+                                                <then>
+                                                    <assign to="documentOptions" type="list[string]">$xdsView{documentLabels}</assign>
+                                                    <assign to="documentOptions" append="true">"Back to results"</assign>
+                                                    <interact id="xdsSelection" with="cda-producer" desc="Choose a document" inputTitle="Select XDS document" timeout="1800000">
+                                                        <instruct desc="Results" level="INFO" forceDisplay="true">$xdsView{summary}</instruct>
+                                                        <instruct desc="Document selection" level="INFO" forceDisplay="true">"Select a document to validate, or choose Back to results to filter repositories or search again."</instruct>
+                                                        <request name="document" desc="Document" inputType="SELECT_SINGLE" options="$documentOptions" optionLabels="$documentOptions" required="true"/>
+                                                    </interact>
+                                                    <if>
+                                                        <cond>string-length(normalize-space($xdsSelection{document})) &gt; 0 and $xdsSelection{document} != 'Back to results'</cond>
+                                                        <then><assign to="selectAgain" type="boolean">false()</assign><assign to="searchAgain" type="boolean">false()</assign></then>
+                                                        <else>
+                                                            <if>
+                                                                <cond>string-length(normalize-space($xdsSelection{document})) = 0</cond>
+                                                                <then><assign to="selectionNotice" type="string">" Choose a document before validating, or choose Filter repositories / Search again."</assign></then>
+                                                            </if>
+                                                        </else>
+                                                    </if>
+                                                </then>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <interact id="xdsEmptyView" with="cda-producer" desc="No documents in selected repositories" inputTitle="No documents in selected repositories" timeout="1800000">
+                                                <instruct desc="Results" level="INFO" forceDisplay="true">$xdsView{summary} || " Change or clear the repository filter to restore fetched documents, or search DDS again."</instruct>
+                                                <request name="action" desc="Next step" inputType="SELECT_SINGLE" options="Filter repositories,Show all repositories,Search again" optionLabels="Filter repositories,Show all repositories,Search again" required="true"/>
+                                            </interact>
+                                            <assign to="resultAction" type="string">$xdsEmptyView{action}</assign>
+                                        </else>
+                                    </if>
+                                    <if>
+                                        <cond>$resultAction = 'Search again'</cond>
+                                        <then><assign to="searchAgain" type="boolean">true()</assign><assign to="selectAgain" type="boolean">false()</assign></then>
+                                    </if>
+                                    <if>
+                                        <cond>$resultAction = 'Filter repositories'</cond>
+                                        <then>
+                                            <interact id="xdsRepositoryFilter" with="cda-producer" desc="Choose repository filter" inputTitle="Filter repositories" timeout="1800000">
+                                                <instruct desc="Repository filtering" level="INFO" forceDisplay="true">"Include or exclude repositories from the fetched results without searching DDS again. Choose All repositories, or leave the selection empty, to show all documents."</instruct>
+                                                <instruct desc="Current filter" level="INFO" forceDisplay="true">$repositoryMode || ": " || $selectedRepositories</instruct>
+                                                <request name="repositoryMode" desc="Repository filter" inputType="SELECT_SINGLE" options="All repositories,Only selected repositories,Exclude selected repositories" optionLabels="All repositories,Only selected repositories,Exclude selected repositories" required="true"/>
+                                                <request name="repositories" desc="Repositories (optional)" inputType="SELECT_MULTIPLE" size="6" options="$xdsResults{repositoryLabels}" optionLabels="$xdsResults{repositoryLabels}"/>
+                                            </interact>
+                                            <assign to="repositoryMode" type="string">$xdsRepositoryFilter{repositoryMode}</assign>
+                                            <assign to="selectedRepositories" type="string">$xdsRepositoryFilter{repositories}</assign>
+                                        </then>
+                                    </if>
+                                    <if>
+                                        <cond>$resultAction = 'Show all repositories'</cond>
+                                        <then><assign to="repositoryMode" type="string">"All repositories"</assign><assign to="selectedRepositories" type="string">""</assign></then>
+                                    </if>
+                                </do>
+                            </while>
+                        </then>
+                        <else>
+                            <interact with="cda-producer" desc="No documents found" inputTitle="No matching DDS documents" timeout="1800000">
+                                <instruct desc="No results" level="INFO" forceDisplay="true">"No documents matched this search. Continue to adjust the search criteria, or stop this test session."</instruct>
+                            </interact>
+                        </else>
+                    </if>
+                </do>
+            </while>
+            <process id="xdsDocument" txnId="xds" desc="Retrieve selected CDA document" hidden="false" stopOnError="false">
+                <operation>retrieve</operation>
+                <input name="document">$xdsSelection{document}</input>
+            </process>
+            <log level="INFO">$xdsDocument{retrievedDocumentLog}</log>
+            <if hidden="true">
+                <cond>$STEP_STATUS{xdsDocument} = 'ERROR'</cond>
+                <then>
+                    <log level="ERROR">$xdsDocument{errorCode} || ": " || $xdsDocument{errorMessage} || " CDA validation has not run."</log>
+                    <exit success="false" desc="Stopped before CDA validation: XDS operation failed"/>
+                </then>
+            </if>
+            <assign to="document" type="binary">$xdsDocument{document}</assign>
+            <eptxn txnId="xds"/>
+        </else>
+    </if>
+</steps>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase id="validate-apd_v2_0_1-manual" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/">
+    <metadata>
+        <gitb:name>Validate APD-DK 2.0.1</gitb:name>
+        <gitb:version>1.0.0</gitb:version>
+        <gitb:description>Validate a document against APD-DK 2.0.1. Target: apd.v2.0.1. Current conformance coverage is partial; see the validation report and ruleset catalogue.</gitb:description>
+        <gitb:update updateMetadata="true" resetTestHistory="false"/>
+    </metadata>
+    <actors>
+        <gitb:actor id="cda-producer" name="CDA producer" role="SUT"/>
+    </actors>
+    <steps>
+        <interact id="submission" with="cda-producer" title="APD-DK 2.0.1"
+                  desc="Upload a document for APD-DK 2.0.1" inputTitle="Upload APD-DK 2.0.1 document" timeout="604800000">
+            <instruct desc="Instructions" level="INFO" forceDisplay="true">"This session tests APD-DK 2.0.1. Upload your CDA XML document. The next step checks it against the configured rules for this release."</instruct>
+            <request name="document" fileName="documentFileName" desc="APD-DK 2.0.1 document"
+                     inputType="UPLOAD" accept="application/xml,text/xml" required="true"/>
+        </interact>
+        <verify id="validateSubmission" actor="cda-producer" handler="$DOMAIN{cdaValidator}" desc="Validate APD-DK 2.0.1">
+            <input name="xml">$submission{document}</input>
+            <input name="type">"apd.v2.0.1"</input>
+        </verify>
+        <interact id="finalize" with="cda-producer" title="Review APD-DK 2.0.1 result"
+                  desc="Review and finalize APD-DK 2.0.1 validation" inputTitle="APD-DK 2.0.1 validation completed" timeout="604800000">
+            <instruct desc="Instructions" level="INFO" forceDisplay="true" report="true">"Review the APD-DK 2.0.1 validation report and its coverage information, then finalize the session."</instruct>
+        </interact>
+    </steps>
+    <output>
+        <success><default>"The document passed the implemented checks for APD-DK 2.0.1. See the report for coverage details."</default></success>
+        <failure><default>"Validation against APD-DK 2.0.1 failed. Open the validation report for details."</default></failure>
+    </output>
+</testcase>

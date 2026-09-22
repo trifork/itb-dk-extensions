@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?><HsuidHeader xmlns="http://www.nsi.dk/hsuid/2016/08/hsuid-1.1.xsd">
+    <Assertion IssueInstant="2026-01-02T03:04:05.123Z" Version="2.0" id="HSUID">
+        <Issuer>Issuer</Issuer>
+        <AttributeStatement id="HSUIDdata">
+            <Attribute Name="nsi:CitizenCivilRegistrationNumber">
+                <AttributeValue>3001749995</AttributeValue>
+            </Attribute>
+            <Attribute Name="nsi:UserType">
+                <AttributeValue>nsi:HealthcareProfessional</AttributeValue>
+            </Attribute>
+            <Attribute Name="nsi:ActingUserCivilRegistrationNumber">
+                <AttributeValue>0101019999</AttributeValue>
+            </Attribute>
+            <Attribute Name="nsi:OrgUsingID" NameFormat="nsi:sor">
+                <AttributeValue>123456789012345</AttributeValue>
+            </Attribute>
+            <Attribute Name="nsi:SystemOwnerName">
+                <AttributeValue>Test</AttributeValue>
+            </Attribute>
+            <Attribute Name="nsi:SystemName">
+                <AttributeValue>Test</AttributeValue>
+            </Attribute>
+            <Attribute Name="nsi:SystemVersion">
+                <AttributeValue>1.0</AttributeValue>
+            </Attribute>
+            <Attribute Name="nsi:OrgResponsibleName">
+                <AttributeValue>TestOrg</AttributeValue>
+            </Attribute>
+            <Attribute Name="nsi:ConsentOverride">
+                <AttributeValue>true</AttributeValue>
+            </Attribute>
+            <Attribute Name="nsi:ResponsibleUserCivilRegistrationNumber">
+                <AttributeValue>0101019999</AttributeValue>
+            </Attribute>
+            <Attribute Name="nsi:ResponsibleUserAuthorizationCode">
+                <AttributeValue>FT001</AttributeValue>
+            </Attribute>
+        </AttributeStatement>
+    </Assertion>
+</HsuidHeader>

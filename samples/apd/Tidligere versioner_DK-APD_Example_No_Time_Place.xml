@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:hl7-org:v3 ../../PHMR/Schema/CDA_SDTC.xsd" xmlns="urn:hl7-org:v3"
+ classCode="DOCCLIN" moodCode="EVN">
+  <realmCode code="DK"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <!-- MedCom DK CDA APD profile OID -->
+  <templateId root="1.2.208.184.14.1"/>
+  <id extension="aa2386d0-79ea-11e3-981f-1000200c9a66" root="1.2.208.184"
+    assigningAuthorityName="MedCom"/>
+  <!-- LOINC code for appointment date -->
+  <code code="39289-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" 
+    displayName="Dato og tidspunkt for møde mellem patient og sundhedsperson"/>
+  <!-- title = "Aftale for" + patient id -->
+  <title>Aftale for 2512489996</title>
+  <effectiveTime value="20170113100000+0100"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+  <languageCode code="da-DK"/>
+  
+  <!-- information about the patient-->
+  <recordTarget typeCode="RCT" contextControlCode="OP">
+    <patientRole classCode="PAT">
+      <id extension="2512489996" root="1.2.208.176.1.2" assigningAuthorityName="CPR"/>
+      <addr use="H">
+        <streetAddressLine>Skovvejen 12</streetAddressLine>
+        <streetAddressLine>Landet</streetAddressLine>
+        <postalCode>5700</postalCode>
+        <city>Svendborg</city>
+        <country>Danmark</country>
+      </addr>
+      <telecom value="tel:65123456" use="H"/>
+      <telecom value="mailto:nab@udkantsdanmark.dk" use="WP"/>
+      <patient classCode="PSN" determinerCode="INSTANCE">
+        <name>
+          <given>Nancy</given>
+          <given>Ann</given>
+          <family>Berggren</family>
+        </name>
+        <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19481225000000+0000"/>
+      </patient>
+    </patientRole>
+  </recordTarget>
+
+  <!-- the health care organisation and person responsible for the appointment (Filler)-->
+  <author typeCode="AUT" contextControlCode="OP">
+    <time value="20170216100000+0100"/>
+    <assignedAuthor classCode="ASSIGNED">
+      <id extension="242621000016001" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+      <addr use="WP">
+        <streetAddressLine>Valdemarsgade 53</streetAddressLine>
+        <postalCode>5700</postalCode>
+        <city>Svendborg</city>
+        <country>Danmark</country>
+      </addr>
+      <telecom value="tel:65113333-1" use="WP"/>
+      <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+        <name>
+          <prefix>Læge</prefix>
+          <given>Jens</given>
+          <family>Jensen</family>
+        </name>
+      </assignedPerson>
+      <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+        <name>OUH Radiologisk Afdeling (Svendborg)</name>
+        <telecom nullFlavor="NI"/>
+        <addr use="WP">
+          <streetAddressLine nullFlavor="NI"/>
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+
+  <!-- the organisation responsible for maintaing the CDA document -->
+  <custodian typeCode="CST">
+  <assignedCustodian classCode="ASSIGNED">
+      <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+        <id extension="515361000016007" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+        <name>OUH Klinisk IT (Odense)</name>
+        <telecom value="tel:66113333-2" use="WP"/>
+        <addr use="WP">
+          <streetAddressLine>J. B. Winsløwsvej 4 1</streetAddressLine>
+          <postalCode>5000</postalCode>
+          <city>Odense C</city>
+          <country>Danmark</country>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+
+  <!-- the date and time for when the service event will take place - not known then nill -->
+  <documentationOf nullFlavor="NI" >
+    <serviceEvent nullFlavor="NI"/>
+  </documentationOf>
+
+  
+  <!-- CDA Body -->
+  <component nullFlavor="NI">
+    <structuredBody nullFlavor="NI">
+      <component nullFlavor="NI">
+        <section nullFlavor="NI">
+          <text/>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+
+
+
+</ClinicalDocument>

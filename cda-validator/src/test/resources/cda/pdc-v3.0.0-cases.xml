@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<cases>
+  <case profile="pdc-v3.0.0" name="PDC requires one id — negative" fails="PDC-DK-3.0.0-C102">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC requires one code — negative" fails="PDC-DK-3.0.0-C104">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:code" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC requires one title — negative" fails="PDC-DK-3.0.0-C109">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:title" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC requires one effectiveTime — negative" fails="PDC-DK-3.0.0-C111">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:effectiveTime" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC requires one author — negative" fails="PDC-DK-3.0.0-C112">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC requires one time — negative" fails="PDC-DK-3.0.0-C113">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:time" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC requires one assignedAuthor — negative" fails="PDC-DK-3.0.0-C115">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC requires one id — negative" fails="PDC-DK-3.0.0-C116">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:id" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC requires one representedOrganization — negative" fails="PDC-DK-3.0.0-C119">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:representedOrganization" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC requires one name — negative" fails="PDC-DK-3.0.0-C120">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:representedOrganization/v3:name" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC requires one custodian — negative" fails="PDC-DK-3.0.0-C123">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC requires one assignedCustodian — negative" fails="PDC-DK-3.0.0-C124">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC requires one representedCustodianOrganization — negative" fails="PDC-DK-3.0.0-C125">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC requires one id — negative" fails="PDC-DK-3.0.0-C126">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization/v3:id" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC requires one name — negative" fails="PDC-DK-3.0.0-C129">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization/v3:name" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC document @code must be PDC — negative" fails="PDC-DK-3.0.0-C105">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC document @codeSystem must be 1.2.208.184.100.1 — negative" fails="PDC-DK-3.0.0-C106">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC document @codeSystemName must be MedCom Message Codes — negative" fails="PDC-DK-3.0.0-C107">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@codeSystemName" value="INVALID" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC document @displayName must be Stamkort — negative" fails="PDC-DK-3.0.0-C108">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@displayName" value="INVALID" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC title must contain the prescribed heading and patient CPR — negative" fails="PDC-DK-3.0.0-C110">
+    <edit action="text" select="/v3:ClinicalDocument/v3:title" value="Wrong title" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC author must identify Sundhedsdatastyrelsen SOR 1126211000016009 — negative" fails="PDC-DK-3.0.0-AUTHOR-root">
+    <edit action="set" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:id/@root" value="INVALID" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC author must identify Sundhedsdatastyrelsen SOR 1126211000016009 — negative" fails="PDC-DK-3.0.0-AUTHOR-extension">
+    <edit action="set" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:id/@extension" value="INVALID" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC custodian must identify Sundhedsdatastyrelsen SOR 1126211000016009 — negative" fails="PDC-DK-3.0.0-CUSTODIAN-root">
+    <edit action="set" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization/v3:id/@root" value="INVALID" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC custodian must identify Sundhedsdatastyrelsen SOR 1126211000016009 — negative" fails="PDC-DK-3.0.0-CUSTODIAN-extension">
+    <edit action="set" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization/v3:id/@extension" value="INVALID" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC author identifier authority must be SOR — negative" fails="PDC-DK-3.0.0-C489">
+    <edit action="set" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:id/@assigningAuthorityName" value="INVALID" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC organisation name must be Sundhedsdatastyrelsen — negative" fails="PDC-DK-3.0.0-C120-NAME">
+    <edit action="text" select="/v3:ClinicalDocument/v3:author/v3:assignedAuthor/v3:representedOrganization/v3:name" value="Wrong organisation" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC organisation name must be Sundhedsdatastyrelsen — negative" fails="PDC-DK-3.0.0-C129-NAME">
+    <edit action="text" select="/v3:ClinicalDocument/v3:custodian/v3:assignedCustodian/v3:representedCustodianOrganization/v3:name" value="Wrong organisation" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC header must not contain dataEnterer — negative" fails="PDC-DK-3.0.0-C121">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;dataEnterer xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC header must not contain informant — negative" fails="PDC-DK-3.0.0-C122">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;informant xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC header must not contain informationRecipient — negative" fails="PDC-DK-3.0.0-C130">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;informationRecipient xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC header must not contain legalAuthenticator — negative" fails="PDC-DK-3.0.0-C131">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;legalAuthenticator xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC header must not contain authenticator — negative" fails="PDC-DK-3.0.0-C132">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;authenticator xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC header must not contain participant — negative" fails="PDC-DK-3.0.0-C133">
+    <edit action="append" select="/v3:ClinicalDocument" value="&lt;participant xmlns=&quot;urn:hl7-org:v3&quot;/&gt;" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC requires one service event time — negative" fails="PDC-DK-3.0.0-C134">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent/v3:effectiveTime" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC service interval requires one low — negative" fails="PDC-DK-3.0.0-C135">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent/v3:effectiveTime/v3:low" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC service interval requires one high — negative" fails="PDC-DK-3.0.0-C137">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent/v3:effectiveTime/v3:high" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC service end must use nullFlavor NA — negative" fails="PDC-DK-3.0.0-C138">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent/v3:effectiveTime/v3:high/@nullFlavor" value="INVALID" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC service start must equal document creation time — negative" fails="PDC-DK-3.0.0-C136">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent/v3:effectiveTime/v3:low/@value" value="19990101120000+0100" />
+  </case>
+  <case profile="pdc-v3.0.0" name="PDC author time must equal document creation time — negative" fails="PDC-DK-3.0.0-C114">
+    <edit action="set" select="/v3:ClinicalDocument/v3:author/v3:time/@value" value="19990101120000+0100" />
+  </case>
+  <case profile="pdc-v3.0.0" name="Complete synthetic fixture" />
+  <case profile="pdc-v3.0.0" name="Equivalent UTC offsets describe the same instant">
+    <edit action="set" select="/v3:ClinicalDocument/v3:author/v3:time/@value" value="20260101110000+0000" />
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent/v3:effectiveTime/v3:low/@value" value="20260101110000+0000" />
+  </case>
+</cases>

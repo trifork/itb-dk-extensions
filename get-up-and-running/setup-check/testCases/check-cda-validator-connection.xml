@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase id="check-cda-validator-connection" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/">
+    <metadata>
+        <gitb:name>Setup: verify CDA validator connection</gitb:name>
+        <gitb:version>1.0.0</gitb:version>
+        <gitb:description>Temporary setup check of the ITB-to-validator SOAP connection using PHMR-DK 2.1.0 (phmr.v2.1.0). Current conformance coverage is partial; see the report and ruleset catalogue.</gitb:description>
+        <gitb:update updateMetadata="true" resetTestHistory="false"/>
+    </metadata>
+    <imports><artifact name="phmrDocument">resources/phmr_example01.xml</artifact></imports>
+    <actors><gitb:actor id="cda-producer" name="CDA producer" role="SUT"/></actors>
+    <steps>
+        <verify id="validatePhmr" actor="cda-producer" handler="$DOMAIN{cdaValidator}" desc="Validate PHMR-DK 2.1.0">
+            <input name="xml">$phmrDocument</input>
+            <input name="type">"phmr.v2.1.0"</input>
+        </verify>
+    </steps>
+    <output>
+        <success><default>"The example passed the implemented checks for PHMR-DK 2.1.0. See the report for coverage details."</default></success>
+        <failure><default>"PHMR-DK 2.1.0 validation failed. Open the validation report for details."</default></failure>
+    </output>
+</testcase>

@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<cases>
+  <case profile="phad-v1.0.1" name="Require one declaration of template 1.2.208.184.22.1 — negative" fails="PHAD-DK-1.0.1-TEMPLATE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:templateId[@root='1.2.208.184.22.1']" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD requires one id — negative" fails="PHAD-DK-1.0.1-HEADER-id">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD requires one code — negative" fails="PHAD-DK-1.0.1-HEADER-code">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:code" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD requires one title — negative" fails="PHAD-DK-1.0.1-HEADER-title">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:title" />
+  </case>
+  <case profile="phad-v1.0.1" name="@root must be present and non-empty — negative" fails="PHAD-DK-1.0.1-ID-root">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id/@root" />
+  </case>
+  <case profile="phad-v1.0.1" name="@assigningAuthorityName must be present and non-empty — negative" fails="PHAD-DK-1.0.1-ID-assigningAuthorityName">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id/@assigningAuthorityName" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD document code must be 103140-0 — negative" fails="PHAD-DK-1.0.1-CODE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD document code must use LOINC — negative" fails="PHAD-DK-1.0.1-CODE-SYSTEM">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD requires one validity interval event — negative" fails="PHAD-DK-1.0.1-H3">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD requires one profile version event — negative" fails="PHAD-DK-1.0.1-H4">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD requires one low — negative" fails="PHAD-DK-1.0.1-H8">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:low" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD requires one high — negative" fails="PHAD-DK-1.0.1-H10">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:high" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD requires one effectiveTime — negative" fails="PHAD-DK-1.0.1-TIME">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD requires one id — negative" fails="PHAD-DK-1.0.1-H14">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id" />
+  </case>
+  <case profile="phad-v1.0.1" name="@value must be present and non-empty — negative" fails="PHAD-DK-1.0.1-H9">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:low/@value" />
+  </case>
+  <case profile="phad-v1.0.1" name="Validity end needs a value or nullFlavor — negative" fails="PHAD-DK-1.0.1-H11">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11']/v3:effectiveTime/v3:high/@nullFlavor" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD version identifier root must be 1.2.208.184 — negative" fails="PHAD-DK-1.0.1-H15">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id/@root" value="INVALID" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD version authority must be MedCom — negative" fails="PHAD-DK-1.0.1-H17">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id/@assigningAuthorityName" value="INVALID" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD version must use a marker printed in the guide; the guide disagrees between phad-v1.0 and phad-v1.0.0 — negative" fails="PHAD-DK-1.0.1-H16">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id/@extension" value="phad-v9.0" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD requires one component — negative" fails="PHAD-DK-1.0.1-C3">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD requires one nonXMLBody — negative" fails="PHAD-DK-1.0.1-C4">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:nonXMLBody" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD requires one text — negative" fails="PHAD-DK-1.0.1-C5">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:nonXMLBody/v3:text" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD attachment must be a PDF — negative" fails="PHAD-DK-1.0.1-C6">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:nonXMLBody/v3:text/@mediaType" value="INVALID" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD attachment must be Base64 encoded — negative" fails="PHAD-DK-1.0.1-C7">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:nonXMLBody/v3:text/@representation" value="INVALID" />
+  </case>
+  <case profile="phad-v1.0.1" name="PHAD attachment text must contain valid Base64 — negative" fails="PHAD-DK-1.0.1-PDF-BASE64">
+    <edit action="text" select="/v3:ClinicalDocument/v3:component/v3:nonXMLBody/v3:text" value="!invalid base64!" />
+  </case>
+  <case profile="phad-v1.0.1" name="Alternate version spelling printed in table">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.10']/v3:id/@extension" value="phad-v1.0" />
+  </case>
+  <case profile="phad-v1.0.1" name="Complete synthetic fixture" />
+</cases>

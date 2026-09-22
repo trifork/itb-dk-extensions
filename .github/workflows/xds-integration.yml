@@ -1,0 +1,133 @@
+name: XDS integration
+
+on:
+  workflow_call:
+    inputs:
+      cda_runtime_image:
+        description: Published CDA service image; blank uses the repository variable or builds current source
+        type: string
+        required: false
+        default: ''
+  push:
+    branches: [master, main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      cda_runtime_image:
+        description: Published CDA service image; blank uses the repository variable or builds current source
+        type: string
+        required: false
+
+permissions:
+  contents: read
+  packages: read
+
+concurrency:
+  group: xds-integration-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  quality:
+    uses: ./.github/workflows/xds-quality.yml
+  xds:
+    needs: quality
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CDA_RUNTIME_IMAGE: ${{ inputs.cda_runtime_image || vars.CDA_RUNTIME_IMAGE }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v6.0.1
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: maven
+          cache-dependency-path: xds-service/pom.xml
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: itb-ui/package-lock.json
+      - name: Test combined service and suite packaging
+        run: |
+          mvn --batch-mode --no-transfer-progress -f xds-service/pom.xml -Plint verify
+          python3 tests/check-rulesets.py
+          python3 tests/test_xds_packaging.py
+          python3 tests/test_session_catalogue.py
+          for script in get-up-and-running/*.sh; do bash -n "$script"; done
+      - name: Authenticate for explicitly selected GHCR CDA image reads
+        if: startsWith(env.CDA_RUNTIME_IMAGE, 'ghcr.io/')
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GHCR_ACTOR: ${{ github.actor }}
+        run: printf '%s' "$GHCR_TOKEN" | docker login ghcr.io --username "$GHCR_ACTOR" --password-stdin
+      - name: Prepare CDA dependency, production XDS service and test fixture
+        run: |
+          mkdir -p test-results/xds
+          if [[ -n "$CDA_RUNTIME_IMAGE" ]]; then
+            printf 'Runtime reference: %s\n' "$CDA_RUNTIME_IMAGE" > test-results/xds/cda-image.txt
+            docker pull "$CDA_RUNTIME_IMAGE"
+            cda_image_id=$(docker image inspect --format '{{.Id}}' "$CDA_RUNTIME_IMAGE")
+            docker tag "$cda_image_id" itb-dk-cda:local
+          else
+            printf '%s\n' 'CDA dependency built from the current checkout.' > test-results/xds/cda-image.txt
+            docker compose build cda-validator
+          fi
+          docker image inspect itb-dk-cda:local --format 'Image: {{.Id}} Digests: {{json .RepoDigests}}' >> test-results/xds/cda-image.txt
+          docker compose --profile xds build xds-api
+          docker compose -f docker-compose.yml -f xds-service/tests/compose.mock.yml --profile xds build xds-api
+      - name: Check combined service starts without live credentials
+        run: |
+          docker compose --profile xds up -d --no-build xds-api
+          python3 xds-service/tests/check_backend.py
+      - name: Build the ITB gateway and frontend image
+        run: |
+          docker compose build gitb-ui-gateway
+      - name: Start ITB and synthetic XDS operations
+        run: |
+          ITB_AUTOMATION_API_MASTER_KEY=$(openssl rand -hex 32)
+          export ITB_AUTOMATION_API_MASTER_KEY
+          umask 077
+          printf 'ITB_AUTOMATION_API_MASTER_KEY=%s\n' "$ITB_AUTOMATION_API_MASTER_KEY" > get-up-and-running/.itb.env
+          docker compose -f docker-compose.yml -f xds-service/tests/compose.mock.yml -f xds-service/tests/compose.ci.yml --profile xds up -d --no-build --wait --wait-timeout 240
+          for attempt in $(seq 1 120); do
+            if curl --fail --silent http://localhost:9000/api/rest/swagger >/dev/null && curl --fail --silent 'http://localhost:8091/api/cda-dk/validation?wsdl' >/dev/null; then break; fi
+            sleep 2
+          done
+          ITB_MASTER_API_KEY="$ITB_AUTOMATION_API_MASTER_KEY" ITB_ENABLE_XDS=true ./get-up-and-running/setup-itb.sh
+          ./get-up-and-running/setup-test-user.sh
+      - name: Exercise real ITB interactions
+        run: mvn --batch-mode --no-transfer-progress -f xds-service/pom.xml -Pitb-it -Dit.test=ItbFlowIT verify
+      - name: Test CDA report preview in Chromium
+        working-directory: itb-ui
+        env:
+          CDA_PREVIEW_TEST_URL: http://localhost:8091/cda-dk/preview
+          ITB_PREVIEW_TEST_URL: http://localhost:9000
+        run: |
+          npm ci --no-audit --no-fund
+          npx playwright install --with-deps chromium
+          npm test
+      - name: Confirm bootstrap reuses sessions in the same mode
+        run: |
+          python3 xds-service/tests/check_bootstrap.py
+      - name: Write test summary
+        if: always()
+        run: python3 xds-service/tests/report_summary.py >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v7.0.1
+        if: always()
+        with:
+          name: xds-test-reports
+          path: |
+            xds-service/target/surefire-reports/*.xml
+            xds-service/target/failsafe-reports/*.xml
+            test-results/xds/
+            itb-ui/target/itb-ui-junit.xml
+            itb-ui/target/itb-ui-test-results/
+      - name: Stop CI containers
+        if: always()
+        run: docker compose -f docker-compose.yml -f xds-service/tests/compose.mock.yml -f xds-service/tests/compose.ci.yml --profile xds down --volumes

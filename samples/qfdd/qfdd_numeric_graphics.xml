@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://svn.medcom.dk/svn/drafts/Standarder/HL7/CDA-Stylesheet/HL7_CDA/HL7_CDA_stylesheet.xsl"?>
+<!-- CDA Form Definition Document for Questionnaires/Surveys -->	
+<ClinicalDocument classCode="DOCCLIN" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Schema/CDA_SDTC.xsd">
+	<realmCode code="DK"/>
+	<typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+	<!-- MedCom Danish QFDD-profile OID -->
+	<templateId root="1.2.208.184.12.1"/>
+	<!-- The next templateId, conforms the Questinnaere Form Definition Document-level -->
+	<templateId root="1.2.208.184.12.1.1.1"/>
+	<id assigningAuthorityName="MedCom" extension="1fdb7308-f4fb-4eb1-af62-c8a429915dc1" root="1.2.208.184"/>
+	<!-- This code is LOINC -->
+	<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Questionnaere Form Definition Document"/>
+	<title>Example: Numeric Question Pattern Observation, Graphics [Header title]</title>
+	<sdtc:statusCode code="NEW"/>
+	<effectiveTime value="20210305091011+0100"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<versionNumber value="1"/>
+	<recordTarget>
+		<patientRole nullFlavor="NI">
+			<id nullFlavor="NI"/>
+		</patientRole>
+	</recordTarget>
+	<author contextControlCode="OP" typeCode="AUT">
+		<time value="20210305091011+0100"/>
+		<assignedAuthor classCode="ASSIGNED">
+			<!-- This is the identfication of the organization, we don't use the personal level identification-->
+			<id assigningAuthorityName="SOR" extension="310541000016007" root="1.2.208.176.1.1"/>
+			<addr use="WP">
+				<streetAddressLine>Neurologisk afdeling C</streetAddressLine>
+				<streetAddressLine>Valdemarsgade 53</streetAddressLine>
+				<postalCode>5700</postalCode>
+				<city>Svendborg</city>
+				<country>Danmark</country>
+			</addr>
+			<telecom use="WP" value="tel:65112233"/>
+			<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+				<name>
+					<prefix>Læge</prefix>
+					<given>Anders</given>
+					<family>Andersen</family>
+				</name>
+			</assignedPerson>
+			<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<name>Odense Universitetshospital - Svendborg Sygehus</name>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+	
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id assigningAuthorityName="SOR" extension="310541000016007" root="1.2.208.176.1.1"/>
+				<name>Odense Universitetshospital - Svendborg Sygehus</name>
+				<telecom use="WP" value="tel:65112233"/>
+				<addr use="WP">
+					<streetAddressLine>Neurologisk afdeling C</streetAddressLine>
+					<streetAddressLine>Valdemarsgade 53</streetAddressLine>
+					<postalCode>5700</postalCode>
+					<city>Svendborg</city>
+					<country>Danmark</country>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	
+	<component contextConductionInd="true" typeCode="COMP">
+		<structuredBody classCode="DOCBODY" moodCode="EVN">
+			
+			<!-- This component defines the introduction to the questionnaere. It has no Entry element, hence it is information only -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--templateID for Section-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Indledning [Title, Information Only Section]</title>
+					<text>
+						<paragraph><content styleCode="Bold">OM DETTE EKSEMPEL:</content><br/>Dette eksempel viser brug af <content styleCode="Underline">Numeric Question Pattern Observation</content>, med brug af <content styleCode="Underline">grafiske elemenet</content>.<br/>Nedenfor er indledende tekst til efterfølgende sektion(er) med spørgsmål.</paragraph>
+						<paragraph><content styleCode="Bold">OM DETTE SKEMA:</content><br/>Svar på disse spørgsmål mens du ser på billederne.</paragraph>
+					</text>
+					<languageCode code="da-DK"/>
+				</section>
+			</component>
+			
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<id assigningAuthorityName="Sundhedsdatastyrelsen" extension="2112" root="1.2.208.176.7.3.2"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Numeric, Graphics [Title, Questionnaire Form Definition Section]</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<td>Hvor mange steder på dit hoved gjorde det ondt de senste <content styleCode="Underline">14 dage</content>?</td>
+									<td>
+										<content styleCode="Italics"><!-- Q3 --></content>
+									</td>
+								</tr>
+								<tr>
+									<th align="left" colspan="2">
+										<renderMultiMedia referencedObject="head_left.png"/>
+									</th>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<languageCode code="da-DK"/>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id assigningAuthorityName="Sundhedsdatastyrelsen" extension="2222" root="1.2.208.176.7.3.3"/>
+							<statusCode code="complete"/>
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+									<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob3" root="Some-root-OID"/>
+									<code code="Q3" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Some-Display-Name">
+										<originalText>Hvor mange steder på dit hoved gjorde det ondt?</originalText>
+									</code>
+									<languageCode code="da-DK"/>
+									<!-- Grafik -->
+									<entryRelationship typeCode="REFR">
+										<observationMedia ID="head_left.png" classCode="OBS" moodCode="DEF">
+											<templateId root="2.16.840.1.113883.10.20.32.4.2"/>
+											<value mediaType="image/png" representation="B64">
+												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
+											</value>
+										</observationMedia>
+									</entryRelationship>
+									<referenceRange typeCode="REFV">
+										<templateId root="2.16.840.1.113883.10.20.32.4.5"/>
+										<observationRange classCode="OBS">
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="3"/>
+											</value>
+										</observationRange>
+									</referenceRange>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+			
+			<!-- This component defines the final comments of the questionnaere. It has no Entry element, hence it is information only -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--templateID for Section-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Afslutning [Title, Information Only Section]</title>
+					<text>
+						<paragraph>Mange tak for din deltagelse.<br/>Med venlig hilsen</paragraph>
+					</text>
+					<languageCode code="da-DK"/>
+				</section>
+			</component>
+			
+			<!-- This component defines the copyright section -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--templateID for the Copyright Section-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.2"/>
+					<title>Copyright titel skrives her [Title, Copy Right Section]</title>
+					<text>
+						<paragraph>Copyright tekst skrives her</paragraph>
+					</text>
+					<languageCode code="da-DK"/>
+					<entry contextConductionInd="true" typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<!--templateID for the Copyright Pattern Observation-->
+							<templateId root="2.16.840.1.113883.10.20.32.4.21"/>
+							<code code="COPY" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Code for Copyright"/>
+							<value xsi:type="ST">Copyright tekst skrives her</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+			
+		</structuredBody>
+	</component>
+</ClinicalDocument>

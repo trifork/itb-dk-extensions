@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Title:        		Pregnancy Shared Care Record - Example 2.3
+ Filename:     		PSCR_2.2_resume_langt.xml
+ LastChangedDate: 2026-01-08
+ 
+ Changes:
+ 2025-01-08: documentationOf typecode corrected to "PSCR-v2.0", documentationOf/serviceEvent/effectiveTime corrected
+             documentID/UUID changed from "397e25b7-95ff-400c-a409-7feg144f9371" to "3f971489-237a-4fbb-aaa8-64a77b8e44fa"
+ 2025-09-02: Initial version
+  
+ ********************************************************
+ This example file contains:
+ Author: Aalborg / Region Nord
+ Resume - long version
+ Terminsdato: 20251005
+ ********************************************************
+ -->
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3"
+  xsi:schemaLocation="urn:hl7-org:v3 CDA.xsd" moodCode="EVN">
+  <realmCode code="DK"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <templateId root="1.2.208.184.20.1" extension="2.0"/>
+  <id assigningAuthorityName="Region Syddanmark" root="1.2.208.183"
+    extension="3f971489-237a-4fbb-aaa8-64a77b8e44fa"/>
+  <code code="PSCR" codeSystem="1.2.208.184.100.1" codeSystemName="MedCom Message Codes"
+    displayName="Pregnancy Shared Care Record"/>
+  <title>Pregnancy Shared Care Record for 0201919990</title>
+  <effectiveTime value="20250315155958+0200"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+  <languageCode code="da-DK"/>
+  <recordTarget typeCode="RCT" contextControlCode="OP">
+    <patientRole classCode="PAT">
+      <id root="1.2.208.176.1.2" extension="0201919990" assigningAuthorityName="CPR"/>
+      <addr use="H">
+        <streetAddressLine>Testgrusgraven 3</streetAddressLine>
+        <streetAddressLine>1.th</streetAddressLine>
+        <postalCode>3400</postalCode>
+        <city>Hillerød</city>
+      </addr>
+      <patient classCode="PSN">
+        <name>
+          <family>Lauridsen</family>
+          <given>Else</given>
+          <given>Test</given>
+        </name>
+        <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" displayName="Female"/>
+        <birthTime value="19910102000000+0000"/>
+      </patient>
+      <providerOrganization>
+        <id assigningAuthorityName="SOR" root="1.2.208.176.1.1" extension="8071000016009"/>
+        <name>Odense Universitetshospital - Svendborg</name>
+      </providerOrganization>
+    </patientRole>
+  </recordTarget>
+  <author typeCode="AUT" contextControlCode="OP">
+    <time value="20250315153300+0200"/>
+    <assignedAuthor classCode="ASSIGNED">
+      <id assigningAuthorityName="SOR" root="1.2.208.176.1.1" extension="334911000016004"/>
+      <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+        <name>
+          <prefix>Jordemoder</prefix>
+          <family>Sørensen</family>
+          <given>Birthe</given>
+          <given>F.</given>
+        </name>
+      </assignedPerson>
+      <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+        <name>GynObs afdeling - Aalborg sygehus</name> 
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <custodian typeCode="CST">
+    <assignedCustodian classCode="ASSIGNED">
+      <representedCustodianOrganization>
+        <id assigningAuthorityName="SOR" root="1.2.208.176.1.1" extension="6071000016008"/>
+        <name>Region NordJylland</name>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <documentationOf typeCode="DOC">
+    <serviceEvent classCode="ACT" moodCode="EVN">
+      <templateId root="1.2.208.184.10.1.11"/>
+      <effectiveTime>
+        <low value="20250315150000+0200"/>
+        <high nullFlavor="NA"/>
+      </effectiveTime>
+    </serviceEvent>
+  </documentationOf>
+  <documentationOf typeCode="DOC">
+    <serviceEvent classCode="MPROT" moodCode="EVN">
+      <templateId root="1.2.208.184.10.1.10"/>
+      <id assigningAuthorityName="MedCom" root="1.2.208.184.100.10" extension="PSCR-v2.0"/>
+    </serviceEvent>
+  </documentationOf>
+  <component typeCode="COMP" contextConductionInd="true">
+    <structuredBody classCode="DOCBODY" moodCode="EVN">
+      <component>
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="1.2.208.184.20.2.65" extension="2024-04-19"/>
+          <templateId root="2.16.840.1.113883.10.12.201"/>
+          <code code="371534008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
+            displayName="Resume"/>
+          <title>Resume</title>
+          <text>
+            <table>
+              <thead>
+                <tr>
+                  <th>SNOMED kode</th>
+                  <th>Tekst</th>
+                  <th>Værdi</th>
+                  <th>NPU kode</th>
+                  <th>NPU tekst</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>398005008</td>
+                  <td>relevant information</td>
+                  <td>Ved dagens konsultation fremstår den gravide i god almen tilstand. Hun virker rolig, velforberedt til besøget og er engageret i dialogen omkring graviditetsforløbet. Kroppens tilpasning til graviditeten beskrives af den gravide som overvejende positiv, og hun fremhæver, at hun føler sig fysisk robust og har overskud i dagligdagen.
+
+Hun beretter, at hun oplever en generel følelse af velvære og glæde i relation til graviditeten. Den gravide nævner, at hun har et stabilt energiniveau og formår at fastholde sine daglige rutiner, herunder arbejde, motion i form af gåture og deltagelse i sociale aktiviteter. Der ses ingen tegn på længerevarende træthed, selvom hun indimellem oplever kortvarige episoder med udmattelse sidst på dagen. Disse beskrives dog som forbigående og uden større betydning for hendes samlede trivsel.
+
+Den gravide fortæller, at hun sover rimelig godt om natten og kun lejlighedsvis vågner kortvarigt, enten på grund af behov for toiletbesøg eller for at finde en mere komfortabel liggestilling. Hun beskriver, at hun generelt føler sig udhvilet om morgenen, hvilket understøtter indtrykket af en tilfredsstillende søvnkvalitet.
+
+Appetitten er stabil, og hun oplever ingen kvalme eller fordøjelsesproblemer, som tidligere i graviditeten kunne give anledning til ubehag. Hun har fundet en rytme med måltider, der giver hende både energi og velvære, og hun føler sig i stand til at lytte til kroppens signaler og regulere sin kost efter behov.
+
+Psykisk fremstår den gravide afbalanceret og rolig. Hun giver udtryk for en grundlæggende tryghed ved graviditeten og nævner, at hun oplever en stærk støtte fra sin partner, som deltager aktivt i graviditetsforløbet. Også familien og nære venner er inddraget og giver hende et solidt fundament af opbakning. Den gravide beskriver sig selv som følelsesmæssigt stabil og oplever ingen tegn på angst, bekymring eller nedtrykthed.
+
+I forhold til fosteret beretter den gravide, at hun dagligt mærker tydelige og regelmæssige fosterbevægelser. Hun beskriver disse som små spark og vrikken, som især gør sig gældende sidst på dagen og i rolige stunder. Bevægelsesmønsteret opleves som naturligt og giver hende en fornemmelse af tæt kontakt med barnet. Hun beskriver glæde ved at kunne dele oplevelsen af bevægelserne med sin partner, hvilket styrker deres fælles forventning til barnet.
+
+Der observeres ingen tegn på ubehag, smerter eller komplikationer ved konsultationen. Den gravide rapporterer ikke om blødning, smerter i underlivet eller andre symptomer, der giver anledning til bekymring. Hun nævner, at hun i det store hele oplever en ukompliceret graviditet indtil nu.
+
+Den gravide taler åbent om sine tanker for det kommende forløb og udtrykker en sund balance mellem forventning og respekt for, at graviditeten fortsat kan indebære uforudsete udfordringer. Hun viser forståelse for vigtigheden af at fortsætte med regelmæssige kontroller og nævner, at hun ser frem til den kommende rutinescanning.
+
+Samlet vurderes den gravide at trives både fysisk og psykisk på et tilfredsstillende niveau. Hun er aktiv, deltagende og i stand til at håndtere de mindre gener, som graviditeten kan medføre. Fosterets bevægelser er velkendte og opleves som trygge og normale, hvilket yderligere bidrager til den gravides samlede trivsel og oplevelse af sikkerhed i forløbet. På denne baggrund vurderes graviditeten på nuværende tidspunkt at forløbe ukompliceret, og både mor og barn trives i overensstemmelse med graviditetsuge 21.</td>
+                  <td/>
+                  <td/>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="1.2.208.184.20.2.66" extension="2024-04-19"/>
+              <templateId root="2.16.840.1.113883.10.12.303"/>
+              <code code="398005008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
+                displayName="relevant information"/>
+              <statusCode code="completed"/>
+              <effectiveTime value="20250315150000+0200"/>
+              <value xsi:type="ST">Ved dagens konsultation fremstår den gravide i god almen tilstand. Hun virker rolig, velforberedt til besøget og er engageret i dialogen omkring graviditetsforløbet. Kroppens tilpasning til graviditeten beskrives af den gravide som overvejende positiv, og hun fremhæver, at hun føler sig fysisk robust og har overskud i dagligdagen.
+
+Hun beretter, at hun oplever en generel følelse af velvære og glæde i relation til graviditeten. Den gravide nævner, at hun har et stabilt energiniveau og formår at fastholde sine daglige rutiner, herunder arbejde, motion i form af gåture og deltagelse i sociale aktiviteter. Der ses ingen tegn på længerevarende træthed, selvom hun indimellem oplever kortvarige episoder med udmattelse sidst på dagen. Disse beskrives dog som forbigående og uden større betydning for hendes samlede trivsel.
+
+Den gravide fortæller, at hun sover rimelig godt om natten og kun lejlighedsvis vågner kortvarigt, enten på grund af behov for toiletbesøg eller for at finde en mere komfortabel liggestilling. Hun beskriver, at hun generelt føler sig udhvilet om morgenen, hvilket understøtter indtrykket af en tilfredsstillende søvnkvalitet.
+
+Appetitten er stabil, og hun oplever ingen kvalme eller fordøjelsesproblemer, som tidligere i graviditeten kunne give anledning til ubehag. Hun har fundet en rytme med måltider, der giver hende både energi og velvære, og hun føler sig i stand til at lytte til kroppens signaler og regulere sin kost efter behov.
+
+Psykisk fremstår den gravide afbalanceret og rolig. Hun giver udtryk for en grundlæggende tryghed ved graviditeten og nævner, at hun oplever en stærk støtte fra sin partner, som deltager aktivt i graviditetsforløbet. Også familien og nære venner er inddraget og giver hende et solidt fundament af opbakning. Den gravide beskriver sig selv som følelsesmæssigt stabil og oplever ingen tegn på angst, bekymring eller nedtrykthed.
+
+I forhold til fosteret beretter den gravide, at hun dagligt mærker tydelige og regelmæssige fosterbevægelser. Hun beskriver disse som små spark og vrikken, som især gør sig gældende sidst på dagen og i rolige stunder. Bevægelsesmønsteret opleves som naturligt og giver hende en fornemmelse af tæt kontakt med barnet. Hun beskriver glæde ved at kunne dele oplevelsen af bevægelserne med sin partner, hvilket styrker deres fælles forventning til barnet.
+
+Der observeres ingen tegn på ubehag, smerter eller komplikationer ved konsultationen. Den gravide rapporterer ikke om blødning, smerter i underlivet eller andre symptomer, der giver anledning til bekymring. Hun nævner, at hun i det store hele oplever en ukompliceret graviditet indtil nu.
+
+Den gravide taler åbent om sine tanker for det kommende forløb og udtrykker en sund balance mellem forventning og respekt for, at graviditeten fortsat kan indebære uforudsete udfordringer. Hun viser forståelse for vigtigheden af at fortsætte med regelmæssige kontroller og nævner, at hun ser frem til den kommende rutinescanning.
+
+Samlet vurderes den gravide at trives både fysisk og psykisk på et tilfredsstillende niveau. Hun er aktiv, deltagende og i stand til at håndtere de mindre gener, som graviditeten kan medføre. Fosterets bevægelser er velkendte og opleves som trygge og normale, hvilket yderligere bidrager til den gravides samlede trivsel og oplevelse af sikkerhed i forløbet. På denne baggrund vurderes graviditeten på nuværende tidspunkt at forløbe ukompliceret, og både mor og barn trives i overensstemmelse med graviditetsuge 21.</value>
+            </observation>
+          </entry>
+        </section>
+      </component>
+       <component>
+            <section classCode="DOCSECT" moodCode="EVN">
+              <templateId root="1.2.208.184.20.2.1" extension="2024-04-19"/>
+              <templateId root="2.16.840.1.113883.10.12.201"/>
+              <code code="161714006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
+                displayName="Terminsberegning"/>
+              <title>Terminsberegning</title>
+              <text>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>SNOMED kode</th>
+                      <th>Tekst</th>
+                      <th>Værdi</th>
+                      <th>NPU kode</th>
+                      <th>NPU tekst</th>
+                      <th>Foster id</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>289206005</td>
+                      <td>beregnet terminsdato fra seneste menstruation</td>
+                      <td>20251005</td>
+                      <td/>
+                      <td/>
+                      <td>N/A</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </text>
+              <entry>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="1.2.208.184.20.2.4" extension="2024-04-19"/>
+                  <templateId root="2.16.840.1.113883.10.12.303"/>
+                  <code code="289206005" codeSystem="2.16.840.1.113883.6.96"
+                    codeSystemName="SNOMED CT"
+                    displayName="beregnet terminsdato fra seneste menstruation"/>
+                  <statusCode code="completed"/>
+                  <effectiveTime value="20251005"/>
+                </observation>
+              </entry>
+            </section>
+          </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

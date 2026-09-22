@@ -1,0 +1,15 @@
+# Bound JVM heaps on the GitHub-hosted runner. Do not apply to a user's existing ITB.
+services:
+  cda-validator:
+    mem_limit: 4g
+    environment:
+      JDK_JAVA_OPTIONS: -Xms256m -Xmx3g
+  gitb-ui:
+    environment:
+      JAVA_TOOL_OPTIONS: -Xms128m -Xmx768m
+  gitb-srv:
+    environment:
+      JAVA_TOOL_OPTIONS: -Xms128m -Xmx512m
+  xds-api:
+    environment:
+      JAVA_TOOL_OPTIONS: -Xms32m -Xmx512m

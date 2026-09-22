@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.3.6.1.4.1.12559.11.18.9" version="1.0" displayName="TimingEvent">
+        <ConceptList xml:lang="en-US">
+            <Concept displayName="AC" codeSystem="2.16.840.1.113883.5.139" code="AC"/>
+            <Concept displayName="ACD" codeSystem="2.16.840.1.113883.5.139" code="ACD"/>
+            <Concept displayName="ACM" codeSystem="2.16.840.1.113883.5.139" code="ACM"/>
+            <Concept displayName="ACV" codeSystem="2.16.840.1.113883.5.139" code="ACV"/>
+            <Concept displayName="HS" codeSystem="2.16.840.1.113883.5.139" code="HS"/>
+            <Concept displayName="IC" codeSystem="2.16.840.1.113883.5.139" code="IC"/>
+            <Concept displayName="ICD" codeSystem="2.16.840.1.113883.5.139" code="ICD"/>
+            <Concept displayName="ICM" codeSystem="2.16.840.1.113883.5.139" code="ICM"/>
+            <Concept displayName="ICV" codeSystem="2.16.840.1.113883.5.139" code="ICV"/>
+            <Concept displayName="PC" codeSystem="2.16.840.1.113883.5.139" code="PC"/>
+            <Concept displayName="PCD" codeSystem="2.16.840.1.113883.5.139" code="PCD"/>
+            <Concept displayName="PCM" codeSystem="2.16.840.1.113883.5.139" code="PCM"/>
+            <Concept displayName="PCV" codeSystem="2.16.840.1.113883.5.139" code="PCV"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

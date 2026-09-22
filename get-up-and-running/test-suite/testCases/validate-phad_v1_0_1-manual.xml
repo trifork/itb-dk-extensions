@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase id="validate-phad_v1_0_1-manual" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/">
+    <metadata>
+        <gitb:name>Validate PHAD-DK 1.0.1</gitb:name>
+        <gitb:version>1.0.0</gitb:version>
+        <gitb:description>Validate a document against PHAD-DK 1.0.1. Target: phad.v1.0.1. Current conformance coverage is partial; see the validation report and ruleset catalogue.</gitb:description>
+        <gitb:update updateMetadata="true" resetTestHistory="false"/>
+    </metadata>
+    <actors>
+        <gitb:actor id="cda-producer" name="CDA producer" role="SUT"/>
+    </actors>
+    <steps>
+        <interact id="submission" with="cda-producer" title="PHAD-DK 1.0.1"
+                  desc="Upload a document for PHAD-DK 1.0.1" inputTitle="Upload PHAD-DK 1.0.1 document" timeout="604800000">
+            <instruct desc="Instructions" level="INFO" forceDisplay="true">"This session tests PHAD-DK 1.0.1. Upload your CDA XML document. The next step checks it against the configured rules for this release."</instruct>
+            <request name="document" fileName="documentFileName" desc="PHAD-DK 1.0.1 document"
+                     inputType="UPLOAD" accept="application/xml,text/xml" required="true"/>
+        </interact>
+        <verify id="validateSubmission" actor="cda-producer" handler="$DOMAIN{cdaValidator}" desc="Validate PHAD-DK 1.0.1">
+            <input name="xml">$submission{document}</input>
+            <input name="type">"phad.v1.0.1"</input>
+        </verify>
+        <interact id="finalize" with="cda-producer" title="Review PHAD-DK 1.0.1 result"
+                  desc="Review and finalize PHAD-DK 1.0.1 validation" inputTitle="PHAD-DK 1.0.1 validation completed" timeout="604800000">
+            <instruct desc="Instructions" level="INFO" forceDisplay="true" report="true">"Review the PHAD-DK 1.0.1 validation report and its coverage information, then finalize the session."</instruct>
+        </interact>
+    </steps>
+    <output>
+        <success><default>"The document passed the implemented checks for PHAD-DK 1.0.1. See the report for coverage details."</default></success>
+        <failure><default>"Validation against PHAD-DK 1.0.1 failed. Open the validation report for details."</default></failure>
+    </output>
+</testcase>

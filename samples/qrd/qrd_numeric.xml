@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://svn.medcom.dk/svn/drafts/Standarder/HL7/CDA-Stylesheet/HL7_CDA/HL7_CDA_stylesheet.xsl"?>
+<!-- Questionnaire Response Document, contains the response to the Form Definition Document that contains questions. -->
+<ClinicalDocument classCode="DOCCLIN" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:voc="urn:hl7-org:v3/voc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../../Schema/CDA_SDTC.xsd">
+	<realmCode code="DK"/>
+	<typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+	<!-- MedCom Danish QRD-profile OID -->
+	<templateId root="1.2.208.184.13.1"/>
+	<!-- The next templateId, conforms the Questinnaere Response Document-level -->
+	<templateId root="1.2.208.184.13.1.1.1"/>
+	<id assigningAuthorityName="MedCom" extension="50949afa-6735-4631-96d1-2aac8f350f80" root="1.2.208.184"/>
+	<!-- This code is LOINC -->
+	<code code="74465-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Questionnaire Response Document"/>
+	<title>Example: Numeric Response Pattern Observation [Header title]</title>
+	<effectiveTime value="20210322123437+0100"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<versionNumber value="1"/>
+	<recordTarget contextControlCode="OP" typeCode="RCT">
+		<patientRole classCode="PAT">
+			<!-- This root will be changed -->
+			<id assigningAuthorityName="CPR" extension="2512489996" root="1.2.208.176.1.2"/>
+			<addr use="H">
+				<streetAddressLine>Skovvejen 12</streetAddressLine>
+				<streetAddressLine>Landet</streetAddressLine>
+				<postalCode>5700</postalCode>
+				<city>Svendborg</city>
+				<country>Danmark</country>
+			</addr>
+			<telecom use="H" value="tel:65123456"/>
+			<telecom use="WP" value="mailto:nab@udkantsdanmark.dk"/>
+			<patient classCode="PSN" determinerCode="INSTANCE">
+				<name>
+					<given>Nancy</given>
+					<given>Ann</given>
+					<family>Berggren</family>
+				</name>
+				<administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" codeSystemName="HL7"/>
+				<birthTime value="19481225000000+0000"/>
+			</patient>
+		</patientRole>
+	</recordTarget>
+	<author contextControlCode="OP" typeCode="AUT">
+		<time value="20210322123437+0100"/>
+		<assignedAuthor classCode="ASSIGNED">
+			<id assigningAuthorityName="CPR" extension="2512489996" root="1.2.208.176.1.2"/>
+			<code code="SELF" codeSystem="2.16.840.1.113883.5.111" codeSystemName="HL7 Role code" displayName="Self"/>
+			<addr use="H">
+				<streetAddressLine>Skovvejen 12</streetAddressLine>
+				<streetAddressLine>Landet</streetAddressLine>
+				<postalCode>5700</postalCode>
+				<city>Svendborg</city>
+				<country>Danmark</country>
+			</addr>
+			<telecom use="H" value="tel:65123456"/>
+			<telecom use="WP" value="mailto:nab@udkantsdanmark.dk"/>
+			<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+				<name>
+					<given>Nancy</given>
+					<given>Ann</given>
+					<family>Berggren</family>
+				</name>
+			</assignedPerson>
+		</assignedAuthor>
+	</author>
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id assigningAuthorityName="SOR" extension="310541000016007" root="1.2.208.176.1.1"/>
+				<name>Odense Universitetshospital - Svendborg Sygehus</name>
+				<telecom use="WP" value="tel:65112233"/>
+				<addr use="WP">
+					<streetAddressLine>Neurologisk afdeling C</streetAddressLine>
+					<streetAddressLine>Valdemarsgade 53</streetAddressLine>
+					<postalCode>5700</postalCode>
+					<city>Svendborg</city>
+					<country>Danmark</country>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<!-- The document is intended to have multiple recipients. This example only includes Nancy's Primary Care physician (PCP). -->
+	<!-- Primary Care physician (PCP) as recipient -->
+	<informationRecipient typeCode="PRCP">
+		<intendedRecipient classCode="ASSIGNED">
+			<!-- The physician's number (Ydernummer). This root will be changed -->
+			<id assigningAuthorityName="Yderregistret To-be-changed" extension="524799" root="2.16.840.1.113883.3.4208.100.3"/>
+			<telecom use="WP" value="tel:45121314"/>
+			<informationRecipient classCode="PSN" determinerCode="INSTANCE">
+				<name>
+					<prefix>Uddannelsesamanuensis</prefix>
+					<given>Hans</given>
+					<family>Jensen</family>
+				</name>
+			</informationRecipient>
+			<receivedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<!-- Organization (SOR-ID)-->
+				<id assigningAuthorityName="SOR" extension="386681000016004" root="1.2.208.176.1.1"/>
+				<name>Lægehuset</name>
+				<telecom use="WP" value="tel:45121314"/>
+				<addr use="WP">
+					<streetAddressLine>Vandværksvej 99</streetAddressLine>
+					<postalCode>3450</postalCode>
+					<city>Allerød</city>
+					<country>Danmark</country>
+				</addr>
+			</receivedOrganization>
+		</intendedRecipient>
+	</informationRecipient>
+	<component contextConductionInd="true" typeCode="COMP">
+		<structuredBody classCode="DOCBODY" moodCode="EVN">
+
+			<!-- This component defines the introduction to the questionnaere. It has no Entry element, hence it is information only -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--templateID for Section-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Indledning [Title, Information Only Section]</title>
+					<text>
+						<paragraph><content styleCode="Bold">OM DETTE EKSEMPEL:</content><br/>Dette eksempel viser brug af <content styleCode="Underline">Numeric Response Pattern Observation</content>.<br/>Nedenfor er indledende tekst til efterfølgende sektion(er) med spørgsmål.</paragraph>
+						<paragraph><content styleCode="Bold">OM DETTE SKEMA:</content><br/>Vi bruger blandt andet dine svar til at vurdere, om du har brug for en konsultation.<br/> Vi vil gerne vide, hvornår du havde dit seneste anfald.</paragraph>
+					</text>
+					<languageCode code="da-DK"/>
+				</section>
+			</component>
+
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--templateId for the Questionnaire Response Section-->
+					<templateId root="2.16.840.1.113883.10.20.33.2.1"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Numeric Question [Title, Questionnaire Response Section]</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<td>Skriv årstal - skriv 9-taller hvis du ikke husker dette</td>
+									<td>
+										<content styleCode="Italics">2020</content>
+									</td>
+								</tr>
+								<tr>
+									<td>Skriv måned - skriv 9-taller hvis du ikke husker dette</td>
+									<td>
+										<content styleCode="Italics">10</content>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry contextConductionInd="true" typeCode="COMP">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<!-- templateId for the Answers Organizer-->
+							<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+							<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob3" root="Some-root-OID"/>
+							<statusCode code="completed"/>
+							<!-- Contains Continua Numeric templates -->
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<!--templateID for the Numeric Response Pattern-->
+									<templateId root="2.16.840.1.113883.10.20.33.4.4"/>
+									<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob1" root="Some-root-OID"/>
+									<code code="Q1" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Some-Display-Name">
+										<originalText>Skriv årstal - skriv 9-taller hvis du ikke husker dette</originalText>
+									</code>
+									<value value="2020" xsi:type="INT"/>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="20ee1a5c-d574-4c04-b315-24e644cef53a" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+							<component>
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<!--templateID for the Numeric Response Pattern-->
+									<templateId root="2.16.840.1.113883.10.20.33.4.4"/>
+									<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob2" root="Some-root-OID"/>
+									<code code="Q2" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Some-Display-Name">
+										<originalText>Skriv måned - skriv 9-taller hvis du ikke husker dette</originalText>
+									</code>
+									<value value="10" xsi:type="INT"/>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="20ee1a5c-d574-4c04-b315-24e644cef53a" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+
+					<!-- This component defines the final comments of the questionnaere. It has no Entry element, hence it is information only -->
+					<component contextConductionInd="true" typeCode="COMP">
+						<section classCode="DOCSECT" moodCode="EVN">
+							<!--templateID for Section-->
+							<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+							<title>Afslutning [Title, Information Only Section]</title>
+							<text>
+								<paragraph>Mange tak for din deltagelse.<br/>Med venlig hilsen</paragraph>
+							</text>
+							<languageCode code="da-DK"/>
+						</section>
+					</component>
+
+					<!-- This component defines the copyright section -->
+					<component contextConductionInd="true" typeCode="COMP">
+						<section classCode="DOCSECT" moodCode="EVN">
+							<!--templateID for the Copyright Section-->
+							<templateId root="2.16.840.1.113883.10.20.32.2.2"/>
+							<title>Copyright titel skrives her [Title, Copy Right Section]</title>
+							<text>
+								<paragraph>Copyright tekst skrives her</paragraph>
+							</text>
+							<languageCode code="da-DK"/>
+							<entry contextConductionInd="true" typeCode="COMP">
+								<observation classCode="OBS" moodCode="EVN">
+									<!--templateID for the Copyright Pattern Observation-->
+									<templateId root="2.16.840.1.113883.10.20.32.4.21"/>
+									<code code="COPY" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Code for Copyright"/>
+									<value xsi:type="ST">Copyright tekst skrives her</value>
+								</observation>
+							</entry>
+						</section>
+					</component>
+
+				</section>
+			</component>
+		</structuredBody>
+	</component>
+</ClinicalDocument>

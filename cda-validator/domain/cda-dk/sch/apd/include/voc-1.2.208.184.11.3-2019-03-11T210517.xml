@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<valueSets xmlns="urn:hl7-org:v3" xmlns:hl7="urn:hl7-org:v3" xmlns:sch="http://purl.oclc.org/dsdl/schematron" xmlns:local="http://art-decor.org/functions">
+    <valueSet xmlns="" id="1.2.208.184.11.3" name="medCom-message-codes" displayName="MedCom Message Codes" effectiveDate="2019-03-11T21:05:17" statusCode="draft">
+        <sourceCodeSystem id="1.2.208.184.100.1" identifierName="" canonicalUri="urn:oid:1.2.208.184.100.1" canonicalUriDSTU2="urn:oid:1.2.208.184.100.1" canonicalUriSTU3="urn:oid:1.2.208.184.100.1" canonicalUriR4="urn:oid:1.2.208.184.100.1"/>
+        <publishingAuthority name="admin"/>
+        <conceptList>
+            <concept code="FLPDiagnosisCode" codeSystem="1.2.208.184.100.1" displayName="Forløbsplan diagnose kode" level="0" type="L"/>
+            <concept code="FlpGoalText" codeSystem="1.2.208.184.100.1" displayName="Mine mål" level="0" type="L"/>
+            <concept code="PlannedInterventionText" codeSystem="1.2.208.184.100.1" displayName="Planlagt intervention" level="0" type="L"/>
+        </conceptList>
+    </valueSet>
+</valueSets>

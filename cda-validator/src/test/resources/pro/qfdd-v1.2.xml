@@ -1,0 +1,438 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:v3="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" classCode="DOCCLIN" moodCode="EVN">
+  <realmCode code="DK"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <templateId root="1.2.208.184.12.1"/>
+  <templateId root="1.2.208.184.12.1.1.1"/>
+  <id root="1.2.3" extension="12345678-1234-4123-8123-123456789abc" assigningAuthorityName="Synthetic organisation"/>
+  <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Questionnaire Form Definition Document"/>
+  <title>Synthetic conformance fixture</title>
+  <sdtc:statusCode code="NEW"/>
+  <effectiveTime value="20260527120000+0200"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+  <languageCode code="da-DK"/>
+  <recordTarget>
+    <patientRole>
+      <id nullFlavor="NI"/>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <time value="20260527120000+0200"/>
+    <assignedAuthor>
+      <id nullFlavor="NA"/>
+      <addr nullFlavor="NI"/>
+      <telecom nullFlavor="NI"/>
+      <representedOrganization>
+        <id root="1.2.208.176.1.1" extension="12345" assigningAuthorityName="SOR"/>
+        <name>Synthetic organisation</name>
+        <telecom nullFlavor="NI"/>
+        <addr nullFlavor="NI"/>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="1.2.3"/>
+        <name>Synthetic custodian</name>
+        <telecom use="WP" nullFlavor="NI"/>
+        <addr nullFlavor="NI"/>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <component>
+    <structuredBody>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+          <title>Information only</title>
+          <text>Information without an entry</text>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.32.2.2"/>
+          <text>Copyright</text>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.32.4.21"/>
+              <code code="COPY" codeSystem="2.16.840.1.113883.5.4"/>
+              <value xsi:type="ST">Synthetic text</value>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+          <code code="74468-0"/>
+          <text>Synthetic narrative; semantic equivalence is not under test</text>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+              <id root="1.2.3"/>
+              <statusCode code="completed"/>
+              <precondition typeCode="PRCN">
+                <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
+                <criterion classCode="OBS" moodCode="EVN.CRT">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                  <code code="question" codeSystem="1.2.3"/>
+                  <value value="1" xsi:type="INT"/>
+                </criterion>
+              </precondition>
+              <component>
+                <sequenceNumber value="1"/>
+                <observation classCode="OBS" moodCode="DEF">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+                  <id root="1.2.3" extension="0"/>
+                  <code code="q0" codeSystem="1.2.3">
+                    <originalText>Synthetic question</originalText>
+                  </code>
+                  <referenceRange typeCode="REFV">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.5"/>
+                    <observationRange>
+                      <text>Range</text>
+                      <value xsi:type="IVL_INT">
+                        <low value="0"/>
+                        <high value="10"/>
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                  <entryRelationship typeCode="SUBJ">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+                      <code code="48767-8" codeSystem="2.16.840.1.113883.6.1"/>
+                      <value xsi:type="ST">Synthetic text</value>
+                    </observation>
+                  </entryRelationship>
+                  <entryRelationship typeCode="REFR">
+                    <observationMedia classCode="OBS" moodCode="DEF">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.2"/>
+                      <value mediaType="image/png" representation="B64">AA==</value>
+                    </observationMedia>
+                  </entryRelationship>
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="DEF">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.6"/>
+                      <code code="74466-4"/>
+                      <value xsi:type="ST">Feedback</value>
+                      <precondition typeCode="PRCN">
+                        <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
+                        <criterion classCode="OBS" moodCode="EVN.CRT">
+                          <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                          <code code="question" codeSystem="1.2.3"/>
+                          <value value="1" xsi:type="INT"/>
+                        </criterion>
+                      </precondition>
+                    </observation>
+                  </entryRelationship>
+                  <precondition typeCode="PRCN">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
+                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                      <code code="question" codeSystem="1.2.3"/>
+                      <value value="1" xsi:type="INT"/>
+                    </criterion>
+                  </precondition>
+                </observation>
+              </component>
+              <component>
+                <sequenceNumber value="2"/>
+                <observation classCode="OBS" moodCode="DEF">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                  <id root="1.2.3" extension="1"/>
+                  <code code="q1" codeSystem="1.2.3">
+                    <originalText>Synthetic question</originalText>
+                  </code>
+                  <value code="0" codeSystem="1.2.3" displayName="Option 0" xsi:type="CE"/>
+                  <value code="1" codeSystem="1.2.3" displayName="Option 1" xsi:type="CE"/>
+                  <entryRelationship typeCode="SUBJ">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+                      <code code="48767-8" codeSystem="2.16.840.1.113883.6.1"/>
+                      <value xsi:type="ST">Synthetic text</value>
+                    </observation>
+                  </entryRelationship>
+                  <entryRelationship typeCode="SUBJ">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                      <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="0"/>
+                        <high value="1"/>
+                      </value>
+                    </observation>
+                  </entryRelationship>
+                  <entryRelationship typeCode="REFR">
+                    <observationMedia classCode="OBS" moodCode="DEF">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.2"/>
+                      <value mediaType="image/png" representation="B64">AA==</value>
+                    </observationMedia>
+                  </entryRelationship>
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="DEF">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.6"/>
+                      <code code="74466-4"/>
+                      <value xsi:type="ST">Feedback</value>
+                      <precondition typeCode="PRCN">
+                        <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
+                        <criterion classCode="OBS" moodCode="EVN.CRT">
+                          <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                          <code code="question" codeSystem="1.2.3"/>
+                          <value value="1" xsi:type="INT"/>
+                        </criterion>
+                      </precondition>
+                    </observation>
+                  </entryRelationship>
+                  <precondition typeCode="PRCN">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
+                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                      <code code="question" codeSystem="1.2.3"/>
+                      <value value="1" xsi:type="INT"/>
+                    </criterion>
+                  </precondition>
+                </observation>
+              </component>
+              <component>
+                <sequenceNumber value="3"/>
+                <observation classCode="OBS" moodCode="DEF">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+                  <id root="1.2.3" extension="2"/>
+                  <code code="q2" codeSystem="1.2.3">
+                    <originalText>Synthetic question</originalText>
+                  </code>
+                  <entryRelationship typeCode="SUBJ">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+                      <code code="48767-8" codeSystem="2.16.840.1.113883.6.1"/>
+                      <value xsi:type="ST">Synthetic text</value>
+                    </observation>
+                  </entryRelationship>
+                  <entryRelationship typeCode="REFR">
+                    <observationMedia classCode="OBS" moodCode="DEF">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.2"/>
+                      <value mediaType="image/png" representation="B64">AA==</value>
+                    </observationMedia>
+                  </entryRelationship>
+                  <precondition typeCode="PRCN">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
+                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                      <code code="question" codeSystem="1.2.3"/>
+                      <value value="1" xsi:type="INT"/>
+                    </criterion>
+                  </precondition>
+                </observation>
+              </component>
+              <component>
+                <sequenceNumber value="4"/>
+                <observation classCode="OBS" moodCode="DEF">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.10"/>
+                  <templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+                  <id root="1.2.3" extension="3"/>
+                  <code code="q3" codeSystem="1.2.3">
+                    <originalText>Synthetic question</originalText>
+                  </code>
+                  <referenceRange typeCode="REFV">
+                    <observationRange>
+                      <value denominator="10" xsi:type="GLIST_PQ">
+                        <head value="0"/>
+                        <increment value="1"/>
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                  <entryRelationship typeCode="SUBJ">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+                      <code code="48767-8" codeSystem="2.16.840.1.113883.6.1"/>
+                      <value xsi:type="ST">Synthetic text</value>
+                    </observation>
+                  </entryRelationship>
+                  <entryRelationship typeCode="REFR">
+                    <observationMedia classCode="OBS" moodCode="DEF">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.2"/>
+                      <value mediaType="image/png" representation="B64">AA==</value>
+                    </observationMedia>
+                  </entryRelationship>
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="DEF">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.6"/>
+                      <code code="74466-4"/>
+                      <value xsi:type="ST">Feedback</value>
+                      <precondition typeCode="PRCN">
+                        <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
+                        <criterion classCode="OBS" moodCode="EVN.CRT">
+                          <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                          <code code="question" codeSystem="1.2.3"/>
+                          <value value="1" xsi:type="INT"/>
+                        </criterion>
+                      </precondition>
+                    </observation>
+                  </entryRelationship>
+                  <precondition typeCode="PRCN">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
+                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                      <code code="question" codeSystem="1.2.3"/>
+                      <value value="1" xsi:type="INT"/>
+                    </criterion>
+                  </precondition>
+                </observation>
+              </component>
+              <component>
+                <sequenceNumber value="5"/>
+                <observation classCode="OBS" moodCode="DEF">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.11"/>
+                  <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                  <id root="1.2.3" extension="4"/>
+                  <code code="q4" codeSystem="1.2.3">
+                    <originalText>Synthetic question</originalText>
+                  </code>
+                  <value code="0" codeSystem="1.2.3" displayName="Option 0" xsi:type="CE"/>
+                  <value code="1" codeSystem="1.2.3" displayName="Option 1" xsi:type="CE"/>
+                  <entryRelationship typeCode="SUBJ">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+                      <code code="48767-8" codeSystem="2.16.840.1.113883.6.1"/>
+                      <value xsi:type="ST">Synthetic text</value>
+                    </observation>
+                  </entryRelationship>
+                  <entryRelationship typeCode="SUBJ">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                      <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="0"/>
+                        <high value="1"/>
+                      </value>
+                    </observation>
+                  </entryRelationship>
+                  <entryRelationship typeCode="REFR">
+                    <observationMedia classCode="OBS" moodCode="DEF">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.2"/>
+                      <value mediaType="image/png" representation="B64">AA==</value>
+                    </observationMedia>
+                  </entryRelationship>
+                  <entryRelationship typeCode="REFR">
+                    <observation classCode="OBS" moodCode="DEF">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.6"/>
+                      <code code="74466-4"/>
+                      <value xsi:type="ST">Feedback</value>
+                      <precondition typeCode="PRCN">
+                        <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
+                        <criterion classCode="OBS" moodCode="EVN.CRT">
+                          <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                          <code code="question" codeSystem="1.2.3"/>
+                          <value value="1" xsi:type="INT"/>
+                        </criterion>
+                      </precondition>
+                    </observation>
+                  </entryRelationship>
+                  <precondition typeCode="PRCN">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
+                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                      <code code="question" codeSystem="1.2.3"/>
+                      <value value="1" xsi:type="INT"/>
+                    </criterion>
+                  </precondition>
+                </observation>
+              </component>
+              <sdtc:precondition typeCode="PRCN">
+                <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                <allTrue classCode="GROUPER" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.13"/>
+                  <id root="1.2.3" extension="allTrue"/>
+                  <sdtc:precondition typeCode="PRCN">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                      <code code="question" codeSystem="1.2.3"/>
+                      <value value="1" xsi:type="INT"/>
+                    </criterion>
+                  </sdtc:precondition>
+                </allTrue>
+              </sdtc:precondition>
+              <sdtc:precondition typeCode="PRCN">
+                <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                <allFalse classCode="GROUPER" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.14"/>
+                  <id root="1.2.3" extension="allFalse"/>
+                  <sdtc:precondition typeCode="PRCN">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                      <code code="question" codeSystem="1.2.3"/>
+                      <value value="1" xsi:type="INT"/>
+                    </criterion>
+                  </sdtc:precondition>
+                </allFalse>
+              </sdtc:precondition>
+              <sdtc:precondition typeCode="PRCN">
+                <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                <atLeastOneTrue classCode="GROUPER" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+                  <id root="1.2.3" extension="atLeastOneTrue"/>
+                  <sdtc:precondition typeCode="PRCN">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                      <code code="question" codeSystem="1.2.3"/>
+                      <value value="1" xsi:type="INT"/>
+                    </criterion>
+                  </sdtc:precondition>
+                </atLeastOneTrue>
+              </sdtc:precondition>
+              <sdtc:precondition typeCode="PRCN">
+                <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                <atLeastOneFalse classCode="GROUPER" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.16"/>
+                  <id root="1.2.3" extension="atLeastOneFalse"/>
+                  <sdtc:precondition typeCode="PRCN">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                      <code code="question" codeSystem="1.2.3"/>
+                      <value value="1" xsi:type="INT"/>
+                    </criterion>
+                  </sdtc:precondition>
+                </atLeastOneFalse>
+              </sdtc:precondition>
+              <sdtc:precondition typeCode="PRCN">
+                <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                <onlyOneTrue classCode="GROUPER" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.17"/>
+                  <id root="1.2.3" extension="onlyOneTrue"/>
+                  <sdtc:precondition typeCode="PRCN">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                      <code code="question" codeSystem="1.2.3"/>
+                      <value value="1" xsi:type="INT"/>
+                    </criterion>
+                  </sdtc:precondition>
+                </onlyOneTrue>
+              </sdtc:precondition>
+              <sdtc:precondition typeCode="PRCN">
+                <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                <onlyOneFalse classCode="GROUPER" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.18"/>
+                  <id root="1.2.3" extension="onlyOneFalse"/>
+                  <sdtc:precondition typeCode="PRCN">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                      <code code="question" codeSystem="1.2.3"/>
+                      <value value="1" xsi:type="INT"/>
+                    </criterion>
+                  </sdtc:precondition>
+                </onlyOneFalse>
+              </sdtc:precondition>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

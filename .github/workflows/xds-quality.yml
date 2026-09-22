@@ -1,0 +1,59 @@
+name: XDS quality gates
+
+on:
+  workflow_call:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    name: Java 25 tests, formatting, PMD, CPD, coverage and Sonar
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v6.0.1
+        with:
+          distribution: temurin
+          java-version: '25'
+          cache: maven
+          cache-dependency-path: xds-service/pom.xml
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - name: Tests, Spotless, PMD, CPD and JaCoCo coverage gate
+        id: verify
+        run: mvn --batch-mode --no-transfer-progress -f xds-service/pom.xml -Plint clean verify
+      - name: Generate coverage report even when a gate fails
+        if: always()
+        run: mvn --batch-mode --no-transfer-progress -f xds-service/pom.xml jacoco:report
+      - name: Install pinned Sonar Java analyzers
+        id: install
+        run: python3 xds-service/scripts/install-sonar.py
+      - name: Sonar Java gate (zero findings and no failed files)
+        id: sonar
+        run: python3 xds-service/scripts/sonar-java.py --extension xds-service/target/sonar-analyzer --java-home "$JAVA_HOME"
+      - name: Upload quality reports
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: xds-quality-reports
+          retention-days: 14
+          path: |
+            xds-service/target/surefire-reports/
+            xds-service/target/failsafe-reports/
+            xds-service/target/site/jacoco/
+            xds-service/target/reports/
+            xds-service/target/pmd.xml
+            xds-service/target/cpd.xml
+      - name: Summarize quality gates
+        if: always()
+        env:
+          MAVEN_OUTCOME: ${{ steps.verify.outcome }}
+          INSTALL_OUTCOME: ${{ steps.install.outcome }}
+          SONAR_OUTCOME: ${{ steps.sonar.outcome }}
+        run: python3 xds-service/scripts/quality-summary.py >> "$GITHUB_STEP_SUMMARY"

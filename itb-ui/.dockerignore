@@ -1,0 +1,9 @@
+**
+!Dockerfile
+!.dockerignore
+!upstream.json
+!apply.mjs
+!cda-preview.ts
+!fetch-source.mjs
+!manifest.mjs
+!nginx.conf

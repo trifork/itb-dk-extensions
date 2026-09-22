@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<cases>
+  <case profile="phmr-v2.1.0" name="Require one declaration of template 2.16.840.1.113883.10.20.9 — negative" fails="PHMR-DK-2.1.0-INTERNATIONAL-TEMPLATE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:templateId[@root='2.16.840.1.113883.10.20.9']" />
+  </case>
+  <case profile="phmr-v2.1.0" name="Require one declaration of template 1.2.208.184.11.1 — negative" fails="PHMR-DK-2.1.0-DANISH-TEMPLATE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:templateId[@root='1.2.208.184.11.1']" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR requires one document code — negative" fails="PHMR-DK-2.1.0-DOCUMENT-CODE">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:code" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR document @code must be 53576-5 — negative" fails="PHMR-DK-2.1.0-CODE-code">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR document @codeSystem must be 2.16.840.1.113883.6.1 — negative" fails="PHMR-DK-2.1.0-CODE-codeSystem">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@codeSystem" value="INVALID" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR requires a monitoring service event — negative" fails="PHMR-DK-2.1.0-SERVICE-EVENT">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR service events must be monitoring programmes — negative" fails="PHMR-DK-2.1.0-SERVICE-MPROT">
+    <edit action="set" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent/@classCode" value="INVALID" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR needs the monitoring period — negative" fails="PHMR-DK-2.1.0-MONITORING-INTERVAL">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent/v3:effectiveTime" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR requires a structured body — negative" fails="PHMR-DK-2.1.0-STRUCTURED-BODY">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR document identifier must be a UUID version 4 — negative" fails="PHMR-DK-2.1.0-C6">
+    <edit action="set" select="/v3:ClinicalDocument/v3:id/@extension" value="INVALID" />
+  </case>
+  <case profile="phmr-v2.1.0" name="@root must be present and non-empty — negative" fails="PHMR-DK-2.1.0-ID-root">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id/@root" />
+  </case>
+  <case profile="phmr-v2.1.0" name="@assigningAuthorityName must be present and non-empty — negative" fails="PHMR-DK-2.1.0-ID-assigningAuthorityName">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:id/@assigningAuthorityName" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR document @codeSystemName must be LOINC — negative" fails="PHMR-DK-2.1.0-C12-13-codeSystemName">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@codeSystemName" value="INVALID" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR document @displayName must be Personal Health Monitoring Report — negative" fails="PHMR-DK-2.1.0-C12-13-displayName">
+    <edit action="set" select="/v3:ClinicalDocument/v3:code/@displayName" value="INVALID" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR title must be Hjemmemålinger — negative" fails="PHMR-DK-2.1.0-TITLE">
+    <edit action="text" select="/v3:ClinicalDocument/v3:title" value="Wrong title" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR @typeCode must be COMP — negative" fails="PHMR-DK-2.1.0-C78">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/@typeCode" value="INVALID" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR @classCode must be DOCBODY — negative" fails="PHMR-DK-2.1.0-C81">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/@classCode" value="INVALID" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR @moodCode must be EVN — negative" fails="PHMR-DK-2.1.0-C82">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/@moodCode" value="INVALID" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR @typeCode must be COMP — negative" fails="PHMR-DK-2.1.0-C85">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/@typeCode" value="INVALID" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR @classCode must be DOCSECT — negative" fails="PHMR-DK-2.1.0-C87">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section/@classCode" value="INVALID" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR @moodCode must be EVN — negative" fails="PHMR-DK-2.1.0-C88">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section/@moodCode" value="INVALID" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR component requires one section — negative" fails="PHMR-DK-2.1.0-C86">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR section requires one code — negative" fails="PHMR-DK-2.1.0-C94">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section/v3:code" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR section requires one title — negative" fails="PHMR-DK-2.1.0-C101">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section/v3:title" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR section requires one text — negative" fails="PHMR-DK-2.1.0-C104">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section/v3:text" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR section requires at least one entry — negative" fails="PHMR-DK-2.1.0-C105">
+    <edit action="remove" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section/v3:entry" />
+  </case>
+  <case profile="phmr-v2.1.0" name="PHMR section must identify Vital signs or Results in LOINC — negative" fails="PHMR-DK-2.1.0-SECTION-CODE">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section/v3:code/@code" value="INVALID" />
+  </case>
+  <case profile="phmr-v2.1.0" name="Complete synthetic fixture" />
+  <case profile="phmr-v2.1.0" name="Measurement absent from header index" fails="PHMR-DK-2.1.0-PROTOCOL-MEASUREMENT-INDEX">
+    <edit action="set" select="/v3:ClinicalDocument/v3:component/v3:structuredBody/v3:component/v3:section/v3:entry/v3:organizer/v3:component/v3:observation/v3:code/@code" value="NPU99999" />
+  </case>
+</cases>

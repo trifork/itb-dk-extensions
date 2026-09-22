@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="./Lantana-cda-web-DK.xsl"?> 
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="urn:hl7-org:v3 ./Schema/CDA_SDTC.xsd" xmlns="urn:hl7-org:v3"
+ classCode="DOCCLIN" moodCode="EVN">
+  <realmCode code="DK"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <!-- MedCom DK CDA APD profile OID -->
+  <templateId root="1.2.208.184.14.1" extension="2019-09-10"/>
+  <id extension="31af7e14-891c-48f0-a414-fd432289bf7d" root="1.2.208.184"
+    assigningAuthorityName="MedCom"/>
+  <!-- LOINC code for appointment date -->
+  <code code="39289-4" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" 
+    displayName="Dato og tidspunkt for møde mellem patient og sundhedsperson"/>
+  <!-- title = "Aftale for" + patient id -->
+  <title>Aftale for 2512489996</title>
+  <effectiveTime value="20191231100000+0100"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+  <languageCode code="da-DK"/>
+  
+  <!-- information about the patient-->
+  <recordTarget typeCode="RCT" contextControlCode="OP">
+    <patientRole classCode="PAT">
+      <id extension="2512489996" root="1.2.208.176.1.2" assigningAuthorityName="CPR"/>
+      <patient classCode="PSN" determinerCode="INSTANCE">
+        <name>
+          <given>Nancy</given>
+          <given>Ann</given>
+          <family>Berggren</family>
+        </name>
+        <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1"/>
+        <birthTime value="19481225000000+0000"/>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  
+  <!-- the health care organisation and person responsible for the appointment -->
+  <author typeCode="AUT" contextControlCode="OP">
+  <time value="20190816100000+0100"/>
+  <assignedAuthor classCode="ASSIGNED">
+    <id extension="378631000016009" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+      <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+         <name>
+           <given>Jens</given>
+           <family>Jensen</family>
+      </name>
+    </assignedPerson>
+    </assignedAuthor>
+  </author>
+
+
+  <!-- the organisation responsible for maintaing the CDA document -->
+  <custodian typeCode="CST">
+  <assignedCustodian classCode="ASSIGNED">
+      <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+        <id extension="378631000016009" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  
+  
+  <documentationOf typeCode="DOC">
+    <serviceEvent   classCode="MPROT" moodCode="EVN">
+      <templateId root="1.2.208.184.200.1.11" extension="2019-09-10"/>  
+      <effectiveTime> 
+        <low value="20191231090000+0100"/>
+        <high value="20191231120000+0100"/>
+      </effectiveTime>      
+    </serviceEvent>
+  </documentationOf>
+ 
+  <!--This documentationOf holds the version of the CDA-profile -->
+  <documentationOf>
+    <serviceEvent>
+      <!--This templateId tells that this serviceEvent holds the identification (apd) 
+        and version (v2.0) of the CDA profile -->
+      <templateId root="1.2.208.184.200.1.10" extension="2019-09-10"/>
+      <!--This id @extension equals the identification and version of the CDA profile-->
+      <id root="1.2.208.184.100.3" extension="apd-v2.0" assigningAuthorityName="MedCom"/>
+    </serviceEvent>
+  </documentationOf>
+  
+  <documentationOf typeCode="DOC">
+    <serviceEvent   classCode="MPROT" moodCode="EVN">
+      <templateId root="1.2.208.184.200.1.12" extension="2019-09-10"/>
+      <id   extension="39d615cd-5d62-4a54-9762-d33197c63aba"  root="1.2.208.184"
+        assigningAuthorityName="MedCom"/> 
+      <id  extension="e7532c08-729b-4413-83d7-bd2cdf147ef7" root="1.2.208.184"
+        assigningAuthorityName="MedCom"/> 
+      <code code="ALAL02" codeSystem="1.2.208.184.300.1"  codeSystemName="EpisodeOfCareLabels" displayName="Hjertesygdomme" />      
+    </serviceEvent>
+  </documentationOf>
+  
+
+  <!-- CDA Body -->
+  <component>
+    <structuredBody>
+      <component>
+        
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="1.2.208.184.14.11.1" extension="2019-09-10"/>
+          <code code="18776-5" codeSystem="2.16.840.1.113883.6.1" 
+            codeSystemName="LOINC" displayName="Plan of care note" />
+          <title>Aftale</title>
+          <text>
+            <paragraph>Aftale:</paragraph>
+            <table width="100%">
+              <tbody>
+                <tr>              
+                  <th>Aftale dato</th>
+                  <th>Vedrørende</th>
+                  <th>Mødested</th>
+                  <th>Kommentar</th>
+                </tr>
+                <tr>            
+                  <td>2019-12-31 09:00 - 2019-12-31 12:00. Tidspunktet er vejledende</td>
+                  <td>Hjemmehjælpsbesøg</td>
+                  <td>Borgers Hjemmeadresse</td>
+                  <td>Aftalen er en del af et repeterende mønster</td>
+                </tr>
+              </tbody>
+            </table>
+          </text> 
+          <entry>
+              
+            <encounter moodCode="APT" classCode="ENC" >
+              <templateId root="1.2.208.184.14.11.2" extension="2019-09-10" />
+              <id 
+                root="1.2.208.184" extension="9a6d1bac-17d3-4195-89a4-1121bc809b4d" 
+                assigningAuthorityName="MedCom"/>  
+              <code 
+                code="MunicipalityAppointment" codeSystem="1.2.208.184.100.1" 
+                codeSystemName="MedCom Message Codes">
+              </code>          
+              <statusCode code="active" />                    
+             
+              <effectiveTime>
+                <low value="20191231090000+0100"/>
+                <high value="20191231120000+0100"/>
+              </effectiveTime>              
+              <performer typeCode="PRF">
+                  <assignedEntity classCode="ASSIGNED">
+                  <id extension="378631000016009" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+                  <addr use="WP">
+                        <streetAddressLine>Vestergade 5</streetAddressLine>
+                        <postalCode>3000</postalCode>
+                        <city>Odense</city>
+                  </addr>
+                  <telecom value="tel:66113333-3" use="WP"/>
+                  <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+                    <name>Hjemmehjælp, afdeling City, Odense Kommune</name>
+                  </representedOrganization>
+                </assignedEntity> 
+              </performer>             
+              <participant typeCode="SBJ">
+                <participantRole classCode="SDLOC">
+                    <playingEntity classCode="PLC">
+                    <name>Borgers Hjemmeadresse</name>
+                  </playingEntity>                  
+                </participantRole>
+              </participant>            
+               
+              <entryRelationship typeCode="RSON">
+                  <observation classCode="OBS" moodCode="EVN">
+                    <code code="NI" displayName="Hjemmehjælp"/>
+                  </observation>
+              </entryRelationship>  
+              
+              <precondition>
+                <templateId root="1.2.208.184.14.11.5" extension="2019-09-10" />
+                <criterion>
+                  <code code="GuidedIntervalType" codeSystem="1.2.208.184.100.1"
+                    codeSystemName="MedCom Message Codes"/>
+                  <text>Tidspunktet er vejledende</text>
+                </criterion>           
+              </precondition>
+              
+              <precondition>
+                <templateId root="1.2.208.184.14.11.4" extension="2019-09-10" />
+                <criterion>
+                  <code code="RepeatingAppointmentType" codeSystem="1.2.208.184.100.1"
+                    codeSystemName="MedCom Message Codes"/>  
+                  <value xsi:type="II" root="1.2.208.184" extension="06b2b3bb-dac5-446f-aa19-ed5c46d8b0b7"  
+                    assigningAuthorityName="MedCom"  /> 
+                </criterion>           
+              </precondition>                       
+            </encounter>     
+            
+            
+          </entry>            
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

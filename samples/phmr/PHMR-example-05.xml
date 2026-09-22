@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!--
+ Title:        	Blood pressure and hear rate. Measured by the patient. Entered by the patient.
+ Filename:     	PHMR-example-05
+ PHMR-version:  2.1.0
+ 
+ Created by: 		Morten Bruun-Rasmussen and Søren Gammelgaard
+ Quality assured:	Rune Hvid Schøler Kristensen
+ 
+ $LastChangedDate: 2025-06-16 $
+  
+ ********************************************************
+ Disclaimer: This sample file contains representative data elements to represent an Personal Health Monitoring Record (PHMR). 
+ The file depicts a fictional character's health data. Any resemblance to a real person is coincidental.
+ The data in this sample file is not intended to represent real patients, people or clinical events. 
+ ********************************************************
+ -->
+
+<?xml-stylesheet type="text/xsl" href="https://svn.medcom.dk/svn/drafts/Standarder/HL7/CDA-Stylesheet/HL7_CDA_stylesheet.xsl"?>
+<ClinicalDocument classCode="DOCCLIN"
+                  moodCode="EVN"
+                  xmlns="urn:hl7-org:v3"
+                  xmlns:voc="urn:hl7-org:v3/voc"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="urn:hl7-org:v3 https://svn.medcom.dk/svn/drafts/Standarder/HL7/PRO/QRD/Schema/CDA_SDTC.xsd">
+	<realmCode code="DK"/>
+	<typeId extension="POCD_HD000040"
+	        root="2.16.840.1.113883.1.3"/>
+	<!-- Clinical Observation Template -->
+	<templateId root="2.16.840.1.113883.10.20.9"/>
+	<!-- Danish PHMR Template -->
+	<templateId root="1.2.208.184.11.1"/>
+	<!-- id for the organisation building the PHMR  -->
+	<id assigningAuthorityName="Some organisation"
+	    extension="f4eb33d9-c390-4a16-a1cf-601bb9e24afd"
+	    root="1.2.3.4.5"/>
+	<code code="53576-5"
+	      codeSystem="2.16.840.1.113883.6.1"
+	      codeSystemName="LOINC"
+	      displayName="Personal Health Monitoring Report"/>
+	<title>Hjemmemålinger</title>
+	<effectiveTime value="20250616120000+0200"/>
+	<confidentialityCode code="N"
+	                     codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<!-- Information about the patient -->
+	<recordTarget contextControlCode="OP"
+	              typeCode="RCT">
+		<patientRole classCode="PAT">
+			<id assigningAuthorityName="CPR"
+			    extension="0103660140"
+			    root="1.2.208.176.1.2"/>
+			<addr use="H">
+				<streetAddressLine>Boltonvej 27</streetAddressLine>
+				<postalCode>2300</postalCode>
+				<city>København S</city>
+			</addr>
+			<patient classCode="PSN"
+			         determinerCode="INSTANCE">
+				<name>
+					<given>Frederikke</given>
+					<family>Februar</family>
+				</name>
+				<administrativeGenderCode code="F"
+				                          codeSystem="2.16.840.1.113883.5.1"/>
+				<birthTime value="19660301000000+0000"/>
+			</patient>
+		</patientRole>
+	</recordTarget>
+	<!-- Information about the author and the responsible healthcare organization -->
+	<author contextControlCode="OP"
+	        typeCode="AUT">
+		<!-- Time when the author completes and approves the measurement results  -->
+		<time value="20250616110000+0200"/>
+		<assignedAuthor classCode="ASSIGNED">
+			<!-- id, as a Danish CPR-number for the patient. The patient is author -->
+			<id assigningAuthorityName="CPR"
+			    extension="0103660140"
+			    root="1.2.208.176.1.2"/>
+			<!-- The patient is self-reporting the measurements -->
+			<code code="SELF"
+			      codeSystem="2.16.840.1.113883.5.111"
+			      codeSystemName="HL7 Role code"
+			      displayName="Self"/>
+			<addr use="H">
+				<streetAddressLine>Boltonvej 27</streetAddressLine>
+				<postalCode>2300</postalCode>
+				<city>København S</city>
+			</addr>
+			<assignedPerson classCode="PSN"
+			                determinerCode="INSTANCE">
+				<name>
+					<given>Frederikke</given>
+					<family>Februar</family>
+				</name>
+			</assignedPerson>
+			<!-- The representedOrganization is the healthcare organization that has responsibility for the patient's treatment -->
+			<representedOrganization classCode="ORG"
+			                         determinerCode="INSTANCE">
+				<id assigningAuthorityName="SOR"
+				    extension="1118261000016001"
+				    root="1.2.208.176.1.1"/>
+				<name>Sundhedsteamet, Københavns Kommune</name>
+				<telecom use="WP"
+				         value="tel:12345678"/>
+				<telecom use="WP"
+				         value="mailto:sundhed@testkommune.dk"/>
+				<telecom use="WP"
+				         value="http://www.testkommune.dk"/>
+				<addr use="WP">
+					<streetAddressLine>Sundholmsvej 18</streetAddressLine>
+					<postalCode>2300</postalCode>
+					<city>København S</city>
+					<country>Danmark</country>
+				</addr>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+	<!-- Information about the organization technically responsible for the document  -->
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG"
+			                                  determinerCode="INSTANCE">
+				<id assigningAuthorityName="SOR"
+				    extension="21000016006"
+				    root="1.2.208.176.1.1"/>
+				<name>Københavns Kommune</name>
+				<telecom use="WP"
+				         value="tel:76810000"/>
+				<addr use="WP">
+					<streetAddressLine>Rådhuspladsen 1</streetAddressLine>
+					<postalCode>1550</postalCode>
+					<city>København V</city>
+					<country>Danmark</country>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<!-- Information about the organisation that have approved the document -->
+	<legalAuthenticator contextControlCode="OP"
+	                    typeCode="LA">
+		<time value="20250616113000+0200"/>
+		<signatureCode nullFlavor="NI"/>
+		<assignedEntity classCode="ASSIGNED">
+			<id assigningAuthorityName="SOR"
+			    extension="1118261000016001"
+			    root="1.2.208.176.1.1"/>
+			<addr use="WP">
+				<streetAddressLine>Sundholmsvej 18</streetAddressLine>
+				<postalCode>2300</postalCode>
+				<city>København S</city>
+				<country>Danmark</country>
+			</addr>
+			<telecom use="WP"
+			         value="tel:12345678"/>
+			<telecom use="WP"
+			         value="mailto:sundhed@testkommune.dk"/>
+			<telecom use="WP"
+			         value="http://www.testkommune.dk"/>
+			<assignedPerson classCode="PSN"
+			                determinerCode="INSTANCE">
+				<name>
+					<prefix>Læge</prefix>
+					<given>Birthe</given>
+					<family>Jensen</family>
+				</name>
+			</assignedPerson>
+		</assignedEntity>
+	</legalAuthenticator>
+	<!-- Date/time (start and stop) for the measurements -->
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="MPROT"
+		              moodCode="EVN">
+			<effectiveTime>
+				<low value="20250616090000+0200"/>
+				<high value="20250616100000+0200"/>
+			</effectiveTime>
+		</serviceEvent>
+	</documentationOf>
+	<!-- PHMR DK version -->
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="MPROT"
+		              moodCode="EVN">
+			<templateId root="1.2.208.184.10.1.10"/>
+			<id assigningAuthorityName="MedCom"
+			    extension="phmr-v2.1"
+			    root="1.2.208.184.100.10"/>
+		</serviceEvent>
+	</documentationOf>
+	<!-- Code(s) for the used measurement in the CDA-body -->
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="MPROT"
+		              moodCode="EVN">
+			<code code="DNK05472"
+			      codeSystem="1.2.208.176.2.1"
+			      displayName="Blodtryk systolisk; Arm"/>
+		</serviceEvent>
+	</documentationOf>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="MPROT"
+		              moodCode="EVN">
+			<code code="DNK05473"
+			      codeSystem="1.2.208.176.2.1"
+			      displayName="Blodtryk diastolisk; Arm"/>
+		</serviceEvent>
+	</documentationOf>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="MPROT"
+		              moodCode="EVN">
+			<code code="NPU21692"
+			      codeSystem="1.2.208.176.2.1"
+			      displayName="Puls; Hjerte"/>
+		</serviceEvent>
+	</documentationOf>
+	<!--
+	*******************************************************************************************************************************************************
+	CDA Body
+	*******************************************************************************************************************************************************
+	-->
+	<component contextConductionInd="true"
+	           typeCode="COMP">
+		<structuredBody classCode="DOCBODY"
+		                moodCode="EVN">
+			<component contextConductionInd="true"
+			           typeCode="COMP">
+				<section classCode="DOCSECT"
+				         moodCode="EVN">
+					<!-- HL7 PHMR Vital Signs Section template ID-->
+					<templateId root="2.16.840.1.113883.10.20.1.16"/>
+					<code code="8716-3"
+					      codeSystem="2.16.840.1.113883.6.1"
+					      codeSystemName="LOINC"
+					      displayName="Vital signs"/>
+					<title>Vital Signs</title>
+					<text>
+						<table width="100%">
+							<tbody>
+								<tr>
+									<th>Måling</th>
+									<th>Tidspunkt</th>
+									<th>Værdi</th>
+									<th>Målt af</th>
+									<th>Indtastet af</th>
+									<th>Status</th>
+								</tr>
+								<tr>
+									<th>Blodtryk systolisk; Arm</th>
+									<td>16-06-2025 09:00:00</td>
+									<td>140 mmHg </td>
+									<td>Borgeren</td>
+									<td>Borgeren</td>
+									<td>Completed</td>
+								</tr>
+								<tr>
+									<th>Blodtryk diastolisk; Arm</th>
+									<td>16-06-2025 09:00:00</td>
+									<td>90 mmHg </td>
+									<td>Borgeren</td>
+									<td>Borgeren</td>
+									<td>Completed</td>
+								</tr>
+								<tr>
+									<th>Puls; Hjerte</th>
+									<td>16-06-2025 09:00:00</td>
+									<td>70 1/min</td>
+									<td>Borgeren</td>
+									<td>Borgeren</td>
+									<td>Completed</td>
+								</tr>
+								<tr>
+									<th>Blodtryk systolisk; Arm</th>
+									<td>16-06-2025 10:00:00</td>
+									<td>135 mmHg </td>
+									<td>Borgeren</td>
+									<td>Borgeren</td>
+									<td>Completed</td>
+								</tr>
+								<tr>
+									<th>Blodtryk diastolisk; Arm</th>
+									<td>16-06-2025 10:00:00</td>
+									<td>85 mmHg </td>
+									<td>Borgeren</td>
+									<td>Borgeren</td>
+									<td>Completed</td>
+								</tr>
+								<tr>
+									<th>Puls; Hjerte</th>
+									<td>16-06-2025 10:00:00</td>
+									<td>65 1/min</td>
+									<td>Borgeren</td>
+									<td>Borgeren</td>
+									<td>Completed</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- Measurement(s) -->
+					<entry contextConductionInd="true"
+					       typeCode="COMP">
+						<organizer classCode="CLUSTER"
+						           moodCode="EVN">
+							<!-- PHMR Result Vital Signs Organizer template ID -->
+							<templateId root="2.16.840.1.113883.10.20.1.35"/>
+							<statusCode code="completed"/>
+							<effectiveTime value="20250616090000+0200"/>
+							<!-- First blood pressure measurements -->
+							<!-- Systolic -->
+							<component contextConductionInd="true"
+							           typeCode="COMP">
+								<observation classCode="OBS"
+								             moodCode="EVN">
+									<!-- HL7 PHMR Numeric Observation template ID -->
+									<templateId root="2.16.840.1.113883.10.20.9.8"/>
+									<!-- id for the healthcare organization and local id for the measurement -->
+									<id assigningAuthorityName="Some organization"
+									    extension="organization internal unique id"
+									    root="1.2.4.5"/>
+									<code code="DNK05472"
+									      codeSystem="1.2.208.176.2.1"
+									      codeSystemName="NPU terminologien"
+									      displayName="Blodtryk systolisk;Arm"/>
+									<value unit="mmHg"
+									       value="140"
+									       xsi:type="PQ"/>
+									<methodCode code="POT"
+									            codeSystem="1.2.208.184.100.1"
+									            codeSystemName="MedCom Message Codes"
+									            displayName="Målt af borger"/>
+									<methodCode code="TPD"
+									            codeSystem="1.2.208.184.100.1"
+									            codeSystemName="MedCom Message Codes"
+									            displayName="Indtastet af borger"/>
+								</observation>
+							</component>
+							<!-- Diastolic -->
+							<component contextConductionInd="true"
+							           typeCode="COMP">
+								<observation classCode="OBS"
+								             moodCode="EVN">
+									<!-- HL7 PHMR Numeric Observation template ID -->
+									<templateId root="2.16.840.1.113883.10.20.9.8"/>
+									<!-- id for the healthcare organization and local id for the measurement -->
+									<id assigningAuthorityName="Some organization"
+									    extension="organization internal unique id"
+									    root="1.2.4.5"/>
+									<code code="DNK05473"
+									      codeSystem="1.2.208.176.2.1"
+									      codeSystemName="NPU terminologien"
+									      displayName="Blodtryk diastolisk;Arm"/>
+									<value unit="mmHg"
+									       value="90"
+									       xsi:type="PQ"/>
+									<methodCode code="POT"
+									            codeSystem="1.2.208.184.100.1"
+									            codeSystemName="MedCom Message Codes"
+									            displayName="Målt af borger"/>
+									<methodCode code="TPD"
+									            codeSystem="1.2.208.184.100.1"
+									            codeSystemName="MedCom Message Codes"
+									            displayName="Indtastet af borger"/>
+								</observation>
+							</component>
+							<!-- Heart rate measurement -->
+							<component contextConductionInd="true"
+							           typeCode="COMP">
+								<observation classCode="OBS"
+								             moodCode="EVN">
+									<!-- HL7 PHMR Numeric Observation template ID -->
+									<templateId root="2.16.840.1.113883.10.20.9.8"/>
+									<!-- id for the healthcare organization and local id for the measurement -->
+									<id assigningAuthorityName="Some organization"
+									    extension="organization internal unique id"
+									    root="1.2.4.5"/>
+									<code code="NPU21692"
+									      codeSystem="1.2.208.176.2.1"
+									      codeSystemName="NPU terminologien"
+									      displayName="Puls; Hjerte"/>
+									<value unit="1/min"
+									       value="70"
+									       xsi:type="PQ"/>
+									<methodCode code="POT"
+									            codeSystem="1.2.208.184.100.1"
+									            codeSystemName="MedCom Message Codes"
+									            displayName="Målt af borger"/>
+									<methodCode code="TPD"
+									            codeSystem="1.2.208.184.100.1"
+									            codeSystemName="MedCom Message Codes"
+									            displayName="Indtastet af borger"/>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+					<entry contextConductionInd="true"
+					       typeCode="COMP">
+						<organizer classCode="CLUSTER"
+						           moodCode="EVN">
+							<!-- PHMR Result Vital Signs Organizer template ID -->
+							<templateId root="2.16.840.1.113883.10.20.1.35"/>
+							<statusCode code="completed"/>
+							<effectiveTime value="20250616100000+0200"/>
+							<!-- First blood pressure measurements -->
+							<!-- Systolic -->
+							<component contextConductionInd="true"
+							           typeCode="COMP">
+								<observation classCode="OBS"
+								             moodCode="EVN">
+									<!-- HL7 PHMR Numeric Observation template ID -->
+									<templateId root="2.16.840.1.113883.10.20.9.8"/>
+									<!-- id for the healthcare organization and local id for the measurement -->
+									<id assigningAuthorityName="Some organization"
+									    extension="organization internal unique id"
+									    root="1.2.4.5"/>
+									<code code="DNK05472"
+									      codeSystem="1.2.208.176.2.1"
+									      codeSystemName="NPU terminologien"
+									      displayName="Blodtryk systolisk;Arm"/>
+									<value unit="mmHg"
+									       value="135"
+									       xsi:type="PQ"/>
+									<methodCode code="POT"
+									            codeSystem="1.2.208.184.100.1"
+									            codeSystemName="MedCom Message Codes"
+									            displayName="Målt af borger"/>
+									<methodCode code="TPD"
+									            codeSystem="1.2.208.184.100.1"
+									            codeSystemName="MedCom Message Codes"
+									            displayName="Indtastet af borger"/>
+								</observation>
+							</component>
+							<!-- Diastolic -->
+							<component contextConductionInd="true"
+							           typeCode="COMP">
+								<observation classCode="OBS"
+								             moodCode="EVN">
+									<!-- HL7 PHMR Numeric Observation template ID -->
+									<templateId root="2.16.840.1.113883.10.20.9.8"/>
+									<!-- id for the healthcare organization and local id for the measurement -->
+									<id assigningAuthorityName="Some organization"
+									    extension="organization internal unique id"
+									    root="1.2.4.5"/>
+									<code code="DNK05473"
+									      codeSystem="1.2.208.176.2.1"
+									      codeSystemName="NPU terminologien"
+									      displayName="Blodtryk diastolisk;Arm"/>
+									<value unit="mmHg"
+									       value="85"
+									       xsi:type="PQ"/>
+									<methodCode code="POT"
+									            codeSystem="1.2.208.184.100.1"
+									            codeSystemName="MedCom Message Codes"
+									            displayName="Målt af borger"/>
+									<methodCode code="TPD"
+									            codeSystem="1.2.208.184.100.1"
+									            codeSystemName="MedCom Message Codes"
+									            displayName="Indtastet af borger"/>
+								</observation>
+							</component>
+							<!-- Heart rate measurement -->
+							<component contextConductionInd="true"
+							           typeCode="COMP">
+								<observation classCode="OBS"
+								             moodCode="EVN">
+									<!-- HL7 PHMR Numeric Observation template ID -->
+									<templateId root="2.16.840.1.113883.10.20.9.8"/>
+									<!-- id for the healthcare organization and local id for the measurement -->
+									<id assigningAuthorityName="Some organization"
+									    extension="organization internal unique id"
+									    root="1.2.4.5"/>
+									<code code="NPU21692"
+									      codeSystem="1.2.208.176.2.1"
+									      codeSystemName="NPU terminologien"
+									      displayName="Puls; Hjerte"/>
+									<value unit="1/min"
+									       value="65"
+									       xsi:type="PQ"/>
+									<methodCode code="POT"
+									            codeSystem="1.2.208.184.100.1"
+									            codeSystemName="MedCom Message Codes"
+									            displayName="Målt af borger"/>
+									<methodCode code="TPD"
+									            codeSystem="1.2.208.184.100.1"
+									            codeSystemName="MedCom Message Codes"
+									            displayName="Indtastet af borger"/>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+		</structuredBody>
+	</component>
+</ClinicalDocument>

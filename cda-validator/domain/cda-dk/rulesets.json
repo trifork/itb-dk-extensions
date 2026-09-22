@@ -1,0 +1,272 @@
+{
+  "description": "Published Danish CDA release targets. Version selection and declared document identity are checked; full conformance coverage remains work in progress. See docs/versioning.md.",
+  "rulesets": [
+    {
+      "id": "apd.v2.0.1",
+      "profile": "apd",
+      "profileVersion": "2.0.1",
+      "label": "APD-DK 2.0.1",
+      "status": "partial-coverage",
+      "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/APD-DK-v2.0.1.pdf",
+      "sourceSection": "DocumentationOf, CONF-DK-APD:9f67 (table and version example)",
+      "documentVersionMarker": "apd-v2.0.1",
+      "documentTemplateId": "1.2.208.184.14.1",
+      "schema": "xsd/CDA_SDTC.xsd",
+      "schematron": [
+        "sch/apd",
+        "sch/versions/apd-v2.0.1.sch",
+        "sch/versions/apd-v2.0.1-conformance.sch"
+      ],
+      "coverageNotes": [
+        "Existing XSD, Schematron and Gazelle checks are reused; their full correspondence to this release has not been audited.",
+        "The added release rule checks document identity and, where defined, the declared profile version.",
+        "Source-derived conformance checks are described in docs/cda-conformance.md; unimplemented and ambiguous clauses remain outside coverage."
+      ]
+    },
+    {
+      "id": "cpd.v2.0.0",
+      "profile": "cpd",
+      "profileVersion": "2.0.0",
+      "label": "CPD-DK 2.0.0",
+      "status": "partial-coverage",
+      "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/CPD/Dokumentation/CPD-DK.pdf",
+      "sourceSection": "Header constraint table, CONF H:16 (prose has a conflicting spelling)",
+      "documentVersionMarker": "cpd-v2.0.0",
+      "documentTemplateId": "1.2.208.184.15.1",
+      "schema": "xsd/CDA_SDTC.xsd",
+      "schematron": [
+        "sch/cpd",
+        "sch/versions/cpd-v2.0.0.sch",
+        "sch/versions/cpd-v2.0.0-conformance.sch"
+      ],
+      "coverageNotes": [
+        "Existing XSD, Schematron and Gazelle checks are reused; their full correspondence to this release has not been audited.",
+        "The added release rule checks document identity and, where defined, the declared profile version.",
+        "Source-derived conformance checks are described in docs/cda-conformance.md; unimplemented and ambiguous clauses remain outside coverage."
+      ]
+    },
+    {
+      "id": "pdc.v2.0",
+      "profile": "pdc",
+      "profileVersion": "2.0",
+      "label": "PDC-DK 2.0",
+      "status": "partial-coverage",
+      "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v2.0.pdf",
+      "sourceSection": "Header/version example; apply the published errata",
+      "documentVersionMarker": "pdc-v2.0",
+      "documentTemplateId": "1.2.208.184.16.1",
+      "schema": "xsd/CDA_SDTC.xsd",
+      "schematron": [
+        "sch/pdc",
+        "sch/versions/pdc-v2.0.sch",
+        "sch/versions/pdc-v2.0-conformance.sch"
+      ],
+      "coverageNotes": [
+        "Existing XSD, Schematron and Gazelle checks are reused; their full correspondence to this release has not been audited.",
+        "The added release rule checks document identity and, where defined, the declared profile version.",
+        "Source-derived conformance checks are described in docs/cda-conformance.md; unimplemented and ambiguous clauses remain outside coverage."
+      ],
+      "additionalSources": [
+        "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/Errata_PDC-DK-v.2.0_2022-10-07.pdf"
+      ]
+    },
+    {
+      "id": "pdc.v3.0.0",
+      "profile": "pdc",
+      "profileVersion": "3.0.0",
+      "label": "PDC-DK 3.0.0",
+      "status": "partial-coverage",
+      "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v3.0.0.pdf",
+      "sourceSection": "2.1 CONF-DK:524; 2.1.9 version example",
+      "documentVersionMarker": "pdc-v3.0",
+      "documentTemplateId": "1.2.208.184.16.1",
+      "schema": "xsd/CDA_SDTC.xsd",
+      "schematron": [
+        "sch/pdc",
+        "sch/versions/pdc-v3.0.0.sch",
+        "sch/versions/pdc-v3.0.0-conformance.sch"
+      ],
+      "coverageNotes": [
+        "Existing XSD, Schematron and Gazelle checks are reused; their full correspondence to this release has not been audited.",
+        "The added release rule checks document identity and, where defined, the declared profile version.",
+        "Source-derived conformance checks are described in docs/cda-conformance.md; unimplemented and ambiguous clauses remain outside coverage."
+      ]
+    },
+    {
+      "id": "phmr.v2.1.0",
+      "profile": "phmr",
+      "profileVersion": "2.1.0",
+      "label": "PHMR-DK 2.1.0",
+      "status": "partial-coverage",
+      "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Dokumentation/PHMR-DK-v2.1.0.pdf",
+      "sourceSection": "2.2.2 CONF-PHMR-DK-57 through 66",
+      "documentVersionMarker": "phmr-v2.1",
+      "documentTemplateId": "1.2.208.184.11.1",
+      "schema": "xsd/CDA_SDTC.xsd",
+      "schematron": [
+        "sch/phmr",
+        "sch/versions/phmr-v2.1.0.sch",
+        "sch/versions/phmr-v2.1.0-conformance.sch"
+      ],
+      "coverageNotes": [
+        "Existing XSD, Schematron and Gazelle checks are reused; their full correspondence to this release has not been audited.",
+        "The added release rule checks document identity and, where defined, the declared profile version.",
+        "Additional 2.1.0 checks cover the MCS/NPU measurement code systems, body section cardinality, international template and legalAuthenticator cardinality. Value-set membership, all header/body constraints and narrative semantics remain incomplete.",
+        "Source-derived conformance checks are described in docs/cda-conformance.md; unimplemented and ambiguous clauses remain outside coverage."
+      ]
+    },
+    {
+      "id": "phmr.v1.3",
+      "profile": "phmr",
+      "profileVersion": "1.3",
+      "label": "PHMR-DK 1.3",
+      "status": "partial-coverage",
+      "source": "https://svn.medcom.dk/svn/releases/!svn/bc/2690/Standarder/HL7/PHMR/Dokumentation/PHMR-DK-Profile-v1.3.pdf",
+      "additionalSources": [
+        "https://svn.medcom.dk/svn/releases/!svn/bc/2690/Standarder/HL7/PHMR/Eksempler/Ex1-Weight_measurement.xml"
+      ],
+      "sourceSection": "Guide updated 2 March 2020, methodCode table p. 79; published example for optional profile declaration",
+      "documentVersionMarker": "phmr-v1.3 (when present; not mandated by the guide)",
+      "documentTemplateId": "1.2.208.184.11.1",
+      "schema": "xsd/CDA_SDTC.xsd",
+      "schematron": [
+        "sch/phmr",
+        "sch/versions/phmr-v1.3.sch",
+        "sch/versions/phmr-v1.3-conformance.sch"
+      ],
+      "coverageNotes": [
+        "Existing XSD, Schematron and Gazelle checks are reused; their full correspondence to this release has not been audited.",
+        "Checks document template, rejects conflicting declared PHMR releases, and enforces two observation methodCode elements.",
+        "The published example declares phmr-v1.3, but the guide does not require a release declaration. Documents without one cannot be identified conclusively as 1.3; the target is chosen explicitly.",
+        "Source-derived conformance checks are described in docs/cda-conformance.md; unimplemented and ambiguous clauses remain outside coverage."
+      ]
+    },
+    {
+      "id": "qrd.v1.3.2",
+      "profile": "qrd",
+      "profileVersion": "1.3.2",
+      "label": "QRD-DK 1.3.2",
+      "status": "partial-coverage",
+      "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf",
+      "sourceSection": "2.2.11 DocumentationOf",
+      "documentVersionMarker": "qrd-v1.3",
+      "documentTemplateId": "1.2.208.184.13.1",
+      "schema": "xsd/CDA_SDTC.xsd",
+      "schematron": [
+        "sch/qrd",
+        "sch/versions/qrd-v1.3.2.sch",
+        "sch/versions/qrd-v1.3.2-conformance.sch"
+      ],
+      "coverageNotes": [
+        "Existing XSD, Schematron and Gazelle checks are reused; their full correspondence to this release has not been audited.",
+        "The added release rule checks document identity and, where defined, the declared profile version.",
+        "The qrd-v1.3 marker does not distinguish patch releases. 1.3.2 is the selected target; full validation of patch-specific constraints remains incomplete.",
+        "Additional source-traced header, section, entry, datatype, relationship and reference checks are in the conformance Schematron. See docs/pro-conformance.md for coverage and unresolved specification conflicts; external registries, rendering and paired-document semantics are not certified."
+      ]
+    },
+    {
+      "id": "qfdd.v1.2",
+      "profile": "qfdd",
+      "profileVersion": "1.2",
+      "label": "QFDD-DK 1.2",
+      "status": "partial-coverage",
+      "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf",
+      "sourceSection": "2.1, 3.1 and Appendix A; no distinct profile-release marker is specified",
+      "documentVersionMarker": null,
+      "documentTemplateId": "1.2.208.184.12.1",
+      "schema": "xsd/CDA_SDTC.xsd",
+      "schematron": [
+        "sch/qfdd",
+        "sch/versions/qfdd-v1.2.sch",
+        "sch/versions/qfdd-v1.2-conformance.sch"
+      ],
+      "coverageNotes": [
+        "Existing XSD, Schematron and Gazelle checks are reused; their full correspondence to this release has not been audited.",
+        "The added release rule checks document identity and, where defined, the declared profile version.",
+        "The 1.2 guide does not specify a distinct profile-version marker. The test selects 1.2 explicitly; template IDs cannot distinguish 1.1 from 1.2 by themselves.",
+        "Additional source-traced header, section, entry, datatype, relationship and reference checks are in the conformance Schematron. See docs/pro-conformance.md for coverage and unresolved specification conflicts; external registries, rendering and paired-document semantics are not certified."
+      ]
+    },
+    {
+      "id": "phad.v1.0.1",
+      "profile": "phad",
+      "profileVersion": "1.0.1",
+      "label": "PHAD-DK 1.0.1",
+      "status": "partial-coverage",
+      "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PHAD/Dokumentation/PHAD-DK.pdf",
+      "sourceSection": "2.1 header and profile version declaration; 3 document template",
+      "documentVersionMarker": null,
+      "documentTemplateId": "1.2.208.184.22.1",
+      "schema": "xsd/CDA_SDTC.xsd",
+      "schematron": [
+        "sch/versions/phad-v1.0.1.sch",
+        "sch/versions/phad-v1.0.1-conformance.sch"
+      ],
+      "coverageNotes": [
+        "Shared CDA XSD and generic Gazelle CDA checks, plus source-derived Schematron. No profile-specific Gazelle engine is claimed.",
+        "See docs/cda-conformance.md for coverage and specification ambiguities.",
+        "The 1.0.1 guide prints phad-v1.0 and phad-v1.0.0. Both are accepted; neither uniquely identifies release 1.0.1. The selected target determines the rules."
+      ]
+    },
+    {
+      "id": "pmr.v2.0.0",
+      "profile": "pmr",
+      "profileVersion": "2.0.0",
+      "label": "PMR-DK 2.0.0",
+      "status": "partial-coverage",
+      "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PMR/Dokumentation/PMR-DK-2.0.0.pdf",
+      "sourceSection": "2.1 header and profile version declaration; 3 document template",
+      "documentVersionMarker": "PMR-v2.0",
+      "documentTemplateId": "1.2.208.184.21.1",
+      "schema": "xsd/CDA_SDTC.xsd",
+      "schematron": [
+        "sch/versions/pmr-v2.0.0.sch",
+        "sch/versions/pmr-v2.0.0-conformance.sch"
+      ],
+      "coverageNotes": [
+        "Shared CDA XSD and generic Gazelle CDA checks, plus source-derived Schematron. No profile-specific Gazelle engine is claimed.",
+        "See docs/cda-conformance.md for coverage and specification ambiguities."
+      ]
+    },
+    {
+      "id": "prf.v3.0.0",
+      "profile": "prf",
+      "profileVersion": "3.0.0",
+      "label": "PRF-DK 3.0.0",
+      "status": "partial-coverage",
+      "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRF/Dokumentation/PRF-DK-v3.0.0.pdf",
+      "sourceSection": "2.1 header and profile version declaration; 3 document template",
+      "documentVersionMarker": "PRF-v3.0",
+      "documentTemplateId": "1.2.208.184.19.1",
+      "schema": "xsd/CDA_SDTC.xsd",
+      "schematron": [
+        "sch/versions/prf-v3.0.0.sch",
+        "sch/versions/prf-v3.0.0-conformance.sch"
+      ],
+      "coverageNotes": [
+        "Shared CDA XSD and generic Gazelle CDA checks, plus source-derived Schematron. No profile-specific Gazelle engine is claimed.",
+        "See docs/cda-conformance.md for coverage and specification ambiguities."
+      ]
+    },
+    {
+      "id": "pscr.v2.0.0",
+      "profile": "pscr",
+      "profileVersion": "2.0.0",
+      "label": "PSCR-DK 2.0.0",
+      "status": "partial-coverage",
+      "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Dokumentation/PSCR-DK-v2.0.0.pdf",
+      "sourceSection": "2.1 header and profile version declaration; 3 document template",
+      "documentVersionMarker": "PSCR-v2.0",
+      "documentTemplateId": "1.2.208.184.20.1",
+      "schema": "xsd/CDA_SDTC.xsd",
+      "schematron": [
+        "sch/versions/pscr-v2.0.0.sch",
+        "sch/versions/pscr-v2.0.0-conformance.sch"
+      ],
+      "coverageNotes": [
+        "Shared CDA XSD and generic Gazelle CDA checks, plus source-derived Schematron. No profile-specific Gazelle engine is claimed.",
+        "See docs/cda-conformance.md for coverage and specification ambiguities."
+      ]
+    }
+  ]
+}

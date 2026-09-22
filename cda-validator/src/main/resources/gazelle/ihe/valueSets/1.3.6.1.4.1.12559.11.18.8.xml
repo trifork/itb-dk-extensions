@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RetrieveValueSetResponse xmlns="urn:ihe:iti:svs:2008">
+    <ValueSet id="1.3.6.1.4.1.12559.11.18.8" version="20140925" displayName="Currency">
+        <ConceptList>
+            <Concept displayName="UAE Dirham" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="AED"/>
+            <Concept displayName="Afghani" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="AFN"/>
+            <Concept displayName="Lek" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="ALL"/>
+            <Concept displayName="Armenian Dram" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="AMD"/>
+            <Concept displayName="Netherlands Antillean Guilder" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="ANG"/>
+            <Concept displayName="Kwanza" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="AOA"/>
+            <Concept displayName="Argentine Peso" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="ARS"/>
+            <Concept displayName="Australian Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="AUD"/>
+            <Concept displayName="Aruban Florin" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="AWG"/>
+            <Concept displayName="Azerbaijanian Manat" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="AZN"/>
+            <Concept displayName="Convertible Mark" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BAM"/>
+            <Concept displayName="Barbados Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BBD"/>
+            <Concept displayName="Taka" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BDT"/>
+            <Concept displayName="Bulgarian Lev" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BGN"/>
+            <Concept displayName="Bahraini Dinar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BHD"/>
+            <Concept displayName="Burundi Franc" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BIF"/>
+            <Concept displayName="Bermudian Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BMD"/>
+            <Concept displayName="Brunei Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BND"/>
+            <Concept displayName="Boliviano" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BOB"/>
+            <Concept displayName="Mvdol" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BOV"/>
+            <Concept displayName="Brazilian Real" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BRL"/>
+            <Concept displayName="Bahamian Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BSD"/>
+            <Concept displayName="Ngultrum" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BTN"/>
+            <Concept displayName="Pula" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BWP"/>
+            <Concept displayName="Belarussian Ruble" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BYR"/>
+            <Concept displayName="Belize Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="BZD"/>
+            <Concept displayName="Canadian Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="CAD"/>
+            <Concept displayName="Congolese Franc" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="CDF"/>
+            <Concept displayName="WIR Euro" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="CHE"/>
+            <Concept displayName="Swiss Franc" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="CHF"/>
+            <Concept displayName="WIR Franc" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="CHW"/>
+            <Concept displayName="Unidad de Fomento" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="CLF"/>
+            <Concept displayName="Chilean Peso" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="CLP"/>
+            <Concept displayName="Yuan Renminbi" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="CNY"/>
+            <Concept displayName="Colombian Peso" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="COP"/>
+            <Concept displayName="Unidad de Valor Real" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="COU"/>
+            <Concept displayName="Costa Rican Colon" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="CRC"/>
+            <Concept displayName="Peso Convertible" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="CUC"/>
+            <Concept displayName="Cuban Peso" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="CUP"/>
+            <Concept displayName="Cabo Verde Escudo" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="CVE"/>
+            <Concept displayName="Czech Koruna" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="CZK"/>
+            <Concept displayName="Djibouti Franc" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="DJF"/>
+            <Concept displayName="Danish Krone" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="DKK"/>
+            <Concept displayName="Dominican Peso" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="DOP"/>
+            <Concept displayName="Algerian Dinar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="DZD"/>
+            <Concept displayName="Egyptian Pound" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="EGP"/>
+            <Concept displayName="Nakfa" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="ERN"/>
+            <Concept displayName="Ethiopian Birr" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="ETB"/>
+            <Concept displayName="Euro" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="EUR"/>
+            <Concept displayName="Fiji Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="FJD"/>
+            <Concept displayName="Falkland Islands Pound" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="FKP"/>
+            <Concept displayName="Pound Sterling" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="GBP"/>
+            <Concept displayName="Lari" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="GEL"/>
+            <Concept displayName="Ghana Cedi" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="GHS"/>
+            <Concept displayName="Gibraltar Pound" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="GIP"/>
+            <Concept displayName="Dalasi" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="GMD"/>
+            <Concept displayName="Guinea Franc" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="GNF"/>
+            <Concept displayName="Quetzal" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="GTQ"/>
+            <Concept displayName="Guyana Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="GYD"/>
+            <Concept displayName="Hong Kong Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="HKD"/>
+            <Concept displayName="Lempira" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="HNL"/>
+            <Concept displayName="Croatian Kuna" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="HRK"/>
+            <Concept displayName="Gourde" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="HTG"/>
+            <Concept displayName="Forint" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="HUF"/>
+            <Concept displayName="Rupiah" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="IDR"/>
+            <Concept displayName="New Israeli Sheqel" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="ILS"/>
+            <Concept displayName="Indian Rupee" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="INR"/>
+            <Concept displayName="Iraqi Dinar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="IQD"/>
+            <Concept displayName="Iranian Rial" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="IRR"/>
+            <Concept displayName="Iceland Krona" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="ISK"/>
+            <Concept displayName="Jamaican Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="JMD"/>
+            <Concept displayName="Jordanian Dinar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="JOD"/>
+            <Concept displayName="Yen" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="JPY"/>
+            <Concept displayName="Kenyan Shilling" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="KES"/>
+            <Concept displayName="Som" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="KGS"/>
+            <Concept displayName="Riel" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="KHR"/>
+            <Concept displayName="Comoro Franc" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="KMF"/>
+            <Concept displayName="North Korean Won" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="KPW"/>
+            <Concept displayName="Won" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="KRW"/>
+            <Concept displayName="Kuwaiti Dinar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="KWD"/>
+            <Concept displayName="Cayman Islands Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="KYD"/>
+            <Concept displayName="Tenge" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="KZT"/>
+            <Concept displayName="Kip" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="LAK"/>
+            <Concept displayName="Lebanese Pound" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="LBP"/>
+            <Concept displayName="Sri Lanka Rupee" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="LKR"/>
+            <Concept displayName="Liberian Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="LRD"/>
+            <Concept displayName="Loti" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="LSL"/>
+            <Concept displayName="Lithuanian Litas" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="LTL"/>
+            <Concept displayName="Libyan Dinar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="LYD"/>
+            <Concept displayName="Moroccan Dirham" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="MAD"/>
+            <Concept displayName="Moldovan Leu" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="MDL"/>
+            <Concept displayName="Malagasy Ariary" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="MGA"/>
+            <Concept displayName="Denar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="MKD"/>
+            <Concept displayName="Kyat" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="MMK"/>
+            <Concept displayName="Tugrik" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="MNT"/>
+            <Concept displayName="Pataca" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="MOP"/>
+            <Concept displayName="Ouguiya" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="MRO"/>
+            <Concept displayName="Mauritius Rupee" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="MUR"/>
+            <Concept displayName="Rufiyaa" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="MVR"/>
+            <Concept displayName="Kwacha" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="MWK"/>
+            <Concept displayName="Mexican Peso" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="MXN"/>
+            <Concept displayName="Mexican Unidad de Inversion (UDI)" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="MXV"/>
+            <Concept displayName="Malaysian Ringgit" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="MYR"/>
+            <Concept displayName="Mozambique Metical" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="MZN"/>
+            <Concept displayName="Namibia Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="NAD"/>
+            <Concept displayName="Naira" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="NGN"/>
+            <Concept displayName="Cordoba Oro" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="NIO"/>
+            <Concept displayName="Norwegian Krone" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="NOK"/>
+            <Concept displayName="Nepalese Rupee" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="NPR"/>
+            <Concept displayName="New Zealand Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="NZD"/>
+            <Concept displayName="Rial Omani" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="OMR"/>
+            <Concept displayName="Balboa" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="PAB"/>
+            <Concept displayName="Nuevo Sol" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="PEN"/>
+            <Concept displayName="Kina" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="PGK"/>
+            <Concept displayName="Philippine Peso" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="PHP"/>
+            <Concept displayName="Pakistan Rupee" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="PKR"/>
+            <Concept displayName="Zloty" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="PLN"/>
+            <Concept displayName="Guarani" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="PYG"/>
+            <Concept displayName="Qatari Rial" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="QAR"/>
+            <Concept displayName="New Romanian Leu" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="RON"/>
+            <Concept displayName="Serbian Dinar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="RSD"/>
+            <Concept displayName="Russian Ruble" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="RUB"/>
+            <Concept displayName="Rwanda Franc" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="RWF"/>
+            <Concept displayName="Saudi Riyal" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="SAR"/>
+            <Concept displayName="Solomon Islands Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="SBD"/>
+            <Concept displayName="Seychelles Rupee" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="SCR"/>
+            <Concept displayName="Sudanese Pound" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="SDG"/>
+            <Concept displayName="Swedish Krona" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="SEK"/>
+            <Concept displayName="Singapore Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="SGD"/>
+            <Concept displayName="Saint Helena Pound" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="SHP"/>
+            <Concept displayName="Leone" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="SLL"/>
+            <Concept displayName="Somali Shilling" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="SOS"/>
+            <Concept displayName="Surinam Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="SRD"/>
+            <Concept displayName="South Sudanese Pound" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="SSP"/>
+            <Concept displayName="Dobra" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="STD"/>
+            <Concept displayName="El Salvador Colon" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="SVC"/>
+            <Concept displayName="Syrian Pound" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="SYP"/>
+            <Concept displayName="Lilangeni" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="SZL"/>
+            <Concept displayName="Baht" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="THB"/>
+            <Concept displayName="Somoni" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="TJS"/>
+            <Concept displayName="Turkmenistan New Manat" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="TMT"/>
+            <Concept displayName="Tunisian Dinar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="TND"/>
+            <Concept displayName="Pa’anga" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="TOP"/>
+            <Concept displayName="Turkish Lira" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="TRY"/>
+            <Concept displayName="Trinidad and Tobago Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="TTD"/>
+            <Concept displayName="New Taiwan Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="TWD"/>
+            <Concept displayName="Tanzanian Shilling" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="TZS"/>
+            <Concept displayName="Hryvnia" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="UAH"/>
+            <Concept displayName="Uganda Shilling" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="UGX"/>
+            <Concept displayName="US Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="USD"/>
+            <Concept displayName="US Dollar (Next day)" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="USN"/>
+            <Concept displayName="Uruguay Peso en Unidades Indexadas (URUIURUI)" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="UYI"/>
+            <Concept displayName="Peso Uruguayo" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="UYU"/>
+            <Concept displayName="Uzbekistan Sum" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="UZS"/>
+            <Concept displayName="Bolivar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="VEF"/>
+            <Concept displayName="Dong" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="VND"/>
+            <Concept displayName="Vatu" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="VUV"/>
+            <Concept displayName="Tala" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="WST"/>
+            <Concept displayName="CFA Franc BEAC" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XAF"/>
+            <Concept displayName="Silver" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XAG"/>
+            <Concept displayName="Gold" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XAU"/>
+            <Concept displayName="Bond Markets Unit European Composite Unit (EURCO)" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XBA"/>
+            <Concept displayName="Bond Markets Unit European Monetary Unit (E.M.U.-6)" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XBB"/>
+            <Concept displayName="Bond Markets Unit European Unit of Account 9 (E.U.A.-9)" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XBC"/>
+            <Concept displayName="Bond Markets Unit European Unit of Account 17 (E.U.A.-17)" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XBD"/>
+            <Concept displayName="East Caribbean Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XCD"/>
+            <Concept displayName="SDR (Special Drawing Right)" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XDR"/>
+            <Concept displayName="CFA Franc BCEAO" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XOF"/>
+            <Concept displayName="Palladium" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XPD"/>
+            <Concept displayName="CFP Franc" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XPF"/>
+            <Concept displayName="Platinum" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XPT"/>
+            <Concept displayName="Sucre" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XSU"/>
+            <Concept displayName="Codes specifically reserved for testing purposes" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XTS"/>
+            <Concept displayName="ADB Unit of Account" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XUA"/>
+            <Concept displayName="The codes assigned for transactions where no currency is involved" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="XXX"/>
+            <Concept displayName="Yemeni Rial" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="YER"/>
+            <Concept displayName="Rand" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="ZAR"/>
+            <Concept displayName="Zambian Kwacha" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="ZMW"/>
+            <Concept displayName="Zimbabwe Dollar" codeSystem="1.3.6.1.4.1.12559.11.18.8" code="ZWL"/>
+        </ConceptList>
+    </ValueSet>
+</RetrieveValueSetResponse>

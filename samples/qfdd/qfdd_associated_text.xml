@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<?xml-stylesheet type="text/xsl" href="http://svn.medcom.dk/svn/drafts/Standarder/HL7/CDA-Stylesheet/HL7_CDA/HL7_CDA_stylesheet.xsl"?>
+<!-- CDA Form Definition Document for Questionnaires/Surveys -->	
+<ClinicalDocument classCode="DOCCLIN" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Schema/CDA_SDTC.xsd">
+	<realmCode code="DK"/>
+	<typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+	<!-- MedCom Danish QFDD-profile OID -->
+	<templateId root="1.2.208.184.12.1"/>
+	<!-- The next templateId, conforms the Questinnaere Form Definition Document-level -->
+	<templateId root="1.2.208.184.12.1.1.1"/>
+	<id assigningAuthorityName="MedCom" extension="2c8f8bd7-059d-410d-aed9-afe37ce389ed" root="1.2.208.184"/>
+	<!-- This code is LOINC -->
+	<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Form Definition Document"/>
+	<title>Example: Associatedtext question embedded in a Multiple Choice Question[Header title]</title>
+	<sdtc:statusCode code="NEW"/>
+	<effectiveTime value="20210305091011+0100"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<versionNumber value="1"/>
+	<recordTarget>
+		<patientRole nullFlavor="NI">
+			<id nullFlavor="NI"/>
+		</patientRole>
+	</recordTarget>
+
+	<author contextControlCode="OP" typeCode="AUT">
+		<time value="20210305091011+0100"/>
+		<assignedAuthor classCode="ASSIGNED">
+			<!-- This is the identfication of the organization, we don't use the personal level identification-->
+			<id assigningAuthorityName="SOR" extension="310541000016007" root="1.2.208.176.1.1"/>
+			<addr use="WP">
+				<streetAddressLine>Neurologisk afdeling C</streetAddressLine>
+				<streetAddressLine>Valdemarsgade 53</streetAddressLine>
+				<postalCode>5700</postalCode>
+				<city>Svendborg</city>
+				<country>Danmark</country>
+			</addr>
+			<telecom use="WP" value="tel:65112233"/>
+			<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+				<name>
+					<prefix>Læge</prefix>
+					<given>Anders</given>
+					<family>Andersen</family>
+				</name>
+			</assignedPerson>
+			<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<name>Odense Universitetshospital - Svendborg Sygehus</name>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id assigningAuthorityName="SOR" extension="310541000016007" root="1.2.208.176.1.1"/>
+				<name>Odense Universitetshospital - Svendborg Sygehus</name>
+				<telecom use="WP" value="tel:65112233"/>
+				<addr use="WP">
+					<streetAddressLine>Neurologisk afdeling C</streetAddressLine>
+					<streetAddressLine>Valdemarsgade 53</streetAddressLine>
+					<postalCode>5700</postalCode>
+					<city>Svendborg</city>
+					<country>Danmark</country>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+
+	<component contextConductionInd="true" typeCode="COMP">
+		<structuredBody classCode="DOCBODY" moodCode="EVN">
+			<!-- This component defines the introduction to the questionnaere. It has no Entry element, hence it is information only -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--templateID for Section-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Indledning [Title, Information Only Section]</title>
+					<text>
+						<paragraph><content styleCode="Bold">OM DETTE EKSEMPEL:</content><br/>Dette eksempel viser brug af <content styleCode="Underline">Text Question Pattern Observation</content>,som <content styleCode="Underline">Associatedtext question</content> med <content styleCode="Underline">precondition</content>, indlejret i et <content styleCode="Underline">Multiple Choice Question Pattern Observation</content>.<br/>Nedenfor er indledende tekst til efterfølgende sektion(er) med spørgsmål.</paragraph>
+						<paragraph>OM DETTE SKEMA:<br/>Vi bruger blandt andet dine svar til at vurdere, om du har brug for en konsultation.<br/>Besvar nedenstående med dine egen ord.</paragraph>
+					</text>
+					<languageCode code="da-DK"/>
+				</section>
+			</component>
+
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Text Question Pattern Observation, Associeret Text Question [Title, Questionnaire Form Definition Section]</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">Hvem har udfyldt dette spørgeskema?</th>
+								</tr>
+								<tr>
+									<td>Jeg har selv udfyldt skemaet</td>
+									<td styleCode="Italics"><!--A311_1--></td>
+								</tr>
+								<tr>
+									<td>Jeg har fået hjælp til at udfylde skemaet</td>
+									<td styleCode="Italics"><!-- A311_2 --></td>
+								</tr>
+								<tr>
+									<td>En anden har udfyldt skemaet for mig</td>
+									<td styleCode="Italics"><!-- A311_3 --></td>
+								</tr>
+								<tr>
+									<td/>
+									<th>
+										Skriv hvem der har udfyldt skemaet (fx ægtefælle eller sygeplejerske):
+									</th>
+								</tr>
+								<tr>
+									<td/>
+									<!-- Narrative point reference is the "Q312-code" below -->
+									<td styleCode="Italics"><!-- Q312 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<languageCode code="da-DK"/>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob1" root="Some-root-OID"/>
+							<code code="T95" codeSystem="1.2.208.176.7.2.3" codeSystemName="Sundhedsdatastyrelsen"/>
+							<statusCode code="complete"/>
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob1" root="Some-root-OID"/>
+									<code code="Q311" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Some-Display-Name">
+										<originalText>Hvem har udfyldt dette spørgeskema?</originalText>
+									</code>
+									<languageCode code="da-DK"/>
+									<value code="A311_1" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Jeg har selv udfyldt skemaet" xsi:type="CE"/>
+									<value code="A311_2" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Jeg har fået hjælp til at udfylde skemaet" xsi:type="CE"/>
+									<value code="A311_3" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="En anden har udfyldt skemaet for mig" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<!-- Associeret tekstspørgsmål -->
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="DEF">
+											<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+											<id assigningAuthorityName="Sundhedsdatastyrelsen" extension="174" root="1.2.208.176.1.5.1"/>
+											<code code="Q312" codeSystem="1.2.208.176.1.5.1" codeSystemName="Sundhedsdatastyrelsen">
+												<originalText>Skriv hvem der har udfyldt skemaet (fx ægtefælle eller sygeplejerske):</originalText>
+											</code>
+											<languageCode code="da-DK"/>
+											<!-- Visning af spørgsmål-174 betinges her. -->
+											<precondition typeCode="PRCN">
+												<templateId root="2.16.840.1.113883.10.20.32.4.4"/>
+												<criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q311" codeSystem="1.2.208.176.1.5.1" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A311_3" xsi:type="CE"/>
+												</criterion>
+											</precondition>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+
+			<!-- This component defines the final comments of the questionnaere. It has no Entry element, hence it is information only -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--templateID for Section-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Afslutning [Title, Information Only Section]</title>
+					<text>
+						<paragraph>Mange tak for din deltagelse.<br/>Med venlig hilsen</paragraph>
+					</text>
+					<languageCode code="da-DK"/>
+				</section>
+			</component>
+
+			<!-- This component defines the Copyright section -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--templateID for the Copyright Section-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.2"/>
+					<title>Copyright titel skrives her [Title, Copy Right Section]</title>
+					<text>
+						<paragraph>Copyright tekst skrives her</paragraph>
+					</text>
+					<languageCode code="en-US"/>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<observation classCode="OBS" moodCode="EVN">
+							<!--templateID for the Copyright Pattern Observation-->
+							<templateId root="2.16.840.1.113883.10.20.32.4.21"/>
+							<code code="COPY" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Code for Copyright"/>
+							<value xsi:type="ST">Copyright tekst skrives her</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+
+		</structuredBody>
+	</component>
+</ClinicalDocument>

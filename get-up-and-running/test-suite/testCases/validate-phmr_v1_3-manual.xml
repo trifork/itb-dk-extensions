@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase id="validate-phmr_v1_3-manual" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/">
+    <metadata>
+        <gitb:name>Validate PHMR-DK 1.3</gitb:name>
+        <gitb:version>1.0.0</gitb:version>
+        <gitb:description>Validate a document against PHMR-DK 1.3. Target: phmr.v1.3. Current conformance coverage is partial; see the validation report and ruleset catalogue.</gitb:description>
+        <gitb:update updateMetadata="true" resetTestHistory="false"/>
+    </metadata>
+    <actors>
+        <gitb:actor id="cda-producer" name="CDA producer" role="SUT"/>
+    </actors>
+    <steps>
+        <interact id="submission" with="cda-producer" title="PHMR-DK 1.3"
+                  desc="Upload a document for PHMR-DK 1.3" inputTitle="Upload PHMR-DK 1.3 document" timeout="604800000">
+            <instruct desc="Instructions" level="INFO" forceDisplay="true">"This session tests PHMR-DK 1.3. Upload your CDA XML document. The next step checks it against the configured rules for this release."</instruct>
+            <request name="document" fileName="documentFileName" desc="PHMR-DK 1.3 document"
+                     inputType="UPLOAD" accept="application/xml,text/xml" required="true"/>
+        </interact>
+        <verify id="validateSubmission" actor="cda-producer" handler="$DOMAIN{cdaValidator}" desc="Validate PHMR-DK 1.3">
+            <input name="xml">$submission{document}</input>
+            <input name="type">"phmr.v1.3"</input>
+        </verify>
+        <interact id="finalize" with="cda-producer" title="Review PHMR-DK 1.3 result"
+                  desc="Review and finalize PHMR-DK 1.3 validation" inputTitle="PHMR-DK 1.3 validation completed" timeout="604800000">
+            <instruct desc="Instructions" level="INFO" forceDisplay="true" report="true">"Review the PHMR-DK 1.3 validation report and its coverage information, then finalize the session."</instruct>
+        </interact>
+    </steps>
+    <output>
+        <success><default>"The document passed the implemented checks for PHMR-DK 1.3. See the report for coverage details."</default></success>
+        <failure><default>"Validation against PHMR-DK 1.3 failed. Open the validation report for details."</default></failure>
+    </output>
+</testcase>

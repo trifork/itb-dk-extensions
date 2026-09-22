@@ -1,0 +1,133 @@
+name: Publish validated service images
+
+on:
+  workflow_run:
+    workflows: ['Validate CDA Docker integration', 'XDS integration']
+    types: [completed]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    # workflow_run can request registry credentials even after a preceding fork PR.
+    # Only successful pushes from this repository's default branch may publish.
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_repository.full_name == github.repository &&
+      github.event.workflow_run.head_branch == github.event.repository.default_branch
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        include: ${{ fromJSON(github.event.workflow_run.name == 'XDS integration' && '[{"project":"xds-service","suffix":"xds"},{"project":"itb-ui","suffix":"itb-ui"}]' || '[{"project":"cda-validator","suffix":"cda"}]') }}
+    timeout-minutes: 45
+    permissions:
+      contents: read
+      id-token: write
+    concurrency:
+      group: publish-dockerhub-${{ github.event.workflow_run.name }}-${{ matrix.suffix }}
+      cancel-in-progress: false
+    env:
+      REVISION: ${{ github.event.workflow_run.head_sha }}
+      REPOSITORY: ${{ github.repository }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+      PROJECT: ${{ matrix.project }}
+      IMAGE_SUFFIX: ${{ matrix.suffix }}
+      DOCKERHUB_NAMESPACE: trifork
+      OIDC_CONNECTION_ID: ${{ vars.DOCKERHUB_OIDC_CONNECTIONID }}
+    steps:
+      - name: Check out the exact commit that passed CI
+        uses: actions/checkout@v7.0.1
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+      - uses: docker/setup-qemu-action@v4
+      - uses: docker/setup-buildx-action@v4
+
+      - name: Select the validated project
+        env:
+          SOURCE_WORKFLOW: ${{ github.event.workflow_run.name }}
+        run: |
+          if [[ -z "$OIDC_CONNECTION_ID" ]]; then
+            printf 'Set the DOCKERHUB_OIDC_CONNECTIONID Actions variable.\n' >&2
+            exit 1
+          fi
+          test "$(git rev-parse HEAD)" = "$REVISION"
+          case "$SOURCE_WORKFLOW/$PROJECT" in
+            'Validate CDA Docker integration/cda-validator'|'XDS integration/xds-service'|'XDS integration/itb-ui') ;;
+            *) printf 'Unsupported source workflow/project\n' >&2; exit 1 ;;
+          esac
+          if [[ ! "$DOCKERHUB_NAMESPACE" =~ ^[a-z0-9][a-z0-9_-]*$ ]]; then
+            printf 'Invalid Docker Hub namespace.\n' >&2
+            exit 1
+          fi
+          repository=$(printf '%s' "${REPOSITORY##*/}" | tr '[:upper:]' '[:lower:]')
+          printf 'IMAGE=docker.io/%s/%s-%s\n' "$DOCKERHUB_NAMESPACE" "$repository" "$IMAGE_SUFFIX" >> "$GITHUB_ENV"
+
+      - name: Select pinned build inputs
+        id: inputs
+        run: |
+          if [[ "$PROJECT" == cda-validator ]]; then
+            base_image=$(python3 scripts/validator_image.py --print-image)
+            printf 'build_args=CDA_VALIDATOR_IMAGE=%s\n' "$base_image" >> "$GITHUB_OUTPUT"
+          elif [[ "$PROJECT" == itb-ui ]]; then
+            ui_image=$(docker compose config --format json | jq -er '.services["gitb-ui"].image')
+            printf 'build_args=ITB_UI_IMAGE=%s\n' "$ui_image" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Authenticate to Docker Hub
+        uses: docker/login-action@v4.5.0
+        with:
+          username: trifork
+        env:
+          DOCKERHUB_OIDC_CONNECTIONID: ${{ vars.DOCKERHUB_OIDC_CONNECTIONID }}
+          # The default five-minute token is shorter than these multi-platform builds.
+          DOCKERHUB_OIDC_EXPIREIN: 3600
+
+      - name: Build, verify and publish the commit image
+        id: build
+        uses: docker/build-push-action@v7
+        with:
+          # Path context uses the exact validated checkout, not the workflow_run ref.
+          context: ${{ matrix.project }}
+          target: runtime
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ env.IMAGE }}:sha-${{ env.REVISION }}
+          labels: |
+            org.opencontainers.image.source=https://github.com/${{ github.repository }}
+            org.opencontainers.image.revision=${{ env.REVISION }}
+          build-args: ${{ steps.inputs.outputs.build_args }}
+          provenance: mode=max
+          sbom: true
+
+      - name: Update latest for the current default-branch commit
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          IMAGE_DIGEST: ${{ steps.build.outputs.digest }}
+        run: |
+          current_head=$(gh api "repos/$REPOSITORY/commits/$DEFAULT_BRANCH" --jq .sha)
+          if [[ "$current_head" == "$REVISION" ]]; then
+            docker buildx imagetools create --tag "$IMAGE:latest" "$IMAGE@$IMAGE_DIGEST"
+            printf 'Updated `%s:latest`.\n\n' "$IMAGE" >> "$GITHUB_STEP_SUMMARY"
+          else
+            printf 'The default branch has advanced; its `latest` tag was left unchanged.\n\n' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Summarize published image
+        env:
+          VALIDATION_URL: ${{ github.event.workflow_run.html_url }}
+          IMAGE_DIGEST: ${{ steps.build.outputs.digest }}
+        run: |
+          {
+            printf '## Published container\n\n'
+            printf -- '- Image: `%s:sha-%s`\n' "$IMAGE" "$REVISION"
+            printf -- '- Digest: `%s@%s`\n' "$IMAGE" "$IMAGE_DIGEST"
+            printf -- '- Platforms: `linux/amd64`, `linux/arm64`\n'
+            printf -- '- [Successful validation run](%s)\n' "$VALIDATION_URL"
+          } >> "$GITHUB_STEP_SUMMARY"

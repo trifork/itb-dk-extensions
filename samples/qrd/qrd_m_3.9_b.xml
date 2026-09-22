@@ -1,0 +1,685 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<?xml-stylesheet type="text/xsl" href="http://svn.medcom.dk/svn/drafts/Standarder/HL7/CDA-Stylesheet/HL7_CDA/HL7_CDA_stylesheet.xsl"?>
+<!--
+Datotid             Ver Bld Sign
+=================== === === ============================================
+20220831165300+0200 1   001 MedCom, SGA
+20221205131100+0100 1   002 MedCom, SGA
+20221221124000+0100 1   003 MedCom, SGA
+- Fejl i flere templateID's
+- Fejl rettet ved moodCode
+20230104081000+0100 1   004 MedCom, SGA
+- Fejl rettet i spørgsmål "TC3.9_05_02" hvor der var ikke var overensstemmelser mellem narrativ og struktureret data i tidsintervaller
+20230119213000+0100 1   005 MedCom, SGA
+- Svar ændret forud for test
+- Fejl rettet i spørgsmål "TC3.9_02" hvor der var dobbelt svarangivelse hvor farven for både Herre og Kvinde piktogram var med   
+........................................................................
+-->
+<ClinicalDocument classCode="DOCCLIN" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 http://svn.medcom.dk/svn/releases/Standarder/HL7/Generic/Schema/CDA_SDTC.xsd">
+	<realmCode code="DK"/>
+	<typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+	<templateId root="1.2.208.184.13.1"/>
+	<templateId root="1.2.208.184.13.1.1.1"/>
+	<id assigningAuthorityName="MedCom" extension="8c8986c0-a284-484d-b3e8-fbf9fbc8836d" root="1.2.208.184"/>
+	<code code="74465-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Questionnaire Response Document"/>
+	<title>MedCom test eksempel, teststep 3.9</title>
+	<effectiveTime value="20230119204300+0100"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<versionNumber value="1"/>
+	<recordTarget contextControlCode="OP" typeCode="RCT">
+		<patientRole classCode="PAT">
+			<id assigningAuthorityName="CPR" extension="2910534703" root="1.2.208.176.1.2"/>
+			<addr use="H">
+				<streetAddressLine>Ved landet 3</streetAddressLine>
+				<postalCode>2900</postalCode>
+				<city>Hellerup</city>
+				<country>DK</country>
+			</addr>
+			<patient classCode="PSN">
+				<name>
+					<given>Tjørn</given>
+					<given>Egon</given>
+					<family>Simonsen</family>
+				</name>
+				<administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.5.1"/>
+				<birthTime value="19531029000000+0000"/>
+			</patient>
+		</patientRole>
+	</recordTarget>
+	<author contextControlCode="OP" typeCode="AUT">
+		<time value="20230119204300+0100"/>
+		<assignedAuthor classCode="ASSIGNED">
+			<id assigningAuthorityName="CPR" extension="2910534703" root="1.2.208.176.1.2"/>
+			<addr use="H">
+				<streetAddressLine>Ved landet 3</streetAddressLine>
+				<postalCode>2900</postalCode>
+				<city>Hellerup</city>
+				<country>DK</country>
+			</addr>
+			<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+				<name>
+					<given>Tjørn</given>
+					<given>Egon</given>
+					<family>Simonsen</family>
+				</name>
+			</assignedPerson>
+			<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id assigningAuthorityName="SOR" extension="310541000016007" root="1.2.208.176.1.1"/>
+				<name>Odense Universitetshospital - Svendborg Sygehus</name>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id assigningAuthorityName="SOR" extension="310541000016007" root="1.2.208.176.1.1"/>
+				<name>Odense Universitetshospital - Svendborg Sygehus</name>
+				<telecom use="WP" value="tel:65112233"/>
+				<addr use="WP">
+					<streetAddressLine>Neurologisk afdeling C</streetAddressLine>
+					<streetAddressLine>Valdemarsgade 53</streetAddressLine>
+					<postalCode>5700</postalCode>
+					<city>Svendborg</city>
+					<country>Danmark</country>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<documentationOf>
+		<serviceEvent>
+			<templateId root="1.2.208.184.10.1.10"/>
+			<id assigningAuthorityName="MedCom" extension="qrd-v1.3" root="1.2.208.184.100.10"/>
+		</serviceEvent>
+	</documentationOf>
+	<documentationOf typeCode="DOC">
+		<serviceEvent classCode="MPROT" moodCode="EVN">
+			<effectiveTime>
+				<low  value="20230119101500+0100"/>
+				<high value="20230119103000+0100"/>
+			</effectiveTime>
+		</serviceEvent>
+	</documentationOf>
+	<component contextConductionInd="true" typeCode="COMP">
+		<structuredBody classCode="DOCBODY" moodCode="EVN">
+			<!-- INFO-SEKTION
+			==========================================
+			Test af anvendelse af info-sektion
+			SPØRGSMÅLSEKTION_TC3.9_01
+			========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Multiple Choice Question</title>
+					<text>
+						<paragraph>Følgende spørgsmål anvendes til afgrænsning i efterfølgende spørgsmål</paragraph>
+					</text>
+				</section>
+			</component>
+			<!-- SPØRGSMÅLSEKTION_TC3.9_01-->
+			<!-- ========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.33.2.1"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>1. Multiple Choice Question</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">Hvad er dit køn?</th>
+								</tr>
+								<tr>
+									<td>Mand</td>
+									<td styleCode="Bold Underline"><!-- TC02_01_01 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Kvinde</td>
+									<td styleCode="Bold Underline">X<!-- TC02_01_02 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Andet</td>
+									<td styleCode="Bold Underline"><!-- TC02_01_03 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<languageCode code="da-DK"/>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+							<id assigningAuthorityName="MedCom" extension="TC3.9_01" root="1.2.208.184.12.2"/>
+							<code code="TC3.9_01" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+							<statusCode code="COMPLETED"/>
+							<!-- SPØRGSMÅL_3.9_01
+							*********************************************************
+							* Hvad er dit køn?
+							********************************************************* -->
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.5"/>
+									<id assigningAuthorityName="MedCom" extension="3.9_01" root="1.2.208.184.12.2"/>
+									<code code="TC3.9_01" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Hvad er dit køn?</originalText>
+									</code>
+									<value code="TC3.9_01_02" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" displayName="Kvinde" xsi:type="CE"/>
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="29df8640-de5a-49c2-a118-3673b402221a" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+			<!-- INFO-SEKTION
+			==========================================
+			Test af anvendelse af info-sektion
+			SPØRGSMÅLSEKTION_TC3.9_02
+			========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Precondition</title>
+					<text>
+						<paragraph>Dette spørgsmål indeholder spørgsmål der er underlagt betingelser.</paragraph>
+						<list listType="unordered">
+							<item>Ved svaret <content styleCode="Bold">"Mand"</content> i spørgsmål om køn, vises mand-piktogram med tilkørende tekstuel spørgsmål</item>
+							<item>Ved svaret <content styleCode="Bold">"Kvinde"</content> i spørgsmål om køn, vises kvinde-piktogram med tilkørende tekstuel spørgsmål</item>
+							<item>Ved svaret <content styleCode="Bold">"Andet"</content> i spørgsmål om køn, vises intet piktogram og intet tilkørende tekstuel spørgsmål</item>
+						</list>
+					</text>
+				</section>
+			</component>
+			<!-- SPØRGSMÅLSEKTION_TC3.9_02-->
+			<!-- ========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>3. Tekstuel besvarelse</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="80%"/>
+								<col width="20%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">Hvilken farve har herre piktogrammet?</th>
+								</tr>
+								<tr>
+									<td align="left" styleCode="Bold Underline"><!-- TC3.9_02_01 --></td>
+									<td align="center">
+										<renderMultiMedia referencedObject="TC3.9_02_01.png"/>
+									</td>
+								</tr>
+								<tr>
+									<th align="left" colspan="2">Hvilken farve har kvinde piktogrammet?</th>
+								</tr>
+								<tr>
+									<td align="left" styleCode="Bold Underline">Farven på kvinde piktogrammet er helt sort<!-- TC3.9_02_02 --></td>
+									<td align="center">
+										<renderMultiMedia referencedObject="TC3.9_02_02.png"/>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+							<id assigningAuthorityName="MedCom" extension="TC3.9_02" root="1.2.208.184.12.2"/>
+							<code code="TC3.9_02" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+							<statusCode code="COMPLETED"/>
+							<!-- SPØRGSMÅL_3.9_02
+							*********************************************************
+							* Spørgsmål underlagt betingelse
+							********************************************************* -->
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.6"/>
+									<id assigningAuthorityName="MedCom" extension="TC3.9_02_01" root="1.2.208.184.12.2"/>
+									<code code="TC3.9_02_01" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Hvilken farve har herre piktogrammet?</originalText>
+									</code>
+									<entryRelationship contextConductionInd="true" typeCode="REFR">
+										<observationMedia ID="TC3.9_02_01.png" classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.33.4.2"/>
+											<value mediaType="image/png" representation="B64">
+												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
+											</value>
+										</observationMedia>
+									</entryRelationship>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="29df8640-de5a-49c2-a118-3673b402221a" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.6"/>
+									<id assigningAuthorityName="MedCom" extension="3.9_02_02" root="1.2.208.184.12.2"/>
+									<code code="TC3.9_02_02" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Hvilken farve har kvinde piktogrammet?</originalText>
+									</code>
+									<value xsi:type="ST">Farven på kvinde piktogrammet er helt sort</value>
+									<entryRelationship contextConductionInd="true" typeCode="REFR">
+										<observationMedia ID="TC3.9_02_02.png" classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.33.4.2"/>
+											<value mediaType="image/png" representation="B64">
+												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
+											</value>
+										</observationMedia>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+			<!-- SPØRGSMÅLSEKTION_TC3.9_03-->
+			<!-- ========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Numerisk spørgsmål med hjælpetekst</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<td>Angiv et heltal mellem 0 og 50</td>
+									<td>
+										<content styleCode="Bold Underline">2<!-- TC01_01 --></content>
+									</td>
+								</tr>
+								<tr>
+									<td align="right" colspan="2">
+										<content styleCode="Italics">Vælg gerne et højt tal</content>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry contextConductionInd="true" typeCode="COMP">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+							<id assigningAuthorityName="MedCom" extension="TC3.9_03" root="1.2.208.184.12.2"/>
+							<code code="TC3.9_03" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+							<statusCode code="COMPLETED"/>
+							<!-- SPØRGSMÅL_TC3.9_03
+							*********************************************************
+							* Angiv et heltal mellem 0 og 50
+							* Med hjælpetekst
+							********************************************************* -->
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.4"/>
+									<id assigningAuthorityName="MedCom" extension="01_01" root="1.2.208.184.12.2"/>
+									<code code="TC01_01" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Angiv et heltal mellem 0 og 50</originalText>
+									</code>
+									<value value="2" xsi:type="INT"/>
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Annotation Comment"/>
+											<value language="da-DK" xsi:type="ST">Vælg gerne et højt tal</value>
+										</observation>
+									</entryRelationship>
+									<referenceRange typeCode="REFV">
+										<templateId root="2.16.840.1.113883.10.20.33.4.3"/>
+										<observationRange>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="50"/>
+											</value>
+										</observationRange>
+									</referenceRange>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+			<!-- INFO-SEKTION
+			==========================================
+			Test af anvendelse af info-sektion
+			SPØRGSMÅLSEKTION_TC04
+			========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Associated Text Response</title>
+					<text>
+						<paragraph>Nedenfor er et multiple choice spørgsmål</paragraph>
+						<paragraph>Ved svaret:</paragraph>
+						<list listType="unordered">
+							<item><caption styleCode="Bold">Nej: </caption>Kommentar vises ikke</item>
+							<item><caption styleCode="Bold">Ja: </caption>Kommentar vises</item>
+						</list>
+					</text>
+				</section>
+			</component>
+			<!-- SPØRGSMÅLSEKTION_TC04-->
+			<!-- ========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.33.2.1"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Multiple Choice med tekstuel svar</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">Har du en kommentar?</th>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td styleCode="Italics"><!-- TC3.9_04_01 --></td>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td styleCode="Italics">X<!-- TC3.9_04_02 --></td>
+								</tr>
+								<tr>
+									<td/>
+									<th>
+										Kommentar
+									</th>
+								</tr>
+								<tr>
+									<td/>
+									<!-- Narrative point reference is the "TC3.9_04_Associeret" below -->
+									<td styleCode="Italics">Denne kommentar er en test - kan du se den?!!<!-- TC3.9_04_Associeret --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<languageCode code="da-DK"/>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+							<id assigningAuthorityName="MedCom" extension="TC3.9_04" root="1.2.208.184.12.2"/>
+							<code code="TC3.9_04" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+							<statusCode code="complete"/>
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.5"/>
+									<id assigningAuthorityName="MedCom" extension="3.9_04" root="1.2.208.184.12.2"/>
+									<code code="TC3.9_04" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Har du en kommentar?</originalText>
+									</code>
+									<languageCode code="da-DK"/>
+									<value code="TC3.9_04_02" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" displayName="Ja" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<!-- Associeret tekstspørgsmål -->
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.33.4.6"/>
+											<id assigningAuthorityName="MedCom" extension="TC3.9_04_Associeret" root="1.2.208.184.12.2"/>
+											<code code="TC3.9_04_Associeret" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+												<originalText>Kommentar</originalText>
+											</code>
+											<value xsi:type="ST">Denne kommentar er en test - kan du se den?</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+			<!-- INFO-SEKTION
+			==========================================
+			Test af anvendelse af info-sektion
+			SPØRGSMÅLSEKTION_TC3.9_05
+			========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Multiple sections</title>
+					<text>
+						<paragraph>Nedenfor er tre spørgsmål i samme sektion.<br/>Indhold skal ivses i en samlet kontekst.</paragraph>
+					</text>
+				</section>
+			</component>
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.33.2.1"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Flere spørgsmål i samme sektion</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">Vælg én dag?</th>
+								</tr>
+								<tr>
+									<td>Mandag</td>
+									<td styleCode="Italics"><!-- TC3.9_05_01_01 --></td>
+								</tr>
+								<tr>
+									<td>Tirsdag</td>
+									<td styleCode="Italics"><!-- TC3.9_05_01_02 --></td>
+								</tr>
+								<tr>
+									<td>Onsdag</td>
+									<td styleCode="Italics"><!-- TC3.9_05_01_03 --></td>
+								</tr>
+								<tr>
+									<td>Torsdag</td>
+									<td styleCode="Italics"><!-- TC3.9_05_01_04 --></td>
+								</tr>
+								<tr>
+									<td>Fredag</td>
+									<td styleCode="Italics"><!-- TC3.9_05_01_05 --></td>
+								</tr>
+								<tr>
+									<td>Lørdag</td>
+									<td styleCode="Italics"><!-- TC3.9_05_01_06 --></td>
+								</tr>
+								<tr>
+									<td>Søndag</td>
+									<td styleCode="Italics">X<!-- TC3.9_05_01_07 --></td>
+								</tr>
+							</tbody>
+						</table>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">Vælg minimum 2 tidsintervaller</th>
+								</tr>
+								<tr>
+									<td>Klokken 10:00 til 12:00</td>
+									<td styleCode="Italics"><!-- TC3.9_05_02_01 --></td>
+								</tr>
+								<tr>
+									<td>Klokken 12:00 til 14:00</td>
+									<td styleCode="Italics">X<!-- TC3.9_05_02_02 --></td>
+								</tr>
+								<tr>
+									<td>Klokken 14:00 til 16:00</td>
+									<td styleCode="Italics">X<!-- TC3.9_05_02_03 --></td>
+								</tr>
+							</tbody>
+						</table>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">Vælg højest ét træningsudstyr</th>
+								</tr>
+								<tr>
+									<td>Cykel</td>
+									<td styleCode="Italics"><!-- TC3.9_05_03_01 --></td>
+								</tr>
+								<tr>
+									<td>Løbebånd</td>
+									<td styleCode="Italics"><!-- TC3.9_05_03_02 --></td>
+								</tr>
+								<tr>
+									<td>Romaskine</td>
+									<td styleCode="Italics">X<!-- TC3.9_05_03_03 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+							<id assigningAuthorityName="MedCom" extension="TC3.9_05" root="1.2.208.184.12.2"/>
+							<code code="TC3.9_05" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+							<statusCode code="complete"/>
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.5"/>
+									<id assigningAuthorityName="MedCom" extension="3.9_05_01" root="1.2.208.184.12.2"/>
+									<code code="TC3.9_05_01" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Vælg én dag?</originalText>
+									</code>
+									<value code="TC3.9_05_01_07" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" displayName="Søndag" xsi:type="CE"/>
+									<entryRelationship contextConductionInd="true" typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.5"/>
+									<id assigningAuthorityName="MedCom" extension="3.9_05_02" root="1.2.208.184.12.2"/>
+									<code code="TC3.9_05_02" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Vælg minimum 2 tidsintervaller</originalText>
+									</code>
+									<value code="TC3.9_05_02_02" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" displayName="Klokken 12:00 til 14:00" xsi:type="CE"/>
+									<value code="TC3.9_05_02_03" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" displayName="Klokken 14:00 til 16:00" xsi:type="CE"/>
+									<entryRelationship contextConductionInd="true" typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="2"/>
+												<high value="3"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.33.4.5"/>
+									<id assigningAuthorityName="MedCom" extension="3.9_05_03" root="1.2.208.184.12.2"/>
+									<code code="TC3.9_05_03" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+										<originalText>Vælg højest ét træningsudstyr</originalText>
+									</code>
+									<value code="TC3.9_05_03_03" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" displayName="Romaskine" xsi:type="CE"/>
+									<entryRelationship contextConductionInd="true" typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+			<!-- COPY-RIGHT-SECTION
+			==========================================
+			Test af anvendelse af copyright-sektion
+			========================================== -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.2"/>
+					<title>Copyright information</title>
+					<text>
+						<paragraph>Copyright informationer for benyttede spørgsmål fremgår her</paragraph>
+					</text>
+					<languageCode code="da-DK"/>
+					<entry contextConductionInd="true" typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.21"/>
+							<code code="COPY" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Code for Copyright"/>
+							<value xsi:type="ST">Copyright informationer for benyttede spørgsmål fremgår her</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+		</structuredBody>
+	</component>
+</ClinicalDocument>

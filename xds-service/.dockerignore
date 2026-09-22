@@ -1,0 +1,12 @@
+**
+!Dockerfile
+!pom.xml
+!LICENSE
+!src/
+!src/**
+!scripts/
+!scripts/sonar/
+!scripts/sonar/*.java
+# Runtime configuration and credentials are mounted by Compose, never built in.
+application.properties
+local/

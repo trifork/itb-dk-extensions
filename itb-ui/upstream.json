@@ -1,0 +1,6 @@
+{
+  "version": "1.29.5",
+  "commit": "8a51efd3a229338c0033eab5081ab9d88320e42e",
+  "archiveSha256": "5f1ebe5eae9c369d97a94354fed4099d79c5fcc0d3cd24b207e34e4cb274fda3",
+  "image": "isaitb/gitb-ui:1.29.5@sha256:393632ae6ab83aa6cd30e6d11d51ac6ab75fcaeccf11c94a58d1a8de6b0b56ae"
+}
