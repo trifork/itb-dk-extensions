@@ -75,6 +75,14 @@ Startup adds `get-up-and-running/compose.https.yml`, which runs pinned Caddy wit
 [automatic certificate issuance, renewal and HTTP redirects](https://caddyserver.com/docs/automatic-https).
 Certificates and ACME account state persist in the `caddy-data` volume.
 
+Caddy sets `Strict-Transport-Security: max-age=31536000` on both HTTPS endpoints,
+replacing any upstream HSTS header. The one-year policy covers all ports of the
+configured hostname; it does not add `includeSubDomains` or request preloading.
+Caddy preserves each application's Content-Security-Policy: ITB's policy passes
+through the gateway with same-origin preview frames allowed, while the validator
+retains its per-response script nonces and the renderer's restrictive preview policy.
+Avoid adding a shared CSP at the edge that blocks those application requirements.
+
 | Public HTTPS address | Internal Compose destination |
 | --- | --- |
 | `https://itb.trifork.dev/` (ITB, WebSockets and `/cda-preview`) | `gitb-ui-gateway:9000`, which routes preview to `cda-validator:8080` |
@@ -95,6 +103,16 @@ after DNS is ready. Keep the HTTPS overlay included when running Compose manuall
 docker compose --env-file get-up-and-running/.itb.env \
   -f docker-compose.yml -f get-up-and-running/compose.published.yml \
   -f get-up-and-running/compose.https.yml logs --tail=100 https-proxy
+```
+
+After updating the mounted `Caddyfile`, reload only Caddy to apply header changes
+without restarting ITB sessions (no image rebuild is needed):
+
+```bash
+ITB_HTTPS_HOST=itb.trifork.dev docker compose --env-file get-up-and-running/.itb.env \
+  -f docker-compose.yml -f get-up-and-running/compose.published.yml \
+  -f get-up-and-running/compose.https.yml exec -T https-proxy \
+  caddy reload --config /etc/caddy/Caddyfile --adapter caddyfile
 ```
 
 The gateway's HTTPS forwarding fix must be included in the published UI image;

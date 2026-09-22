@@ -1,5 +1,8 @@
 # Caddy obtains and renews the hostname's certificate and redirects HTTP to HTTPS.
 https://{$ITB_HTTPS_HOST} {
+	# Apply one consistent policy after upstream headers, including on errors.
+	header >Strict-Transport-Security "max-age=31536000"
+	# Preserve the applications' CSP, including validator script nonces.
 	@callbacks path /itbsrv /itbsrv/*
 	handle @callbacks {
 		reverse_proxy gitb-srv:8080
@@ -13,5 +16,6 @@ https://{$ITB_HTTPS_HOST} {
 # The standalone validator has its own assets/API paths. Preserve its root and
 # use a separate HTTPS port, with the same hostname and certificate.
 https://{$ITB_HTTPS_HOST}:8443 {
+	header >Strict-Transport-Security "max-age=31536000"
 	reverse_proxy cda-validator:8080
 }

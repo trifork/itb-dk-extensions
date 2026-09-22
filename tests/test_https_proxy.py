@@ -38,7 +38,10 @@ class Handler(BaseHTTPRequestHandler):
                                headers=dict(self.headers), body=body)).encode()
         self.send_response(200)
         self.send_header('Content-Type', 'application/json')
-        self.send_header('Content-Security-Policy', "connect-src 'self'; frame-ancestors 'none';")
+        policy = "script-src 'self' 'nonce-fixture'" if os.environ['SERVICE'] == 'cda-validator' else "connect-src 'self'; frame-ancestors 'none';"
+        self.send_header('Content-Security-Policy', policy)
+        # Conflicting upstream policy must be replaced by the edge policy.
+        self.send_header('Strict-Transport-Security', 'max-age=0')
         self.send_header('Content-Length', str(len(data)))
         self.end_headers()
         self.wfile.write(data)
@@ -117,6 +120,7 @@ def main():
                 data = response.read()
                 connection.close()
                 assert response.status == 200, (path, response.status, data)
+                assert response.getheader('Strict-Transport-Security') == 'max-age=31536000'
                 return response, json.loads(data)
 
             connection = http.client.HTTPConnection('localhost', port(proxy, 80), timeout=10)
@@ -124,6 +128,7 @@ def main():
             response = connection.getresponse()
             assert response.status == 308
             assert response.getheader('Location') == 'https://localhost/app?test=1'
+            assert response.getheader('Strict-Transport-Security') is None
             response.read()
             connection.close()
 
@@ -138,7 +143,8 @@ def main():
                 assert data['service'] == 'gitb-srv' and data['path'] == path
             _, data = request(ui_port, '/itbsrv-other')
             assert data['service'] == 'gitb-ui'
-            _, data = request(cda_port, '/api/cda-dk/validation?wsdl')
+            response, data = request(cda_port, '/api/cda-dk/validation?wsdl')
+            assert response.getheader('Content-Security-Policy') == "script-src 'self' 'nonce-fixture'"
             assert data['service'] == 'cda-validator'
             assert data['headers']['X-Forwarded-Proto'] == 'https'
             assert data['headers']['Host'] == f'localhost:{cda_port}'
@@ -149,6 +155,14 @@ def main():
             assert data['service'] == 'cda-validator' and data['path'] == '/cda-dk/preview'
             assert data['body'] == '<ClinicalDocument/>'
             assert not ({key.lower() for key in secret_headers} & {key.lower() for key in data['headers']})
+
+            connection = http.client.HTTPSConnection('localhost', ui_port, context=context, timeout=10)
+            connection.request('GET', '/cda-preview')
+            response = connection.getresponse()
+            assert response.status == 403
+            assert response.getheader('Strict-Transport-Security') == 'max-age=31536000'
+            response.read()
+            connection.close()
 
             with context.wrap_socket(socket.create_connection(('localhost', ui_port), timeout=10),
                                      server_hostname='localhost') as websocket:
@@ -164,7 +178,7 @@ def main():
                         if line == b'\r\n':
                             break
                     assert stream.read(4) == b'\x81\x02ok'
-            print('PASS: Compose isolation, trusted TLS, HTTP redirect, all backend routes, forwarded HTTPS, CSP, preview sanitisation and WebSocket frame.')
+            print('PASS: Compose isolation, trusted TLS, HTTP redirect, HSTS on HTTPS including errors, all backend routes, forwarded HTTPS, CSP/nonce preservation, preview sanitisation and WebSocket frame.')
         except Exception:
             for container in containers:
                 print(subprocess.run(['docker', 'logs', '--tail', '20', container], capture_output=True, text=True).stderr)
