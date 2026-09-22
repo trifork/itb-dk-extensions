@@ -58,6 +58,49 @@ configuration; startup adds `get-up-and-running/compose.published.yml` by defaul
 | REST specification | [OpenAPI](http://localhost:8091/v3/api-docs) |
 | SOAP validation | [WSDL](http://localhost:8091/api/cda-dk/validation?wsdl) |
 
+### HTTPS deployment
+
+Point `itb.trifork.dev`'s DNS records at the Docker host and allow inbound TCP
+ports **80, 443 and 8443** (optionally UDP 443 for HTTP/3). Requires Compose 2.24.4+.
+Then run:
+
+```bash
+ITB_HTTPS_HOST=itb.trifork.dev ./get-up-and-running/start.sh
+# Add ITB_ENABLE_XDS=true to include DDS retrieval.
+```
+
+Save `ITB_HTTPS_HOST=itb.trifork.dev` in the existing ignored
+`get-up-and-running/.itb.env` to retain HTTPS on subsequent starts.
+Startup adds `get-up-and-running/compose.https.yml`, which runs pinned Caddy with
+[automatic certificate issuance, renewal and HTTP redirects](https://caddyserver.com/docs/automatic-https).
+Certificates and ACME account state persist in the `caddy-data` volume.
+
+| Public HTTPS address | Internal Compose destination |
+| --- | --- |
+| `https://itb.trifork.dev/` (ITB, WebSockets and `/cda-preview`) | `gitb-ui-gateway:9000`, which routes preview to `cda-validator:8080` |
+| `https://itb.trifork.dev/itbsrv/` (callbacks) | `gitb-srv:8080` |
+| `https://itb.trifork.dev:8443/cda-dk/upload` (validator UI) | `cda-validator:8080` |
+| `https://itb.trifork.dev:8443/rest/cda-dk/api/validate` (REST) | `cda-validator:8080` |
+| `https://itb.trifork.dev:8443/api/cda-dk/validation?wsdl` (SOAP) | `cda-validator:8080` |
+| `https://itb.trifork.dev:8443/v3/api-docs` (OpenAPI) | `cda-validator:8080` |
+
+The validator uses a separate HTTPS port to preserve its own root-relative assets
+and API routes. Caddy uses container ports, not host mappings such as `8091`.
+HTTP ports 9000, 8080 and 8091 are bound to loopback for local bootstrap; XDS remains
+internal. Bootstrap readiness checks use these local endpoints and do not confirm
+public certificate issuance; inspect `https-proxy` logs and open the HTTPS URLs
+after DNS is ready. Keep the HTTPS overlay included when running Compose manually:
+
+```bash
+docker compose --env-file get-up-and-running/.itb.env \
+  -f docker-compose.yml -f get-up-and-running/compose.published.yml \
+  -f get-up-and-running/compose.https.yml logs --tail=100 https-proxy
+```
+
+The gateway's HTTPS forwarding fix must be included in the published UI image;
+publish the updated checkout before deploying with the default image selection.
+For source builds, set `ITB_BUILD_FROM_SOURCE=true` as above.
+
 To update test definitions without rerunning the connection check:
 
 ```bash

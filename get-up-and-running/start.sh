@@ -44,6 +44,24 @@ else
     ITB_UP_OPTIONS+=(--no-build --pull always)
     printf 'Pulling published service images from Docker Hub. A failed pull stops startup.\n'
 fi
+if [[ -n "${ITB_HTTPS_HOST:-}" ]]; then
+    if ! python3 - "$ITB_HTTPS_HOST" <<'PY'
+import re
+import sys
+
+host = sys.argv[1]
+label = r'[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?'
+sys.exit(0 if len(host) <= 253 and re.fullmatch(rf'{label}(?:\.{label})+', host) else 1)
+PY
+    then
+        printf 'ITB_HTTPS_HOST must be a DNS hostname without a scheme, port or path.\n' >&2
+        exit 1
+    fi
+    export ITB_HTTPS_HOST
+    export ITB_UI_URL="https://$ITB_HTTPS_HOST"
+    ITB_COMPOSE_OPTIONS+=(-f "$ITB_SCRIPT_DIR/compose.https.yml")
+    printf 'HTTPS: %s (ITB), %s:8443/cda-dk/upload (CDA validator).\n' "$ITB_UI_URL" "$ITB_UI_URL"
+fi
 if [[ "$ITB_ENABLE_XDS" == true ]]; then
     ITB_COMPOSE_OPTIONS+=(--profile xds)
     ITB_UP_OPTIONS+=(--wait --wait-timeout 180)

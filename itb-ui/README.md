@@ -27,6 +27,9 @@ Reload the browser after deployment. No host asset preparation is needed.
 The gateway serves `/assets/build/`, preserves ITB APIs and WebSockets, and
 forwards `/cda-preview` to the CDA renderer on the same origin. ITB API keys,
 cookies and authorization headers are stripped from renderer requests.
+The optional HTTPS Compose overlay terminates TLS in Caddy; the gateway preserves
+its HTTPS forwarding header for ITB while retaining WebSocket upgrades. Its HTTP
+host port is loopback-only in that configuration. See the root README for setup.
 
 ## Provenance and verification
 

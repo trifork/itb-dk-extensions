@@ -61,6 +61,8 @@ jobs:
           python3 tests/test_session_catalogue.py
           python3 tests/test_startup.py
           for script in get-up-and-running/*.sh; do bash -n "$script"; done
+      - name: Test HTTPS proxy routing and WebSockets
+        run: python3 tests/test_https_proxy.py
       - name: Authenticate for explicitly selected GHCR CDA image reads
         if: startsWith(env.CDA_RUNTIME_IMAGE, 'ghcr.io/')
         env:

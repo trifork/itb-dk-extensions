@@ -66,6 +66,7 @@ if name == 'docker':
         self.assertEqual('always', docker[docker.index('--pull') + 1])
         self.assertNotIn('--build', docker)
         self.assertNotIn('--profile', docker)
+        self.assertNotIn(str(self.bootstrap / 'compose.https.yml'), docker)
         self.assertEqual(['setup-itb.sh', 'setup-test-user.sh'], [call[0] for call in calls[-2:]])
 
     def test_xds_uses_published_images_and_waits_for_readiness(self):
@@ -105,6 +106,35 @@ if name == 'docker':
         result, calls = self.run_start()
         self.assertEqual(0, result.returncode, result.stderr)
         self.assertIn('--build', calls[0])
+
+    def test_https_uses_overlay_after_image_selection_and_preserves_local_readiness(self):
+        result, calls = self.run_start(ITB_HTTPS_HOST='itb.trifork.dev', ITB_ENABLE_XDS='true')
+        self.assertEqual(0, result.returncode, result.stderr)
+        docker = calls[0]
+        self.assertLess(docker.index(str(self.bootstrap / 'compose.published.yml')),
+                        docker.index(str(self.bootstrap / 'compose.https.yml')))
+        self.assertIn('--no-build', docker)
+        self.assertIn('https://itb.trifork.dev', result.stdout)
+        self.assertIn('http://localhost:9000/api/rest/swagger', calls[1])
+        self.assertIn('http://localhost:8091/api/cda-dk/validation?wsdl', calls[2])
+
+    def test_https_supports_saved_hostname_and_source_build(self):
+        with self.state.open('a') as output:
+            output.write('ITB_HTTPS_HOST=itb.trifork.dev\n')
+        self.initial_state = self.state.read_bytes()
+        result, calls = self.run_start(ITB_BUILD_FROM_SOURCE='true')
+        self.assertEqual(0, result.returncode, result.stderr)
+        self.assertIn(str(self.bootstrap / 'compose.https.yml'), calls[0])
+        self.assertIn('--build', calls[0])
+
+    def test_invalid_https_hostname_stops_before_docker(self):
+        for host in ['https://itb.trifork.dev', 'itb.trifork.dev:443', 'itb.trifork.dev/path',
+                     'itb.trifork.dev {', '-itb.trifork.dev']:
+            with self.subTest(host=host):
+                result, calls = self.run_start(ITB_HTTPS_HOST=host)
+                self.assertNotEqual(0, result.returncode)
+                self.assertIn('ITB_HTTPS_HOST must be a DNS hostname', result.stderr)
+                self.assertEqual([], calls)
 
 
 if __name__ == '__main__':
