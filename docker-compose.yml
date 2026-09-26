@@ -77,7 +77,7 @@ services:
       context: ./cda-validator
       target: runtime
       args:
-        CDA_VALIDATOR_IMAGE: isaitb/xml-validator:1.12.4@sha256:ac2a33077b6f5595db0991f17f13df0efd40cbeda12703d2cc1b8a96769e8b75
+        CDA_VALIDATOR_IMAGE: isaitb/xml-validator:1.13.0@sha256:a0cdce56fd0fa16947c9d63a78bb6a67200bda67211b1ebb5ebffc96bb61c2bb
     container_name: cda-dk-validator
     restart: unless-stopped
     ports:
