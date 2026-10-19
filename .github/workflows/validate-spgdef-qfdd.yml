@@ -2,7 +2,7 @@ name: Daily public QFDD validation
 
 on:
   schedule:
-    - cron: '23 4 * * *'
+    - cron: '0 8 * * 1'
   workflow_dispatch:
     inputs:
       runtime_image:
