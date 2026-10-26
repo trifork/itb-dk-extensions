@@ -74,8 +74,7 @@ for (const stamkort of [false, true]) {
         await expect(dialog.getByLabel('Stamkort version (optional)').locator('option:checked')).toHaveText('Any');
       } else {
         const identity = dialog.getByLabel('Signing identity', {exact: false});
-        const label = await identity.locator('option').allTextContents();
-        await identity.selectOption({label: label.find(value => value.includes('Synthetic test professional'))});
+        await expect(identity.locator('option:checked')).toContainText('Synthetic test professional');
         const entryField = dialog.getByLabel('Document entry type (multiple allowed)', {exact: false});
         await expect(entryField.locator('option:checked')).toHaveCount(2);
         await dialog.getByLabel('Type code (multiple allowed)').selectOption({label: 'Any'});
@@ -171,3 +170,100 @@ test('failed batch search stays visible until Start next test is chosen', async 
     }
   }
 });
+
+for (const timezoneId of ['Europe/Copenhagen', 'America/New_York']) {
+  test.describe(`UTC date pickers in ${timezoneId}`, () => {
+    test.use({timezoneId});
+    for (const scenario of [
+      {name: 'seconds', precision: ['second', 'second', 'second', 'second'],
+       values: ['2026-03-29T02:30', '2026-03-29T03:30:45', '', '2026-10-25T02:30'],
+       expected: ['2026-03-29T02:30:00Z', '2026-03-29T03:30:45Z', '', '2026-10-25T02:30:00Z']},
+      {name: 'year, month, day and hour', precision: ['year', 'month', 'day', 'hour'],
+       values: ['2026', '2026-10', '2028-02-29', '2028-03-26T02:00'],
+       expected: ['2026', '2026-10', '2028-02-29', '2028-03-26T02']},
+      {name: 'minute and open bounds', precision: ['minute', 'year', 'month', 'day'],
+       values: ['2026-03-29T02:30', '', '', ''],
+       expected: ['2026-03-29T02:30', '', '', '']},
+    ]) {
+      test(`DDS date filters submit UTC values: ${scenario.name}`, async ({page, request}) => {
+        test.skip(!base, 'Set ITB_PREVIEW_TEST_URL to test the deployed ITB stack');
+        test.setTimeout(90000);
+        const saved = state(process.env.ITB_STATE_FILE || root + 'get-up-and-running/.itb-bootstrap.env');
+        const users = state(process.env.ITB_USER_STATE_FILE || root + 'get-up-and-running/.itb-users.env');
+        const started = await request.post(`${base}/api/rest/tests/start`, {
+          headers: {ITB_API_KEY: saved.ITB_ORGANISATION_API_KEY},
+          data: {system: saved.ITB_SYSTEM_API_KEY, actor: saved.ITB_ACTOR_API_KEY,
+            testCase: [saved.ITB_INTERACTIVE_TEST_CASE_API_KEY], waitForCompletion: false},
+        });
+        expect(started.ok()).toBeTruthy();
+        const session = (await started.json()).createdSessions[0].session;
+        try {
+          await page.goto(`${base}/app#/login`);
+          await page.locator('#username').fill(users.ITB_TEST_USERNAME);
+          await page.locator('#password').fill(users.ITB_TEST_PASSWORD);
+          await page.getByRole('button', {name: /Log in/}).click();
+          const sessionsLink = page.locator('a[href*="/organisation/tests/"]');
+          await expect(sessionsLink).toBeAttached();
+          await page.goto(`${base}/app${await sessionsLink.getAttribute('href')}?session=${session}`);
+          const dialog = page.getByRole('dialog');
+          async function openPending(title) {
+            await expect(async () => {
+              await page.reload();
+              await page.getByRole('button', {name: /View pending interaction/}).click({timeout: 2000});
+            }).toPass({timeout: 30000, intervals: [1000]});
+            await expect(dialog.locator('.modal-title')).toHaveText(title);
+          }
+          async function submit() {
+            const response = page.waitForResponse(res => /\/provide(admin)?$/.test(new URL(res.url()).pathname));
+            await dialog.getByRole('button', {name: /Submit/}).click();
+            const sent = await response;
+            expect(sent.ok()).toBeTruthy();
+            await expect(dialog).toHaveCount(0);
+            return JSON.parse(new URLSearchParams(sent.request().postData()).get('inputs'));
+          }
+          await openPending('Document source');
+          await dialog.getByLabel('Document source').selectOption({label: 'IHE XDS (DDS) retrieval'});
+          await submit();
+          await openPending('Choose XDS registry');
+          const registry = dialog.getByLabel('Registry', {exact: false});
+          await registry.selectOption({label: (await registry.locator('option').allTextContents()).find(label => label.trim() && !label.includes('Stamkort'))});
+          await submit();
+          await openPending('Find in XDS');
+          await expect(dialog.locator('input[type="datetime-local"]')).toHaveCount(4);
+          const dates = ['Service start from', 'Service start to', 'Service stop from', 'Service stop to']
+            .map(label => dialog.getByLabel(label, {exact: false}).and(dialog.locator('input')));
+          await dates[0].fill('2028-02-29T12:00');
+          await dialog.getByRole('button', {name: /Reset/}).click();
+          for (const date of dates) await expect(date).toHaveValue('');
+          const patient = dialog.getByLabel('Test CPR (10 digits)', {exact: false});
+          await expect(patient).toHaveAttribute('type', 'text');
+          // Reject locally after submission; this test never sends a query to NSP.
+          await patient.fill('invalid');
+          const identity = dialog.getByLabel('Signing identity', {exact: false});
+          await identity.selectOption({label: (await identity.locator('option').allTextContents()).find(label => label.trim())});
+          await dialog.getByLabel('Document entry type', {exact: false}).selectOption({label: 'Stable (stored document)'});
+          // Copenhagen's missing spring hour and repeated autumn hour must remain
+          // the UTC values chosen by the user, independent of the browser timezone.
+          const precisions = dialog.locator('select[aria-label$=" — precision"]');
+          for (let i = 0; i < 4; i++) {
+            await precisions.nth(i).selectOption(scenario.precision[i]);
+            await dates[i].fill(scenario.values[i]);
+          }
+          if (scenario.precision[0] === 'year') {
+            await dates[0].fill('20');
+            await dialog.getByRole('button', {name: /Submit/}).click();
+            await expect(dialog.locator('.modal-title')).toHaveText('Find in XDS');
+            expect(await dates[0].evaluate(input => input.validity.patternMismatch)).toBe(true);
+            await dates[0].fill(scenario.values[0]);
+          }
+          const inputs = await submit();
+          expect(inputs.slice(6, 10).map(input => input.value ?? '')).toEqual(scenario.expected);
+        } finally {
+          const auth = await request.post(`${base}/api/oauth/access_token`, {form: {email: users.ITB_ADMIN_USERNAME, password: users.ITB_ADMIN_PASSWORD}});
+          const token = (await auth.json()).access_token;
+          await request.post(`${base}/api/tests/${session}/stop`, {headers: {Authorization: `Bearer ${token}`}, form: {}});
+        }
+      });
+    }
+  });
+}

@@ -37,10 +37,26 @@ public class GitbConfiguration {
 
     @Bean(destroyMethod = "close")
     GitbXdsAccess gitbAccess(
-            XdsOperations operations, @Value("${XDS_TIMEOUT_SECONDS:45}") long timeout) {
+            XdsOperations operations,
+            org.springframework.beans.factory.ObjectProvider<
+                            com.trifork.ihexdsapi.service.IDContextService>
+                    idProvider,
+            org.springframework.beans.factory.ObjectProvider<
+                            com.trifork.ihexdsapi.dao.CacheRequestResponseHandle>
+                    cacheProvider,
+            @Value("${XDS_TIMEOUT_SECONDS:45}") long timeout) {
         if (timeout < 1 || timeout > 300)
             throw new IllegalArgumentException("XDS_TIMEOUT_SECONDS must be between 1 and 300");
-        return new GitbXdsAccess(operations, Duration.ofSeconds(timeout));
+        return new GitbXdsAccess(
+                operations,
+                Duration.ofSeconds(timeout),
+                () -> {
+                    var ids = idProvider.getIfAvailable();
+                    var cache = cacheProvider.getIfAvailable();
+                    if (ids == null || cache == null) return "";
+                    String id = ids.getId("tempRes");
+                    return id == null ? "" : cache.getRequestAndResponse(id);
+                });
     }
 
     @Bean

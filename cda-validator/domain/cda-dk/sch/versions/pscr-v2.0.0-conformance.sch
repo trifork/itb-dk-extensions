@@ -215,33 +215,33 @@
     </rule>
   </pattern>
   <pattern id="PSCR-DK-2.0.0-NO-dataEnterer-pattern">
-    <rule context="v3:ClinicalDocument">
-      <assert id="PSCR-DK-2.0.0-NO-dataEnterer" test="empty(v3:dataEnterer)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Dokumentation/PSCR-DK-v2.0.0.pdf">Header must not contain dataEnterer Source: 2.1.3.</assert>
+    <rule context="v3:ClinicalDocument/v3:dataEnterer">
+      <assert id="PSCR-DK-2.0.0-NO-dataEnterer" test="false()" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Dokumentation/PSCR-DK-v2.0.0.pdf">Header must not contain dataEnterer Source: 2.1.3.</assert>
     </rule>
   </pattern>
   <pattern id="PSCR-DK-2.0.0-NO-informant-pattern">
-    <rule context="v3:ClinicalDocument">
-      <assert id="PSCR-DK-2.0.0-NO-informant" test="empty(v3:informant)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Dokumentation/PSCR-DK-v2.0.0.pdf">Header must not contain informant Source: 2.1.4.</assert>
+    <rule context="v3:ClinicalDocument/v3:informant">
+      <assert id="PSCR-DK-2.0.0-NO-informant" test="false()" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Dokumentation/PSCR-DK-v2.0.0.pdf">Header must not contain informant Source: 2.1.4.</assert>
     </rule>
   </pattern>
   <pattern id="PSCR-DK-2.0.0-NO-informationRecipient-pattern">
-    <rule context="v3:ClinicalDocument">
-      <assert id="PSCR-DK-2.0.0-NO-informationRecipient" test="empty(v3:informationRecipient)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Dokumentation/PSCR-DK-v2.0.0.pdf">Header must not contain informationRecipient Source: 2.1.6.</assert>
+    <rule context="v3:ClinicalDocument/v3:informationRecipient">
+      <assert id="PSCR-DK-2.0.0-NO-informationRecipient" test="false()" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Dokumentation/PSCR-DK-v2.0.0.pdf">Header must not contain informationRecipient Source: 2.1.6.</assert>
     </rule>
   </pattern>
   <pattern id="PSCR-DK-2.0.0-NO-legalAuthenticator-pattern">
-    <rule context="v3:ClinicalDocument">
-      <assert id="PSCR-DK-2.0.0-NO-legalAuthenticator" test="empty(v3:legalAuthenticator)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Dokumentation/PSCR-DK-v2.0.0.pdf">Header must not contain legalAuthenticator Source: 2.1.7.</assert>
+    <rule context="v3:ClinicalDocument/v3:legalAuthenticator">
+      <assert id="PSCR-DK-2.0.0-NO-legalAuthenticator" test="false()" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Dokumentation/PSCR-DK-v2.0.0.pdf">Header must not contain legalAuthenticator Source: 2.1.7.</assert>
     </rule>
   </pattern>
   <pattern id="PSCR-DK-2.0.0-NO-authenticator-pattern">
-    <rule context="v3:ClinicalDocument">
-      <assert id="PSCR-DK-2.0.0-NO-authenticator" test="empty(v3:authenticator)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Dokumentation/PSCR-DK-v2.0.0.pdf">Header must not contain authenticator Source: 2.1.8.</assert>
+    <rule context="v3:ClinicalDocument/v3:authenticator">
+      <assert id="PSCR-DK-2.0.0-NO-authenticator" test="false()" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Dokumentation/PSCR-DK-v2.0.0.pdf">Header must not contain authenticator Source: 2.1.8.</assert>
     </rule>
   </pattern>
   <pattern id="PSCR-DK-2.0.0-NO-inFulfillmentOf-pattern">
-    <rule context="v3:ClinicalDocument">
-      <assert id="PSCR-DK-2.0.0-NO-inFulfillmentOf" test="empty(v3:inFulfillmentOf)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Dokumentation/PSCR-DK-v2.0.0.pdf">Header must not contain inFulfillmentOf Source: 2.1.10.</assert>
+    <rule context="v3:ClinicalDocument/v3:inFulfillmentOf">
+      <assert id="PSCR-DK-2.0.0-NO-inFulfillmentOf" test="false()" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PSCR/Dokumentation/PSCR-DK-v2.0.0.pdf">Header must not contain inFulfillmentOf Source: 2.1.10.</assert>
     </rule>
   </pattern>
   <pattern id="PSCR-DK-2.0.0-DOCUMENTATION-COUNT-pattern">

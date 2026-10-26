@@ -121,3 +121,71 @@ replaceOnce(execution + '.html',
                         } @else {
                             <button type="button" [labelIcon]="Constants.BUTTON_ICON.PLAY" class="btn btn-primary" [disable]="!nextWaitingToStart" (click)="start(session!)">Start</button>
                         }`);
+
+// TDL has no date/time input type. Explicit MIME parameters opt only marked text
+// requests into UTC pickers while keeping the stock engine's string contract.
+replaceOnce(interaction + '.html', '<form (ngSubmit)="submit()">',
+  '<form #interactionForm (ngSubmit)="submit(interactionForm)">');
+replaceOnce(interaction + '.html', '<!-- Text field -->', `<!-- Text field -->
+  @if (isUtcDateTime(interaction)) {
+    <label class="form-label d-block" [attr.for]="'precision-'+index">Precision</label>
+    <select class="form-select mb-2" [attr.aria-label]="interaction.desc + ' — precision'" [id]="'precision-'+index" [name]="'precision-'+index"
+      [ngModel]="utcPrecision(interaction)" (ngModelChange)="setUtcPrecision(interaction, $event)">
+      <option value="year">Year</option><option value="month">Month</option>
+      <option value="day">Day</option><option value="hour">Hour</option>
+      <option value="minute">Minute</option><option value="second">Second</option>
+    </select>
+  }`);
+replaceOnce(interaction + '.html', 'type="text" class="form-control" [(ngModel)]="interaction.data"',
+  `[type]="utcInputType(interaction)" [attr.step]="utcStep(interaction)"
+   [attr.pattern]="isUtcDateTime(interaction) && utcPrecision(interaction) == 'year' ? '[1-9][0-9]{3}' : null"
+   [attr.placeholder]="isUtcDateTime(interaction) && utcPrecision(interaction) == 'year' ? 'YYYY' : null"
+   class="form-control" [(ngModel)]="interaction.data"`);
+replaceOnce(join(root, 'src/app/types/user-interaction.ts'), '  mimeType?: string;',
+  '  mimeType?: string;\n  utcDatePrecision?: string;');
+replaceOnce(interaction + '.ts', '  submit() {', `  isUtcDateTime(interaction: UserInteraction): boolean {
+    return interaction.inputType == 'TEXT' && interaction.mimeType == 'text/plain;format=date-time;timezone=UTC'
+  }
+
+  utcPrecision(interaction: UserInteraction): string {
+    return interaction.utcDatePrecision ?? 'second'
+  }
+
+  setUtcPrecision(interaction: UserInteraction, precision: string) {
+    interaction.utcDatePrecision = precision
+    // Changing precision must not silently invent or discard a selected boundary.
+    interaction.data = ''
+  }
+
+  utcInputType(interaction: UserInteraction): string {
+    if (!this.isUtcDateTime(interaction)) return 'text'
+    switch (this.utcPrecision(interaction)) {
+      case 'year': return 'text'
+      case 'month': return 'month'
+      case 'day': return 'date'
+      default: return 'datetime-local'
+    }
+  }
+
+  utcStep(interaction: UserInteraction): number | null {
+    if (!this.isUtcDateTime(interaction)) return null
+    switch (this.utcPrecision(interaction)) {
+      case 'hour': return 3600
+      case 'minute': return 60
+      default: return 1
+    }
+  }
+
+  submit(form?: HTMLFormElement) {
+    // Angular disables native form submission checks. Incomplete dates must not
+    // become empty optional bounds; year format and hour/minute steps matter too.
+    if (form && !form.reportValidity()) return`);
+replaceOnce(interaction + '.ts', '        const hasValue = ', `        if (this.isUtcDateTime(interaction) && inputData.value) {
+          // Keep UTC wall-clock fields and their chosen precision. No local-zone
+          // conversion or padding of partial bounds: ITI-18 defines comparison.
+          const precision = this.utcPrecision(interaction)
+          if (precision == 'hour') inputData.value = inputData.value.slice(0, 13)
+          else if (precision == 'minute') inputData.value = inputData.value.slice(0, 16)
+          else if (precision == 'second') inputData.value += inputData.value.length == 16 ? ':00Z' : 'Z'
+        }
+        const hasValue = `);

@@ -1093,20 +1093,20 @@
   </sch:pattern>
   <sch:pattern id="QRD-DK-1.3.2-NO-INFORMANT-pattern">
     <sch:p>Source: qrd, section 2.2.4, PDF page 21, NO-INFORMANT. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:ClinicalDocument">
-      <sch:assert id="QRD-DK-1.3.2-NO-INFORMANT" test="not(v3:informant)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=21">QRD-DK 1.3.2: informant is not used in this profile. Source: qrd 2.2.4, p. 21, NO-INFORMANT.</sch:assert>
+    <sch:rule context="v3:ClinicalDocument/v3:informant">
+      <sch:assert id="QRD-DK-1.3.2-NO-INFORMANT" test="false()" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=21">QRD-DK 1.3.2: informant is not used in this profile. Source: qrd 2.2.4, p. 21, NO-INFORMANT.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QRD-DK-1.3.2-NO-LEGALAUTHENTICATOR-pattern">
     <sch:p>Source: qrd, section 2.2.7, PDF page 24, NO-LEGALAUTHENTICATOR. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:ClinicalDocument">
-      <sch:assert id="QRD-DK-1.3.2-NO-LEGALAUTHENTICATOR" test="not(v3:legalAuthenticator)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=24">QRD-DK 1.3.2: legalAuthenticator is not used in this profile. Source: qrd 2.2.7, p. 24, NO-LEGALAUTHENTICATOR.</sch:assert>
+    <sch:rule context="v3:ClinicalDocument/v3:legalAuthenticator">
+      <sch:assert id="QRD-DK-1.3.2-NO-LEGALAUTHENTICATOR" test="false()" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=24">QRD-DK 1.3.2: legalAuthenticator is not used in this profile. Source: qrd 2.2.7, p. 24, NO-LEGALAUTHENTICATOR.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QRD-DK-1.3.2-NO-AUTHENTICATOR-pattern">
     <sch:p>Source: qrd, section 2.2.8, PDF page 25, NO-AUTHENTICATOR. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:ClinicalDocument">
-      <sch:assert id="QRD-DK-1.3.2-NO-AUTHENTICATOR" test="not(v3:authenticator)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=25">QRD-DK 1.3.2: authenticator is not used in this profile. Source: qrd 2.2.8, p. 25, NO-AUTHENTICATOR.</sch:assert>
+    <sch:rule context="v3:ClinicalDocument/v3:authenticator">
+      <sch:assert id="QRD-DK-1.3.2-NO-AUTHENTICATOR" test="false()" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=25">QRD-DK 1.3.2: authenticator is not used in this profile. Source: qrd 2.2.8, p. 25, NO-AUTHENTICATOR.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QRD-DK-1.3.2-C69-pattern">

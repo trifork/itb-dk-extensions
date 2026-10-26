@@ -15,6 +15,28 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 class GitbXdsAccessTest {
     @Test
+    void unavailableDiagnosticsPreserveTypedFaultAndAssertion() {
+        var operations = mock(XdsOperations.class);
+        when(operations.identities())
+                .thenThrow(
+                        new org.apache.cxf.binding.soap.SoapFault(
+                                "internal_error_minlog",
+                                org.apache.cxf.binding.soap.SoapFault.FAULT_CODE_SERVER));
+        try (var access =
+                new GitbXdsAccess(
+                        operations,
+                        Duration.ofSeconds(2),
+                        () -> {
+                            throw new IllegalStateException("private cache failure");
+                        })) {
+            var error = assertThrows(XdsFailure.class, access::identities);
+            assertEquals("XDS-BACKEND", error.code);
+            assertTrue(error.getMessage().contains("faultstring=internal_error_minlog"));
+            assertFalse(error.getMessage().contains("private cache failure"));
+        }
+    }
+
+    @Test
     void timeoutCancelsWorkAndLaterCallsStillSucceed() throws Exception {
         var operations = mock(XdsOperations.class);
         var interrupted = new CountDownLatch(1);

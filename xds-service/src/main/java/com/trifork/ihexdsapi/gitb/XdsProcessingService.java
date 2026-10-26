@@ -5,6 +5,7 @@ import com.gitb.core.AnyContent;
 import com.gitb.core.ValueEmbeddingEnumeration;
 import com.gitb.ps.*;
 import com.gitb.tr.*;
+import com.trifork.ihexdsapi.xds.QueryDates;
 import jakarta.jws.WebService;
 import java.io.ByteArrayInputStream;
 import java.time.*;
@@ -356,13 +357,16 @@ public class XdsProcessingService implements ProcessingService {
         out.getOutput().add(value("stamkort", "boolean", Boolean.toString(stamkort)));
         list(out, "professionalLabels", s.professionalSelections.keySet());
         String preferred = "";
-        if (stamkort) {
-            for (var entry : s.professionalSelections.entrySet()) {
-                var identity = s.credentials.get(entry.getValue());
-                if (identity.currentSystem(clock.instant())) {
-                    preferred = entry.getKey();
-                    break;
-                }
+        for (var entry : s.professionalSelections.entrySet()) {
+            var identity = s.credentials.get(entry.getValue());
+            boolean eligible =
+                    stamkort
+                            ? identity.currentSystem(clock.instant())
+                            : identity.currentEmployee(clock.instant());
+            if (eligible) {
+                boolean preferredKind = !stamkort || "FOCES".equals(identity.kind());
+                if (preferred.isEmpty() || preferredKind) preferred = entry.getKey();
+                if (preferredKind) break;
             }
         }
         out.getOutput().add(value("defaultProfessional", STRING, preferred));
@@ -632,23 +636,21 @@ public class XdsProcessingService implements ProcessingService {
     }
 
     // Keep sensitive input and upstream payloads out of exception causes and SOAP faults.
+    @SuppressWarnings("PMD.PreserveStackTrace")
     private static void dates(
             Map<String, Object> query, Map<String, String> v, String from, String to) {
-        for (String key : List.of(from, to)) {
-            String date = v.getOrDefault(key, "");
-            if (!date.isBlank())
-                try {
-                    query.put(key, Instant.parse(date).toEpochMilli());
-                } catch (java.time.format.DateTimeParseException _) {
-                    throw new XdsFailure(
-                            INPUT_ERROR,
-                            "Dates must include a timezone, for example 2026-01-01T00:00:00Z.");
-                }
+        try {
+            String lower = v.getOrDefault(from, "");
+            String upper = v.getOrDefault(to, "");
+            String fromDtm = lower.isBlank() ? null : QueryDates.fromInput(lower);
+            String toDtm = upper.isBlank() ? null : QueryDates.fromInput(upper);
+            QueryDates.validateRange(
+                    QueryDates.resolve(null, fromDtm), QueryDates.resolve(null, toDtm));
+            if (fromDtm != null) query.put(from.replace("Date", "Dtm"), fromDtm);
+            if (toDtm != null) query.put(to.replace("Date", "Dtm"), toDtm);
+        } catch (IllegalArgumentException e) {
+            throw new XdsFailure(INPUT_ERROR, e.getMessage());
         }
-        if (query.containsKey(from)
-                && query.containsKey(to)
-                && (Long) query.get(from) > (Long) query.get(to))
-            throw new XdsFailure(INPUT_ERROR, "A date range starts after it ends.");
     }
 
     // Keep sensitive input and upstream payloads out of exception causes and SOAP faults.

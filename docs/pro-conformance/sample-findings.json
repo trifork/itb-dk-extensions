@@ -1191,7 +1191,7 @@
         "severity": "error",
         "id": "CDA-DK-PROFILE-VERSION",
         "message": "Selected target QRD-DK 1.3.2 requires exactly one profile version declaration 'qrd-v1.3' in documentationOf/serviceEvent/id. Source: 2.2.11 DocumentationOf.",
-        "location": "/ClinicalDocument[1]"
+        "location": "/ClinicalDocument[1]/documentationOf[1]/serviceEvent[1]/id[1]"
       },
       {
         "severity": "error",

@@ -30,8 +30,10 @@
     </rule>
   </pattern>
   <pattern id="PHMR-DK-2.1.0-SERVICE-EVENT-pattern">
-    <rule context="v3:ClinicalDocument">
-      <assert id="PHMR-DK-2.1.0-SERVICE-EVENT" test="exists(v3:documentationOf/v3:serviceEvent)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Dokumentation/PHMR-DK-v2.1.0.pdf">PHMR requires a monitoring service event Source: 2.2.</assert>
+    <rule context="v3:ClinicalDocument | v3:ClinicalDocument/v3:documentationOf">
+      <let name="document" value="ancestor-or-self::v3:ClinicalDocument"/>
+      <let name="container" value="($document/v3:documentationOf, $document)[1]"/>
+      <assert id="PHMR-DK-2.1.0-SERVICE-EVENT" test="not(. is $container) or exists($document/v3:documentationOf/v3:serviceEvent)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Dokumentation/PHMR-DK-v2.1.0.pdf">PHMR requires a monitoring service event Source: 2.2.</assert>
     </rule>
   </pattern>
   <pattern id="PHMR-DK-2.1.0-SERVICE-MPROT-pattern">
@@ -40,8 +42,10 @@
     </rule>
   </pattern>
   <pattern id="PHMR-DK-2.1.0-MONITORING-INTERVAL-pattern">
-    <rule context="v3:ClinicalDocument">
-      <assert id="PHMR-DK-2.1.0-MONITORING-INTERVAL" test="exists(v3:documentationOf/v3:serviceEvent/v3:effectiveTime)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Dokumentation/PHMR-DK-v2.1.0.pdf">PHMR needs the monitoring period Source: 2.2.1.</assert>
+    <rule context="v3:ClinicalDocument | v3:ClinicalDocument/v3:documentationOf | v3:ClinicalDocument/v3:documentationOf/v3:serviceEvent">
+      <let name="document" value="ancestor-or-self::v3:ClinicalDocument"/>
+      <let name="container" value="($document/v3:documentationOf/v3:serviceEvent[v3:templateId/@root='1.2.208.184.10.1.11'], $document/v3:documentationOf/v3:serviceEvent, $document/v3:documentationOf, $document)[1]"/>
+      <assert id="PHMR-DK-2.1.0-MONITORING-INTERVAL" test="not(. is $container) or exists($document/v3:documentationOf/v3:serviceEvent/v3:effectiveTime)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PHMR/Dokumentation/PHMR-DK-v2.1.0.pdf">PHMR needs the monitoring period Source: 2.2.1.</assert>
     </rule>
   </pattern>
   <pattern id="PHMR-DK-2.1.0-STRUCTURED-BODY-pattern">

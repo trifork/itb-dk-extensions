@@ -40,7 +40,12 @@ ITI-18 returns IPF `QueryResponse`. ITI-43 returns `RetrievedBytes`, with origin
 bytes and typed IPF findings. `RestXdsResponses` translates these to the existing
 REST metadata, flattened error and Base64/formatting contracts at the REST boundary.
 GITB uses typed errors directly; readable explanations are keyed by IPF enums.
-Unknown standard codes retain their opcode. Raw upstream error text is withheld.
+Unknown standard codes retain their opcode. Registry-error prose remains withheld.
+SOAP failures append bounded fault code/reason and, when available, response
+timestamp and DGWS/WS-Addressing correlation IDs. The worker extracts only these
+fields from the request-scoped response before clearing its context; XML parsing
+rejects DOCTYPE/external resources, and missing diagnostics preserve the original
+failure. Both the GITB error output and TAR assertion contain the same details.
 
 The GITB QName remains `ProcessingServiceService` and the endpoint remains
 `/processing?wsdl`. Transactions preserve opaque handles, label lookup maps,
@@ -57,6 +62,14 @@ from trusted configuration and certificate metadata, never a user-supplied mode.
 REST retains original bytes in `responseBase64`, default formatted `response`,
 and `includeFormattedResponse=false`. Formatting rejects DOCTYPE and external
 DTD/stylesheet access. GITB receives unformatted bytes directly.
+
+ITI-18 time filters use IPF's native `Timestamp` and `Precision` support. REST's
+existing epoch-millisecond bounds remain supported; optional `*Dtm` string bounds
+retain year/month/day/hour/minute/second specificity through IPF's SOAP transformer.
+The GITB adapter converts readable ISO partial dates to DTM without inventing finer
+precision. Invalid dates, conflicting epoch/DTM fields and reversed ranges at their
+common precision are rejected. Partial-date matching is performed by the registry
+under ITI-18 §3.18.4.1.2.3.3.2, not reimplemented in the consumer.
 
 ## Isolation and bounds
 
@@ -77,7 +90,7 @@ Credentials and SOAP records use bounded process-local stores. Named identities
 reload from configured files; uploaded credentials and diagnostic references expire
 and do not survive restart. Downloadable REST diagnostics contain complete SOAP
 and must be treated as sensitive. The ITB Compose configuration suppresses process
-logs; SOAP/tokens are never included in GITB error messages.
+logs; full SOAP envelopes and security tokens are never included in GITB errors.
 
 `/health/ready` checks local identities, code lists and the published SOAP endpoint.
 It does not authenticate against STS or query DDS, and permits an empty credential

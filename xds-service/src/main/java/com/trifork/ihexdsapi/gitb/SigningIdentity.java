@@ -8,13 +8,15 @@ import java.util.Set;
 /** Display and eligibility metadata; STS still verifies trust and authorisation. */
 record SigningIdentity(
         String name, String kind, String role, Instant validFrom, Instant validUntil) {
+    private static final String EMPLOYEE_KIND = "MOCES";
+    private static final String EMPLOYEE_ROLE = "HEALTHCAREPROFESSIONAL";
     private static final String SYSTEM_KIND = "SYSTEM";
 
     static SigningIdentity from(JsonNode value) {
         String role = value.path("credentialType").asText();
         String kind = value.path("certificateKind").asText();
-        if (!Set.of("MOCES", "FOCES", "VOCES", SYSTEM_KIND).contains(kind)) {
-            kind = "HEALTHCAREPROFESSIONAL".equals(role) ? "MOCES" : SYSTEM_KIND;
+        if (!Set.of(EMPLOYEE_KIND, "FOCES", "VOCES", SYSTEM_KIND).contains(kind)) {
+            kind = EMPLOYEE_ROLE.equals(role) ? EMPLOYEE_KIND : SYSTEM_KIND;
         }
         return new SigningIdentity(
                 value.path("displayName").asText(),
@@ -35,8 +37,15 @@ record SigningIdentity(
     }
 
     boolean currentSystem(Instant now) {
-        return SYSTEM_KIND.equals(role)
-                && (validFrom == null || !now.isBefore(validFrom))
+        return SYSTEM_KIND.equals(role) && current(now);
+    }
+
+    boolean currentEmployee(Instant now) {
+        return EMPLOYEE_ROLE.equals(role) && EMPLOYEE_KIND.equals(kind) && current(now);
+    }
+
+    private boolean current(Instant now) {
+        return (validFrom == null || !now.isBefore(validFrom))
                 && (validUntil == null || !now.isAfter(validUntil));
     }
 
@@ -53,7 +62,7 @@ record SigningIdentity(
             throw new XdsFailure(
                     "XDS-CERTIFICATE-NOT-YET-VALID",
                     "The selected certificate is not valid yet. Choose a current certificate.");
-        if (!"HEALTHCAREPROFESSIONAL".equals(role) && !(stamkort && SYSTEM_KIND.equals(role)))
+        if (!EMPLOYEE_ROLE.equals(role) && !(stamkort && SYSTEM_KIND.equals(role)))
             throw new XdsFailure(
                     "XDS-IDENTITY-TYPE",
                     "The selected certificate is a system identity. This DDS search flow requires a healthcare-professional identity (MOCES); system-only authentication does not supply that user context.");

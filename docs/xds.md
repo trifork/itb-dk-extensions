@@ -108,9 +108,12 @@ configuration from the STS authentication and DDS access attempted by a search.
    prefixed with **MOCES**, **FOCES**, or **VOCES**, followed by their expiry date
    in UTC. Expired certificates show **EXPIRED**; future certificates show
    **NOT YET VALID**. Unclassified legacy system certificates use **SYSTEM**.
-   DDS requires a current employee identity. SFSK also accepts current system
-   identities and defaults to the first locally valid system identity when available;
-   this does not establish NSP authorisation. Expired identities remain inspectable
+   DDS requires a current employee identity and defaults to the first locally valid
+   **MOCES** identity when available. SFSK also accepts current system
+   identities and defaults to the first locally valid **FOCES** identity when available,
+   otherwise the first locally valid system identity. All identities remain selectable;
+   without a current system identity there is no automatic selection.
+   This does not establish NSP authorisation. Expired identities remain inspectable
    but are rejected before searching. Credentials come from the backend; ITB receives
    no keys.
 2. On an **SFSK** route, the form asks only for **Test CPR**, **Signing identity**
@@ -122,8 +125,14 @@ configuration from the STS authentication and DDS access attempted by a search.
    version when validating a specific release.
 
    On a **DDS** route, optionally filter by one or more type codes, one or more format codes, exact document Unique ID, and
-   service start/stop ranges. Dates must include a timezone, for example
-   `2026-01-01T00:00:00Z`. Search requests use **Approved** and `consentOverride=false`. The required
+   service start/stop ranges. Each UTC boundary has a **Precision** selector:
+   **Year**, **Month**, **Day**, **Hour**, **Minute** or **Second**. Choose the
+   precision before entering the value; changing it clears that boundary. Year
+   accepts four digits (1000–9999), Month and Day use calendar controls, and the
+   time controls use the selected precision. For Hour, keep minutes at `00`.
+   No browser timezone conversion is applied. Empty fields omit that bound.
+   Partial values retain their precision in ITI-18 rather than becoming midnight
+   timestamps. Legacy ISO timestamps with a timezone remain accepted. Search requests use **Approved** and `consentOverride=false`. The required
    **Document entry type** multi-select offers **Stable (stored document)** and
    **On-demand (generated on retrieval)**; both are selected by default. Keep
    On-demand selected for Stamkort (PDC). These are entry types, distinct from the
@@ -132,8 +141,11 @@ configuration from the STS authentication and DDS access attempted by a search.
    **AND**. Leave a code selection empty for **Any**, or select **Any** on its own.
    Combining **Any** with specific codes is rejected to avoid silently broadening
    a search. Each filter accepts up to 50 selected codes.
-   Date **From** bounds are inclusive and **To** bounds exclusive. Either can be
-   omitted. For a complete UTC day, use midnight on that day as From and midnight
+   At matching precision, **From** is inclusive and **To** exclusive. ITI-18
+   specifies additional rules when query bounds and document metadata have
+   different precision: for example, a year-only To can include finer dates
+   within that year. See [ITI-18 §3.18.4.1.2.3.3.2](https://profiles.ihe.net/ITI/TF/Volume2/ITI-18.html#3.18.4.1.2.3.3.2).
+   Either bound can be omitted. For a complete UTC day, use midnight on that day as From and midnight
    on the next day as To. These filter service start/stop metadata; they are not
    document creation dates. The standard also supports creation-time filters,
    which this form does not currently expose.
@@ -323,7 +335,15 @@ XDS-REGISTRY: DDS document retrieval (ITI-43) failed. DDS reported 1 registry er
 The adapter receives typed IPF `ErrorInfo` values directly. It uses the enum's
 opcode rather than parsing flattened REST errors or maintaining duplicate code
 identifiers. Other standard IPF codes retain their opcode with a generic explanation.
-Arbitrary prose, custom codes and SOAP/security content are never echoed. The
+Registry-error prose and arbitrary exception messages are not echoed. SOAP faults
+include bounded `faultcode` and `faultstring` text in the user-facing error.
+When the captured response is available, it also includes `responseTimestamp`,
+DGWS `FlowID`, `MessageID`, `InResponseToMessageID`, and WS-Addressing `MessageID`
+and `RelatesTo`. These details appear in both the session log and failed-step
+assertion, retaining the existing assertion ID. For example, `internal_error_minlog`
+and the response correlation IDs can be passed to NSP support. Missing fields are
+omitted; failed diagnostic extraction never replaces the original error. Full SOAP
+envelopes, security tokens, arbitrary fault-detail XML and HTTP headers are excluded. The
 observed DDS extraction-error context retains its fixed explanation. Unknown
 transport failures use `XDS-BACKEND`; authentication failures use `XDS-ACCESS`.
 These describe DDS findings, not CDA validation findings. Existing REST error
@@ -393,6 +413,36 @@ A restarted XDS service also invalidates pending searches; start a new test sess
 Search results are limited to 500 and retrieved documents to 10 MiB. Narrow the
 filters when the limit is reached. Malformed XML and non-CDA content stop at the
 retrieval step, before conformance validation.
+
+## Verified DDS date-precision baseline
+
+On 2026-10-26, the published [Else test patient](https://hl7.dk/fhir/core/Patient-else.html)
+(**0201919990**) returned **35 documents** from **DDS TEST2**, using **MOCES — Jacob
+Bonde**, **Stable (stored document)**, type **Questionnaire Response Document
+(74465-6; LOINC 2.16.840.1.113883.6.1)**, and format **Any**. Else returned no PHMR
+documents in that check. Use this QRD search to reproduce date-filter tests;
+select an appropriate QRD validation release separately if retrieving a document.
+
+The actual ITB browser flow was exercised at every precision. Each search returned
+35 documents without registry errors:
+
+| Precision | Service start From (UTC) | Service start To (UTC) | Documents |
+| --- | --- | --- | --- |
+| Second | `2000-01-01T00:00:00` | `2030-12-31T23:59:59` | 35 |
+| Minute | `2000-01-01T00:00` | `2030-12-31T23:59` | 35 |
+| Hour | `2000-01-01T00` | `2030-12-31T23` | 35 |
+| Day | `2000-01-01` | `2030-12-31` | 35 |
+| Month | `2000-01` | `2030-12` | 35 |
+| Year | `2000` | `2030` | 35 |
+| No dates | empty | empty | 35 |
+
+These are live search results, not CDA conformance results or a guarantee that
+NSP test data remains unchanged. Automated tests use fixtures. The temporary local
+SFSK setup initially omitted the saved `XDS_AUTHORIZATION_CODE`; restoring the
+saved MOCES role/authorisation settings removed its `XDS-ACCESS` failures. Both
+settings must be carried into a local override when enabling employee identities.
+The failed authentication runs did not establish registry support for partial dates;
+the successful matrix above did.
 
 ## TEST1 access and configuration
 
@@ -542,6 +592,16 @@ both forms are supplied, their values are combined using OR and duplicates are
 removed. Empty arrays add no restriction; malformed array entries are rejected.
 The connector sends a single code using the original field and multiple codes
 using the corresponding array. IPF encodes each array in one stored-query slot.
+
+REST retains the epoch-millisecond fields `startFromDate`, `startToDate`,
+`endFromDate` and `endToDate`. Optional string alternatives `startFromDtm`,
+`startToDtm`, `endFromDtm` and `endToDtm` accept UTC XDS DTM
+`YYYY[MM[DD[hh[mm[ss]]]]]`, for example `202610`. Supply only one representation
+per boundary; invalid calendar dates and conflicting representations are rejected.
+The GITB form accepts ISO partial dates such as `2026-10` and passes their DTM
+precision into IPF's native `Timestamp` parser and query transformer. Registry
+matching remains the registry's responsibility; no local expansion or filtering
+approximates partial dates. Existing numeric REST callers retain second precision.
 
 ITB's native interaction forms do not support live dependencies between fields.
 The action and document selectors therefore use separate `interact` steps with a

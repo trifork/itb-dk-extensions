@@ -18,6 +18,7 @@ final class GitbXdsAccess implements AutoCloseable {
                     .disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
     private final XdsOperations operations;
     private final Duration timeout;
+    private final java.util.function.Supplier<String> diagnosticResponse;
     private final ExecutorService executor =
             new ThreadPoolExecutor(
                     8,
@@ -28,8 +29,16 @@ final class GitbXdsAccess implements AutoCloseable {
                     Thread.ofPlatform().daemon().name("gitb-xds-", 0).factory());
 
     GitbXdsAccess(XdsOperations operations, Duration timeout) {
+        this(operations, timeout, () -> "");
+    }
+
+    GitbXdsAccess(
+            XdsOperations operations,
+            Duration timeout,
+            java.util.function.Supplier<String> diagnosticResponse) {
         this.operations = operations;
         this.timeout = timeout;
+        this.diagnosticResponse = diagnosticResponse;
     }
 
     JsonNode identities() {
@@ -115,6 +124,13 @@ final class GitbXdsAccess implements AutoCloseable {
                                 RequestContextHolder.setRequestAttributes(attributes);
                                 try {
                                     return action.call();
+                                } catch (Exception e) {
+                                    var failure = XdsErrors.failure(operation, e);
+                                    throw new XdsFailure(
+                                            failure.code,
+                                            failure.getMessage()
+                                                    + SoapFaultDiagnostics.describe(
+                                                            e, responseDiagnostics()));
                                 } finally {
                                     RequestContextHolder.resetRequestAttributes();
                                 }
@@ -133,6 +149,14 @@ final class GitbXdsAccess implements AutoCloseable {
             throw XdsErrors.failure(operation, e);
         } catch (ExecutionException e) {
             throw XdsErrors.failure(operation, e.getCause());
+        }
+    }
+
+    private String responseDiagnostics() {
+        try {
+            return diagnosticResponse.get();
+        } catch (RuntimeException _) {
+            return "";
         }
     }
 

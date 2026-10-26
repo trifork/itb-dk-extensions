@@ -471,6 +471,26 @@ components:
           type: integer
           format: int64
           example: "1664349302510"
+        startFromDtm:
+          description: UTC ITI-18 DTM with year through second precision. Mutually exclusive with startFromDate. Partial bounds follow ITI-18 section 3.18.4.1.2.3.3.2.
+          type: string
+          pattern: '^[1-9][0-9]{3}([0-9]{2}){0,5}$'
+          example: '202610'
+        startToDtm:
+          description: UTC ITI-18 DTM with year through second precision. Mutually exclusive with startToDate. Partial bounds follow ITI-18 section 3.18.4.1.2.3.3.2.
+          type: string
+          pattern: '^[1-9][0-9]{3}([0-9]{2}){0,5}$'
+          example: '202610'
+        endFromDtm:
+          description: UTC ITI-18 DTM with year through second precision. Mutually exclusive with endFromDate. Partial bounds follow ITI-18 section 3.18.4.1.2.3.3.2.
+          type: string
+          pattern: '^[1-9][0-9]{3}([0-9]{2}){0,5}$'
+          example: '202610'
+        endToDtm:
+          description: UTC ITI-18 DTM with year through second precision. Mutually exclusive with endToDate. Partial bounds follow ITI-18 section 3.18.4.1.2.3.3.2.
+          type: string
+          pattern: '^[1-9][0-9]{3}([0-9]{2}){0,5}$'
+          example: '202610'
         availabilityStatus:
           description: The availability result
           type: string

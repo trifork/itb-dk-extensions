@@ -49,6 +49,22 @@ use independent patterns so overlapping contexts are not masked by the
 Schematron first-matching-rule rule. Missing children are reported on an existing
 parent; attribute constraints are reported on the owning element.
 
+Release-marker errors for APD, CPD, PDC, QRD, PMR, PRF and PSCR are located on
+the offending `documentationOf/serviceEvent/id`; PDC template-extension errors
+are located on the document `templateId`. Duplicate declarations are reported
+at each declaration. Missing markers use the version service event when present,
+then an existing service event, `documentationOf`, or the document root.
+Prohibited header elements are reported at each prohibited element. PHMR missing
+monitoring-time and service-event findings likewise use the nearest relevant
+existing parent. Root-level checks remain appropriate for missing top-level
+elements and document-wide cardinality constraints.
+
+`CdaLocationsIT` verifies these XPath locations against the actual validator image,
+including correct/incorrect releases, absent/duplicate declarations, all 40
+prohibited-header checks, and missing-parent fallbacks. These changes preserve
+rule IDs and rejection criteria; they do not change which profile release a test
+validates or imply full conformance coverage.
+
 The [rule inventory](cda-conformance/rules.json) contains every executable XPath
 and source reference. Regenerate both CDA and PRO inventories with:
 

@@ -12,6 +12,15 @@ long forms scroll internally. Opening and closing an interaction has no slide/fa
 animation, and initial text-field focus does not scroll the dialog. This applies to
 both running tests and pending interactions opened from session history.
 
+DDS service start/stop filters offer Year, Month, Day, Hour, Minute and Second
+precision, using calendar/time controls where supported by the browser. Year uses
+a four-digit field; hour precision requires minutes `00`. Changing precision clears
+the value to avoid silently changing a boundary. TDL text requests opt in with
+`mimeType="text/plain;format=date-time;timezone=UTC"`. Clock values are UTC without
+browser timezone conversion. Submission retains partial dates, adds `Z` to full
+second timestamps, preserves empty bounds and checks native validity. Other text
+fields keep their normal behaviour.
+
 Batch execution keeps a failed or stopped test visible, including its session ID,
 log and reports. **Start next test** explicitly prepares and starts the next
 selected test. **Continue automatically** applies only after success; disabling
@@ -68,12 +77,14 @@ Docker provides Node for the frontend build; host Node 24+ is only needed for
 browser tests. Tests cover provenance, served assets, startup, CSP, original bytes
 and preview behaviour. `tests/interactions.spec.js` additionally signs in with the
 provisioned test user, creates its own synthetic sessions and verifies DDS/SFSK
-form submission through retrieval and validation. It uses `ITB_STATE_FILE` and
+identity defaults and form submission through retrieval and validation. It uses `ITB_STATE_FILE` and
 `ITB_USER_STATE_FILE` when set, otherwise the ignored bootstrap/user state files.
 The batch regression also exercises the live execution page: invalid CPR fails
 locally, the failed session remains visible, and only **Start next test** creates
 the next session. Run the complete file against the isolated fixture stack, not
-a live NSP backend. Review the source extension and verify real report
+a live NSP backend. Date-picker regressions verify all six precisions, UTC submission, invalid years,
+clearing and reset in Copenhagen and New York browser timezones; they reject the
+CPR locally before any NSP query. Review the source extension and verify real report
 attachments when upgrading ITB.
 
 Successful default-branch XDS integration publishes

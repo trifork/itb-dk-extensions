@@ -95,6 +95,9 @@ class Packaging(unittest.TestCase):
                 entry_type = xds[key].find('.//t:request[@name="entryTypes"]', NS)
                 self.assertEqual('true', entry_type.get('required'))
                 self.assertEqual('$xdsChoices{defaultEntryTypes}', entry_type.get('default'))
+                for form_id in ('xdsQuery', 'xdsStamkortQuery'):
+                    identity = xds[key].find('.//t:interact[@id="' + form_id + '"]/t:request[@name="professional"]', NS)
+                    self.assertEqual('$xdsQueryChoices{defaultProfessional}', identity.get('default'))
                 self.assertEqual('$search_entryTypes', xds[key].find('.//t:input[@name="entryTypes"]', NS).text)
                 self.assertEqual('$document', xds[key].find('.//t:input[@name="xml"]', NS).text)
                 self.assertEqual('false', xds[key].find('t:metadata/c:update', NS).get('resetTestHistory'))
@@ -106,6 +109,18 @@ class Packaging(unittest.TestCase):
                          [item.get('name') for item in form.findall('t:request', NS)])
         self.assertEqual('SELECT_SINGLE', form.find('t:request[@name="formatCode"]', NS).get('inputType'))
         self.assertEqual('$xdsQueryChoices{defaultProfessional}', form.find('t:request[@name="professional"]', NS).get('default'))
+
+    def test_date_filters_declare_utc_picker_metadata(self):
+        root = self.package(True)['testCases/validate-phmr_v2_1_0-manual.xml']
+        form = root.find('.//t:interact[@id="xdsQuery"]', NS)
+        dates = {'startFromDate', 'startToDate', 'endFromDate', 'endToDate'}
+        for request in form.findall('t:request', NS):
+            if request.get('name') in dates:
+                self.assertEqual('TEXT', request.get('inputType'))
+                self.assertEqual('text/plain;format=date-time;timezone=UTC', request.get('mimeType'))
+                self.assertNotEqual('true', request.get('required'))
+            else:
+                self.assertIsNone(request.get('mimeType'))
 
     def test_registry_selection_is_conditional_and_passed_to_search(self):
         root = self.package(True)['testCases/validate-phmr_v2_1_0-manual.xml']

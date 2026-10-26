@@ -273,6 +273,97 @@ class XdsProcessingServiceTest {
     }
 
     @Test
+    void stamkortPrefersFirstCurrentFocesWithoutHidingOtherIdentities() {
+        registryChoices =
+                List.of(
+                        new com.trifork.ihexdsapi.service.RegistryRouting.Choice("dds", "DDS"),
+                        new com.trifork.ihexdsapi.service.RegistryRouting.Choice(
+                                "sfsk", "Stamkort", true));
+        identities =
+                """
+                [{"id":"employee","displayName":"Employee","credentialType":"HEALTHCAREPROFESSIONAL","certificateKind":"MOCES"},
+                 {"id":"voces","displayName":"Organisation","credentialType":"SYSTEM","certificateKind":"VOCES"},
+                 {"id":"expired","displayName":"Expired FOCES","credentialType":"SYSTEM","certificateKind":"FOCES","validUntil":"2000-01-01T00:00:00Z"},
+                 {"id":"future","displayName":"Future FOCES","credentialType":"SYSTEM","certificateKind":"FOCES","validFrom":"2099-01-01T00:00:00Z"},
+                 {"id":"foces","displayName":"Preferred, system","credentialType":"SYSTEM","certificateKind":"FOCES"},
+                 {"id":"second","displayName":"Preferred, system","credentialType":"SYSTEM","certificateKind":"FOCES"}]
+                """;
+        call("choices");
+        var form = call("queryChoices", "registry", "Stamkort");
+        String preferred = output(form, "defaultProfessional").getValue();
+        assertEquals("FOCES — Preferred; system — expiry unknown — system identity", preferred);
+        assertEquals(6, output(form, "professionalLabels").getItem().size());
+        var result =
+                call(
+                        "search",
+                        "registry",
+                        "Stamkort",
+                        "patientId",
+                        "2512489996",
+                        "professional",
+                        preferred);
+        assertEquals(TestResultType.SUCCESS, result.getReport().getResult());
+        assertEquals("foces", lastSearch.path("credentialId").asText());
+        assertEquals(
+                "MOCES — Employee — expiry unknown",
+                output(call("queryChoices", "registry", "DDS"), "defaultProfessional").getValue());
+
+        // Without a current FOCES, retain the first current system identity as fallback.
+        identities =
+                identities.replace(
+                        "\"certificateKind\":\"FOCES\"", "\"certificateKind\":\"SYSTEM\"");
+        call("choices");
+        assertTrue(
+                output(call("queryChoices", "registry", "Stamkort"), "defaultProfessional")
+                        .getValue()
+                        .startsWith("VOCES — Organisation"));
+    }
+
+    @Test
+    void stamkortWithoutCurrentSystemIdentityLeavesSelectionToUser() {
+        registryChoices =
+                List.of(
+                        new com.trifork.ihexdsapi.service.RegistryRouting.Choice(
+                                "sfsk", "Stamkort", true));
+        identities =
+                """
+                [{"id":"employee","displayName":"Employee","credentialType":"HEALTHCAREPROFESSIONAL","certificateKind":"MOCES"},
+                 {"id":"expired","displayName":"Expired FOCES","credentialType":"SYSTEM","certificateKind":"FOCES","validUntil":"2000-01-01T00:00:00Z"},
+                 {"id":"future","displayName":"Future FOCES","credentialType":"SYSTEM","certificateKind":"FOCES","validFrom":"2099-01-01T00:00:00Z"}]
+                """;
+        call("choices");
+        var form = call("queryChoices", "registry", "Stamkort");
+        assertEquals("", output(form, "defaultProfessional").getValue());
+        assertEquals(3, output(form, "professionalLabels").getItem().size());
+    }
+
+    @Test
+    void ddsDefaultsToFirstCurrentMocesAndLeavesInvalidCertificatesUnselected() {
+        identities =
+                """
+                [{"id":"system","displayName":"System","credentialType":"SYSTEM","certificateKind":"FOCES"},
+                 {"id":"expired","displayName":"Expired employee","credentialType":"HEALTHCAREPROFESSIONAL","certificateKind":"MOCES","validUntil":"2000-01-01T00:00:00Z"},
+                 {"id":"future","displayName":"Future employee","credentialType":"HEALTHCAREPROFESSIONAL","certificateKind":"MOCES","validFrom":"2099-01-01T00:00:00Z"},
+                 {"id":"employee","displayName":"Current employee","credentialType":"HEALTHCAREPROFESSIONAL","certificateKind":"MOCES","validUntil":"2028-01-01T00:00:00Z"},
+                 {"id":"second","displayName":"Second employee","credentialType":"HEALTHCAREPROFESSIONAL","certificateKind":"MOCES","validUntil":"2028-01-01T00:00:00Z"}]
+                """;
+        call("choices");
+        var form = call("queryChoices", "registry", "default");
+        String preferred = output(form, "defaultProfessional").getValue();
+        assertEquals("MOCES — Current employee — expires 2028-01-01", preferred);
+        assertEquals(5, output(form, "professionalLabels").getItem().size());
+        var result = call("search", "patientId", "2512489996", "professional", preferred);
+        assertEquals(TestResultType.SUCCESS, result.getReport().getResult());
+        assertEquals("employee", lastSearch.path("credentialId").asText());
+        identities = identities.replace("2028-01-01", "2000-01-01");
+        call("choices");
+        assertEquals(
+                "",
+                output(call("queryChoices", "registry", "default"), "defaultProfessional")
+                        .getValue());
+    }
+
+    @Test
     void selectedRegistrySurvivesFilteringAndCannotBeOverriddenDuringRetrieval() {
         registryChoices =
                 List.of(
@@ -384,9 +475,7 @@ class XdsProcessingServiceTest {
         assertEquals("STABLE", lastSearch.at("/queryParameters/documentType/0").asText());
         assertEquals("ON-DEMAND", lastSearch.at("/queryParameters/documentType/1").asText());
         assertEquals("scheme-1", lastSearch.at("/queryParameters/typeCode/codeScheme").asText());
-        assertEquals(
-                Instant.parse("2026-01-01T00:00:00Z").toEpochMilli(),
-                lastSearch.at("/queryParameters/startFromDate").asLong());
+        assertEquals("20260101000000", lastSearch.at("/queryParameters/startFromDtm").asText());
         assertFalse(lastSearch.at("/context/consentOverride").asBoolean());
         assertEquals("Læge", lastSearch.at("/context/role").asText());
         var retrieved = call("retrieve", "document", handle(found));
@@ -403,6 +492,32 @@ class XdsProcessingServiceTest {
                 "false", lastRetrieve.at("/queryParameters/includeFormattedResponse").asText());
         assertEquals("2512489996", lastRetrieve.at("/queryParameters/patientId").asText());
         failure(call("retrieve", "document", handle(found)), "XDS-SELECTION");
+    }
+
+    @Test
+    void partialDateBoundsPreserveTheirPrecisionInAllFourFields() {
+        call("choices");
+        var result =
+                call(
+                        "search",
+                        "patientId",
+                        "2512489996",
+                        "professional",
+                        "professional-1",
+                        "startFromDate",
+                        "2026",
+                        "startToDate",
+                        "2026-10",
+                        "endFromDate",
+                        "2026-10-25",
+                        "endToDate",
+                        "2026-10-25T02");
+        assertEquals(TestResultType.SUCCESS, result.getReport().getResult());
+        assertEquals("2026", lastSearch.at("/queryParameters/startFromDtm").asText());
+        assertEquals("202610", lastSearch.at("/queryParameters/startToDtm").asText());
+        assertEquals("20261025", lastSearch.at("/queryParameters/endFromDtm").asText());
+        assertEquals("2026102502", lastSearch.at("/queryParameters/endToDtm").asText());
+        assertTrue(lastSearch.at("/queryParameters/startFromDate").isNull());
     }
 
     @Test
@@ -955,7 +1070,7 @@ class XdsProcessingServiceTest {
                         "professional",
                         "professional-1",
                         "startFromDate",
-                        "2026-01-01"),
+                        "2026-02-29"),
                 "XDS-INPUT");
         failure(
                 call(

@@ -415,6 +415,37 @@ class XdsRestContractTest {
     }
 
     @Test
+    void partialDatePrecisionSurvivesRestAndSoapForEveryBound() throws Exception {
+        // ITI-18 3.18.4.1.2.3.3.2: do not expand partial bounds on the wire.
+        for (String dtm :
+                List.of(
+                        "2026",
+                        "202610",
+                        "20261025",
+                        "2026102502",
+                        "202610250230",
+                        "20261025023045")) {
+            var q = query();
+            for (String key : List.of("startFrom", "startTo", "endFrom", "endTo"))
+                q.put(key + "Dtm", dtm);
+            request("/v1/iti18", q, 200);
+            for (String slot :
+                    List.of(
+                            "ServiceStartTimeFrom",
+                            "ServiceStartTimeTo",
+                            "ServiceStopTimeFrom",
+                            "ServiceStopTimeTo"))
+                assertEquals(dtm, soapValue("$XDSDocumentEntry" + slot));
+        }
+        var invalid = query();
+        invalid.put("startFromDtm", "20260229");
+        request("/v1/iti18", invalid, 400);
+        invalid.put("startFromDtm", "202610");
+        invalid.put("startFromDate", 1767323045000L);
+        request("/v1/iti18", invalid, 400);
+    }
+
+    @Test
     void pdcSearchIncludesOnDemandAndPreservesStableDocuments() throws Exception {
         // NSP SFSK consumer guide section 5.1: Stamkort requires the on-demand UUID.
         var q = query();

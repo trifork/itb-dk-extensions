@@ -33,6 +33,7 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 class GitbApplicationIT {
     private static final List<String> requests = Collections.synchronizedList(new ArrayList<>());
     private static volatile boolean registryError;
+    private static volatile boolean soapFault;
     private static final HttpServer remote = remote();
     @LocalServerPort int port;
     @MockitoBean CredentialService credentials;
@@ -45,10 +46,11 @@ class GitbApplicationIT {
             server.createContext(
                     "/",
                     exchange -> {
-                        requests.add(
+                        String request =
                                 new String(
                                         exchange.getRequestBody().readAllBytes(),
-                                        StandardCharsets.UTF_8));
+                                        StandardCharsets.UTF_8);
+                        requests.add(request);
                         String error =
                                 registryError
                                         ? "<rs:RegistryErrorList><rs:RegistryError errorCode='XDSRegistryBusy' codeContext='private-context' severity='urn:oasis:names:tc:ebxml-regrep:ErrorSeverityType:Error'/></rs:RegistryErrorList>"
@@ -58,10 +60,14 @@ class GitbApplicationIT {
                                         "<query:AdhocQueryResponse xmlns:query='urn:oasis:names:tc:ebxml-regrep:xsd:query:3.0' xmlns:rs='urn:oasis:names:tc:ebxml-regrep:xsd:rs:3.0' status='urn:oasis:names:tc:ebxml-regrep:ResponseStatusType:Success'>"
                                                 + error
                                                 + "<rim:RegistryObjectList xmlns:rim='urn:oasis:names:tc:ebxml-regrep:xsd:rim:3.0'/></query:AdhocQueryResponse>");
+                        if (soapFault)
+                            response =
+                                    SoapFaultDiagnosticsTest.RESPONSE.replace(
+                                            "urn:uuid:request-456", requestMessageId(request));
                         byte[] bytes = response.getBytes(StandardCharsets.UTF_8);
                         exchange.getResponseHeaders()
                                 .set("Content-Type", "text/xml; charset=UTF-8");
-                        exchange.sendResponseHeaders(200, bytes.length);
+                        exchange.sendResponseHeaders(soapFault ? 500 : 200, bytes.length);
                         exchange.getResponseBody().write(bytes);
                         exchange.close();
                     });
@@ -69,6 +75,22 @@ class GitbApplicationIT {
             return server;
         } catch (Exception e) {
             throw new IllegalStateException(e);
+        }
+    }
+
+    private static String requestMessageId(String xml) {
+        try {
+            var factory = DocumentBuilderFactory.newInstance();
+            factory.setNamespaceAware(true);
+            factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
+            var doc =
+                    factory.newDocumentBuilder()
+                            .parse(new ByteArrayInputStream(xml.getBytes(StandardCharsets.UTF_8)));
+            return doc.getElementsByTagNameNS("http://www.w3.org/2005/08/addressing", "MessageID")
+                    .item(0)
+                    .getTextContent();
+        } catch (Exception e) {
+            throw new IllegalArgumentException(e);
         }
     }
 
@@ -89,6 +111,7 @@ class GitbApplicationIT {
     void identities() throws Exception {
         requests.clear();
         registryError = false;
+        soapFault = false;
         when(credentials.populateResponses(null, null))
                 .thenReturn(
                         Arrays.asList(
@@ -159,6 +182,39 @@ class GitbApplicationIT {
         assertFalse(message.contains("private-context"));
         assertFalse(message.contains("HTTP 400"));
         assertEquals(1, requests.size());
+    }
+
+    @Test
+    void soapFaultDetailsReachTheUserFacingErrorAndAssertion() throws Exception {
+        soapFault = true;
+        var result = search("2512489996");
+        assertEquals(TestResultType.FAILURE, result.getReport().getResult());
+        String message =
+                result.getOutput().stream()
+                        .filter(i -> i.getName().equals("errorMessage"))
+                        .findFirst()
+                        .orElseThrow()
+                        .getValue();
+        assertTrue(message.contains("faultcode=soap:Server"), message);
+        assertTrue(message.contains("faultstring=internal_error_minlog"), message);
+        assertTrue(message.contains("responseTimestamp=2026-10-26T19:34:10Z"), message);
+        assertTrue(message.contains("DGWS FlowID=flow-123"), message);
+        assertTrue(
+                message.contains(
+                        "WS-Addressing RelatesTo=" + requestMessageId(requests.getFirst())),
+                message);
+        assertFalse(message.contains("SECRET"));
+        var assertion =
+                (com.gitb.tr.BAR)
+                        result.getReport()
+                                .getReports()
+                                .getInfoOrWarningOrError()
+                                .getFirst()
+                                .getValue();
+        assertEquals("XDS-BACKEND", assertion.getAssertionID());
+        assertEquals(message, assertion.getDescription());
+        soapFault = false;
+        assertEquals(TestResultType.SUCCESS, search("2512489996").getReport().getResult());
     }
 
     @Test

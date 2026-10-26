@@ -3890,8 +3890,8 @@
   {
     "id": "QRD-DK-1.3.2-NO-INFORMANT",
     "file": "cda-validator/domain/cda-dk/sch/versions/qrd-v1.3.2-conformance.sch",
-    "context": "v3:ClinicalDocument",
-    "test": "not(v3:informant)",
+    "context": "v3:ClinicalDocument/v3:informant",
+    "test": "false()",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=21",
     "message": "QRD-DK 1.3.2: informant is not used in this profile. Source: qrd 2.2.4, p. 21, NO-INFORMANT."
@@ -3899,8 +3899,8 @@
   {
     "id": "QRD-DK-1.3.2-NO-LEGALAUTHENTICATOR",
     "file": "cda-validator/domain/cda-dk/sch/versions/qrd-v1.3.2-conformance.sch",
-    "context": "v3:ClinicalDocument",
-    "test": "not(v3:legalAuthenticator)",
+    "context": "v3:ClinicalDocument/v3:legalAuthenticator",
+    "test": "false()",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=24",
     "message": "QRD-DK 1.3.2: legalAuthenticator is not used in this profile. Source: qrd 2.2.7, p. 24, NO-LEGALAUTHENTICATOR."
@@ -3908,8 +3908,8 @@
   {
     "id": "QRD-DK-1.3.2-NO-AUTHENTICATOR",
     "file": "cda-validator/domain/cda-dk/sch/versions/qrd-v1.3.2-conformance.sch",
-    "context": "v3:ClinicalDocument",
-    "test": "not(v3:authenticator)",
+    "context": "v3:ClinicalDocument/v3:authenticator",
+    "test": "false()",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=25",
     "message": "QRD-DK 1.3.2: authenticator is not used in this profile. Source: qrd 2.2.8, p. 25, NO-AUTHENTICATOR."

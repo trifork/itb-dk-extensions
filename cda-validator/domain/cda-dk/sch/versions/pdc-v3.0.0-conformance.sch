@@ -140,33 +140,33 @@
     </rule>
   </pattern>
   <pattern id="PDC-DK-3.0.0-C121-pattern">
-    <rule context="v3:ClinicalDocument">
-      <assert id="PDC-DK-3.0.0-C121" test="empty(v3:dataEnterer)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v3.0.0.pdf">PDC header must not contain dataEnterer Source: 2.1.2–2.1.8 CONF-DK:121.</assert>
+    <rule context="v3:ClinicalDocument/v3:dataEnterer">
+      <assert id="PDC-DK-3.0.0-C121" test="false()" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v3.0.0.pdf">PDC header must not contain dataEnterer Source: 2.1.2–2.1.8 CONF-DK:121.</assert>
     </rule>
   </pattern>
   <pattern id="PDC-DK-3.0.0-C122-pattern">
-    <rule context="v3:ClinicalDocument">
-      <assert id="PDC-DK-3.0.0-C122" test="empty(v3:informant)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v3.0.0.pdf">PDC header must not contain informant Source: 2.1.2–2.1.8 CONF-DK:122.</assert>
+    <rule context="v3:ClinicalDocument/v3:informant">
+      <assert id="PDC-DK-3.0.0-C122" test="false()" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v3.0.0.pdf">PDC header must not contain informant Source: 2.1.2–2.1.8 CONF-DK:122.</assert>
     </rule>
   </pattern>
   <pattern id="PDC-DK-3.0.0-C130-pattern">
-    <rule context="v3:ClinicalDocument">
-      <assert id="PDC-DK-3.0.0-C130" test="empty(v3:informationRecipient)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v3.0.0.pdf">PDC header must not contain informationRecipient Source: 2.1.2–2.1.8 CONF-DK:130.</assert>
+    <rule context="v3:ClinicalDocument/v3:informationRecipient">
+      <assert id="PDC-DK-3.0.0-C130" test="false()" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v3.0.0.pdf">PDC header must not contain informationRecipient Source: 2.1.2–2.1.8 CONF-DK:130.</assert>
     </rule>
   </pattern>
   <pattern id="PDC-DK-3.0.0-C131-pattern">
-    <rule context="v3:ClinicalDocument">
-      <assert id="PDC-DK-3.0.0-C131" test="empty(v3:legalAuthenticator)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v3.0.0.pdf">PDC header must not contain legalAuthenticator Source: 2.1.2–2.1.8 CONF-DK:131.</assert>
+    <rule context="v3:ClinicalDocument/v3:legalAuthenticator">
+      <assert id="PDC-DK-3.0.0-C131" test="false()" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v3.0.0.pdf">PDC header must not contain legalAuthenticator Source: 2.1.2–2.1.8 CONF-DK:131.</assert>
     </rule>
   </pattern>
   <pattern id="PDC-DK-3.0.0-C132-pattern">
-    <rule context="v3:ClinicalDocument">
-      <assert id="PDC-DK-3.0.0-C132" test="empty(v3:authenticator)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v3.0.0.pdf">PDC header must not contain authenticator Source: 2.1.2–2.1.8 CONF-DK:132.</assert>
+    <rule context="v3:ClinicalDocument/v3:authenticator">
+      <assert id="PDC-DK-3.0.0-C132" test="false()" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v3.0.0.pdf">PDC header must not contain authenticator Source: 2.1.2–2.1.8 CONF-DK:132.</assert>
     </rule>
   </pattern>
   <pattern id="PDC-DK-3.0.0-C133-pattern">
-    <rule context="v3:ClinicalDocument">
-      <assert id="PDC-DK-3.0.0-C133" test="empty(v3:participant)" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v3.0.0.pdf">PDC header must not contain participant Source: 2.1.2–2.1.8 CONF-DK:133.</assert>
+    <rule context="v3:ClinicalDocument/v3:participant">
+      <assert id="PDC-DK-3.0.0-C133" test="false()" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Dokumentation/PDC-DK-v3.0.0.pdf">PDC header must not contain participant Source: 2.1.2–2.1.8 CONF-DK:133.</assert>
     </rule>
   </pattern>
   <pattern id="PDC-DK-3.0.0-C134-pattern">

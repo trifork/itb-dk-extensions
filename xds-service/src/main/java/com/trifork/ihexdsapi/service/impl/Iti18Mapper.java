@@ -2,8 +2,7 @@ package com.trifork.ihexdsapi.service.impl;
 
 import com.trifork.ihexdsapi.dgws.ItiException;
 import com.trifork.ihexdsapi.xds.Codes;
-import java.time.Instant;
-import java.time.ZoneOffset;
+import com.trifork.ihexdsapi.xds.QueryDates;
 import java.util.*;
 import org.openapitools.model.*;
 import org.openehealth.ipf.commons.ihe.xds.core.metadata.*;
@@ -66,11 +65,6 @@ final class Iti18Mapper {
         return result;
     }
 
-    private Timestamp dateFormatterForRequest(Long date) {
-        return new Timestamp(
-                Instant.ofEpochMilli(date).atZone(ZoneOffset.UTC), Timestamp.Precision.SECOND);
-    }
-
     private void applyCodeFilters(Iti18QueryParameter iti18Request, FindDocumentsQuery fdq) {
         var practiceSettingCode = iti18Request.getPracticeSettingCode();
         var healthcareFacilityTypeCode = iti18Request.getHealthcareFacilityTypeCode();
@@ -107,26 +101,18 @@ final class Iti18Mapper {
     }
 
     private void applyTimeFilters(Iti18QueryParameter iti18Request, FindDocumentsQuery fdq) {
-        // ServiceStart
-        if (iti18Request.getStartFromDate() != null) {
-
-            fdq.getServiceStartTime()
-                    .setFrom(dateFormatterForRequest(iti18Request.getStartFromDate()));
-        }
-
-        if (iti18Request.getStartToDate() != null) {
-            fdq.getServiceStartTime().setTo(dateFormatterForRequest(iti18Request.getStartToDate()));
-        }
-        // ServiceStop
-
-        if (iti18Request.getEndFromDate() != null) {
-            fdq.getServiceStopTime()
-                    .setFrom(dateFormatterForRequest(iti18Request.getEndFromDate()));
-        }
-
-        if (iti18Request.getEndToDate() != null) {
-            fdq.getServiceStopTime().setTo(dateFormatterForRequest(iti18Request.getEndToDate()));
-        }
+        var start = fdq.getServiceStartTime();
+        start.setFrom(
+                QueryDates.resolve(
+                        iti18Request.getStartFromDate(), iti18Request.getStartFromDtm()));
+        start.setTo(
+                QueryDates.resolve(iti18Request.getStartToDate(), iti18Request.getStartToDtm()));
+        QueryDates.validateRange(start.getFrom(), start.getTo());
+        var stop = fdq.getServiceStopTime();
+        stop.setFrom(
+                QueryDates.resolve(iti18Request.getEndFromDate(), iti18Request.getEndFromDtm()));
+        stop.setTo(QueryDates.resolve(iti18Request.getEndToDate(), iti18Request.getEndToDtm()));
+        QueryDates.validateRange(stop.getFrom(), stop.getTo());
     }
 
     private void applyDocumentTypes(Iti18QueryParameter iti18Request, FindDocumentsQuery fdq)
