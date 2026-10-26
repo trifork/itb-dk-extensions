@@ -13,6 +13,39 @@ ROOT = Path(__file__).resolve().parents[1]
 NS = {'t': 'http://www.gitb.com/tdl/v1/', 'c': 'http://www.gitb.com/core/v1/'}
 
 class Packaging(unittest.TestCase):
+    def test_published_search_catalogue_preserves_codes_and_schemes(self):
+        # Runtime defaults deliberately stay outside the Docker build context.
+        # Check their catalogue here; Java tests exercise binding and query mapping.
+        properties = dict(line.split('=', 1) for line in
+                          (ROOT/'xds-service/application.properties').read_text().splitlines()
+                          if '=' in line and not line.startswith('#'))
+        types = properties['type.code.codes'].split(';')
+        formats = properties['format.code.codes'].split(';')
+        self.assertEqual(18, len(set(types)))
+        self.assertEqual(28, len(set(formats)))
+        self.assertEqual(len(types), len(set(types)))
+        self.assertEqual(len(formats), len(set(formats)))
+        for kind in ('type', 'format'):
+            self.assertEqual(len(properties[f'{kind}.code.codes'].split(';')),
+                             len(properties[f'{kind}.code.names'].split(';')))
+        for code in ('CMR', 'PDC', 'MADC', 'PFR', 'PSCR', 'PMR'):
+            with self.subTest(code=code):
+                self.assertIn(code, types)
+                self.assertEqual('1.2.208.184.100.1', properties[f'type.code.scheme-overrides[{code}]'])
+        for code in ('53576-5', '74468-0', '74465-6', '11502-2', '56446-8',
+                     '39289-4', '39290-2', '103140-0', '11450-4', '81215-6',
+                     '57059-8', '28615-3'):
+            with self.subTest(code=code):
+                self.assertIn(code, types)
+                self.assertEqual('2.16.840.1.113883.6.1',
+                                 properties.get(f'type.code.scheme-overrides[{code}]', properties['type.code.scheme']))
+        self.assertEqual('1.2.208.184.100.10', properties['format.code.scheme'])
+        for code in ('pdc-v2.0', 'pdc-v3.0', 'apd-v2.0.1', 'cpd-v1.0.1',
+                     'cpd-v2.0', 'phad-v1.0', 'pmr-v1.0', 'prf-v1.0',
+                     'pscr-v1.0', 'phmr', 'phmr-v2.1', 'qfdd-v1.2', 'qrd-v1.3'):
+            with self.subTest(code=code):
+                self.assertIn(f'urn:ad:dk:medcom:{code}:full', formats)
+
     def package(self, enabled, kind='upload'):
         with tempfile.TemporaryDirectory() as directory:
             archive = Path(directory)/'suite.zip'
