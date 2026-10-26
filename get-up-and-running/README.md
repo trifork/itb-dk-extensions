@@ -16,7 +16,7 @@ Scripts and test definitions that stand up the Interoperability Test Bed (ITB) l
 | `package-test-suite.sh` | Zips `test-suite/` or `setup-check/` into an ITB test suite archive. With `ITB_ENABLE_XDS=true` it calls `enable-xds.py` on the upload suite first. | `setup-itb.sh`, `tests/test_xds_packaging.py` |
 | `enable-xds.py` | Inserts the shared flow from `xds-flow.xml` into every staged release test so the user can choose between local upload and XDS retrieval. Preserves test case IDs. | `package-test-suite.sh` |
 | `session_catalogue.py` | Maps each release in `rulesets.json` to its deployed test case index and a durable session variable name such as `ITB_PHMR_1_3_SESSION_ID`. | `setup-itb.sh`, `setup-test-user.sh`, `tests/test_session_catalogue.py` |
-| `session-survived-restart.py` | Decides whether a pending session recorded in the ITB database predates the current engine start and must be replaced. | `setup-itb.sh`, `tests/test_xds_packaging.py` |
+| `session-survived-restart.py` | Decides whether a pending session predates the current engine start; accepts ISO timestamps and ITB 1.30.2's default UTC display format, with second-precision comparison and rejection of missing/invalid timestamps. | `setup-itb.sh`, `tests/test_xds_packaging.py` |
 
 ## Test definitions
 

@@ -146,5 +146,26 @@ class Packaging(unittest.TestCase):
         for root in self.package(True, 'setup-check').values():
             self.assertIsNone(root.find('.//t:bptxn', NS))
 
+    def test_pending_session_restart_cli_accepts_itb_1302_dates(self):
+        # The status API's default date format is UTC without an explicit offset.
+        # Exercise the real stdin/exit-code interface called by setup-itb.sh.
+        boot = '2026-10-26T14:45:13.123456789Z'
+        for start, expected in (
+                ('26/10/2026 14:45:12', 1),
+                ('26/10/2026 14:45:13', 0),
+                ('26/10/2026 14:45:14', 0),
+                ('2026-10-26T15:45:13+01:00', 0),
+                ('2026-10-26T14:45:12Z', 1),
+                ('invalid', 1),
+                (None, 1)):
+            with self.subTest(start=start):
+                result = subprocess.run(
+                    ['python3', str(ROOT/'get-up-and-running/session-survived-restart.py'), boot],
+                    input=json.dumps({'sessions': [{'startTime': start}]}),
+                    env={**os.environ, 'TZ': 'Europe/Copenhagen'},
+                    capture_output=True, text=True)
+                self.assertEqual(expected, result.returncode, result.stderr)
+                self.assertEqual('', result.stderr)
+
 if __name__ == '__main__':
     unittest.main()
