@@ -4,6 +4,9 @@
 `/cda-preview`. Preview preserves original bytes and validation findings;
 structured questionnaire fields may not appear.
 
+Validation reports show **Click an error or warning for more details** above
+selectable findings when errors or warnings are visible.
+
 ## Build and load
 
 The gateway downloads the checksum-pinned ITB release source in `upstream.json`,

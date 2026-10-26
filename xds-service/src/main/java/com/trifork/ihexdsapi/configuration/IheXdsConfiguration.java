@@ -25,7 +25,10 @@ import org.springframework.web.context.annotation.RequestScope;
 
 @Configuration
 @Import(StorageConfiguration.class)
-@org.springframework.boot.context.properties.EnableConfigurationProperties(RegistryProperties.class)
+@org.springframework.boot.context.properties.EnableConfigurationProperties({
+    RegistryProperties.class,
+    TypeCodeProperties.class
+})
 public class IheXdsConfiguration {
     @Value("${XDS_TIMEOUT_SECONDS:45}")
     private int timeoutSeconds = 45;
@@ -210,10 +213,10 @@ public class IheXdsConfiguration {
     }
 
     @Bean
-    public CodesService codesService() throws CodesExecption {
+    public CodesService codesService(TypeCodeProperties typeCodes) throws CodesExecption {
         return new CodesServiceImpl(
                 new CodesServiceImpl.CodeListDefinition(
-                        typeCodeCodes, typeCodeNames, typeCodeScheme),
+                        typeCodeCodes, typeCodeNames, typeCodeScheme, typeCodes.schemeOverrides()),
                 new CodesServiceImpl.CodeListDefinition(
                         formatCodeCodes, formatCodeNames, formatCodeScheme),
                 new CodesServiceImpl.CodeListDefinition(

@@ -305,9 +305,27 @@ XDS_AUTHORIZATION_CODE=your-test-authorisation-code
 
 Endpoint variables are `XDS_STS_URL`, `XDS_REGISTRY_URL` and `XDS_REPOSITORY_URL`.
 The maintained defaults and code lists are in `xds-service/application.properties`;
-`xds-service/local/application.properties` can override them. The format list supplies
-published MedCom PHMR/QFDD/QRD formats, legacy PHMR, and `phmr-v2.1` observed in
-TEST1. Use **Any** for unlisted formats. XDS format codes are not CDA releases.
+`xds-service/local/application.properties` can override them. The shared
+TEST1/TEST2 lists include the document types and formats published in
+[MedCom XDS metadata 1.0.1](https://medcomfhir.dk/ig/xdsmetadata/artifacts.html),
+including PDC (Stamkort) and its 2.0/3.0 formats. Legacy PHMR and `phmr-v2.1`
+observed in TEST1 remain available. Labels and codes describe search metadata;
+XDS format codes are not CDA validation releases, and an offered code does not
+establish that documents are available in a registry.
+
+`type.code.codes` and `type.code.names` are matching semicolon-separated lists.
+`type.code.scheme` remains the default scheme (LOINC). Individual types can use
+another scheme with, for example,
+`type.code.scheme-overrides[PDC]=1.2.208.184.100.1`. The same override mechanism
+covers the other MedCom document types. Existing single-scheme configurations
+remain supported; unused overrides do not add options to a configured list.
+The format list uses `format.code.codes`, `format.code.names` and the common
+`format.code.scheme`. Preserve the published metadata code versions when editing
+these lists; do not derive them from the validator release catalogue.
+
+For an unlisted type or format, leave **both** code fields empty or select **Any**
+in each field, then choose the desired document from the results. Restart
+`xds-api` and start a new search session after changing the lists.
 
 The service runs on Java 25 with IPF 5.3 and SEAL 3. TEST1 still returns
 RSA-SHA1-signed DGWS cards, so Compose enables `ALLOW_TEST1_LEGACY_SHA1`, retaining

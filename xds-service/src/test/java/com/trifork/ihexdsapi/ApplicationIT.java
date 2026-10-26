@@ -24,7 +24,11 @@ import org.springframework.test.context.TestPropertySource;
         properties = {
             "management.server.port=0",
             // Exclude the deployment's application.properties and its live registry/STS bundles.
-            "spring.config.location=classpath:/"
+            "spring.config.location=classpath:/",
+            "type.code.codes=53576-5;PDC",
+            "type.code.names=PHMR;Stamkort",
+            "type.code.scheme=2.16.840.1.113883.6.1",
+            "type.code.scheme-overrides[PDC]=1.2.208.184.100.1"
         })
 @ActiveProfiles("integration")
 @TestPropertySource("classpath:application-integration.properties")
@@ -92,6 +96,18 @@ class ApplicationIT {
         var entries = json.readTree(response.body());
         assertTrue(entries.isArray());
         assertFalse(entries.isEmpty());
+    }
+
+    @Test
+    void typeCodesRetainTheirIndividualCodingSchemesOverHttp() throws Exception {
+        var response = request("GET", "/v1/codes/typeCode", "");
+        assertEquals(200, response.statusCode());
+        var entries = json.readTree(response.body());
+        assertEquals(2, entries.size());
+        assertEquals("53576-5", entries.get(0).get("code").asText());
+        assertEquals("2.16.840.1.113883.6.1", entries.get(0).get("scheme").asText());
+        assertEquals("PDC", entries.get(1).get("code").asText());
+        assertEquals("1.2.208.184.100.1", entries.get(1).get("scheme").asText());
     }
 
     @Test

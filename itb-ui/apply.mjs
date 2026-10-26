@@ -10,6 +10,12 @@ function replaceOnce(path, before, after) {
   writeFileSync(path, text.replace(before, () => after));
 }
 
+const reportTemplate = join(root, 'src/app/components/tar-report/tar-report.component.html');
+replaceOnce(reportTemplate, '            @if (reportsToShow.length > 0) {', `            @if (selectable && ((showErrors && errors > 0) || (showWarnings && warnings > 0))) {
+                <p class="text-muted mb-2">Click an error or warning for more details.</p>
+            }
+            @if (reportsToShow.length > 0) {`);
+
 replaceOnce(component, 'import {Component, Input, OnInit}', `import {firstValueFrom} from 'rxjs';
 import {isXmlAttachment, showCdaPreview} from './cda-preview';
 

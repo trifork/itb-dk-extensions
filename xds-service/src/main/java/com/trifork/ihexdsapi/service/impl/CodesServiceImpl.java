@@ -4,11 +4,21 @@ import com.trifork.ihexdsapi.service.CodesExecption;
 import com.trifork.ihexdsapi.service.CodesService;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import org.openapitools.model.Code;
 
 public class CodesServiceImpl implements CodesService {
 
-    public record CodeListDefinition(String codes, String names, String scheme) {}
+    public record CodeListDefinition(
+            String codes, String names, String scheme, Map<String, String> schemeOverrides) {
+        public CodeListDefinition(String codes, String names, String scheme) {
+            this(codes, names, scheme, Map.of());
+        }
+
+        public CodeListDefinition {
+            schemeOverrides = Map.copyOf(schemeOverrides);
+        }
+    }
 
     private List<Code> typeCodesList;
     private List<Code> formatCodesList;
@@ -114,7 +124,7 @@ public class CodesServiceImpl implements CodesService {
             Code temp = new Code();
             temp.setCode(codesArray[i]);
             temp.setName(namesArray[i]);
-            temp.setScheme(scheme);
+            temp.setScheme(definition.schemeOverrides().getOrDefault(codesArray[i], scheme));
             codesCollection.add(temp);
         }
         return codesCollection;
