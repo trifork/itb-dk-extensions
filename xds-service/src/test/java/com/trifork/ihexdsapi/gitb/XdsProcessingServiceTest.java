@@ -308,6 +308,7 @@ class XdsProcessingServiceTest {
         assertEquals(TestResultType.SUCCESS, found.getReport().getResult());
         assertEquals("Approved", lastSearch.at("/queryParameters/availabilityStatus").asText());
         assertEquals("STABLE", lastSearch.at("/queryParameters/documentType/0").asText());
+        assertEquals("ON-DEMAND", lastSearch.at("/queryParameters/documentType/1").asText());
         assertEquals("scheme-1", lastSearch.at("/queryParameters/typeCode/codeScheme").asText());
         assertEquals(
                 Instant.parse("2026-01-01T00:00:00Z").toEpochMilli(),
@@ -328,6 +329,73 @@ class XdsProcessingServiceTest {
                 "false", lastRetrieve.at("/queryParameters/includeFormattedResponse").asText());
         assertEquals("2512489996", lastRetrieve.at("/queryParameters/patientId").asText());
         failure(call("retrieve", "document", handle(found)), "XDS-SELECTION");
+    }
+
+    @Test
+    void entryTypesRespectSelectionsAndRejectUnrecognisedOrEmptyValues() {
+        var choices = call("choices");
+        var labels =
+                output(choices, "entryTypeLabels").getItem().stream()
+                        .map(AnyContent::getValue)
+                        .toList();
+        assertEquals(String.join(",", labels), output(choices, "defaultEntryTypes").getValue());
+        for (int i = 0; i < labels.size(); i++) {
+            var found =
+                    call(
+                            "search",
+                            "patientId",
+                            "2512489996",
+                            "professional",
+                            "professional-1",
+                            "entryTypes",
+                            labels.get(i));
+            assertEquals(TestResultType.SUCCESS, found.getReport().getResult());
+            assertEquals(
+                    List.of(i == 0 ? "STABLE" : "ON-DEMAND"),
+                    GitbXdsAccess.JSON.convertValue(
+                            lastSearch.at("/queryParameters/documentType"), List.class));
+        }
+        for (String invalid : List.of("", "Any", "unknown", labels.get(0) + ",unknown")) {
+            lastSearch = null;
+            failure(
+                    call(
+                            "search",
+                            "patientId",
+                            "2512489996",
+                            "professional",
+                            "professional-1",
+                            "entryTypes",
+                            invalid),
+                    "XDS-INPUT");
+            assertNull(lastSearch);
+        }
+        var found =
+                call(
+                        "search",
+                        "patientId",
+                        "2512489996",
+                        "professional",
+                        "professional-1",
+                        "entryTypes",
+                        String.join(",", labels));
+        assertEquals(TestResultType.SUCCESS, found.getReport().getResult());
+        assertEquals(2, lastSearch.at("/queryParameters/documentType").size());
+    }
+
+    @Test
+    void retrievalUsesSavedCommunityEvenWhenInteractionTriesToOverrideIt() {
+        rows =
+                rows.replace(
+                        "\"repositoryID\":",
+                        "\"homeCommunityId\":\"urn:oid:1.2.3.6\",\"repositoryID\":");
+        var found = search();
+        var retrieved =
+                call("retrieve", "document", handle(found), "homeCommunityId", "urn:oid:9.9");
+        assertEquals(TestResultType.SUCCESS, retrieved.getReport().getResult());
+        assertEquals(
+                "urn:oid:1.2.3.6", lastRetrieve.at("/queryParameters/homeCommunityId").asText());
+        assertArrayEquals(
+                document, Base64.getDecoder().decode(output(retrieved, "document").getValue()));
     }
 
     @Test
@@ -459,6 +527,7 @@ class XdsProcessingServiceTest {
                         "typeCode",
                         selected);
         assertEquals(TestResultType.SUCCESS, result.getReport().getResult());
+        assertEquals("ON-DEMAND", lastSearch.at("/queryParameters/documentType/1").asText());
         assertEquals(2, lastSearch.at("/queryParameters/typeCodes").size());
         assertEquals("code-1", lastSearch.at("/queryParameters/typeCodes/0/code").asText());
         lastSearch = null;

@@ -5,13 +5,13 @@ volumes:
 services:
   # Session cache used by the ITB user interface.
   gitb-redis:
-    image: isaitb/gitb-redis:1.29.5@sha256:dd4143910ac0a0cd4fb562fb2670560bea796b18f5b7e88323fe65fd914b96b8
+    image: isaitb/gitb-redis:1.30.2@sha256:a507e0d78b97f1def4227614d83bc5b02c57802373a7871e264de0e0e4a68777
     container_name: itb-redis
     restart: unless-stopped
 
   # ITB persistence. The image supplies development-friendly default credentials.
   gitb-mysql:
-    image: isaitb/gitb-mysql:1.29.5@sha256:1e5633362c63d53216529a5db99bf2ca2a270441a4cbb987f97d75569799b9ec
+    image: isaitb/gitb-mysql:1.30.2@sha256:f8a72f290077833f283daa4b52dd74a9a211da41b87e0521625b7b174cc58a02
     container_name: itb-mysql
     restart: unless-stopped
     volumes:
@@ -23,7 +23,7 @@ services:
 
   # GITB test execution engine and callback endpoint.
   gitb-srv:
-    image: isaitb/gitb-srv:1.29.5@sha256:e1df3e58c532f494d7539b6412b7bf36cb16aee23959d902ab50e825641513ab
+    image: isaitb/gitb-srv:1.30.2@sha256:ef75168433f1fae53f663679cd3b0e61d65701a15515c66473dbfd2bb26dc238
     container_name: itb-srv
     restart: unless-stopped
     environment:
@@ -33,7 +33,7 @@ services:
 
   # ITB management and test execution UI.
   gitb-ui:
-    image: &itb_ui_image isaitb/gitb-ui:1.29.5@sha256:393632ae6ab83aa6cd30e6d11d51ac6ab75fcaeccf11c94a58d1a8de6b0b56ae
+    image: &itb_ui_image isaitb/gitb-ui:1.30.2@sha256:e7f017dd83d142d56f0b2d8acd729f1a14bbe5bcb2bdfa2f8f4759b42866b8d9
     container_name: itb-ui
     restart: unless-stopped
     environment:
@@ -100,6 +100,10 @@ services:
       XDS_TEST2_STS_URL:
       XDS_TEST2_REGISTRY_URL:
       XDS_TEST2_REPOSITORY_URL:
+      XDS_SFSK_TEST1_REGISTRY_URL:
+      XDS_SFSK_TEST1_REPOSITORY_URL:
+      XDS_SFSK_TEST2_REGISTRY_URL:
+      XDS_SFSK_TEST2_REPOSITORY_URL:
       # Match the MedCom test default in xds-service/application.properties.
       XDS_HSUID_ORGANISATION_IDENTIFIER: ${XDS_HSUID_ORGANISATION_IDENTIFIER:-325431000016004}
       XDS_HSUID_ORGANISATION_SCHEME: ${XDS_HSUID_ORGANISATION_SCHEME:-sor}

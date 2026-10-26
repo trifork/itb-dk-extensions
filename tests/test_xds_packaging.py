@@ -46,6 +46,19 @@ class Packaging(unittest.TestCase):
             with self.subTest(code=code):
                 self.assertIn(f'urn:ad:dk:medcom:{code}:full', formats)
 
+    def test_default_routes_keep_dds_and_sfsk_endpoints_paired(self):
+        properties = dict(line.split('=', 1) for line in
+                          (ROOT/'xds-service/application.properties').read_text().splitlines()
+                          if '=' in line and not line.startswith('#'))
+        ids = [properties[f'xds.registries[{i}].id'] for i in range(4)]
+        self.assertEqual(['test1', 'test2', 'sfsk-test1', 'sfsk-test2'], ids)
+        for index, environment in ((2, 'test1'), (3, 'test2')):
+            for transaction in ('iti18', 'iti43'):
+                self.assertIn(f'https://{environment}-cnsp.ekstern-test.nspop.dk:8443/sfsk/{transaction}',
+                              properties[f'xds.registries[{index}].{transaction}-endpoint'])
+        self.assertEqual(properties['xds.registries[0].sts-endpoint'], properties['xds.registries[2].sts-endpoint'])
+        self.assertEqual(properties['xds.registries[1].sts-endpoint'], properties['xds.registries[3].sts-endpoint'])
+
     def package(self, enabled, kind='upload'):
         with tempfile.TemporaryDirectory() as directory:
             archive = Path(directory)/'suite.zip'
@@ -74,11 +87,15 @@ class Packaging(unittest.TestCase):
                 self.assertEqual('Local file upload,IHE XDS (DDS) retrieval', source.get('options'))
                 self.assertEqual(source.get('options'), source.get('optionLabels'))
                 self.assertEqual(['choices', 'search', 'filter', 'retrieve'], [e.text for e in xds[key].findall('.//t:operation', NS)])
-                for name in ('typeCode', 'formatCode'):
+                for name in ('entryTypes', 'typeCode', 'formatCode'):
                     self.assertEqual('SELECT_MULTIPLE', xds[key].find('.//t:request[@name="' + name + '"]', NS).get('inputType'))
-                for name in ('registry', 'professional', 'typeCode', 'formatCode', 'document', 'action', 'repositoryMode', 'repositories'):
+                for name in ('registry', 'professional', 'entryTypes', 'typeCode', 'formatCode', 'document', 'action', 'repositoryMode', 'repositories'):
                     request = xds[key].find('.//t:request[@name="' + name + '"]', NS)
                     self.assertEqual(request.get('optionLabels'), request.get('options'), name)
+                entry_type = xds[key].find('.//t:request[@name="entryTypes"]', NS)
+                self.assertEqual('true', entry_type.get('required'))
+                self.assertEqual('$xdsChoices{defaultEntryTypes}', entry_type.get('default'))
+                self.assertEqual('$xdsQuery{entryTypes}', xds[key].find('.//t:input[@name="entryTypes"]', NS).text)
                 self.assertEqual('$document', xds[key].find('.//t:input[@name="xml"]', NS).text)
                 self.assertEqual('false', xds[key].find('t:metadata/c:update', NS).get('resetTestHistory'))
 

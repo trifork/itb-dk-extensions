@@ -1,6 +1,6 @@
 {
-  "version": "1.29.5",
-  "commit": "8a51efd3a229338c0033eab5081ab9d88320e42e",
-  "archiveSha256": "5f1ebe5eae9c369d97a94354fed4099d79c5fcc0d3cd24b207e34e4cb274fda3",
-  "image": "isaitb/gitb-ui:1.29.5@sha256:393632ae6ab83aa6cd30e6d11d51ac6ab75fcaeccf11c94a58d1a8de6b0b56ae"
+  "version": "1.30.2",
+  "commit": "97379144f37328635185d674cade7a826600e327",
+  "archiveSha256": "a071dad0941d541753cce25301ccfaa5cfdb1769df161b2916da92406342e7a1",
+  "image": "isaitb/gitb-ui:1.30.2@sha256:e7f017dd83d142d56f0b2d8acd729f1a14bbe5bcb2bdfa2f8f4759b42866b8d9"
 }

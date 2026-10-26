@@ -78,7 +78,8 @@ public final class FixtureApplication {
             registry(request.getRegistryId(), q.getPatientId());
             String patient = q.getPatientId();
             if (!"Approved".equals(q.getAvailabilityStatus())
-                    || !q.getDocumentType().toString().equals("[STABLE]"))
+                    || q.getDocumentType().isEmpty()
+                    || !List.of("STABLE", "ON-DEMAND").containsAll(q.getDocumentType()))
                 throw new IllegalArgumentException("Unexpected query defaults");
             if (patient.equals("0000000004"))
                 throw new com.trifork.ihexdsapi.dgws.DgwsSecurityException(
@@ -124,6 +125,7 @@ public final class FixtureApplication {
                         .put("patientId", patient)
                         .put("documentId", doc)
                         .put("repositoryID", repository(patient, doc))
+                        .put("homeCommunityId", "urn:oid:1.2.3.6")
                         .put("documentType", "Personal Health Monitoring Report")
                         .put("serviceStart", 1704067200000L)
                         .put("serviceEnd", 1704153600000L);
@@ -155,6 +157,8 @@ public final class FixtureApplication {
             registry(request.getRegistryId(), q.getPatientId());
             if (!q.getRepositoryId().equals(repository(q.getPatientId(), q.getDocumentId())))
                 throw new IllegalArgumentException("Wrong repository");
+            if (!"urn:oid:1.2.3.6".equals(q.getHomeCommunityId()))
+                throw new IllegalArgumentException("Wrong home community");
             if (q.getPatientId().equals("0000000006"))
                 return new RetrievedBytes(
                         null,

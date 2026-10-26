@@ -327,6 +327,9 @@ components:
           type: string
           nullable: false
           example : "1.2.208.192.100.101"
+        homeCommunityId:
+          description: Home community returned by the registry; preserve it when retrieving this entry.
+          type: string
         documentType:
           description: The document type
           type: string
@@ -604,6 +607,9 @@ components:
           description: Document unique Id
           type: string
           example: "1.2.208.184^74b28be0-4948-11ed-b878-0242a4cqt00f2"
+        homeCommunityId:
+          description: Home community from the ITI-18 result, when supplied by the registry.
+          type: string
         repositoryId:
           description: Document repository Id
           type: string
@@ -700,6 +706,9 @@ components:
         practiceSettingCode:
           description: PracticeSettingCode object
           $ref: '#/components/schemas/code'
+        homeCommunityId:
+          description: Home community returned by the registry.
+          type: string
         repositoryUniqueId:
           description: Repository unique Id
           type: string

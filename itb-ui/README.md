@@ -16,7 +16,8 @@ with ITB. Stock ITB images remain unchanged.
 
 Compose passes its `gitb-ui` image pin to the build using a YAML anchor. The build
 rejects a mismatch with the reviewed source/image pair in `upstream.json`.
-Update both pins together when upgrading ITB.
+Update both pins together when upgrading ITB. The reviewed pair currently uses
+ITB 1.30.2, including its fixes for multi-select interactions.
 
 `get-up-and-running/start.sh` pulls the published gateway from Docker Hub.
 Use `ITB_BUILD_FROM_SOURCE=true` to build the checkout instead. To build and update

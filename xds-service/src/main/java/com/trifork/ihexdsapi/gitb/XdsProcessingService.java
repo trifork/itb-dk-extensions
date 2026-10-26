@@ -30,6 +30,7 @@ public class XdsProcessingService implements ProcessingService {
     private static final String PATIENT_ID = "patientId";
     private static final String DOCUMENT_ID = "documentId";
     private static final String REPOSITORY_ID = "repositoryID";
+    private static final String HOME_COMMUNITY_ID = "homeCommunityId";
     private static final String ALL_REPOSITORIES = "All repositories";
     private static final String LABEL_SEPARATOR = " | ";
     private static final int MAX_CODES = 50;
@@ -217,6 +218,13 @@ public class XdsProcessingService implements ProcessingService {
         list(out, "professionalLabels", labels);
         codeLists(out, "type", s.types, s.typeSelections);
         codeLists(out, "format", s.formats, s.formatSelections);
+        list(out, "entryTypeLabels", XdsDocumentEntryTypes.labels());
+        out.getOutput()
+                .add(
+                        value(
+                                "defaultEntryTypes",
+                                STRING,
+                                String.join(",", XdsDocumentEntryTypes.labels())));
         var context = new AnyContent();
         context.getItem()
                 .add(
@@ -246,7 +254,7 @@ public class XdsProcessingService implements ProcessingService {
                         value(
                                 "Search defaults",
                                 STRING,
-                                "Approved, Stable documents; consent override disabled. Any means no filter on that code."));
+                                "Approved, stable and on-demand documents; consent override disabled. Any means no filter on that code."));
         context.getItem()
                 .add(
                         value(
@@ -353,7 +361,7 @@ public class XdsProcessingService implements ProcessingService {
         Map<String, Object> query = new LinkedHashMap<>();
         query.put(PATIENT_ID, patient);
         query.put("availabilityStatus", "Approved");
-        query.put(DOCUMENT_TYPE, List.of("STABLE"));
+        query.put(DOCUMENT_TYPE, XdsDocumentEntryTypes.select(v.get("entryTypes")));
         putCode(query, TYPE_CODE, v.get(TYPE_CODE), s.types, s.typeSelections);
         putCode(query, FORMAT_CODE, v.get(FORMAT_CODE), s.formats, s.formatSelections);
         dates(query, v, "startFromDate", "startToDate");
@@ -614,15 +622,18 @@ public class XdsProcessingService implements ProcessingService {
         out.setReport(diagnostics);
         String repositoryId = required(document, REPOSITORY_ID);
         var query =
-                Map.<String, Object>of(
-                        PATIENT_ID,
-                        s.patient,
-                        DOCUMENT_ID,
-                        required(document, DOCUMENT_ID),
-                        "repositoryId",
-                        repositoryId,
-                        "includeFormattedResponse",
-                        false);
+                new LinkedHashMap<>(
+                        Map.<String, Object>of(
+                                PATIENT_ID,
+                                s.patient,
+                                DOCUMENT_ID,
+                                required(document, DOCUMENT_ID),
+                                "repositoryId",
+                                repositoryId,
+                                "includeFormattedResponse",
+                                false));
+        if (document.hasNonNull(HOME_COMMUNITY_ID))
+            query.put(HOME_COMMUNITY_ID, document.get(HOME_COMMUNITY_ID).asText());
         byte[] bytes;
         try {
             bytes = client.retrieve(envelope(s, query));

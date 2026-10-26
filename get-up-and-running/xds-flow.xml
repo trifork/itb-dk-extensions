@@ -37,11 +37,12 @@
                     <log level="INFO">"Selected XDS registry: " || $selectedRegistry</log>
                     <interact id="xdsQuery" with="cda-producer" desc="Search DDS" inputTitle="Find in XDS" timeout="1800000">
                         <instruct desc="Registry" level="INFO" forceDisplay="true">$selectedRegistry</instruct>
-                        <instruct desc="Search" level="INFO" forceDisplay="true">"Use a test CPR. Search returns Approved, Stable documents, with consent override disabled. Metadata does not determine the CDA profile release: this session still validates the release shown in its title. Optional dates use UTC, e.g. 2026-01-01T00:00:00Z."</instruct>
-                        <instruct desc="Filters" level="INFO" forceDisplay="true">"Type code and Format code both allow multiple selections: hold Command (⌘) on Mac or Ctrl on Windows/Linux while clicking to select or deselect individual options; use Shift-click for a range. Codes within a field are alternatives (OR); type, format and date filters are combined (AND). Leave a code field empty for Any, or select Any on its own. Date ranges include From and exclude To; leave either boundary empty for an open range. For a whole UTC day, use midnight on that day through midnight on the next day."</instruct>
+                        <instruct desc="Search" level="INFO" forceDisplay="true">"Use a test CPR. Search returns Approved documents with consent override disabled. Choose stored (Stable) documents, generated (On-demand) documents, or both. Stamkort (PDC) requires On-demand and an authorised SFSK route. Metadata does not determine the CDA profile release: this session still validates the release shown in its title. Optional dates use UTC, e.g. 2026-01-01T00:00:00Z."</instruct>
+                        <instruct desc="Filters" level="INFO" forceDisplay="true">"Document entry type, Type code and Format code allow multiple selections: hold Command (⌘) on Mac or Ctrl on Windows/Linux while clicking to select or deselect individual options; use Shift-click for a range. Codes within a field are alternatives (OR); type, format and date filters are combined (AND). Leave a code field empty for Any, or select Any on its own. Date ranges include From and exclude To; leave either boundary empty for an open range. For a whole UTC day, use midnight on that day through midnight on the next day."</instruct>
                         <instruct desc="Identity" level="INFO" forceDisplay="true">"Certificate labels show type and expiry date (UTC). Expired and system identities are listed for inspection. This search flow requires a current MOCES employee identity; selecting an expired or system-only identity reports an explanatory error."</instruct>
                         <request name="patientId" desc="Test CPR (10 digits)" inputType="TEXT" required="true"/>
                         <request name="professional" desc="Signing identity" inputType="SELECT_SINGLE" options="$xdsChoices{professionalLabels}" optionLabels="$xdsChoices{professionalLabels}" required="true"/>
+                        <request name="entryTypes" desc="Document entry type (multiple allowed)" inputType="SELECT_MULTIPLE" size="2" required="true" options="$xdsChoices{entryTypeLabels}" optionLabels="$xdsChoices{entryTypeLabels}" default="$xdsChoices{defaultEntryTypes}"/>
                         <request name="typeCode" desc="Type code (multiple allowed)" inputType="SELECT_MULTIPLE" size="6" options="$xdsChoices{typeLabels}" optionLabels="$xdsChoices{typeLabels}"/>
                         <request name="formatCode" desc="Format code (multiple allowed)" inputType="SELECT_MULTIPLE" size="4" options="$xdsChoices{formatLabels}" optionLabels="$xdsChoices{formatLabels}"/>
                         <request name="uniqueId" desc="Unique ID (optional exact match)" inputType="TEXT"/>
@@ -55,6 +56,7 @@
                         <input name="registry">$selectedRegistry</input>
                         <input name="patientId">$xdsQuery{patientId}</input>
                         <input name="professional">$xdsQuery{professional}</input>
+                        <input name="entryTypes">$xdsQuery{entryTypes}</input>
                         <input name="typeCode">$xdsQuery{typeCode}</input>
                         <input name="formatCode">$xdsQuery{formatCode}</input>
                         <input name="uniqueId">$xdsQuery{uniqueId}</input>

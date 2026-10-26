@@ -42,6 +42,11 @@ Unknown standard codes retain their opcode. Raw upstream error text is withheld.
 The GITB QName remains `ProcessingServiceService` and the endpoint remains
 `/processing?wsdl`. Transactions preserve opaque handles, label lookup maps,
 repository filtering, bounded previews and original-byte report attachments.
+ITI-18 metadata and ITI-43 requests preserve optional `homeCommunityId` from the
+registry. GITB retains it server-side with the selected document; raw interaction
+input cannot replace the retrieval community or other document identifiers.
+The guided query maps readable entry-type selections to `STABLE` / `ON-DEMAND`,
+with both as the default for older definitions without the field.
 REST retains original bytes in `responseBase64`, default formatted `response`,
 and `includeFormattedResponse=false`. Formatting rejects DOCTYPE and external
 DTD/stylesheet access. GITB receives unformatted bytes directly.
@@ -124,3 +129,8 @@ project's `target/`; stack diagnostics are in repository-root `test-results/xds/
 
 The fixture application and Java test classes are absent from the production
 jar/image. Tests do not establish live TEST1 availability or complete DDS-01.
+The [XDS operations guide](xds.md) records the 2026-10-26 live SFSK TEST1/TEST2
+FOCES retrieval results, query settings, published test patients and MOCES
+failures. Those diagnostic results are separate from automated fixture coverage;
+the guided query flow still requires an employee identity and does not yet expose
+the system-ID-card path used by the successful diagnostic.

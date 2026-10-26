@@ -233,7 +233,10 @@ specific published image for it or XDS integration. Existing explicit GHCR image
 references remain supported for reads. Publication requires the OIDC connection,
 these workflows on GitHub, and successful validation runs.
 
-All four ITB components are pinned to release 1.29.5 and multi-platform digests.
+All four ITB components are pinned to release 1.30.2 and multi-platform digests.
+The gateway uses the matching checksum-pinned source release. When upgrading,
+update the stock components and gateway together, then redeploy the test suites
+so new sessions receive the latest query form; existing history remains available.
 The CDA upstream pin is maintained in `docker-compose.yml`; read it with
 `python3 scripts/validator_image.py --print-image`. The
 [daily updater](.github/workflows/update-validator-image.yml) opens tested pin-update

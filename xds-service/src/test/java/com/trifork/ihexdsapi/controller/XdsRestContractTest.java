@@ -209,7 +209,7 @@ class XdsRestContractTest {
     }
 
     private static String entry() {
-        return "<r:ExtrinsicObject id='urn:uuid:document-1' mimeType='text/xml'"
+        return "<r:ExtrinsicObject id='urn:uuid:document-1' home='urn:oid:1.2.3.6' mimeType='text/xml'"
                 + " objectType='urn:uuid:34268e47-fdf5-41a6-ba33-82133c465248'>"
                 + slot("repositoryUniqueId", "1.2.3.4")
                 + slot("serviceStartTime", "20260102030405")
@@ -351,7 +351,7 @@ class XdsRestContractTest {
         JsonNode result = request("/v1/iti18", q, 200);
         assertEquals(
                 json.readTree(
-                        "{\"patientId\":\"3001749995\",\"documentId\":\"1.2.3.5\",\"repositoryID\":\"1.2.3.4\",\"documentType\":\"Personal"
+                        "{\"patientId\":\"3001749995\",\"documentId\":\"1.2.3.5\",\"repositoryID\":\"1.2.3.4\",\"homeCommunityId\":\"urn:oid:1.2.3.6\",\"documentType\":\"Personal"
                                 + " health monitoring"
                                 + " report\",\"serviceStart\":1767323045000,\"serviceEnd\":1767326706000}"),
                 result.path("queryResponse").get(0));
@@ -379,6 +379,25 @@ class XdsRestContractTest {
         assertEquals("20260102040506", soapValue("$XDSDocumentEntryServiceStopTimeTo"));
         assertTrue(lastSoap.contains("3001749995"));
         assertTrue(lastSoap.contains("FT001"));
+    }
+
+    @Test
+    void pdcSearchIncludesOnDemandAndPreservesStableDocuments() throws Exception {
+        // NSP SFSK consumer guide section 5.1: Stamkort requires the on-demand UUID.
+        var q = query();
+        q.put("typeCode", Map.of("code", "PDC", "codeScheme", "1.2.208.184.100.1"));
+        q.put("documentType", List.of("STABLE", "ON-DEMAND"));
+        request("/v1/iti18", q, 200);
+        var entryTypes = soapValue("$XDSDocumentEntryType");
+        assertTrue(entryTypes.contains("urn:uuid:34268e47-fdf5-41a6-ba33-82133c465248"));
+        assertTrue(entryTypes.contains("urn:uuid:7edca82f-054d-47f2-a032-9b2a5b5186c1"));
+        assertEquals("('PDC^^1.2.208.184.100.1')", soapValue("$XDSDocumentEntryTypeCode"));
+
+        q.put("documentType", List.of("STABLE"));
+        request("/v1/iti18", q, 200);
+        assertFalse(
+                soapValue("$XDSDocumentEntryType")
+                        .contains("urn:uuid:34268e47-fdf5-41a6-ba33-82133c465248"));
     }
 
     @Test
@@ -482,6 +501,27 @@ class XdsRestContractTest {
                 result.path("responseBase64").binaryValue());
         assertEquals("1.2.3.5", soapElement("DocumentUniqueId"));
         assertEquals("1.2.3.4", soapElement("RepositoryUniqueId"));
+        assertFalse(lastSoap.contains("HomeCommunityId"));
+    }
+
+    @Test
+    void searchCommunityIsPreservedInRetrievalSoap() throws Exception {
+        responseBody = envelope(queryResponse(entry(), ""));
+        var found = request("/v1/iti18", query(), 200).path("queryResponse").get(0);
+        assertEquals("urn:oid:1.2.3.6", found.path("homeCommunityId").asText());
+        var q = retrieval();
+        q = new LinkedHashMap<>(q);
+        q.put("homeCommunityId", found.path("homeCommunityId").asText());
+        responseBody =
+                envelope(
+                        retrieveResponse(
+                                "<Document>"
+                                        + Base64.getEncoder()
+                                                .encodeToString(
+                                                        XML.getBytes(StandardCharsets.ISO_8859_1))
+                                        + "</Document>"));
+        request("/v1/iti43", q, 200);
+        assertEquals("urn:oid:1.2.3.6", soapElement("HomeCommunityId"));
     }
 
     @Test

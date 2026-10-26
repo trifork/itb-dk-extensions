@@ -64,6 +64,7 @@ final class GitbXdsAccess implements AutoCloseable {
                                 entry.getPatientId() == null ? null : entry.getPatientId().getId());
                         row.put("documentId", entry.getUniqueId());
                         row.put("repositoryID", entry.getRepositoryUniqueId());
+                        row.put("homeCommunityId", entry.getHomeCommunityId());
                         row.put(
                                 "documentType",
                                 entry.getTypeCode() == null

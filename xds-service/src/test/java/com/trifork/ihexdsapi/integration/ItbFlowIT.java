@@ -334,6 +334,32 @@ class ItbFlowIT {
     }
 
     @Test
+    void documentEntryTypesHaveBothDefaultsAndSupportOnDemandOnly() throws Exception {
+        chooseXds();
+        JsonNode form = interaction("Find in XDS");
+        var types = field(form, "Document entry type (multiple allowed)");
+        assertEquals(
+                List.of("Stable (stored document)", "On-demand (generated on retrieval)"),
+                options(types));
+        assertEquals(String.join(",", options(types)), types.path("default").asText());
+        client.submit(
+                session,
+                form,
+                Map.of(
+                        "Test CPR (10 digits)",
+                        "2512489996",
+                        "Signing identity",
+                        option(form, "Signing identity", "Synthetic test professional"),
+                        "Document entry type (multiple allowed)",
+                        options(types).get(1)));
+        select();
+        finish("SUCCESS");
+        assertEquals(
+                options(types).get(1),
+                context(step("Search DDS")).get("Document entry type (multiple allowed)"));
+    }
+
+    @Test
     void multipleTypeAndFormatCodesReachBackend() throws Exception {
         chooseXds();
         JsonNode form = interaction("Find in XDS");

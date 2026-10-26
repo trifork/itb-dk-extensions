@@ -111,7 +111,12 @@ final class ItbClient {
     private byte[] raw(String path, Object body, boolean form, boolean rest) throws Exception {
         HttpRequest.Builder builder =
                 HttpRequest.newBuilder(URI.create(base + path)).timeout(Duration.ofSeconds(60));
-        builder.header("Accept", "application/json, application/octet-stream");
+        // ITB uses the attachment request's Accept value as its response Content-Type.
+        builder.header(
+                "Accept",
+                path.startsWith("/repository/reports/testdata/")
+                        ? "application/octet-stream"
+                        : "application/json");
         if (rest) builder.header("ITB_API_KEY", state.get("ITB_ORGANISATION_API_KEY"));
         else if (token != null) builder.header("Authorization", "Bearer " + token);
         if (body != null) {
@@ -219,7 +224,7 @@ final class ItbClient {
         for (JsonNode item : interaction.get("interactions")) {
             if (!"request".equals(item.path("type").asText())) continue;
             Object value = values.get(item.path("desc").asText());
-            if (value == null) value = "";
+            if (value == null) value = item.path("default").asText("");
             if (value instanceof byte[] bytes) value = Base64.getEncoder().encodeToString(bytes);
             inputs.add(
                     Map.of(

@@ -31,10 +31,15 @@ the engine's UTC startup timestamp. No ITB UI fork or browser extension is requi
 
 Each named registry bundles an ITI-18 search endpoint, an ITI-43 retrieval gateway
 and its own STS endpoint. The maintained `xds-service/application.properties`
-offers **DDS TEST1** and **DDS TEST2**. TEST1 references the existing `STSURL`,
+offers **DDS TEST1**, **DDS TEST2**, **SFSK TEST1 (Stamkort)** and
+**SFSK TEST2 (Stamkort)**. Choose an SFSK route for Stamkort; choose DDS for other
+CDA document categories. TEST1 references the existing `STSURL`,
 `xdsIti18Endpoint` and `xdsIti43Endpoint` settings, preserving their local overrides;
 TEST2 has separate `XDS_TEST2_STS_URL`, `XDS_TEST2_REGISTRY_URL` and
 `XDS_TEST2_REPOSITORY_URL` placeholders with published HTTPS defaults.
+SFSK routes share the corresponding environment's STS setting and have separate
+`XDS_SFSK_TEST1_REGISTRY_URL`, `XDS_SFSK_TEST1_REPOSITORY_URL`,
+`XDS_SFSK_TEST2_REGISTRY_URL` and `XDS_SFSK_TEST2_REPOSITORY_URL` overrides.
 
 To replace this list (including reducing it to one registry), put complete entries
 in the ignored `xds-service/local/application.properties`, which Compose mounts
@@ -100,8 +105,11 @@ configuration from the STS authentication and DDS access attempted by a search.
    ITB receives no keys.
 2. Optionally filter by one or more type codes, one or more format codes, exact document Unique ID, and
    service start/stop ranges. Dates must include a timezone, for example
-   `2026-01-01T00:00:00Z`. Search requests use **Approved**, **Stable**, and
-   `consentOverride=false`. Unique ID filters the returned results locally.
+   `2026-01-01T00:00:00Z`. Search requests use **Approved** and `consentOverride=false`. The required
+   **Document entry type** multi-select offers **Stable (stored document)** and
+   **On-demand (generated on retrieval)**; both are selected by default. Keep
+   On-demand selected for Stamkort (PDC). These are entry types, distinct from the
+   clinical **Type code** and version-specific **Format code** filters. Unique ID filters the returned results locally.
    Multiple codes within one field use **OR**; type, format and date filters use
    **AND**. Leave a code selection empty for **Any**, or select **Any** on its own.
    Combining **Any** with specific codes is rejected to avoid silently broadening
@@ -154,6 +162,93 @@ search; it does not establish a certificate problem or a CDA validation failure.
 Start a new session and try **Type code: Any**, or check DDS availability for the
 selected document type. The connector recognises this exact fault and displays a
 fixed explanation; other backend error bodies remain hidden.
+
+Stamkort (PDC) is an on-demand document: restricting a query to stable documents
+excludes it, including when type/format filters are **Any**. The guided search
+therefore defaults to both document entry types and allows either or both to be
+selected. Empty or unknown selections are rejected before contacting DDS. Older
+saved test definitions that omit this new field retain the both-types default. See the
+[NSP Stamkort implementation guide](https://www.nspop.dk/spaces/ESP/pages/102370146/Teknisk%2BImplementeringsvejledning%2BF%C3%A6lles%2BStamkort)
+and [SFSK consumer guide, section 5.1](https://www.nspop.dk/display/public/web/SFSK%2B-%2BGuide%2Btil%2BAnvendere).
+REST callers retain explicit control through `documentType`: use
+`["STABLE", "ON-DEMAND"]` to include both, or `["ON-DEMAND"]` for on-demand only.
+
+The current SFSK consumer guide directs Stamkort search/retrieval to `/sfsk/iti18`
+and `/sfsk/iti43`, rather than the general DDS endpoints. Both SFSK routes are included in the
+default configuration. If a local override replaces the registry list, include
+the following entries along with the DDS entries above at indices 0 and 1. The selected route is used for both search and retrieval; selecting PDC
+does not silently change endpoints.
+
+```properties
+xds.registries[2].id=sfsk-test1
+xds.registries[2].name=SFSK TEST1 (Stamkort)
+xds.registries[2].iti18-endpoint=https://test1-cnsp.ekstern-test.nspop.dk:8443/sfsk/iti18
+xds.registries[2].iti43-endpoint=https://test1-cnsp.ekstern-test.nspop.dk:8443/sfsk/iti43
+xds.registries[2].sts-endpoint=https://test1.ekstern-test.nspop.dk:8443/sts/services/NewSecurityTokenService
+xds.registries[3].id=sfsk-test2
+xds.registries[3].name=SFSK TEST2 (Stamkort)
+xds.registries[3].iti18-endpoint=https://test2-cnsp.ekstern-test.nspop.dk:8443/sfsk/iti18
+xds.registries[3].iti43-endpoint=https://test2-cnsp.ekstern-test.nspop.dk:8443/sfsk/iti43
+xds.registries[3].sts-endpoint=https://test2.ekstern-test.nspop.dk:8443/sts/services/NewSecurityTokenService
+```
+
+The SFSK guide's section 5 requires caller whitelisting through NSP support and
+describes SOAP faults for authentication/whitelisting failures. On 2026-10-26,
+read-only checks with the configured employee test identity reached SFSK but
+returned whitelisting faults on both TEST1 and TEST2 for three published test
+CPRs. A separate public NSP SEAL MOCES test certificate authenticated at STS but
+also failed at ITI-18 on both environments; its fault was not classified as a
+whitelisting failure. Neither employee identity retrieved a Stamkort document.
+Changing patients does not resolve an employee whitelisting failure.
+
+An isolated diagnostic using the locally available **NSP Test Service Consumer**
+FOCES certificate with a system ID card successfully searched and retrieved
+Stamkort CDA documents on both environments on 2026-10-26:
+
+| Environment | Published test CPR | ITI-18 | ITI-43 |
+| --- | --- | --- | --- |
+| SFSK TEST1 | `2708599967` | One entry, no registry errors | 9,080 bytes, CDA root verified |
+| SFSK TEST2 | `2512489996` | One entry, no registry errors | 39,732 bytes, CDA root verified |
+
+The diagnostic used these settings for both environments:
+
+- Authenticate the FOCES credential with the selected environment's STS using
+  `DgwsService.getSystemClientInfo`; send the system ID card without the
+  employee HSUID header.
+- Search the selected SFSK `/sfsk/iti18` endpoint for the test CPR, status
+  `Approved`, document entry type `ON-DEMAND`, and type code `PDC` with coding
+  scheme `1.2.208.184.100.1`. No format-code filter was supplied.
+- Retrieve from the same environment's `/sfsk/iti43` endpoint using the returned
+  `repositoryUniqueId`, `uniqueId` and `homeCommunityId` together.
+- Check STS authentication, absence of search/retrieval errors, a nonempty
+  result and nonempty retrieved XML with root
+  `{urn:hl7-org:v3}ClinicalDocument`. Keep credentials, tokens and document bodies
+  out of diagnostic output.
+
+These are dated live observations, not fixed CI expectations. Document counts,
+byte lengths and test-patient availability may change. A future opt-in live test
+should use operator-supplied credentials and environment/patient settings, assert
+the checks above rather than exact byte lengths, and report STS, search and
+retrieval failures separately. The current automated fixtures do not prove that
+an identity is authorised by live SFSK.
+
+TEST1 returned an entry for `2512489996` but retrieval failed with
+`XDSRepositoryError`. The successful alternative patient comes from the NSP
+Stamkort implementation guide linked above. These checks established live
+search/retrieval access, not CDA conformance. The diagnostic did not change the
+application's employee-only query flow: using this FOCES through the guided UI
+still requires a system-ID-card authentication path for SFSK.
+
+The documented PDC test patient `2512489996` appears in both
+the [FSK registry test guide](https://www.nspop.dk/pages/releaseview.action?pageId=82948624)
+and [MedCom's PDC 2.0 examples](https://svn.medcom.dk/svn/releases/Standarder/HL7/PDC/Eksempler/2.0/PDC-DK_2_0_Testprotokol_v1.1.2/);
+these examples do not establish its current availability in a live environment.
+
+Search results retain the returned `homeCommunityId` alongside document and
+repository IDs. Retrieval copies these from the saved selection, including after
+repository filtering; interaction input cannot override them. REST search results
+expose optional `homeCommunityId`, which callers should copy into the ITI-43 query
+when present. Registries that omit it remain supported without an empty SOAP element.
 
 `XDS-REGISTRY` means DDS returned registry/repository errors, possibly alongside
 documents. The session log and step report identify the operation (ITI-18 search
@@ -458,6 +553,7 @@ services from test sources. The fixture is absent from the production image.
 The CI workflow starts a full ITB, deploys the actual XDS suite and submits real
 interactions through the Java `ItbFlowIT` Failsafe suite. It exercises uploads, zero/one/multiple results, search-again,
 Unique ID filtering, repository inclusion/exclusion and empty-filter recovery,
+entry-type defaults and on-demand selection, saved home-community retrieval,
 missing document selection, wrong-release rejection, access/registry failures and non-CDA
 retrieval. Backend REST/SOAP contract tests verify original ITI-43 bytes, JSON
 Base64 encoding and date/status mapping. Java connector tests additionally cover

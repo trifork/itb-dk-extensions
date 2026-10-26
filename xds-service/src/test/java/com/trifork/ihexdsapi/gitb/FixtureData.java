@@ -32,6 +32,7 @@ public final class FixtureData {
                             new AssigningAuthority("1.2.208.176.1.2")));
             entry.setUniqueId(row.path("documentId").asText(""));
             entry.setRepositoryUniqueId(row.path("repositoryID").asText(""));
+            entry.setHomeCommunityId(row.path("homeCommunityId").asText(null));
             entry.setTypeCode(
                     new Code(
                             "code",

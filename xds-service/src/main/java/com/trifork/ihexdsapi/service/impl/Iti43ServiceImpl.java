@@ -39,7 +39,10 @@ public class Iti43ServiceImpl implements Iti43Service {
         dgwsSoapDecorator.setDgwsClientInfo(clientInfo, true);
         try {
             RetrievedDocumentSet documents =
-                    fetchDocument(query.getDocumentId(), query.getRepositoryId());
+                    fetchDocument(
+                            query.getDocumentId(),
+                            query.getRepositoryId(),
+                            query.getHomeCommunityId());
             byte[] bytes = null;
             if (!documents.getDocuments().isEmpty()) {
                 try (var stream =
@@ -57,9 +60,11 @@ public class Iti43ServiceImpl implements Iti43Service {
         }
     }
 
-    private RetrievedDocumentSet fetchDocument(String documentId, String repositoryId) {
+    private RetrievedDocumentSet fetchDocument(
+            String documentId, String repositoryId, String homeCommunityId) {
         RetrieveDocumentSet request = new RetrieveDocumentSet();
-        request.getDocuments().add(new DocumentReference(repositoryId, documentId, null));
+        request.getDocuments()
+                .add(new DocumentReference(repositoryId, documentId, homeCommunityId));
         var wireRequest = new RetrieveDocumentSetRequestTransformer(ebXMLFactory).toEbXML(request);
         var wireResponse =
                 iti43PortType.documentRepositoryRetrieveDocumentSet(wireRequest.getInternal());

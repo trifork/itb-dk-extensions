@@ -43,6 +43,7 @@ public final class RestXdsResponses {
             iti18QueryResponse.setPatientId(patientId);
             iti18QueryResponse.setDocumentId(documentEntry.getUniqueId());
             iti18QueryResponse.setRepositoryID(documentEntry.getRepositoryUniqueId());
+            iti18QueryResponse.setHomeCommunityId(documentEntry.getHomeCommunityId());
             iti18QueryResponse.setDocumentType(documentTypeString);
 
             if (documentEntry.getServiceStartTime() != null) {
@@ -217,6 +218,7 @@ public final class RestXdsResponses {
                         entry.getPracticeSettingCode().getSchemeName()));
 
         metaDataResponse.setRepositoryUniqueId(entry.getRepositoryUniqueId());
+        metaDataResponse.setHomeCommunityId(entry.getHomeCommunityId());
 
         if (entry.getServiceStartTime() != null) {
             metaDataResponse.setServiceStartTime(
