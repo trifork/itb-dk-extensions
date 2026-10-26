@@ -303,6 +303,42 @@ XDS_ROLE=Læge
 XDS_AUTHORIZATION_CODE=your-test-authorisation-code
 ```
 
+Configure the healthcare organisation separately from the certificate CVR. Set
+`XDS_HSUID_ORGANISATION_IDENTIFIER` to the actual SOR code, SHAK code or ydernummer
+and `XDS_HSUID_ORGANISATION_SCHEME` to `sor`, `skskode` or `ynumber`, respectively.
+Alternatively set `xds.hsuid.organisation.identifier` and
+`xds.hsuid.organisation.scheme` in ignored `xds-service/local/application.properties`.
+The test-bench defaults are scheme `sor` and identifier `325431000016004`,
+**MedCom - Testbrug** (SI), owned by MedCom (SOR `325421000016001`, CVR `26919991`).
+These were verified against the [official daily SOR extract](https://sor-filer.sundhedsdata.dk/sor2_produktion/V1_00/data/SorEntity_daily.csv)
+on 2026-10-26. Compose uses the same default; environment or local properties can
+override it for another healthcare organisation. This is an explicit test default,
+not a mapping from the selected signing certificate's CVR. The setting applies
+to the configured signing identities in both registries and the legacy route;
+use identities acting for this healthcare organisation. STS still receives the
+certificate CVR as the care-provider identifier. It is never substituted for the
+HSUID organisation identifier.
+
+A CVR may identify multiple SOR units or none; it does not select the healthcare
+unit for a session. The [SOR Browser](https://sorbrowser.sundhedsdatastyrelsen.dk/)
+and [official SOR data files](https://sundhedsdatastyrelsen.dk/data-og-registre/nationale-sundhedsregistre/sundhedsvaesenets-organisationsregister/brug-sor-data)
+can help find candidate units by CVR. Public production data does not prove a unit
+exists in TEST1/TEST2. No automatic CVR lookup or arbitrary unit selection is made.
+
+An explicitly blank organisation identifier in local properties stops real searches and retrievals before STS
+and reports `XDS-CONFIG` in ITB; readiness and identity inspection remain available.
+Malformed identifiers or unsupported schemes fail startup. Local format checks do
+not establish that an organisation exists or that the identity may act for it.
+After changing environment values, recreate `xds-api`; after changing the mounted
+properties, restart it and start a new XDS session.
+
+This implements NSP's [DDS Registry interface, section 4.1.2](https://www.nspop.dk/pages/viewpage.action?pageId=102375298)
+and [HSUID organisation attribute](https://www.nspop.dk/display/web/HSUID%2B-%2BGuide%2Btil%2Banvendere).
+DDS can validate SOR identifiers against Sores via
+`sor.organization.validation.enabled`; acceptance by an environment with that
+check disabled does not establish that the identifier is correct.
+See the [DDS operations guide](https://www.nspop.dk/pages/releaseview.action?pageId=191500056).
+
 Endpoint variables are `XDS_STS_URL`, `XDS_REGISTRY_URL` and `XDS_REPOSITORY_URL`.
 The maintained defaults and code lists are in `xds-service/application.properties`;
 `xds-service/local/application.properties` can override them. The shared

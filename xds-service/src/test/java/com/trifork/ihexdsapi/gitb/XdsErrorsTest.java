@@ -8,6 +8,19 @@ import org.openehealth.ipf.commons.ihe.xds.core.responses.*;
 
 class XdsErrorsTest {
     @Test
+    void missingOrganisationHasActionableConfigurationError() {
+        var failure =
+                XdsErrors.failure(
+                        "DDS search (ITI-18)",
+                        new RuntimeException(
+                                "private",
+                                new com.trifork.ihexdsapi.dgws.HsuidConfigurationException()));
+        assertEquals("XDS-CONFIG", failure.code);
+        assertTrue(failure.getMessage().contains("SOR, SHAK or ydernummer"));
+        assertFalse(failure.getMessage().contains("private"));
+    }
+
+    @Test
     void allStandardCodesUseIpfOpcodesWithoutPrivateContext() {
         for (var code : ErrorCode.values()) {
             var errors = List.of(FixtureData.error(code, "sensitive-STStoken", false));

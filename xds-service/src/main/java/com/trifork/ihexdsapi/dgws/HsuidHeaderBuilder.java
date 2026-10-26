@@ -28,7 +28,7 @@ final class HsuidHeaderBuilder {
         attribute(attributes, "UserType", "nsi:HealthcareProfessional");
         attribute(attributes, "ActingUserCivilRegistrationNumber", context.getCpr());
         attribute(attributes, "OrgUsingID", context.getOrganisationCode())
-                .setAttribute("NameFormat", "nsi:sor");
+                .setAttribute("NameFormat", context.getOrganisationNameFormat());
         attribute(attributes, "SystemOwnerName", "Test");
         attribute(attributes, "SystemName", "Test");
         attribute(attributes, "SystemVersion", "1.0");

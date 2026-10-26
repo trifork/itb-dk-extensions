@@ -68,6 +68,7 @@ class RegistryConfigurationTest {
         var routing =
                 configuration.registryRouting(
                         properties,
+                        new HsuidOrganisationProperties("440081000016006", "sor"),
                         credentials,
                         legacy,
                         mock(Iti18Service.class),
@@ -88,6 +89,9 @@ class RegistryConfigurationTest {
             var target = routing.target(id);
             var sts = ReflectionTestUtils.getField(target.dgws(), "stsService");
             assertEquals(base + "/" + id + "/sts", ReflectionTestUtils.getField(sts, "stsUrl"));
+            assertEquals(
+                    new HsuidOrganisationProperties("440081000016006", "sor"),
+                    ReflectionTestUtils.getField(sts, "organisation"));
             assertSame(
                     credentials, ReflectionTestUtils.getField(target.dgws(), "credentialService"));
             assertThrows(
@@ -120,6 +124,7 @@ class RegistryConfigurationTest {
         var fallback =
                 configuration.registryRouting(
                         new RegistryProperties(null),
+                        new HsuidOrganisationProperties(null, null),
                         credentials,
                         legacy,
                         mock(Iti18Service.class),

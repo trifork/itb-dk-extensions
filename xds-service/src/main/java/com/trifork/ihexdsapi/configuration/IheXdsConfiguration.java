@@ -27,7 +27,8 @@ import org.springframework.web.context.annotation.RequestScope;
 @Import(StorageConfiguration.class)
 @org.springframework.boot.context.properties.EnableConfigurationProperties({
     RegistryProperties.class,
-    TypeCodeProperties.class
+    TypeCodeProperties.class,
+    HsuidOrganisationProperties.class
 })
 public class IheXdsConfiguration {
     @Value("${XDS_TIMEOUT_SECONDS:45}")
@@ -107,8 +108,8 @@ public class IheXdsConfiguration {
     private String typeCodeNames;
 
     @Bean
-    public StsService stsService() {
-        return new StsServiceImpl(stsUrl, Math.multiplyExact(timeoutSeconds, 1000));
+    public StsService stsService(HsuidOrganisationProperties organisation) {
+        return new StsServiceImpl(stsUrl, Math.multiplyExact(timeoutSeconds, 1000), organisation);
     }
 
     @Bean
@@ -187,6 +188,7 @@ public class IheXdsConfiguration {
     @Bean
     public RegistryRouting registryRouting(
             RegistryProperties properties,
+            HsuidOrganisationProperties organisation,
             CredentialService credentials,
             DgwsService dgws,
             Iti18Service search,
@@ -199,7 +201,9 @@ public class IheXdsConfiguration {
         for (var registry : properties.registries()) {
             var sts =
                     new StsServiceImpl(
-                            registry.stsEndpoint(), Math.multiplyExact(timeoutSeconds, 1000));
+                            registry.stsEndpoint(),
+                            Math.multiplyExact(timeoutSeconds, 1000),
+                            organisation);
             targets.add(
                     new RegistryRouting.Target(
                             registry.id(),

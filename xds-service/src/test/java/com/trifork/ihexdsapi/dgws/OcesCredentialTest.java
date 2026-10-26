@@ -249,7 +249,12 @@ class OcesCredentialTest {
     void createsSignedUserRequestWithOces3IdentityBeforeCallingSts() throws Exception {
         var info = info(certificate(PERSON, "1.2.208.169.1.1.1.2.7.1"));
         var rest = mock(RestTemplate.class);
-        var service = new StsServiceImpl("https://sts.invalid");
+        var service =
+                new StsServiceImpl(
+                        "https://sts.invalid",
+                        45000,
+                        new com.trifork.ihexdsapi.configuration.HsuidOrganisationProperties(
+                                "440081000016006", "sor"));
         ReflectionTestUtils.setField(service, "restTemplate", rest);
         var context = new HealthcareProfessionalContext();
         context.setRole("Læge");
@@ -317,6 +322,19 @@ class OcesCredentialTest {
         verify(rest)
                 .exchange(
                         anyString(), eq(HttpMethod.POST), any(HttpEntity.class), eq(String.class));
+    }
+
+    @Test
+    void missingHsuidOrganisationStopsBeforeStsAndNeverUsesCertificateCvr() throws Exception {
+        var employee = info(certificate(PERSON, "1.2.208.169.1.1.1.2.7.1"));
+        var rest = mock(RestTemplate.class);
+        var service = new StsServiceImpl("https://sts.invalid");
+        ReflectionTestUtils.setField(service, "restTemplate", rest);
+        var context = new HealthcareProfessionalContext().role("Læge").consentOverride(false);
+        assertThrows(
+                HsuidConfigurationException.class,
+                () -> service.getDgwsClientInfoForSystem(employee, "synthetic-patient", context));
+        verifyNoInteractions(rest);
     }
 
     @Test

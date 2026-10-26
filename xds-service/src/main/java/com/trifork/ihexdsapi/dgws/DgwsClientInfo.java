@@ -9,6 +9,7 @@ public class DgwsClientInfo {
     private boolean consentOverride = false;
     private String authorizationCode;
     private String organisationCode;
+    private String organisationNameFormat;
 
     private String cpr;
 
@@ -19,6 +20,18 @@ public class DgwsClientInfo {
             String authorizationCode,
             String organisationCode,
             boolean consentOverride) {
+        this(sosi, cpr, patientId, authorizationCode, organisationCode, "nsi:sor", consentOverride);
+    }
+
+    public DgwsClientInfo(
+            Document sosi,
+            String cpr,
+            String patientId,
+            String authorizationCode,
+            String organisationCode,
+            String organisationNameFormat,
+            boolean consentOverride) {
+        this.organisationNameFormat = organisationNameFormat;
         this.sosi = sosi;
         this.cpr = cpr;
         this.patientId = patientId;
@@ -61,6 +74,10 @@ public class DgwsClientInfo {
 
     public String getAuthorizationCode() {
         return this.authorizationCode;
+    }
+
+    public String getOrganisationNameFormat() {
+        return organisationNameFormat;
     }
 
     public String getOrganisationCode() {

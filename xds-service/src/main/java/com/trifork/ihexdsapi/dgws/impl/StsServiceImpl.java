@@ -1,5 +1,6 @@
 package com.trifork.ihexdsapi.dgws.impl;
 
+import com.trifork.ihexdsapi.configuration.HsuidOrganisationProperties;
 import com.trifork.ihexdsapi.dgws.CredentialInfo;
 import com.trifork.ihexdsapi.dgws.DgwsClientInfo;
 import com.trifork.ihexdsapi.dgws.DgwsSecurityException;
@@ -26,6 +27,7 @@ import org.w3c.dom.Document;
 public class StsServiceImpl implements StsService {
 
     private String stsUrl;
+    private final HsuidOrganisationProperties organisation;
 
     private RestTemplate restTemplate = new RestTemplate();
 
@@ -36,6 +38,12 @@ public class StsServiceImpl implements StsService {
     }
 
     public StsServiceImpl(String stsUrl, int timeoutMillis) {
+        this(stsUrl, timeoutMillis, new HsuidOrganisationProperties(null, null));
+    }
+
+    public StsServiceImpl(
+            String stsUrl, int timeoutMillis, HsuidOrganisationProperties organisation) {
+        this.organisation = organisation;
         var factory = new org.springframework.http.client.SimpleClientHttpRequestFactory();
         factory.setConnectTimeout(timeoutMillis);
         factory.setReadTimeout(timeoutMillis);
@@ -67,6 +75,7 @@ public class StsServiceImpl implements StsService {
         }
         if (context == null)
             throw new DgwsSecurityException(1000, "Healthcare professional context is required");
+        organisation.requireConfigured();
         String cvr = credentialInfo.getCvr();
 
         String authorizationCode = context.getAuthorizationCode();
@@ -85,7 +94,8 @@ public class StsServiceImpl implements StsService {
                 userIDCard.getUserInfo().getCPR(),
                 patientId,
                 userIDCard.getUserInfo().getAuthorizationCode(),
-                cvr,
+                organisation.identifier(),
+                organisation.nameFormat(),
                 context.getConsentOverride());
     }
 

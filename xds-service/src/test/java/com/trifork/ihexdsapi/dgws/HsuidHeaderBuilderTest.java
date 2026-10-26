@@ -7,6 +7,34 @@ import org.junit.jupiter.api.Test;
 import org.xmlunit.builder.DiffBuilder;
 
 class HsuidHeaderBuilderTest {
+    @org.junit.jupiter.params.ParameterizedTest
+    @org.junit.jupiter.params.provider.CsvSource({
+        "sor,440081000016006",
+        "skskode,6620151",
+        "ynumber,123456"
+    })
+    void sendsConfiguredOrganisationWithItsDeclaredScheme(String scheme, String identifier)
+            throws Exception {
+        var org =
+                new com.trifork.ihexdsapi.configuration.HsuidOrganisationProperties(
+                        identifier, scheme);
+        var context =
+                new DgwsClientInfo(
+                        null,
+                        "0101019999",
+                        "3001749995",
+                        "FT001",
+                        org.identifier(),
+                        org.nameFormat(),
+                        false);
+        var header = HsuidHeaderBuilder.build(context, Clock.systemUTC());
+        var xpath = javax.xml.xpath.XPathFactory.newInstance().newXPath();
+        String path = "//*[local-name()='Attribute'][@Name='nsi:OrgUsingID']";
+        assertEquals(identifier, xpath.evaluate("string(" + path + "/*)", header));
+        assertEquals("nsi:" + scheme, xpath.evaluate("string(" + path + "/@NameFormat)", header));
+        assertEquals("1", xpath.evaluate("count(" + path + ")", header));
+    }
+
     @Test
     void matchesTheFormerHsuidLibraryWireHeader() throws Exception {
         var context =

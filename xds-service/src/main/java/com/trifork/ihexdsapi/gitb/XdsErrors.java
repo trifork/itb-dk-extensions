@@ -151,16 +151,20 @@ final class XdsErrors {
         return false;
     }
 
+    private static boolean accessDenied(Throwable e) {
+        return e instanceof com.trifork.ihexdsapi.dgws.DgwsSecurityException
+                || e instanceof org.springframework.web.client.HttpClientErrorException.Unauthorized
+                || e instanceof org.springframework.web.client.HttpClientErrorException.Forbidden;
+    }
+
     static XdsFailure failure(String operation, Throwable cause) {
         for (Throwable e = cause; e != null; e = e.getCause()) {
             if (e instanceof XdsFailure failure) return failure;
-            if (e instanceof com.trifork.ihexdsapi.dgws.DgwsSecurityException
-                    || e
-                            instanceof
-                            org.springframework.web.client.HttpClientErrorException.Unauthorized
-                    || e
-                            instanceof
-                            org.springframework.web.client.HttpClientErrorException.Forbidden)
+            if (e instanceof com.trifork.ihexdsapi.dgws.HsuidConfigurationException)
+                return new XdsFailure(
+                        "XDS-CONFIG",
+                        "DDS access requires an HSUID organisation identifier. Ask the integration maintainer to configure the healthcare organisation's SOR, SHAK or ydernummer and matching scheme; the signing certificate CVR cannot be used as a SOR code.");
+            if (accessDenied(e))
                 return new XdsFailure(
                         "XDS-ACCESS",
                         operation
