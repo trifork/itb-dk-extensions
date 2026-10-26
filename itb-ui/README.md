@@ -7,6 +7,17 @@ structured questionnaire fields may not appear.
 Validation reports show **Click an error or warning for more details** above
 selectable findings when errors or warnings are visible.
 
+Interaction dialogs keep their title and action buttons inside the viewport while
+long forms scroll internally. Opening and closing an interaction has no slide/fade
+animation, and initial text-field focus does not scroll the dialog. This applies to
+both running tests and pending interactions opened from session history.
+
+Batch execution keeps a failed or stopped test visible, including its session ID,
+log and reports. **Start next test** explicitly prepares and starts the next
+selected test. **Continue automatically** applies only after success; disabling
+it also pauses between successful tests. This prevents a failed search from
+immediately disappearing behind a new test's document-source form.
+
 ## Build and load
 
 The gateway downloads the checksum-pinned ITB release source in `upstream.json`,
@@ -55,7 +66,14 @@ CDA_PREVIEW_TEST_URL=http://localhost:8091/cda-dk/preview npm test
 
 Docker provides Node for the frontend build; host Node 24+ is only needed for
 browser tests. Tests cover provenance, served assets, startup, CSP, original bytes
-and preview behaviour. Review the source extension and verify real report
+and preview behaviour. `tests/interactions.spec.js` additionally signs in with the
+provisioned test user, creates its own synthetic sessions and verifies DDS/SFSK
+form submission through retrieval and validation. It uses `ITB_STATE_FILE` and
+`ITB_USER_STATE_FILE` when set, otherwise the ignored bootstrap/user state files.
+The batch regression also exercises the live execution page: invalid CPR fails
+locally, the failed session remains visible, and only **Start next test** creates
+the next session. Run the complete file against the isolated fixture stack, not
+a live NSP backend. Review the source extension and verify real report
 attachments when upgrading ITB.
 
 Successful default-branch XDS integration publishes

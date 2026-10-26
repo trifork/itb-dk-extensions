@@ -86,18 +86,26 @@ class Packaging(unittest.TestCase):
                 source = xds[key].find('.//t:request[@name="source"]', NS)
                 self.assertEqual('Local file upload,IHE XDS (DDS) retrieval', source.get('options'))
                 self.assertEqual(source.get('options'), source.get('optionLabels'))
-                self.assertEqual(['choices', 'search', 'filter', 'retrieve'], [e.text for e in xds[key].findall('.//t:operation', NS)])
+                self.assertEqual(['choices', 'queryChoices', 'search', 'filter', 'retrieve'], [e.text for e in xds[key].findall('.//t:operation', NS)])
                 for name in ('entryTypes', 'typeCode', 'formatCode'):
-                    self.assertEqual('SELECT_MULTIPLE', xds[key].find('.//t:request[@name="' + name + '"]', NS).get('inputType'))
+                    self.assertEqual('SELECT_MULTIPLE', xds[key].find('.//t:interact[@id="xdsQuery"]/t:request[@name="' + name + '"]', NS).get('inputType'))
                 for name in ('registry', 'professional', 'entryTypes', 'typeCode', 'formatCode', 'document', 'action', 'repositoryMode', 'repositories'):
                     request = xds[key].find('.//t:request[@name="' + name + '"]', NS)
                     self.assertEqual(request.get('optionLabels'), request.get('options'), name)
                 entry_type = xds[key].find('.//t:request[@name="entryTypes"]', NS)
                 self.assertEqual('true', entry_type.get('required'))
                 self.assertEqual('$xdsChoices{defaultEntryTypes}', entry_type.get('default'))
-                self.assertEqual('$xdsQuery{entryTypes}', xds[key].find('.//t:input[@name="entryTypes"]', NS).text)
+                self.assertEqual('$search_entryTypes', xds[key].find('.//t:input[@name="entryTypes"]', NS).text)
                 self.assertEqual('$document', xds[key].find('.//t:input[@name="xml"]', NS).text)
                 self.assertEqual('false', xds[key].find('t:metadata/c:update', NS).get('resetTestHistory'))
+
+    def test_stamkort_form_only_exposes_applicable_fields(self):
+        root = self.package(True)['testCases/validate-phmr_v2_1_0-manual.xml']
+        form = root.find('.//t:interact[@id="xdsStamkortQuery"]', NS)
+        self.assertEqual(['patientId', 'professional', 'formatCode'],
+                         [item.get('name') for item in form.findall('t:request', NS)])
+        self.assertEqual('SELECT_SINGLE', form.find('t:request[@name="formatCode"]', NS).get('inputType'))
+        self.assertEqual('$xdsQueryChoices{defaultProfessional}', form.find('t:request[@name="professional"]', NS).get('default'))
 
     def test_registry_selection_is_conditional_and_passed_to_search(self):
         root = self.package(True)['testCases/validate-phmr_v2_1_0-manual.xml']

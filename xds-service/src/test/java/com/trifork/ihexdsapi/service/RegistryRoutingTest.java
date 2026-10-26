@@ -19,6 +19,30 @@ class RegistryRoutingTest {
     }
 
     @Test
+    void stamkortAuthenticationIsExplicitAndRetainedForRetrieval() throws Exception {
+        var base = target("sfsk");
+        var sfsk =
+                new RegistryRouting.Target(
+                        base.id(), base.name(), base.dgws(), base.search(), base.retrieval(), true);
+        var ops =
+                new DefaultXdsOperations(
+                        mock(CredentialService.class),
+                        mock(CodesService.class),
+                        new RegistryRouting(List.of(sfsk)));
+        assertTrue(ops.registries().getFirst().stamkort());
+        ops.search(
+                new Iti18Request()
+                        .credentialId("system")
+                        .queryParameters(new Iti18QueryParameter().patientId("2512489996")));
+        ops.retrieve(
+                new Iti43Request()
+                        .credentialId("system")
+                        .queryParameters(new Iti43QueryParameter().patientId("2512489996")));
+        verify(sfsk.dgws(), times(2)).getStamkortClientInfo("2512489996", "system", null);
+        verify(sfsk.dgws(), never()).getHealthCareProfessionalClientInfo(any(), any(), any());
+    }
+
+    @Test
     void routesSearchAndRetrievalThroughTheirOwnAuthenticationAndServices() throws Exception {
         var one = target("one");
         var two = target("two");

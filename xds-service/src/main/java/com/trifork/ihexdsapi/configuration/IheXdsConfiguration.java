@@ -211,7 +211,8 @@ public class IheXdsConfiguration {
                             new DgwsServiceImpl(sts, credentials),
                             new Iti18ServiceImpl(
                                     registryClient(registry.iti18Endpoint(), cache, ids)),
-                            new Iti43ServiceImpl(retrievalClient(registry.iti43Endpoint()))));
+                            new Iti43ServiceImpl(retrievalClient(registry.iti43Endpoint())),
+                            registry.stamkort()));
         }
         return new RegistryRouting(targets);
     }

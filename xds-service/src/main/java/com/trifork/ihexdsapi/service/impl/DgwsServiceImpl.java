@@ -27,6 +27,16 @@ public class DgwsServiceImpl implements DgwsService {
     }
 
     @Override
+    public DgwsClientInfo getStamkortClientInfo(
+            String patientId, String credentialId, HealthcareProfessionalContext context)
+            throws DgwsSecurityException {
+        if (CredentialInfo.SYSTEM.equals(credentialService.getType(credentialId))) {
+            return getSystemClientInfo(credentialId);
+        }
+        return getHealthCareProfessionalClientInfo(patientId, credentialId, context);
+    }
+
+    @Override
     public DgwsClientInfo getSystemClientInfo(String credentialId) throws DgwsSecurityException {
         CredentialInfo credentialInfo = credentialService.getCredentialInfoFromId(credentialId);
 

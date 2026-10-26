@@ -32,11 +32,12 @@ public final class FixtureApplication {
         public List<RegistryRouting.Choice> registries() {
             return List.of(
                     new RegistryRouting.Choice("one", "Synthetic registry One"),
-                    new RegistryRouting.Choice("two", "Synthetic registry Two"));
+                    new RegistryRouting.Choice("two", "Synthetic registry Two"),
+                    new RegistryRouting.Choice("sfsk", "Synthetic Stamkort", true));
         }
 
         private static void registry(String id, String patient) {
-            if (!Set.of("one", "two").contains(id)
+            if (!Set.of("one", "two", "sfsk").contains(id)
                     || ("0000000010".equals(patient) && !"two".equals(id)))
                 throw new IllegalArgumentException("Wrong fixture registry");
         }
@@ -65,17 +66,24 @@ public final class FixtureApplication {
                             .scheme("second-scheme"));
         }
 
-        private static void context(String credential, HealthcareProfessionalContext context) {
-            if (!"test-professional".equals(credential)
+        private static void context(
+                String registry, String credential, HealthcareProfessionalContext context) {
+            if (!("test-professional".equals(credential)
+                            || ("sfsk".equals(registry) && "test-system".equals(credential)))
                     || !Boolean.FALSE.equals(context.getConsentOverride()))
                 throw new IllegalArgumentException("Unexpected fixture context");
         }
 
         public QueryResponse search(Iti18Request request)
                 throws com.trifork.ihexdsapi.dgws.DgwsSecurityException {
-            context(request.getCredentialId(), request.getContext());
+            context(request.getRegistryId(), request.getCredentialId(), request.getContext());
             var q = request.getQueryParameters();
             registry(request.getRegistryId(), q.getPatientId());
+            if ("sfsk".equals(request.getRegistryId())
+                    && (!List.of("ON-DEMAND").equals(q.getDocumentType())
+                            || q.getTypeCode() == null
+                            || !"PDC".equals(q.getTypeCode().getCode())))
+                throw new IllegalArgumentException("Unexpected Stamkort query");
             String patient = q.getPatientId();
             if (!"Approved".equals(q.getAvailabilityStatus())
                     || q.getDocumentType().isEmpty()
@@ -152,7 +160,7 @@ public final class FixtureApplication {
         }
 
         public RetrievedBytes retrieve(Iti43Request request) {
-            context(request.getCredentialId(), request.getContext());
+            context(request.getRegistryId(), request.getCredentialId(), request.getContext());
             var q = request.getQueryParameters();
             registry(request.getRegistryId(), q.getPatientId());
             if (!q.getRepositoryId().equals(repository(q.getPatientId(), q.getDocumentId())))

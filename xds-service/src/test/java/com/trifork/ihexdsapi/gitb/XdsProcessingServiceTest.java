@@ -199,6 +199,80 @@ class XdsProcessingServiceTest {
     }
 
     @Test
+    void stamkortFormUsesSystemIdentityAndFixedSearchValues() {
+        registryChoices =
+                List.of(
+                        new com.trifork.ihexdsapi.service.RegistryRouting.Choice("dds", "DDS"),
+                        new com.trifork.ihexdsapi.service.RegistryRouting.Choice(
+                                "sfsk", "Stamkort", true));
+        identities =
+                """
+                [{"id":"expired","displayName":"Old system","credentialType":"SYSTEM","validUntil":"2000-01-01T00:00:00Z"},
+                 {"id":"system","displayName":"Test system","credentialType":"SYSTEM","certificateKind":"FOCES","validUntil":"2099-01-01T00:00:00Z"}]
+                """;
+        call("choices");
+        failure(call("queryChoices", "registry", "unknown"), "XDS-INPUT");
+        var form = call("queryChoices", "registry", "Stamkort");
+        assertEquals("true", output(form, "stamkort").getValue());
+        assertTrue(output(form, "defaultProfessional").getValue().contains("Test system"));
+        assertEquals(1, output(form, "formatLabels").getItem().size());
+        var found =
+                call(
+                        "search",
+                        "registry",
+                        "Stamkort",
+                        "patientId",
+                        "2512489996",
+                        "professional",
+                        "system",
+                        "entryTypes",
+                        "STABLE",
+                        "typeCode",
+                        "wrong",
+                        "uniqueId",
+                        "wrong",
+                        "startFromDate",
+                        "invalid");
+        assertEquals(TestResultType.SUCCESS, found.getReport().getResult());
+        var query = lastSearch.path("queryParameters");
+        assertEquals("ON-DEMAND", query.path("documentType").get(0).asText());
+        assertEquals(1, query.path("documentType").size());
+        assertEquals("PDC", query.path("typeCode").path("code").asText());
+        assertEquals("1.2.208.184.100.1", query.path("typeCode").path("codeScheme").asText());
+        assertTrue(
+                query.path("serviceStartFrom").isMissingNode()
+                        || query.path("serviceStartFrom").isNull());
+        call("retrieve", "document", handle(found), "registry", "dds", "professional", "expired");
+        assertEquals("sfsk", lastRetrieve.path("registryId").asText());
+        assertEquals("system", lastRetrieve.path("credentialId").asText());
+        failure(
+                call(
+                        "search",
+                        "registry",
+                        "Stamkort",
+                        "patientId",
+                        "2512489996",
+                        "professional",
+                        "system",
+                        "formatCode",
+                        "code-1"),
+                "XDS-INPUT");
+        var dds = call("queryChoices", "registry", "DDS");
+        assertEquals("false", output(dds, "stamkort").getValue());
+        assertEquals("", output(dds, "defaultProfessional").getValue());
+        failure(
+                call(
+                        "search",
+                        "registry",
+                        "DDS",
+                        "patientId",
+                        "2512489996",
+                        "professional",
+                        "system"),
+                "XDS-IDENTITY-TYPE");
+    }
+
+    @Test
     void selectedRegistrySurvivesFilteringAndCannotBeOverriddenDuringRetrieval() {
         registryChoices =
                 List.of(

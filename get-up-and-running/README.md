@@ -24,7 +24,7 @@ Scripts and test definitions that stand up the Interoperability Test Bed (ITB) l
 | --- | --- |
 | `test-suite/` | The deployed GITB Test Description Language (TDL) suite: one manual upload test per registered release. `tests/check-rulesets.py` enforces the one-to-one mapping. |
 | `setup-check/` | A temporary automated suite that validates a bundled PHMR sample to prove ITB can reach the validator. Deployed, run and removed during setup. |
-| `xds-flow.xml` | The TDL steps spliced into each release test when XDS is enabled: source choice, registry selection, stable/on-demand entry-type multi-select with both defaults, DDS search and retrieval with error guards. |
+| `xds-flow.xml` | The TDL steps spliced into each release test when XDS is enabled: source choice, registry selection, route-specific form preparation, a short SFSK form with optional PDC version/system identity, general DDS filters and entry-type multi-select, and search/retrieval error guards. |
 
 ## Generated state
 

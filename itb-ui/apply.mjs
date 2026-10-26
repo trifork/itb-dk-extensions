@@ -51,3 +51,73 @@ replaceOnce(template, '<div class="btn-toolbar">', `<div class="btn-toolbar">
 const source = readFileSync(new URL('./cda-preview.ts', import.meta.url), 'utf8')
   .replace("'__CDA_PREVIEW_URL__'", "'/cda-preview'");
 writeFileSync(join(root, 'src/app/components/diagram/report/any-content-view/cda-preview.ts'), source);
+
+// Interaction forms can be much taller than the viewport. Keep their header and
+// actions fixed and scroll only the fields; avoid competing open/close animations.
+for (const [path, before] of [
+  ['src/app/pages/test-execution/test-execution.component.ts', "this.modalService.open(ProvideInputModalComponent, { size: 'lg'})"],
+  ['src/app/components/session-table/session-table.component.ts', "this.modalService.open(ProvideInputModalComponent, { size: 'lg' })"],
+]) {
+  replaceOnce(join(root, path), before,
+    "this.modalService.open(ProvideInputModalComponent, { size: 'lg', scrollable: true, animation: false })");
+}
+const interaction = join(root, 'src/app/modals/provide-input-modal/provide-input-modal.component');
+replaceOnce(interaction + '.html', 'style="overflow-x: auto; overflow-y: hidden;"', 'style="overflow-x: auto;"');
+const interactionStyles = readFileSync(interaction + '.less', 'utf8');
+writeFileSync(interaction + '.less', interactionStyles + `
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  max-height: calc(100dvh - 3.5rem);
+}
+form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+.provide-input-body { overflow-y: auto; }
+.modal-header, .modal-footer { flex-shrink: 0; }
+`);
+const interactionCode = readFileSync(interaction + '.ts', 'utf8');
+const focusCall = "this.dataService.focus('input-'+this.firstTextIndex)";
+if (interactionCode.split(focusCall).length !== 3) throw new Error('Unsupported upstream interaction focus');
+writeFileSync(interaction + '.ts', interactionCode.replaceAll(focusCall,
+  "document.getElementById('input-'+this.firstTextIndex)?.focus({preventScroll: true})"));
+
+// Keep a failed session and its diagnostics on screen. A batch may continue
+// automatically after success, but failure/stop requires an explicit next test.
+const execution = join(root, 'src/app/pages/test-execution/test-execution.component');
+replaceOnce(execution + '.ts', '  startAutomatically = true',
+  '  startAutomatically = true\n  nextTestPending = false');
+replaceOnce(execution + '.ts', '  private initialiseState() {',
+  '  private initialiseState() {\n    this.nextTestPending = false');
+replaceOnce(execution + '.ts', '  stopAll() {',
+  '  stopAll() {\n    this.nextTestPending = false');
+replaceOnce(execution + '.ts', `      timer(1000).subscribe(() => {
+        this.prepareNextTest(this.startAutomatically)
+      })`, `      this.started = false
+      this.nextWaitingToStart = false
+      this.nextTestPending = true
+      if (this.startAutomatically && this.testCaseStatus[this.currentTest!.id] == Constants.TEST_CASE_STATUS.COMPLETED) {
+        const finishedSession = this.session
+        timer(1000).subscribe(() => {
+          if (this.session == finishedSession && this.startAutomatically) this.startNextTest()
+        })
+      }`);
+replaceOnce(execution + '.ts', '  setPendingStepsToSkipped() {', `  startNextTest() {
+    if (this.nextTestPending && !this.allStopped) {
+      this.nextTestPending = false
+      this.prepareNextTest(true)
+    }
+  }
+
+  setPendingStepsToSkipped() {`);
+replaceOnce(execution + '.html',
+  '                        <button type="button" [labelIcon]="Constants.BUTTON_ICON.PLAY" class="btn btn-primary" [disable]="!nextWaitingToStart" (click)="start(session!)">Start</button>',
+  `                        @if (nextTestPending) {
+                            <button type="button" [labelIcon]="Constants.BUTTON_ICON.PLAY" class="btn btn-primary" (click)="startNextTest()">Start next test</button>
+                        } @else {
+                            <button type="button" [labelIcon]="Constants.BUTTON_ICON.PLAY" class="btn btn-primary" [disable]="!nextWaitingToStart" (click)="start(session!)">Start</button>
+                        }`);

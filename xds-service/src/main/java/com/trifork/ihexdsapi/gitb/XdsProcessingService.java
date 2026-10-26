@@ -59,6 +59,7 @@ public class XdsProcessingService implements ProcessingService {
     private static final class Session {
         Instant expires;
         final Map<String, SigningIdentity> credentials = new LinkedHashMap<>();
+        final Set<String> stamkortRegistries = new HashSet<>();
         final Map<String, String> registries = new LinkedHashMap<>();
         final Map<String, String> registrySelections = new LinkedHashMap<>();
         final Map<String, JsonNode> types = new LinkedHashMap<>();
@@ -134,6 +135,7 @@ public class XdsProcessingService implements ProcessingService {
             synchronized (session) {
                 switch (Objects.toString(input.getOperation(), "")) {
                     case "choices" -> choices(session, response);
+                    case "queryChoices" -> queryChoices(session, values, response);
                     case "search" -> search(session, values, response);
                     case "filter" -> filter(session, values, response);
                     case RETRIEVE_OPERATION -> retrieve(session, values, response);
@@ -180,10 +182,13 @@ public class XdsProcessingService implements ProcessingService {
         s.formats.clear();
         clearResults(s);
         s.registries.clear();
+        s.stamkortRegistries.clear();
         JsonNode registries = client.registries();
         if (!registries.isArray() || registries.isEmpty())
             throw new XdsFailure(RESPONSE_ERROR, "No XDS registries are configured.");
         for (JsonNode registry : registries) {
+            if (registry.path("stamkort").asBoolean())
+                s.stamkortRegistries.add(required(registry, "id"));
             if (s.registries.put(required(registry, "id"), required(registry, "name")) != null)
                 throw new XdsFailure(RESPONSE_ERROR, "Duplicate XDS registry IDs are configured.");
         }
@@ -330,8 +335,7 @@ public class XdsProcessingService implements ProcessingService {
                 });
     }
 
-    private void search(Session s, Map<String, String> v, ProcessResponse out) {
-        clearResults(s); // Old handles must never survive a new search, even a failed one.
+    private static void selectRegistry(Session s, Map<String, String> v) {
         String selectedRegistry = v.getOrDefault(REGISTRY, "");
         s.registry = s.registrySelections.getOrDefault(selectedRegistry, selectedRegistry);
         if (s.registry.isBlank() && s.registries.size() == 1)
@@ -344,6 +348,41 @@ public class XdsProcessingService implements ProcessingService {
                         .findFirst()
                         .orElseThrow()
                         .getKey();
+    }
+
+    private void queryChoices(Session s, Map<String, String> v, ProcessResponse out) {
+        selectRegistry(s, v);
+        boolean stamkort = s.stamkortRegistries.contains(s.registry);
+        out.getOutput().add(value("stamkort", "boolean", Boolean.toString(stamkort)));
+        list(out, "professionalLabels", s.professionalSelections.keySet());
+        String preferred = "";
+        if (stamkort) {
+            for (var entry : s.professionalSelections.entrySet()) {
+                var identity = s.credentials.get(entry.getValue());
+                if (identity.currentSystem(clock.instant())) {
+                    preferred = entry.getKey();
+                    break;
+                }
+            }
+        }
+        out.getOutput().add(value("defaultProfessional", STRING, preferred));
+        codeLists(out, "format", stamkort ? stamkortFormats(s) : s.formats, s.formatSelections);
+    }
+
+    private static Map<String, JsonNode> stamkortFormats(Session s) {
+        Map<String, JsonNode> result = new LinkedHashMap<>();
+        s.formats.forEach(
+                (id, code) -> {
+                    if (code.path(CODE).asText().startsWith("urn:ad:dk:medcom:pdc-v")
+                            && "1.2.208.184.100.10".equals(code.path(SCHEME).asText()))
+                        result.put(id, code);
+                });
+        return result;
+    }
+
+    private void search(Session s, Map<String, String> v, ProcessResponse out) {
+        clearResults(s); // Old handles must never survive a new search, even a failed one.
+        selectRegistry(s, v);
         var searchReport = new TAR();
         searchReport.setContext(new AnyContent());
         searchReport.getContext().getItem().add(value(REGISTRY_LABEL, STRING, s.registryLabel));
@@ -357,15 +396,22 @@ public class XdsProcessingService implements ProcessingService {
                 s.professionalSelections.getOrDefault(selectedProfessional, selectedProfessional);
         if (!s.credentials.containsKey(credential))
             throw new XdsFailure(INPUT_ERROR, "Choose a configured signing identity.");
-        s.credentials.get(credential).requireSearchIdentity(clock.instant());
+        boolean stamkort = s.stamkortRegistries.contains(s.registry);
+        s.credentials.get(credential).requireSearchIdentity(clock.instant(), stamkort);
         Map<String, Object> query = new LinkedHashMap<>();
         query.put(PATIENT_ID, patient);
         query.put("availabilityStatus", "Approved");
-        query.put(DOCUMENT_TYPE, XdsDocumentEntryTypes.select(v.get("entryTypes")));
-        putCode(query, TYPE_CODE, v.get(TYPE_CODE), s.types, s.typeSelections);
-        putCode(query, FORMAT_CODE, v.get(FORMAT_CODE), s.formats, s.formatSelections);
-        dates(query, v, "startFromDate", "startToDate");
-        dates(query, v, "endFromDate", "endToDate");
+        if (stamkort) {
+            query.put(DOCUMENT_TYPE, List.of("ON-DEMAND"));
+            query.put(TYPE_CODE, Map.of(CODE, "PDC", "codeScheme", "1.2.208.184.100.1"));
+            putCode(query, FORMAT_CODE, v.get(FORMAT_CODE), stamkortFormats(s), s.formatSelections);
+        } else {
+            query.put(DOCUMENT_TYPE, XdsDocumentEntryTypes.select(v.get("entryTypes")));
+            putCode(query, TYPE_CODE, v.get(TYPE_CODE), s.types, s.typeSelections);
+            putCode(query, FORMAT_CODE, v.get(FORMAT_CODE), s.formats, s.formatSelections);
+            dates(query, v, "startFromDate", "startToDate");
+            dates(query, v, "endFromDate", "endToDate");
+        }
         s.patient = patient;
         s.credential = credential;
         s.context = new LinkedHashMap<>();
@@ -375,7 +421,7 @@ public class XdsProcessingService implements ProcessingService {
         JsonNode rows = client.search(envelope(s, query));
         if (!rows.isArray())
             throw new XdsFailure(RESPONSE_ERROR, "XDS did not return a document list.");
-        String uniqueId = v.getOrDefault("uniqueId", "");
+        String uniqueId = stamkort ? "" : v.getOrDefault("uniqueId", "");
         for (JsonNode row : rows) {
             String document = required(row, DOCUMENT_ID);
             required(row, REPOSITORY_ID);

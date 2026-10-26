@@ -7,5 +7,9 @@ public interface DgwsService {
             String patientId, String credentialId, HealthcareProfessionalContext context)
             throws DgwsSecurityException;
 
+    DgwsClientInfo getStamkortClientInfo(
+            String patientId, String credentialId, HealthcareProfessionalContext context)
+            throws DgwsSecurityException;
+
     DgwsClientInfo getSystemClientInfo(String credentialId) throws DgwsSecurityException;
 }

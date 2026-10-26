@@ -30,7 +30,10 @@ The credential API remains: search and retrieval require signing identities and 
 ITI-43 clients. Both REST and GITB select from this operator-owned catalogue;
 request input never changes client endpoint addresses. GITB saves the registry ID
 with search context and uses it for retrieval, including after repository filtering.
-Unknown IDs are rejected before authentication. The legacy configuration remains
+Unknown IDs are rejected before authentication. An explicit per-route `stamkort`
+capability permits the certificate's system or employee ID-card path; other routes
+retain employee authentication. `DgwsClientInfo` records which kind of ID card was
+issued so ITI-18 and ITI-43 add HSUID only for employee calls. The legacy configuration remains
 available when no named bundles exist. See [registry configuration](xds.md#multiple-registries).
 
 ITI-18 returns IPF `QueryResponse`. ITI-43 returns `RetrievedBytes`, with original
@@ -47,6 +50,10 @@ registry. GITB retains it server-side with the selected document; raw interactio
 input cannot replace the retrieval community or other document identifiers.
 The guided query maps readable entry-type selections to `STABLE` / `ON-DEMAND`,
 with both as the default for older definitions without the field.
+After registry selection, GITB `queryChoices` supplies the route's form defaults.
+SFSK forms expose CPR, signing identity and PDC format only; search fixes on-demand
+PDC metadata and omits general DDS filters. Both adapters derive authentication
+from trusted configuration and certificate metadata, never a user-supplied mode.
 REST retains original bytes in `responseBase64`, default formatted `response`,
 and `includeFormattedResponse=false`. Formatting rejects DOCTYPE and external
 DTD/stylesheet access. GITB receives unformatted bytes directly.
@@ -132,5 +139,7 @@ jar/image. Tests do not establish live TEST1 availability or complete DDS-01.
 The [XDS operations guide](xds.md) records the 2026-10-26 live SFSK TEST1/TEST2
 FOCES retrieval results, query settings, published test patients and MOCES
 failures. Those diagnostic results are separate from automated fixture coverage;
-the guided query flow still requires an employee identity and does not yet expose
-the system-ID-card path used by the successful diagnostic.
+the guided query flow now exposes that system-ID-card path for SFSK. Fixture
+checks cover the short form, saved identity/route, and absence of employee HSUID
+on system searches and retrievals. Browser tests cover the large DDS form, fixed
+modal actions, submitted multi-select values and the short Stamkort workflow.

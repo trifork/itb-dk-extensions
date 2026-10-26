@@ -20,7 +20,7 @@ public final class RegistryRouting {
     }
 
     public List<Choice> choices() {
-        return targets.stream().map(t -> new Choice(t.id(), t.name())).toList();
+        return targets.stream().map(t -> new Choice(t.id(), t.name(), t.stamkort())).toList();
     }
 
     public Target target(String id) {
@@ -32,12 +32,36 @@ public final class RegistryRouting {
                         () -> new IllegalArgumentException("Choose a configured XDS registry ID"));
     }
 
-    public record Choice(String id, String name) {}
+    public record Choice(String id, String name, boolean stamkort) {
+        public Choice(String id, String name) {
+            this(id, name, false);
+        }
+    }
 
     public record Target(
             String id,
             String name,
             DgwsService dgws,
             Iti18Service search,
-            Iti43Service retrieval) {}
+            Iti43Service retrieval,
+            boolean stamkort) {
+        public Target(
+                String id,
+                String name,
+                DgwsService dgws,
+                Iti18Service search,
+                Iti43Service retrieval) {
+            this(id, name, dgws, search, retrieval, false);
+        }
+
+        public com.trifork.ihexdsapi.dgws.DgwsClientInfo authenticate(
+                String patient,
+                String credential,
+                org.openapitools.model.HealthcareProfessionalContext context)
+                throws com.trifork.ihexdsapi.dgws.DgwsSecurityException {
+            return stamkort
+                    ? dgws.getStamkortClientInfo(patient, credential, context)
+                    : dgws.getHealthCareProfessionalClientInfo(patient, credential, context);
+        }
+    }
 }

@@ -35,35 +35,83 @@
                         </then>
                     </if>
                     <log level="INFO">"Selected XDS registry: " || $selectedRegistry</log>
-                    <interact id="xdsQuery" with="cda-producer" desc="Search DDS" inputTitle="Find in XDS" timeout="1800000">
-                        <instruct desc="Registry" level="INFO" forceDisplay="true">$selectedRegistry</instruct>
-                        <instruct desc="Search" level="INFO" forceDisplay="true">"Use a test CPR. Search returns Approved documents with consent override disabled. Choose stored (Stable) documents, generated (On-demand) documents, or both. Stamkort (PDC) requires On-demand and an authorised SFSK route. Metadata does not determine the CDA profile release: this session still validates the release shown in its title. Optional dates use UTC, e.g. 2026-01-01T00:00:00Z."</instruct>
-                        <instruct desc="Filters" level="INFO" forceDisplay="true">"Document entry type, Type code and Format code allow multiple selections: hold Command (⌘) on Mac or Ctrl on Windows/Linux while clicking to select or deselect individual options; use Shift-click for a range. Codes within a field are alternatives (OR); type, format and date filters are combined (AND). Leave a code field empty for Any, or select Any on its own. Date ranges include From and exclude To; leave either boundary empty for an open range. For a whole UTC day, use midnight on that day through midnight on the next day."</instruct>
-                        <instruct desc="Identity" level="INFO" forceDisplay="true">"Certificate labels show type and expiry date (UTC). Expired and system identities are listed for inspection. This search flow requires a current MOCES employee identity; selecting an expired or system-only identity reports an explanatory error."</instruct>
-                        <request name="patientId" desc="Test CPR (10 digits)" inputType="TEXT" required="true"/>
-                        <request name="professional" desc="Signing identity" inputType="SELECT_SINGLE" options="$xdsChoices{professionalLabels}" optionLabels="$xdsChoices{professionalLabels}" required="true"/>
-                        <request name="entryTypes" desc="Document entry type (multiple allowed)" inputType="SELECT_MULTIPLE" size="2" required="true" options="$xdsChoices{entryTypeLabels}" optionLabels="$xdsChoices{entryTypeLabels}" default="$xdsChoices{defaultEntryTypes}"/>
-                        <request name="typeCode" desc="Type code (multiple allowed)" inputType="SELECT_MULTIPLE" size="6" options="$xdsChoices{typeLabels}" optionLabels="$xdsChoices{typeLabels}"/>
-                        <request name="formatCode" desc="Format code (multiple allowed)" inputType="SELECT_MULTIPLE" size="4" options="$xdsChoices{formatLabels}" optionLabels="$xdsChoices{formatLabels}"/>
-                        <request name="uniqueId" desc="Unique ID (optional exact match)" inputType="TEXT"/>
-                        <request name="startFromDate" desc="Service start from (inclusive, UTC, optional)" inputType="TEXT"/>
-                        <request name="startToDate" desc="Service start to (exclusive, UTC, optional)" inputType="TEXT"/>
-                        <request name="endFromDate" desc="Service stop from (inclusive, UTC, optional)" inputType="TEXT"/>
-                        <request name="endToDate" desc="Service stop to (exclusive, UTC, optional)" inputType="TEXT"/>
-                    </interact>
+                    <process id="xdsQueryChoices" txnId="xds" desc="Prepare search form" hidden="true" stopOnError="false">
+                        <operation>queryChoices</operation>
+                        <input name="registry">$selectedRegistry</input>
+                    </process>
+                    <if hidden="true">
+                        <cond>$STEP_STATUS{xdsQueryChoices} = 'ERROR'</cond>
+                        <then>
+                            <log level="ERROR">$xdsQueryChoices{errorCode} || ": " || $xdsQueryChoices{errorMessage} || " CDA validation has not run."</log>
+                            <exit success="false" desc="Stopped before CDA validation: search configuration failed"/>
+                        </then>
+                    </if>
+                    <assign to="search_patientId" type="string">""</assign>
+                    <assign to="search_professional" type="string">""</assign>
+                    <assign to="search_entryTypes" type="string">""</assign>
+                    <assign to="search_typeCode" type="string">""</assign>
+                    <assign to="search_formatCode" type="string">""</assign>
+                    <assign to="search_uniqueId" type="string">""</assign>
+                    <assign to="search_startFromDate" type="string">""</assign>
+                    <assign to="search_startToDate" type="string">""</assign>
+                    <assign to="search_endFromDate" type="string">""</assign>
+                    <assign to="search_endToDate" type="string">""</assign>
+                    <if desc="Use the selected registry's search form">
+                        <cond>$xdsQueryChoices{stamkort}</cond>
+                        <then>
+                            <interact id="xdsStamkortQuery" with="cda-producer" desc="Search Stamkort" inputTitle="Find Stamkort in SFSK" timeout="1800000">
+                                <instruct desc="Registry" level="INFO" forceDisplay="true">$selectedRegistry</instruct>
+                                <instruct desc="Stamkort search" level="INFO" forceDisplay="true">"This endpoint returns Stamkort (PDC) on demand. Enter a test CPR and choose an authorised signing identity. A FOCES/VOCES identity uses a system ID card; a MOCES identity uses an employee ID card. Access must be authorised by NSP. The selected CDA validation release remains the one in the test title."</instruct>
+                                <request name="patientId" desc="Test CPR (10 digits)" inputType="TEXT" required="true"/>
+                                <request name="professional" desc="Signing identity" inputType="SELECT_SINGLE" options="$xdsQueryChoices{professionalLabels}" optionLabels="$xdsQueryChoices{professionalLabels}" default="$xdsQueryChoices{defaultProfessional}" required="true"/>
+                                <request name="formatCode" desc="Stamkort version (optional)" inputType="SELECT_SINGLE" options="$xdsQueryChoices{formatLabels}" optionLabels="$xdsQueryChoices{formatLabels}" default="Any"/>
+                            </interact>
+                            <assign to="search_patientId" type="string">$xdsStamkortQuery{patientId}</assign>
+                            <assign to="search_professional" type="string">$xdsStamkortQuery{professional}</assign>
+                            <assign to="search_formatCode" type="string">$xdsStamkortQuery{formatCode}</assign>
+                        </then>
+                        <else>
+                            <interact id="xdsQuery" with="cda-producer" desc="Search DDS" inputTitle="Find in XDS" timeout="1800000">
+                                <instruct desc="Registry" level="INFO" forceDisplay="true">$selectedRegistry</instruct>
+                                <instruct desc="Search" level="INFO" forceDisplay="true">"Use a test CPR. Search returns Approved documents with consent override disabled. Choose stored (Stable) documents, generated (On-demand) documents, or both. Stamkort (PDC) requires On-demand and an authorised SFSK route. Metadata does not determine the CDA profile release: this session still validates the release shown in its title. Optional dates use UTC, e.g. 2026-01-01T00:00:00Z."</instruct>
+                                <instruct desc="Filters" level="INFO" forceDisplay="true">"Document entry type, Type code and Format code allow multiple selections: hold Command (⌘) on Mac or Ctrl on Windows/Linux while clicking to select or deselect individual options; use Shift-click for a range. Codes within a field are alternatives (OR); type, format and date filters are combined (AND). Leave a code field empty for Any, or select Any on its own. Date ranges include From and exclude To; leave either boundary empty for an open range. For a whole UTC day, use midnight on that day through midnight on the next day."</instruct>
+                                <instruct desc="Identity" level="INFO" forceDisplay="true">"Certificate labels show type and expiry date (UTC). Expired and system identities are listed for inspection. This search flow requires a current MOCES employee identity; selecting an expired or system-only identity reports an explanatory error."</instruct>
+                                <request name="patientId" desc="Test CPR (10 digits)" inputType="TEXT" required="true"/>
+                                <request name="professional" desc="Signing identity" inputType="SELECT_SINGLE" options="$xdsQueryChoices{professionalLabels}" optionLabels="$xdsQueryChoices{professionalLabels}" required="true"/>
+                                <request name="entryTypes" desc="Document entry type (multiple allowed)" inputType="SELECT_MULTIPLE" size="2" required="true" options="$xdsChoices{entryTypeLabels}" optionLabels="$xdsChoices{entryTypeLabels}" default="$xdsChoices{defaultEntryTypes}"/>
+                                <request name="typeCode" desc="Type code (multiple allowed)" inputType="SELECT_MULTIPLE" size="6" options="$xdsChoices{typeLabels}" optionLabels="$xdsChoices{typeLabels}"/>
+                                <request name="formatCode" desc="Format code (multiple allowed)" inputType="SELECT_MULTIPLE" size="4" options="$xdsQueryChoices{formatLabels}" optionLabels="$xdsQueryChoices{formatLabels}"/>
+                                <request name="uniqueId" desc="Unique ID (optional exact match)" inputType="TEXT"/>
+                                <request name="startFromDate" desc="Service start from (inclusive, UTC, optional)" inputType="TEXT"/>
+                                <request name="startToDate" desc="Service start to (exclusive, UTC, optional)" inputType="TEXT"/>
+                                <request name="endFromDate" desc="Service stop from (inclusive, UTC, optional)" inputType="TEXT"/>
+                                <request name="endToDate" desc="Service stop to (exclusive, UTC, optional)" inputType="TEXT"/>
+                            </interact>
+                            <assign to="search_patientId" type="string">$xdsQuery{patientId}</assign>
+                            <assign to="search_professional" type="string">$xdsQuery{professional}</assign>
+                            <assign to="search_entryTypes" type="string">$xdsQuery{entryTypes}</assign>
+                            <assign to="search_typeCode" type="string">$xdsQuery{typeCode}</assign>
+                            <assign to="search_formatCode" type="string">$xdsQuery{formatCode}</assign>
+                            <assign to="search_uniqueId" type="string">$xdsQuery{uniqueId}</assign>
+                            <assign to="search_startFromDate" type="string">$xdsQuery{startFromDate}</assign>
+                            <assign to="search_startToDate" type="string">$xdsQuery{startToDate}</assign>
+                            <assign to="search_endFromDate" type="string">$xdsQuery{endFromDate}</assign>
+                            <assign to="search_endToDate" type="string">$xdsQuery{endToDate}</assign>
+                        </else>
+                    </if>
                     <process id="xdsResults" txnId="xds" desc="Search XDS registry" hidden="false" stopOnError="false">
                         <operation>search</operation>
                         <input name="registry">$selectedRegistry</input>
-                        <input name="patientId">$xdsQuery{patientId}</input>
-                        <input name="professional">$xdsQuery{professional}</input>
-                        <input name="entryTypes">$xdsQuery{entryTypes}</input>
-                        <input name="typeCode">$xdsQuery{typeCode}</input>
-                        <input name="formatCode">$xdsQuery{formatCode}</input>
-                        <input name="uniqueId">$xdsQuery{uniqueId}</input>
-                        <input name="startFromDate">$xdsQuery{startFromDate}</input>
-                        <input name="startToDate">$xdsQuery{startToDate}</input>
-                        <input name="endFromDate">$xdsQuery{endFromDate}</input>
-                        <input name="endToDate">$xdsQuery{endToDate}</input>
+                        <input name="patientId">$search_patientId</input>
+                        <input name="professional">$search_professional</input>
+                        <input name="entryTypes">$search_entryTypes</input>
+                        <input name="typeCode">$search_typeCode</input>
+                        <input name="formatCode">$search_formatCode</input>
+                        <input name="uniqueId">$search_uniqueId</input>
+                        <input name="startFromDate">$search_startFromDate</input>
+                        <input name="startToDate">$search_startToDate</input>
+                        <input name="endFromDate">$search_endFromDate</input>
+                        <input name="endToDate">$search_endToDate</input>
                     </process>
                     <if hidden="true">
                         <cond>$STEP_STATUS{xdsResults} = 'ERROR'</cond>

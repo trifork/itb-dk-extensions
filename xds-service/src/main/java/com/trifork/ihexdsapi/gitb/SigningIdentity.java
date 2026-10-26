@@ -34,16 +34,26 @@ record SigningIdentity(
         return kind + " — " + name + " — " + validity + suffix;
     }
 
+    boolean currentSystem(Instant now) {
+        return SYSTEM_KIND.equals(role)
+                && (validFrom == null || !now.isBefore(validFrom))
+                && (validUntil == null || !now.isAfter(validUntil));
+    }
+
     void requireSearchIdentity(Instant now) {
+        requireSearchIdentity(now, false);
+    }
+
+    void requireSearchIdentity(Instant now, boolean stamkort) {
         if (validUntil != null && now.isAfter(validUntil))
             throw new XdsFailure(
                     "XDS-CERTIFICATE-EXPIRED",
-                    "The selected certificate has expired. Choose a current employee certificate.");
+                    "The selected certificate has expired. Choose a current certificate.");
         if (validFrom != null && now.isBefore(validFrom))
             throw new XdsFailure(
                     "XDS-CERTIFICATE-NOT-YET-VALID",
-                    "The selected certificate is not valid yet. Choose a current employee certificate.");
-        if (!"HEALTHCAREPROFESSIONAL".equals(role))
+                    "The selected certificate is not valid yet. Choose a current certificate.");
+        if (!"HEALTHCAREPROFESSIONAL".equals(role) && !(stamkort && SYSTEM_KIND.equals(role)))
             throw new XdsFailure(
                     "XDS-IDENTITY-TYPE",
                     "The selected certificate is a system identity. This DDS search flow requires a healthcare-professional identity (MOCES); system-only authentication does not supply that user context.");

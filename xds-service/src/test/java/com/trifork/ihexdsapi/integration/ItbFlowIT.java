@@ -195,6 +195,29 @@ class ItbFlowIT {
     }
 
     @Test
+    void stamkortUsesTheShortFormAndSystemIdentityThroughRetrieval() throws Exception {
+        chooseXds("Synthetic Stamkort");
+        var form = interaction("Find Stamkort in SFSK");
+        var requests = new ArrayList<String>();
+        for (var item : form.path("interactions")) {
+            if ("request".equals(item.path("type").asText()))
+                requests.add(item.path("desc").asText());
+        }
+        assertEquals(
+                List.of("Test CPR (10 digits)", "Signing identity", "Stamkort version (optional)"),
+                requests);
+        assertTrue(
+                field(form, "Signing identity")
+                        .path("default")
+                        .asText()
+                        .contains("System fixture"));
+        client.submit(session, form, Map.of("Test CPR (10 digits)", "2512489996"));
+        select();
+        finish("SUCCESS");
+        assertNotNull(step("Retrieve selected CDA document"));
+    }
+
+    @Test
     void registryChoiceIsReportedAndUsedForRetrievalAfterFiltering() throws Exception {
         chooseXds("Synthetic registry Two");
         search("0000000010");

@@ -53,6 +53,7 @@ class XdsRestContractTest {
     private DgwsService dgws;
     private volatile String responseBody, responseType, lastSoap;
     private volatile int responseStatus;
+    private boolean stamkortRequest;
 
     @BeforeEach
     void setup() throws Exception {
@@ -112,7 +113,12 @@ class XdsRestContractTest {
                         });
         var controller =
                 new IheXdsController(
-                        com.trifork.ihexdsapi.service.RegistryRouting.legacy(dgws, query, retrieve),
+                        new com.trifork.ihexdsapi.service.RegistryRouting(
+                                List.of(
+                                        new com.trifork.ihexdsapi.service.RegistryRouting.Target(
+                                                "default", "DDS", dgws, query, retrieve),
+                                        new com.trifork.ihexdsapi.service.RegistryRouting.Target(
+                                                "sfsk", "Stamkort", dgws, query, retrieve, true))),
                         cache,
                         ids);
         json = new ObjectMapper().registerModule(new JavaTimeModule());
@@ -140,6 +146,32 @@ class XdsRestContractTest {
         return log.substring(
                 log.indexOf("\nPayload: ") + "\nPayload: ".length(),
                 log.lastIndexOf("\n--------------------------------------"));
+    }
+
+    @Test
+    void systemSearchAndRetrievalOmitEmployeeHsuidWithoutAffectingDds() throws Exception {
+        var system =
+                new DgwsClientInfo(
+                        dgws.getHealthCareProfessionalClientInfo(PATIENT, "employee", null)
+                                .getSosi());
+        when(dgws.getStamkortClientInfo(anyString(), anyString(), any())).thenReturn(system);
+        stamkortRequest = true;
+        request("/v1/iti18", query(), 200);
+        assertFalse(lastSoap.contains("HsuidHeader"));
+        responseBody =
+                envelope(
+                        retrieveResponse(
+                                "<Document>"
+                                        + Base64.getEncoder()
+                                                .encodeToString(
+                                                        XML.getBytes(StandardCharsets.ISO_8859_1))
+                                        + "</Document>"));
+        request("/v1/iti43", retrieval(), 200);
+        assertFalse(lastSoap.contains("HsuidHeader"));
+        stamkortRequest = false;
+        responseBody = envelope(queryResponse("", ""));
+        request("/v1/iti18", query(), 200);
+        assertTrue(lastSoap.contains("HsuidHeader"));
     }
 
     @Test
@@ -242,6 +274,7 @@ class XdsRestContractTest {
                                         false),
                                 "queryParameters",
                                 query));
+        if (stamkortRequest) body.put("registryId", "sfsk");
         if (path.endsWith("uniqueID")) {
             var nested = new LinkedHashMap<String, Object>(query);
             nested.put("credentialId", body.remove("credentialId"));

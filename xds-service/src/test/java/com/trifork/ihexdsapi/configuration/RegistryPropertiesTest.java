@@ -16,6 +16,33 @@ class RegistryPropertiesTest {
     }
 
     @Test
+    void stamkortCapabilityMustBeConfiguredExplicitly() {
+        var properties =
+                new MapConfigurationPropertySource(
+                        Map.of(
+                                "xds.registries[0].id",
+                                "custom",
+                                "xds.registries[0].name",
+                                "Custom Stamkort",
+                                "xds.registries[0].iti18-endpoint",
+                                URL,
+                                "xds.registries[0].iti43-endpoint",
+                                URL,
+                                "xds.registries[0].sts-endpoint",
+                                URL,
+                                "xds.registries[0].stamkort",
+                                "true"));
+        assertTrue(
+                new Binder(properties)
+                        .bind("xds", RegistryProperties.class)
+                        .get()
+                        .registries()
+                        .getFirst()
+                        .stamkort());
+        assertFalse(registry("sfsk-test1", "SFSK", URL).stamkort());
+    }
+
+    @Test
     void bindsCompleteIndependentEndpointBundles() {
         var properties =
                 new MapConfigurationPropertySource(

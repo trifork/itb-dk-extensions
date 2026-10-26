@@ -42,9 +42,8 @@ public class DefaultXdsOperations implements XdsOperations {
         var q = request.getQueryParameters();
         var target = routing.target(request.getRegistryId());
         var identity =
-                target.dgws()
-                        .getHealthCareProfessionalClientInfo(
-                                q.getPatientId(), request.getCredentialId(), request.getContext());
+                target.authenticate(
+                        q.getPatientId(), request.getCredentialId(), request.getContext());
         return target.search().queryForDocument(q, identity);
     }
 
@@ -55,9 +54,8 @@ public class DefaultXdsOperations implements XdsOperations {
         var q = request.getQueryParameters();
         var target = routing.target(request.getRegistryId());
         var identity =
-                target.dgws()
-                        .getHealthCareProfessionalClientInfo(
-                                q.getPatientId(), request.getCredentialId(), request.getContext());
+                target.authenticate(
+                        q.getPatientId(), request.getCredentialId(), request.getContext());
         return target.retrieval().getDocument(q, identity);
     }
 }

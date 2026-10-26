@@ -51,7 +51,7 @@ class RegistryRestTest {
         assertEquals(200, discovery.getStatus());
         assertEquals(
                 json.readTree(
-                        "[{\"id\":\"one\",\"name\":\"DDS One\"},{\"id\":\"two\",\"name\":\"DDS Two\"}]"),
+                        "[{\"id\":\"one\",\"name\":\"DDS One\",\"stamkort\":false},{\"id\":\"two\",\"name\":\"DDS Two\",\"stamkort\":false}]"),
                 json.readTree(discovery.getContentAsByteArray()));
         for (String registry : List.of("two", "unknown")) {
             for (String path : List.of("/v1/iti18", "/v1/iti18/uniqueID", "/v1/iti43")) {

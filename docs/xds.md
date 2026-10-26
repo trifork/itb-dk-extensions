@@ -37,7 +37,7 @@ CDA document categories. TEST1 references the existing `STSURL`,
 `xdsIti18Endpoint` and `xdsIti43Endpoint` settings, preserving their local overrides;
 TEST2 has separate `XDS_TEST2_STS_URL`, `XDS_TEST2_REGISTRY_URL` and
 `XDS_TEST2_REPOSITORY_URL` placeholders with published HTTPS defaults.
-SFSK routes share the corresponding environment's STS setting and have separate
+SFSK routes set `stamkort=true` and share the corresponding environment's STS setting and have separate
 `XDS_SFSK_TEST1_REGISTRY_URL`, `XDS_SFSK_TEST1_REPOSITORY_URL`,
 `XDS_SFSK_TEST2_REGISTRY_URL` and `XDS_SFSK_TEST2_REPOSITORY_URL` overrides.
 
@@ -69,6 +69,8 @@ role/authorisation and metadata code lists remain shared; each selected STS
 performs its own authentication. Current STS support uses the SOSI test federation.
 
 Restart `xds-api` after changing configuration and start a new XDS session.
+For a custom SFSK entry, set `xds.registries[N].stamkort=true`. This operator-owned flag enables the short Stamkort form and system-ID-card authentication; the service does not infer capabilities from registry names or URLs. Unset entries retain the DDS employee flow.
+
 Registry IDs must be unique and stable (1–64 letters, digits, `_` or `-`); names
 are user-facing. Invalid or incomplete entries fail startup. Endpoint URLs are
 operator configuration and cannot be supplied through a user selection.
@@ -77,7 +79,7 @@ With no `xds.registries` entries, the existing `STSURL`, `xdsIti18Endpoint` and
 `xdsIti43Endpoint` settings remain in use. A configured list replaces these for
 search and retrieval. ITI-41 document submission and its upload-metadata preview
 and repository-list endpoints have been removed. No ITI-41 endpoint setting is required.
-The REST endpoint `GET /v1/registries` returns only IDs and names. Supply the same
+The REST endpoint `GET /v1/registries` returns IDs, names and the `stamkort` capability, without endpoint URLs. Supply the same
 optional top-level `registryId` to `POST /v1/iti18`, `/v1/iti18/uniqueID` and
 `/v1/iti43`. Omission selects the first configured entry for REST compatibility;
 unknown IDs are rejected. ITB requires an explicit choice when multiple entries
@@ -85,6 +87,13 @@ exist and holds that choice server-side with the results. Repository filtering
 never changes it. **Search again** permits another registry and invalidates old
 document selections. Existing saved test sessions retain their original TDL;
 use newly deployed definitions for the registry selector.
+
+When running several tests from a conformance statement, each selected release
+has its own session and starts with **Document source**. A failed or stopped test
+now stays visible until **Start next test** is pressed; **Continue automatically**
+only advances after success. To validate Stamkort against one release, run that
+specific PDC test instead of **Run all**. A new document-source form for a
+different release is a different test, not a retry of the previous DDS search.
 
 ## Searching and selecting
 
@@ -99,11 +108,20 @@ configuration from the STS authentication and DDS access attempted by a search.
    prefixed with **MOCES**, **FOCES**, or **VOCES**, followed by their expiry date
    in UTC. Expired certificates show **EXPIRED**; future certificates show
    **NOT YET VALID**. Unclassified legacy system certificates use **SYSTEM**.
-   Expired and system identities remain inspectable, but this DDS search flow
-   requires a current employee identity. Selecting an ineligible certificate gives
-   a specific explanation before contacting DDS. Credentials come from the backend;
-   ITB receives no keys.
-2. Optionally filter by one or more type codes, one or more format codes, exact document Unique ID, and
+   DDS requires a current employee identity. SFSK also accepts current system
+   identities and defaults to the first locally valid system identity when available;
+   this does not establish NSP authorisation. Expired identities remain inspectable
+   but are rejected before searching. Credentials come from the backend; ITB receives
+   no keys.
+2. On an **SFSK** route, the form asks only for **Test CPR**, **Signing identity**
+   and optional **Stamkort version**. Select **Any** for the endpoint's default
+   version, or a listed PDC format. Entry type is fixed to **On-demand**, type code
+   to **PDC**, and status to **Approved**. General DDS type choices, stable entry
+   types, service dates and local Unique ID filtering are omitted. The selected
+   validation release is still the one in the test title; select a matching PDC
+   version when validating a specific release.
+
+   On a **DDS** route, optionally filter by one or more type codes, one or more format codes, exact document Unique ID, and
    service start/stop ranges. Dates must include a timezone, for example
    `2026-01-01T00:00:00Z`. Search requests use **Approved** and `consentOverride=false`. The required
    **Document entry type** multi-select offers **Stable (stored document)** and
@@ -180,11 +198,13 @@ the following entries along with the DDS entries above at indices 0 and 1. The s
 does not silently change endpoints.
 
 ```properties
+xds.registries[2].stamkort=true
 xds.registries[2].id=sfsk-test1
 xds.registries[2].name=SFSK TEST1 (Stamkort)
 xds.registries[2].iti18-endpoint=https://test1-cnsp.ekstern-test.nspop.dk:8443/sfsk/iti18
 xds.registries[2].iti43-endpoint=https://test1-cnsp.ekstern-test.nspop.dk:8443/sfsk/iti43
 xds.registries[2].sts-endpoint=https://test1.ekstern-test.nspop.dk:8443/sts/services/NewSecurityTokenService
+xds.registries[3].stamkort=true
 xds.registries[3].id=sfsk-test2
 xds.registries[3].name=SFSK TEST2 (Stamkort)
 xds.registries[3].iti18-endpoint=https://test2-cnsp.ekstern-test.nspop.dk:8443/sfsk/iti18
@@ -235,9 +255,27 @@ an identity is authorised by live SFSK.
 TEST1 returned an entry for `2512489996` but retrieval failed with
 `XDSRepositoryError`. The successful alternative patient comes from the NSP
 Stamkort implementation guide linked above. These checks established live
-search/retrieval access, not CDA conformance. The diagnostic did not change the
-application's employee-only query flow: using this FOCES through the guided UI
-still requires a system-ID-card authentication path for SFSK.
+search/retrieval access, not CDA conformance. The guided flow now supports this
+system-ID-card path for explicitly configured SFSK routes. System searches omit
+employee HSUID; employee searches retain it. Search and retrieval use the same
+saved route and signing identity, including after repository filtering.
+
+The updated guided flow was also exercised through the browser on 2026-10-26
+using that FOCES identity, the patients above, the **PDC-DK 3.0.0** test and
+the **PDC 3.0** format. Both environments returned one selectable document;
+ITI-18 and ITI-43 succeeded, and the flow reached the validation review and
+finalised after **Close**. Both sessions ended with **FAILURE** from two CDA
+validation findings: `PDC-DK-CDAauthor` and `PDC-DK-CDAcustodian` require an
+identifier with root `1.2.208.176` and extension `NI`. These were document
+validation findings, with no `XDS-BACKEND` failure. The TEST2 patient returned
+no matching documents when requesting the PDC 2.0 format. These observations
+do not establish full CDA conformance or guarantee future test-data availability.
+
+The SFSK form contains only CPR, signing identity and optional Stamkort version.
+Browser regression tests cover both this short form and the full DDS form,
+including visible submission controls, search, retrieval and closing the final
+validation review. Those CI tests use synthetic documents; live access was
+checked separately as described above.
 
 The documented PDC test patient `2512489996` appears in both
 the [FSK registry test guide](https://www.nspop.dk/pages/releaseview.action?pageId=82948624)

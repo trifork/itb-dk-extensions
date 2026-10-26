@@ -48,8 +48,8 @@ paths:
       operationId: v1Iti18Post
       tags:
         - IHEXDS
-      summary: search XDS as a healthcare professional
-      description: search XDS as a healthcare professional
+      summary: Search XDS with a configured signing identity
+      description: DDS uses employee authentication. Explicitly configured Stamkort routes also support system identities.
       requestBody:
         description: The iti18 request body
         required: true
@@ -69,8 +69,8 @@ paths:
       operationId: v1Iti18UniqueIDPost
       tags:
         - IHEXDS
-      summary: search XDS as a healthcare professional with a uniqueID
-      description: search XDS as a healthcare professional with a uniqueID
+      summary: Search XDS with a configured signing identity with a uniqueID
+      description: DDS uses employee authentication. Explicitly configured Stamkort routes also support system identities. with a uniqueID
       requestBody:
         description: The iti18 request body
         required: true
@@ -306,6 +306,10 @@ components:
           type: string
         name:
           type: string
+        stamkort:
+          type: boolean
+          default: false
+          description: Operator-configured Stamkort route supporting on-demand searches and system ID cards.
     iti18QueryResponse:
       type: object
       required:

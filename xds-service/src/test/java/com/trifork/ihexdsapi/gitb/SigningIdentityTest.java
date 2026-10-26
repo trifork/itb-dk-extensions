@@ -41,6 +41,9 @@ class SigningIdentityTest {
     @Test
     void systemIdentityIsVisibleButNotUsedAsAPerson() {
         var system = new SigningIdentity("NSP", "FOCES", "SYSTEM", null, now.plusSeconds(60));
+        system.requireSearchIdentity(now, true);
+        var expired = now.plusSeconds(61);
+        assertThrows(XdsFailure.class, () -> system.requireSearchIdentity(expired, true));
         assertTrue(system.label(now).startsWith("FOCES — NSP"));
         assertTrue(system.label(now).endsWith("system identity"));
         assertEquals(

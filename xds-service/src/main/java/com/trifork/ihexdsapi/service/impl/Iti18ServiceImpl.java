@@ -63,7 +63,7 @@ public class Iti18ServiceImpl implements Iti18Service {
     }
 
     private AdhocQueryResponse execute(AdhocQueryRequest query, DgwsClientInfo clientInfo) {
-        dgwsSoapDecorator.setDgwsClientInfo(clientInfo, true);
+        dgwsSoapDecorator.setDgwsClientInfo(clientInfo, !clientInfo.isSystemIdentity());
         try {
             return iti18PortType.documentRegistryRegistryStoredQuery(query);
         } catch (WebServiceException fault) {

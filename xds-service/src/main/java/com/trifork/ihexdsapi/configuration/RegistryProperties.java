@@ -52,5 +52,18 @@ public record RegistryProperties(List<Registry> registries) {
             String name,
             String iti18Endpoint,
             String iti43Endpoint,
-            String stsEndpoint) {}
+            String stsEndpoint,
+            boolean stamkort) {
+        @org.springframework.boot.context.properties.bind.ConstructorBinding
+        public Registry {}
+
+        public Registry(
+                String id,
+                String name,
+                String iti18Endpoint,
+                String iti43Endpoint,
+                String stsEndpoint) {
+            this(id, name, iti18Endpoint, iti43Endpoint, stsEndpoint, false);
+        }
+    }
 }

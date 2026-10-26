@@ -36,7 +36,7 @@ public class Iti43ServiceImpl implements Iti43Service {
         if (query.getRepositoryId().isEmpty()) {
             throw new ItiException(1000, "Repository ID is empty", null);
         }
-        dgwsSoapDecorator.setDgwsClientInfo(clientInfo, true);
+        dgwsSoapDecorator.setDgwsClientInfo(clientInfo, !clientInfo.isSystemIdentity());
         try {
             RetrievedDocumentSet documents =
                     fetchDocument(

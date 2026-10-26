@@ -5,6 +5,7 @@ import org.w3c.dom.Document;
 public class DgwsClientInfo {
 
     private Document sosi;
+    private final boolean systemIdentity;
     private String patientId;
     private boolean consentOverride = false;
     private String authorizationCode;
@@ -31,6 +32,7 @@ public class DgwsClientInfo {
             String organisationCode,
             String organisationNameFormat,
             boolean consentOverride) {
+        this.systemIdentity = false;
         this.organisationNameFormat = organisationNameFormat;
         this.sosi = sosi;
         this.cpr = cpr;
@@ -41,7 +43,12 @@ public class DgwsClientInfo {
     }
 
     public DgwsClientInfo(Document systemCardDocument) {
+        this.systemIdentity = true;
         this.sosi = systemCardDocument;
+    }
+
+    public boolean isSystemIdentity() {
+        return systemIdentity;
     }
 
     public Document getSosi() {
