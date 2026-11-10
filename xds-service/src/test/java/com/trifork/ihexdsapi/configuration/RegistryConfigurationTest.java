@@ -134,6 +134,25 @@ class RegistryConfigurationTest {
         assertSame(legacy, fallback.target(null).dgws());
     }
 
+    @Test
+    void destroyingClientsIsRepeatableAndSurvivesAnAlreadyDestroyedClient() {
+        var broken = mock(org.apache.cxf.endpoint.Client.class);
+        var healthy = mock(org.apache.cxf.endpoint.Client.class);
+        doThrow(new NullPointerException("requestContext is null")).when(broken).destroy();
+        @SuppressWarnings("unchecked")
+        var clients =
+                (List<org.apache.cxf.endpoint.Client>)
+                        ReflectionTestUtils.getField(configuration, "clients");
+        clients.add(broken);
+        clients.add(healthy);
+
+        assertDoesNotThrow(configuration::destroyClients);
+        assertDoesNotThrow(configuration::destroyClients);
+
+        verify(broken, times(1)).destroy();
+        verify(healthy, times(1)).destroy();
+    }
+
     private static String envelope(String body) {
         return "<s:Envelope xmlns:s='http://schemas.xmlsoap.org/soap/envelope/'><s:Header/><s:Body>"
                 + body

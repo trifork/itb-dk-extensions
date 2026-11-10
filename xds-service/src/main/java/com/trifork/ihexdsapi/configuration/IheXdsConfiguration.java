@@ -36,9 +36,49 @@ public class IheXdsConfiguration {
 
     private final java.util.List<Client> clients = new java.util.ArrayList<>();
 
+    /**
+     * Strong references to the JAX-WS port proxies. CXF's {@code ClientProxy} destroys its client
+     * from {@code finalize()}, so an unreferenced port would be torn down by the finalizer thread
+     * concurrently with {@link #destroyClients()}. {@code ClientImpl.destroy()} is not safe to run
+     * concurrently and fails with a NullPointerException.
+     */
+    private final java.util.List<Object> ports = new java.util.ArrayList<>();
+
+    private void register(Object port) {
+        synchronized (clients) {
+            ports.add(port);
+            clients.add(ClientProxy.getClient(port));
+        }
+    }
+
+    /**
+     * Destroys every registered client exactly once. Safe to call repeatedly, and a client that CXF
+     * has already torn down (for example during bus shutdown) must not stop the others from being
+     * released.
+     */
     @jakarta.annotation.PreDestroy
     public void destroyClients() {
-        clients.forEach(Client::destroy);
+        java.util.List<Client> pending;
+        synchronized (clients) {
+            pending = new java.util.ArrayList<>(clients);
+            clients.clear();
+            // Released only after the explicit destroy below, so the finalizer cannot race it.
+        }
+        pending.forEach(IheXdsConfiguration::destroyQuietly);
+        synchronized (clients) {
+            ports.clear();
+        }
+    }
+
+    private static void destroyQuietly(Client client) {
+        try {
+            client.destroy();
+        } catch (RuntimeException e) {
+            if (LOGGER.isWarnEnabled()) {
+                LOGGER.warn(
+                        "CXF client was already destroyed or failed to close: {}", e.toString());
+            }
+        }
     }
 
     @Value("${STSURL}")
@@ -147,7 +187,7 @@ public class IheXdsConfiguration {
 
         JaxWsClientFactory<?> xdsClientFactory = clientFactory(XDS.Interactions.ITI_18, endpoint);
         Iti18PortType client = (Iti18PortType) xdsClientFactory.getClient();
-        clients.add(ClientProxy.getClient(client));
+        register(client);
         var conduit =
                 (org.apache.cxf.transport.http.HTTPConduit)
                         ClientProxy.getClient(client).getConduit();
@@ -170,7 +210,7 @@ public class IheXdsConfiguration {
 
         JaxWsClientFactory<?> xdsClientFactory = clientFactory(XDS.Interactions.ITI_43, endpoint);
         Iti43PortType client = (Iti43PortType) xdsClientFactory.getClient();
-        clients.add(ClientProxy.getClient(client));
+        register(client);
         var conduit =
                 (org.apache.cxf.transport.http.HTTPConduit)
                         ClientProxy.getClient(client).getConduit();

@@ -118,6 +118,18 @@ jobs:
       - name: Confirm bootstrap reuses sessions in the same mode
         run: |
           python3 xds-service/tests/check_bootstrap.py
+      - name: Collect container state and logs
+        if: failure()
+        run: |
+          mkdir -p test-results/xds
+          compose=(docker compose -f docker-compose.yml -f xds-service/tests/compose.mock.yml -f xds-service/tests/compose.ci.yml --profile xds)
+          {
+            "${compose[@]}" ps --all
+            for service in $("${compose[@]}" config --services); do
+              printf '\n===== %s =====\n' "$service"
+              "${compose[@]}" logs --no-color --timestamps --tail 2000 "$service" 2>&1
+            done
+          } > test-results/xds/containers.log || true
       - name: Write test summary
         if: always()
         run: python3 xds-service/tests/report_summary.py >> "$GITHUB_STEP_SUMMARY"
