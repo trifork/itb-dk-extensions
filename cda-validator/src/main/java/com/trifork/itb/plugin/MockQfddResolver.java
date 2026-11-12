@@ -36,7 +36,7 @@ final class MockQfddResolver implements QfddResolver {
                 return QfddLookup.notFound("The mock QFDD registry has no document " + id);
             }
             document = stream.readAllBytes();
-        } catch (IOException e) {
+        } catch (IOException _) {
             return QfddLookup.unavailable("The mock QFDD registry could not read " + id);
         }
         if (version != null && !version.equals(versionOf(document))) {
