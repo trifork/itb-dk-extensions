@@ -60,12 +60,12 @@
             <version>2.21.7</version>
             <scope>test</scope>
         </dependency>
-        <!-- Test-only ISO Schematron compiler resources; production uses the ITB compiler. -->
+        <!-- ISO Schematron compiler XSLTs. The ITB validator compiles the per-release Schematrons
+             itself; the plugin needs them to run the QRD/QFDD pair Schematron (see the shade filter). -->
         <dependency>
             <groupId>com.helger.schematron</groupId>
             <artifactId>ph-schematron-isosch</artifactId>
             <version>10.0.2</version>
-            <scope>test</scope>
             <!-- Only the ISO compiler XSLTs are used. Keep its Java engine and
                  transitive Saxon/JAXB stack out of the Gazelle test classpath. -->
             <exclusions>
@@ -174,6 +174,15 @@
     </dependencies>
 
     <build>
+        <resources>
+            <resource><directory>src/main/resources</directory></resource>
+            <!-- Single source of truth for the pair Schematron applied by QrdQfddPairRules. -->
+            <resource>
+                <directory>domain/cda-dk/sch/versions</directory>
+                <includes><include>qrd-qfdd-pair-conformance.sch</include></includes>
+                <targetPath>pro</targetPath>
+            </resource>
+        </resources>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -252,6 +261,11 @@
                         <configuration>
                             <createDependencyReducedPom>false</createDependencyReducedPom>
                             <filters>
+                                <filter>
+                                    <!-- Only the XSLT resources are used, not its Java engine. -->
+                                    <artifact>com.helger.schematron:ph-schematron-isosch</artifact>
+                                    <includes><include>external/**</include></includes>
+                                </filter>
                                 <filter>
                                     <artifact>net.ihe.gazelle:ccdav21-validator-jar</artifact>
                                     <excludes>

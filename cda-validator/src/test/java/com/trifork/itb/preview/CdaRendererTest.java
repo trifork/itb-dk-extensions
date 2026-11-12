@@ -3,6 +3,8 @@ package com.trifork.itb.preview;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.util.HexFormat;
 import javax.xml.transform.TransformerException;
 import org.jsoup.Jsoup;
 import org.junit.jupiter.api.BeforeAll;
@@ -24,6 +26,48 @@ class CdaRendererTest {
                     TransformerException.class,
                     () -> renderer.resolveStylesheet(uri, "untrusted-base"));
         }
+    }
+
+    /**
+     * Provenance of the bundled display stylesheet: MedCom publishes the HL7 SDWG "CDA R2
+     * StyleSheet" 4.0.2 beta 2 at https://svn.medcom.dk/svn/drafts/Standarder/HL7/CDA-Stylesheet/
+     * HL7_CDA/. Update the hashes only together with a reviewed upstream change.
+     */
+    @Test
+    void bundledStylesheetFilesAreThePinnedUpstreamFiles() throws Exception {
+        assertEquals(
+                "d2c9857f44408513761475c54545ec08218518a207985d418dc03e23cf9cada5",
+                sha256("/rendering/HL7_CDA_stylesheet.xsl"));
+        assertEquals(
+                "6a8328dc6f62bdf9aa806ac2ee86694b8b4ef2b73119f2fc0213e0a30e254f37",
+                sha256("/rendering/cda_l10n.xml"));
+    }
+
+    @Test
+    void stylesheetResolverServesOnlyTheStylesheetAndItsLabelFile() throws Exception {
+        assertNotNull(renderer.resolveStylesheet("cda_l10n.xml", CdaRenderer.STYLESHEET_URI));
+        assertNotNull(renderer.resolveStylesheet("", CdaRenderer.STYLESHEET_URI));
+        // A label file reference is only honoured relative to the bundled stylesheet.
+        assertThrows(
+                TransformerException.class,
+                () -> renderer.resolveStylesheet("cda_l10n.xml", "untrusted-base"));
+        assertThrows(
+                TransformerException.class,
+                () -> renderer.resolveStylesheet("../cda_l10n.xml", CdaRenderer.STYLESHEET_URI));
+    }
+
+    @Test
+    void rendersAQuestionnaireResponseWithItsQuestionsAndAnswers() throws Exception {
+        byte[] qrd;
+        try (var input = getClass().getResourceAsStream("/pair/qrd_overekstremitet.xml")) {
+            qrd = input.readAllBytes();
+        }
+        var html = Jsoup.parse(renderer.render(qrd));
+        assertTrue(html.text().contains("Besvarelse: Spørgeskema overekstremitet"));
+        assertTrue(
+                html.text().contains("Hvor svært har du haft ved at tage et par bukser på"),
+                "The questions of the narrative must be displayed");
+        assertTrue(html.select("script,iframe,object,embed,form,a[href]").isEmpty());
     }
 
     @Test
@@ -76,6 +120,14 @@ class CdaRendererTest {
                 new String[] {"<", "<ClinicalDocument/>", "<other xmlns='urn:hl7-org:v3'/>"}) {
             assertThrows(
                     Exception.class, () -> renderer.render(input.getBytes(StandardCharsets.UTF_8)));
+        }
+    }
+
+    private static String sha256(String resource) throws Exception {
+        try (var input = CdaRendererTest.class.getResourceAsStream(resource)) {
+            assertNotNull(input, resource);
+            return HexFormat.of()
+                    .formatHex(MessageDigest.getInstance("SHA-256").digest(input.readAllBytes()));
         }
     }
 

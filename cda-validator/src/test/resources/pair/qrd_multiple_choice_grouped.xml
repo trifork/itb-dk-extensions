@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://svn.medcom.dk/svn/drafts/Standarder/HL7/CDA-Stylesheet/HL7_CDA/HL7_CDA_stylesheet.xsl"?>
+<!-- Questionnaire Response Document, contains the response to the Form Definition Document that contains questions. -->
+<ClinicalDocument classCode="DOCCLIN" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:voc="urn:hl7-org:v3/voc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:hl7-org:v3 ../../Schema/CDA_SDTC.xsd">
+	<realmCode code="DK"/>
+	<typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+	<!-- MedCom Danish QRD-profile OID -->
+	<templateId root="1.2.208.184.13.1"/>
+	<!-- The next templateId, conforms the Questinnaere Response Document-level -->
+	<templateId root="1.2.208.184.13.1.1.1"/>
+	<id assigningAuthorityName="MedCom" extension="e59b6ef4-e460-4fc6-8f93-30ceec337d24" root="1.2.208.184"/>
+	<!-- This code is LOINC -->
+	<code code="74465-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Questionnaire Response Document"/>
+	<title>Example: Multiple Choice Response Pattern Observation, grouped [Header title]</title>
+	<effectiveTime value="20210322123437+0100"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<versionNumber value="1"/>
+	<recordTarget contextControlCode="OP" typeCode="RCT">
+		<patientRole classCode="PAT">
+			<!-- This root will be changed -->
+			<id assigningAuthorityName="CPR" extension="2512489996" root="1.2.208.176.1.2"/>
+			<addr use="H">
+				<streetAddressLine>Skovvejen 12</streetAddressLine>
+				<streetAddressLine>Landet</streetAddressLine>
+				<postalCode>5700</postalCode>
+				<city>Svendborg</city>
+				<country>Danmark</country>
+			</addr>
+			<telecom use="H" value="tel:65123456"/>
+			<telecom use="WP" value="mailto:nab@udkantsdanmark.dk"/>
+			<patient classCode="PSN" determinerCode="INSTANCE">
+				<name>
+					<given>Nancy</given>
+					<given>Ann</given>
+					<family>Berggren</family>
+				</name>
+				<administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" codeSystemName="HL7"/>
+				<birthTime value="19481225000000+0000"/>
+			</patient>
+		</patientRole>
+	</recordTarget>
+	<author contextControlCode="OP" typeCode="AUT">
+		<time value="20210322123437+0100"/>
+		<assignedAuthor classCode="ASSIGNED">
+			<id assigningAuthorityName="CPR" extension="2512489996" root="1.2.208.176.1.2"/>
+			<code code="SELF" codeSystem="2.16.840.1.113883.5.111" codeSystemName="HL7 Role code" displayName="Self"/>
+			<addr use="H">
+				<streetAddressLine>Skovvejen 12</streetAddressLine>
+				<streetAddressLine>Landet</streetAddressLine>
+				<postalCode>5700</postalCode>
+				<city>Svendborg</city>
+				<country>Danmark</country>
+			</addr>
+			<telecom use="H" value="tel:65123456"/>
+			<telecom use="WP" value="mailto:nab@udkantsdanmark.dk"/>
+			<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+				<name>
+					<given>Nancy</given>
+					<given>Ann</given>
+					<family>Berggren</family>
+				</name>
+			</assignedPerson>
+		</assignedAuthor>
+	</author>
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id assigningAuthorityName="SOR" extension="310541000016007" root="1.2.208.176.1.1"/>
+				<name>Odense Universitetshospital - Svendborg Sygehus</name>
+				<telecom use="WP" value="tel:65112233"/>
+				<addr use="WP">
+					<streetAddressLine>Neurologisk afdeling C</streetAddressLine>
+					<streetAddressLine>Valdemarsgade 53</streetAddressLine>
+					<postalCode>5700</postalCode>
+					<city>Svendborg</city>
+					<country>Danmark</country>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<!-- The document is intended to have multiple recipients. This example only includes Nancy's Primary Care physician (PCP). -->
+	<!-- Primary Care physician (PCP) as recipient -->
+	<informationRecipient typeCode="PRCP">
+		<intendedRecipient classCode="ASSIGNED">
+			<!-- The physician's number (Ydernummer). This root will be changed -->
+			<id assigningAuthorityName="Yderregistret To-be-changed" extension="524799" root="2.16.840.1.113883.3.4208.100.3"/>
+			<telecom use="WP" value="tel:45121314"/>
+			<informationRecipient classCode="PSN" determinerCode="INSTANCE">
+				<name>
+					<prefix>Uddannelsesamanuensis</prefix>
+					<given>Hans</given>
+					<family>Jensen</family>
+				</name>
+			</informationRecipient>
+			<receivedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<!-- Organization (SOR-ID)-->
+				<id assigningAuthorityName="SOR" extension="386681000016004" root="1.2.208.176.1.1"/>
+				<name>Lægehuset</name>
+				<telecom use="WP" value="tel:45121314"/>
+				<addr use="WP">
+					<streetAddressLine>Vandværksvej 99</streetAddressLine>
+					<postalCode>3450</postalCode>
+					<city>Allerød</city>
+					<country>Danmark</country>
+				</addr>
+			</receivedOrganization>
+		</intendedRecipient>
+	</informationRecipient>
+
+	<component contextConductionInd="true" typeCode="COMP">
+		<structuredBody classCode="DOCBODY" moodCode="EVN">
+
+			<!-- This component defines the introduction to the questionnaere. It has no Entry element, hence it is information only -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--templateID for Section-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Multiple Choice Question, First group, single entry [Title, Questionnaire Response Section]</title>
+					<text>
+						<paragraph><content styleCode="Bold">OM DETTE EKSEMPEL:</content><br/>Dette eksempel viser brug af <content styleCode="Underline">Multiple Choice Response Pattern Observation</content>, med brug af <content styleCode="Underline">grupperede spørgsmål.</content><br/>Nedenfor er indledende tekst til efterfølgende sektion(er) med spørgsmål.</paragraph>
+						<paragraph><content styleCode="Bold">1.</content> Heart failure affects different people in different ways. Some feel shortness of breath while others feel fatigue. Please indicate how much you are limited by heart failure (shortness of breath or fatigue) in your ability to do the following activities over the past 2 weeks.</paragraph>
+					</text>
+					<languageCode code="da-DK"/>
+				</section>
+			</component>
+
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--templateId for the Questionnaire Response Section-->
+					<templateId root="2.16.840.1.113883.10.20.33.2.1"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Section 1</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">a. Showering/bathing</th>
+								</tr>
+								<tr>
+									<td>Extremely Limited</td>
+									<td styleCode="Italics"><!-- A1_1 --></td>
+								</tr>
+								<tr>
+									<td>Quite a bit Limited</td>
+									<td styleCode="Italics"><!-- A1_2 --></td>
+								</tr>
+								<tr>
+									<td>Moderately Limited</td>
+									<td styleCode="Italics"><!-- A1_3 --></td>
+								</tr>
+								<tr>
+									<td>Slightly Limited</td>
+									<td styleCode="Italics"><!-- A1_4 --></td>
+								</tr>
+								<tr>
+									<td>Not at all Limited</td>
+									<td styleCode="Italics">X</td>
+								</tr>
+								<tr>
+									<td>Limited for other reasons or did not do the activity</td>
+									<td styleCode="Italics"><!-- A1_6 --></td>
+								</tr>
+							</tbody>
+						</table>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">b. Walking 1 block on level ground</th>
+								</tr>
+								<tr>
+									<td>Extremely Limited</td>
+									<td styleCode="Italics"><!-- A2_1 --></td>
+								</tr>
+								<tr>
+									<td>Quite a bit Limited</td>
+									<td styleCode="Italics"><!-- A2_2 --></td>
+								</tr>
+								<tr>
+									<td>Moderately Limited</td>
+									<td styleCode="Italics"><!-- A2_3 --></td>
+								</tr>
+								<tr>
+									<td>Slightly Limited</td>
+									<td styleCode="Italics">X</td>
+								</tr>
+								<tr>
+									<td>Not at all Limited</td>
+									<td styleCode="Italics"><!-- A2_5 --></td>
+								</tr>
+								<tr>
+									<td>Limited for other reasons or did not do the activity</td>
+									<td styleCode="Italics"><!-- A2_6 --></td>
+								</tr>
+							</tbody>
+						</table>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">c. Hurrying or jogging (as if to catch a bus)</th>
+								</tr>
+								<tr>
+									<td>Extremely Limited</td>
+									<td styleCode="Italics">X</td>
+								</tr>
+								<tr>
+									<td>Quite a bit Limited</td>
+									<td styleCode="Italics"><!-- A3_2 --></td>
+								</tr>
+								<tr>
+									<td>Moderately Limited</td>
+									<td styleCode="Italics"><!-- A3_3 --></td>
+								</tr>
+								<tr>
+									<td>Slightly Limited</td>
+									<td styleCode="Italics"><!-- A3_4 --></td>
+								</tr>
+								<tr>
+									<td>Not at all Limited</td>
+									<td styleCode="Italics"><!-- A3_5 --></td>
+								</tr>
+								<tr>
+									<td>Limited for other reasons or did not do the activity</td>
+									<td styleCode="Italics"><!-- A3_6 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<!-- templateId for the Answers Organizer-->
+							<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+							<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob1" root="Some-root-OID"/>
+							<statusCode code="complete"/>
+							<!-- Contains Multiple Choice template -->
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<!--templateID for the Multiple Choice Response Pattern-->
+									<templateId root="2.16.840.1.113883.10.20.33.4.5"/>
+									<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob1" root="Some-root-OID"/>
+									<code code="q1" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Some-Display-Name">
+										<originalText>a. Showering/bathing</originalText>
+									</code>
+									<value code="A1_5" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Not at all Limited" xsi:type="CE"/>
+									<entryRelationship contextConductionInd="true" typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<!--templateID for the Question Options Pattern Observation-->
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<!--minimum options-->
+												<low value="1"/>
+												<!--maximum options-->
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="3aa7cec1-2718-47a5-8161-767e87c28a35" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<!--templateID for the Multiple Choice Response Pattern-->
+									<templateId root="2.16.840.1.113883.10.20.33.4.8"/>
+									<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob2" root="Some-root-OID"/>
+									<code code="q2" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Some-Display-Name">
+										<originalText>b. Walking 1 block on level ground</originalText>
+									</code>
+									<value code="A2_4" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Slightly Limited" xsi:type="CE"/>
+									<entryRelationship contextConductionInd="true" typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<!--templateID for the Question Options Pattern Observation-->
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1"/>
+											<value xsi:type="IVL_INT">
+												<!--minimum options-->
+												<low value="1"/>
+												<!--maximum options-->
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="3aa7cec1-2718-47a5-8161-767e87c28a35" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<!--templateID for the Multiple Choice Response Pattern-->
+									<templateId root="2.16.840.1.113883.10.20.33.4.8"/>
+									<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob3" root="Some-root-OID"/>
+									<code code="q3" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Some-Display-Name">
+										<originalText>c. Hurrying or jogging (as if to catch a bus)</originalText>
+									</code>
+									<value code="A3_1" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Extremely Limited" xsi:type="CE"/>
+									<entryRelationship contextConductionInd="true" typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<!--templateID for the Question Options Pattern Observation-->
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1"/>
+											<value xsi:type="IVL_INT">
+												<!--minimum options-->
+												<low value="1"/>
+												<!--maximum options-->
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="3aa7cec1-2718-47a5-8161-767e87c28a35" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+
+
+			<!-- This component defines the introduction to the questionnaere. It has no Entry element, hence it is information only -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--templateID for Section-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Multiple Choice Question, Second group, multiple entries [Title, Questionnaire Form Definition Section]</title>
+					<text>
+						<paragraph><content styleCode="Bold">2.</content> How much does your heart failure affect your lifestyle? <br/> Please indicate how your heart failure may have limited your participation in the following activities over the past 2 weeks</paragraph>
+					</text>
+					<languageCode code="da-DK"/>
+				</section>
+			</component>
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Section 2</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">a. Hobbies, recreational activities</th>
+								</tr>
+								<tr>
+									<td>Severely Limited</td>
+									<td styleCode="Italics"><!-- A4_1 --></td>
+								</tr>
+								<tr>
+									<td>Limited quite a bit</td>
+									<td styleCode="Italics">X</td>
+								</tr>
+								<tr>
+									<td>Moderately Limited</td>
+									<td styleCode="Italics"><!-- A4_3 --></td>
+								</tr>
+								<tr>
+									<td>Slightly Limited</td>
+									<td styleCode="Italics"><!-- A4_4 --></td>
+								</tr>
+								<tr>
+									<td>Did not limit at all</td>
+									<td styleCode="Italics"><!-- A4_5 --></td>
+								</tr>
+								<tr>
+									<td>Does not apply or did not do for other reasons</td>
+									<td styleCode="Italics"><!-- A4_6 --></td>
+								</tr>
+							</tbody>
+						</table>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">b. Walking 1 block on level ground</th>
+								</tr>
+								<tr>
+									<td>Extremely Limited</td>
+									<td styleCode="Italics"><!-- A5_1 --></td>
+								</tr>
+								<tr>
+									<td>Quite a bit Limited</td>
+									<td styleCode="Italics"><!-- A5_2 --></td>
+								</tr>
+								<tr>
+									<td>Moderately Limited</td>
+									<td styleCode="Italics"><!-- A5_3 --></td>
+								</tr>
+								<tr>
+									<td>Slightly Limited</td>
+									<td styleCode="Italics"><!-- A5_4 --></td>
+								</tr>
+								<tr>
+									<td>Not at all Limited</td>
+									<td styleCode="Italics"><!-- A5_5 --></td>
+								</tr>
+								<tr>
+									<td>Limited for other reasons or did not do the activity</td>
+									<td styleCode="Italics">X</td>
+								</tr>
+							</tbody>
+						</table>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">c. Hurrying or jogging (as if to catch a bus)</th>
+								</tr>
+								<tr>
+									<td>Extremely Limited</td>
+									<td styleCode="Italics">X</td>
+								</tr>
+								<tr>
+									<td>Quite a bit Limited</td>
+									<td styleCode="Italics"><!-- A6_2 --></td>
+								</tr>
+								<tr>
+									<td>Moderately Limited</td>
+									<td styleCode="Italics"><!-- A6_3 --></td>
+								</tr>
+								<tr>
+									<td>Slightly Limited</td>
+									<td styleCode="Italics"><!-- A6_4 --></td>
+								</tr>
+								<tr>
+									<td>Not at all Limited</td>
+									<td styleCode="Italics"><!-- A6_5 --></td>
+								</tr>
+								<tr>
+									<td>Limited for other reasons or did not do the activity</td>
+									<td styleCode="Italics"><!-- A6_6 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<!-- templateId for the Answers Organizer-->
+							<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+							<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob1" root="Some-root-OID"/>
+							<statusCode code="complete"/>
+							<!-- Contains Continua Numeric, Multiple Choice or other defined templates -->
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<!--templateID for the Multiple Choice Response Pattern-->
+									<templateId root="2.16.840.1.113883.10.20.33.4.8"/>
+									<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob4" root="Some-root-OID"/>
+									<code code="q4" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Some-Display-Name">
+										<originalText>a. Hobbies, recreational activities</originalText>
+									</code>
+									<value code="A4_2" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Limited quite a bit" xsi:type="CE"/>
+									<entryRelationship contextConductionInd="true" typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<!--templateID for the Question Options Pattern Observation-->
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1"/>
+											<value xsi:type="IVL_INT">
+												<!--minimum options-->
+												<low value="1"/>
+												<!--maximum options-->
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="3aa7cec1-2718-47a5-8161-767e87c28a35" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<!-- templateId for the Answers Organizer-->
+							<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+							<statusCode code="COMPLETED"/>
+							<!-- Contains Continua Numeric, Multiple Choice or other defined templates -->
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<!--templateID for the Multiple Choice Response Pattern-->
+									<templateId root="2.16.840.1.113883.10.20.33.4.8"/>
+									<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob5" root="Some-root-OID"/>
+									<code code="q5" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Some-Display-Name">
+										<originalText>b. Working or doing household chores</originalText>
+									</code>
+									<value code="A5_6" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Does not apply or did not do for other reasons" xsi:type="CE"/>
+									<entryRelationship contextConductionInd="true" typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<!--templateID for the Question Options Pattern Observation-->
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1"/>
+											<value xsi:type="IVL_INT">
+												<!--minimum options-->
+												<low value="1"/>
+												<!--maximum options-->
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="3aa7cec1-2718-47a5-8161-767e87c28a35" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<!-- templateId for the Answers Organizer-->
+							<templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+							<statusCode code="COMPLETED"/>
+							<!-- Contains Continua Numeric, Multiple Choice or other defined templates -->
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<!--templateID for the Multiple Choice Response Pattern-->
+									<templateId root="2.16.840.1.113883.10.20.33.4.8"/>
+									<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob6" root="Some-root-OID"/>
+									<code code="q6" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Some-Display-Name">
+										<originalText>c. Visiting family or	friends out of your home</originalText>
+									</code>
+									<value code="A6_1" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Severely Limited" xsi:type="CE"/>
+									<entryRelationship contextConductionInd="true" typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<!--templateID for the Question Options Pattern Observation-->
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1"/>
+											<value xsi:type="IVL_INT">
+												<!--minimum options-->
+												<low value="1"/>
+												<!--maximum options-->
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<reference typeCode="REFR">
+										<templateId root="1.2.208.184.6.1"/>
+										<externalDocument classCode="DOC">
+											<id extension="3aa7cec1-2718-47a5-8161-767e87c28a35" root="2.16.840.1.113883.4.873"/>
+											<code code="74468-0" codeSystem="2.16.840.1.113883.1.6" displayName="Questionnaire Form Definition Document"/>
+										</externalDocument>
+									</reference>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+
+			<!-- This component defines the Copyright section -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--templateID for the Copyright Section-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.2"/>
+					<title>Copyright titel skrives her [Title, Copy Right Section]</title>
+					<text>
+						<paragraph>Copyright tekst skrives her</paragraph>
+					</text>
+					<languageCode code="en-US"/>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<observation classCode="OBS" moodCode="EVN">
+							<!--templateID for the Copyright Pattern Observation-->
+							<templateId root="2.16.840.1.113883.10.20.32.4.21"/>
+							<code code="COPY" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Code for Copyright"/>
+							<value xsi:type="ST">Copyright tekst skrives her</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+
+		</structuredBody>
+	</component>
+</ClinicalDocument>

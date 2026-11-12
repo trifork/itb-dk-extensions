@@ -2259,6 +2259,78 @@
     "message": "Media carried into the response must match the QFDD media content and type. Source: DK-QRD_Testprotokol_Afsendelse.docx (2024-10-11), section 3.4; QRD-DK 1.3.2 section 5.9."
   },
   {
+    "id": "PRO-PAIR-ANSWER-TYPE",
+    "file": "cda-validator/domain/cda-dk/sch/versions/qrd-qfdd-pair-conformance.sch",
+    "context": "pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root=('2.16.840.1.113883.10.20.33.4.4','2.16.840.1.113883.10.20.33.4.5','2.16.840.1.113883.10.20.33.4.6','2.16.840.1.113883.10.20.33.4.7','2.16.840.1.113883.10.20.33.4.8')]",
+    "test": "empty($expected) or ((every $t in $expected satisfies $t = v3:templateId/@root) and (every $t in v3:templateId/@root[. = ('2.16.840.1.113883.10.20.33.4.4','2.16.840.1.113883.10.20.33.4.5','2.16.840.1.113883.10.20.33.4.6','2.16.840.1.113883.10.20.33.4.7','2.16.840.1.113883.10.20.33.4.8')] satisfies $t = $expected))",
+    "severity": "error",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=41",
+    "message": "The response pattern must correspond to the QFDD question pattern: numeric to Numeric, multiple choice to Multiple Choice, text to Text, analog slider to Numeric plus Analog Slider, discrete slider to Multiple Choice plus Discrete Slider response. Source: QRD-DK 1.3.2 sections 5.4-5.8; QFDD-DK 1.2 sections 5.9-5.14."
+  },
+  {
+    "id": "PRO-PAIR-ANSWER-DUPLICATE",
+    "file": "cda-validator/domain/cda-dk/sch/versions/qrd-qfdd-pair-conformance.sch",
+    "context": "pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root=('2.16.840.1.113883.10.20.33.4.4','2.16.840.1.113883.10.20.33.4.5','2.16.840.1.113883.10.20.33.4.6','2.16.840.1.113883.10.20.33.4.7','2.16.840.1.113883.10.20.33.4.8')]",
+    "test": "count(qf:answers(/pro:documents/pro:qrd/v3:ClinicalDocument)[qf:same-id(., $answer)]) = 1",
+    "severity": "error",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=50",
+    "message": "A question may be answered only once; several responses carry the same question id. Interpretation of QRD-DK 1.3.2 section 5.9 (one response per question) and the Test Protocol 3.4; see docs/pro-conformance.md."
+  },
+  {
+    "id": "PRO-PAIR-REFERENCE-RANGE",
+    "file": "cda-validator/domain/cda-dk/sch/versions/qrd-qfdd-pair-conformance.sch",
+    "context": "pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root=('2.16.840.1.113883.10.20.33.4.4','2.16.840.1.113883.10.20.33.4.5','2.16.840.1.113883.10.20.33.4.6','2.16.840.1.113883.10.20.33.4.7','2.16.840.1.113883.10.20.33.4.8')]",
+    "test": "count($definition)!=1 or qf:same-ranges(v3:referenceRange/v3:observationRange/v3:value, $definition/v3:referenceRange/v3:observationRange/v3:value)",
+    "severity": "error",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=38",
+    "message": "The response reference range must be a copy of the reference range of the QFDD question. Source: QRD-DK 1.3.2 section 5.3."
+  },
+  {
+    "id": "PRO-PAIR-ANSWER-RANGE",
+    "file": "cda-validator/domain/cda-dk/sch/versions/qrd-qfdd-pair-conformance.sch",
+    "context": "pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.7']",
+    "test": "count($scale)!=1 or not($scale/v3:head/@value castable as xs:decimal and $scale/v3:increment/@value castable as xs:decimal and $scale/@denominator castable as xs:decimal) or (every $v in v3:value/@value satisfies ($v castable as xs:decimal and xs:decimal($v) ge min((xs:decimal($scale/v3:head/@value), xs:decimal($scale/@denominator))) and xs:decimal($v) le max((xs:decimal($scale/v3:head/@value), xs:decimal($scale/@denominator))) and (xs:decimal($scale/v3:increment/@value) le 0 or ((xs:decimal($v) - xs:decimal($scale/v3:head/@value)) mod xs:decimal($scale/v3:increment/@value)) = 0)))",
+    "severity": "error",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=45",
+    "message": "An analog slider answer must lie on the QFDD scale: from head to denominator in steps of increment. Source: QFDD-DK 1.2 section 5.13; QRD-DK 1.3.2 section 5.7."
+  },
+  {
+    "id": "PRO-PAIR-ANSWER-MISSING",
+    "file": "cda-validator/domain/cda-dk/sch/versions/qrd-qfdd-pair-conformance.sch",
+    "context": "pro:qfdd/v3:ClinicalDocument//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.8'][v3:entryRelationship/v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:value/v3:low/@value castable as xs:integer]",
+    "test": "$minimum lt 1 or $applies ne 1 or (some $a in qf:question-answers(., /pro:documents/pro:qrd/v3:ClinicalDocument) satisfies count($a/v3:value) ge $minimum)",
+    "severity": "error",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=30",
+    "message": "Question requires at least selected option(s) but has no sufficient answer. Source: QFDD-DK 1.2 section 5.7; QRD-DK 1.3.2 section 5.5."
+  },
+  {
+    "id": "PRO-PAIR-PRECONDITION",
+    "file": "cda-validator/domain/cda-dk/sch/versions/qrd-qfdd-pair-conformance.sch",
+    "context": "pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root=('2.16.840.1.113883.10.20.33.4.4','2.16.840.1.113883.10.20.33.4.5','2.16.840.1.113883.10.20.33.4.6','2.16.840.1.113883.10.20.33.4.7','2.16.840.1.113883.10.20.33.4.8')][v3:value]",
+    "test": "count($definition)!=1 or qf:applies($definition, /pro:documents/pro:qrd/v3:ClinicalDocument, /pro:documents/pro:qfdd/v3:ClinicalDocument) ne 0",
+    "severity": "error",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=27",
+    "message": "This question is answered although its preconditions are not met, so it should not have been asked. Source: QFDD-DK 1.2 sections 5.3, 5.4 and 6."
+  },
+  {
+    "id": "PRO-PAIR-PRECONDITION-UNEVALUATED",
+    "file": "cda-validator/domain/cda-dk/sch/versions/qrd-qfdd-pair-conformance.sch",
+    "context": "pro:qfdd/v3:ClinicalDocument//v3:observation[v3:templateId/@root=('2.16.840.1.113883.10.20.32.4.7','2.16.840.1.113883.10.20.32.4.8','2.16.840.1.113883.10.20.32.4.9','2.16.840.1.113883.10.20.32.4.10','2.16.840.1.113883.10.20.32.4.11')][v3:precondition or sdtc:precondition]",
+    "test": "qf:applies(., /pro:documents/pro:qrd/v3:ClinicalDocument, /pro:documents/pro:qfdd/v3:ClinicalDocument) ne -1",
+    "severity": "warning",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51",
+    "message": "The preconditions of question cannot be evaluated (unsupported criterion value type, unknown referenced question or unrecognised grouper), so the dependent answer checks were not performed. Source: QFDD-DK 1.2 sections 5.3, 5.4 and 6."
+  },
+  {
+    "id": "PRO-PAIR-QFDD-VERSION",
+    "file": "cda-validator/domain/cda-dk/sch/versions/qrd-qfdd-pair-conformance.sch",
+    "context": "pro:qrd/v3:ClinicalDocument//v3:reference/v3:externalDocument[v3:versionNumber]",
+    "test": "not(v3:id/@extension = /pro:documents/pro:qfdd/v3:ClinicalDocument/v3:id/@extension) or v3:versionNumber/@value = /pro:documents/pro:qfdd/v3:ClinicalDocument/v3:versionNumber/@value",
+    "severity": "error",
+    "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=50",
+    "message": "A stated QFDD version must equal the version of the supplied QFDD. Source: QRD-DK 1.3.2 section 5.9."
+  },
+  {
     "id": "QRD-DK-1.3.2-C1",
     "file": "cda-validator/domain/cda-dk/sch/versions/qrd-v1.3.2-conformance.sch",
     "context": "v3:ClinicalDocument",

@@ -132,8 +132,11 @@
                     <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
                     <criterion classCode="OBS" moodCode="EVN.CRT">
                       <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
-                      <code code="question" codeSystem="1.2.3"/>
-                      <value value="1" xsi:type="INT"/>
+                      <code code="q0" codeSystem="1.2.3"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="1"/>
+                        <high value="1"/>
+                      </value>
                     </criterion>
                   </precondition>
                 </observation>
@@ -190,8 +193,11 @@
                     <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
                     <criterion classCode="OBS" moodCode="EVN.CRT">
                       <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
-                      <code code="question" codeSystem="1.2.3"/>
-                      <value value="1" xsi:type="INT"/>
+                      <code code="q0" codeSystem="1.2.3"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="1"/>
+                        <high value="1"/>
+                      </value>
                     </criterion>
                   </precondition>
                 </observation>
@@ -221,8 +227,11 @@
                     <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
                     <criterion classCode="OBS" moodCode="EVN.CRT">
                       <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
-                      <code code="question" codeSystem="1.2.3"/>
-                      <value value="1" xsi:type="INT"/>
+                      <code code="q0" codeSystem="1.2.3"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="1"/>
+                        <high value="1"/>
+                      </value>
                     </criterion>
                   </precondition>
                 </observation>
@@ -276,8 +285,11 @@
                     <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
                     <criterion classCode="OBS" moodCode="EVN.CRT">
                       <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
-                      <code code="question" codeSystem="1.2.3"/>
-                      <value value="1" xsi:type="INT"/>
+                      <code code="q0" codeSystem="1.2.3"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="1"/>
+                        <high value="1"/>
+                      </value>
                     </criterion>
                   </precondition>
                 </observation>
@@ -335,8 +347,11 @@
                     <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
                     <criterion classCode="OBS" moodCode="EVN.CRT">
                       <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
-                      <code code="question" codeSystem="1.2.3"/>
-                      <value value="1" xsi:type="INT"/>
+                      <code code="q0" codeSystem="1.2.3"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="1"/>
+                        <high value="1"/>
+                      </value>
                     </criterion>
                   </precondition>
                 </observation>

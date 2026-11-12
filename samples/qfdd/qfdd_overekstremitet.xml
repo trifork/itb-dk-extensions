@@ -1,0 +1,2619 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:sdtc="urn:hl7-org:sdtc"
+    xsi:schemaLocation="urn:hl7-org:v3 /xmlschema/QFD/CDA_SDTC.xsd" xmlns:voc="urn:hl7-org:v3/voc"
+    classCode="DOCCLIN" moodCode="EVN">
+    <realmCode code="UV" />
+    <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+    <templateId root="1.2.208.184.12.1" assigningAuthorityName="MedCom" />
+    <templateId root="1.2.208.184.12.1.1.1" />
+    <id root="1.2.208.195.1.1.1" extension="6069bddf-b6ae-4e64-833e-ad2ba8b5c6b2"
+        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+    <code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="74468-0"
+        displayName="Form Definition Document" />
+    <title>Spørgeskema overekstremitet</title>
+    <sdtc:statusCode code="NEW" />
+    <effectiveTime value="20240515000000+0200" />
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" />
+    <languageCode code="da-DK" />
+    <versionNumber value="1" />
+    <recordTarget nullFlavor="NI">
+        <patientRole nullFlavor="NI">
+            <id nullFlavor="NI" />
+        </patientRole>
+    </recordTarget>
+    <author typeCode="AUT" contextControlCode="OP">
+        <time value="20240515000000+0200" />
+        <assignedAuthor classCode="ASSIGNED">
+            <id nullFlavor="NA" />
+            <addr use="WP">
+                <streetAddressLine>Sundhedsvæsenets Kvalitetsinstitut</streetAddressLine>
+                <streetAddressLine>Hedeager 3</streetAddressLine>
+                <postalCode>8200</postalCode>
+                <city>Aarhus N</city>
+                <country>Danmark</country>
+            </addr>
+            <telecom value="tel:+4523661511" use="WP" />
+            <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR" />
+                <name>Sundhedsvæsenets Kvalitetsinstitut</name>
+                <telecom nullFlavor="NI" />
+                <addr use="WP">
+                    <streetAddressLine nullFlavor="NI" />
+                </addr>
+            </representedOrganization>
+        </assignedAuthor>
+    </author>
+    <custodian typeCode="CST">
+        <assignedCustodian classCode="ASSIGNED">
+            <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR" />
+                <name>Sundhedsvæsenets Kvalitetsinstitut</name>
+                <telecom value="tel:+4523661511" use="WP" />
+                <addr use="WP">
+                    <streetAddressLine>Sundhedsvæsenets Kvalitetsinstitut</streetAddressLine>
+                    <streetAddressLine>Hedeager 3</streetAddressLine>
+                    <postalCode>8200</postalCode>
+                    <city>Aarhus N</city>
+                    <country>Danmark</country>
+                </addr>
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian>
+    <component typeCode="COMP" contextConductionInd="true">
+        <structuredBody classCode="DOCBODY" moodCode="EVN">
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1" />
+                    <text>Introduktionstekst til spørgeskema udarbejdes lokalt. Denne kan eksempelvis indeholde:"Du har modtaget dette spørgeskema, som du skal udfylde med informationer om din funktionsevne. Når du svarer på spørgeskemaet, får du mulighed for at oplyse os om, hvordan du har det. Vi vil tale med dig om dine svar til dit næste besøg. Hvis svarmulighederne i spørgeskemaet ikke passer helt på din situation, så markér det svar, som passer bedst. Det er frivilligt at besvare spørgeskemaet. Har du spørgsmål til spørgeskemaet, kan du stille dem til din afdeling."</text>
+                </section>
+            </component>
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1" />
+                    <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                    <text>
+                        <table>
+                            <colgroup>
+                                <col width="70%" />
+                                <col width="30%" />
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">De følgende spørgsmål omhandler dine evner til at udføre almindelige hverdagsaktiviteter. Overvej hvor svært du har ved at udføre aktiviteterne pga. dit nuværende problem som du har med din arm/skulder. Vælg venligst det svar som bedst beskriver din evne til at udføre aktiviteten indenfor den sidste uge.</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at tage et par bukser på, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00001_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00001_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00001_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00001_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00001_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00001_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at binde snørebånd, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00002_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00002_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00002_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00002_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00002_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00002_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at tage et par sokker/strømpebukser på, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00003_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00003_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00003_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00003_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00003_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00003_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at tage et brusebad, pga. dit nuværende problem med din arm/skulder,inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00004_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00004_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00004_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00004_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00004_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00004_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at tage tøj på armen og overkrop, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00005_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00005_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00005_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00005_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00005_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00005_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at knappe en skjorte/trøje, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00006_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00006_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00006_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00006_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00006_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00006_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at binde et slips eller en sløjfe ved halsudskæringen, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00007_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00007_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00007_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00007_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00007_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00007_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at lægge make-up eller barbere dig, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00008_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00008_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00008_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00008_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00008_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00008_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at børste tænder, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00009_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00009_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00009_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00009_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00009_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00009_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at børste/rede dit hår, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00010_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00010_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00010_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00010_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00010_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00010_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at lave lette huslige gøremål, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00011_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00011_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00011_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00011_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00011_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00011_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at lave havearbejde, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00012_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00012_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00012_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00012_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00012_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00012_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at lave og servere måltider, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00013_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00013_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00013_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00013_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00013_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00013_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at skære maden ud under måltider, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00014_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00014_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00014_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00014_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00014_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00014_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at drikke af et glas, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00015_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00015_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00015_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00015_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00015_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00015_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at udføre hårde huslige gøremål, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00016_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00016_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00016_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00016_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00016_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00016_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at købe ind, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00017_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00017_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00017_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00017_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00017_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00017_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at give eller modtage penge (mønter/sedler), pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00018_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00018_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00018_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00018_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00018_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00018_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at bære en indkøbspose eller taske/mappe, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00019_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00019_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00019_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00019_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00019_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00019_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at løfte en kasse til en hylde over hovedhøjde, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00020_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00020_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00020_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00020_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00020_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00020_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at dreje en nøgle i en lås, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00021_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00021_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00021_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00021_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00021_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00021_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at åbne/lukke en dør, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00022_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00022_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00022_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00022_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00022_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00022_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at skrive, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00023_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00023_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00023_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00023_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00023_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00023_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at samle småting op, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00024_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00024_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00024_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00024_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00024_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00024_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at udføre dine normale opgaver på arbejdet, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge? (Arbejde inkluderer arbejde udenfor hjemmet eller som hjemmegående).</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00025_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00025_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00025_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00025_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00025_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00025_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at arbejde det antal arbejdstimer du plejer, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge? (Arbejdstiden inkluderer både erhvervsarbejde og husligt arbejde).</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00026_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00026_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00026_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00026_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00026_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00026_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at deltage i dine sædvanlige fritidsaktiviteter, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00027_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00027_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00027_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00027_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00027_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00027_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at være sammen med din familie og venner, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00028_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00028_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00028_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00028_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00028_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00028_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor svært har du haft ved at deltage i dine normale sportsaktiviteter, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00029_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00029_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00029_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00029_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00029_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Denne aktivitet er ikke relevant for mig</td>
+                                    <td><!-- A00029_6 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">I forhold til mine daglige aktiviteter vil jeg angive min evne, indenfor den sidste uge, til at gøre disse som:</th>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at gøre</td>
+                                    <td><!-- A00030_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ekstremt svært</td>
+                                    <td><!-- A00030_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat svært</td>
+                                    <td><!-- A00030_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt svært</td>
+                                    <td><!-- A00030_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke svært</td>
+                                    <td><!-- A00030_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Jeg vil vurdere mig selv til at være:</th>
+                                </tr>
+                                <tr>
+                                    <td>Fuldstændig handicappet</td>
+                                    <td><!-- A00031_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Svært handicappet</td>
+                                    <td><!-- A00031_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderat handicappet</td>
+                                    <td><!-- A00031_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Mildt handicappet</td>
+                                    <td><!-- A00031_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke handicappet</td>
+                                    <td><!-- A00031_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Beskriv gerne hvilken som helst aktivitet eller problemstilling, som du finder vanskelig at udføre pga. din arm/skulder, som du føler er vigtig og som ikke er blevet spurgt ind til i dette spørgeskema.</th>
+                                    <td><!-- Q00032 -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    <entry typeCode="DRIV" contextConductionInd="true">
+                        <organizer classCode="BATTERY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.32.4.1" />
+                            <id root="1.2.208.195.1.1.3" extension="00001"
+                                assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                            <code codeSystem="1.2.208.195.1.1.3" code="G00001"
+                                codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                <originalText>De følgende spørgsmål omhandler dine evner til at udføre almindelige hverdagsaktiviteter. Overvej hvor svært du har ved at udføre aktiviteterne pga. dit nuværende problem som du har med din arm/skulder. Vælg venligst det svar som bedst beskriver din evne til at udføre aktiviteten indenfor den sidste uge.</originalText>
+                            </code>
+                            <statusCode code="completed" />
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="1" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00001"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00001"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at tage et par bukser på, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00001_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00001_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00001_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00001_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00001_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00001_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="2" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00002"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00002"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at binde snørebånd, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00002_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00002_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00002_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00002_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00002_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00002_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="3" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00003"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00003"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at tage et par sokker/strømpebukser på, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00003_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00003_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00003_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00003_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00003_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00003_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="4" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00004"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00004"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at tage et brusebad, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00004_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00004_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00004_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00004_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00004_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00004_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="5" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00005"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00005"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at tage tøj på armen og overkrop, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00005_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00005_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00005_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00005_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00005_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00005_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="6" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00006"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00006"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at knappe en skjorte/trøje, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00006_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00006_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00006_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00006_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00006_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00006_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="7" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00007"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00007"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at binde et slips eller en sløjfe ved halsudskæringen, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00007_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00007_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00007_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00007_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00007_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00007_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="8" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00008"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00008"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at lægge make-up eller barbere dig, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00008_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00008_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00008_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00008_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00008_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00008_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="9" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00009"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00009"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at børste tænder, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00009_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00009_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00009_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00009_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00009_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00009_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="10" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00010"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00010"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at børste/rede dit hår, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00010_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00010_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00010_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00010_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00010_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00010_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="11" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00011"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00011"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at lave lette huslige gøremål, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00011_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00011_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00011_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00011_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00011_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00011_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="12" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00012"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00012"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at lave havearbejde, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00012_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00012_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00012_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00012_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00012_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00012_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="13" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00013"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00013"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at lave og servere måltider, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00013_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00013_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00013_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00013_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00013_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00013_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="14" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00014"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00014"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at skære maden ud under måltider, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00014_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00014_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00014_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00014_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00014_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00014_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="15" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00015"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00015"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at drikke af et glas, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00015_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00015_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00015_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00015_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00015_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00015_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="16" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00016"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00016"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at udføre hårde huslige gøremål, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00016_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00016_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00016_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00016_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00016_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00016_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="17" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00017"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00017"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at købe ind, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00017_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00017_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00017_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00017_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00017_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00017_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="18" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00018"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00018"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at give eller modtage penge (mønter/sedler), pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00018_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00018_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00018_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00018_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00018_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00018_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="19" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00019"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00019"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at bære en indkøbspose eller taske/mappe, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00019_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00019_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00019_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00019_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00019_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00019_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="20" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00020"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00020"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at løfte en kasse til en hylde over hovedhøjde, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00020_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00020_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00020_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00020_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00020_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00020_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="21" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00021"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00021"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at dreje en nøgle i en lås, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00021_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00021_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00021_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00021_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00021_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00021_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="22" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00022"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00022"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at åbne/lukke en dør, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00022_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00022_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00022_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00022_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00022_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00022_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="23" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00023"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00023"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at skrive, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00023_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00023_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00023_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00023_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00023_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00023_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="24" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00024"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00024"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at samle småting op, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00024_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00024_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00024_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00024_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00024_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00024_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="25" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00025"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00025"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at udføre dine normale opgaver på arbejdet, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge? (Arbejde inkluderer arbejde udenfor hjemmet eller som hjemmegående).</originalText>
+                                    </code>
+                                    <value code="A00025_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00025_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00025_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00025_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00025_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00025_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="26" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00026"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00026"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at arbejde det antal arbejdstimer du plejer, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge? (Arbejdstiden inkluderer både erhvervsarbejde og husligt arbejde).</originalText>
+                                    </code>
+                                    <value code="A00026_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00026_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00026_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00026_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00026_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00026_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="27" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00027"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00027"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at deltage i dine sædvanlige fritidsaktiviteter, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00027_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00027_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00027_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00027_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00027_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00027_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="28" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00028"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00028"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at være sammen med din familie og venner, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00028_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00028_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00028_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00028_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00028_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00028_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="29" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00029"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00029"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor svært har du haft ved at deltage i dine normale sportsaktiviteter, pga. dit nuværende problem med din arm/skulder, inden for den sidste uge?</originalText>
+                                    </code>
+                                    <value code="A00029_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00029_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00029_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00029_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00029_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00029_6"
+                                        displayName="Denne aktivitet er ikke relevant for mig"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="30" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00030"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00030"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>I forhold til mine daglige aktiviteter vil jeg angive min evne, indenfor den sidste uge, til at gøre disse som:</originalText>
+                                    </code>
+                                    <value code="A00030_1" displayName="Umuligt at gøre"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00030_2" displayName="Ekstremt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00030_3" displayName="Moderat svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00030_4" displayName="Lidt svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00030_5" displayName="Slet ikke svært"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="31" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8" />
+                                    <id root="1.2.208.195.1.1.4" extension="00031"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00031"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Jeg vil vurdere mig selv til at være:</originalText>
+                                    </code>
+                                    <value code="A00031_1" displayName="Fuldstændig handicappet"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00031_2" displayName="Svært handicappet"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00031_3" displayName="Moderat handicappet"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00031_4" displayName="Mildt handicappet"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <value code="A00031_5" displayName="Slet ikke handicappet"
+                                        codeSystem="1.2.208.195.1.1.4"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut"
+                                        xsi:type="CE" />
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20" />
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1"
+                                                codeSystemName="LOINC" />
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="1" />
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="32" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.9" />
+                                    <id root="1.2.208.195.1.1.4" extension="00032"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00032"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Beskriv gerne hvilken som helst aktivitet eller problemstilling, som du finder vanskelig at udføre pga. din arm/skulder, som du føler er vigtig og som ikke er blevet spurgt ind til i dette spørgeskema.</originalText>
+                                    </code>
+                                </observation>
+                            </component>
+                        </organizer>
+                    </entry>
+                </section>
+            </component>
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1" />
+                    <title>Tak for besvarelsen</title>
+                    <text>Afslutningstekst til spørgeskema udarbejdes lokalt f.eks. "Lægen vil bruge din besvarelse til næste besøg".</text>
+                </section>
+            </component>
+        </structuredBody>
+    </component>
+</ClinicalDocument>

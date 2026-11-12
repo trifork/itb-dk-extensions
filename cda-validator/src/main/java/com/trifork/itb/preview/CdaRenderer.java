@@ -24,8 +24,13 @@ public final class CdaRenderer {
     public static final String POLICY =
             "default-src 'none'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'";
     private final Templates stylesheet;
-    static final String STYLESHEET_URI = "classpath:/rendering/CDA.xsl";
+    static final String STYLESHEET_URI = "classpath:/rendering/HL7_CDA_stylesheet.xsl";
+    // The stylesheet reads its language dependent labels from this companion file, named by
+    // its vocFile parameter and resolved relative to the stylesheet.
+    static final String LABELS_NAME = "cda_l10n.xml";
+    static final String LABELS_URI = "classpath:/rendering/" + LABELS_NAME;
     private final byte[] stylesheetBytes;
+    private final byte[] labelBytes;
 
     public CdaRenderer() throws Exception {
         TransformerFactory factory =
@@ -34,22 +39,37 @@ public final class CdaRenderer {
         factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
         factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
         factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");
-        try (var input = CdaRenderer.class.getResourceAsStream("/rendering/CDA.xsl")) {
-            if (input == null) throw new IllegalStateException("CDA display stylesheet is missing");
-            stylesheetBytes = input.readAllBytes();
-        }
+        stylesheetBytes = bundled("/rendering/HL7_CDA_stylesheet.xsl");
+        labelBytes = bundled("/rendering/" + LABELS_NAME);
         factory.setURIResolver(this::resolveStylesheet);
         stylesheet = factory.newTemplates(resolveStylesheet("", STYLESHEET_URI));
     }
 
-    // document('') in the upstream stylesheet reads its own table attribute allowlist.
-    // Resolve just that resource from memory, never fall back to filesystem/network access.
+    private static byte[] bundled(String path) throws java.io.IOException {
+        try (var input = CdaRenderer.class.getResourceAsStream(path)) {
+            if (input == null) {
+                throw new IllegalStateException("CDA display resource is missing: " + path);
+            }
+            return input.readAllBytes();
+        }
+    }
+
+    // The stylesheet is the HL7 SDWG CDA R2 stylesheet that MedCom publishes (see
+    // cda-validator/README.md). It reads exactly one other resource, its label file.
+    // Resolve just the stylesheet and that file from memory, never fall back to
+    // filesystem/network access.
     Source resolveStylesheet(String href, String base) throws TransformerException {
-        if (!(href.isEmpty() && STYLESHEET_URI.equals(base)) && !STYLESHEET_URI.equals(href)) {
+        boolean stylesheetItself = href.isEmpty() && STYLESHEET_URI.equals(base);
+        boolean labels =
+                (LABELS_NAME.equals(href) && STYLESHEET_URI.equals(base))
+                        || LABELS_URI.equals(href);
+        if (!stylesheetItself && !labels && !STYLESHEET_URI.equals(href)) {
             throw new TransformerException("External preview stylesheet resources are disabled");
         }
         try {
-            return new DOMSource(parse(stylesheetBytes), STYLESHEET_URI);
+            return labels
+                    ? new DOMSource(parse(labelBytes), LABELS_URI)
+                    : new DOMSource(parse(stylesheetBytes), STYLESHEET_URI);
         } catch (Exception e) {
             throw new TransformerException("Cannot read bundled CDA display stylesheet", e);
         }
@@ -91,6 +111,8 @@ public final class CdaRenderer {
                 });
         transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
         transformer.setParameter("limit-external-images", "yes");
+        // The preview is sanitised and sandboxed; do not ask the stylesheet for scripts.
+        transformer.setParameter("useJavascript", "false");
         var output = new StringWriter();
         transformer.transform(new DOMSource(document), new StreamResult(output));
         var rendered = Jsoup.parse(output.toString());

@@ -162,6 +162,17 @@ ukendt spørgsmål, ugyldig svartype eller svarmulighed, manglende påkrævet sv
 brud på en defineret afhængighed. En ugyldig reference-QFDD må ikke føre til et
 ubetinget godkendt sammenligningsresultat.
 
+Status: delvist implementeret. QRD-ruten (`qrd.v1.3.2`) slår den refererede QFDD op
+og anvender de parrede Schematron-regler: spørgsmål og svarkoder, svartype, antal
+valgte svar, obligatoriske svar (minimum antal svarmuligheder), dobbeltbesvarelse,
+analog skala, afhængigheder (preconditions og groupers) og angivet QFDD-version.
+Opslaget er en midlertidig mock, der kun kender de medfølgende eksempel-QFDD'er; alle
+andre referencer giver advarslen `PRO-PAIR-QFDD-UNRESOLVED` og ikke en bestået
+kontrol. Kriterierne er endnu ikke fuldt opfyldt: feedbackaktivering, øvrige
+talområder og enheder (QFDD 1.2 definerer ingen enhed) og terminologi kontrolleres
+ikke, og en rigtig QFDD-opslagstjeneste mangler
+([PRO conformance](docs/pro-conformance.md)).
+
 ### DDS-01 — Dokumentudsøgning fra ITB
 
 Kilde: requirements.md, afsnit 4. Integrationen er et stort ønske og et særskilt
@@ -201,9 +212,10 @@ byggeklodser skal bevare denne registrering og undgå utilsigtet dobbelt afvikli
 Eksisterende valideringstyper og integrationspunkter bevares under overgangen.
 Tilføjelser til valg af version, use case og reference-QFDD skal beskrives i en
 inputkontrakt, før de implementeres. Det nuværende TDL-eksempel bruger `xml` og
-`type`. Der findes en testet dokument-envelope til de separate QRD/QFDD-regler,
-beskrevet i [PRO conformance](docs/pro-conformance.md), men endnu ikke et registreret
-ITB-forløb eller en offentlig validatorrute til dokumentpar.
+`type`. Der findes en testet dokument-envelope til QRD/QFDD-reglerne, beskrevet i
+[PRO conformance](docs/pro-conformance.md). QRD-ruten anvender den internt med en
+mock-opslagstjeneste for QFDD'er; der findes endnu ikke et registreret ITB-forløb eller
+en offentlig validatorrute til dokumentpar med selvvalgt QFDD.
 
 QFDD/QRD-sammenligning skal udføres med Schematron-regler. Hvordan reference-QFDD'en
 stilles til rådighed for reglerne, skal afprøves i den eksisterende validator.

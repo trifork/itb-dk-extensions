@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="http://svn.medcom.dk/svn/drafts/Standarder/HL7/CDA-Stylesheet/HL7_CDA/HL7_CDA_stylesheet.xsl"?>
+<!-- CDA Form Definition Document for Questionnaires/Surveys -->	
+<ClinicalDocument classCode="DOCCLIN" moodCode="EVN" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Schema/CDA_SDTC.xsd">
+	<realmCode code="UV"/>
+	<typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+	<!-- MedCom Danish QFDD-profile OID -->
+	<templateId root="1.2.208.184.12.1"/>
+	<!-- The next templateId, conforms the Questinnaere Form Definition Document-level -->
+	<templateId root="1.2.208.184.12.1.1.1"/>
+	<id assigningAuthorityName="MedCom" extension="0397c59c-a93f-470a-b8ff-2bc5c5f42b13" root="1.2.208.184"/>
+	<!-- This code is LOINC -->
+	<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Form Definition Document"/>
+	<title>Example: Multiple Choice Question Pattern Observation [Header title]</title>
+	<sdtc:statusCode code="NEW"/>
+	<effectiveTime value="20210305091011+0100"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<versionNumber value="1"/>
+	<recordTarget>
+		<patientRole nullFlavor="NI">
+			<id nullFlavor="NI"/>
+		</patientRole>
+	</recordTarget>
+	<author contextControlCode="OP" typeCode="AUT">
+		<time value="20210305091011+0100"/>
+		<assignedAuthor classCode="ASSIGNED">
+			<!-- This is the identfication of the organization, we don't use the personal level identification-->
+			<id assigningAuthorityName="SOR" extension="310541000016007" root="1.2.208.176.1.1"/>
+			<addr use="WP">
+				<streetAddressLine>Neurologisk afdeling C</streetAddressLine>
+				<streetAddressLine>Valdemarsgade 53</streetAddressLine>
+				<postalCode>5700</postalCode>
+				<city>Svendborg</city>
+				<country>Danmark</country>
+			</addr>
+			<telecom use="WP" value="tel:65112233"/>
+			<assignedPerson classCode="PSN" determinerCode="INSTANCE">
+				<name>
+					<given>Anders</given>
+					<family>Andersen</family>
+				</name>
+			</assignedPerson>
+			<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id assigningAuthorityName="SOR" extension="310541000016007" root="1.2.208.176.1.1"/>
+				<name>Odense Universitetshospital - Svendborg Sygehus</name>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id assigningAuthorityName="SOR" extension="310541000016007" root="1.2.208.176.1.1"/>
+				<name>Odense Universitetshospital - Svendborg Sygehus</name>
+				<telecom use="WP" value="tel:65112233"/>
+				<addr use="WP">
+					<streetAddressLine>Neurologisk afdeling C</streetAddressLine>
+					<streetAddressLine>Valdemarsgade 53</streetAddressLine>
+					<postalCode>5700</postalCode>
+					<city>Svendborg</city>
+					<country>Danmark</country>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+
+	<component contextConductionInd="true" typeCode="COMP">
+		<structuredBody classCode="DOCBODY" moodCode="EVN">
+			<!-- This component defines the introduction to the questionnaere. It has no Entry element, hence it is information only -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--templateID for Section-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Indledning [Title, Information Only Section]</title>
+					<text>
+						<paragraph><content styleCode="Bold">OM DETTE EKSEMPEL:</content><br/>Dette eksempel viser brug af <content styleCode="Underline">Multiple Choice Question Pattern Observation</content><br/>Nedenfor er indledende tekst til efterfølgende sektion(er) med spørgsmål.</paragraph>
+						<paragraph><content styleCode="Bold">OM DETTE SKEMA:</content><br/>Vi bruger blandt andet dine svar til at vurdere, om du har brug for en konsultation. Men der kan være andre grunde til at ønske en konsultation, og du har derfor mulighed for at meddele dette her.</paragraph>
+					</text>
+					<languageCode code="da-DK"/>
+				</section>
+			</component>
+
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Multiple Choice Question [Title, Questionnaire Form Definition Section]</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th align="left" colspan="2">Hvad er dit behov i forhold til en konsultation?</th>
+								</tr>
+								<tr>
+									<td>Jeg ringer selv, hvis jeg har behov for en konsultation</td>
+									<td styleCode="Italics"><!-- A1_1 --></td>
+								</tr>
+								<tr>
+									<td>Jeg vil gerne ringes op (telefonkonsultation)</td>
+									<td styleCode="Italics"><!-- A1_2 --></td>
+								</tr>
+								<tr>
+									<td>Jeg vil gerne have en tid i ambulatoriet</td>
+									<td styleCode="Italics"><!-- A1_3 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<entry contextConductionInd="true" typeCode="DRIV">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<!-- Question Organizer template -->
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob1" root="Some-root-OID"/>
+							<statusCode code="complete"/>
+							<!-- Contains Multiple Choice template -->
+							<component contextConductionInd="true" typeCode="COMP">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<!--templateID for the Multiple Choice Question Pattern-->
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id assigningAuthorityName="Some-Assigning-Authority-Name" extension="ob1" root="Some-root-OID"/>
+									<code code="q1" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Some-Display-Name">
+										<originalText>Hvad er dit behov i forhold til en konsultation?</originalText>
+									</code>
+									<value code="A1_1" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Jeg ringer selv, hvis jeg har behov for en konsultation" xsi:type="CE"/>
+									<value code="A1_2" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Jeg vil gerne ringes op (telefonkonsultation)" xsi:type="CE"/>
+									<value code="A1_3" codeSystem="Some-Question-OID" codeSystemName="Some-CodeSystem-Name" displayName="Jeg vil gerne have en tid i ambulatoriet" xsi:type="CE"/>
+									<entryRelationship contextConductionInd="true" typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<!--templateID for the Question Options Pattern Observation-->
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<!--minimum options-->
+												<low value="1"/>
+												<!--maximum options-->
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+
+			<!-- This component defines the final comments of the questionnaere. It has no Entry element, hence it is information only -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--templateID for Section-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Afslutning [Title, Information Only Section]</title>
+					<text>
+						<paragraph>Mange tak for din deltagelse.<br/>Med venlig hilsen</paragraph>
+					</text>
+					<languageCode code="da-DK"/>
+				</section>
+			</component>
+
+			<!-- This component defines the copyright section -->
+			<component contextConductionInd="true" typeCode="COMP">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<!--templateID for the Copyright Section-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.2"/>
+					<title>Copyright titel skrives her [Title, Copy Right Section]</title>
+					<text>
+						<paragraph>Copyright tekst skrives her</paragraph>
+					</text>
+					<languageCode code="da-DK"/>
+					<entry contextConductionInd="true" typeCode="COMP">
+						<observation classCode="OBS" moodCode="EVN">
+							<!--templateID for the Copyright Pattern Observation-->
+							<templateId root="2.16.840.1.113883.10.20.32.4.21"/>
+							<code code="COPY" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Code for Copyright"/>
+							<value xsi:type="ST">Copyright tekst skrives her</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+
+		</structuredBody>
+	</component>
+</ClinicalDocument>

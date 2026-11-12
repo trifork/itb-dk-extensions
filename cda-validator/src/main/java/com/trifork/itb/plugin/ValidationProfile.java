@@ -26,12 +26,14 @@ enum ValidationProfile {
     final String fullType;
     final String schemaPath;
     final boolean usesPhmrEngine;
+    final boolean comparesWithQfdd;
 
     ValidationProfile(String profile, String version, String schemaPath) {
         this.label = profile.toUpperCase(java.util.Locale.ROOT) + "-DK " + version;
         this.fullType = profile + ".v" + version;
         this.schemaPath = schemaPath;
         this.usesPhmrEngine = "phmr".equals(profile);
+        this.comparesWithQfdd = "qrd".equals(profile);
     }
 
     static ValidationProfile resolve(String type) {

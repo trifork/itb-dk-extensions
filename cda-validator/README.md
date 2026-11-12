@@ -9,11 +9,25 @@ see [conformance](../docs/cda-conformance.md) and the [release catalogue](domain
 ## Layout
 
 - `domain/cda-dk/`: configuration, catalogue, schemas, rules and vocabularies.
-- `src/main/java/com/trifork/itb/plugin/`: Gazelle integration and PHMR checks.
+- `src/main/java/com/trifork/itb/plugin/`: Gazelle integration, PHMR checks and the QRD/QFDD
+  comparison (`QrdQfddPairRules`, `QfddResolver`, mock registry `MockQfddResolver`).
 - `src/main/java/com/trifork/itb/preview/`: upload-page CDA preview extension.
-- `src/main/resources/rendering/CDA.xsl`: shared display stylesheet.
+- `src/main/resources/rendering/`: the shared display stylesheet `HL7_CDA_stylesheet.xsl` and its
+  label file `cda_l10n.xml` (see below), plus the preview script.
 - `src/test/`: Java tests and XML fixtures.
 - `tests/`: isolated container runner, standalone HTTP test-client POM and reporting.
+
+## Display stylesheet
+
+"View CDA" renders with the HL7 Structured Documents WG "CDA R2 StyleSheet" 4.0.2 beta 2
+(Apache License 2.0), which MedCom publishes at
+<https://svn.medcom.dk/svn/drafts/Standarder/HL7/CDA-Stylesheet/HL7_CDA/>. Both files are
+unchanged copies, pinned by SHA-256 in `CdaRendererTest`; they are bundled and never fetched
+at runtime (external stylesheet access stays disabled, and the resolver serves only these two
+resources). The renderer passes `useJavascript=false` and `limit-external-images=yes`, and
+the output is still sanitised and shown in a sandboxed iframe. The label file has no Danish
+strings, so labels fall back to English. To update, replace both files, review the diff and
+change the hashes in the test.
 
 Docker builds `validator-plugin-cda-dk.jar` and installs it inside the domain.
 Do not commit plugin binaries or bind-mount over the image's domain directory.

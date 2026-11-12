@@ -59,6 +59,16 @@ public class CdaDkGazellePlugin implements ValidationService {
     private static final DatatypeFactory DATATYPE_FACTORY = createDatatypeFactory();
 
     private final ObjectFactory objectFactory = new ObjectFactory();
+    private final QfddResolver qfddResolver;
+
+    /** Used by the validator, which instantiates plugins reflectively. */
+    public CdaDkGazellePlugin() {
+        this(new MockQfddResolver());
+    }
+
+    CdaDkGazellePlugin(QfddResolver qfddResolver) {
+        this.qfddResolver = qfddResolver;
+    }
 
     private static DatatypeFactory createDatatypeFactory() {
         try {
@@ -135,6 +145,9 @@ public class CdaDkGazellePlugin implements ValidationService {
             }
             collectXsdMessages(result, findings);
             collectMdaFindings(result, profile, findings);
+            if (profile.comparesWithQfdd) {
+                findings.addAll(QrdQfddPairRules.validate(documentBytes, qfddResolver));
+            }
         } catch (Exception e) {
             // Mirrors IHEObjectsCheckerEngine's catch-all behaviour.
             findings.add(

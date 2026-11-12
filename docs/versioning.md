@@ -101,7 +101,8 @@ Gazelle discrepancies remain documented implementation work.
 QFDD-DK 1.2 and QRD-DK 1.3.2 additionally load the source-derived
 `*-conformance.sch` files. See [PRO conformance](pro-conformance.md) for exact
 source clauses, interpretation decisions, regression tests and remaining gaps.
-The separate paired QRD/QFDD schema is not a single-document release target.
+The paired QRD/QFDD schema is not a release target of its own; the QRD-DK 1.3.2 route
+applies it to the QFDD the QRD references (mock registry for now).
 
 The older QRD sample lacks the `qrd-v1.3` declaration required by QRD-DK 1.3.2;
 it is now an explicit negative test. PDC and QFDD sample failures documented in

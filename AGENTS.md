@@ -47,7 +47,8 @@ Owned Java packages use `com.trifork`; preserve upstream namespaces.
 
 ## Preview and ITB frontend
 
-The upload page and report extension share `src/main/resources/rendering/CDA.xsl`.
+The upload page and report extension share `src/main/resources/rendering/HL7_CDA_stylesheet.xsl`
+(with its `cda_l10n.xml`; pinned upstream copies, see `cda-validator/README.md`).
 Preview must preserve original validation input, external-resource restrictions,
 HTML sanitisation, no-store responses and sandboxed iframes. Keep provided
 Spring/Servlet/jsoup dependencies compatible with the pinned validator runtime.
