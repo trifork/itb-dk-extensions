@@ -19,7 +19,7 @@ class QrdQfddPairRulesTest {
     private static final String ANSWER_ONE =
             "<value code=\"A00001_3\" displayName=\"Moderat svært\" codeSystem=\"1.2.208.195.1.1.4\""
                     + " codeSystemName=\"Sundhedsvæsenets Kvalitetsinstitut\" xsi:type=\"CE\"/>";
-    private static final QfddResolver MOCK = new MockQfddResolver();
+    private static final QfddResolver EMBEDDED = new EmbeddedQfddResolver();
     private static final List<String> FIXTURES =
             List.of(
                     "qrd_overekstremitet.xml",
@@ -49,7 +49,7 @@ class QrdQfddPairRulesTest {
         String original = qrd();
         String mutated = mutation.apply(original);
         assertNotEquals(original, mutated, "The mutation must change the QRD");
-        return validate(mutated, MOCK);
+        return validate(mutated, EMBEDDED);
     }
 
     private static Finding single(List<Finding> findings, String assertionId) {
@@ -83,7 +83,7 @@ class QrdQfddPairRulesTest {
 
     @Test
     void validPairIsComparedWithoutFindings() throws Exception {
-        List<Finding> findings = validate(qrd(), MOCK);
+        List<Finding> findings = validate(qrd(), EMBEDDED);
         assertNoFailures(findings);
         Finding compared = single(findings, QrdQfddPairRules.COMPARED_RULE);
         assertTrue(compared.description.contains(QFDD_ID), compared.description);
@@ -109,8 +109,9 @@ class QrdQfddPairRulesTest {
     @Test
     void publishedExamplesAreComparedWithTheirPublishedQfdd() throws Exception {
         String sample = fixture("qrd_multiple_choice.xml");
-        assertNoFailures(validate(sample, MOCK));
-        List<Finding> findings = validate(sample.replace("code=\"A1_2\"", "code=\"A1_7\""), MOCK);
+        assertNoFailures(validate(sample, EMBEDDED));
+        List<Finding> findings =
+                validate(sample.replace("code=\"A1_2\"", "code=\"A1_7\""), EMBEDDED);
         assertEquals(Finding.Level.ERROR, single(findings, "PRO-PAIR-ANSWER-OPTION").level);
     }
 
@@ -163,7 +164,7 @@ class QrdQfddPairRulesTest {
                 original.substring(0, second)
                         + "11111111-1111-4111-8111-111111111111"
                         + original.substring(second + QFDD_ID.length());
-        Finding finding = single(validate(mutated, MOCK), QrdQfddPairRules.UNRESOLVED_RULE);
+        Finding finding = single(validate(mutated, EMBEDDED), QrdQfddPairRules.UNRESOLVED_RULE);
         assertTrue(finding.description.contains("ambiguous"), finding.description);
     }
 
@@ -178,7 +179,7 @@ class QrdQfddPairRulesTest {
     @Test
     void unparsableQrdIsAWarningHere() {
         Finding finding =
-                single(validate("<ClinicalDocument", MOCK), QrdQfddPairRules.UNRESOLVED_RULE);
+                single(validate("<ClinicalDocument", EMBEDDED), QrdQfddPairRules.UNRESOLVED_RULE);
         assertEquals(Finding.Level.WARNING, finding.level);
     }
 
@@ -194,9 +195,9 @@ class QrdQfddPairRulesTest {
     @Test
     void answersFollowingTheQuestionDependenciesAreAccepted() throws Exception {
         // The associated text question is asked only when Q311 is answered A311_3.
-        assertNoFailures(validate(fixture("qrd_associated_text_1.xml"), MOCK));
-        assertNoFailures(validate(fixture("qrd_associated_text_2.xml"), MOCK));
-        assertNoFailures(validate(fixture("qrd_analog_slider_feedback.xml"), MOCK));
+        assertNoFailures(validate(fixture("qrd_associated_text_1.xml"), EMBEDDED));
+        assertNoFailures(validate(fixture("qrd_associated_text_2.xml"), EMBEDDED));
+        assertNoFailures(validate(fixture("qrd_analog_slider_feedback.xml"), EMBEDDED));
     }
 
     @Test
@@ -208,10 +209,11 @@ class QrdQfddPairRulesTest {
                         .replace(
                                 "<templateId root=\"2.16.840.1.113883.10.20.32.4.6\"/>",
                                 "<templateId root=\"2.16.840.1.113883.10.20.33.4.6\"/>");
-        assertNoFailures(validate(answered, MOCK));
+        assertNoFailures(validate(answered, EMBEDDED));
         List<Finding> findings =
                 validate(
-                        answered.replace("<value code=\"A311_3\"", "<value code=\"A311_1\""), MOCK);
+                        answered.replace("<value code=\"A311_3\"", "<value code=\"A311_1\""),
+                        EMBEDDED);
         Finding finding = single(findings, "PRO-PAIR-PRECONDITION");
         assertEquals(Finding.Level.ERROR, finding.level);
         assertNotNull(finding.lineLocation);
@@ -220,14 +222,14 @@ class QrdQfddPairRulesTest {
     @Test
     void analogSliderAnswerMustLieOnTheQfddScale() throws Exception {
         String sample = fixture("qrd_analog_slider.xml");
-        assertNoFailures(validate(sample, MOCK));
+        assertNoFailures(validate(sample, EMBEDDED));
         for (String value : List.of("9", "24")) {
             List<Finding> findings =
                     validate(
                             sample.replace(
                                     "<value value=\"8\" xsi:type=\"INT\"/>",
                                     "<value value=\"" + value + "\" xsi:type=\"INT\"/>"),
-                            MOCK);
+                            EMBEDDED);
             assertEquals(
                     Finding.Level.ERROR, single(findings, "PRO-PAIR-ANSWER-RANGE").level, value);
         }
@@ -239,7 +241,7 @@ class QrdQfddPairRulesTest {
         // Recorded in samples/validation-cases.json: the QFDD defines plain multiple choice
         // questions, the QRD answers five of them with the Discrete Slider response pattern.
         long mismatches =
-                validate(fixture("qrd_multiple_choice_grouped.xml"), MOCK).stream()
+                validate(fixture("qrd_multiple_choice_grouped.xml"), EMBEDDED).stream()
                         .filter(f -> "PRO-PAIR-ANSWER-TYPE".equals(f.assertionId))
                         .count();
         assertEquals(5, mismatches);
@@ -247,7 +249,8 @@ class QrdQfddPairRulesTest {
 
     @Test
     void missingAnswerToAMandatoryQuestionIsAnchoredAtTheResponseOrganizer() throws Exception {
-        String qfdd = new String(MOCK.resolve(QFDD_ID, null).document(), StandardCharsets.UTF_8);
+        String qfdd =
+                new String(EMBEDDED.resolve(QFDD_ID, null).document(), StandardCharsets.UTF_8);
         // The first question's option limits become 1..1, so that it must be answered.
         String mandatory = qfdd.replaceFirst("<low value=\"0\" />", "<low value=\"1\" />");
         assertNotEquals(qfdd, mandatory);
@@ -278,5 +281,67 @@ class QrdQfddPairRulesTest {
         Finding finding = single(findings, QrdQfddPairRules.UNRESOLVED_RULE);
         assertEquals(Finding.Level.WARNING, finding.level);
         assertTrue(finding.description.contains("version 2"), finding.description);
+    }
+
+    private static final String REMOTE_ID = "22222222-2222-4222-8222-222222222222";
+
+    /** The sample pair, re-identified as a QFDD that only a remote catalogue can supply. */
+    private static QfddFetcher remoteCatalogue() {
+        String remote =
+                new String(EMBEDDED.resolve(QFDD_ID, null).document(), StandardCharsets.UTF_8)
+                        .replace(QFDD_ID, REMOTE_ID);
+        String table =
+                "<table id=\"dt-select\"><tbody><tr><td>Remote form</td><td>"
+                        + REMOTE_ID
+                        + "</td><td><a href=\"/qfdd/"
+                        + REMOTE_ID
+                        + "\"></a></td></tr></tbody></table>";
+        return (uri, maxBytes) ->
+                new QfddFetcher.Response(
+                        200,
+                        (uri.equals(SpgdefQfddResolver.INDEX) ? table : remote)
+                                .getBytes(StandardCharsets.UTF_8));
+    }
+
+    private static QfddResolver combined(QfddFetcher fetcher) {
+        return new CombinedQfddResolver(
+                new EmbeddedQfddResolver(),
+                new SpgdefQfddResolver(
+                        fetcher, java.time.Clock.systemUTC(), java.time.Duration.ofMinutes(5)));
+    }
+
+    @Test
+    void aQfddOnlyTheCatalogueHoldsIsComparedWhenTheCombinedResolverIsUsed() throws Exception {
+        String qrd = qrd().replace(QFDD_ID, REMOTE_ID);
+        // The embedded set alone cannot answer ...
+        assertEquals(
+                Finding.Level.WARNING,
+                single(validate(qrd, EMBEDDED), QrdQfddPairRules.UNRESOLVED_RULE).level);
+        // ... the combined resolver can, and then compares exactly as for an embedded QFDD.
+        List<Finding> findings = validate(qrd, combined(remoteCatalogue()));
+        assertNoFailures(findings);
+        assertTrue(
+                single(findings, QrdQfddPairRules.COMPARED_RULE)
+                        .description
+                        .contains(SpgdefQfddResolver.SOURCE));
+        List<Finding> wrong =
+                validate(
+                        qrd.replace(
+                                "code=\"A00001_3\" displayName", "code=\"A00001_9\" displayName"),
+                        combined(remoteCatalogue()));
+        assertEquals(Finding.Level.ERROR, single(wrong, "PRO-PAIR-ANSWER-OPTION").level);
+    }
+
+    @Test
+    void anUnreachableCatalogueIsReportedAsNotValidatedNeverAsAPass() throws Exception {
+        QfddFetcher down =
+                (uri, maxBytes) -> {
+                    throw new java.io.IOException("Connection refused");
+                };
+        List<Finding> findings = validate(qrd().replace(QFDD_ID, REMOTE_ID), combined(down));
+        Finding finding = single(findings, QrdQfddPairRules.UNRESOLVED_RULE);
+        assertEquals(Finding.Level.WARNING, finding.level);
+        assertTrue(finding.description.contains("Connection refused"), finding.description);
+        assertTrue(findings.stream().noneMatch(f -> f.level == Finding.Level.ERROR));
     }
 }

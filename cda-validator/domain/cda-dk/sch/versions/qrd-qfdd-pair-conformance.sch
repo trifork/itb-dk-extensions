@@ -55,27 +55,28 @@
     <xsl:param name="criterion" as="element()"/>
     <xsl:param name="qrd" as="element()?"/>
     <xsl:param name="qfdd" as="element()?"/>
-    <xsl:variable name="value" select="$criterion/v3:value[1]"/>
+    <xsl:variable name="value" select="$criterion/*[local-name()='value'][1]"/>
     <xsl:variable name="type" select="if ($value/@xsi:type) then local-name-from-QName(resolve-QName($value/@xsi:type, $value)) else ''"/>
-    <xsl:variable name="answers" select="qf:answers($qrd)[v3:code/@code = $criterion/v3:code/@code]"/>
+    <xsl:variable name="code" select="$criterion/*[local-name()='code']/@code"/>
+    <xsl:variable name="answers" select="qf:answers($qrd)[v3:code/@code = $code]"/>
     <xsl:sequence select="
-      if (count($criterion/v3:value) ne 1 or not($criterion/v3:code/@code) or empty($qfdd//v3:observation[v3:code/@code = $criterion/v3:code/@code])) then -1
+      if (count($criterion/*[local-name()='value']) ne 1 or not($code) or empty($qfdd//v3:observation[v3:code/@code = $code])) then -1
       else if ($type = ('CE','CD','CV')) then
         (if (some $a in $answers satisfies (some $v in $a/v3:value satisfies ($v/@code = $value/@code and (not($value/@codeSystem) or $value/@codeSystem = $v/@codeSystem)))) then 1 else 0)
       else if ($type = 'IVL_INT'
-               and (every $b in ($value/v3:low, $value/v3:high) satisfies ($b/@value castable as xs:decimal and not($b/@inclusive = 'false')))) then
+               and (every $b in ($value/*[local-name()=('low','high')]) satisfies ($b/@value castable as xs:decimal and not($b/@inclusive = 'false')))) then
         (if (some $a in $answers satisfies (some $v in $a/v3:value satisfies
               ($v/@value castable as xs:decimal
-               and (not($value/v3:low/@value) or xs:decimal($v/@value) ge xs:decimal($value/v3:low/@value))
-               and (not($value/v3:high/@value) or xs:decimal($v/@value) le xs:decimal($value/v3:high/@value))))) then 1 else 0)
+               and (not($value/*[local-name()='low']/@value) or xs:decimal($v/@value) ge xs:decimal($value/*[local-name()='low']/@value))
+               and (not($value/*[local-name()='high']/@value) or xs:decimal($v/@value) le xs:decimal($value/*[local-name()='high']/@value))))) then 1 else 0)
       else -1"/>
   </xsl:function>
   <xsl:function name="qf:grouper" as="xs:integer">
     <xsl:param name="grouper" as="element()"/>
     <xsl:param name="qrd" as="element()?"/>
     <xsl:param name="qfdd" as="element()?"/>
-    <xsl:variable name="states" select="for $c in $grouper/sdtc:precondition return qf:precondition($c, $qrd, $qfdd)"/>
-    <xsl:variable name="kind" select="$grouper/v3:templateId/@root"/>
+    <xsl:variable name="states" select="for $c in $grouper/*[local-name()='precondition'] return qf:precondition($c, $qrd, $qfdd)"/>
+    <xsl:variable name="kind" select="$grouper/*[local-name()='templateId']/@root"/>
     <xsl:sequence select="
       if (empty($states) or $states = -1) then -1
       else if ($kind = '2.16.840.1.113883.10.20.32.4.13') then (if (every $s in $states satisfies $s = 1) then 1 else 0)
@@ -91,9 +92,9 @@
     <xsl:param name="qrd" as="element()?"/>
     <xsl:param name="qfdd" as="element()?"/>
     <xsl:variable name="state" as="xs:integer" select="
-      if ($precondition/v3:criterion) then qf:criterion($precondition/v3:criterion[1], $qrd, $qfdd)
-      else if ($precondition/*[v3:templateId/@root = ('2.16.840.1.113883.10.20.32.4.13','2.16.840.1.113883.10.20.32.4.14','2.16.840.1.113883.10.20.32.4.15','2.16.840.1.113883.10.20.32.4.16','2.16.840.1.113883.10.20.32.4.17','2.16.840.1.113883.10.20.32.4.18')]) then
-        qf:grouper($precondition/*[v3:templateId/@root = ('2.16.840.1.113883.10.20.32.4.13','2.16.840.1.113883.10.20.32.4.14','2.16.840.1.113883.10.20.32.4.15','2.16.840.1.113883.10.20.32.4.16','2.16.840.1.113883.10.20.32.4.17','2.16.840.1.113883.10.20.32.4.18')][1], $qrd, $qfdd)
+      if ($precondition/*[local-name()='criterion']) then qf:criterion($precondition/*[local-name()='criterion'][1], $qrd, $qfdd)
+      else if ($precondition/*[*[local-name()='templateId']/@root = ('2.16.840.1.113883.10.20.32.4.13','2.16.840.1.113883.10.20.32.4.14','2.16.840.1.113883.10.20.32.4.15','2.16.840.1.113883.10.20.32.4.16','2.16.840.1.113883.10.20.32.4.17','2.16.840.1.113883.10.20.32.4.18')]) then
+        qf:grouper($precondition/*[*[local-name()='templateId']/@root = ('2.16.840.1.113883.10.20.32.4.13','2.16.840.1.113883.10.20.32.4.14','2.16.840.1.113883.10.20.32.4.15','2.16.840.1.113883.10.20.32.4.16','2.16.840.1.113883.10.20.32.4.17','2.16.840.1.113883.10.20.32.4.18')][1], $qrd, $qfdd)
       else -1"/>
     <xsl:sequence select="if ($state = -1 or not($precondition/@negationInd = 'true')) then $state else 1 - $state"/>
   </xsl:function>
@@ -101,7 +102,7 @@
     <xsl:param name="question" as="element()"/>
     <xsl:param name="qrd" as="element()?"/>
     <xsl:param name="qfdd" as="element()?"/>
-    <xsl:variable name="states" select="(for $p in $question/v3:precondition return (if ($p/v3:criterion) then qf:criterion($p/v3:criterion[1], $qrd, $qfdd) else -1),
+    <xsl:variable name="states" select="(for $p in $question/v3:precondition return (if ($p/*[local-name()='criterion']) then qf:criterion($p/*[local-name()='criterion'][1], $qrd, $qfdd) else -1),
                                          for $p in $question/sdtc:precondition return qf:precondition($p, $qrd, $qfdd))"/>
     <xsl:sequence select="if ($states = 0) then 0 else if ($states = -1) then -1 else 1"/>
   </xsl:function>

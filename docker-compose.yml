@@ -80,6 +80,11 @@ services:
         CDA_VALIDATOR_IMAGE: isaitb/xml-validator:1.13.1@sha256:436a1fcfcb2f0a429b5fac02a0cc56bc1c23ea926d68b1a45da5ea2a9e3c6a90
     container_name: cda-dk-validator
     restart: unless-stopped
+    environment:
+      # Where a QRD's QFDD comes from: embedded (default, offline), spgdef (the public
+      # catalogue at https://spgdef.dk/qfdd/) or combined (embedded first, then spgdef).
+      # spgdef and combined send the QFDD id, and nothing else, to spgdef.dk.
+      CDA_QFDD_RESOLVER: ${CDA_QFDD_RESOLVER:-embedded}
     ports:
       - "8091:8080"
 

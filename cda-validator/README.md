@@ -10,12 +10,23 @@ see [conformance](../docs/cda-conformance.md) and the [release catalogue](domain
 
 - `domain/cda-dk/`: configuration, catalogue, schemas, rules and vocabularies.
 - `src/main/java/com/trifork/itb/plugin/`: Gazelle integration, PHMR checks and the QRD/QFDD
-  comparison (`QrdQfddPairRules`, `QfddResolver`, mock registry `MockQfddResolver`).
+  comparison (`QrdQfddPairRules`, `QfddResolver` with the embedded, SPGDEF and combined
+  resolvers).
 - `src/main/java/com/trifork/itb/preview/`: upload-page CDA preview extension.
 - `src/main/resources/rendering/`: the shared display stylesheet `HL7_CDA_stylesheet.xsl` and its
   label file `cda_l10n.xml` (see below), plus the preview script.
 - `src/test/`: Java tests and XML fixtures.
 - `tests/`: isolated container runner, standalone HTTP test-client POM and reporting.
+
+## QFDD source
+
+A QRD is also compared with the QFDD it references. Where that QFDD comes from is set by the
+environment variable `CDA_QFDD_RESOLVER` (Compose passes it through): `embedded` (default, offline),
+`spgdef` (the public catalogue at <https://spgdef.dk/qfdd/>) or `combined` (embedded first, then
+spgdef). `spgdef` and `combined` send the QFDD id, and nothing else, to spgdef.dk. Details, the
+checks made on the catalogue and on each download, and the reported outcomes are in
+[PRO conformance](../docs/pro-conformance.md#qfdd-resolvers). The live catalogue is only touched by
+the opt-in `mvn test -Dtest=SpgdefLiveTest -Dcda.live.spgdef=true`.
 
 ## Display stylesheet
 

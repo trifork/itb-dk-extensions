@@ -71,7 +71,7 @@ These decisions are explicit so they can be reviewed with MedCom.
 | QRD numeric/text answers | Value is `0..1`, explicitly corrected in 1.3.1. Multiple choice permits no values; discrete slider explicitly requires one. |
 | QRD 5.9 | The table fixes external-reference root `2.16.840.1.113883.4.873`; 5.9.1 requires a version 4 UUID extension. The referenced QFDD's own root identifies its responsible organisation and need not equal this root. |
 | Paired: mandatory answers | QFDD 5.7 and QRD 5.5 state the *minimum number of choices a user should select*. A multiple-choice or discrete-slider question with minimum ≥ 1 whose preconditions hold needs an answer with at least that many options. Numeric, text and analog-slider questions have no minimum in QFDD 1.2, so an unanswered one is never an error. |
-| Paired: preconditions | QFDD 5.4: a question is asked only if all its preconditions hold; section 6 adds the groupers. `PRO-PAIR-PRECONDITION` reports an answer with a value to a question whose preconditions evaluate to false. Evaluation supports coded (CE) and `IVL_INT` criteria, the six groupers and `negationInd`. Anything else, an unknown referenced question or an unrecognised grouper gives warning `PRO-PAIR-PRECONDITION-UNEVALUATED`, and the dependent checks are skipped for that question. |
+| Paired: preconditions | QFDD 5.4: a question is asked only if all its preconditions hold; section 6 adds the groupers. `PRO-PAIR-PRECONDITION` reports an answer with a value to a question whose preconditions evaluate to false. Evaluation supports coded (CE) and `IVL_INT` criteria, the six groupers and `negationInd`. The extension's own elements (`templateId`, `criterion`, groupers, nested `precondition`) are accepted in the HL7 v3 or the `sdtc` namespace: the guide's figures use v3, but the published SPGDEF forms put them in `sdtc`. Checked against all 86 documents in the catalogue: none has a precondition that cannot be evaluated. Anything else, an unknown referenced question or an unrecognised grouper gives warning `PRO-PAIR-PRECONDITION-UNEVALUATED`, and the dependent checks are skipped for that question. |
 | Paired: criterion matching | A criterion names a question by `code/@code` only. The official associated-text example uses a different code system in the criterion than on the question, so the code system is not compared. A coded criterion value also compares its code system when the criterion states one. A criterion on an unanswered question is false. |
 | Paired: answered twice | QRD 5.9 and the test protocol identify one question per response id, and the answer value cardinality is 0..1 or fixed. Two responses with the same id are therefore reported (`PRO-PAIR-ANSWER-DUPLICATE`). This is an interpretation, not an explicit SHALL. |
 | Paired: slider scale | QFDD 5.13 defines the analog slider scale as `head`, step `increment` and end `denominator`. An answer must lie between `head` and `denominator` and on a step. The copied range in the QRD must equal the QFDD range (QRD 5.3). QFDD 1.2 defines no unit on numeric questions, so units are not compared. |
@@ -98,7 +98,7 @@ behavior from silently skipping constraints with overlapping contexts.
 | Narrative guides | Profile package tables mark these informative. Narrative text presence is checked; example HTML/table layouts and semantic text equivalence are not promoted to mandatory errors. |
 | Receiver protocol | Rendering, fallback for unknown/invalid releases, browser display, interaction and workflows need UI/integration tests. |
 | Sender protocol XML 1.0 / UTF-8 | These concern original bytes/declarations. XPath over an already parsed XML tree cannot reliably enforce the original encoding. |
-| National questionnaire bank/link resolving | Local references and supplied pairs are checkable. The QRD route resolves references through a mock registry limited to the bundled sample QFDDs; national publication and retrieval need external integration. Validation never fetches arbitrary URLs. |
+| National questionnaire bank/link resolving | Local references and supplied pairs are checkable. The QRD route resolves references through a configurable resolver (embedded sample QFDDs, the public SPGDEF catalogue, or both; see Paired input). Validation never fetches a caller-supplied URL. |
 | XDS authorInstitution | CDA fields are checked; comparison with submitted XDS metadata and consent behavior needs an XDS transaction fixture. |
 | Certification | Passing these checks is not proof of full conformance. Conflicts above remain candidates for clarification with MedCom. |
 
@@ -135,11 +135,42 @@ envelope. Findings carry the `PRO-PAIR-*` rule IDs and the line of the answer.
 | No reference, several different references, QFDD not found, ambiguous or unavailable | WARNING `PRO-PAIR-QFDD-UNRESOLVED` ("could not be validated against its QFDD"). Never a silent pass. |
 | Comparison could not run (for example an unparsable QFDD) | ERROR `PRO-PAIR-ENGINE`. |
 
-**Mock registry.** No QFDD registry exists yet. `MockQfddResolver` serves the QFDDs
-bundled in the plugin under `qfdd-mock/<id>.xml`: byte-identical copies of
-`samples/qfdd`, enforced by `MockQfddResolverTest`. A QRD that references any other
-QFDD is reported as unresolved. A real registry only has to implement
-`QfddResolver`; the resolver never fetches caller-supplied URLs.
+### QFDD resolvers
+
+No official QFDD registry exists yet, so the plugin has three interchangeable resolvers behind
+the `QfddResolver` interface. The environment variable `CDA_QFDD_RESOLVER` (Compose passes it
+through; system property `cda.qfdd.resolver` overrides it) selects one:
+
+| Value | Source | Notes |
+| --- | --- | --- |
+| `embedded` (default) | QFDDs embedded in the plugin under `qfdd-embedded/<id>.xml`: byte-identical copies of `samples/qfdd`, enforced by `EmbeddedQfddResolverTest`. | Offline and reproducible. Any other reference is reported as unresolved. |
+| `spgdef` | The public catalogue at <https://spgdef.dk/qfdd/>. | Needs outbound HTTPS. Only the QFDD id is sent. |
+| `combined` | `embedded` first, then `spgdef` for references the embedded set does not hold. | Known documents never cost a request. If neither finds the QFDD, the least certain answer wins: an unreachable catalogue is "unavailable", not "not found". |
+
+An unknown value stops the plugin from starting; there is no silent fallback to another source.
+
+**SPGDEF resolver.** The catalogue table is the registry. The id is looked up there (86 entries at
+the time of writing; the UUID column equals the download path), and only the link the catalogue
+lists for it is fetched. Nothing from a QRD reaches a URL except a plain identifier
+(`[A-Za-z0-9-]{1,64}`), so a reference cannot address another host or path. The catalogue and the
+download are both validated, and anything unexpected is reported as unavailable, not guessed at:
+
+- *Catalogue:* the table must be present and every row must carry an id and exactly one
+  `https://spgdef.dk/qfdd/<same id>` link (no port, credentials, query or fragment, no duplicates).
+  A single surprising row fails the whole catalogue.
+- *Download:* HTTP 200, at most 10 MiB, XML without a DOCTYPE, a CDA `ClinicalDocument` that
+  declares the QFDD-DK templates `1.2.208.184.12.1` and `1.2.208.184.12.1.1.1`, has document code
+  `74468-0`, and whose `id/@extension` equals the requested id. A stated version must match.
+  This establishes identity and kind only; whether the QFDD itself conforms is the QFDD-DK 1.2
+  validation (see the daily SPG QFDD check).
+- *Transport:* HTTPS only to `spgdef.dk`, no redirects, no cookies, no connection reuse, 5 s connect
+  and 20 s read timeouts, generic user agent (`cda-dk-validator`). The catalogue and each document
+  are cached for 15 minutes (at most 32 documents), and failures are never cached.
+
+| Situation | Result |
+| --- | --- |
+| Id not listed, or listed but no longer served (404/410) | WARNING `PRO-PAIR-QFDD-UNRESOLVED` (not found). |
+| Network error, timeout, HTTP error or redirect, unreadable catalogue, or a document that is not that QFDD | WARNING `PRO-PAIR-QFDD-UNRESOLVED` (unavailable) with the reason. |
 
 ### Consistency checks
 

@@ -10,10 +10,10 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.Test;
 
-class MockQfddResolverTest {
+class EmbeddedQfddResolverTest {
 
     private static final Path QFDD_SAMPLES = Path.of("..", "samples", "qfdd");
-    private final MockQfddResolver resolver = new MockQfddResolver();
+    private final EmbeddedQfddResolver resolver = new EmbeddedQfddResolver();
 
     private static String idOf(Path file) throws Exception {
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -27,7 +27,7 @@ class MockQfddResolverTest {
                 .getNodeValue();
     }
 
-    /** The bundled mock registry must stay byte-identical to the published QFDD samples. */
+    /** The embedded QFDD set must stay byte-identical to the published QFDD samples. */
     @Test
     void everyQfddSampleIsServedUnchanged() throws Exception {
         // The Docker build context is cda-validator/ only; the repository-level build checks this.

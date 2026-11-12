@@ -304,7 +304,7 @@
       "errors": 1,
       "warnings": 0
     },
-    "note": "Questionnaire definition for the over-extremity form (32 questions) supplied for this validator; not a published MedCom example. The only finding is the known shared-XSD rejection of the required sdtc:statusCode (see samples/README.md). Mock QFDD registry entry for the paired QRD sample qrd_overekstremitet.xml."
+    "note": "Questionnaire definition for the over-extremity form (32 questions) supplied for this validator; not a published MedCom example. The only finding is the known shared-XSD rejection of the required sdtc:statusCode (see samples/README.md). Embedded QFDD entry for the paired QRD sample qrd_overekstremitet.xml."
   },
   {
     "file": "samples/qrd/qrd_numeric_graphics.xml",
@@ -551,7 +551,7 @@
     },
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.19.xml",
     "sourceSha256": "92709c7b0cc3919583e9051164d8b5e303efad19facf30608d8863e4192d6c71",
-    "note": "Published test-protocol example; filename numbers identify test steps, not profile versions. Declares qrd-v9.9 and must fail the profile-version check. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json. The QRD references a QFDD that is not in the mock QFDD registry, so the QRD/QFDD comparison is reported as not validated (warning PRO-PAIR-QFDD-UNRESOLVED), not as passed.",
+    "note": "Published test-protocol example; filename numbers identify test steps, not profile versions. Declares qrd-v9.9 and must fail the profile-version check. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json. The QRD references a QFDD that is not in the embedded QFDD set, so the QRD/QFDD comparison is reported as not validated (warning PRO-PAIR-QFDD-UNRESOLVED), not as passed.",
     "conformanceAssertions": [
       "PRO-PAIR-QFDD-UNRESOLVED",
       "QRD-DK-1.3.2-C121-CODE",
@@ -587,7 +587,7 @@
     },
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.1_A.xml",
     "sourceSha256": "9bb710e18f2e66cc313a62c04ea9f7ce4458a36251b0afa32c096f62c2e2070b",
-    "note": "Published test-protocol example; filename numbers identify test steps, not profile releases. Fails the expanded source-traced QRD-DK 1.3.2 rules; see conformanceAssertions and docs/pro-conformance/sample-findings.json. The QRD references a QFDD that is not in the mock QFDD registry, so the QRD/QFDD comparison is reported as not validated (warning PRO-PAIR-QFDD-UNRESOLVED), not as passed.",
+    "note": "Published test-protocol example; filename numbers identify test steps, not profile releases. Fails the expanded source-traced QRD-DK 1.3.2 rules; see conformanceAssertions and docs/pro-conformance/sample-findings.json. The QRD references a QFDD that is not in the embedded QFDD set, so the QRD/QFDD comparison is reported as not validated (warning PRO-PAIR-QFDD-UNRESOLVED), not as passed.",
     "conformanceAssertions": [
       "PRO-PAIR-QFDD-UNRESOLVED",
       "QRD-DK-1.3.2-C121-CODE",
@@ -620,7 +620,7 @@
     },
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.22_A.xml",
     "sourceSha256": "e1e595bc3f1a555876c5ac20232f425c464d3bed98e75df4f55ac9e24ef83779",
-    "note": "Published test-protocol example; filename numbers identify test steps, not profile releases. Fails the expanded source-traced QRD-DK 1.3.2 rules; see conformanceAssertions and docs/pro-conformance/sample-findings.json. The QRD references a QFDD that is not in the mock QFDD registry, so the QRD/QFDD comparison is reported as not validated (warning PRO-PAIR-QFDD-UNRESOLVED), not as passed.",
+    "note": "Published test-protocol example; filename numbers identify test steps, not profile releases. Fails the expanded source-traced QRD-DK 1.3.2 rules; see conformanceAssertions and docs/pro-conformance/sample-findings.json. The QRD references a QFDD that is not in the embedded QFDD set, so the QRD/QFDD comparison is reported as not validated (warning PRO-PAIR-QFDD-UNRESOLVED), not as passed.",
     "conformanceAssertions": [
       "PRO-PAIR-QFDD-UNRESOLVED",
       "QRD-DK-1.3.2-C121-CODE",
@@ -655,7 +655,7 @@
     },
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.9_A.xml",
     "sourceSha256": "23d15ae9169dd83d02e4beb1d25d1e311f6f2e9f878e4676b7e2852bec51b0d9",
-    "note": "Published test-protocol example; filename numbers identify test steps, not profile releases. Fails the expanded source-traced QRD-DK 1.3.2 rules; see conformanceAssertions and docs/pro-conformance/sample-findings.json. The QRD references a QFDD that is not in the mock QFDD registry, so the QRD/QFDD comparison is reported as not validated (warning PRO-PAIR-QFDD-UNRESOLVED), not as passed.",
+    "note": "Published test-protocol example; filename numbers identify test steps, not profile releases. Fails the expanded source-traced QRD-DK 1.3.2 rules; see conformanceAssertions and docs/pro-conformance/sample-findings.json. The QRD references a QFDD that is not in the embedded QFDD set, so the QRD/QFDD comparison is reported as not validated (warning PRO-PAIR-QFDD-UNRESOLVED), not as passed.",
     "conformanceAssertions": [
       "PRO-PAIR-QFDD-UNRESOLVED",
       "QRD-DK-1.3.2-C121-CODE",
@@ -692,7 +692,7 @@
     },
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.9_B.xml",
     "sourceSha256": "0edfec1c5d61fdad477e8d050d1ece2fc6584cbb6c1b61e18f392b5b9858022d",
-    "note": "Published test-protocol example; filename numbers identify test steps, not profile releases. Fails the expanded source-traced QRD-DK 1.3.2 rules; see conformanceAssertions and docs/pro-conformance/sample-findings.json. The QRD references a QFDD that is not in the mock QFDD registry, so the QRD/QFDD comparison is reported as not validated (warning PRO-PAIR-QFDD-UNRESOLVED), not as passed.",
+    "note": "Published test-protocol example; filename numbers identify test steps, not profile releases. Fails the expanded source-traced QRD-DK 1.3.2 rules; see conformanceAssertions and docs/pro-conformance/sample-findings.json. The QRD references a QFDD that is not in the embedded QFDD set, so the QRD/QFDD comparison is reported as not validated (warning PRO-PAIR-QFDD-UNRESOLVED), not as passed.",
     "conformanceAssertions": [
       "PRO-PAIR-QFDD-UNRESOLVED",
       "QRD-DK-1.3.2-C121-CODE",

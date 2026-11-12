@@ -49,7 +49,7 @@ expected findings are observed. Validation targets still have partial coverage.
   1.3.2 target reports a version error. Numeric graphics and analog-slider examples
   also have schema errors for `observation/reference` ordering; both XSD stages
   report those findings.
-- The QRD route also compares each QRD with the QFDD it references (mock registry; see
+- The QRD route also compares each QRD with the QFDD it references (embedded QFDD set; see
   [PRO conformance](../docs/pro-conformance.md)). The ten examples whose QFDD is in
   `qfdd/` compare cleanly. The five `qrd_m_3.*` test-protocol examples reference QFDDs
   that are not available, so each reports one `PRO-PAIR-QFDD-UNRESOLVED` warning.

@@ -63,7 +63,7 @@ public class CdaDkGazellePlugin implements ValidationService {
 
     /** Used by the validator, which instantiates plugins reflectively. */
     public CdaDkGazellePlugin() {
-        this(new MockQfddResolver());
+        this(QfddResolvers.configured());
     }
 
     CdaDkGazellePlugin(QfddResolver qfddResolver) {

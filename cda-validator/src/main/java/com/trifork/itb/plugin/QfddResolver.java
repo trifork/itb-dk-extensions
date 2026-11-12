@@ -1,8 +1,10 @@
 package com.trifork.itb.plugin;
 
 /**
- * Resolves the QFDD a QRD refers to. The production registry does not exist yet; {@link
- * MockQfddResolver} stands in for it, and a real implementation only has to honour this contract.
+ * Resolves the QFDD a QRD refers to. There is no official QFDD registry yet, so the plugin offers
+ * an {@link EmbeddedQfddResolver}, a {@link SpgdefQfddResolver} for the public SPGDEF catalogue and
+ * a {@link CombinedQfddResolver} of both (see {@link QfddResolvers}); a registry only has to honour
+ * this contract.
  */
 interface QfddResolver {
 

@@ -9,7 +9,6 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
-import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.Templates;
 import javax.xml.transform.Transformer;
@@ -24,7 +23,6 @@ import net.sf.saxon.s9api.XdmItem;
 import net.sf.saxon.s9api.XdmNode;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 /**
@@ -40,7 +38,7 @@ final class QrdQfddPairRules {
     static final String COMPARED_RULE = "PRO-PAIR-QFDD";
     static final String ENGINE_RULE = "PRO-PAIR-ENGINE";
 
-    private static final String HL7_NS = "urn:hl7-org:v3";
+    private static final String HL7_NS = SecureXml.HL7_NS;
     private static final String PRO_NS = "urn:dk:medcom:pro:validation";
     private static final String SVRL_NS = "http://purl.oclc.org/dsdl/svrl";
     private static final String COMPILER =
@@ -67,7 +65,7 @@ final class QrdQfddPairRules {
         List<Finding> findings = new ArrayList<>();
         Document qrd;
         try {
-            qrd = parse(qrdBytes);
+            qrd = SecureXml.parse(qrdBytes);
         } catch (Exception e) {
             findings.add(unresolved("the QRD could not be parsed (" + e.getMessage() + ")"));
             return findings;
@@ -120,7 +118,7 @@ final class QrdQfddPairRules {
             QfddLookup lookup,
             List<Finding> findings) {
         try {
-            Document qfdd = parse(lookup.document());
+            Document qfdd = SecureXml.parse(lookup.document());
             findings.add(
                     new Finding(
                             Finding.Level.INFO,
@@ -151,11 +149,11 @@ final class QrdQfddPairRules {
         NodeList documents = qrd.getElementsByTagNameNS(HL7_NS, "externalDocument");
         for (int i = 0; i < documents.getLength(); i++) {
             Element document = (Element) documents.item(i);
-            Element id = child(document, "id");
+            Element id = SecureXml.child(document, "id");
             if (id != null
                     && QfddResolver.QFDD_REFERENCE_ROOT.equals(id.getAttribute("root"))
                     && !id.getAttribute("extension").isBlank()) {
-                Element version = child(document, "versionNumber");
+                Element version = SecureXml.child(document, "versionNumber");
                 result.add(
                         new Reference(
                                 id.getAttribute("extension"),
@@ -165,28 +163,9 @@ final class QrdQfddPairRules {
         return result;
     }
 
-    private static Element child(Element parent, String localName) {
-        for (Node node = parent.getFirstChild(); node != null; node = node.getNextSibling()) {
-            if (node instanceof Element element
-                    && HL7_NS.equals(element.getNamespaceURI())
-                    && localName.equals(element.getLocalName())) {
-                return element;
-            }
-        }
-        return null;
-    }
-
     private static String title(Document qfdd) {
-        Element title = child(qfdd.getDocumentElement(), "title");
+        Element title = SecureXml.child(qfdd.getDocumentElement(), "title");
         return title == null ? "untitled" : title.getTextContent().strip();
-    }
-
-    private static Document parse(byte[] bytes) throws Exception {
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        factory.setNamespaceAware(true);
-        factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
-        factory.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
-        return factory.newDocumentBuilder().parse(new ByteArrayInputStream(bytes));
     }
 
     /** The envelope documented in docs/pro-conformance.md ("Paired input"). */
