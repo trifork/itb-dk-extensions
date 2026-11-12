@@ -109,12 +109,12 @@
     "validationType": "qfdd.v1.2",
     "expected": {
       "result": "FAILURE",
-      "errors": 4,
+      "errors": 3,
       "warnings": 0
     },
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/0397c59c-a93f-470a-b8ff-2bc5c5f42b13",
     "sourceSha256": "e7795d74d17ef81cf20899c1893b5270c89b9c88f2bc0f69c0e4ec53227f20ff",
-    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "note": "Published unchanged. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
     "conformanceAssertions": [
       "QFDD-DK-1.2-C76",
       "QFDD-DK-1.2-COPY-C67",
@@ -165,12 +165,12 @@
     "validationType": "qfdd.v1.2",
     "expected": {
       "result": "FAILURE",
-      "errors": 3,
+      "errors": 2,
       "warnings": 0
     },
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/1251f3c7-07d6-4d7d-aa89-cf33cb5cdb9f",
     "sourceSha256": "baa27699266c460ed966a7ec4e47d5ce3c64f81bbdb94f470affbcb40c7e9742",
-    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "note": "Published unchanged. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
     "conformanceAssertions": [
       "QFDD-DK-1.2-C76",
       "QFDD-DK-1.2-SHARED-C145"
@@ -181,12 +181,12 @@
     "validationType": "qfdd.v1.2",
     "expected": {
       "result": "FAILURE",
-      "errors": 4,
+      "errors": 3,
       "warnings": 0
     },
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/1fdb7308-f4fb-4eb1-af62-c8a429915dc1",
     "sourceSha256": "fd8dc3ce274bebb116d9c71e0354714a2fb19983f6a962ca5d5b9d44d7035641",
-    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "note": "Published unchanged. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
     "conformanceAssertions": [
       "QFDD-DK-1.2-C76",
       "QFDD-DK-1.2-COPY-C67",
@@ -198,12 +198,12 @@
     "validationType": "qfdd.v1.2",
     "expected": {
       "result": "FAILURE",
-      "errors": 5,
+      "errors": 4,
       "warnings": 0
     },
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/20ee1a5c-d574-4c04-b315-24e644cef53a",
     "sourceSha256": "58ca3895615d31e4b7ab3e26eb62ba30d4f3bcb5e0ba9853758fd70860a28b8f",
-    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "note": "Published unchanged. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
     "conformanceAssertions": [
       "QFDD-DK-1.2-C59",
       "QFDD-DK-1.2-C76",
@@ -216,12 +216,12 @@
     "validationType": "qfdd.v1.2",
     "expected": {
       "result": "FAILURE",
-      "errors": 3,
+      "errors": 2,
       "warnings": 0
     },
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/2c8f8bd7-059d-410d-aed9-afe37ce389ed",
     "sourceSha256": "cfa2a1cd351886fbc58b21151719e9eede0d11cc7eab20f73c8e9cf7d4993f5e",
-    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "note": "Published unchanged. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
     "conformanceAssertions": [
       "QFDD-DK-1.2-C76",
       "QFDD-DK-1.2-SHARED-C145"
@@ -232,12 +232,12 @@
     "validationType": "qfdd.v1.2",
     "expected": {
       "result": "FAILURE",
-      "errors": 3,
+      "errors": 2,
       "warnings": 0
     },
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/391bb19d-6ccd-4a3d-a3df-ea4ec58155cc",
     "sourceSha256": "4e9bb6e64515e622d4b5c6597aa88e7f15c21104c377d8bec0f2a279b1f6a3cd",
-    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "note": "Published unchanged. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
     "conformanceAssertions": [
       "QFDD-DK-1.2-C76",
       "QFDD-DK-1.2-SHARED-C145"
@@ -248,12 +248,12 @@
     "validationType": "qfdd.v1.2",
     "expected": {
       "result": "FAILURE",
-      "errors": 8,
+      "errors": 7,
       "warnings": 0
     },
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/3aa7cec1-2718-47a5-8161-767e87c28a35",
     "sourceSha256": "14ed77b0b518ef7c2ba472fc0b6102456ac02d28c99c2018174b7b6cc4f5c0f4",
-    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "note": "Published unchanged. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
     "conformanceAssertions": [
       "QFDD-DK-1.2-C73",
       "QFDD-DK-1.2-C76",
@@ -265,12 +265,12 @@
     "validationType": "qfdd.v1.2",
     "expected": {
       "result": "FAILURE",
-      "errors": 5,
+      "errors": 4,
       "warnings": 0
     },
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/a8aea6f4-d4ab-4926-8328-f92e0b91d68e",
     "sourceSha256": "86ed541db5b16439227457d950ab5c67350bf42f2c4a9e170d61f077dfb36223",
-    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "note": "Published unchanged. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
     "conformanceAssertions": [
       "QFDD-DK-1.2-C59",
       "QFDD-DK-1.2-C76",
@@ -283,12 +283,12 @@
     "validationType": "qfdd.v1.2",
     "expected": {
       "result": "FAILURE",
-      "errors": 5,
+      "errors": 4,
       "warnings": 0
     },
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/b178eac3-f194-4b53-aaab-78807db7ed42",
     "sourceSha256": "05ce4823516a16699ba654048a62a633b858b77fc5f443d26ef98ed333113aa5",
-    "note": "Published unchanged. The shared SVN XSD rejects sdtc:statusCode; see samples/README.md. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
+    "note": "Published unchanged. This sample is not proof of full QFDD-DK 1.2 coverage. Expanded specification checks add the listed conformanceAssertions; see docs/pro-conformance/sample-findings.json.",
     "conformanceAssertions": [
       "QFDD-DK-1.2-C59",
       "QFDD-DK-1.2-C76",
@@ -300,11 +300,21 @@
     "file": "samples/qfdd/qfdd_overekstremitet.xml",
     "validationType": "qfdd.v1.2",
     "expected": {
-      "result": "FAILURE",
-      "errors": 1,
+      "result": "SUCCESS",
+      "errors": 0,
       "warnings": 0
     },
-    "note": "Questionnaire definition for the over-extremity form (32 questions) supplied for this validator; not a published MedCom example. The only finding is the known shared-XSD rejection of the required sdtc:statusCode (see samples/README.md). Embedded QFDD entry for the paired QRD sample qrd_overekstremitet.xml."
+    "note": "Questionnaire definition for the over-extremity form (32 questions) supplied for this validator; not a published MedCom example. It passes QFDD-DK 1.2 validation. Embedded QFDD entry for the paired QRD sample qrd_overekstremitet.xml."
+  },
+  {
+    "file": "samples/qfdd/qfdd_alle_inputtyper.xml",
+    "validationType": "qfdd.v1.2",
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    },
+    "note": "Demo form definition written for this validator (not a MedCom example) that uses every input type: single and multiple choice (two mandatory), analog and discrete slider, integer, decimal and date, free text, a nested follow-up question and a question that is only asked when the pain slider is 5 or higher. It passes QFDD-DK 1.2 validation. Embedded QFDD entry for the paired QRD sample qrd_alle_inputtyper.xml."
   },
   {
     "file": "samples/qrd/qrd_numeric_graphics.xml",
@@ -728,6 +738,16 @@
       "warnings": 0
     },
     "note": "Synthetic response (invented answers, MedCom example patient) generated from samples/qfdd/qfdd_overekstremitet.xml. Passes QRD-DK 1.3.2 and the QRD/QFDD comparison against that QFDD; this is not proof of full conformance."
+  },
+  {
+    "file": "samples/qrd/qrd_alle_inputtyper.xml",
+    "validationType": "qrd.v1.3.2",
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    },
+    "note": "Synthetic complete response (invented answers, MedCom example patient) to samples/qfdd/qfdd_alle_inputtyper.xml. Passes QRD-DK 1.3.2 and the QRD/QFDD comparison, including slider, numeric, date and conditional answers; this is not proof of full conformance."
   },
   {
     "file": "samples/apd/2.0_DK-APD_Example_1_10_apd_municipality_morning_sbj.xml",

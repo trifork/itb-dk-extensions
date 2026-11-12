@@ -8,6 +8,24 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def check_vendored_schemas():
+    """Every vendored MedCom schema file listed in a SOURCE.txt must still match its recorded SHA-256."""
+    sources = sorted((ROOT / "cda-validator/domain/cda-dk/xsd").rglob("SOURCE.txt"))
+    assert sources, "Vendored schemas must record their provenance in SOURCE.txt"
+    for source in sources:
+        listed = 0
+        for line in source.read_text().splitlines():
+            if not line.strip() or line.startswith("#"):
+                continue
+            digest, name = line.split(None, 1)
+            target = source.parent / name.strip()
+            assert target.is_file(), f"{source.relative_to(ROOT)} lists a missing file: {name}"
+            assert hashlib.sha256(target.read_bytes()).hexdigest() == digest, \
+                f"Vendored schema changed: {target.relative_to(ROOT)}"
+            listed += 1
+        assert listed, f"{source.relative_to(ROOT)} lists no files"
+
+
 def main():
     catalogue = json.loads((ROOT / "cda-validator/domain/cda-dk/rulesets.json").read_text())
     props = {}
@@ -37,6 +55,7 @@ def main():
             assert (ROOT / "cda-validator/domain/cda-dk" / path).exists()
         assert props[f"validator.completeTypeOptionLabel.{full_type}"] == ruleset["label"]
     assert not any(key.startswith("validator.typeAlias.") for key in props), "Version selection must be explicit"
+    check_vendored_schemas()
     cases = json.loads((ROOT / "samples/validation-cases.json").read_text())
     assert {c["file"] for c in cases} == {
         p.relative_to(ROOT).as_posix() for p in (ROOT / "samples").glob("*/*.xml")

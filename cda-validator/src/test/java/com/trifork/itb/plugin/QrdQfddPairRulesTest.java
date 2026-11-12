@@ -28,7 +28,8 @@ class QrdQfddPairRulesTest {
                     "qrd_associated_text_2.xml",
                     "qrd_analog_slider.xml",
                     "qrd_analog_slider_feedback.xml",
-                    "qrd_multiple_choice_grouped.xml");
+                    "qrd_multiple_choice_grouped.xml",
+                    "qrd_alle_inputtyper.xml");
 
     private static String fixture(String name) throws Exception {
         try (var stream = QrdQfddPairRulesTest.class.getResourceAsStream("/pair/" + name)) {
@@ -343,5 +344,103 @@ class QrdQfddPairRulesTest {
         assertEquals(Finding.Level.WARNING, finding.level);
         assertTrue(finding.description.contains("Connection refused"), finding.description);
         assertTrue(findings.stream().noneMatch(f -> f.level == Finding.Level.ERROR));
+    }
+
+    // ---- the demo form that uses every input type -------------------------------------------
+
+    private static List<Finding> everyInputType(UnaryOperator<String> mutation) throws Exception {
+        String original = fixture("qrd_alle_inputtyper.xml");
+        String mutated = mutation.apply(original);
+        assertNotEquals(original, mutated, "The mutation must change the response");
+        return validate(mutated, EMBEDDED);
+    }
+
+    @Test
+    void aCompleteResponseUsingEveryInputTypeIsConsistentWithItsForm() throws Exception {
+        List<Finding> findings = validate(fixture("qrd_alle_inputtyper.xml"), EMBEDDED);
+        assertNoFailures(findings);
+        assertTrue(
+                single(findings, QrdQfddPairRules.COMPARED_RULE)
+                        .description
+                        .contains("Demo: alle inputtyper"));
+    }
+
+    @Test
+    void eachInputTypeOfTheDemoFormIsChecked() throws Exception {
+        // analog slider: the scale is 0 to 10 in steps of 1
+        assertEquals(
+                Finding.Level.ERROR,
+                single(
+                                everyInputType(
+                                        q ->
+                                                q.replace(
+                                                        "xsi:type=\"INT\" value=\"7\"",
+                                                        "xsi:type=\"INT\" value=\"11\"")),
+                                "PRO-PAIR-ANSWER-RANGE")
+                        .level);
+        // integer, decimal and date intervals
+        assertEquals(
+                Finding.Level.ERROR,
+                single(
+                                everyInputType(
+                                        q ->
+                                                q.replace(
+                                                        "xsi:type=\"INT\" value=\"5\"",
+                                                        "xsi:type=\"INT\" value=\"8\"")),
+                                "PRO-PAIR-NUMERIC-RANGE")
+                        .level);
+        assertEquals(
+                Finding.Level.ERROR,
+                single(
+                                everyInputType(q -> q.replace("value=\"37.4\"", "value=\"50\"")),
+                                "PRO-PAIR-NUMERIC-RANGE")
+                        .level);
+        assertEquals(
+                Finding.Level.ERROR,
+                single(
+                                everyInputType(
+                                        q ->
+                                                q.replace(
+                                                        "value=\"20261101000000+0100\"",
+                                                        "value=\"19000101000000+0100\"")),
+                                "PRO-PAIR-NUMERIC-RANGE")
+                        .level);
+    }
+
+    @Test
+    void conditionalQuestionsAreOnlyAnsweredWhenTheirPreconditionHolds() throws Exception {
+        // Q10 is asked only if the pain slider (Q04) is 5 or more
+        assertEquals(
+                Finding.Level.ERROR,
+                single(
+                                everyInputType(
+                                        q ->
+                                                q.replace(
+                                                        "xsi:type=\"INT\" value=\"7\"",
+                                                        "xsi:type=\"INT\" value=\"3\"")),
+                                "PRO-PAIR-PRECONDITION")
+                        .level);
+        // the nested follow-up (Q03T) is asked only if Q03 is "En anden for mig"
+        assertEquals(
+                Finding.Level.ERROR,
+                single(
+                                everyInputType(
+                                        q ->
+                                                q.replace(
+                                                        "code=\"Q03_3\" displayName=\"En anden for mig\"",
+                                                        "code=\"Q03_1\" displayName=\"Jeg selv\"")),
+                                "PRO-PAIR-PRECONDITION")
+                        .level);
+    }
+
+    @Test
+    void mandatoryQuestionsOfTheDemoFormMustBeAnswered() throws Exception {
+        for (String question : new String[] {"Q01", "Q02"}) {
+            List<Finding> findings =
+                    everyInputType(
+                            q -> q.replaceAll("<value code=\"" + question + "_[0-9]\"[^>]*/>", ""));
+            Finding finding = single(findings, "PRO-PAIR-ANSWER-MISSING");
+            assertTrue(finding.description.contains(question), finding.description);
+        }
     }
 }

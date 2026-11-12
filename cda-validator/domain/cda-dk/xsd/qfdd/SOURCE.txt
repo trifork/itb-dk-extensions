@@ -1,0 +1,14 @@
+# MedCom QFDD schema, vendored unedited. Used for qfdd.v1.2 (see config.properties).
+# It requires sdtc:statusCode in the header (QFDD-DK 1.2 CONF:14); the generic schema in ../ does not know it.
+# Source: https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Schema/  (fetched 2026-11-12)
+# One deviation from upstream: SDTC.xsd began with a UTF-8 byte-order mark, which the validator's Xerces
+# parser rejects ("Content is not allowed in prolog"). Only those three bytes were removed; everything else is
+# unchanged. The upstream file's SHA-256 was c6a0142a7b329b335233eaaf8ea2f42734de380a8738bd08be66385b6cfd9892.
+# Format: sha256  file  (checked by tests/check-rulesets.py)
+1145be198b3c90e2f60c9eae0b960a41969c59ed3093d0c0e476f17c490ade1b  CDA_SDTC.xsd
+8f02813bd43e0e1f383543dc22da1880ab8d93868116ee511888241cb8ebdfac  NarrativeBlock.xsd
+1644d8ad0c5edb6c85cd582670f1ef87edb0c8b76962761f86da47831b78e1db  POCD_MT000040_SDTC.xsd
+e38042d43b120adea0ab5156f56441e60ed151e95c5bba4834caf246ea81bd58  SDTC.xsd
+0c7dd69c07d41e18b02ece1aaf8a7a49d7f41bf1c2fa2b09e0932dd9446a3826  datatypes-base.xsd
+e3ced45f77a48478e7db3b50cb753b50eb0f39fd2c3228e2faebde1945f6045f  datatypes.xsd
+93cb345884a48d75f76ef03c175e1e98f4396088952c50b56990c31251be52c8  voc.xsd

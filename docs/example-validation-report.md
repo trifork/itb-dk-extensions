@@ -6,7 +6,7 @@ This report records actual XSD, Schematron and Gazelle results from the pinned X
 
 See [coverage and specification conflicts](cda-conformance.md) and [QRD/QFDD coverage](pro-conformance.md). Ambiguous clauses that are deliberately not enforced are coverage gaps, not silent evidence of conformity.
 
-Examples executed: **113 / 113**. Official source URLs indexed: **116**. Identical published bytes can share one validation result. Archived APD examples without a supported original release are explicitly labelled as migration comparisons below.
+Examples executed: **115 / 115**. Official source URLs indexed: **116**. Identical published bytes can share one validation result. Archived APD examples without a supported original release are explicitly labelled as migration comparisons below.
 
 | Profile | Examples | No errors | With errors | Errors | Warnings |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -20,16 +20,16 @@ Examples executed: **113 / 113**. Official source URLs indexed: **116**. Identic
 | PMR-DK 2.0.0 | 12 | 11 | 1 | 2 | 0 |
 | PRF-DK 3.0.0 | 4 | 4 | 0 | 0 | 0 |
 | PSCR-DK 2.0.0 | 12 | 11 | 1 | 4 | 0 |
-| QFDD-DK 1.2 | 10 | 0 | 10 | 41 | 0 |
-| QRD-DK 1.3.2 | 16 | 1 | 15 | 310 | 5 |
+| QFDD-DK 1.2 | 11 | 2 | 9 | 31 | 0 |
+| QRD-DK 1.3.2 | 17 | 2 | 15 | 310 | 5 |
 
-Run interval (UTC): 2026-11-12T19:05:47.611771Z to 2026-11-12T19:09:37.394789Z.
+Run interval (UTC): 2026-11-12T21:58:47.771107Z to 2026-11-12T22:02:43.968970Z.
 
-Deployed resource bundle SHA-256: `593d415ea60f4e8e08a1d5dd3504ea85eee30955523d1d424f179f557b07c3e8`.
+Deployed resource bundle SHA-256: `98776444445b919cbab064414e917417d1a75766f3548fec7b46f5874cfc4fc8`.
 
 ```text
 Base reference: isaitb/xml-validator:1.13.1@sha256:436a1fcfcb2f0a429b5fac02a0cc56bc1c23ea926d68b1a45da5ea2a9e3c6a90
-Image: sha256:f789392e1624afae9b935948f611d3543e0a8202ac7e0415a39099a25a378a38 OS/architecture: linux/arm64 Digests: []
+Image: sha256:3d3e0c381f1211f1dd3002e685d19a15c87ba75d0319fdcfdf4b31bb0050f1c5 OS/architecture: linux/arm64 Digests: []
 ```
 
 ## APD-DK 2.0.1
@@ -984,16 +984,17 @@ No errors or warnings from the implemented checks.
 
 | Example | Result | Errors | Warnings | Distinct error rules |
 | --- | --- | ---: | ---: | ---: |
-| [qfdd_example.xml](../samples/qfdd/qfdd_example.xml) | FAILURE | 4 | 0 | 4 |
-| [qfdd_text.xml](../samples/qfdd/qfdd_text.xml) | FAILURE | 3 | 0 | 3 |
-| [qfdd_numeric_graphics.xml](../samples/qfdd/qfdd_numeric_graphics.xml) | FAILURE | 4 | 0 | 4 |
-| [qfdd_numeric.xml](../samples/qfdd/qfdd_numeric.xml) | FAILURE | 5 | 0 | 5 |
-| [qfdd_associated_text.xml](../samples/qfdd/qfdd_associated_text.xml) | FAILURE | 3 | 0 | 3 |
-| [qfdd_discrete_slider.xml](../samples/qfdd/qfdd_discrete_slider.xml) | FAILURE | 3 | 0 | 3 |
-| [qfdd_multiple_choice_grouped.xml](../samples/qfdd/qfdd_multiple_choice_grouped.xml) | FAILURE | 8 | 0 | 4 |
-| [qfdd_analog_slider_feedback.xml](../samples/qfdd/qfdd_analog_slider_feedback.xml) | FAILURE | 5 | 0 | 5 |
-| [qfdd_analog_slider.xml](../samples/qfdd/qfdd_analog_slider.xml) | FAILURE | 5 | 0 | 5 |
-| [qfdd_overekstremitet.xml](../samples/qfdd/qfdd_overekstremitet.xml) | FAILURE | 1 | 0 | 1 |
+| [qfdd_example.xml](../samples/qfdd/qfdd_example.xml) | FAILURE | 3 | 0 | 3 |
+| [qfdd_text.xml](../samples/qfdd/qfdd_text.xml) | FAILURE | 2 | 0 | 2 |
+| [qfdd_numeric_graphics.xml](../samples/qfdd/qfdd_numeric_graphics.xml) | FAILURE | 3 | 0 | 3 |
+| [qfdd_numeric.xml](../samples/qfdd/qfdd_numeric.xml) | FAILURE | 4 | 0 | 4 |
+| [qfdd_associated_text.xml](../samples/qfdd/qfdd_associated_text.xml) | FAILURE | 2 | 0 | 2 |
+| [qfdd_discrete_slider.xml](../samples/qfdd/qfdd_discrete_slider.xml) | FAILURE | 2 | 0 | 2 |
+| [qfdd_multiple_choice_grouped.xml](../samples/qfdd/qfdd_multiple_choice_grouped.xml) | FAILURE | 7 | 0 | 3 |
+| [qfdd_analog_slider_feedback.xml](../samples/qfdd/qfdd_analog_slider_feedback.xml) | FAILURE | 4 | 0 | 4 |
+| [qfdd_analog_slider.xml](../samples/qfdd/qfdd_analog_slider.xml) | FAILURE | 4 | 0 | 4 |
+| [qfdd_overekstremitet.xml](../samples/qfdd/qfdd_overekstremitet.xml) | SUCCESS | 0 | 0 | 0 |
+| [qfdd_alle_inputtyper.xml](../samples/qfdd/qfdd_alle_inputtyper.xml) | SUCCESS | 0 | 0 | 0 |
 
 ### qfdd_example.xml
 
@@ -1001,7 +1002,6 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 
 | Severity | Rule / specification | Count | Finding | Example location |
 | --- | --- | ---: | --- | --- |
-| error | (validator diagnostic) | 1 | cvc-complex-type.2.4.a: Invalid content was found starting with element '{"urn:hl7-org:sdtc":statusCode}'. One of '{"urn:hl7-org:v3":effectiveTime}' is expected. | XML:15:31 |
 | error | [QFDD-DK-1.2-C76](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=23) | 1 | QFDD-DK 1.2: @code must be completed. Source: qfdd 5.1, p. 23, C76. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/statusCode[1] |
 | error | [QFDD-DK-1.2-COPY-C67](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=20) | 1 | QFDD-DK 1.2: @typeCode must be DRIV. Source: qfdd 4.2 (QFDD imported by QRD 1.6.1), p. 20, COPY-C67. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[1] |
 | error | [QFDD-DK-1.2-SHARED-C145](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=33) | 1 | QFDD-DK 1.2: @codeSystem must be 2.16.840.1.113883.5.4. Source: qfdd 5.9, p. 33, SHARED-C145. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[1]/observation[1]/code[1] |
@@ -1012,7 +1012,6 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 
 | Severity | Rule / specification | Count | Finding | Example location |
 | --- | --- | ---: | --- | --- |
-| error | (validator diagnostic) | 1 | cvc-complex-type.2.4.a: Invalid content was found starting with element '{"urn:hl7-org:sdtc":statusCode}'. One of '{"urn:hl7-org:v3":effectiveTime}' is expected. | XML:15:31 |
 | error | [QFDD-DK-1.2-C76](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=23) | 1 | QFDD-DK 1.2: @code must be completed. Source: qfdd 5.1, p. 23, C76. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/statusCode[1] |
 | error | [QFDD-DK-1.2-SHARED-C145](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=33) | 1 | QFDD-DK 1.2: @codeSystem must be 2.16.840.1.113883.5.4. Source: qfdd 5.9, p. 33, SHARED-C145. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[1]/observation[1]/code[1] |
 
@@ -1022,7 +1021,6 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 
 | Severity | Rule / specification | Count | Finding | Example location |
 | --- | --- | ---: | --- | --- |
-| error | (validator diagnostic) | 1 | cvc-complex-type.2.4.a: Invalid content was found starting with element '{"urn:hl7-org:sdtc":statusCode}'. One of '{"urn:hl7-org:v3":effectiveTime}' is expected. | XML:15:31 |
 | error | [QFDD-DK-1.2-C76](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=23) | 1 | QFDD-DK 1.2: @code must be completed. Source: qfdd 5.1, p. 23, C76. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/statusCode[1] |
 | error | [QFDD-DK-1.2-COPY-C67](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=20) | 1 | QFDD-DK 1.2: @typeCode must be DRIV. Source: qfdd 4.2 (QFDD imported by QRD 1.6.1), p. 20, COPY-C67. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[1] |
 | error | [QFDD-DK-1.2-SHARED-C145](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=33) | 1 | QFDD-DK 1.2: @codeSystem must be 2.16.840.1.113883.5.4. Source: qfdd 5.9, p. 33, SHARED-C145. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[1]/observation[1]/code[1] |
@@ -1033,7 +1031,6 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 
 | Severity | Rule / specification | Count | Finding | Example location |
 | --- | --- | ---: | --- | --- |
-| error | (validator diagnostic) | 1 | cvc-complex-type.2.4.a: Invalid content was found starting with element '{"urn:hl7-org:sdtc":statusCode}'. One of '{"urn:hl7-org:v3":effectiveTime}' is expected. | XML:15:31 |
 | error | [QFDD-DK-1.2-C59](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=19) | 1 | QFDD-DK 1.2: @typeCode must be DRIV. Source: qfdd 4.1; 4.3, p. 19, C59. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1] |
 | error | [QFDD-DK-1.2-C76](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=23) | 1 | QFDD-DK 1.2: @code must be completed. Source: qfdd 5.1, p. 23, C76. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/statusCode[1] |
 | error | [QFDD-DK-1.2-COPY-C67](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=20) | 1 | QFDD-DK 1.2: @typeCode must be DRIV. Source: qfdd 4.2 (QFDD imported by QRD 1.6.1), p. 20, COPY-C67. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[1] |
@@ -1045,7 +1042,6 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 
 | Severity | Rule / specification | Count | Finding | Example location |
 | --- | --- | ---: | --- | --- |
-| error | (validator diagnostic) | 1 | cvc-complex-type.2.4.a: Invalid content was found starting with element '{"urn:hl7-org:sdtc":statusCode}'. One of '{"urn:hl7-org:v3":effectiveTime}' is expected. | XML:15:31 |
 | error | [QFDD-DK-1.2-C76](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=23) | 1 | QFDD-DK 1.2: @code must be completed. Source: qfdd 5.1, p. 23, C76. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/statusCode[1] |
 | error | [QFDD-DK-1.2-SHARED-C145](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=33) | 1 | QFDD-DK 1.2: @codeSystem must be 2.16.840.1.113883.5.4. Source: qfdd 5.9, p. 33, SHARED-C145. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[1]/observation[1]/code[1] |
 
@@ -1055,7 +1051,6 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 
 | Severity | Rule / specification | Count | Finding | Example location |
 | --- | --- | ---: | --- | --- |
-| error | (validator diagnostic) | 1 | cvc-complex-type.2.4.a: Invalid content was found starting with element '{"urn:hl7-org:sdtc":statusCode}'. One of '{"urn:hl7-org:v3":effectiveTime}' is expected. | XML:15:31 |
 | error | [QFDD-DK-1.2-C76](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=23) | 1 | QFDD-DK 1.2: @code must be completed. Source: qfdd 5.1, p. 23, C76. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/statusCode[1] |
 | error | [QFDD-DK-1.2-SHARED-C145](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=33) | 1 | QFDD-DK 1.2: @codeSystem must be 2.16.840.1.113883.5.4. Source: qfdd 5.9, p. 33, SHARED-C145. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[3]/section[1]/entry[1]/observation[1]/code[1] |
 
@@ -1065,7 +1060,6 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 
 | Severity | Rule / specification | Count | Finding | Example location |
 | --- | --- | ---: | --- | --- |
-| error | (validator diagnostic) | 1 | cvc-complex-type.2.4.a: Invalid content was found starting with element '{"urn:hl7-org:sdtc":statusCode}'. One of '{"urn:hl7-org:v3":effectiveTime}' is expected. | XML:15:31 |
 | error | [QFDD-DK-1.2-C73](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=23) | 2 | QFDD-DK 1.2: id cardinality must be 1..*. Source: qfdd 5.1, p. 23, C73. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[2]/organizer[1] |
 | error | [QFDD-DK-1.2-C76](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=23) | 4 | QFDD-DK 1.2: @code must be completed. Source: qfdd 5.1, p. 23, C76. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/statusCode[1] |
 | error | [QFDD-DK-1.2-SHARED-C145](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=33) | 1 | QFDD-DK 1.2: @codeSystem must be 2.16.840.1.113883.5.4. Source: qfdd 5.9, p. 33, SHARED-C145. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[5]/section[1]/entry[1]/observation[1]/code[1] |
@@ -1076,7 +1070,6 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 
 | Severity | Rule / specification | Count | Finding | Example location |
 | --- | --- | ---: | --- | --- |
-| error | (validator diagnostic) | 1 | cvc-complex-type.2.4.a: Invalid content was found starting with element '{"urn:hl7-org:sdtc":statusCode}'. One of '{"urn:hl7-org:v3":effectiveTime}' is expected. | XML:15:31 |
 | error | [QFDD-DK-1.2-C59](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=19) | 1 | QFDD-DK 1.2: @typeCode must be DRIV. Source: qfdd 4.1; 4.3, p. 19, C59. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1] |
 | error | [QFDD-DK-1.2-C76](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=23) | 1 | QFDD-DK 1.2: @code must be completed. Source: qfdd 5.1, p. 23, C76. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/statusCode[1] |
 | error | [QFDD-DK-1.2-COPY-C67](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=20) | 1 | QFDD-DK 1.2: @typeCode must be DRIV. Source: qfdd 4.2 (QFDD imported by QRD 1.6.1), p. 20, COPY-C67. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[1] |
@@ -1088,7 +1081,6 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 
 | Severity | Rule / specification | Count | Finding | Example location |
 | --- | --- | ---: | --- | --- |
-| error | (validator diagnostic) | 1 | cvc-complex-type.2.4.a: Invalid content was found starting with element '{"urn:hl7-org:sdtc":statusCode}'. One of '{"urn:hl7-org:v3":effectiveTime}' is expected. | XML:15:31 |
 | error | [QFDD-DK-1.2-C59](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=19) | 1 | QFDD-DK 1.2: @typeCode must be DRIV. Source: qfdd 4.1; 4.3, p. 19, C59. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1] |
 | error | [QFDD-DK-1.2-C76](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=23) | 1 | QFDD-DK 1.2: @code must be completed. Source: qfdd 5.1, p. 23, C76. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/statusCode[1] |
 | error | [QFDD-DK-1.2-COPY-C67](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=20) | 1 | QFDD-DK 1.2: @typeCode must be DRIV. Source: qfdd 4.2 (QFDD imported by QRD 1.6.1), p. 20, COPY-C67. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[1] |
@@ -1096,9 +1088,11 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 
 ### qfdd_overekstremitet.xml
 
-| Severity | Rule / specification | Count | Finding | Example location |
-| --- | --- | ---: | --- | --- |
-| error | (validator diagnostic) | 1 | cvc-complex-type.2.4.a: Invalid content was found starting with element '{"urn:hl7-org:sdtc":statusCode}'. One of '{"urn:hl7-org:v3":effectiveTime}' is expected. | XML:15:35 |
+No errors or warnings from the implemented checks.
+
+### qfdd_alle_inputtyper.xml
+
+No errors or warnings from the implemented checks.
 
 ## QRD-DK 1.3.2
 
@@ -1122,6 +1116,7 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 | [qrd_m_3.9_a.xml](../samples/qrd/qrd_m_3.9_a.xml) | FAILURE | 35 | 1 | 19 |
 | [qrd_m_3.9_b.xml](../samples/qrd/qrd_m_3.9_b.xml) | FAILURE | 37 | 1 | 19 |
 | [qrd_overekstremitet.xml](../samples/qrd/qrd_overekstremitet.xml) | SUCCESS | 0 | 0 | 0 |
+| [qrd_alle_inputtyper.xml](../samples/qrd/qrd_alle_inputtyper.xml) | SUCCESS | 0 | 0 | 0 |
 
 ### qrd_numeric.xml
 
@@ -1434,5 +1429,9 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 | warning | PRO-PAIR-QFDD-UNRESOLVED | 1 | The QRD could not be validated against its QFDD: QFDD 29df8640-de5a-49c2-a118-3673b402221a is not found (The embedded QFDD set has no document 29df8640-de5a-49c2-a118-3673b402221a). |  |
 
 ### qrd_overekstremitet.xml
+
+No errors or warnings from the implemented checks.
+
+### qrd_alle_inputtyper.xml
 
 No errors or warnings from the implemented checks.

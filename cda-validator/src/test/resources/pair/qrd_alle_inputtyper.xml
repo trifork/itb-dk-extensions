@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Demo QRD: a complete response to the demo QFDD c3b6f1d2-7a4e-4f58-9b0a-5d2e8c1a7f46. Invented answers and the MedCom example patient. -->
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" classCode="DOCCLIN" moodCode="EVN">
+  <realmCode code="DK"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <templateId root="1.2.208.184.13.1"/>
+  <templateId root="1.2.208.184.13.1.1.1"/>
+  <id root="1.2.208.184" extension="a8d41e7c-2b69-4c3f-8e15-0f9b7d36c2a1" assigningAuthorityName="MedCom"/>
+  <code code="74465-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Questionnaire Response Document"/>
+  <title>Besvarelse: Demo: alle inputtyper</title>
+  <effectiveTime value="20261112092100+0100"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+  <languageCode code="da-DK"/>
+  <versionNumber value="1"/>
+  <recordTarget typeCode="RCT" contextControlCode="OP">
+    <patientRole classCode="PAT">
+      <id root="1.2.208.176.1.2" extension="2512489996" assigningAuthorityName="CPR"/>
+      <addr use="H">
+        <streetAddressLine>Skovvejen 12</streetAddressLine>
+        <postalCode>5700</postalCode>
+        <city>Svendborg</city>
+        <country>Danmark</country>
+      </addr>
+      <telecom use="H" value="tel:65123456"/>
+      <telecom use="WP" value="mailto:nab@udkantsdanmark.dk"/>
+      <patient classCode="PSN" determinerCode="INSTANCE">
+        <name>
+          <given>Nancy</given>
+          <given>Ann</given>
+          <family>Berggren</family>
+        </name>
+        <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.5.1" codeSystemName="HL7"/>
+        <birthTime value="19481225000000+0000"/>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  <author typeCode="AUT" contextControlCode="OP">
+    <time value="20261112092100+0100"/>
+    <assignedAuthor classCode="ASSIGNED">
+      <id root="1.2.208.176.1.2" extension="2512489996" assigningAuthorityName="CPR"/>
+      <code code="SELF" codeSystem="2.16.840.1.113883.5.111" codeSystemName="HL7 Role code" displayName="self"/>
+      <addr use="H">
+        <streetAddressLine>Skovvejen 12</streetAddressLine>
+        <postalCode>5700</postalCode>
+        <city>Svendborg</city>
+        <country>Danmark</country>
+      </addr>
+      <telecom use="H" value="tel:65123456"/>
+      <telecom use="WP" value="mailto:nab@udkantsdanmark.dk"/>
+      <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+        <name>
+          <given>Nancy</given>
+          <given>Ann</given>
+          <family>Berggren</family>
+        </name>
+      </assignedPerson>
+      <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+        <id root="1.2.208.176.1.1" extension="310541000016007" assigningAuthorityName="SOR"/>
+        <name>Odense Universitetshospital - Svendborg Sygehus</name>
+        <telecom use="WP" value="tel:65112233"/>
+        <addr use="WP">
+          <streetAddressLine>Neurologisk afdeling C</streetAddressLine>
+          <streetAddressLine>Valdemarsgade 53</streetAddressLine>
+          <postalCode>5700</postalCode>
+          <city>Svendborg</city>
+          <country>Danmark</country>
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <custodian typeCode="CST">
+    <assignedCustodian classCode="ASSIGNED">
+      <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+        <id root="1.2.208.176.1.1" extension="310541000016007" assigningAuthorityName="SOR"/>
+        <name>Odense Universitetshospital - Svendborg Sygehus</name>
+        <telecom use="WP" value="tel:65112233"/>
+        <addr use="WP">
+          <streetAddressLine>Neurologisk afdeling C</streetAddressLine>
+          <streetAddressLine>Valdemarsgade 53</streetAddressLine>
+          <postalCode>5700</postalCode>
+          <city>Svendborg</city>
+          <country>Danmark</country>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <documentationOf>
+    <serviceEvent>
+      <templateId root="1.2.208.184.10.1.10"/>
+      <id root="1.2.208.184.100.10" extension="qrd-v1.3" assigningAuthorityName="MedCom"/>
+    </serviceEvent>
+  </documentationOf>
+  <documentationOf typeCode="DOC">
+    <serviceEvent classCode="MPROT" moodCode="EVN">
+      <effectiveTime>
+        <low value="20261112090500+0100"/>
+        <high value="20261112092100+0100"/>
+      </effectiveTime>
+    </serviceEvent>
+  </documentationOf>
+  <component typeCode="COMP" contextConductionInd="true">
+    <structuredBody classCode="DOCBODY" moodCode="EVN">
+      <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+          <title>Indledning</title>
+          <text>
+            <paragraph>Dette er et demonstrationsskema, der bruger alle spørgsmålstyper: flervalg, skydere, tal, dato og fritekst. Besvarelserne er opdigtede testdata.</paragraph>
+          </text>
+          <languageCode code="da-DK"/>
+        </section>
+      </component>
+      <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.33.2.1"/>
+          <code code="74465-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+          <title>Almindeligt befindende</title>
+          <text>
+            <table>
+              <colgroup>
+                <col width="70%"/>
+                <col width="30%"/>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th align="left" colspan="2">Hvordan har du det i dag?</th>
+                </tr>
+                <tr>
+                  <td>Rigtig godt</td>
+                  <td styleCode="Italics">
+                    <!-- Q01_1 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Godt</td>
+                  <td styleCode="Italics">
+                    <!-- Q01_2 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Nogenlunde</td>
+                  <td styleCode="Italics">X<!-- Q01_3 --></td>
+                </tr>
+                <tr>
+                  <td>Dårligt</td>
+                  <td styleCode="Italics">
+                    <!-- Q01_4 -->
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Hvilke aktiviteter er svære for dig? (vælg 1 til 3)</th>
+                </tr>
+                <tr>
+                  <td>Gå på trapper</td>
+                  <td styleCode="Italics">X<!-- Q02_1 --></td>
+                </tr>
+                <tr>
+                  <td>Åbne låg og dåser</td>
+                  <td styleCode="Italics">
+                    <!-- Q02_2 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Bære indkøbsposer</td>
+                  <td styleCode="Italics">X<!-- Q02_3 --></td>
+                </tr>
+                <tr>
+                  <td>Klæde mig på</td>
+                  <td styleCode="Italics">
+                    <!-- Q02_4 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Sove uforstyrret</td>
+                  <td styleCode="Italics">
+                    <!-- Q02_5 -->
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Hvem har udfyldt skemaet?</th>
+                </tr>
+                <tr>
+                  <td>Jeg selv</td>
+                  <td styleCode="Italics">
+                    <!-- Q03_1 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jeg har fået hjælp</td>
+                  <td styleCode="Italics">
+                    <!-- Q03_2 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>En anden for mig</td>
+                  <td styleCode="Italics">X<!-- Q03_3 --></td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">      Skriv hvem der har udfyldt skemaet:</th>
+                </tr>
+                <tr>
+                  <td colspan="2" align="right" styleCode="Italics">      Min datter Anne<!-- Q03T --></td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <languageCode code="da-DK"/>
+          <entry typeCode="DRIV" contextConductionInd="true">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+              <id root="1.2.208.184.12.2" extension="G1" assigningAuthorityName="MedCom"/>
+              <code code="G1" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+              <statusCode code="completed"/>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="1"/>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.33.4.5"/>
+                  <id root="1.2.208.184.12.2" extension="Q01" assigningAuthorityName="MedCom"/>
+                  <code code="Q01" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvordan har du det i dag?</originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <value code="Q01_3" displayName="Nogenlunde" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <entryRelationship typeCode="SUBJ" contextConductionInd="true">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                      <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="1"/>
+                        <high value="1"/>
+                      </value>
+                    </observation>
+                  </entryRelationship>
+                  <reference typeCode="REFR">
+                    <templateId root="1.2.208.184.6.1"/>
+                    <externalDocument classCode="DOC">
+                      <id root="2.16.840.1.113883.4.873" extension="c3b6f1d2-7a4e-4f58-9b0a-5d2e8c1a7f46"/>
+                      <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" displayName="Questionnaire Form Definition Document"/>
+                    </externalDocument>
+                  </reference>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="2"/>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.33.4.5"/>
+                  <id root="1.2.208.184.12.2" extension="Q02" assigningAuthorityName="MedCom"/>
+                  <code code="Q02" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvilke aktiviteter er svære for dig? (vælg 1 til 3)</originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <value code="Q02_1" displayName="Gå på trapper" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <value code="Q02_3" displayName="Bære indkøbsposer" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <entryRelationship typeCode="SUBJ" contextConductionInd="true">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                      <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="1"/>
+                        <high value="3"/>
+                      </value>
+                    </observation>
+                  </entryRelationship>
+                  <reference typeCode="REFR">
+                    <templateId root="1.2.208.184.6.1"/>
+                    <externalDocument classCode="DOC">
+                      <id root="2.16.840.1.113883.4.873" extension="c3b6f1d2-7a4e-4f58-9b0a-5d2e8c1a7f46"/>
+                      <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" displayName="Questionnaire Form Definition Document"/>
+                    </externalDocument>
+                  </reference>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="3"/>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.33.4.5"/>
+                  <id root="1.2.208.184.12.2" extension="Q03" assigningAuthorityName="MedCom"/>
+                  <code code="Q03" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvem har udfyldt skemaet?</originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <value code="Q03_3" displayName="En anden for mig" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <entryRelationship typeCode="SUBJ" contextConductionInd="true">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                      <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="0"/>
+                        <high value="1"/>
+                      </value>
+                    </observation>
+                  </entryRelationship>
+                  <entryRelationship typeCode="REFR" contextConductionInd="true">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.33.4.6"/>
+                      <id root="1.2.208.184.12.2" extension="Q03T" assigningAuthorityName="MedCom"/>
+                      <code code="Q03T" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                        <originalText>Skriv hvem der har udfyldt skemaet:</originalText>
+                      </code>
+                      <statusCode code="completed"/>
+                      <value xsi:type="ST">Min datter Anne</value>
+                      <reference typeCode="REFR">
+                        <templateId root="1.2.208.184.6.1"/>
+                        <externalDocument classCode="DOC">
+                          <id root="2.16.840.1.113883.4.873" extension="c3b6f1d2-7a4e-4f58-9b0a-5d2e8c1a7f46"/>
+                          <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" displayName="Questionnaire Form Definition Document"/>
+                        </externalDocument>
+                      </reference>
+                    </observation>
+                  </entryRelationship>
+                  <reference typeCode="REFR">
+                    <templateId root="1.2.208.184.6.1"/>
+                    <externalDocument classCode="DOC">
+                      <id root="2.16.840.1.113883.4.873" extension="c3b6f1d2-7a4e-4f58-9b0a-5d2e8c1a7f46"/>
+                      <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" displayName="Questionnaire Form Definition Document"/>
+                    </externalDocument>
+                  </reference>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.33.2.1"/>
+          <code code="74465-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+          <title>Smerte og målinger</title>
+          <text>
+            <table>
+              <colgroup>
+                <col width="70%"/>
+                <col width="30%"/>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th align="left" colspan="2">Hvor ondt har du lige nu? (0 = ingen smerte, 10 = værst tænkelige smerte)</th>
+                </tr>
+                <tr>
+                  <td colspan="2" align="right" styleCode="Italics">7<!-- Q04 --></td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Hvordan har du sovet den seneste uge?</th>
+                </tr>
+                <tr>
+                  <td>Meget dårligt</td>
+                  <td styleCode="Italics">
+                    <!-- Q05_0 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dårligt</td>
+                  <td styleCode="Italics">
+                    <!-- Q05_1 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Nogenlunde</td>
+                  <td styleCode="Italics">X<!-- Q05_2 --></td>
+                </tr>
+                <tr>
+                  <td>Godt</td>
+                  <td styleCode="Italics">
+                    <!-- Q05_3 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Meget godt</td>
+                  <td styleCode="Italics">
+                    <!-- Q05_4 -->
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Hvor mange dage den seneste uge har du haft smerter? (0-7)</th>
+                </tr>
+                <tr>
+                  <td colspan="2" align="right" styleCode="Italics">5<!-- Q06 --></td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Hvad er din legemstemperatur i grader Celsius?</th>
+                </tr>
+                <tr>
+                  <td colspan="2" align="right" styleCode="Italics">37.4<!-- Q07 --></td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Hvornår begyndte dine symptomer?</th>
+                </tr>
+                <tr>
+                  <td colspan="2" align="right" styleCode="Italics">20261101000000+0100<!-- Q08 --></td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Beskriv dine symptomer med dine egne ord.</th>
+                </tr>
+                <tr>
+                  <td colspan="2" align="right" styleCode="Italics">Jeg har ondt i højre skulder, især når jeg løfter armen over hovedhøjde.<!-- Q09 --></td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Hvilken smertestillende medicin tager du? (stilles kun, hvis smerten er 5 eller mere)</th>
+                </tr>
+                <tr>
+                  <td colspan="2" align="right" styleCode="Italics">Panodil og ibuprofen efter behov<!-- Q10 --></td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <languageCode code="da-DK"/>
+          <entry typeCode="DRIV" contextConductionInd="true">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.33.4.1"/>
+              <id root="1.2.208.184.12.2" extension="G2" assigningAuthorityName="MedCom"/>
+              <code code="G2" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+              <statusCode code="completed"/>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="1"/>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.33.4.4"/>
+                  <templateId root="2.16.840.1.113883.10.20.33.4.7"/>
+                  <id root="1.2.208.184.12.2" extension="Q04" assigningAuthorityName="MedCom"/>
+                  <code code="Q04" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvor ondt har du lige nu? (0 = ingen smerte, 10 = værst tænkelige smerte)</originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <value xsi:type="INT" value="7"/>
+                  <reference typeCode="REFR">
+                    <templateId root="1.2.208.184.6.1"/>
+                    <externalDocument classCode="DOC">
+                      <id root="2.16.840.1.113883.4.873" extension="c3b6f1d2-7a4e-4f58-9b0a-5d2e8c1a7f46"/>
+                      <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" displayName="Questionnaire Form Definition Document"/>
+                    </externalDocument>
+                  </reference>
+                  <referenceRange typeCode="REFV">
+                    <observationRange classCode="OBS" moodCode="EVN.CRT">
+                      <value denominator="10" xsi:type="GLIST_PQ">
+                        <head value="0"/>
+                        <increment value="1"/>
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="2"/>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.33.4.5"/>
+                  <templateId root="2.16.840.1.113883.10.20.33.4.8"/>
+                  <id root="1.2.208.184.12.2" extension="Q05" assigningAuthorityName="MedCom"/>
+                  <code code="Q05" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvordan har du sovet den seneste uge?</originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <value code="Q05_2" displayName="Nogenlunde" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <entryRelationship typeCode="SUBJ" contextConductionInd="true">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                      <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="0"/>
+                        <high value="1"/>
+                      </value>
+                    </observation>
+                  </entryRelationship>
+                  <reference typeCode="REFR">
+                    <templateId root="1.2.208.184.6.1"/>
+                    <externalDocument classCode="DOC">
+                      <id root="2.16.840.1.113883.4.873" extension="c3b6f1d2-7a4e-4f58-9b0a-5d2e8c1a7f46"/>
+                      <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" displayName="Questionnaire Form Definition Document"/>
+                    </externalDocument>
+                  </reference>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="3"/>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.33.4.4"/>
+                  <id root="1.2.208.184.12.2" extension="Q06" assigningAuthorityName="MedCom"/>
+                  <code code="Q06" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvor mange dage den seneste uge har du haft smerter? (0-7)</originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <value xsi:type="INT" value="5"/>
+                  <reference typeCode="REFR">
+                    <templateId root="1.2.208.184.6.1"/>
+                    <externalDocument classCode="DOC">
+                      <id root="2.16.840.1.113883.4.873" extension="c3b6f1d2-7a4e-4f58-9b0a-5d2e8c1a7f46"/>
+                      <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" displayName="Questionnaire Form Definition Document"/>
+                    </externalDocument>
+                  </reference>
+                  <referenceRange typeCode="REFV">
+                    <templateId root="2.16.840.1.113883.10.20.33.4.3"/>
+                    <observationRange classCode="OBS" moodCode="EVN.CRT">
+                      <value xsi:type="IVL_INT">
+                        <low value="0"/>
+                        <high value="7"/>
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="4"/>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.33.4.4"/>
+                  <id root="1.2.208.184.12.2" extension="Q07" assigningAuthorityName="MedCom"/>
+                  <code code="Q07" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvad er din legemstemperatur i grader Celsius?</originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <value xsi:type="REAL" value="37.4"/>
+                  <reference typeCode="REFR">
+                    <templateId root="1.2.208.184.6.1"/>
+                    <externalDocument classCode="DOC">
+                      <id root="2.16.840.1.113883.4.873" extension="c3b6f1d2-7a4e-4f58-9b0a-5d2e8c1a7f46"/>
+                      <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" displayName="Questionnaire Form Definition Document"/>
+                    </externalDocument>
+                  </reference>
+                  <referenceRange typeCode="REFV">
+                    <templateId root="2.16.840.1.113883.10.20.33.4.3"/>
+                    <observationRange classCode="OBS" moodCode="EVN.CRT">
+                      <value xsi:type="IVL_REAL">
+                        <low value="30.0"/>
+                        <high value="45.0"/>
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="5"/>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.33.4.4"/>
+                  <id root="1.2.208.184.12.2" extension="Q08" assigningAuthorityName="MedCom"/>
+                  <code code="Q08" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvornår begyndte dine symptomer?</originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <value xsi:type="TS" value="20261101000000+0100"/>
+                  <reference typeCode="REFR">
+                    <templateId root="1.2.208.184.6.1"/>
+                    <externalDocument classCode="DOC">
+                      <id root="2.16.840.1.113883.4.873" extension="c3b6f1d2-7a4e-4f58-9b0a-5d2e8c1a7f46"/>
+                      <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" displayName="Questionnaire Form Definition Document"/>
+                    </externalDocument>
+                  </reference>
+                  <referenceRange typeCode="REFV">
+                    <templateId root="2.16.840.1.113883.10.20.33.4.3"/>
+                    <observationRange classCode="OBS" moodCode="EVN.CRT">
+                      <value xsi:type="IVL_TS">
+                        <low value="20200101000000+0100"/>
+                        <high value="21000101000000+0100"/>
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="6"/>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.33.4.6"/>
+                  <id root="1.2.208.184.12.2" extension="Q09" assigningAuthorityName="MedCom"/>
+                  <code code="Q09" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Beskriv dine symptomer med dine egne ord.</originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <value xsi:type="ST">Jeg har ondt i højre skulder, især når jeg løfter armen over hovedhøjde.</value>
+                  <reference typeCode="REFR">
+                    <templateId root="1.2.208.184.6.1"/>
+                    <externalDocument classCode="DOC">
+                      <id root="2.16.840.1.113883.4.873" extension="c3b6f1d2-7a4e-4f58-9b0a-5d2e8c1a7f46"/>
+                      <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" displayName="Questionnaire Form Definition Document"/>
+                    </externalDocument>
+                  </reference>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="7"/>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.33.4.6"/>
+                  <id root="1.2.208.184.12.2" extension="Q10" assigningAuthorityName="MedCom"/>
+                  <code code="Q10" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvilken smertestillende medicin tager du? (stilles kun, hvis smerten er 5 eller mere)</originalText>
+                  </code>
+                  <statusCode code="completed"/>
+                  <value xsi:type="ST">Panodil og ibuprofen efter behov</value>
+                  <reference typeCode="REFR">
+                    <templateId root="1.2.208.184.6.1"/>
+                    <externalDocument classCode="DOC">
+                      <id root="2.16.840.1.113883.4.873" extension="c3b6f1d2-7a4e-4f58-9b0a-5d2e8c1a7f46"/>
+                      <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" displayName="Questionnaire Form Definition Document"/>
+                    </externalDocument>
+                  </reference>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+          <title>Afslutning</title>
+          <text>
+            <paragraph>Mange tak for din deltagelse.</paragraph>
+          </text>
+          <languageCode code="da-DK"/>
+        </section>
+      </component>
+      <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.32.2.2"/>
+          <title>Copyright</title>
+          <text>
+            <paragraph>Demonstrationsdata uden ophavsretlige begrænsninger.</paragraph>
+          </text>
+          <languageCode code="da-DK"/>
+          <entry typeCode="DRIV" contextConductionInd="true">
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.32.4.21"/>
+              <code code="COPY" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" displayName="Code for Copyright"/>
+              <value xsi:type="ST">Demonstrationsdata uden ophavsretlige begrænsninger.</value>
+            </observation>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

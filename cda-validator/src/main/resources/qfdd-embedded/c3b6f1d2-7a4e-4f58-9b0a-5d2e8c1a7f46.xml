@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Demo QFDD that uses every input type: multiple choice (single and several, two mandatory), analog and discrete slider, integer, decimal and date, free text, a nested follow-up question and a conditional question. Test data. -->
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" classCode="DOCCLIN" moodCode="EVN">
+  <realmCode code="DK"/>
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+  <templateId root="1.2.208.184.12.1"/>
+  <templateId root="1.2.208.184.12.1.1.1"/>
+  <id root="1.2.208.184" extension="c3b6f1d2-7a4e-4f58-9b0a-5d2e8c1a7f46" assigningAuthorityName="MedCom"/>
+  <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Questionnaire Form Definition Document"/>
+  <title>Demo: alle inputtyper</title>
+  <sdtc:statusCode code="NEW"/>
+  <effectiveTime value="20261112090000+0100"/>
+  <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+  <languageCode code="da-DK"/>
+  <versionNumber value="1"/>
+  <recordTarget>
+    <patientRole nullFlavor="NI">
+      <id nullFlavor="NI"/>
+    </patientRole>
+  </recordTarget>
+  <author contextControlCode="OP" typeCode="AUT">
+    <time value="20261112090000+0100"/>
+    <assignedAuthor classCode="ASSIGNED">
+      <id assigningAuthorityName="SOR" extension="310541000016007" root="1.2.208.176.1.1"/>
+      <addr use="WP">
+        <streetAddressLine>Neurologisk afdeling C</streetAddressLine>
+        <streetAddressLine>Valdemarsgade 53</streetAddressLine>
+        <postalCode>5700</postalCode>
+        <city>Svendborg</city>
+        <country>Danmark</country>
+      </addr>
+      <telecom use="WP" value="tel:65112233"/>
+      <assignedPerson classCode="PSN" determinerCode="INSTANCE">
+        <name>
+          <prefix>Læge</prefix>
+          <given>Anders</given>
+          <family>Andersen</family>
+        </name>
+      </assignedPerson>
+      <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+        <name>Odense Universitetshospital - Svendborg Sygehus</name>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <custodian typeCode="CST">
+    <assignedCustodian classCode="ASSIGNED">
+      <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+        <id root="1.2.208.176.1.1" extension="310541000016007" assigningAuthorityName="SOR"/>
+        <name>Odense Universitetshospital - Svendborg Sygehus</name>
+        <telecom use="WP" value="tel:65112233"/>
+        <addr use="WP">
+          <streetAddressLine>Neurologisk afdeling C</streetAddressLine>
+          <streetAddressLine>Valdemarsgade 53</streetAddressLine>
+          <postalCode>5700</postalCode>
+          <city>Svendborg</city>
+          <country>Danmark</country>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <component typeCode="COMP" contextConductionInd="true">
+    <structuredBody classCode="DOCBODY" moodCode="EVN">
+      <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+          <title>Indledning</title>
+          <text>
+            <paragraph>Dette er et demonstrationsskema, der bruger alle spørgsmålstyper: flervalg, skydere, tal, dato og fritekst. Besvarelserne er opdigtede testdata.</paragraph>
+          </text>
+          <languageCode code="da-DK"/>
+        </section>
+      </component>
+      <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+          <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+          <title>Almindeligt befindende</title>
+          <text>
+            <table>
+              <colgroup>
+                <col width="70%"/>
+                <col width="30%"/>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th align="left" colspan="2">Hvordan har du det i dag?</th>
+                </tr>
+                <tr>
+                  <td>Rigtig godt</td>
+                  <td>
+                    <!-- Q01_1 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Godt</td>
+                  <td>
+                    <!-- Q01_2 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Nogenlunde</td>
+                  <td>
+                    <!-- Q01_3 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dårligt</td>
+                  <td>
+                    <!-- Q01_4 -->
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Hvilke aktiviteter er svære for dig? (vælg 1 til 3)</th>
+                </tr>
+                <tr>
+                  <td>Gå på trapper</td>
+                  <td>
+                    <!-- Q02_1 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Åbne låg og dåser</td>
+                  <td>
+                    <!-- Q02_2 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Bære indkøbsposer</td>
+                  <td>
+                    <!-- Q02_3 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Klæde mig på</td>
+                  <td>
+                    <!-- Q02_4 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Sove uforstyrret</td>
+                  <td>
+                    <!-- Q02_5 -->
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Hvem har udfyldt skemaet?</th>
+                </tr>
+                <tr>
+                  <td>Jeg selv</td>
+                  <td>
+                    <!-- Q03_1 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Jeg har fået hjælp</td>
+                  <td>
+                    <!-- Q03_2 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>En anden for mig</td>
+                  <td>
+                    <!-- Q03_3 -->
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">      Skriv hvem der har udfyldt skemaet:</th>
+                </tr>
+                <tr>
+                  <td colspan="2">      <!-- Q03T --></td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <languageCode code="da-DK"/>
+          <entry typeCode="DRIV" contextConductionInd="true">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+              <id root="1.2.208.184.12.2" extension="G1" assigningAuthorityName="MedCom"/>
+              <code code="G1" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+              <statusCode code="completed"/>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="1"/>
+                <observation classCode="OBS" moodCode="DEF">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                  <id root="1.2.208.184.12.2" extension="Q01" assigningAuthorityName="MedCom"/>
+                  <code code="Q01" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvordan har du det i dag?</originalText>
+                  </code>
+                  <value code="Q01_1" displayName="Rigtig godt" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <value code="Q01_2" displayName="Godt" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <value code="Q01_3" displayName="Nogenlunde" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <value code="Q01_4" displayName="Dårligt" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <entryRelationship typeCode="SUBJ" contextConductionInd="true">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                      <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="1"/>
+                        <high value="1"/>
+                      </value>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="2"/>
+                <observation classCode="OBS" moodCode="DEF">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                  <id root="1.2.208.184.12.2" extension="Q02" assigningAuthorityName="MedCom"/>
+                  <code code="Q02" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvilke aktiviteter er svære for dig? (vælg 1 til 3)</originalText>
+                  </code>
+                  <value code="Q02_1" displayName="Gå på trapper" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <value code="Q02_2" displayName="Åbne låg og dåser" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <value code="Q02_3" displayName="Bære indkøbsposer" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <value code="Q02_4" displayName="Klæde mig på" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <value code="Q02_5" displayName="Sove uforstyrret" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <entryRelationship typeCode="SUBJ" contextConductionInd="true">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                      <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="1"/>
+                        <high value="3"/>
+                      </value>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="3"/>
+                <observation classCode="OBS" moodCode="DEF">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                  <id root="1.2.208.184.12.2" extension="Q03" assigningAuthorityName="MedCom"/>
+                  <code code="Q03" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvem har udfyldt skemaet?</originalText>
+                  </code>
+                  <value code="Q03_1" displayName="Jeg selv" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <value code="Q03_2" displayName="Jeg har fået hjælp" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <value code="Q03_3" displayName="En anden for mig" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <entryRelationship typeCode="SUBJ" contextConductionInd="true">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                      <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="0"/>
+                        <high value="1"/>
+                      </value>
+                    </observation>
+                  </entryRelationship>
+                  <entryRelationship typeCode="REFR" contextConductionInd="true">
+                    <observation classCode="OBS" moodCode="DEF">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+                      <id root="1.2.208.184.12.2" extension="Q03T" assigningAuthorityName="MedCom"/>
+                      <code code="Q03T" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                        <originalText>Skriv hvem der har udfyldt skemaet:</originalText>
+                      </code>
+                      <precondition typeCode="PRCN">
+                        <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
+                        <criterion classCode="OBS" moodCode="EVN.CRT">
+                          <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                          <code code="Q03" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+                          <value code="Q03_3" codeSystem="1.2.208.184.12.2" xsi:type="CE"/>
+                        </criterion>
+                      </precondition>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+          <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+          <title>Smerte og målinger</title>
+          <text>
+            <table>
+              <colgroup>
+                <col width="70%"/>
+                <col width="30%"/>
+              </colgroup>
+              <tbody>
+                <tr>
+                  <th align="left" colspan="2">Hvor ondt har du lige nu? (0 = ingen smerte, 10 = værst tænkelige smerte)</th>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <!-- Q04 -->
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Hvordan har du sovet den seneste uge?</th>
+                </tr>
+                <tr>
+                  <td>Meget dårligt</td>
+                  <td>
+                    <!-- Q05_0 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Dårligt</td>
+                  <td>
+                    <!-- Q05_1 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Nogenlunde</td>
+                  <td>
+                    <!-- Q05_2 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Godt</td>
+                  <td>
+                    <!-- Q05_3 -->
+                  </td>
+                </tr>
+                <tr>
+                  <td>Meget godt</td>
+                  <td>
+                    <!-- Q05_4 -->
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Hvor mange dage den seneste uge har du haft smerter? (0-7)</th>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <!-- Q06 -->
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Hvad er din legemstemperatur i grader Celsius?</th>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <!-- Q07 -->
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Hvornår begyndte dine symptomer?</th>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <!-- Q08 -->
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Beskriv dine symptomer med dine egne ord.</th>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <!-- Q09 -->
+                  </td>
+                </tr>
+                <tr>
+                  <th align="left" colspan="2">Hvilken smertestillende medicin tager du? (stilles kun, hvis smerten er 5 eller mere)</th>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <!-- Q10 -->
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <languageCode code="da-DK"/>
+          <entry typeCode="DRIV" contextConductionInd="true">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+              <id root="1.2.208.184.12.2" extension="G2" assigningAuthorityName="MedCom"/>
+              <code code="G2" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+              <statusCode code="completed"/>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="1"/>
+                <observation classCode="OBS" moodCode="DEF">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+                  <templateId root="2.16.840.1.113883.10.20.32.4.10"/>
+                  <id root="1.2.208.184.12.2" extension="Q04" assigningAuthorityName="MedCom"/>
+                  <code code="Q04" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvor ondt har du lige nu? (0 = ingen smerte, 10 = værst tænkelige smerte)</originalText>
+                  </code>
+                  <entryRelationship typeCode="SUBJ">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+                      <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                      <value xsi:type="ST">Sæt et kryds på skalaen, der viser din smerte lige nu.</value>
+                    </observation>
+                  </entryRelationship>
+                  <referenceRange typeCode="REFV">
+                    <observationRange classCode="OBS" moodCode="EVN.CRT">
+                      <value denominator="10" xsi:type="GLIST_PQ">
+                        <head value="0"/>
+                        <increment value="1"/>
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="2"/>
+                <observation classCode="OBS" moodCode="DEF">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                  <templateId root="2.16.840.1.113883.10.20.32.4.11"/>
+                  <id root="1.2.208.184.12.2" extension="Q05" assigningAuthorityName="MedCom"/>
+                  <code code="Q05" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvordan har du sovet den seneste uge?</originalText>
+                  </code>
+                  <value code="Q05_0" displayName="Meget dårligt" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <value code="Q05_1" displayName="Dårligt" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <value code="Q05_2" displayName="Nogenlunde" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <value code="Q05_3" displayName="Godt" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <value code="Q05_4" displayName="Meget godt" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom" xsi:type="CE"/>
+                  <entryRelationship typeCode="SUBJ" contextConductionInd="true">
+                    <observation classCode="OBS" moodCode="EVN">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                      <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="0"/>
+                        <high value="1"/>
+                      </value>
+                    </observation>
+                  </entryRelationship>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="3"/>
+                <observation classCode="OBS" moodCode="DEF">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+                  <id root="1.2.208.184.12.2" extension="Q06" assigningAuthorityName="MedCom"/>
+                  <code code="Q06" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvor mange dage den seneste uge har du haft smerter? (0-7)</originalText>
+                  </code>
+                  <referenceRange typeCode="REFV">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.5"/>
+                    <observationRange classCode="OBS" moodCode="EVN.CRT">
+                      <value xsi:type="IVL_INT">
+                        <low value="0"/>
+                        <high value="7"/>
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="4"/>
+                <observation classCode="OBS" moodCode="DEF">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+                  <id root="1.2.208.184.12.2" extension="Q07" assigningAuthorityName="MedCom"/>
+                  <code code="Q07" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvad er din legemstemperatur i grader Celsius?</originalText>
+                  </code>
+                  <referenceRange typeCode="REFV">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.5"/>
+                    <observationRange classCode="OBS" moodCode="EVN.CRT">
+                      <value xsi:type="IVL_REAL">
+                        <low value="30.0"/>
+                        <high value="45.0"/>
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="5"/>
+                <observation classCode="OBS" moodCode="DEF">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+                  <id root="1.2.208.184.12.2" extension="Q08" assigningAuthorityName="MedCom"/>
+                  <code code="Q08" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvornår begyndte dine symptomer?</originalText>
+                  </code>
+                  <referenceRange typeCode="REFV">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.5"/>
+                    <observationRange classCode="OBS" moodCode="EVN.CRT">
+                      <value xsi:type="IVL_TS">
+                        <low value="20200101000000+0100"/>
+                        <high value="21000101000000+0100"/>
+                      </value>
+                    </observationRange>
+                  </referenceRange>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="6"/>
+                <observation classCode="OBS" moodCode="DEF">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+                  <id root="1.2.208.184.12.2" extension="Q09" assigningAuthorityName="MedCom"/>
+                  <code code="Q09" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Beskriv dine symptomer med dine egne ord.</originalText>
+                  </code>
+                </observation>
+              </component>
+              <component typeCode="COMP" contextConductionInd="true">
+                <sequenceNumber value="7"/>
+                <observation classCode="OBS" moodCode="DEF">
+                  <templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+                  <id root="1.2.208.184.12.2" extension="Q10" assigningAuthorityName="MedCom"/>
+                  <code code="Q10" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom">
+                    <originalText>Hvilken smertestillende medicin tager du? (stilles kun, hvis smerten er 5 eller mere)</originalText>
+                  </code>
+                  <precondition typeCode="PRCN">
+                    <templateId root="2.16.840.1.113883.10.20.32.4.4"/>
+                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                      <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+                      <code code="Q04" codeSystem="1.2.208.184.12.2" codeSystemName="MedCom"/>
+                      <value xsi:type="IVL_INT">
+                        <low value="5"/>
+                        <high value="10"/>
+                      </value>
+                    </criterion>
+                  </precondition>
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+          <title>Afslutning</title>
+          <text>
+            <paragraph>Mange tak for din deltagelse.</paragraph>
+          </text>
+          <languageCode code="da-DK"/>
+        </section>
+      </component>
+      <component typeCode="COMP" contextConductionInd="true">
+        <section classCode="DOCSECT" moodCode="EVN">
+          <templateId root="2.16.840.1.113883.10.20.32.2.2"/>
+          <title>Copyright</title>
+          <text>
+            <paragraph>Demonstrationsdata uden ophavsretlige begrænsninger.</paragraph>
+          </text>
+          <languageCode code="da-DK"/>
+          <entry typeCode="DRIV" contextConductionInd="true">
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.32.4.21"/>
+              <code code="COPY" codeSystem="2.16.840.1.113883.5.4" codeSystemName="ActCode" displayName="Code for Copyright"/>
+              <value xsi:type="ST">Demonstrationsdata uden ophavsretlige begrænsninger.</value>
+            </observation>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

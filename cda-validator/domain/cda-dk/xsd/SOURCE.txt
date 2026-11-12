@@ -1,0 +1,12 @@
+# Shared CDA schema used by every release except QFDD.
+# The files below are byte-identical to MedCom's published QRD and Generic schemas (checked 2026-11-12):
+#   https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Schema/   and   https://svn.medcom.dk/svn/releases/Standarder/HL7/Generic/Schema/
+# Format: sha256  file  (checked by tests/check-rulesets.py)
+dac807dd65cd344e04a39086131042e67b43b54ab3e326d68d561c01e839046d  CDA_SDTC.xsd
+7108262608f1fc2e154830140de599e3ca7c324f67156ad19069149e35d1f4a3  NarrativeBlock.xsd
+16c70510d8591ae9d3456dbc381ee31c408af551f3bc870824cd86ed58ff9448  POCD_MT000040_SDTC.xsd
+b45a55c3067f52a7dcfb678ca5ac94d67741434f9ed66d46f7124f147c4b8f8e  SDTC.xsd
+a4fc5172b614d8e58f19c0a22bcbba3c5e7994abf3746eaf809c9d4c9a38f694  datatypes-base_SDTC.xsd
+947c209ca34824a5c79c03fbaeab312ba7c961d9435498880f449f627de8c7b3  datatypes.xsd
+197cf94787cebedc5147548a7c8957dacea25cefc0fea69ba94be1aa49b65a7a  voc.xsd
+# Not listed (no byte-identical MedCom counterpart): infrastructureRoot.xsd

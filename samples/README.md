@@ -10,10 +10,13 @@ These XML documents are copied byte-for-byte from the MedCom release folders:
 - [QRD examples](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/)
 - [QRD test-protocol examples](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/)
 
-Two files are **not** MedCom examples: `qfdd/qfdd_overekstremitet.xml` is a questionnaire
-definition supplied for this validator, and `qrd/qrd_overekstremitet.xml` is a synthetic
-response generated from it (invented answers, the MedCom example patient). They form
-the positive QFDD/QRD pair for the QRD/QFDD comparison and have no `sourceSha256`.
+Four files are **not** MedCom examples; they have no `sourceSha256`. `qfdd/qfdd_overekstremitet.xml`
+is a questionnaire definition supplied for this validator, and `qrd/qrd_overekstremitet.xml` is a
+synthetic response generated from it. `qfdd/qfdd_alle_inputtyper.xml` is a demo form that uses every
+input type (multiple choice, analog and discrete slider, integer, decimal and date, free text, a
+nested follow-up and a conditional question), and `qrd/qrd_alle_inputtyper.xml` is a complete
+response to it. Answers are invented and the patient is the MedCom example patient. Each pair is a
+positive case for the QRD/QFDD comparison.
 
 The repository already contained `qfdd/qfdd_example.xml` and `qrd/qrd_numeric.xml`;
 those were identical to the published files and are reused. Filenames below are
@@ -43,12 +46,17 @@ expected findings are observed. Validation targets still have partial coverage.
 
 ## Recorded validation findings
 
-- All nine QFDD examples have the existing `sdtc:statusCode` discrepancy between
-  the shared SVN XSD and Gazelle's packaged schema: one expected XSD error each.
+- QFDD documents are validated against MedCom's own QFDD schema (`xsd/qfdd/`, from
+  `PRO/QFDD/Schema/`), which the examples name themselves and which requires the header's
+  `sdtc:statusCode` (QFDD-DK 1.2 CONF:14) and defines `sdtc:precondition` with its groupers.
+  Earlier the generic CDA schema was used, which knows neither, so every correct QFDD failed
+  with one XSD error. None of the QFDD examples has an XSD error now; their remaining findings
+  are the Schematron findings listed in the manifest.
 - All ten QRD question-pattern examples omit `qrd-v1.3`, so the selected QRD-DK
-  1.3.2 target reports a version error. Numeric graphics and analog-slider examples
-  also have schema errors for `observation/reference` ordering; both XSD stages
-  report those findings.
+  1.3.2 target reports a version error. Numeric graphics and the two analog-slider examples
+  also have schema errors because they put `reference` after `referenceRange`. Our QRD schema is
+  byte-identical to MedCom's published QRD and Generic schemas, so these are defects in
+  the examples themselves, not in the validator; both XSD stages report them.
 - The QRD route also compares each QRD with the QFDD it references (embedded QFDD set; see
   [PRO conformance](../docs/pro-conformance.md)). The ten examples whose QFDD is in
   `qfdd/` compare cleanly. The five `qrd_m_3.*` test-protocol examples reference QFDDs
@@ -84,6 +92,7 @@ from source. No source XML was modified to make it pass.
 | [qfdd/qfdd_analog_slider_feedback.xml](qfdd/qfdd_analog_slider_feedback.xml) | Example: Analog Slider Question Pattern Observation, Question Feedback Pattern Observation [Header title] | [MedCom](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/a8aea6f4-d4ab-4926-8328-f92e0b91d68e) |
 | [qfdd/qfdd_analog_slider.xml](qfdd/qfdd_analog_slider.xml) | Example: Analog Slider Question Pattern Observation [Header title] | [MedCom](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Eksempler/b178eac3-f194-4b53-aaab-78807db7ed42) |
 | [qfdd/qfdd_overekstremitet.xml](qfdd/qfdd_overekstremitet.xml) | Spørgeskema overekstremitet (32 questions) | Supplied for this validator; not published by MedCom |
+| [qfdd/qfdd_alle_inputtyper.xml](qfdd/qfdd_alle_inputtyper.xml) | Demo: alle inputtyper (every input type) | Written for this validator; not published by MedCom |
 | [qrd/qrd_numeric.xml](qrd/qrd_numeric.xml) | Example: Numeric Response Pattern Observation [Header title] | [MedCom](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_1.0_Numeric_Question.xml) |
 | [qrd/qrd_numeric_graphics.xml](qrd/qrd_numeric_graphics.xml) | Example: Numeric Response Pattern Observation, Graphics [Header title] | [MedCom](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_1.1_Numeric_Question_-_Graphics.xml) |
 | [qrd/qrd_multiple_choice.xml](qrd/qrd_multiple_choice.xml) | Example: Multiple Choice Response Pattern Observation [Header title] | [MedCom](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Eksempler/QRD_Example_2.0_Multiple_Choise_Question.xml) |
@@ -100,3 +109,4 @@ from source. No source XML was modified to make it pass.
 | [qrd/qrd_m_3.9_a.xml](qrd/qrd_m_3.9_a.xml) | MedCom test eksempel, teststep 3.9 | [MedCom](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.9_A.xml) |
 | [qrd/qrd_m_3.9_b.xml](qrd/qrd_m_3.9_b.xml) | MedCom test eksempel, teststep 3.9 | [MedCom](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/Test_eksempler/QRD_M_3.9_B.xml) |
 | [qrd/qrd_overekstremitet.xml](qrd/qrd_overekstremitet.xml) | Synthetic response to `qfdd_overekstremitet.xml` | Generated for this validator; not published by MedCom |
+| [qrd/qrd_alle_inputtyper.xml](qrd/qrd_alle_inputtyper.xml) | Synthetic response to `qfdd_alle_inputtyper.xml` | Generated for this validator; not published by MedCom |

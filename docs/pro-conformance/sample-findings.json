@@ -3,16 +3,10 @@
     "file": "samples/qfdd/qfdd_example.xml",
     "expected": {
       "result": "FAILURE",
-      "errors": 4,
+      "errors": 3,
       "warnings": 0
     },
     "findings": [
-      {
-        "severity": "error",
-        "id": null,
-        "message": "cvc-complex-type.2.4.a: Invalid content was found starting with element '{\"urn:hl7-org:sdtc\":statusCode}'. One of '{\"urn:hl7-org:v3\":effectiveTime}' is expected.",
-        "location": "XML:15:31"
-      },
       {
         "severity": "error",
         "id": "QFDD-DK-1.2-COPY-C67",
@@ -119,16 +113,10 @@
     "file": "samples/qfdd/qfdd_text.xml",
     "expected": {
       "result": "FAILURE",
-      "errors": 3,
+      "errors": 2,
       "warnings": 0
     },
     "findings": [
-      {
-        "severity": "error",
-        "id": null,
-        "message": "cvc-complex-type.2.4.a: Invalid content was found starting with element '{\"urn:hl7-org:sdtc\":statusCode}'. One of '{\"urn:hl7-org:v3\":effectiveTime}' is expected.",
-        "location": "XML:15:31"
-      },
       {
         "severity": "error",
         "id": "QFDD-DK-1.2-SHARED-C145",
@@ -147,16 +135,10 @@
     "file": "samples/qfdd/qfdd_numeric_graphics.xml",
     "expected": {
       "result": "FAILURE",
-      "errors": 4,
+      "errors": 3,
       "warnings": 0
     },
     "findings": [
-      {
-        "severity": "error",
-        "id": null,
-        "message": "cvc-complex-type.2.4.a: Invalid content was found starting with element '{\"urn:hl7-org:sdtc\":statusCode}'. One of '{\"urn:hl7-org:v3\":effectiveTime}' is expected.",
-        "location": "XML:15:31"
-      },
       {
         "severity": "error",
         "id": "QFDD-DK-1.2-COPY-C67",
@@ -181,16 +163,10 @@
     "file": "samples/qfdd/qfdd_numeric.xml",
     "expected": {
       "result": "FAILURE",
-      "errors": 5,
+      "errors": 4,
       "warnings": 0
     },
     "findings": [
-      {
-        "severity": "error",
-        "id": null,
-        "message": "cvc-complex-type.2.4.a: Invalid content was found starting with element '{\"urn:hl7-org:sdtc\":statusCode}'. One of '{\"urn:hl7-org:v3\":effectiveTime}' is expected.",
-        "location": "XML:15:31"
-      },
       {
         "severity": "error",
         "id": "QFDD-DK-1.2-COPY-C67",
@@ -221,16 +197,10 @@
     "file": "samples/qfdd/qfdd_associated_text.xml",
     "expected": {
       "result": "FAILURE",
-      "errors": 3,
+      "errors": 2,
       "warnings": 0
     },
     "findings": [
-      {
-        "severity": "error",
-        "id": null,
-        "message": "cvc-complex-type.2.4.a: Invalid content was found starting with element '{\"urn:hl7-org:sdtc\":statusCode}'. One of '{\"urn:hl7-org:v3\":effectiveTime}' is expected.",
-        "location": "XML:15:31"
-      },
       {
         "severity": "error",
         "id": "QFDD-DK-1.2-SHARED-C145",
@@ -249,16 +219,10 @@
     "file": "samples/qfdd/qfdd_discrete_slider.xml",
     "expected": {
       "result": "FAILURE",
-      "errors": 3,
+      "errors": 2,
       "warnings": 0
     },
     "findings": [
-      {
-        "severity": "error",
-        "id": null,
-        "message": "cvc-complex-type.2.4.a: Invalid content was found starting with element '{\"urn:hl7-org:sdtc\":statusCode}'. One of '{\"urn:hl7-org:v3\":effectiveTime}' is expected.",
-        "location": "XML:15:31"
-      },
       {
         "severity": "error",
         "id": "QFDD-DK-1.2-SHARED-C145",
@@ -277,16 +241,10 @@
     "file": "samples/qfdd/qfdd_multiple_choice_grouped.xml",
     "expected": {
       "result": "FAILURE",
-      "errors": 8,
+      "errors": 7,
       "warnings": 0
     },
     "findings": [
-      {
-        "severity": "error",
-        "id": null,
-        "message": "cvc-complex-type.2.4.a: Invalid content was found starting with element '{\"urn:hl7-org:sdtc\":statusCode}'. One of '{\"urn:hl7-org:v3\":effectiveTime}' is expected.",
-        "location": "XML:15:31"
-      },
       {
         "severity": "error",
         "id": "QFDD-DK-1.2-SHARED-C145",
@@ -335,16 +293,10 @@
     "file": "samples/qfdd/qfdd_analog_slider_feedback.xml",
     "expected": {
       "result": "FAILURE",
-      "errors": 5,
+      "errors": 4,
       "warnings": 0
     },
     "findings": [
-      {
-        "severity": "error",
-        "id": null,
-        "message": "cvc-complex-type.2.4.a: Invalid content was found starting with element '{\"urn:hl7-org:sdtc\":statusCode}'. One of '{\"urn:hl7-org:v3\":effectiveTime}' is expected.",
-        "location": "XML:15:31"
-      },
       {
         "severity": "error",
         "id": "QFDD-DK-1.2-COPY-C67",
@@ -375,16 +327,10 @@
     "file": "samples/qfdd/qfdd_analog_slider.xml",
     "expected": {
       "result": "FAILURE",
-      "errors": 5,
+      "errors": 4,
       "warnings": 0
     },
     "findings": [
-      {
-        "severity": "error",
-        "id": null,
-        "message": "cvc-complex-type.2.4.a: Invalid content was found starting with element '{\"urn:hl7-org:sdtc\":statusCode}'. One of '{\"urn:hl7-org:v3\":effectiveTime}' is expected.",
-        "location": "XML:15:31"
-      },
       {
         "severity": "error",
         "id": "QFDD-DK-1.2-COPY-C67",
@@ -2372,21 +2318,32 @@
   {
     "file": "samples/qfdd/qfdd_overekstremitet.xml",
     "expected": {
-      "result": "FAILURE",
-      "errors": 1,
+      "result": "SUCCESS",
+      "errors": 0,
       "warnings": 0
     },
-    "findings": [
-      {
-        "severity": "error",
-        "id": null,
-        "message": "cvc-complex-type.2.4.a: Invalid content was found starting with element '{\"urn:hl7-org:sdtc\":statusCode}'. One of '{\"urn:hl7-org:v3\":effectiveTime}' is expected.",
-        "location": "XML:15:35"
-      }
-    ]
+    "findings": []
   },
   {
     "file": "samples/qrd/qrd_overekstremitet.xml",
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    },
+    "findings": []
+  },
+  {
+    "file": "samples/qfdd/qfdd_alle_inputtyper.xml",
+    "expected": {
+      "result": "SUCCESS",
+      "errors": 0,
+      "warnings": 0
+    },
+    "findings": []
+  },
+  {
+    "file": "samples/qrd/qrd_alle_inputtyper.xml",
     "expected": {
       "result": "SUCCESS",
       "errors": 0,

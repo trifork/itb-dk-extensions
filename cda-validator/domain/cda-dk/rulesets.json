@@ -174,7 +174,7 @@
       "sourceSection": "2.1, 3.1 and Appendix A; no distinct profile-release marker is specified",
       "documentVersionMarker": null,
       "documentTemplateId": "1.2.208.184.12.1",
-      "schema": "xsd/CDA_SDTC.xsd",
+      "schema": "xsd/qfdd/CDA_SDTC.xsd",
       "schematron": [
         "sch/qfdd",
         "sch/versions/qfdd-v1.2.sch",
