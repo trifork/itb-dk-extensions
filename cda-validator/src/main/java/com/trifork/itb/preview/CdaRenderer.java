@@ -11,6 +11,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import javax.xml.transform.stream.StreamSource;
 import net.sf.saxon.jaxp.TransformerImpl;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Cleaner;
@@ -21,12 +22,26 @@ import org.xml.sax.helpers.DefaultHandler;
 
 /** Display only: never replaces the original XML used for validation. */
 public final class CdaRenderer {
+    /** Styles the structured questionnaire view; the page's CSP allows inline styles only. */
+    private static final String QUESTIONNAIRE_CSS =
+            ".qv-table{border-collapse:collapse;width:100%;margin:8px 0}"
+                    + ".qv-table th,.qv-table td{border:1px solid #ccc;padding:4px 8px;"
+                    + "vertical-align:top;text-align:left}"
+                    + ".qv-table th{background:#f3f3f3}"
+                    + ".qv-depth-1 td:first-child{padding-left:28px}"
+                    + ".qv-depth-2 td:first-child{padding-left:48px}"
+                    + ".qv-depth-3 td:first-child{padding-left:68px}"
+                    + ".qv-note{color:#555;font-size:.9em}"
+                    + ".qv-none{color:#888;font-style:italic}";
+
     public static final String POLICY =
             "default-src 'none'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'";
     private final Templates stylesheet;
+    private final Templates questionnaire;
     static final String STYLESHEET_URI = "classpath:/rendering/HL7_CDA_stylesheet.xsl";
     // The stylesheet reads its language dependent labels from this companion file, named by
     // its vocFile parameter and resolved relative to the stylesheet.
+    private static final String STYLE_TAG = "style";
     static final String LABELS_NAME = "cda_l10n.xml";
     static final String LABELS_URI = "classpath:/rendering/" + LABELS_NAME;
     private final byte[] stylesheetBytes;
@@ -43,6 +58,10 @@ public final class CdaRenderer {
         labelBytes = bundled("/rendering/" + LABELS_NAME);
         factory.setURIResolver(this::resolveStylesheet);
         stylesheet = factory.newTemplates(resolveStylesheet("", STYLESHEET_URI));
+        questionnaire =
+                factory.newTemplates(
+                        new StreamSource(
+                                new ByteArrayInputStream(bundled("/rendering/questionnaire.xsl"))));
     }
 
     private static byte[] bundled(String path) throws java.io.IOException {
@@ -90,6 +109,22 @@ public final class CdaRenderer {
         return builder.parse(new ByteArrayInputStream(xml));
     }
 
+    /**
+     * A QRD or QFDD keeps its content in entries that the general stylesheet does not show. This
+     * adds a list of them after the narrative; other documents get nothing.
+     */
+    private void appendQuestionnaireView(Document document, org.jsoup.nodes.Document page)
+            throws TransformerException {
+        var transformer = questionnaire.newTransformer();
+        transformer.setURIResolver(this::resolveStylesheet);
+        var fragment = new StringWriter();
+        transformer.transform(new DOMSource(document), new StreamResult(fragment));
+        if (!fragment.toString().isBlank()) {
+            page.head().appendElement(STYLE_TAG).text(QUESTIONNAIRE_CSS);
+            page.body().append(fragment.toString());
+        }
+    }
+
     public String render(byte[] xml) throws Exception {
         var document = parse(xml);
         var root = document.getDocumentElement();
@@ -116,11 +151,12 @@ public final class CdaRenderer {
         var output = new StringWriter();
         transformer.transform(new DOMSource(document), new StreamResult(output));
         var rendered = Jsoup.parse(output.toString());
+        appendQuestionnaireView(document, rendered);
         // Retain narrative tables and typography, but strip active content and navigation.
         var allowed =
                 Safelist.relaxed()
                         .removeAttributes("a", "href")
-                        .addAttributes(":all", "class", "style", "id", "align", "valign")
+                        .addAttributes(":all", "class", STYLE_TAG, "id", "align", "valign")
                         .addTags("h1", "h2", "h3", "h4", "h5", "h6", "hr", "div", "span");
         var clean = new Cleaner(allowed).clean(rendered);
         clean.head().appendElement("meta").attr("charset", "utf-8");
@@ -129,7 +165,7 @@ public final class CdaRenderer {
                 .attr("http-equiv", "Content-Security-Policy")
                 .attr("content", POLICY);
         clean.title("CDA document preview");
-        for (var style : rendered.head().select("style")) clean.head().appendChild(style.clone());
+        for (var style : rendered.head().select(STYLE_TAG)) clean.head().appendChild(style.clone());
         return "<!doctype html>\n" + clean.outerHtml();
     }
 }

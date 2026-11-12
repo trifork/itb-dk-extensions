@@ -70,6 +70,78 @@ class CdaRendererTest {
         assertTrue(html.select("script,iframe,object,embed,form,a[href]").isEmpty());
     }
 
+    private static String resource(String path) throws Exception {
+        try (var input = CdaRendererTest.class.getResourceAsStream(path)) {
+            assertNotNull(input, path);
+            return new String(input.readAllBytes(), StandardCharsets.UTF_8);
+        }
+    }
+
+    /** The narrative is removed, so everything shown must come from the structured entries. */
+    private static byte[] withoutNarrative(String xml) {
+        return xml.replaceAll("(?s)<text>.*?</text>", "").getBytes(StandardCharsets.UTF_8);
+    }
+
+    @Test
+    void listsTheAnswersOfAResponseFromItsEntries() throws Exception {
+        var html =
+                Jsoup.parse(
+                        renderer.render(
+                                withoutNarrative(resource("/pair/qrd_overekstremitet.xml"))));
+        assertFalse(html.select("table.qv-table").isEmpty());
+        String text = html.text();
+        assertTrue(text.contains("Q00001"), "the question code");
+        assertTrue(text.contains("Hvor svært har du haft ved at tage et par bukser på"));
+        assertTrue(text.contains("Moderat svært (A00001_3)"), "the chosen answer");
+        assertTrue(text.contains("6069bddf-b6ae-4e64-833e-ad2ba8b5c6b2"), "the QFDD reference");
+        assertTrue(text.contains("options: at least 0, at most 1"), "the copied limits");
+    }
+
+    @Test
+    void listsTheQuestionsOfAFormDefinitionFromItsEntries() throws Exception {
+        var html =
+                Jsoup.parse(
+                        renderer.render(
+                                withoutNarrative(
+                                        resource(
+                                                "/qfdd-embedded/6069bddf-b6ae-4e64-833e-ad2ba8b5c6b2.xml"))));
+        String text = html.text();
+        assertTrue(text.contains("Q00001"));
+        assertTrue(text.contains("Umuligt at gøre (A00001_1)"), "an option of the question");
+        assertTrue(text.contains("multiple choice"));
+        assertTrue(text.contains("always"), "a question without preconditions");
+    }
+
+    @Test
+    void showsWhichPreconditionsDecideWhetherAQuestionIsAsked() throws Exception {
+        var html =
+                Jsoup.parse(
+                        renderer.render(
+                                withoutNarrative(
+                                        resource(
+                                                "/qfdd-embedded/2c8f8bd7-059d-410d-aed9-afe37ce389ed.xml"))));
+        assertTrue(html.text().contains("Q311 = A311_3"), html.text());
+    }
+
+    @Test
+    void aDocumentThatIsNotAQuestionnaireGetsNoQuestionnaireView() throws Exception {
+        var html = Jsoup.parse(renderer.render(xml("<paragraph>Plain narrative</paragraph>")));
+        assertTrue(html.select(".qv").isEmpty());
+    }
+
+    @Test
+    void questionnaireTextIsNeverRenderedAsMarkup() throws Exception {
+        String hostile =
+                resource("/pair/qrd_overekstremitet.xml")
+                        .replace(
+                                "<originalText>Hvor svært",
+                                "<originalText>&lt;script&gt;alert(1)&lt;/script&gt;"
+                                        + "&lt;img src=x onerror=alert(2)&gt;Hvor svært");
+        var html = Jsoup.parse(renderer.render(withoutNarrative(hostile)));
+        assertTrue(html.text().contains("<script>alert(1)</script>"), "shown as text");
+        assertTrue(html.select("script,[onerror],img[src=x]").isEmpty());
+    }
+
     @Test
     void displaysNarrativeWithoutRequiringAValidProfile() throws Exception {
         var html = Jsoup.parse(renderer.render(xml("<paragraph>Blodtryk: æøå</paragraph>")));

@@ -341,4 +341,153 @@
   <case profile="qrd-qfdd-pair" name="Pair grouper in the sdtc namespace does not hold" fails="PRO-PAIR-PRECONDITION">
     <edit action="append" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q2']" value="&lt;sdtc:precondition xmlns='urn:hl7-org:v3' xmlns:sdtc='urn:hl7-org:sdtc' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' typeCode='PRCN'&gt;&lt;sdtc:templateId root='2.16.840.1.113883.10.20.32.4.12'/&gt;&lt;sdtc:allTrue&gt;&lt;sdtc:templateId root='2.16.840.1.113883.10.20.32.4.13'/&gt;&lt;sdtc:precondition typeCode='PRCN'&gt;&lt;sdtc:templateId root='2.16.840.1.113883.10.20.32.4.12'/&gt;&lt;sdtc:criterion classCode='OBS' moodCode='EVN.CRT'&gt;&lt;templateId root='2.16.840.1.113883.10.20.32.4.3'/&gt;&lt;code code='q0' codeSystem='1.2.3'/&gt;&lt;value xsi:type='IVL_INT'&gt;&lt;low value='1'/&gt;&lt;high value='1'/&gt;&lt;/value&gt;&lt;/sdtc:criterion&gt;&lt;/sdtc:precondition&gt;&lt;sdtc:precondition typeCode='PRCN'&gt;&lt;sdtc:templateId root='2.16.840.1.113883.10.20.32.4.12'/&gt;&lt;sdtc:criterion classCode='OBS' moodCode='EVN.CRT'&gt;&lt;templateId root='2.16.840.1.113883.10.20.32.4.3'/&gt;&lt;code code='q0' codeSystem='1.2.3'/&gt;&lt;value xsi:type='IVL_INT'&gt;&lt;low value='7'/&gt;&lt;high value='8'/&gt;&lt;/value&gt;&lt;/sdtc:criterion&gt;&lt;/sdtc:precondition&gt;&lt;/sdtc:allTrue&gt;&lt;/sdtc:precondition&gt;"/>
   </case>
+
+  <case profile="qrd-qfdd-pair" name="Pair open-ended option limits copied and answered">
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q1']/v3:entryRelationship/v3:observation/v3:value/v3:high"/>
+    <edit action="remove" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q1']/v3:entryRelationship/v3:observation/v3:value/v3:high"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair open-ended limits several options selected">
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q1']/v3:entryRelationship/v3:observation/v3:value/v3:high"/>
+    <edit action="remove" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q1']/v3:entryRelationship/v3:observation/v3:value/v3:high"/>
+    <edit action="duplicate" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q1']/v3:value"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair open-ended limits not copied" fails="PRO-PAIR-OPTION-LIMITS">
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q1']/v3:entryRelationship/v3:observation/v3:value/v3:high"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair open-ended minimum not reached" fails="PRO-PAIR-ANSWER-COUNT">
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q1']/v3:entryRelationship/v3:observation/v3:value/v3:low/@value" value="2"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q1']/v3:entryRelationship/v3:observation/v3:value/v3:high"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q1']/v3:entryRelationship/v3:observation/v3:value/v3:low/@value" value="2"/>
+    <edit action="remove" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q1']/v3:entryRelationship/v3:observation/v3:value/v3:high"/>
+  </case>
+
+  <case profile="qrd-qfdd-pair" name="Pair discrete slider defined without the multiple choice template">
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q4']/v3:templateId[@root='2.16.840.1.113883.10.20.32.4.8']"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair analog slider defined without the numeric template">
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q3']/v3:templateId[@root='2.16.840.1.113883.10.20.32.4.7']"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair numeric answer at the top of the range">
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q1']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q2']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q3']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q4']/v3:precondition"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:value/@value" value="10"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair numeric answer above the range" fails="PRO-PAIR-NUMERIC-RANGE">
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:value/@value" value="11"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair numeric answer below the range" fails="PRO-PAIR-NUMERIC-RANGE">
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:value/@value" value="-1"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair numeric answer that is not a number" fails="PRO-PAIR-NUMERIC-RANGE">
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:value/@value" value="abc"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair real answer inside the range">
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q1']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q2']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q3']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q4']/v3:precondition"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_REAL"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="0.5"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="9.5"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_REAL"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="0.5"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="9.5"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:value/@value" value="0.5"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair real answer above the range" fails="PRO-PAIR-NUMERIC-RANGE">
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_REAL"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="0.5"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="9.5"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_REAL"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="0.5"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="9.5"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:value/@value" value="9.6"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair date answer inside the range">
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q1']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q2']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q3']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q4']/v3:precondition"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_TS"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="20250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="21250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_TS"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="20250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="21250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:value/@value" value="20260101000000+0100"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair date-only answer at the start of the range">
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q1']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q2']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q3']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q4']/v3:precondition"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_TS"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="20250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="21250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_TS"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="20250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="21250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:value/@value" value="20250101"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair date answer before the range" fails="PRO-PAIR-NUMERIC-RANGE">
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_TS"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="20250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="21250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_TS"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="20250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="21250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:value/@value" value="19000101000000+0100"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair date answer that is not a date" fails="PRO-PAIR-NUMERIC-RANGE">
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_TS"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="20250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="21250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_TS"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="20250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="21250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:value/@value" value="yesterday"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair date answer without zone at the start, read in the interval's zone">
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q1']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q2']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q3']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q4']/v3:precondition"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_TS"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="20250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="21250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_TS"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="20250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="21250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:value/@value" value="20250101000000"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair date answer without zone one second before the start, read in the interval's zone" fails="PRO-PAIR-NUMERIC-RANGE">
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_TS"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="20250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="21250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_TS"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="20250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="21250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:value/@value" value="20241231235959"/>
+  </case>
+  <case profile="qrd-qfdd-pair" name="Pair date answer with another zone is converted before comparing">
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q1']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q2']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q3']/v3:precondition"/>
+    <edit action="remove" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q4']/v3:precondition"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_TS"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="20250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[@moodCode='DEF'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="21250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/@xsi:type" value="IVL_TS"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:low/@value" value="20250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:referenceRange/v3:observationRange/v3:value/v3:high/@value" value="21250101000000+0100"/>
+    <edit action="set" select="/pro:documents/pro:qrd/v3:ClinicalDocument//v3:observation[@moodCode='EVN'][v3:code/@code='q0']/v3:value/@value" value="20241231230000+0000"/>
+  </case>
 </cases>

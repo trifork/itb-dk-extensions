@@ -2,8 +2,8 @@
 <testcase id="validate-qrd_v1_3_2-manual" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/">
     <metadata>
         <gitb:name>Validate QRD-DK 1.3.2</gitb:name>
-        <gitb:version>1.0.0</gitb:version>
-        <gitb:description>Validate a document against QRD-DK 1.3.2. Target: qrd.v1.3.2. Current conformance coverage is partial; see the validation report and ruleset catalogue.</gitb:description>
+        <gitb:version>1.1.0</gitb:version>
+        <gitb:description>Validate a document against QRD-DK 1.3.2. Target: qrd.v1.3.2. The response is also compared with the QFDD it references. Current conformance coverage is partial; see the validation report and ruleset catalogue.</gitb:description>
         <gitb:update updateMetadata="true" resetTestHistory="false"/>
     </metadata>
     <actors>
@@ -12,7 +12,7 @@
     <steps>
         <interact id="submission" with="cda-producer" title="QRD-DK 1.3.2"
                   desc="Upload a document for QRD-DK 1.3.2" inputTitle="Upload QRD-DK 1.3.2 document" timeout="604800000">
-            <instruct desc="Instructions" level="INFO" forceDisplay="true">"This session tests QRD-DK 1.3.2. Upload your CDA XML document. The next step checks it against the configured rules for this release."</instruct>
+            <instruct desc="Instructions" level="INFO" forceDisplay="true">"This session tests QRD-DK 1.3.2. Upload your CDA XML document. The next step checks it against the configured rules for this release and, when it references a questionnaire form definition (QFDD) that the validator can obtain, compares the answers with that form. The report states which QFDD was used, or that the comparison could not be made."</instruct>
             <request name="document" fileName="documentFileName" desc="QRD-DK 1.3.2 document"
                      inputType="UPLOAD" accept="application/xml,text/xml" required="true"/>
         </interact>

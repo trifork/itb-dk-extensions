@@ -75,6 +75,10 @@ These decisions are explicit so they can be reviewed with MedCom.
 | Paired: criterion matching | A criterion names a question by `code/@code` only. The official associated-text example uses a different code system in the criterion than on the question, so the code system is not compared. A coded criterion value also compares its code system when the criterion states one. A criterion on an unanswered question is false. |
 | Paired: answered twice | QRD 5.9 and the test protocol identify one question per response id, and the answer value cardinality is 0..1 or fixed. Two responses with the same id are therefore reported (`PRO-PAIR-ANSWER-DUPLICATE`). This is an interpretation, not an explicit SHALL. |
 | Paired: slider scale | QFDD 5.13 defines the analog slider scale as `head`, step `increment` and end `denominator`. An answer must lie between `head` and `denominator` and on a step. The copied range in the QRD must equal the QFDD range (QRD 5.3). QFDD 1.2 defines no unit on numeric questions, so units are not compared. |
+| Paired: open-ended option limits | QFDD 5.7 makes `high` mandatory, but 33 questions in published SPGDEF forms state only a minimum. An absent maximum is read as unbounded and an absent minimum as 0; the copied limits must match including that absence. A published form's own defect is not charged to a valid answer. |
+| Paired: slider response patterns | QRD 5.7 and 5.8 make the slider response include its base pattern (analog slider: numeric, discrete slider: multiple choice). The slider template alone therefore decides the expected response patterns, whether or not the QFDD also lists the base template (one published form lists only `32.4.11`). |
+| Paired: numeric intervals | A numeric answer must lie within the QFDD reference range when it is an interval: `IVL_INT`, `IVL_REAL` (compared as decimals) or `IVL_TS` (compared as dates; a date without time is midnight). A value without a time zone is local time, as in the HL7 C-CDA `effectiveTime` guidance, so it is read in the zone that the answer or the interval states (UTC if neither does). The published forms use all three. |
+| Paired: feedback | QFDD 5.8 defines feedback as text shown to the patient when a criterion holds. The QRD guide has no feedback pattern, so a response cannot be inconsistent about it; no rule is defined and none is invented. |
 
 SHALL violations are errors; SHOULD cardinality violations are warnings.
 “SHOULD contain zero or one” does not justify warning when absent. MAY
@@ -92,8 +96,8 @@ behavior from silently skipping constraints with overlapping contexts.
 | Language and binding-realm value sets | Cardinality is covered; authoritative vocabulary membership is not. Example lists are not complete value sets. |
 | Identity, guardian status, requester and actual times | XML structure and conditional SELF coding are checked. Truthfulness needs source-system or registry evidence. |
 | Referenced general CDA header/narrative guides | Existing XSD/Gazelle/shared validation remains. Secondary guides have not been completely re-audited here. |
-| Preconditions/groupers | Templates and required children are checked, and question preconditions are evaluated against the answers (see Paired input). Feedback activation (criteria on feedback observations) is not evaluated. Unspecified conjunction-code values are not invented. |
-| Numeric/slider ranges and units | Analog slider answers are compared with the QFDD scale. Other numeric ranges, units (QFDD 1.2 defines none) and clinical plausibility are not compared. |
+| Preconditions/groupers | Templates and required children are checked, and question preconditions are evaluated against the answers (see Paired input). Feedback has no QRD counterpart (see the interpretation table). Unspecified conjunction-code values are not invented. |
+| Numeric/slider ranges and units | Analog slider scales and numeric intervals are compared with the answer. Units (QFDD 1.2 defines none) and clinical plausibility are not compared. |
 | Word protocol comparisons | The paired file covers the comparisons listed above. Complete preservation of information sections, conditional questions, all media and narrative answer options still needs additional checks or review. |
 | Narrative guides | Profile package tables mark these informative. Narrative text presence is checked; example HTML/table layouts and semantic text equivalence are not promoted to mandatory errors. |
 | Receiver protocol | Rendering, fallback for unknown/invalid releases, browser display, interaction and workflows need UI/integration tests. |
@@ -178,10 +182,10 @@ download are both validated, and anything unexpected is reported as unavailable,
 | --- | --- |
 | `PRO-PAIR-QUESTION-ID`, `-QUESTION-CODE` | Each response identifies exactly one QFDD question and repeats its code. |
 | `PRO-PAIR-ANSWER-TYPE` | The response pattern matches the question pattern (numeric, multiple choice, text, analog slider, discrete slider). |
-| `PRO-PAIR-ANSWER-OPTION`, `-ANSWER-COUNT`, `-OPTION-LIMITS` | Selected options exist, their number is within the limits, and the limits are copied. |
+| `PRO-PAIR-ANSWER-OPTION`, `-ANSWER-COUNT`, `-OPTION-LIMITS` | Selected options exist, their number is within the limits (an absent bound is open), and the limits are copied. |
 | `PRO-PAIR-ANSWER-MISSING` | A question with minimum options ≥ 1 whose preconditions hold has an answer with enough options. Reported at the QRD response organizer. |
 | `PRO-PAIR-ANSWER-DUPLICATE` | No question is answered twice. |
-| `PRO-PAIR-ANSWER-RANGE`, `-REFERENCE-RANGE` | Analog slider answers lie on the QFDD scale and the copied range equals the QFDD's. |
+| `PRO-PAIR-ANSWER-RANGE`, `-NUMERIC-RANGE`, `-REFERENCE-RANGE` | Analog slider answers lie on the QFDD scale, other numeric answers lie within the QFDD interval, and the copied range equals the QFDD's. |
 | `PRO-PAIR-PRECONDITION`, `-PRECONDITION-UNEVALUATED` | An answer to a question that should not have been asked is an error; preconditions that cannot be evaluated are a warning. |
 | `PRO-PAIR-QFDD-REFERENCE`, `-QFDD-VERSION`, `-MEDIA` | The reference, a stated version and the copied media match the QFDD. |
 
@@ -190,8 +194,23 @@ multiple-choice questions with the Discrete Slider pattern (five `PRO-PAIR-ANSWE
 findings), and the associated answer in `qrd_associated_text_*.xml` carries the QFDD
 feedback template `32.4.6` instead of `33.4.6`, so it is not recognised as an answer.
 
-Still not compared: feedback activation, preservation of information sections and
-conditional narrative, and terminology membership of answer codes.
+Answer codes are checked for membership of the QFDD's options, which is the terminology
+check the guides define; national code-system content is not looked up. Still not compared:
+preservation of information sections and conditional narrative.
+
+### Real-form corpus
+
+The opt-in `SpgdefCorpusLiveTest` (`mvn test -Dtest=SpgdefCorpusLiveTest -Dcda.live.spgdef=true`)
+runs the comparison on every form in the SPGDEF catalogue (86 at the time of writing). A generator
+writes a complete valid response for each form, answering a question only when its preconditions
+hold (the comparison itself decides which). Every response must be free of findings, and mutated
+responses (an unknown option, a duplicated answer, a missing mandatory answer, an out-of-range
+number) must be reported. It found three problems in our rules, since fixed: open-ended limits,
+sliders defined without their base template, and `sdtc`-namespaced preconditions.
+
+One published form is excluded: `edeff356-49cc-47a6-9ebf-abf0057eba90` defines question id `3101`
+twice, so no response id can identify exactly one question. The comparison reports that, and the
+form's owner should correct it.
 
 ## Verification
 

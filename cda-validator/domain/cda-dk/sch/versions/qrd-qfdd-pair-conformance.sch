@@ -31,11 +31,14 @@
   </xsl:function>
   <xsl:function name="qf:expected-templates" as="xs:string*">
     <xsl:param name="question" as="element()"/>
-    <xsl:sequence select="(if ($question/v3:templateId/@root='2.16.840.1.113883.10.20.32.4.7') then '2.16.840.1.113883.10.20.33.4.4' else (),
+    <!-- A slider response always includes its base pattern (QRD 5.7: numeric, 5.8: multiple choice),
+         so the slider template alone decides, whether or not the QFDD also lists the base template. -->
+    <xsl:sequence select="distinct-values((
+                           if ($question/v3:templateId/@root=('2.16.840.1.113883.10.20.32.4.7','2.16.840.1.113883.10.20.32.4.10')) then '2.16.840.1.113883.10.20.33.4.4' else (),
                            if ($question/v3:templateId/@root='2.16.840.1.113883.10.20.32.4.10') then '2.16.840.1.113883.10.20.33.4.7' else (),
-                           if ($question/v3:templateId/@root='2.16.840.1.113883.10.20.32.4.8') then '2.16.840.1.113883.10.20.33.4.5' else (),
+                           if ($question/v3:templateId/@root=('2.16.840.1.113883.10.20.32.4.8','2.16.840.1.113883.10.20.32.4.11')) then '2.16.840.1.113883.10.20.33.4.5' else (),
                            if ($question/v3:templateId/@root='2.16.840.1.113883.10.20.32.4.11') then '2.16.840.1.113883.10.20.33.4.8' else (),
-                           if ($question/v3:templateId/@root='2.16.840.1.113883.10.20.32.4.9') then '2.16.840.1.113883.10.20.33.4.6' else ())"/>
+                           if ($question/v3:templateId/@root='2.16.840.1.113883.10.20.32.4.9') then '2.16.840.1.113883.10.20.33.4.6' else ()))"/>
   </xsl:function>
   <xsl:function name="qf:same-node" as="xs:boolean">
     <xsl:param name="a" as="element()"/>
@@ -106,6 +109,52 @@
                                          for $p in $question/sdtc:precondition return qf:precondition($p, $qrd, $qfdd))"/>
     <xsl:sequence select="if ($states = 0) then 0 else if ($states = -1) then -1 else 1"/>
   </xsl:function>
+  <xsl:function name="qf:zone" as="xs:string">
+    <xsl:param name="value" as="xs:string?"/>
+    <!-- The zone a TS value states (+hh:mm), or the empty string when it states none. -->
+    <xsl:variable name="zone" as="xs:string*">
+      <xsl:analyze-string select="normalize-space($value)" regex="^\d{{4,14}}([+-]\d{{2}})(\d{{2}})?$">
+        <xsl:matching-substring>
+          <xsl:sequence select="concat(regex-group(1), ':', (regex-group(2)[. ne ''], '00')[1])"/>
+        </xsl:matching-substring>
+      </xsl:analyze-string>
+    </xsl:variable>
+    <xsl:sequence select="($zone, '')[1]"/>
+  </xsl:function>
+  <xsl:function name="qf:ts" as="xs:dateTime?">
+    <xsl:param name="value" as="xs:string"/>
+    <xsl:param name="zone" as="xs:string"/>
+    <!-- HL7 TS (YYYYMMDD[hhmm[ss]][+/-zzzz]) as a dateTime; the empty sequence when it is not one.
+         A value without a zone is local time (HL7 C-CDA effectiveTime guidance), here taken to be in $zone. -->
+    <xsl:variable name="parts" as="xs:string*">
+      <xsl:analyze-string select="normalize-space($value)" regex="^(\d{{4}})(\d{{2}})(\d{{2}})(\d{{2}})?(\d{{2}})?(\d{{2}})?([+-]\d{{2}})?(\d{{2}})?$">
+        <xsl:matching-substring>
+          <xsl:sequence select="concat(regex-group(1), '-', regex-group(2), '-', regex-group(3), 'T',
+                                       (regex-group(4)[. ne ''], '00')[1], ':', (regex-group(5)[. ne ''], '00')[1], ':', (regex-group(6)[. ne ''], '00')[1],
+                                       if (regex-group(7) ne '') then concat(regex-group(7), ':', (regex-group(8)[. ne ''], '00')[1]) else $zone)"/>
+        </xsl:matching-substring>
+      </xsl:analyze-string>
+    </xsl:variable>
+    <xsl:sequence select="if (exists($parts) and $parts[1] castable as xs:dateTime) then xs:dateTime($parts[1]) else ()"/>
+  </xsl:function>
+  <xsl:function name="qf:in-range" as="xs:boolean">
+    <xsl:param name="answer" as="element()"/>
+    <xsl:param name="range" as="element()"/>
+    <xsl:variable name="timestamp" select="matches(normalize-space($range/@xsi:type), '(^|:)IVL_TS$')"/>
+    <xsl:variable name="low" select="$range/v3:low/@value"/>
+    <xsl:variable name="high" select="$range/v3:high/@value"/>
+    <!-- Values without a zone are read in the first zone that the answer or the interval states, else UTC. -->
+    <xsl:variable name="zone" select="((for $v in ($answer/@value, $low, $high) return qf:zone($v))[. ne ''], 'Z')[1]"/>
+    <xsl:sequence select="
+      if ($timestamp) then
+        (exists(qf:ts($answer/@value, $zone))
+         and (empty($low) or empty(qf:ts($low, $zone)) or qf:ts($answer/@value, $zone) ge qf:ts($low, $zone))
+         and (empty($high) or empty(qf:ts($high, $zone)) or qf:ts($answer/@value, $zone) le qf:ts($high, $zone)))
+      else
+        ($answer/@value castable as xs:decimal
+         and (empty($low) or not($low castable as xs:decimal) or xs:decimal($answer/@value) ge xs:decimal($low))
+         and (empty($high) or not($high castable as xs:decimal) or xs:decimal($answer/@value) le xs:decimal($high)))"/>
+  </xsl:function>
   <sch:pattern id="PRO-PAIR-INPUT-pattern">
     <sch:rule context="/">
       <sch:assert id="PRO-PAIR-INPUT" flag="error" test="count(pro:documents)=1 and count(pro:documents/pro:qfdd/v3:ClinicalDocument)=1 and count(pro:documents/pro:qrd/v3:ClinicalDocument)=1" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/DK-QRD_Testprotokol_Afsendelse.docx">Supply one QFDD and one QRD in the pro:documents envelope. Source: DK-QRD_Testprotokol_Afsendelse.docx (2024-10-11), section 3.4; QRD-DK 1.3.2 section 5.9.</sch:assert>
@@ -136,14 +185,14 @@
     <sch:rule context="pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root=('2.16.840.1.113883.10.20.33.4.4','2.16.840.1.113883.10.20.33.4.5','2.16.840.1.113883.10.20.33.4.6','2.16.840.1.113883.10.20.33.4.7','2.16.840.1.113883.10.20.33.4.8')][v3:templateId/@root=('2.16.840.1.113883.10.20.33.4.5','2.16.840.1.113883.10.20.33.4.8')]">
       <sch:let name="answer" value="."/>
       <sch:let name="definition" value="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[some $id in v3:id satisfies (some $other in $answer/v3:id satisfies ($id/@root = $other/@root and string($id/@extension) = string($other/@extension)))]"/>
-      <sch:assert id="PRO-PAIR-OPTION-LIMITS" flag="error" test="count($definition)!=1 or (count(v3:entryRelationship/v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:value)=count($definition/v3:entryRelationship/v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:value) and (every $v in v3:entryRelationship/v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:value satisfies (some $d in $definition/v3:entryRelationship/v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:value satisfies ($v/v3:low/@value=$d/v3:low/@value and $v/v3:high/@value=$d/v3:high/@value))))" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/DK-QRD_Testprotokol_Afsendelse.docx">Copied minimum and maximum choice counts must match the QFDD. Source: DK-QRD_Testprotokol_Afsendelse.docx (2024-10-11), section 3.4; QRD-DK 1.3.2 section 5.9.</sch:assert>
+      <sch:assert id="PRO-PAIR-OPTION-LIMITS" flag="error" test="count($definition)!=1 or (count(v3:entryRelationship/v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:value)=count($definition/v3:entryRelationship/v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:value) and (every $v in v3:entryRelationship/v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:value satisfies (some $d in $definition/v3:entryRelationship/v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:value satisfies (count($v/v3:low/@value)=count($d/v3:low/@value) and string($v/v3:low/@value)=string($d/v3:low/@value) and count($v/v3:high/@value)=count($d/v3:high/@value) and string($v/v3:high/@value)=string($d/v3:high/@value)))))" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/DK-QRD_Testprotokol_Afsendelse.docx">Copied minimum and maximum choice counts must match the QFDD. Source: DK-QRD_Testprotokol_Afsendelse.docx (2024-10-11), section 3.4; QRD-DK 1.3.2 section 5.9.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="PRO-PAIR-ANSWER-COUNT-pattern">
     <sch:rule context="pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root=('2.16.840.1.113883.10.20.33.4.4','2.16.840.1.113883.10.20.33.4.5','2.16.840.1.113883.10.20.33.4.6','2.16.840.1.113883.10.20.33.4.7','2.16.840.1.113883.10.20.33.4.8')][v3:templateId/@root=('2.16.840.1.113883.10.20.33.4.5','2.16.840.1.113883.10.20.33.4.8')]">
       <sch:let name="answer" value="."/>
       <sch:let name="definition" value="/pro:documents/pro:qfdd/v3:ClinicalDocument//v3:observation[some $id in v3:id satisfies (some $other in $answer/v3:id satisfies ($id/@root = $other/@root and string($id/@extension) = string($other/@extension)))]"/>
-      <sch:assert id="PRO-PAIR-ANSWER-COUNT" flag="error" test="count($definition)!=1 or not(v3:value) or (every $limits in $definition/v3:entryRelationship/v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:value satisfies (if ($limits/v3:low/@value castable as xs:integer and $limits/v3:high/@value castable as xs:integer) then (count(v3:value) &gt;= xs:integer($limits/v3:low/@value) and count(v3:value) &lt;= xs:integer($limits/v3:high/@value)) else false()))" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/DK-QRD_Testprotokol_Afsendelse.docx">For an answered choice question, the selection count must fall within the QFDD limits. Source: DK-QRD_Testprotokol_Afsendelse.docx (2024-10-11), section 3.4; QRD-DK 1.3.2 section 5.9.</sch:assert>
+      <sch:assert id="PRO-PAIR-ANSWER-COUNT" flag="error" test="count($definition)!=1 or not(v3:value) or (every $limits in $definition/v3:entryRelationship/v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.20']/v3:value satisfies ((not($limits/v3:low/@value) or ($limits/v3:low/@value castable as xs:integer and count(v3:value) &gt;= xs:integer($limits/v3:low/@value))) and (not($limits/v3:high/@value) or ($limits/v3:high/@value castable as xs:integer and count(v3:value) &lt;= xs:integer($limits/v3:high/@value)))))" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Testprotokol/DK-QRD_Testprotokol_Afsendelse.docx">For an answered choice question, the selection count must fall within the QFDD limits. Source: DK-QRD_Testprotokol_Afsendelse.docx (2024-10-11), section 3.4; QRD-DK 1.3.2 section 5.9.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="PRO-PAIR-QFDD-REFERENCE-pattern">
@@ -207,6 +256,13 @@
   <sch:pattern id="PRO-PAIR-QFDD-VERSION-pattern">
     <sch:rule context="pro:qrd/v3:ClinicalDocument//v3:reference/v3:externalDocument[v3:versionNumber]">
       <sch:assert id="PRO-PAIR-QFDD-VERSION" flag="error" test="not(v3:id/@extension = /pro:documents/pro:qfdd/v3:ClinicalDocument/v3:id/@extension) or v3:versionNumber/@value = /pro:documents/pro:qfdd/v3:ClinicalDocument/v3:versionNumber/@value" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=50">A stated QFDD version must equal the version of the supplied QFDD. Source: QRD-DK 1.3.2 section 5.9.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern id="PRO-PAIR-NUMERIC-RANGE-pattern">
+    <sch:rule context="pro:qrd/v3:ClinicalDocument//v3:observation[v3:templateId/@root='2.16.840.1.113883.10.20.33.4.4']">
+      <sch:let name="definition" value="qf:definition(., /pro:documents/pro:qfdd/v3:ClinicalDocument)"/>
+      <sch:let name="range" value="$definition[count(.)=1]/v3:referenceRange/v3:observationRange/v3:value[matches(normalize-space(@xsi:type), '(^|:)IVL_(INT|REAL|TS)$')]"/>
+      <sch:assert id="PRO-PAIR-NUMERIC-RANGE" flag="error" test="count($range)!=1 or (every $v in v3:value satisfies qf:in-range($v, $range))" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=38">A numeric answer must lie within the interval (IVL_INT, IVL_REAL or IVL_TS) that the QFDD reference range defines. Source: QFDD-DK 1.2 section 5.5/5.9 (reference range); QRD-DK 1.3.2 sections 5.3 and 5.4.</sch:assert>
     </sch:rule>
   </sch:pattern>
 </sch:schema>

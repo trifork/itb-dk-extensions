@@ -3,7 +3,7 @@
     <metadata>
         <gitb:name>Danish CDA profile validation</gitb:name>
         <gitb:description>Release-specific tests for APD-DK 2.0.1, CPD-DK 2.0.0, PDC-DK 2.0 and 3.0.0, PHMR-DK 1.3 and 2.1.0, QRD-DK 1.3.2 QFDD-DK 1.2, PHAD-DK 1.0.1, PMR-DK 2.0.0, PRF-DK 3.0.0 and PSCR-DK 2.0.0. Test-definition versions are separate from these CDA releases.</gitb:description>
-        <gitb:version>3.3.0</gitb:version>
+        <gitb:version>3.4.0</gitb:version>
     </metadata>
     <actors><gitb:actor id="cda-producer"><gitb:name>CDA producer</gitb:name><gitb:desc>A system producing Danish MedCom CDA documents.</gitb:desc></gitb:actor></actors>
     <testcase id="validate-phmr_v2_1_0-manual"/>

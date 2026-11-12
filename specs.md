@@ -170,10 +170,11 @@ QFDD'en hentes via en udskiftelig opslagstjeneste, valgt med `CDA_QFDD_RESOLVER`
 `embedded` (standard: de medfølgende eksempel-QFDD'er, offline), `spgdef` (den offentlige
 katalogside <https://spgdef.dk/qfdd/>, hvor katalog og hentet dokument kontrolleres) eller
 `combined` (først de indlejrede, derefter spgdef). En QFDD, der ikke kan findes eller
-hentes, giver advarslen `PRO-PAIR-QFDD-UNRESOLVED` og ikke en bestået kontrol. Kriterierne er endnu ikke fuldt opfyldt: feedbackaktivering, øvrige
-talområder og enheder (QFDD 1.2 definerer ingen enhed) og terminologi kontrolleres
-ikke, og en rigtig QFDD-opslagstjeneste mangler
-([PRO conformance](docs/pro-conformance.md)).
+hentes, giver advarslen `PRO-PAIR-QFDD-UNRESOLVED` og ikke en bestået kontrol. Reglerne er afprøvet mod alle 86 formularer i spgdefs katalog (se
+[PRO conformance](docs/pro-conformance.md)). Talintervaller og analoge skalaer kontrolleres.
+Feedback har ingen modpart i QRD-vejledningen og kan derfor ikke kontrolleres, og QFDD 1.2
+definerer ingen enhed. Det, der mangler, er bevarelse af informationssektioner og en officiel
+QFDD-opslagstjeneste.
 
 ### DDS-01 — Dokumentudsøgning fra ITB
 
@@ -216,8 +217,9 @@ Tilføjelser til valg af version, use case og reference-QFDD skal beskrives i en
 inputkontrakt, før de implementeres. Det nuværende TDL-eksempel bruger `xml` og
 `type`. Der findes en testet dokument-envelope til QRD/QFDD-reglerne, beskrevet i
 [PRO conformance](docs/pro-conformance.md). QRD-ruten anvender den internt med en
-udskiftelig opslagstjeneste for QFDD'er (indlejret, spgdef eller begge); der findes endnu ikke et registreret ITB-forløb eller
-en offentlig validatorrute til dokumentpar med selvvalgt QFDD.
+udskiftelig opslagstjeneste for QFDD'er (indlejret, spgdef eller begge); det eksisterende ITB-forløb for QRD-DK 1.3.2 udfører sammenligningen,
+når besvarelsen refererer en QFDD, som validatoren kan hente. Der findes endnu ikke en
+validatorrute til dokumentpar med selvvalgt QFDD.
 
 QFDD/QRD-sammenligning skal udføres med Schematron-regler. Hvordan reference-QFDD'en
 stilles til rådighed for reglerne, skal afprøves i den eksisterende validator.

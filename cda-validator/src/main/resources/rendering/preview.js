@@ -18,7 +18,7 @@
     panel.innerHTML = '<div class="panel-heading"><strong>CDA document preview</strong>' +
         '<button type="button" class="btn btn-default btn-xs pull-right">Close preview</button></div>' +
         '<div class="panel-body"><p>Shows the CDA header and narrative using the shared display stylesheet. ' +
-        'Structured questionnaire fields may not be shown. This preview does not establish conformance.</p>' +
+        'For a questionnaire form definition or response, its questions and answers are also listed from the structured entries. This preview does not establish conformance.</p>' +
         '<p role="status" aria-live="polite"></p>' +
         '<iframe title="CDA document preview" sandbox="" referrerpolicy="no-referrer" ' +
         'style="width:100%;height:70vh;border:1px solid #ddd;background:white" hidden></iframe></div>';

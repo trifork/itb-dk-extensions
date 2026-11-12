@@ -6,7 +6,7 @@ This report records actual XSD, Schematron and Gazelle results from the pinned X
 
 See [coverage and specification conflicts](cda-conformance.md) and [QRD/QFDD coverage](pro-conformance.md). Ambiguous clauses that are deliberately not enforced are coverage gaps, not silent evidence of conformity.
 
-Examples executed: **111 / 111**. Official source URLs indexed: **116**. Identical published bytes can share one validation result. Archived APD examples without a supported original release are explicitly labelled as migration comparisons below.
+Examples executed: **113 / 113**. Official source URLs indexed: **116**. Identical published bytes can share one validation result. Archived APD examples without a supported original release are explicitly labelled as migration comparisons below.
 
 | Profile | Examples | No errors | With errors | Errors | Warnings |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -20,16 +20,16 @@ Examples executed: **111 / 111**. Official source URLs indexed: **116**. Identic
 | PMR-DK 2.0.0 | 12 | 11 | 1 | 2 | 0 |
 | PRF-DK 3.0.0 | 4 | 4 | 0 | 0 | 0 |
 | PSCR-DK 2.0.0 | 12 | 11 | 1 | 4 | 0 |
-| QFDD-DK 1.2 | 9 | 0 | 9 | 40 | 0 |
-| QRD-DK 1.3.2 | 15 | 0 | 15 | 305 | 0 |
+| QFDD-DK 1.2 | 10 | 0 | 10 | 41 | 0 |
+| QRD-DK 1.3.2 | 16 | 1 | 15 | 310 | 5 |
 
-Run interval (UTC): 2026-09-15T17:29:32.100416+00:00 to 2026-09-15T17:32:34.063333+00:00.
+Run interval (UTC): 2026-11-12T19:05:47.611771Z to 2026-11-12T19:09:37.394789Z.
 
-Deployed resource bundle SHA-256: `0fa1da52d51485fbe78e7b1168901d1a38168235407199819fc8d845bb2f36c8`.
+Deployed resource bundle SHA-256: `593d415ea60f4e8e08a1d5dd3504ea85eee30955523d1d424f179f557b07c3e8`.
 
 ```text
-Reference: isaitb/xml-validator:1.12.4@sha256:ac2a33077b6f5595db0991f17f13df0efd40cbeda12703d2cc1b8a96769e8b75
-Image: sha256:737094f497281efb3494a62ee06a0e4f78cc319a2db0d9581b68f9f2f3ab45ed OS/architecture: linux/amd64 Digests: ["isaitb/xml-validator@sha256:ac2a33077b6f5595db0991f17f13df0efd40cbeda12703d2cc1b8a96769e8b75"]
+Base reference: isaitb/xml-validator:1.13.1@sha256:436a1fcfcb2f0a429b5fac02a0cc56bc1c23ea926d68b1a45da5ea2a9e3c6a90
+Image: sha256:f789392e1624afae9b935948f611d3543e0a8202ac7e0415a39099a25a378a38 OS/architecture: linux/arm64 Digests: []
 ```
 
 ## APD-DK 2.0.1
@@ -241,7 +241,7 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 | error | [APD-DK-2.0.1-c362-7e02](https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/APD-DK-v2.0.1.pdf) | 1 | Reason observation must be OBS/EVN Source: 5.1 CONF-DK-APD:c362/7e02. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[1]/section[1]/entry[1]/encounter[1]/entryRelationship[1]/observation[1] |
 | error | [APD-DK-2.0.1-cce6-7df6](https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/APD-DK-v2.0.1.pdf) | 1 | APD template must identify the 2019-09-10 release Source: 4.1/5.1/5.3.1 CONF-DK-APD:cce6-7df6. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[1]/section[1]/entry[1]/encounter[1]/participant[1]/participantRole[1] |
 | error | [APD-DK-2.0.1-ed37](https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/APD-DK-v2.0.1.pdf) | 1 | Appointment category must use the MedCom code system Source: 5.1 CONF-DK-APD:ed37. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[1]/section[1]/entry[1]/encounter[1]/code[1] |
-| error | CDA-DK-PROFILE-VERSION | 1 | Selected target APD-DK 2.0.1 requires exactly one profile version declaration 'apd-v2.0.1' in documentationOf/serviceEvent/id. Source: 2.2.12, CONF-DK-APD:9f67. | /ClinicalDocument[1] |
+| error | CDA-DK-PROFILE-VERSION | 1 | Selected target APD-DK 2.0.1 requires exactly one profile version declaration 'apd-v2.0.1' in documentationOf/serviceEvent/id. Source: 2.2.12, CONF-DK-APD:9f67. | /ClinicalDocument[1]/documentationOf[2]/serviceEvent[1]/id[1] |
 
 ### Tidligere versioner_DK-APD_Example_1.xml
 
@@ -264,7 +264,7 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 | error | [APD-DK-2.0.1-c362-7e02](https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/APD-DK-v2.0.1.pdf) | 1 | Reason observation must be OBS/EVN Source: 5.1 CONF-DK-APD:c362/7e02. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[1]/section[1]/entry[1]/encounter[1]/entryRelationship[1]/observation[1] |
 | error | [APD-DK-2.0.1-cce6-7df6](https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/APD-DK-v2.0.1.pdf) | 1 | APD template must identify the 2019-09-10 release Source: 4.1/5.1/5.3.1 CONF-DK-APD:cce6-7df6. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[1]/section[1]/entry[1]/encounter[1]/participant[1]/participantRole[1] |
 | error | [APD-DK-2.0.1-ed37](https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/APD-DK-v2.0.1.pdf) | 1 | Appointment category must use the MedCom code system Source: 5.1 CONF-DK-APD:ed37. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[1]/section[1]/entry[1]/encounter[1]/code[1] |
-| error | CDA-DK-PROFILE-VERSION | 1 | Selected target APD-DK 2.0.1 requires exactly one profile version declaration 'apd-v2.0.1' in documentationOf/serviceEvent/id. Source: 2.2.12, CONF-DK-APD:9f67. | /ClinicalDocument[1] |
+| error | CDA-DK-PROFILE-VERSION | 1 | Selected target APD-DK 2.0.1 requires exactly one profile version declaration 'apd-v2.0.1' in documentationOf/serviceEvent/id. Source: 2.2.12, CONF-DK-APD:9f67. | /ClinicalDocument[1]/documentationOf[1]/serviceEvent[1] |
 
 ### Tidligere versioner_DK-APD_Example_No_Time_Place.xml
 
@@ -283,7 +283,7 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 | error | [APD-DK-2.0.1-9b39-efbf](https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/APD-DK-v2.0.1.pdf) | 1 | APD template must identify the 2019-09-10 release Source: 4.1/5.1/5.3.1 CONF-DK-APD:9b39-efbf. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[1]/section[1] |
 | error | [APD-DK-2.0.1-C14749](https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/APD-DK-v2.0.1.pdf) | 1 | APD section requires one code Source: 4.1 CONF-DK-APD:d9f0; CONF:1098-7725/14749. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[1]/section[1] |
 | error | [APD-DK-2.0.1-d9f0](https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/APD-DK-v2.0.1.pdf) | 1 | APD section requires one title Source: 4.1 CONF-DK-APD:d9f0; CONF:1098-7725/14749. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[1]/section[1] |
-| error | CDA-DK-PROFILE-VERSION | 1 | Selected target APD-DK 2.0.1 requires exactly one profile version declaration 'apd-v2.0.1' in documentationOf/serviceEvent/id. Source: 2.2.12, CONF-DK-APD:9f67. | /ClinicalDocument[1] |
+| error | CDA-DK-PROFILE-VERSION | 1 | Selected target APD-DK 2.0.1 requires exactly one profile version declaration 'apd-v2.0.1' in documentationOf/serviceEvent/id. Source: 2.2.12, CONF-DK-APD:9f67. | /ClinicalDocument[1]/documentationOf[1]/serviceEvent[1] |
 
 ### Tidligere versioner_DK-APD_Example_apd-2-0.xml
 
@@ -303,7 +303,7 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 | error | [APD-DK-2.0.1-ad38](https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/APD-DK-v2.0.1.pdf) | 1 | Body and header appointment low must agree Source: 2.1.10.1 CONF-DK-APD:ad38. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[1]/section[1]/entry[1]/encounter[1]/effectiveTime[1]/low[1] |
 | error | [APD-DK-2.0.1-c79d](https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/Errata_APD-DK-v2.0.1_2021_11_24.pdf) | 1 | APD authors require telecom Source: 2.1.2 and errata item 14, CONF-DK-APD:c79d. | /ClinicalDocument[1]/author[1]/assignedAuthor[1] |
 | error | [APD-DK-2.0.1-cce6-7df6](https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/APD-DK-v2.0.1.pdf) | 1 | APD template must identify the 2019-09-10 release Source: 4.1/5.1/5.3.1 CONF-DK-APD:cce6-7df6. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[1]/section[1]/entry[1]/encounter[1]/participant[1]/participantRole[1] |
-| error | CDA-DK-PROFILE-VERSION | 1 | Selected target APD-DK 2.0.1 requires exactly one profile version declaration 'apd-v2.0.1' in documentationOf/serviceEvent/id. Source: 2.2.12, CONF-DK-APD:9f67. | /ClinicalDocument[1] |
+| error | CDA-DK-PROFILE-VERSION | 1 | Selected target APD-DK 2.0.1 requires exactly one profile version declaration 'apd-v2.0.1' in documentationOf/serviceEvent/id. Source: 2.2.12, CONF-DK-APD:9f67. | /ClinicalDocument[1]/documentationOf[2]/serviceEvent[1]/id[1] |
 
 ### Tidligere versioner_DK-APD_Example_minimum.xml
 
@@ -329,7 +329,7 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 | error | [APD-DK-2.0.1-c79d](https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/Errata_APD-DK-v2.0.1_2021_11_24.pdf) | 1 | APD authors require telecom Source: 2.1.2 and errata item 14, CONF-DK-APD:c79d. | /ClinicalDocument[1]/author[1]/assignedAuthor[1] |
 | error | [APD-DK-2.0.1-cce6-7df6](https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/APD-DK-v2.0.1.pdf) | 1 | APD template must identify the 2019-09-10 release Source: 4.1/5.1/5.3.1 CONF-DK-APD:cce6-7df6. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[1]/section[1]/entry[1]/encounter[1]/participant[1]/participantRole[1] |
 | error | [APD-DK-2.0.1-ed37](https://svn.medcom.dk/svn/releases/Standarder/HL7/Appointment/Dokumentation/APD-DK-v2.0.1.pdf) | 1 | Appointment category must use the MedCom code system Source: 5.1 CONF-DK-APD:ed37. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[1]/section[1]/entry[1]/encounter[1]/code[1] |
-| error | CDA-DK-PROFILE-VERSION | 1 | Selected target APD-DK 2.0.1 requires exactly one profile version declaration 'apd-v2.0.1' in documentationOf/serviceEvent/id. Source: 2.2.12, CONF-DK-APD:9f67. | /ClinicalDocument[1] |
+| error | CDA-DK-PROFILE-VERSION | 1 | Selected target APD-DK 2.0.1 requires exactly one profile version declaration 'apd-v2.0.1' in documentationOf/serviceEvent/id. Source: 2.2.12, CONF-DK-APD:9f67. | /ClinicalDocument[1]/documentationOf[1]/serviceEvent[1] |
 
 ## CPD-DK 2.0.0
 
@@ -993,6 +993,7 @@ No errors or warnings from the implemented checks.
 | [qfdd_multiple_choice_grouped.xml](../samples/qfdd/qfdd_multiple_choice_grouped.xml) | FAILURE | 8 | 0 | 4 |
 | [qfdd_analog_slider_feedback.xml](../samples/qfdd/qfdd_analog_slider_feedback.xml) | FAILURE | 5 | 0 | 5 |
 | [qfdd_analog_slider.xml](../samples/qfdd/qfdd_analog_slider.xml) | FAILURE | 5 | 0 | 5 |
+| [qfdd_overekstremitet.xml](../samples/qfdd/qfdd_overekstremitet.xml) | FAILURE | 1 | 0 | 1 |
 
 ### qfdd_example.xml
 
@@ -1093,6 +1094,12 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 | error | [QFDD-DK-1.2-COPY-C67](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=20) | 1 | QFDD-DK 1.2: @typeCode must be DRIV. Source: qfdd 4.2 (QFDD imported by QRD 1.6.1), p. 20, COPY-C67. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[1] |
 | error | [QFDD-DK-1.2-SHARED-C145](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=33) | 1 | QFDD-DK 1.2: @codeSystem must be 2.16.840.1.113883.5.4. Source: qfdd 5.9, p. 33, SHARED-C145. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[1]/observation[1]/code[1] |
 
+### qfdd_overekstremitet.xml
+
+| Severity | Rule / specification | Count | Finding | Example location |
+| --- | --- | ---: | --- | --- |
+| error | (validator diagnostic) | 1 | cvc-complex-type.2.4.a: Invalid content was found starting with element '{"urn:hl7-org:sdtc":statusCode}'. One of '{"urn:hl7-org:v3":effectiveTime}' is expected. | XML:15:35 |
+
 ## QRD-DK 1.3.2
 
 [Specification](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf)
@@ -1102,18 +1109,19 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 | [qrd_numeric.xml](../samples/qrd/qrd_numeric.xml) | FAILURE | 12 | 0 | 10 |
 | [qrd_numeric_graphics.xml](../samples/qrd/qrd_numeric_graphics.xml) | FAILURE | 13 | 0 | 13 |
 | [qrd_multiple_choice.xml](../samples/qrd/qrd_multiple_choice.xml) | FAILURE | 9 | 0 | 9 |
-| [qrd_multiple_choice_grouped.xml](../samples/qrd/qrd_multiple_choice_grouped.xml) | FAILURE | 26 | 0 | 13 |
+| [qrd_multiple_choice_grouped.xml](../samples/qrd/qrd_multiple_choice_grouped.xml) | FAILURE | 31 | 0 | 14 |
 | [qrd_text.xml](../samples/qrd/qrd_text.xml) | FAILURE | 10 | 0 | 10 |
 | [qrd_associated_text_1.xml](../samples/qrd/qrd_associated_text_1.xml) | FAILURE | 9 | 0 | 9 |
 | [qrd_associated_text_2.xml](../samples/qrd/qrd_associated_text_2.xml) | FAILURE | 9 | 0 | 9 |
 | [qrd_analog_slider.xml](../samples/qrd/qrd_analog_slider.xml) | FAILURE | 16 | 0 | 12 |
 | [qrd_analog_slider_feedback.xml](../samples/qrd/qrd_analog_slider_feedback.xml) | FAILURE | 12 | 0 | 12 |
 | [qrd_discrete_slider.xml](../samples/qrd/qrd_discrete_slider.xml) | FAILURE | 9 | 0 | 9 |
-| [qrd_m_3.19.xml](../samples/qrd/qrd_m_3.19.xml) | FAILURE | 39 | 0 | 19 |
-| [qrd_m_3.1_a.xml](../samples/qrd/qrd_m_3.1_a.xml) | FAILURE | 34 | 0 | 15 |
-| [qrd_m_3.22_a.xml](../samples/qrd/qrd_m_3.22_a.xml) | FAILURE | 35 | 0 | 17 |
-| [qrd_m_3.9_a.xml](../samples/qrd/qrd_m_3.9_a.xml) | FAILURE | 35 | 0 | 19 |
-| [qrd_m_3.9_b.xml](../samples/qrd/qrd_m_3.9_b.xml) | FAILURE | 37 | 0 | 19 |
+| [qrd_m_3.19.xml](../samples/qrd/qrd_m_3.19.xml) | FAILURE | 39 | 1 | 19 |
+| [qrd_m_3.1_a.xml](../samples/qrd/qrd_m_3.1_a.xml) | FAILURE | 34 | 1 | 15 |
+| [qrd_m_3.22_a.xml](../samples/qrd/qrd_m_3.22_a.xml) | FAILURE | 35 | 1 | 17 |
+| [qrd_m_3.9_a.xml](../samples/qrd/qrd_m_3.9_a.xml) | FAILURE | 35 | 1 | 19 |
+| [qrd_m_3.9_b.xml](../samples/qrd/qrd_m_3.9_b.xml) | FAILURE | 37 | 1 | 19 |
+| [qrd_overekstremitet.xml](../samples/qrd/qrd_overekstremitet.xml) | SUCCESS | 0 | 0 | 0 |
 
 ### qrd_numeric.xml
 
@@ -1175,6 +1183,11 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 | Severity | Rule / specification | Count | Finding | Example location |
 | --- | --- | ---: | --- | --- |
 | error | CDA-DK-PROFILE-VERSION | 1 | Selected target QRD-DK 1.3.2 requires exactly one profile version declaration 'qrd-v1.3' in documentationOf/serviceEvent/id. Source: 2.2.11 DocumentationOf. | /ClinicalDocument[1] |
+| error | [PRO-PAIR-ANSWER-TYPE](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=41) | 1 | The response pattern must correspond to the QFDD question pattern: numeric to Numeric, multiple choice to Multiple Choice, text to Text, analog slider to Numeric plus Analog Slider, discrete slider to Multiple Choice plus Discrete Slider response. Source: QRD-DK 1.3.2 sections 5.4-5.8; QFDD-DK 1.2 sections 5.9-5.14. [at /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/component[2]/observation[1]] | contentToValidate:282:53 |
+| error | [PRO-PAIR-ANSWER-TYPE](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=41) | 1 | The response pattern must correspond to the QFDD question pattern: numeric to Numeric, multiple choice to Multiple Choice, text to Text, analog slider to Numeric plus Analog Slider, discrete slider to Multiple Choice plus Discrete Slider response. Source: QRD-DK 1.3.2 sections 5.4-5.8; QFDD-DK 1.2 sections 5.9-5.14. [at /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/component[3]/observation[1]] | contentToValidate:314:53 |
+| error | [PRO-PAIR-ANSWER-TYPE](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=41) | 1 | The response pattern must correspond to the QFDD question pattern: numeric to Numeric, multiple choice to Multiple Choice, text to Text, analog slider to Numeric plus Analog Slider, discrete slider to Multiple Choice plus Discrete Slider response. Source: QRD-DK 1.3.2 sections 5.4-5.8; QFDD-DK 1.2 sections 5.9-5.14. [at /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[1]/organizer[1]/component[1]/observation[1]] | contentToValidate:483:53 |
+| error | [PRO-PAIR-ANSWER-TYPE](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=41) | 1 | The response pattern must correspond to the QFDD question pattern: numeric to Numeric, multiple choice to Multiple Choice, text to Text, analog slider to Numeric plus Analog Slider, discrete slider to Multiple Choice plus Discrete Slider response. Source: QRD-DK 1.3.2 sections 5.4-5.8; QFDD-DK 1.2 sections 5.9-5.14. [at /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[2]/organizer[1]/component[1]/observation[1]] | contentToValidate:523:53 |
+| error | [PRO-PAIR-ANSWER-TYPE](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=41) | 1 | The response pattern must correspond to the QFDD question pattern: numeric to Numeric, multiple choice to Multiple Choice, text to Text, analog slider to Numeric plus Analog Slider, discrete slider to Multiple Choice plus Discrete Slider response. Source: QRD-DK 1.3.2 sections 5.4-5.8; QFDD-DK 1.2 sections 5.9-5.14. [at /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[3]/organizer[1]/component[1]/observation[1]] | contentToValidate:563:53 |
 | error | [QRD-DK-1.3.2-AUTHOR-ORGANISATION](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=16) | 1 | QRD-DK 1.3.2: representedOrganization cardinality must be 1..1. Source: qrd 2.2.2, p. 16, AUTHOR-ORGANISATION. | /ClinicalDocument[1]/author[1]/assignedAuthor[1] |
 | error | [QRD-DK-1.3.2-C121-CODE](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=32) | 1 | QRD-DK 1.3.2: @code must be 74465-6. Source: qrd 4.1, p. 32, C121-CODE. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/code[1] |
 | error | [QRD-DK-1.3.2-C132](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=35) | 2 | QRD-DK 1.3.2: id cardinality must be 1..*. Source: qrd 5.1, p. 35, C132. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[2]/organizer[1] |
@@ -1297,7 +1310,7 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 
 | Severity | Rule / specification | Count | Finding | Example location |
 | --- | --- | ---: | --- | --- |
-| error | CDA-DK-PROFILE-VERSION | 1 | Selected target QRD-DK 1.3.2 requires exactly one profile version declaration 'qrd-v1.3' in documentationOf/serviceEvent/id. Source: 2.2.11 DocumentationOf. | /ClinicalDocument[1] |
+| error | CDA-DK-PROFILE-VERSION | 1 | Selected target QRD-DK 1.3.2 requires exactly one profile version declaration 'qrd-v1.3' in documentationOf/serviceEvent/id. Source: 2.2.11 DocumentationOf. | /ClinicalDocument[1]/documentationOf[1]/serviceEvent[1]/id[1] |
 | error | [QRD-DK-1.3.2-C121-CODE](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=32) | 4 | QRD-DK 1.3.2: @code must be 74465-6. Source: qrd 4.1, p. 32, C121-CODE. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/code[1] |
 | error | [QRD-DK-1.3.2-C126](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=32) | 2 | QRD-DK 1.3.2: @typeCode must be DRIV. Source: qrd 4.1, p. 32, C126. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1] |
 | error | [QRD-DK-1.3.2-C138-143](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=35) | 3 | QRD-DK 1.3.2: observation[templateId/@root=('2.16.840.1.113883.10.20.33.4.4', '2.16.840.1.113883.10.20.33.4.5', '2.16.840.1.113883.10.20.33.4.6', '2.16.840.1.113883.10.20.33.4.7', '2.16.840.1.113883.10.20.33.4.8')] cardinality must be 1..1. Source: qrd 5.1, p. 35, C138-143. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[8]/section[1]/entry[1]/organizer[1]/component[1] |
@@ -1316,6 +1329,7 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 | error | [QRD-DK-1.3.2-REFERENCE-SYSTEM](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=50) | 8 | QRD-DK 1.3.2: @codeSystem must be 2.16.840.1.113883.6.1. Source: qrd 5.9; 5.9.1, p. 50, REFERENCE-SYSTEM. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/component[1]/observation[1]/reference[1]/externalDocument[1]/code[1] |
 | error | [QRD-DK-1.3.2-SHARED-C125](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=30) | 3 | QRD-DK 1.3.2: @code must be 74467-2. Source: qfdd 5.7, p. 30, SHARED-C125. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[1]/organizer[1]/component[1]/observation[1]/entryRelationship[1]/observation[1]/code[1] |
 | error | [QRD-DK-1.3.2-SHARED-C145](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=33) | 1 | QRD-DK 1.3.2: @codeSystem must be 2.16.840.1.113883.5.4. Source: qfdd 5.9, p. 33, SHARED-C145. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[11]/section[1]/entry[1]/observation[1]/code[1] |
+| warning | PRO-PAIR-QFDD-UNRESOLVED | 1 | The QRD could not be validated against its QFDD: QFDD 0dd98de0-f3d3-4270-88bd-eaa93d311ef2 is not found (The embedded QFDD set has no document 0dd98de0-f3d3-4270-88bd-eaa93d311ef2). |  |
 
 ### qrd_m_3.1_a.xml
 
@@ -1338,6 +1352,7 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 | error | [QRD-DK-1.3.2-REFERENCE-SYSTEM](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=50) | 11 | QRD-DK 1.3.2: @codeSystem must be 2.16.840.1.113883.6.1. Source: qrd 5.9; 5.9.1, p. 50, REFERENCE-SYSTEM. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/component[1]/observation[1]/reference[1]/externalDocument[1]/code[1] |
 | error | [QRD-DK-1.3.2-SHARED-C125](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=30) | 3 | QRD-DK 1.3.2: @code must be 74467-2. Source: qfdd 5.7, p. 30, SHARED-C125. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[4]/section[1]/entry[1]/organizer[1]/component[1]/observation[1]/entryRelationship[1]/observation[1]/code[1] |
 | error | [QRD-DK-1.3.2-SHARED-C145](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=33) | 1 | QRD-DK 1.3.2: @codeSystem must be 2.16.840.1.113883.5.4. Source: qfdd 5.9, p. 33, SHARED-C145. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[11]/section[1]/entry[1]/observation[1]/code[1] |
+| warning | PRO-PAIR-QFDD-UNRESOLVED | 1 | The QRD could not be validated against its QFDD: QFDD 0dd98de0-f3d3-4270-88bd-eaa93d311ef2 is not found (The embedded QFDD set has no document 0dd98de0-f3d3-4270-88bd-eaa93d311ef2). |  |
 
 ### qrd_m_3.22_a.xml
 
@@ -1362,6 +1377,7 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 | error | [QRD-DK-1.3.2-REFERENCE-SYSTEM](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=50) | 2 | QRD-DK 1.3.2: @codeSystem must be 2.16.840.1.113883.6.1. Source: qrd 5.9; 5.9.1, p. 50, REFERENCE-SYSTEM. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/component[1]/observation[1]/reference[1]/externalDocument[1]/code[1] |
 | error | [QRD-DK-1.3.2-SHARED-C125](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=30) | 1 | QRD-DK 1.3.2: @code must be 74467-2. Source: qfdd 5.7, p. 30, SHARED-C125. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/component[1]/observation[1]/entryRelationship[1]/observation[1]/code[1] |
 | error | [QRD-DK-1.3.2-SHARED-C145](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=33) | 1 | QRD-DK 1.3.2: @codeSystem must be 2.16.840.1.113883.5.4. Source: qfdd 5.9, p. 33, SHARED-C145. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[10]/section[1]/entry[1]/observation[1]/code[1] |
+| warning | PRO-PAIR-QFDD-UNRESOLVED | 1 | The QRD could not be validated against its QFDD: QFDD 29df8640-de5a-49c2-a118-3673b402221a is not found (The embedded QFDD set has no document 29df8640-de5a-49c2-a118-3673b402221a). |  |
 
 ### qrd_m_3.9_a.xml
 
@@ -1388,6 +1404,7 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 | error | [QRD-DK-1.3.2-REFERENCE-SYSTEM](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=50) | 2 | QRD-DK 1.3.2: @codeSystem must be 2.16.840.1.113883.6.1. Source: qrd 5.9; 5.9.1, p. 50, REFERENCE-SYSTEM. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/component[1]/observation[1]/reference[1]/externalDocument[1]/code[1] |
 | error | [QRD-DK-1.3.2-SHARED-C125](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=30) | 1 | QRD-DK 1.3.2: @code must be 74467-2. Source: qfdd 5.7, p. 30, SHARED-C125. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/component[1]/observation[1]/entryRelationship[1]/observation[1]/code[1] |
 | error | [QRD-DK-1.3.2-SHARED-C145](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=33) | 1 | QRD-DK 1.3.2: @codeSystem must be 2.16.840.1.113883.5.4. Source: qfdd 5.9, p. 33, SHARED-C145. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[10]/section[1]/entry[1]/observation[1]/code[1] |
+| warning | PRO-PAIR-QFDD-UNRESOLVED | 1 | The QRD could not be validated against its QFDD: QFDD 29df8640-de5a-49c2-a118-3673b402221a is not found (The embedded QFDD set has no document 29df8640-de5a-49c2-a118-3673b402221a). |  |
 
 ### qrd_m_3.9_b.xml
 
@@ -1414,3 +1431,8 @@ Published at: [MedCom source 1](https://svn.medcom.dk/svn/releases/Standarder/HL
 | error | [QRD-DK-1.3.2-REFERENCE-SYSTEM](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QRD/Dokumentation/QRD-DK_1.3.2.pdf#page=50) | 2 | QRD-DK 1.3.2: @codeSystem must be 2.16.840.1.113883.6.1. Source: qrd 5.9; 5.9.1, p. 50, REFERENCE-SYSTEM. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/component[1]/observation[1]/reference[1]/externalDocument[1]/code[1] |
 | error | [QRD-DK-1.3.2-SHARED-C125](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=30) | 1 | QRD-DK 1.3.2: @code must be 74467-2. Source: qfdd 5.7, p. 30, SHARED-C125. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[2]/section[1]/entry[1]/organizer[1]/component[1]/observation[1]/entryRelationship[1]/observation[1]/code[1] |
 | error | [QRD-DK-1.3.2-SHARED-C145](https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=33) | 1 | QRD-DK 1.3.2: @codeSystem must be 2.16.840.1.113883.5.4. Source: qfdd 5.9, p. 33, SHARED-C145. | /ClinicalDocument[1]/component[1]/structuredBody[1]/component[10]/section[1]/entry[1]/observation[1]/code[1] |
+| warning | PRO-PAIR-QFDD-UNRESOLVED | 1 | The QRD could not be validated against its QFDD: QFDD 29df8640-de5a-49c2-a118-3673b402221a is not found (The embedded QFDD set has no document 29df8640-de5a-49c2-a118-3673b402221a). |  |
+
+### qrd_overekstremitet.xml
+
+No errors or warnings from the implemented checks.

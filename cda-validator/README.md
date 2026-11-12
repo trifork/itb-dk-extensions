@@ -26,7 +26,8 @@ environment variable `CDA_QFDD_RESOLVER` (Compose passes it through): `embedded`
 spgdef). `spgdef` and `combined` send the QFDD id, and nothing else, to spgdef.dk. Details, the
 checks made on the catalogue and on each download, and the reported outcomes are in
 [PRO conformance](../docs/pro-conformance.md#qfdd-resolvers). The live catalogue is only touched by
-the opt-in `mvn test -Dtest=SpgdefLiveTest -Dcda.live.spgdef=true`.
+the opt-in `mvn test -Dtest=SpgdefLiveTest -Dcda.live.spgdef=true`. The same switch enables
+`SpgdefCorpusLiveTest`, which compares generated responses with every form in the catalogue.
 
 ## Display stylesheet
 
@@ -39,6 +40,12 @@ resources). The renderer passes `useJavascript=false` and `limit-external-images
 the output is still sanitised and shown in a sandboxed iframe. The label file has no Danish
 strings, so labels fall back to English. To update, replace both files, review the diff and
 change the hashes in the test.
+
+That stylesheet shows the header and the narrative only. For a questionnaire form definition (QFDD)
+or response (QRD) the preview therefore adds a list of the structured entries, written by our own
+`questionnaire.xsl`: each answer of a response, or each question of a form with its options,
+limits, ranges and preconditions. It uses only `xsl:value-of`, so document text can never become
+markup, and the output passes through the same sanitiser, CSP and sandbox.
 
 Docker builds `validator-plugin-cda-dk.jar` and installs it inside the domain.
 Do not commit plugin binaries or bind-mount over the image's domain directory.
