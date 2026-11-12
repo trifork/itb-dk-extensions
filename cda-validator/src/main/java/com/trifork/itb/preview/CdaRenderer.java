@@ -1,7 +1,13 @@
 package com.trifork.itb.preview;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.transform.OutputKeys;
@@ -17,6 +23,8 @@ import org.jsoup.Jsoup;
 import org.jsoup.safety.Cleaner;
 import org.jsoup.safety.Safelist;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
@@ -54,14 +62,84 @@ public final class CdaRenderer {
         factory.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, true);
         factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
         factory.setAttribute(XMLConstants.ACCESS_EXTERNAL_STYLESHEET, "");
-        stylesheetBytes = bundled("/rendering/HL7_CDA_stylesheet.xsl");
-        labelBytes = bundled("/rendering/" + LABELS_NAME);
+        stylesheetBytes = withDanishDates(bundled("/rendering/HL7_CDA_stylesheet.xsl"));
+        labelBytes =
+                mergeLabels(
+                        bundled("/rendering/" + LABELS_NAME),
+                        bundled("/rendering/cda_l10n_da.xml"));
         factory.setURIResolver(this::resolveStylesheet);
         stylesheet = factory.newTemplates(resolveStylesheet("", STYLESHEET_URI));
         questionnaire =
                 factory.newTemplates(
                         new StreamSource(
                                 new ByteArrayInputStream(bundled("/rendering/questionnaire.xsl"))));
+    }
+
+    private static final Pattern DATE_ORDER =
+            Pattern.compile(
+                    "(<xsl:when test=\"\\$textLangPartLowerCase = 'nl'\">)(\\s*<xsl:value-of select=\"\\$dayNum\"/>)");
+
+    /** Danish writes "13. maj 2025"; the stylesheet only knows that order for Dutch. */
+    private static final String DANISH_DATE =
+            "<xsl:when test=\"$textLangPartLowerCase = 'da'\">"
+                    + "<xsl:if test=\"string-length($dayNum) > 0\">"
+                    + "<xsl:value-of select=\"$dayNum\"/><xsl:text>. </xsl:text></xsl:if>"
+                    + "<xsl:if test=\"string-length(normalize-space($monthText)) > 0\">"
+                    + "<xsl:call-template name=\"caseDown\"><xsl:with-param name=\"data\" "
+                    + "select=\"normalize-space($monthText)\"/></xsl:call-template>"
+                    + "<xsl:text> </xsl:text></xsl:if>"
+                    + "<xsl:value-of select=\"$yearNum\"/></xsl:when>";
+
+    /**
+     * The one change to the upstream stylesheet: a Danish branch for the order of day, month and
+     * year, placed before the Dutch one. The files on disk stay unchanged and pinned; the change is
+     * made here, in memory, and fails loudly if the stylesheet is replaced by one it no longer
+     * fits.
+     */
+    static byte[] withDanishDates(byte[] stylesheet) {
+        String xsl = new String(stylesheet, StandardCharsets.UTF_8);
+        Matcher match = DATE_ORDER.matcher(xsl);
+        if (!match.find()) {
+            throw new IllegalStateException("The display stylesheet has no date order to extend");
+        }
+        int start = match.start();
+        if (match.find()) {
+            throw new IllegalStateException("The display stylesheet has several date orders");
+        }
+        return (xsl.substring(0, start) + DANISH_DATE + xsl.substring(start))
+                .getBytes(StandardCharsets.UTF_8);
+    }
+
+    /**
+     * Adds the Danish labels to the upstream label file, which has none. A key that upstream
+     * already has gains a da-dk value; any other key is added. Upstream values are never changed.
+     */
+    static byte[] mergeLabels(byte[] upstream, byte[] danish) throws Exception {
+        Document labels = parse(upstream);
+        Map<String, Element> known = new HashMap<>();
+        NodeList existing = labels.getElementsByTagName("translation");
+        for (int i = 0; i < existing.getLength(); i++) {
+            Element translation = (Element) existing.item(i);
+            known.put(translation.getAttribute("key"), translation);
+        }
+        NodeList additions = parse(danish).getElementsByTagName("translation");
+        for (int i = 0; i < additions.getLength(); i++) {
+            Element addition = (Element) additions.item(i);
+            Element target = known.get(addition.getAttribute("key"));
+            if (target == null) {
+                labels.getDocumentElement().appendChild(labels.importNode(addition, true));
+                continue;
+            }
+            NodeList values = addition.getElementsByTagName("value");
+            for (int v = 0; v < values.getLength(); v++) {
+                target.appendChild(labels.importNode(values.item(v), true));
+            }
+        }
+        var out = new ByteArrayOutputStream();
+        var transformer = TransformerFactory.newInstance().newTransformer();
+        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+        transformer.transform(new DOMSource(labels), new StreamResult(out));
+        return out.toByteArray();
     }
 
     private static byte[] bundled(String path) throws java.io.IOException {

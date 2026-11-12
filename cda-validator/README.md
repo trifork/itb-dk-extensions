@@ -37,9 +37,17 @@ the opt-in `mvn test -Dtest=SpgdefLiveTest -Dcda.live.spgdef=true`. The same swi
 unchanged copies, pinned by SHA-256 in `CdaRendererTest`; they are bundled and never fetched
 at runtime (external stylesheet access stays disabled, and the resolver serves only these two
 resources). The renderer passes `useJavascript=false` and `limit-external-images=yes`, and
-the output is still sanitised and shown in a sandboxed iframe. The label file has no Danish
-strings, so labels fall back to English. To update, replace both files, review the diff and
-change the hashes in the test.
+the output is still sanitised and shown in a sandboxed iframe. To update, replace both files,
+review the diff and change the hashes in the test.
+
+**Danish.** The upstream label file has no Danish, so `cda_l10n_da.xml` supplies 113 `da-dk`
+labels (header labels, months, address and participant types, identifier names such as CPR). It is
+merged into the upstream labels in memory at start-up, which never changes an upstream value; a
+language the file does not cover still falls back to English. The stylesheet writes dates as "Month
+day, year" for everything but Dutch, so `CdaRenderer.withDanishDates` also inserts a Danish branch
+("13. maj 2025"). That is the only change to the stylesheet, made in memory, and it refuses to apply
+to a stylesheet it does not fit. The wording is a draft that a Danish speaker should review. To see
+what a new stylesheet needs, the keys it requests can be logged while rendering the sample documents.
 
 That stylesheet shows the header and the narrative only. For a questionnaire form definition (QFDD)
 or response (QRD) the preview therefore adds a list of the structured entries, written by our own

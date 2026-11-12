@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Danish (da-DK) labels for the CDA display stylesheet.
+
+  The upstream label file cda_l10n.xml is kept byte-identical (see CdaRendererTest). It has no Danish
+  strings, so CdaRenderer merges this file into it at start-up: each entry adds a <value lang="da-dk">
+  to the upstream <translation> with the same key, or creates the key when upstream has none.
+
+  Scope: every key that the stylesheet requested when rendering the 199 Danish documents of this
+  repository (samples and the published SPGDEF forms) and the 137 HL7 C-CDA examples, plus the other
+  keys the stylesheet names literally. Keys not listed here fall back to English as before.
+
+  Machine-assisted draft: please have a Danish speaker review the wording. Dutch values upstream were
+  used as a cross-reference. Dates are handled in the stylesheet (see CdaRenderer), not here.
+-->
+<translations>
+  <translation key="January"><value lang="da-dk">januar</value></translation>
+  <translation key="February"><value lang="da-dk">februar</value></translation>
+  <translation key="March"><value lang="da-dk">marts</value></translation>
+  <translation key="April"><value lang="da-dk">april</value></translation>
+  <translation key="May"><value lang="da-dk">maj</value></translation>
+  <translation key="June"><value lang="da-dk">juni</value></translation>
+  <translation key="July"><value lang="da-dk">juli</value></translation>
+  <translation key="August"><value lang="da-dk">august</value></translation>
+  <translation key="September"><value lang="da-dk">september</value></translation>
+  <translation key="October"><value lang="da-dk">oktober</value></translation>
+  <translation key="November"><value lang="da-dk">november</value></translation>
+  <translation key="December"><value lang="da-dk">december</value></translation>
+  <translation key="recordTarget"><value lang="da-dk">Patient</value></translation>
+  <translation key="birthTimeLong"><value lang="da-dk">Fødselsdato</value></translation>
+  <translation key="birthTimeLongDeceased"><value lang="da-dk">Fødselsdato/død</value></translation>
+  <translation key="administrativeGenderCode"><value lang="da-dk">Køn</value></translation>
+  <translation key="patientIdLong"><value lang="da-dk">Patient-id</value></translation>
+  <translation key="patientIdsLong"><value lang="da-dk">Patient-id'er</value></translation>
+  <translation key="id"><value lang="da-dk">Id</value></translation>
+  <translation key="author"><value lang="da-dk">Forfatter</value></translation>
+  <translation key="custodian"><value lang="da-dk">Dokumentansvarlig</value></translation>
+  <translation key="documentationOf"><value lang="da-dk">Dokumentation af</value></translation>
+  <translation key="Authored_on"><value lang="da-dk">Udarbejdet</value></translation>
+  <translation key="Created_on"><value lang="da-dk">Oprettet</value></translation>
+  <translation key="effectiveTime"><value lang="da-dk">Dato/tid</value></translation>
+  <translation key="versionNumber"><value lang="da-dk">Version</value></translation>
+  <translation key="setId"><value lang="da-dk">Dokumentsæt-id</value></translation>
+  <translation key="statusCode"><value lang="da-dk">Status</value></translation>
+  <translation key="Document"><value lang="da-dk">Dokument</value></translation>
+  <translation key="section"><value lang="da-dk">Afsnit</value></translation>
+  <translation key="type"><value lang="da-dk">Type</value></translation>
+  <translation key="code"><value lang="da-dk">Kode</value></translation>
+  <translation key="organization"><value lang="da-dk">Organisation</value></translation>
+  <translation key="Organization"><value lang="da-dk">Organisation</value></translation>
+  <translation key="providerOrganization"><value lang="da-dk">Ansvarlig organisation</value></translation>
+  <translation key="Contact_details"><value lang="da-dk">Kontaktoplysninger</value></translation>
+  <translation key="Tel"><value lang="da-dk">Tlf.</value></translation>
+  <translation key="Fax"><value lang="da-dk">Fax</value></translation>
+  <translation key="Mail"><value lang="da-dk">E-mail</value></translation>
+  <translation key="Web"><value lang="da-dk">Web</value></translation>
+  <translation key="telecom information not available"><value lang="da-dk">kontaktoplysninger ikke tilgængelige</value></translation>
+  <translation key="addressUse_H"><value lang="da-dk">Bopæl</value></translation>
+  <translation key="addressUse_HP"><value lang="da-dk">Primær bopæl</value></translation>
+  <translation key="addressUse_WP"><value lang="da-dk">Arbejdssted</value></translation>
+  <translation key="addressUse_MC"><value lang="da-dk">Mobil</value></translation>
+  <translation key="addressUse_PUB"><value lang="da-dk">Offentlig</value></translation>
+  <translation key="addressUse_DIR"><value lang="da-dk">Direkte</value></translation>
+  <translation key="nameUse_L"><value lang="da-dk">Officielt</value></translation>
+  <translation key="nameUse_SRCH"><value lang="da-dk">søgenavn</value></translation>
+  <translation key="nullFlavor_NI"><value lang="da-dk">ingen oplysninger</value></translation>
+  <translation key="nullFlavor_UNK"><value lang="da-dk">ukendt</value></translation>
+  <translation key="boolean-true"><value lang="da-dk">ja</value></translation>
+  <translation key="date_unknown"><value lang="da-dk">dato ukendt</value></translation>
+  <translation key="at"><value lang="da-dk">kl.</value></translation>
+  <translation key="from"><value lang="da-dk">fra</value></translation>
+  <translation key="to"><value lang="da-dk">til</value></translation>
+  <translation key="of"><value lang="da-dk">af</value></translation>
+  <translation key="Period"><value lang="da-dk">Periode</value></translation>
+  <translation key="Unit"><value lang="da-dk">Enhed</value></translation>
+  <translation key="Units"><value lang="da-dk">Enheder</value></translation>
+  <translation key="location"><value lang="da-dk">Sted</value></translation>
+  <translation key="priorityCode"><value lang="da-dk">Prioritet</value></translation>
+  <translation key="consent"><value lang="da-dk">Samtykke</value></translation>
+  <translation key="languageCommunication"><value lang="da-dk">Sprog</value></translation>
+  <translation key="preferredLanguage"><value lang="da-dk">foretrukket</value></translation>
+  <translation key="partOfMultipleBirth"><value lang="da-dk">Flerfødsel</value></translation>
+  <translation key="Ethnicity"><value lang="da-dk">Etnicitet</value></translation>
+  <translation key="Race"><value lang="da-dk">Race</value></translation>
+  <translation key="Guardian"><value lang="da-dk">Værge</value></translation>
+  <translation key="responsibleParty"><value lang="da-dk">Ansvarlig part</value></translation>
+  <translation key="At document creation time"><value lang="da-dk">Ved dokumentets oprettelse</value></translation>
+  <translation key="At the time of death"><value lang="da-dk">Ved dødstidspunktet</value></translation>
+  <translation key="relatingDocument"><value lang="da-dk">Dette dokument vedrører dokumentet</value></translation>
+  <translation key="relatingDocumentInverted"><value lang="da-dk">Dokument, der vedrører dette dokument</value></translation>
+  <translation key="order"><value lang="da-dk">Bestilling</value></translation>
+  <translation key="sectionAuthor"><value lang="da-dk">Afsnittets forfatter</value></translation>
+  <translation key="sectionInformant"><value lang="da-dk">Afsnittets informant</value></translation>
+  <translation key="sectionSubject"><value lang="da-dk">Afsnittets emne</value></translation>
+  <translation key="typeCode-AUTHEN"><value lang="da-dk">Bekræftet af</value></translation>
+  <translation key="typeCode-ENT"><value lang="da-dk">Dataindtaster</value></translation>
+  <translation key="typeCode-FLFS"><value lang="da-dk">Opfyldelse af</value></translation>
+  <translation key="typeCode-INF"><value lang="da-dk">Informant</value></translation>
+  <translation key="typeCode-LA"><value lang="da-dk">Juridisk godkender</value></translation>
+  <translation key="typeCode-PRCP"><value lang="da-dk">Informationsmodtager</value></translation>
+  <translation key="typeCode-PRF"><value lang="da-dk">Udfører</value></translation>
+  <translation key="Encounter"><value lang="da-dk">Kontakt</value></translation>
+  <translation key="Encounter Date"><value lang="da-dk">Kontaktdato</value></translation>
+  <translation key="Encounter Location"><value lang="da-dk">Kontaktsted</value></translation>
+  <translation key="Encounter Admission Referral Source"><value lang="da-dk">Henvisningskilde ved indlæggelse</value></translation>
+  <translation key="Encounter Discharge Disposition"><value lang="da-dk">Udskrivningsmåde</value></translation>
+  <translation key="2.16.840.1.113883.5.6-MPROT"><value lang="da-dk">overvågningsprogram</value></translation>
+  <translation key="2.16.840.1.113883.5.6-PCPR"><value lang="da-dk">behandling og pleje</value></translation>
+  <translation key="2.16.840.1.113883.5.1002-RPLC"><value lang="da-dk">erstatter</value></translation>
+  <translation key="2.16.840.1.113883.5.110-PRS"><value lang="da-dk">personlig relation</value></translation>
+  <translation key="2.16.840.1.113883.5.89-S"><value lang="da-dk">underskrevet</value></translation>
+  <translation key="2.16.840.1.113883.5.90-IND"><value lang="da-dk">indirekte mål</value></translation>
+  <translation key="2.16.840.1.113883.5.90-PRF"><value lang="da-dk">udfører</value></translation>
+  <translation key="1.2.208.176.1.2"><value lang="da-dk">CPR-nummer</value></translation>
+  <translation key="1.2.208.176.1.1"><value lang="da-dk">SOR</value></translation>
+  <translation key="1.2.208.184"><value lang="da-dk">MedCom</value></translation>
+  <translation key="1.2.208.195.1.1.1"><value lang="da-dk">Sundhedsvæsenets Kvalitetsinstitut</value></translation>
+  <translation key="Expand"><value lang="da-dk">Udfold</value></translation>
+  <translation key="Collapse"><value lang="da-dk">Sammenklap</value></translation>
+  <translation key="show revisions"><value lang="da-dk">Vis revisioner</value></translation>
+  <translation key="hide revisions"><value lang="da-dk">Skjul revisioner</value></translation>
+  <translation key="Cannot display the text"><value lang="da-dk">Teksten kan ikke vises</value></translation>
+  <translation key="If the contents are not displayed here, it may be offered as a download."><value lang="da-dk">Hvis indholdet ikke vises her, kan det i stedet hentes som download.</value></translation>
+  <translation key="Signature present but not verified"><value lang="da-dk">Underskrift er til stede. Gyldigheden er ikke kontrolleret.</value></translation>
+  <translation key="malicious-content-warning"><value lang="da-dk">ADVARSEL: Potentielt skadeligt indhold fundet i CDA-dokumentet</value></translation>
+  <translation key="javascript-injection-warning"><value lang="da-dk">ADVARSEL: Forsøg på JavaScript-injektion opdaget i kilde-CDA-dokumentet. Behandlingen afbrydes</value></translation>
+  <translation key="non-local-image-found-1"><value lang="da-dk">ADVARSEL: ikke-lokalt billede fundet</value></translation>
+  <translation key="non-local-image-found-2"><value lang="da-dk">. Fjernes. Hvis ikke-lokale billeder skal bevares, sættes parameteren limit-external-images til 'no'.</value></translation>
+  <translation key="is-in-the-whitelist"><value lang="da-dk">er på hvidlisten</value></translation>
+</translations>

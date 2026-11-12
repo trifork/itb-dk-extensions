@@ -143,6 +143,100 @@ class CdaRendererTest {
     }
 
     @Test
+    void danishDocumentsGetDanishLabelsAndDateOrder() throws Exception {
+        var html =
+                Jsoup.parse(
+                        renderer.render(
+                                resource("/pair/qrd_overekstremitet.xml")
+                                        .getBytes(StandardCharsets.UTF_8)));
+        String text = html.text();
+        assertTrue(text.contains("Fødselsdato"), text);
+        assertTrue(text.contains("Køn"));
+        assertTrue(text.contains("Forfatter"));
+        assertTrue(text.contains("25. december 1948"), "Danish date order");
+        assertFalse(text.contains("Date of Birth"));
+        assertFalse(text.contains("December 25"));
+    }
+
+    @Test
+    void englishDocumentsKeepTheirLabelsAndDateOrder() throws Exception {
+        String english =
+                resource("/pair/qrd_overekstremitet.xml")
+                        .replace(
+                                "<languageCode code=\"da-DK\"/>", "<languageCode code=\"en-US\"/>");
+        String text = Jsoup.parse(renderer.render(english.getBytes(StandardCharsets.UTF_8))).text();
+        assertTrue(text.contains("Date of Birth"), text);
+        assertTrue(text.contains("December 25, 1948"));
+        assertFalse(text.contains("Fødselsdato"));
+    }
+
+    @Test
+    void datesWithReducedPrecisionAreNotMangled() throws Exception {
+        String xml =
+                "<ClinicalDocument xmlns=\"urn:hl7-org:v3\"><languageCode code=\"da-DK\"/>"
+                        + "<title>t</title><effectiveTime value=\"202611\"/>"
+                        + "<component><structuredBody><component><section><title>s</title>"
+                        + "<text>x</text></section></component></structuredBody></component></ClinicalDocument>";
+        String text = Jsoup.parse(renderer.render(xml.getBytes(StandardCharsets.UTF_8))).text();
+        assertTrue(text.contains("november 2026"), text);
+        assertFalse(text.contains(". 2026"), text);
+    }
+
+    @Test
+    void mergingAddsDanishValuesWithoutChangingAnyUpstreamValue() throws Exception {
+        byte[] upstream = resource("/rendering/cda_l10n.xml").getBytes(StandardCharsets.UTF_8);
+        byte[] danish = resource("/rendering/cda_l10n_da.xml").getBytes(StandardCharsets.UTF_8);
+        var merged =
+                Jsoup.parse(
+                        new String(
+                                CdaRenderer.mergeLabels(upstream, danish), StandardCharsets.UTF_8),
+                        "",
+                        org.jsoup.parser.Parser.xmlParser());
+        var original =
+                Jsoup.parse(
+                        new String(upstream, StandardCharsets.UTF_8),
+                        "",
+                        org.jsoup.parser.Parser.xmlParser());
+        for (String lang : new String[] {"en-us", "nl-nl", "de-ch", "fr-ch", "it-ch"}) {
+            assertEquals(
+                    original.select("value[lang=" + lang + "]").size(),
+                    merged.select("value[lang=" + lang + "]").size(),
+                    lang);
+        }
+        assertEquals("January", merged.select("translation[key=January] value[lang=en-us]").text());
+        assertEquals("januar", merged.select("translation[key=January] value[lang=da-dk]").text());
+        assertEquals(
+                "CPR-nummer",
+                merged.select("translation[key=1.2.208.176.1.2] value[lang=da-dk]").text(),
+                "a key that upstream does not have is added");
+    }
+
+    @Test
+    void theDanishLabelFileIsComplete() throws Exception {
+        var labels =
+                Jsoup.parse(
+                        resource("/rendering/cda_l10n_da.xml"),
+                        "",
+                        org.jsoup.parser.Parser.xmlParser());
+        var keys = new java.util.HashSet<String>();
+        for (var translation : labels.select("translation")) {
+            assertTrue(
+                    keys.add(translation.attr("key")), "duplicate key " + translation.attr("key"));
+            var values = translation.select("value");
+            assertEquals(1, values.size(), translation.attr("key"));
+            assertEquals("da-dk", values.first().attr("lang"));
+            assertFalse(values.first().text().isBlank(), translation.attr("key"));
+        }
+        assertTrue(keys.size() > 100);
+    }
+
+    @Test
+    void theDanishDatePatchRefusesAStylesheetItDoesNotFit() {
+        byte[] other = "<xsl:stylesheet/>".getBytes(StandardCharsets.UTF_8);
+        assertThrows(IllegalStateException.class, () -> CdaRenderer.withDanishDates(other));
+    }
+
+    @Test
     void displaysNarrativeWithoutRequiringAValidProfile() throws Exception {
         var html = Jsoup.parse(renderer.render(xml("<paragraph>Blodtryk: æøå</paragraph>")));
         assertTrue(html.text().contains("Blodtryk: æøå"));
