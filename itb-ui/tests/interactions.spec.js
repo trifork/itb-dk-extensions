@@ -29,7 +29,8 @@ for (const stamkort of [false, true]) {
       await page.locator('#username').fill(users.ITB_TEST_USERNAME);
       await page.locator('#password').fill(users.ITB_TEST_PASSWORD);
       await page.getByRole('button', {name: /Log in/}).click();
-      const sessionsLink = page.locator('a[href*="/organisation/tests/"]');
+      // ITB renders a placeholder /tests/-1 link until the organisation id has loaded.
+      const sessionsLink = page.locator('a[href*="/organisation/tests/"]:not([href$="/-1"])').first();
       await expect(sessionsLink).toBeAttached();
       const path = await sessionsLink.getAttribute('href');
       await page.goto(`${base}/app${path}?session=${session}`);
@@ -202,7 +203,8 @@ for (const timezoneId of ['Europe/Copenhagen', 'America/New_York']) {
           await page.locator('#username').fill(users.ITB_TEST_USERNAME);
           await page.locator('#password').fill(users.ITB_TEST_PASSWORD);
           await page.getByRole('button', {name: /Log in/}).click();
-          const sessionsLink = page.locator('a[href*="/organisation/tests/"]');
+          // ITB renders a placeholder /tests/-1 link until the organisation id has loaded.
+          const sessionsLink = page.locator('a[href*="/organisation/tests/"]:not([href$="/-1"])').first();
           await expect(sessionsLink).toBeAttached();
           await page.goto(`${base}/app${await sessionsLink.getAttribute('href')}?session=${session}`);
           const dialog = page.getByRole('dialog');
