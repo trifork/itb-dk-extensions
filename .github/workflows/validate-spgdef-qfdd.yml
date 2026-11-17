@@ -1,4 +1,4 @@
-name: Daily public QFDD validation
+name: Weekly public QFDD validation
 
 on:
   schedule:
