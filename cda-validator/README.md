@@ -112,3 +112,9 @@ resources are blocked. Output uses no-store responses and a sandboxed iframe.
 Preview preserves the original bytes and can display documents that fail validation.
 It shows header and narrative; structured questionnaire fields may not appear.
 `CdaPreviewIT` exercises the renderer in the actual image.
+
+The same upload-page script groups repeated findings in the **Detailed report** into one
+card with an occurrence count. **Show N locations** lists each as a link that opens the
+annotated input at that line, using the upstream page's own handler. The original report
+items are moved into the card, so counts, severity filters and annotations are unchanged.
+The server-side **Aggregated report** is separate and is left as it is.

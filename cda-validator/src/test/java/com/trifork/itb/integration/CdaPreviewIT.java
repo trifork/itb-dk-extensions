@@ -53,6 +53,7 @@ class CdaPreviewIT {
         assertEquals(200, script.statusCode());
         assertTrue(script.body().contains("View CDA"));
         assertTrue(script.body().contains("sandbox=\"\""));
+        assertTrue(script.body().contains("cda-group"));
     }
 
     @Test

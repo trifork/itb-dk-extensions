@@ -16,6 +16,144 @@ replaceOnce(reportTemplate, '            @if (reportsToShow.length > 0) {', `   
             }
             @if (reportsToShow.length > 0) {`);
 
+// A large document repeats the same finding at many places. Show one card per
+// distinct finding (severity, assertion ID, description, test) and list each
+// location as a link that opens the original XML at that line, as a single card does.
+// Counts in the summary stay per finding; no finding is dropped or reworded.
+const reportDir = join(root, 'src/app/components/tar-report/tar-report.component');
+replaceOnce(reportDir + '.html', `                @for (assertionReport of reportsToShow; track assertionReport.trackingId) {
+                    <app-test-assertion-report (click)="selectedItem(assertionReport)" [assertionReport]="assertionReport"></app-test-assertion-report>
+                }`, `                @for (group of groups; track group.key) {
+                    @if (group.occurrences.length == 1) {
+                        <app-test-assertion-report (click)="selectedItem(group.occurrences[0].report)" [assertionReport]="group.occurrences[0].report"></app-test-assertion-report>
+                    } @else {
+                        <div class="cda-group" [ngClass]="group.type">
+                            <div class="cda-group-content">
+                                <div class="cda-group-title">
+                                    <span class="cda-group-icon"><i class="fa-solid" [ngClass]="{'fa-info-circle': group.type == 'info', 'fa-warning': group.type == 'warning', 'fa-times-circle': group.type == 'error'}"></i></span>{{group.description}}
+                                    <span class="cda-group-count">{{group.occurrences.length}} occurrences</span>
+                                </div>
+                                @if (group.assertionID != undefined) {
+                                    <div class="cda-group-meta"><span class="cda-group-key">Assertion ID:</span> {{group.assertionID}}</div>
+                                }
+                                @if (group.test != undefined) {
+                                    <div class="cda-group-meta"><span class="cda-group-key">Test:</span> {{group.test}}</div>
+                                }
+                                <button type="button" class="btn btn-link btn-sm cda-group-toggle" (click)="toggleGroup(group)"
+                                        [attr.aria-expanded]="isGroupOpen(group)">
+                                    {{isGroupOpen(group) ? 'Hide' : 'Show'}} {{group.occurrences.length}} locations
+                                </button>
+                                @if (isGroupOpen(group)) {
+                                    <ul class="cda-group-locations">
+                                        @for (occurrence of group.occurrences; track occurrence.report.trackingId) {
+                                            <li>
+                                                @if (occurrence.report.extractedLocation != undefined) {
+                                                    <a href="#" role="button" (click)="openOccurrence($event, occurrence.report)">{{occurrence.label}}</a>
+                                                } @else {
+                                                    <span>{{occurrence.label}}</span>
+                                                }
+                                                @if (occurrence.detail != undefined) {
+                                                    <span class="cda-group-detail"> {{occurrence.detail}}</span>
+                                                }
+                                            </li>
+                                        }
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                    }
+                }`);
+replaceOnce(reportDir + '.ts', '  reportsToShow: AssertionReport[] = []\n', `  reportsToShow: AssertionReport[] = []
+  groups: FindingGroup[] = []
+  private openGroups = new Set<string>()
+
+  private groupReports() {
+    const byKey = new Map<string, FindingGroup>()
+    for (const report of this.reportsToShow) {
+      const key = JSON.stringify([report.type, report.value?.assertionID, report.value?.description, report.value?.test])
+      let group = byKey.get(key)
+      if (!group) {
+        group = {key, type: report.type, assertionID: report.value?.assertionID,
+          description: report.value?.description, test: report.value?.test, occurrences: []}
+        byKey.set(key, group)
+      }
+      group.occurrences.push(this.occurrence(report))
+    }
+    this.groups = Array.from(byKey.values())
+  }
+
+  // Same location syntax as the single-finding card: "name:line:column|details".
+  private occurrence(report: AssertionReport): FindingOccurrence {
+    const location = report.value?.location
+    const separator = location ? location.indexOf('|') : -1
+    const position = location ? (separator < 0 ? location : location.substring(0, separator)) : undefined
+    const matches = position ? /^([\\w\\.]+):([\\-0-9]+):([\\-0-9]+)$/.exec(position) : null
+    const detail = separator >= 0 && separator < location!.length - 1 ? location!.substring(separator + 1) : undefined
+    if (matches) {
+      report.extractedLocation = {type: 'line-column-number', name: matches[1], line: Number(matches[2]), column: Number(matches[3])}
+    }
+    const label = matches ? 'Line ' + matches[2] + (Number(matches[3]) > 0 ? ', column ' + matches[3] : '') : (location ?? 'Location not reported')
+    const value = report.value?.value
+    return {report, label, detail: value != undefined ? (detail ? detail + ' — ' + value : value) : detail}
+  }
+
+  toggleGroup(group: FindingGroup) {
+    if (!this.openGroups.delete(group.key)) this.openGroups.add(group.key)
+  }
+
+  isGroupOpen(group: FindingGroup): boolean {
+    return this.openGroups.has(group.key)
+  }
+
+  openOccurrence(event: Event, report: AssertionReport) {
+    event.preventDefault()
+    this.selectedItem(report)
+  }
+`);
+replaceOnce(reportDir + '.ts', '    this.reportsToShow = this.reports\n  }', '    this.reportsToShow = this.reports\n    this.groupReports()\n  }');
+replaceOnce(reportDir + '.ts', "        || (report.type == 'warning' && this.showWarnings)\n    })\n  }",
+  "        || (report.type == 'warning' && this.showWarnings)\n    })\n    this.groupReports()\n  }");
+const reportSource = readFileSync(reportDir + '.ts', 'utf8');
+writeFileSync(reportDir + '.ts', reportSource + `
+interface FindingOccurrence {
+  report: AssertionReport
+  label: string
+  detail?: string
+}
+
+interface FindingGroup {
+  key: string
+  type: 'info'|'warning'|'error'
+  assertionID?: string
+  description?: string
+  test?: string
+  occurrences: FindingOccurrence[]
+}
+`);
+writeFileSync(reportDir + '.less', readFileSync(reportDir + '.less', 'utf8') + `
+.cda-group {
+    border-radius: 4px;
+    .cda-group-content { margin-left: 4px; padding: 5px; border-radius: 0 4px 4px 0; }
+    .cda-group-icon { margin-right: 5px; }
+    .cda-group-count { margin-left: 8px; font-size: 0.85em; font-weight: bold; opacity: 0.8; }
+    .cda-group-meta { margin-top: 10px; }
+    .cda-group-key { display: inline-block; margin-right: 6px; font-weight: bold; }
+    .cda-group-toggle { padding-left: 0; color: inherit; text-decoration: underline; }
+    .cda-group-locations { margin: 4px 0 0; padding-left: 20px; max-height: 320px; overflow-y: auto; }
+    .cda-group-locations a { color: inherit; font-weight: bold; text-decoration: underline; }
+    .cda-group-detail { word-break: break-word; }
+    &.error { background: @red-error-border; border: 1px solid @red-error-border;
+        .cda-group-content { background: @red-error-background; color: @red-error-text; }
+        .cda-group-icon { color: @red-error-content; } }
+    &.warning { background: @orange-warning-border; border: 1px solid @orange-warning-border;
+        .cda-group-content { background: @orange-warning-background; color: @orange-warning-text; }
+        .cda-group-icon { color: @orange-warning-content; } }
+    &.info { background: @blue-info-border; border: 1px solid @blue-info-border;
+        .cda-group-content { background: @blue-info-background; color: @blue-info-text; }
+        .cda-group-icon { color: @blue-info-content; } }
+}
+`);
+
 replaceOnce(component, 'import {Component, Input, OnInit}', `import {firstValueFrom} from 'rxjs';
 import {isXmlAttachment, showCdaPreview} from './cda-preview';
 

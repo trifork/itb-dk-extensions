@@ -7,6 +7,13 @@ structured questionnaire fields may not appear.
 Validation reports show **Click an error or warning for more details** above
 selectable findings when errors or warnings are visible.
 
+Findings with the same severity, assertion ID, description and test are shown as
+one card with an occurrence count. **Show N locations** lists each location, and
+selecting a line opens the original XML there, as for an ungrouped finding. A
+finding that occurs once looks as before. Summary counts remain per finding, and
+the severity toggles still apply. Only the display is grouped; reports and the
+validator output are unchanged.
+
 Interaction dialogs keep their title and action buttons inside the viewport while
 long forms scroll internally. Opening and closing an interaction has no slide/fade
 animation, and initial text-field focus does not scroll the dialog. This applies to

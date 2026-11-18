@@ -78,3 +78,121 @@
         }
     });
 })();
+
+/*
+ * Findings that repeat at many places are shown as one card in the detailed report. The original
+ * report items are moved into the card, not copied, so the upstream page keeps working: clicking a
+ * location runs its own handler (annotated input at that line), the severity filter still applies
+ * and the findings and counts are unchanged. Only the display is grouped.
+ */
+(() => {
+    'use strict';
+    const SEVERITIES = ['report-item-error', 'report-item-warning', 'report-item-info'];
+    const text = (element, selector) => (element.querySelector(selector)?.textContent ?? '').replace(/\s+/g, ' ').trim();
+
+    function location(item) {
+        const raw = text(item, '.item-info-location');
+        const parts = raw.split('|')[0].split(':');
+        if (parts.length !== 3 || isNaN(parts[1]) || isNaN(parts[2])) return raw || 'Location not reported';
+        return 'Line ' + parseInt(parts[1], 10) + (parseInt(parts[2], 10) > 0 ? ', column ' + parseInt(parts[2], 10) : '');
+    }
+
+    function key(item) {
+        const severity = SEVERITIES.find(name => item.classList.contains(name)) ?? '';
+        const tests = Array.from(item.querySelectorAll('.report-item-test')).map(row => row.textContent.replace(/\s+/g, ' ').trim());
+        return JSON.stringify([severity, text(item, '.item-info-text'), tests]);
+    }
+
+    function compact(item, label) {
+        for (const part of item.querySelectorAll('.item-info-text, .report-item-test, .report-item-icon')) part.style.display = 'none';
+        const link = document.createElement('span');
+        link.className = 'cda-group-location';
+        link.textContent = label;
+        link.style.cssText = 'text-decoration:underline;font-weight:bold;cursor:pointer';
+        item.append(link);
+        item.setAttribute('role', 'button');
+        item.tabIndex = 0;
+        for (const [name, value] of [['background', 'transparent'], ['border', '0'], ['margin', '0'], ['padding', '2px 0'], ['box-shadow', 'none']]) {
+            item.style.setProperty(name, value, 'important');
+        }
+        const inner = item.querySelector('.report-item-div');
+        if (inner) inner.style.setProperty('padding', '0', 'important');
+        item.addEventListener('keydown', event => {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                if (typeof window.setCode === 'function') window.setCode(item);
+            }
+        });
+    }
+
+    function card(items) {
+        const first = items[0];
+        const wrapper = document.createElement('div');
+        wrapper.className = 'row report-item cda-group ' + (SEVERITIES.find(name => first.classList.contains(name)) ?? '');
+        const body = document.createElement('div');
+        body.className = 'report-item-div container-fluid';
+        const head = document.createElement('div');
+        head.className = 'col-xs-12 cda-group-head';
+        const icon = first.querySelector('.report-item-icon');
+        if (icon) head.append(icon.cloneNode(true), ' ');
+        const title = document.createElement('span');
+        title.textContent = text(first, '.item-info-text');
+        const count = document.createElement('strong');
+        count.style.marginLeft = '8px';
+        count.textContent = items.length + ' occurrences';
+        head.append(title, count);
+        body.append(head);
+        for (const row of first.querySelectorAll('.report-item-test')) body.append(row.cloneNode(true));
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'btn btn-link btn-xs';
+        toggle.style.cssText = 'padding-left:0;color:inherit;text-decoration:underline';
+        const list = document.createElement('div');
+        list.className = 'col-xs-12 cda-group-locations';
+        list.style.cssText = 'max-height:320px;overflow-y:auto;padding-top:4px';
+        list.hidden = true;
+        const sync = () => {
+            toggle.textContent = (list.hidden ? 'Show ' : 'Hide ') + items.length + ' locations';
+            toggle.setAttribute('aria-expanded', String(!list.hidden));
+        };
+        toggle.addEventListener('click', () => { list.hidden = !list.hidden; sync(); });
+        sync();
+        const toggleRow = document.createElement('div');
+        toggleRow.className = 'col-xs-12';
+        toggleRow.append(toggle);
+        body.append(toggleRow, list);
+        wrapper.append(body);
+        for (const item of items) {
+            compact(item, location(item));
+            list.append(item);
+        }
+        return wrapper;
+    }
+
+    function group() {
+        const container = document.getElementById('reportItemsDetailed');
+        if (!container) return;
+        const groups = new Map();
+        for (const item of container.querySelectorAll('.report-item')) {
+            if (item.closest('.cda-group') || !item.querySelector('.item-info-text')) continue;
+            const id = key(item);
+            if (!groups.has(id)) groups.set(id, []);
+            groups.get(id).push(item);
+        }
+        for (const items of groups.values()) {
+            if (items.length < 2) continue;
+            // The card takes the first occurrence's place; the rest are moved into it.
+            const marker = document.createComment('');
+            items[0].before(marker);
+            marker.replaceWith(card(items));
+        }
+    }
+
+    let scheduled = false;
+    new MutationObserver(() => {
+        if (scheduled) return;
+        scheduled = true;
+        setTimeout(() => { scheduled = false; group(); }, 50);
+    }).observe(document.body, {childList: true, subtree: true});
+    group();
+})();
