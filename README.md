@@ -233,7 +233,7 @@ specific published image for it or XDS integration. Existing explicit GHCR image
 references remain supported for reads. Publication requires the OIDC connection,
 these workflows on GitHub, and successful validation runs.
 
-All four ITB components are pinned to release 1.30.2 and multi-platform digests.
+All four ITB components are pinned to release 1.30.4 and multi-platform digests.
 The gateway uses the matching checksum-pinned source release. When upgrading,
 update the stock components and gateway together, then redeploy the test suites
 so new sessions receive the latest query form; existing history remains available.

@@ -5,13 +5,13 @@ volumes:
 services:
   # Session cache used by the ITB user interface.
   gitb-redis:
-    image: isaitb/gitb-redis:1.30.2@sha256:a507e0d78b97f1def4227614d83bc5b02c57802373a7871e264de0e0e4a68777
+    image: isaitb/gitb-redis:1.30.4@sha256:8192edcc29e7cc2caa4b88e12a549265a717041283d0f1e6d5a8a31550a8a914
     container_name: itb-redis
     restart: unless-stopped
 
   # ITB persistence. The image supplies development-friendly default credentials.
   gitb-mysql:
-    image: isaitb/gitb-mysql:1.30.2@sha256:f8a72f290077833f283daa4b52dd74a9a211da41b87e0521625b7b174cc58a02
+    image: isaitb/gitb-mysql:1.30.4@sha256:7099f034e0f09fa7475d5fd062c21563442e1bd7a8a705ff92d0c8833c76a56a
     container_name: itb-mysql
     restart: unless-stopped
     volumes:
@@ -23,7 +23,7 @@ services:
 
   # GITB test execution engine and callback endpoint.
   gitb-srv:
-    image: isaitb/gitb-srv:1.30.2@sha256:ef75168433f1fae53f663679cd3b0e61d65701a15515c66473dbfd2bb26dc238
+    image: isaitb/gitb-srv:1.30.4@sha256:6f72bf6399fdae3efae87d62a9e21d07cb2826971b7ee94d9c47c8aeecebee73
     container_name: itb-srv
     restart: unless-stopped
     environment:
@@ -33,7 +33,7 @@ services:
 
   # ITB management and test execution UI.
   gitb-ui:
-    image: &itb_ui_image isaitb/gitb-ui:1.30.2@sha256:e7f017dd83d142d56f0b2d8acd729f1a14bbe5bcb2bdfa2f8f4759b42866b8d9
+    image: &itb_ui_image isaitb/gitb-ui:1.30.4@sha256:1a3ac252074099e1023501834056fc2e9bc712ffb6b7a89f852ceca4f43baadd
     container_name: itb-ui
     restart: unless-stopped
     environment:
