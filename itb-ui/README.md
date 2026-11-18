@@ -69,8 +69,12 @@ input hashes and served asset hashes at `/itb-extension/provenance.json`.
 Upstream licence notices are copied from the verified source archive, and Angular
 includes third-party notices with its compiled assets.
 The frontend is part of [ISAITB/gitb](https://github.com/ISAITB/gitb), licensed EUPL.
-The Nginx runtime runs as UID 101. Its tag accompanies the immutable digest so
-Docker DX identifies the correct image variant; Sonar S8431 prefers only one.
+The Nginx runtime runs as UID 101. It is built on the official `nginx` image with the same
+unprivileged changes as `nginxinc/nginx-unprivileged` (`gateway-base` stage in the Dockerfile),
+because that image trails new nginx releases by days. Move back to it once it publishes the
+nginx release pinned here; follow [nginx.org](https://nginx.org/) for security releases.
+Its tag accompanies the immutable digest so Docker DX identifies the correct image variant;
+Sonar S8431 prefers only one.
 
 ```bash
 cd itb-ui

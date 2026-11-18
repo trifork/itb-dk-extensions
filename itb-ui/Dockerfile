@@ -11,8 +11,18 @@ WORKDIR /extension/upstream/gitb-ui/ui
 RUN npm ci --no-audit --no-fund && npm run build:prod
 RUN node /extension/manifest.mjs
 
-# Keep the release tag with the digest: Docker DX otherwise reports latest's CVEs.
-FROM nginxinc/nginx-unprivileged:1.30.5-alpine-slim@sha256:c2c3905bda3dc8de80023e19bed0a45745279d26e5586cdee64370c8f9b12348 AS runtime
+# nginx 1.30.7 fixes the resolver use-after-free and other advisories (nginx.org, 2026-11-18). Its
+# nginxinc/nginx-unprivileged image is not published yet, so apply the same unprivileged changes to the
+# official image: no user directive, pid and temp paths under /tmp, config and cache owned by uid 101.
+# Move back to nginx-unprivileged once it publishes the same nginx release.
+# The release tag accompanies the immutable digest so Docker DX identifies the correct image variant.
+FROM nginx:1.30.7-alpine-slim@sha256:e00f38ab6677f5a8d861a9d9430f97c491a44f98072aa349915e4abb7e7f432b AS gateway-base
+RUN sed -i -e '/^user /d' -e 's,/run/nginx.pid,/tmp/nginx.pid,' /etc/nginx/nginx.conf \
+ && sed -i '/^http {/a\    proxy_temp_path /tmp/proxy_temp;\n    client_body_temp_path /tmp/client_temp;\n    fastcgi_temp_path /tmp/fastcgi_temp;\n    uwsgi_temp_path /tmp/uwsgi_temp;\n    scgi_temp_path /tmp/scgi_temp;\n' /etc/nginx/nginx.conf \
+ && chown -R 101:0 /etc/nginx /var/cache/nginx \
+ && chmod -R g+w /etc/nginx /var/cache/nginx
+
+FROM gateway-base AS runtime
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=frontend /extension/upstream/gitb-ui/app/assets/build/ /usr/share/nginx/itb-assets/
 COPY --from=frontend /extension/provenance.json /usr/share/nginx/itb-extension/provenance.json

@@ -74,8 +74,10 @@ def main():
     assert services['gitb-ui']['environment']['TESTBED_HOME_LINK'] == 'https://localhost'
     assert services['gitb-srv']['environment']['CALLBACK_ROOT_URL'] == 'https://localhost/itbsrv'
     assert services['cda-validator']['environment']['SERVER_FORWARD_HEADERS_STRATEGY'] == 'framework'
-    nginx_image = re.search(r'^FROM (\S+) AS runtime$',
-                            (ROOT / 'itb-ui/Dockerfile').read_text(), re.M)[1]
+    # Build only the gateway's nginx stage (no frontend build) so the pinned nginx and its
+    # unprivileged changes are what runs here, as the same UID the real gateway uses.
+    gateway_image = prefix + '-gateway-base'
+    docker('build', '-q', '--target', 'gateway-base', '-t', gateway_image, 'itb-ui')
 
     def run(name, *args):
         container = prefix + '-' + name
@@ -95,8 +97,8 @@ def main():
             for name, internal in [('gitb-ui', 9000), ('gitb-srv', 8080), ('cda-validator', 8080)]:
                 run(name, '--network-alias', name, '-e', f'SERVICE={name}', '-e', f'PORT={internal}',
                     '-v', f'{fixture}:/backend.py:ro', 'python:3.12.12-slim', 'python', '/backend.py')
-            run('gateway', '--network-alias', 'gitb-ui-gateway',
-                '-v', f'{ROOT / "itb-ui/nginx.conf"}:/etc/nginx/conf.d/default.conf:ro', nginx_image)
+            run('gateway', '--network-alias', 'gitb-ui-gateway', '--user', '101:101',
+                '-v', f'{ROOT / "itb-ui/nginx.conf"}:/etc/nginx/conf.d/default.conf:ro', gateway_image)
             proxy = run('proxy', '-e', 'ITB_HTTPS_HOST=localhost',
                         '-p', '127.0.0.1::80', '-p', '127.0.0.1::443', '-p', '127.0.0.1::8443',
                         '-v', f'{ROOT / "get-up-and-running/Caddyfile"}:/etc/caddy/Caddyfile:ro',
@@ -187,6 +189,7 @@ def main():
             for container in reversed(containers):
                 subprocess.run(['docker', 'rm', '-fv', container], capture_output=True, check=False)
             docker('network', 'rm', prefix)
+            subprocess.run(['docker', 'rmi', '-f', gateway_image], capture_output=True, check=False)
 
 
 if __name__ == '__main__':
