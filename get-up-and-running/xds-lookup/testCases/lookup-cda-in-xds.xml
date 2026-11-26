@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase id="lookup-cda-in-xds" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/">
+    <metadata>
+        <gitb:name>Look up a CDA in XDS by CPR and document ID</gitb:name>
+        <gitb:version>1.2.1</gitb:version>
+        <gitb:description>Shorthand for the XDS search flow. Enter a test CPR and the document unique ID, optionally choose a registry, and the CDA is searched for and retrieved with its original bytes. No CDA release is selected and no validation runs: use a release test to validate.</gitb:description>
+        <gitb:update updateMetadata="true" resetTestHistory="false"/>
+    </metadata>
+    <actors>
+        <gitb:actor id="cda-producer" name="CDA producer" role="SUT"/>
+    </actors>
+    <steps>
+        <bptxn handlerTimeout="150000" txnId="xds" handler="$DOMAIN{xdsConnector}" stopOnError="true"/>
+        <process id="xdsChoices" txnId="xds" desc="Load XDS identities and search codes" hidden="false" stopOnError="false">
+            <operation>choices</operation>
+        </process>
+        <if hidden="true">
+            <cond>$STEP_STATUS{xdsChoices} = 'ERROR'</cond>
+            <then>
+                <log level="ERROR">$xdsChoices{errorCode} || ": " || $xdsChoices{errorMessage} || " The document was not retrieved."</log>
+                <exit success="false" desc="Stopped: XDS operation failed"/>
+            </then>
+        </if>
+        <interact id="xdsLookup" with="cda-producer" desc="Enter lookup details" inputTitle="Look up a CDA in XDS" timeout="604800000">
+            <instruct desc="Lookup" level="INFO" forceDisplay="true">"Enter the test CPR and the document unique ID. The test searches the selected registry for that patient, keeps the document with that exact unique ID and retrieves it. The registry defaults to DDS TEST2; choose another to override it. If DDS TEST2 is not configured, leaving the registry empty uses the first configured registry. The search uses the default MOCES employee identity, includes stable and on-demand documents, and keeps consent override disabled. This shorthand does not apply to Stamkort (SFSK) registries."</instruct>
+            <request name="patientId" desc="Test CPR (10 digits)" inputType="TEXT" required="true"/>
+            <request name="uniqueId" desc="Document unique ID" inputType="TEXT" required="true"/>
+            <request name="registry" desc="Registry (optional)" inputType="SELECT_SINGLE" options="$xdsChoices{registryLabels}" optionLabels="$xdsChoices{registryLabels}" default="DDS TEST2"/>
+        </interact>
+        <assign to="selectedRegistry" type="string">$xdsChoices{defaultRegistry}</assign>
+        <if hidden="true">
+            <cond>string-length(normalize-space($xdsLookup{registry})) &gt; 0</cond>
+            <then><assign to="selectedRegistry" type="string">$xdsLookup{registry}</assign></then>
+        </if>
+        <log level="INFO">"Selected XDS registry: " || $selectedRegistry</log>
+        <process id="xdsQueryChoices" txnId="xds" desc="Prepare search" hidden="true" stopOnError="false">
+            <operation>queryChoices</operation>
+            <input name="registry">$selectedRegistry</input>
+        </process>
+        <if hidden="true">
+            <cond>$STEP_STATUS{xdsQueryChoices} = 'ERROR'</cond>
+            <then>
+                <log level="ERROR">$xdsQueryChoices{errorCode} || ": " || $xdsQueryChoices{errorMessage} || " The document was not retrieved."</log>
+                <exit success="false" desc="Stopped: search configuration failed"/>
+            </then>
+        </if>
+        <if hidden="true">
+            <cond>$xdsQueryChoices{stamkort}</cond>
+            <then>
+                <log level="ERROR">"XDS-INPUT: " || $selectedRegistry || " is a Stamkort registry, which returns generated Stamkort documents and has no document unique ID. Choose a DDS registry."</log>
+                <exit success="false" desc="Stopped: document ID lookup does not apply to Stamkort registries"/>
+            </then>
+        </if>
+        <process id="xdsResults" txnId="xds" desc="Search XDS registry" hidden="false" stopOnError="false">
+            <operation>search</operation>
+            <input name="registry">$selectedRegistry</input>
+            <input name="patientId">$xdsLookup{patientId}</input>
+            <input name="professional">$xdsQueryChoices{defaultProfessional}</input>
+            <input name="entryTypes">$xdsChoices{defaultEntryTypes}</input>
+            <input name="typeCode">""</input>
+            <input name="formatCode">""</input>
+            <input name="uniqueId">$xdsLookup{uniqueId}</input>
+            <input name="startFromDate">""</input>
+            <input name="startToDate">""</input>
+            <input name="endFromDate">""</input>
+            <input name="endToDate">""</input>
+        </process>
+        <if hidden="true">
+            <cond>$STEP_STATUS{xdsResults} = 'ERROR'</cond>
+            <then>
+                <log level="ERROR">$xdsResults{errorCode} || ": " || $xdsResults{errorMessage} || " The document was not retrieved."</log>
+                <exit success="false" desc="Stopped: XDS search failed"/>
+            </then>
+        </if>
+        <if hidden="true">
+            <cond>number($xdsResults{count}) = 0</cond>
+            <then>
+                <log level="ERROR">"XDS-NOT-FOUND: No approved document with that unique ID was found for this patient in " || $selectedRegistry || ". Check the CPR, the ID and the registry."</log>
+                <exit success="false" desc="Stopped: no document with that unique ID"/>
+            </then>
+        </if>
+        <if hidden="true">
+            <cond>number($xdsResults{count}) &gt; 1</cond>
+            <then>
+                <log level="ERROR">"XDS-AMBIGUOUS: " || $xdsResults{count} || " documents share that unique ID in " || $selectedRegistry || ". Use the release tests to choose between them."</log>
+                <exit success="false" desc="Stopped: more than one document with that unique ID"/>
+            </then>
+        </if>
+        <assign to="documentHandle" type="string">$xdsResults{documents}{0}</assign>
+        <process id="xdsDocument" txnId="xds" desc="Retrieve CDA document" hidden="false" stopOnError="false">
+            <operation>retrieve</operation>
+            <input name="document">$documentHandle</input>
+        </process>
+        <log level="INFO">$xdsDocument{retrievedDocumentLog}</log>
+        <if hidden="true">
+            <cond>$STEP_STATUS{xdsDocument} = 'ERROR'</cond>
+            <then>
+                <log level="ERROR">$xdsDocument{errorCode} || ": " || $xdsDocument{errorMessage}</log>
+                <exit success="false" desc="Stopped: XDS retrieval failed"/>
+            </then>
+        </if>
+        <assign to="document" type="binary">$xdsDocument{document}</assign>
+        <eptxn txnId="xds"/>
+        <interact id="finalize" with="cda-producer" title="Review retrieved CDA"
+                  desc="Review the retrieved CDA" inputTitle="CDA retrieved from XDS" timeout="604800000">
+            <instruct desc="Instructions" level="INFO" forceDisplay="true" report="true">"The CDA was retrieved with its original bytes. After you finish this step, click Review the retrieved CDA in the session diagram and choose View CDA to see the document rendered with the HL7 CDA stylesheet. To check it against a profile, run the matching release test."</instruct>
+            <instruct name="retrieved-cda.xml" desc="Retrieved CDA" mimeType="application/xml" report="true">$document</instruct>
+        </interact>
+    </steps>
+    <output>
+        <success><default>"The CDA document was found and retrieved. No profile validation was run."</default></success>
+        <failure><default>"The lookup failed. Open the failed step to distinguish a missing document, ambiguous ID or XDS access error."</default></failure>
+    </output>
+</testcase>

@@ -98,6 +98,7 @@ save_state() {
         printf 'ITB_TEST_SUITE_API_KEY=%q\n' "${ITB_TEST_SUITE_API_KEY:-}"
         printf 'ITB_INTERACTIVE_TEST_CASE_API_KEY=%q\n' "${ITB_INTERACTIVE_TEST_CASE_API_KEY:-}"
         printf 'ITB_ACTIVE_FLOW=%q\n' "${ITB_ACTIVE_FLOW:-upload}"
+        printf 'ITB_XDS_LOOKUP_SESSION_ID=%q\n' "${ITB_XDS_LOOKUP_SESSION_ID:-}"
         while IFS=$'\t' read -r ITB_SAVED_INDEX ITB_SAVED_VARIABLE ITB_SAVED_LABEL; do
             printf '%s=%q\n' "$ITB_SAVED_VARIABLE" "${!ITB_SAVED_VARIABLE:-}"
         done <<< "$ITB_SESSION_CATALOGUE"
@@ -294,6 +295,24 @@ done <<< "$ITB_SESSION_CATALOGUE"
 save_state
 printf 'Deployed CDA release test suite.\n'
 
+ITB_XDS_LOOKUP_TEST_CASE=
+if [[ "$ITB_ENABLE_XDS" == true ]]; then
+    "$ITB_SCRIPT_DIR/package-test-suite.sh" "$ITB_WORK_DIR/xds-lookup.zip" xds-lookup
+    ITB_LOOKUP_PAYLOAD=$(jq -cn \
+        --arg specification "$ITB_SPECIFICATION_API_KEY" \
+        --arg testSuite "$(base64 < "$ITB_WORK_DIR/xds-lookup.zip" | tr -d '\n')" \
+        '{specification: $specification, testSuite: $testSuite, ignoreWarnings: false,
+          replaceTestHistory: false, updateSpecification: false, showIdentifiers: true}')
+    api_call POST /testsuite/deploy "$ITB_COMMUNITY_API_KEY" "$ITB_LOOKUP_PAYLOAD"
+    if [[ "$(jq -r '.completed' "$ITB_RESPONSE_FILE")" != true ]]; then
+        printf 'The ITB rejected the XDS lookup test suite:\n' >&2
+        jq . "$ITB_RESPONSE_FILE" >&2
+        exit 1
+    fi
+    ITB_XDS_LOOKUP_TEST_CASE=$(jq -er '.identifiers.testCases[0]' "$ITB_RESPONSE_FILE")
+    printf 'Deployed XDS lookup test.\n'
+fi
+
 if [[ -z "${ITB_ORGANISATION_API_KEY:-}" ]]; then
     api_call GET /organisation "$ITB_COMMUNITY_API_KEY"
     ITB_ORGANISATION_API_KEY=$(jq -r 'first(.[] | select(.shortName == "CDA-DK Example") | .apiKey) // empty' "$ITB_RESPONSE_FILE")
@@ -471,6 +490,9 @@ if [[ "$ITB_CREATE_ACTIVE_SESSION" == true ]]; then
         ITB_SLOT_TEST_CASE=$(jq -er --argjson index "$ITB_SLOT_INDEX" '.[$index]' <<< "$ITB_DEPLOYED_TEST_CASE_KEYS")
         ensure_active_session "$ITB_SLOT_VARIABLE" "$ITB_SLOT_TEST_CASE" "$ITB_SLOT_LABEL"
     done <<< "$ITB_SESSION_CATALOGUE"
+    if [[ -n "$ITB_XDS_LOOKUP_TEST_CASE" ]]; then
+        ensure_active_session ITB_XDS_LOOKUP_SESSION_ID "$ITB_XDS_LOOKUP_TEST_CASE" "XDS lookup"
+    fi
     ITB_ACTIVE_FLOW=$([[ "$ITB_ENABLE_XDS" == true ]] && printf xds || printf upload)
     save_state
 fi

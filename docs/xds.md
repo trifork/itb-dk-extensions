@@ -95,6 +95,18 @@ only advances after success. To validate Stamkort against one release, run that
 specific PDC test instead of **Run all**. A new document-source form for a
 different release is a different test, not a retry of the previous DDS search.
 
+## Quick lookup by CPR and document ID
+
+The separate **Look up a CDA in XDS by CPR and document ID** test is a shorthand for the search below.
+Enter a ten-digit test CPR and the document unique ID; optionally choose a registry (it defaults to
+**DDS TEST2**; if that is not configured, an empty choice uses the first configured registry). It runs the same search as the release tests with the default MOCES
+identity, stable and on-demand documents and consent override disabled, keeps the document whose unique
+ID matches exactly, and retrieves its original bytes. It selects no CDA release and runs no validation:
+use a release test for that. It stops with a distinct error when no document matches, when more than one
+matches, or when the chosen registry is a Stamkort (SFSK) route, where document IDs do not apply.
+The last step's report attaches the retrieved XML: open **Review the retrieved CDA** in the session diagram and choose **View CDA** to see it rendered with the HL7 CDA stylesheet.
+It is deployed with the XDS option, in its own `cda-dk-xds-lookup` suite, and has its own pending session.
+
 ## Searching and selecting
 
 The **Load XDS identities and search codes** step report lists the available

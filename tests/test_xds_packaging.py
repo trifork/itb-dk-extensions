@@ -102,6 +102,46 @@ class Packaging(unittest.TestCase):
                 self.assertEqual('$document', xds[key].find('.//t:input[@name="xml"]', NS).text)
                 self.assertEqual('false', xds[key].find('t:metadata/c:update', NS).get('resetTestHistory'))
 
+    def test_lookup_suite_is_a_search_shorthand_with_guards(self):
+        suite = self.package(True, 'xds-lookup')
+        self.assertEqual({'testSuite.xml', 'testCases/lookup-cda-in-xds.xml'}, set(suite))
+        root = suite['testCases/lookup-cda-in-xds.xml']
+        self.assertEqual('$DOMAIN{xdsConnector}', root.find('.//t:bptxn', NS).get('handler'))
+        self.assertEqual(['choices', 'queryChoices', 'search', 'retrieve'],
+                         [e.text for e in root.findall('.//t:operation', NS)])
+        self.assertEqual([], root.findall('.//t:verify', NS), 'lookup must not select a CDA release')
+        form = root.find('.//t:interact[@id="xdsLookup"]', NS)
+        requests = {r.get('name'): r for r in form.findall('t:request', NS)}
+        self.assertEqual(['patientId', 'uniqueId', 'registry'], list(requests))
+        self.assertEqual('true', requests['patientId'].get('required'))
+        self.assertEqual('true', requests['uniqueId'].get('required'))
+        self.assertNotEqual('true', requests['registry'].get('required'))
+        self.assertEqual('DDS TEST2', requests['registry'].get('default'))
+        self.assertEqual(requests['registry'].get('options'), requests['registry'].get('optionLabels'))
+        search = {i.get('name'): i.text for i in root.findall('.//t:process[@id="xdsResults"]/t:input', NS)}
+        self.assertEqual('$xdsLookup{uniqueId}', search['uniqueId'])
+        self.assertEqual('$xdsQueryChoices{defaultProfessional}', search['professional'])
+        # A GITB list passed straight to a process input arrives without a value, so retrieval
+        # must receive the single handle as a string (found by a real ITB run).
+        self.assertEqual('$xdsResults{documents}{0}', root.find('.//t:assign[@to="documentHandle"]', NS).text)
+        self.assertEqual('$documentHandle', root.find('.//t:process[@id="xdsDocument"]/t:input', NS).text)
+        conditions = ''.join(c.text for c in root.findall('.//t:cond', NS))
+        for guard in ('$xdsQueryChoices{stamkort}', "$xdsResults{count}) = 0", "$xdsResults{count}) > 1"):
+            self.assertIn(guard, conditions)
+
+    def test_lookup_final_step_reports_the_retrieved_cda_for_preview(self):
+        root = self.package(True, 'xds-lookup')['testCases/lookup-cda-in-xds.xml']
+        self.assertEqual('$xdsDocument{document}', root.find('.//t:assign[@to="document"]', NS).text)
+        cda = root.find('.//t:interact[@id="finalize"]/t:instruct[@name="retrieved-cda.xml"]', NS)
+        self.assertEqual('$document', cda.text)
+        # The ITB UI extension shows View CDA for reported XML attachments (itb-ui/cda-preview.ts).
+        self.assertEqual('application/xml', cda.get('mimeType'))
+        self.assertEqual('true', cda.get('report'))
+
+    def test_lookup_suite_is_not_part_of_the_release_suite(self):
+        for enabled in (False, True):
+            self.assertFalse(any('lookup' in key for key in self.package(enabled)))
+
     def test_stamkort_form_only_exposes_applicable_fields(self):
         root = self.package(True)['testCases/validate-phmr_v2_1_0-manual.xml']
         form = root.find('.//t:interact[@id="xdsStamkortQuery"]', NS)
