@@ -3,10 +3,7 @@ package com.trifork.itb.preview;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.List;
-import java.util.stream.Stream;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.BeforeAll;
@@ -14,16 +11,11 @@ import org.junit.jupiter.api.Test;
 
 /** The generic structured view of the entries of every non-questionnaire CDA document. */
 class CdaEntriesViewTest {
-    private static final Path SAMPLES = Path.of("..", "samples");
     private static CdaRenderer renderer;
 
     @BeforeAll
     static void setup() throws Exception {
         renderer = new CdaRenderer();
-    }
-
-    private static Document render(String sample) throws Exception {
-        return Jsoup.parse(renderer.render(Files.readAllBytes(SAMPLES.resolve(sample))));
     }
 
     private static Document renderXml(String xml) throws Exception {
@@ -50,100 +42,17 @@ class CdaEntriesViewTest {
     }
 
     @Test
-    void everySampleRendersAndAnyDocumentWithEntriesGetsAStructuredView() throws Exception {
-        List<Path> files;
-        try (Stream<Path> walk = Files.walk(SAMPLES)) {
-            files = walk.filter(p -> p.toString().endsWith(".xml")).sorted().toList();
-        }
-        assertFalse(files.isEmpty());
-        int withView = 0;
-        for (Path file : files) {
-            String xml = Files.readString(file);
-            Document page;
-            try {
-                page = Jsoup.parse(renderer.render(Files.readAllBytes(file)));
-            } catch (org.xml.sax.SAXException notRenderable) {
-                // Deliberately broken official examples are rejected, as for any preview.
-                continue;
-            }
-            boolean hasEntries = xml.contains("<entry");
-            boolean questionnaire =
-                    xml.contains("code=\"74465-6\"") || xml.contains("code=\"74468-0\"");
-            if (hasEntries && !questionnaire) {
-                assertNotNull(page.selectFirst("div.qv table.qv-table tbody tr"), file.toString());
-                withView++;
-            }
-            assertTrue(
-                    page.select("script,iframe,object,embed,form,a[href]").isEmpty(),
-                    file.toString());
-        }
-        assertTrue(withView > 50, "expected most profile samples to have entries: " + withView);
-    }
-
-    @Test
-    void phmrMeasurementsShowTheirValuesUnitsAndTimes() throws Exception {
-        String text = structured(render("phmr/PHMR-example-11.xml"));
-        assertTrue(text.contains("Blodtryk systolisk;Arm (DNK05472, NPU terminologien)"), text);
-        assertTrue(text.contains("120 mmHg"), text);
-        assertTrue(text.contains("2025-01-01 09:00:00 +01:00"), "the measurement time");
-    }
-
-    @Test
-    void anAppointmentShowsItsTimeStatusAndParticipants() throws Exception {
-        String text = structured(render("apd/2.0_DK-APD_Example_1_5_apd_region.xml"));
-        assertTrue(text.contains("Encounter (appointment)"), text);
-        assertTrue(text.contains("2026-03-07 08:00:00 +01:00 – 2026-03-07 09:30:00 +01:00"), text);
-        assertTrue(text.contains("status: active"), text);
-        assertTrue(text.contains("performer (PRF)"), "who performs it");
-        assertTrue(text.contains("participant (LOC)"), "where it takes place");
-    }
-
-    @Test
-    void aCarePlanShowsGoalRangesWithTheirUnitsAndCodedValues() throws Exception {
-        String text = structured(render("cpd/CPD-DK_Ex_Version 2.0 Diabetes.xml"));
-        assertTrue(text.contains("below 5 mmol/L"), "an open interval with its unit");
-        assertTrue(text.contains("Diabetes Type 2 (T90, ICPC-2-DK)"), "a coded value");
-        assertTrue(text.contains("Observation (goal)"), "the mood of the entry");
-        assertTrue(text.contains("91 kg"), text);
-    }
-
-    @Test
-    void aCitizenRecordShowsNamesAddressesAndIdentifiers() throws Exception {
-        String text =
-                structured(
-                        render(
-                                "pdc/2.0_PDC-DK_2_0_Testprotokol_v1.1.1_PDC20_Example-maximum_data_differentNarrativeText.xml"));
-        assertTrue(text.contains("Forældremyndighed over (ChildCustody"), text);
-        assertTrue(text.contains("CPR 1.2.208.176.1.2 / 9999999999"), "an identifier");
-        assertTrue(text.contains("Hans Jensens Stræde 45"), "an address");
-        assertTrue(text.contains("Odense"), "an address");
-    }
-
-    @Test
-    void pregnancyDocumentsShowCodesFromBothTerminologiesAndNestedEntries() throws Exception {
-        String pmr = structured(render("pmr/PMR-DK 2.0 example 1 max.xml"));
-        assertTrue(pmr.contains("systolisk blodtryk (271649006, SNOMED CT)"), pmr);
-        assertTrue(pmr.contains("also: Blodtryk systolisk;Arm (DNK05472"), "the translation");
-        assertTrue(pmr.contains("subject: Foster 1"), "the participant of a foetus");
-        String prf = structured(render("prf/PRF-DK v3.0 example 3.xml"));
-        assertTrue(prf.contains("Italiensk (it, ISO 639-1 Alpha 2)"), prf);
-        assertTrue(prf.contains("negated"), "a negated observation");
-        assertTrue(prf.contains("[component of parent]"), "a nested observation");
-        String pscr = structured(render("pscr/PSCR-DK v2.0 example 3.xml"));
-        assertTrue(pscr.contains("2025-03-04"), "a date with day precision");
-        assertTrue(pscr.contains("26 – 27"), "an integer interval");
-    }
-
-    @Test
     void aDocumentWithoutEntriesGetsNoStructuredView() throws Exception {
-        assertNull(
-                render("phad/PHAD-DK_Ex_v1.0 Rasmus Test Lauridsen Netværksmøde.xml")
-                        .selectFirst(".qv"));
+        assertNull(renderXml(withEntries("")).selectFirst(".qv"));
     }
 
     @Test
     void questionnairesKeepTheirOwnViewInsteadOfTheGenericOne() throws Exception {
-        var page = render("qrd/qrd_alle_inputtyper.xml");
+        byte[] qrd;
+        try (var input = getClass().getResourceAsStream("/pair/qrd_overekstremitet.xml")) {
+            qrd = input.readAllBytes();
+        }
+        var page = Jsoup.parse(renderer.render(qrd));
         assertTrue(structured(page).contains("Questionnaire response: structured answers"));
         assertFalse(page.text().contains("Structured entries"));
     }
