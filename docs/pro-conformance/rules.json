@@ -1388,7 +1388,7 @@
   {
     "id": "QFDD-DK-1.2-C91-92",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]",
+    "context": "v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']] | sdtc:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]",
     "test": "count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=26",
@@ -1397,7 +1397,7 @@
   {
     "id": "QFDD-DK-1.2-C93",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]",
+    "context": "v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']] | sdtc:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]",
     "test": "@classCode = 'OBS'",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=26",
@@ -1406,7 +1406,7 @@
   {
     "id": "QFDD-DK-1.2-C94",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]",
+    "context": "v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']] | sdtc:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]",
     "test": "@moodCode = 'EVN.CRT'",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=26",
@@ -1415,7 +1415,7 @@
   {
     "id": "QFDD-DK-1.2-C95",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]",
+    "context": "v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']] | sdtc:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]",
     "test": "count(v3:code) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=26",
@@ -1424,7 +1424,7 @@
   {
     "id": "QFDD-DK-1.2-C96",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]",
+    "context": "v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']] | sdtc:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]",
     "test": "count(v3:value) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=26",
@@ -1523,7 +1523,7 @@
   {
     "id": "QFDD-DK-1.2-C230",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']",
+    "context": "sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']",
     "test": "@typeCode = 'PRCN'",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51",
@@ -1532,8 +1532,8 @@
   {
     "id": "QFDD-DK-1.2-C231-232",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']",
-    "test": "count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1",
+    "context": "sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']",
+    "test": "count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51",
     "message": "QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 6.1, p. 51, C231-232."
@@ -1541,8 +1541,8 @@
   {
     "id": "QFDD-DK-1.2-C233",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']",
-    "test": "count(v3:conjunctionCode) <= 1",
+    "context": "sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']",
+    "test": "count(sdtc:conjunctionCode) <= 1",
     "severity": "warning",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51",
     "message": "QFDD-DK 1.2: conjunctionCode cardinality must be 0..1. Source: qfdd 6.1, p. 51, C233."
@@ -1550,8 +1550,8 @@
   {
     "id": "QFDD-DK-1.2-C234-241",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']",
-    "test": "count(v3:criterion[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.3'] | v3:allTrue[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.13'] | v3:allFalse[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.14'] | v3:atLeastOneTrue[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.15'] | v3:atLeastOneFalse[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.16'] | v3:onlyOneTrue[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.17'] | v3:onlyOneFalse[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.18']) = 1",
+    "context": "sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']",
+    "test": "count(sdtc:criterion[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.3'] | sdtc:allTrue[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.13'] | sdtc:allFalse[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.14'] | sdtc:atLeastOneTrue[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.15'] | sdtc:atLeastOneFalse[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.16'] | sdtc:onlyOneTrue[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.17'] | sdtc:onlyOneFalse[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.18']) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51",
     "message": "QFDD-DK 1.2: criterion[templateId/@root='2.16.840.1.113883.10.20.32.4.3'] | allTrue[templateId/@root='2.16.840.1.113883.10.20.32.4.13'] | allFalse[templateId/@root='2.16.840.1.113883.10.20.32.4.14'] | atLeastOneTrue[templateId/@root='2.16.840.1.113883.10.20.32.4.15'] | atLeastOneFalse[templateId/@root='2.16.840.1.113883.10.20.32.4.16'] | onlyOneTrue[templateId/@root='2.16.840.1.113883.10.20.32.4.17'] | onlyOneFalse[templateId/@root='2.16.840.1.113883.10.20.32.4.18'] cardinality must be 1..1. Source: qfdd 6.1, p. 51, C234-241."
@@ -1559,8 +1559,8 @@
   {
     "id": "QFDD-DK-1.2-C243-244",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:allTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.13']]",
-    "test": "count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.13']) = 1",
+    "context": "sdtc:allTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.13']]",
+    "test": "count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.13']) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51",
     "message": "QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.13'] cardinality must be 1..1. Source: qfdd 6.2, p. 51, C243-244."
@@ -1568,8 +1568,8 @@
   {
     "id": "QFDD-DK-1.2-C245",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:allTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.13']]",
-    "test": "count(v3:id) = 1",
+    "context": "sdtc:allTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.13']]",
+    "test": "count(sdtc:id) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51",
     "message": "QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.2, p. 51, C245."
@@ -1577,8 +1577,8 @@
   {
     "id": "QFDD-DK-1.2-C246",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:allTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.13']]",
-    "test": "count(sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) >= 1",
+    "context": "sdtc:allTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.13']]",
+    "test": "count(sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) >= 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51",
     "message": "QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.2, p. 51, C246."
@@ -1586,8 +1586,8 @@
   {
     "id": "QFDD-DK-1.2-C247-248",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:allFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.14']]",
-    "test": "count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.14']) = 1",
+    "context": "sdtc:allFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.14']]",
+    "test": "count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.14']) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51",
     "message": "QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.14'] cardinality must be 1..1. Source: qfdd 6.3, p. 51, C247-248."
@@ -1595,8 +1595,8 @@
   {
     "id": "QFDD-DK-1.2-C249",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:allFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.14']]",
-    "test": "count(v3:id) = 1",
+    "context": "sdtc:allFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.14']]",
+    "test": "count(sdtc:id) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51",
     "message": "QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.3, p. 51, C249."
@@ -1604,8 +1604,8 @@
   {
     "id": "QFDD-DK-1.2-C250",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:allFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.14']]",
-    "test": "count(sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) >= 1",
+    "context": "sdtc:allFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.14']]",
+    "test": "count(sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) >= 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51",
     "message": "QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.3, p. 51, C250."
@@ -1613,8 +1613,8 @@
   {
     "id": "QFDD-DK-1.2-C251-252",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:atLeastOneTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.15']]",
-    "test": "count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.15']) = 1",
+    "context": "sdtc:atLeastOneTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.15']]",
+    "test": "count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.15']) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51",
     "message": "QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.15'] cardinality must be 1..1. Source: qfdd 6.4, p. 51, C251-252."
@@ -1622,8 +1622,8 @@
   {
     "id": "QFDD-DK-1.2-C253",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:atLeastOneTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.15']]",
-    "test": "count(v3:id) = 1",
+    "context": "sdtc:atLeastOneTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.15']]",
+    "test": "count(sdtc:id) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51",
     "message": "QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.4, p. 51, C253."
@@ -1631,8 +1631,8 @@
   {
     "id": "QFDD-DK-1.2-C254",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:atLeastOneTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.15']]",
-    "test": "count(sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) >= 1",
+    "context": "sdtc:atLeastOneTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.15']]",
+    "test": "count(sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) >= 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51",
     "message": "QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.4, p. 51, C254."
@@ -1640,8 +1640,8 @@
   {
     "id": "QFDD-DK-1.2-C255-256",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:atLeastOneFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.16']]",
-    "test": "count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.16']) = 1",
+    "context": "sdtc:atLeastOneFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.16']]",
+    "test": "count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.16']) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52",
     "message": "QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.16'] cardinality must be 1..1. Source: qfdd 6.5, p. 52, C255-256."
@@ -1649,8 +1649,8 @@
   {
     "id": "QFDD-DK-1.2-C257",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:atLeastOneFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.16']]",
-    "test": "count(v3:id) = 1",
+    "context": "sdtc:atLeastOneFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.16']]",
+    "test": "count(sdtc:id) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52",
     "message": "QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.5, p. 52, C257."
@@ -1658,8 +1658,8 @@
   {
     "id": "QFDD-DK-1.2-C258",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:atLeastOneFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.16']]",
-    "test": "count(sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) >= 1",
+    "context": "sdtc:atLeastOneFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.16']]",
+    "test": "count(sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) >= 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52",
     "message": "QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.5, p. 52, C258."
@@ -1667,8 +1667,8 @@
   {
     "id": "QFDD-DK-1.2-C259-260",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:onlyOneTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.17']]",
-    "test": "count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.17']) = 1",
+    "context": "sdtc:onlyOneTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.17']]",
+    "test": "count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.17']) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52",
     "message": "QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.17'] cardinality must be 1..1. Source: qfdd 6.6, p. 52, C259-260."
@@ -1676,8 +1676,8 @@
   {
     "id": "QFDD-DK-1.2-C261",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:onlyOneTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.17']]",
-    "test": "count(v3:id) = 1",
+    "context": "sdtc:onlyOneTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.17']]",
+    "test": "count(sdtc:id) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52",
     "message": "QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.6, p. 52, C261."
@@ -1685,8 +1685,8 @@
   {
     "id": "QFDD-DK-1.2-C262",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:onlyOneTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.17']]",
-    "test": "count(sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) >= 1",
+    "context": "sdtc:onlyOneTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.17']]",
+    "test": "count(sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) >= 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52",
     "message": "QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.6, p. 52, C262."
@@ -1694,8 +1694,8 @@
   {
     "id": "QFDD-DK-1.2-C263-264",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:onlyOneFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.18']]",
-    "test": "count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.18']) = 1",
+    "context": "sdtc:onlyOneFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.18']]",
+    "test": "count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.18']) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52",
     "message": "QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.18'] cardinality must be 1..1. Source: qfdd 6.7, p. 52, C263-264."
@@ -1703,8 +1703,8 @@
   {
     "id": "QFDD-DK-1.2-C265",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:onlyOneFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.18']]",
-    "test": "count(v3:id) = 1",
+    "context": "sdtc:onlyOneFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.18']]",
+    "test": "count(sdtc:id) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52",
     "message": "QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.7, p. 52, C265."
@@ -1712,8 +1712,8 @@
   {
     "id": "QFDD-DK-1.2-C266",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:onlyOneFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.18']]",
-    "test": "count(sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) >= 1",
+    "context": "sdtc:onlyOneFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.18']]",
+    "test": "count(sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) >= 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52",
     "message": "QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.7, p. 52, C266."
@@ -2001,7 +2001,7 @@
     "id": "QFDD-DK-1.2-SDTC-C77",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
     "context": "v3:organizer[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.1']]/sdtc:precondition",
-    "test": "count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1",
+    "test": "count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=23",
     "message": "QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 5.1, p. 23, SDTC-C77."
@@ -2019,7 +2019,7 @@
     "id": "QFDD-DK-1.2-SDTC-C138",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
     "context": "v3:observation[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.6']]/sdtc:precondition",
-    "test": "count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1",
+    "test": "count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=31",
     "message": "QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 5.8, p. 31, SDTC-C138."
@@ -2037,7 +2037,7 @@
     "id": "QFDD-DK-1.2-SDTC-C166",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
     "context": "v3:observation[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.7']]/sdtc:precondition",
-    "test": "count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1",
+    "test": "count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=35",
     "message": "QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 5.10, p. 35, SDTC-C166."
@@ -2055,7 +2055,7 @@
     "id": "QFDD-DK-1.2-SDTC-C196",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
     "context": "v3:observation[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.8']]/sdtc:precondition",
-    "test": "count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1",
+    "test": "count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=39",
     "message": "QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 5.11, p. 39, SDTC-C196."
@@ -2073,7 +2073,7 @@
     "id": "QFDD-DK-1.2-SDTC-C213",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
     "context": "v3:observation[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.9']]/sdtc:precondition",
-    "test": "count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1",
+    "test": "count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=44",
     "message": "QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 5.12, p. 44, SDTC-C213."
@@ -2081,8 +2081,8 @@
   {
     "id": "QFDD-DK-1.2-GROUPER-allTrue-classCode",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:allTrue",
-    "test": "@classCode='GROUPER'",
+    "context": "sdtc:allTrue",
+    "test": "not(@classCode) or @classCode='GROUPER'",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49",
     "message": "QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes."
@@ -2090,8 +2090,8 @@
   {
     "id": "QFDD-DK-1.2-GROUPER-allTrue-moodCode",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:allTrue",
-    "test": "@moodCode='EVN'",
+    "context": "sdtc:allTrue",
+    "test": "not(@moodCode) or @moodCode='EVN'",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49",
     "message": "QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes."
@@ -2099,8 +2099,8 @@
   {
     "id": "QFDD-DK-1.2-GROUPER-allFalse-classCode",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:allFalse",
-    "test": "@classCode='GROUPER'",
+    "context": "sdtc:allFalse",
+    "test": "not(@classCode) or @classCode='GROUPER'",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49",
     "message": "QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes."
@@ -2108,8 +2108,8 @@
   {
     "id": "QFDD-DK-1.2-GROUPER-allFalse-moodCode",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:allFalse",
-    "test": "@moodCode='EVN'",
+    "context": "sdtc:allFalse",
+    "test": "not(@moodCode) or @moodCode='EVN'",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49",
     "message": "QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes."
@@ -2117,8 +2117,8 @@
   {
     "id": "QFDD-DK-1.2-GROUPER-atLeastOneTrue-classCode",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:atLeastOneTrue",
-    "test": "@classCode='GROUPER'",
+    "context": "sdtc:atLeastOneTrue",
+    "test": "not(@classCode) or @classCode='GROUPER'",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49",
     "message": "QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes."
@@ -2126,8 +2126,8 @@
   {
     "id": "QFDD-DK-1.2-GROUPER-atLeastOneTrue-moodCode",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:atLeastOneTrue",
-    "test": "@moodCode='EVN'",
+    "context": "sdtc:atLeastOneTrue",
+    "test": "not(@moodCode) or @moodCode='EVN'",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49",
     "message": "QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes."
@@ -2135,8 +2135,8 @@
   {
     "id": "QFDD-DK-1.2-GROUPER-atLeastOneFalse-classCode",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:atLeastOneFalse",
-    "test": "@classCode='GROUPER'",
+    "context": "sdtc:atLeastOneFalse",
+    "test": "not(@classCode) or @classCode='GROUPER'",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49",
     "message": "QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes."
@@ -2144,8 +2144,8 @@
   {
     "id": "QFDD-DK-1.2-GROUPER-atLeastOneFalse-moodCode",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:atLeastOneFalse",
-    "test": "@moodCode='EVN'",
+    "context": "sdtc:atLeastOneFalse",
+    "test": "not(@moodCode) or @moodCode='EVN'",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49",
     "message": "QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes."
@@ -2153,8 +2153,8 @@
   {
     "id": "QFDD-DK-1.2-GROUPER-onlyOneTrue-classCode",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:onlyOneTrue",
-    "test": "@classCode='GROUPER'",
+    "context": "sdtc:onlyOneTrue",
+    "test": "not(@classCode) or @classCode='GROUPER'",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49",
     "message": "QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes."
@@ -2162,8 +2162,8 @@
   {
     "id": "QFDD-DK-1.2-GROUPER-onlyOneTrue-moodCode",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:onlyOneTrue",
-    "test": "@moodCode='EVN'",
+    "context": "sdtc:onlyOneTrue",
+    "test": "not(@moodCode) or @moodCode='EVN'",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49",
     "message": "QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes."
@@ -2171,8 +2171,8 @@
   {
     "id": "QFDD-DK-1.2-GROUPER-onlyOneFalse-classCode",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:onlyOneFalse",
-    "test": "@classCode='GROUPER'",
+    "context": "sdtc:onlyOneFalse",
+    "test": "not(@classCode) or @classCode='GROUPER'",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49",
     "message": "QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes."
@@ -2180,8 +2180,8 @@
   {
     "id": "QFDD-DK-1.2-GROUPER-onlyOneFalse-moodCode",
     "file": "cda-validator/domain/cda-dk/sch/versions/qfdd-v1.2-conformance.sch",
-    "context": "v3:onlyOneFalse",
-    "test": "@moodCode='EVN'",
+    "context": "sdtc:onlyOneFalse",
+    "test": "not(@moodCode) or @moodCode='EVN'",
     "severity": "error",
     "source": "https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49",
     "message": "QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes."
