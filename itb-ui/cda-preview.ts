@@ -23,7 +23,7 @@ export async function showCdaPreview(load: () => Promise<Blob>): Promise<void> {
   close.textContent = 'Close preview';
   heading.append(title, close);
   const description = document.createElement('p');
-  description.textContent = 'Shows the CDA header and narrative. Structured questionnaire fields may not be shown. This preview does not establish conformance or change the validation result.';
+  description.textContent = 'Shows the CDA header, narrative and a list of its structured entries. This preview does not establish conformance or change the validation result.';
   const status = document.createElement('p');
   status.setAttribute('role', 'status');
   status.textContent = 'Preparing preview…';

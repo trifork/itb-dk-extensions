@@ -30,8 +30,11 @@ import org.xml.sax.helpers.DefaultHandler;
 
 /** Display only: never replaces the original XML used for validation. */
 public final class CdaRenderer {
-    /** Styles the structured questionnaire view; the page's CSP allows inline styles only. */
-    private static final String QUESTIONNAIRE_CSS =
+    /**
+     * Styles the structured views (questionnaire and entries); the page's CSP allows inline styles
+     * only.
+     */
+    private static final String STRUCTURED_CSS =
             ".qv-table{border-collapse:collapse;width:100%;margin:8px 0}"
                     + ".qv-table th,.qv-table td{border:1px solid #ccc;padding:4px 8px;"
                     + "vertical-align:top;text-align:left}"
@@ -39,6 +42,8 @@ public final class CdaRenderer {
                     + ".qv-depth-1 td:first-child{padding-left:28px}"
                     + ".qv-depth-2 td:first-child{padding-left:48px}"
                     + ".qv-depth-3 td:first-child{padding-left:68px}"
+                    + ".qv-depth-4 td:first-child{padding-left:88px}"
+                    + ".qv-depth-5 td:first-child{padding-left:108px}"
                     + ".qv-note{color:#555;font-size:.9em}"
                     + ".qv-none{color:#888;font-style:italic}";
 
@@ -46,6 +51,7 @@ public final class CdaRenderer {
             "default-src 'none'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'";
     private final Templates stylesheet;
     private final Templates questionnaire;
+    private final Templates entries;
     static final String STYLESHEET_URI = "classpath:/rendering/HL7_CDA_stylesheet.xsl";
     // The stylesheet reads its language dependent labels from this companion file, named by
     // its vocFile parameter and resolved relative to the stylesheet.
@@ -73,6 +79,10 @@ public final class CdaRenderer {
                 factory.newTemplates(
                         new StreamSource(
                                 new ByteArrayInputStream(bundled("/rendering/questionnaire.xsl"))));
+        entries =
+                factory.newTemplates(
+                        new StreamSource(
+                                new ByteArrayInputStream(bundled("/rendering/entries.xsl"))));
     }
 
     private static final Pattern DATE_ORDER =
@@ -188,19 +198,30 @@ public final class CdaRenderer {
     }
 
     /**
-     * A QRD or QFDD keeps its content in entries that the general stylesheet does not show. This
-     * adds a list of them after the narrative; other documents get nothing.
+     * The general stylesheet shows the header and the narrative only, but most profiles keep their
+     * data in structured entries too. A QRD or QFDD gets a questionnaire view; every other document
+     * gets a generic list of its entries (a document without entries gets nothing). Both are added
+     * after the narrative.
      */
-    private void appendQuestionnaireView(Document document, org.jsoup.nodes.Document page)
+    private void appendStructuredView(Document document, org.jsoup.nodes.Document page)
             throws TransformerException {
-        var transformer = questionnaire.newTransformer();
+        String fragment = transformFragment(questionnaire, document);
+        if (fragment.isBlank()) {
+            fragment = transformFragment(entries, document);
+        }
+        if (!fragment.isBlank()) {
+            page.head().appendElement(STYLE_TAG).text(STRUCTURED_CSS);
+            page.body().append(fragment);
+        }
+    }
+
+    private String transformFragment(Templates view, Document document)
+            throws TransformerException {
+        var transformer = view.newTransformer();
         transformer.setURIResolver(this::resolveStylesheet);
         var fragment = new StringWriter();
         transformer.transform(new DOMSource(document), new StreamResult(fragment));
-        if (!fragment.toString().isBlank()) {
-            page.head().appendElement(STYLE_TAG).text(QUESTIONNAIRE_CSS);
-            page.body().append(fragment.toString());
-        }
+        return fragment.toString();
     }
 
     public String render(byte[] xml) throws Exception {
@@ -229,7 +250,7 @@ public final class CdaRenderer {
         var output = new StringWriter();
         transformer.transform(new DOMSource(document), new StreamResult(output));
         var rendered = Jsoup.parse(output.toString());
-        appendQuestionnaireView(document, rendered);
+        appendStructuredView(document, rendered);
         // Retain narrative tables and typography, but strip active content and navigation.
         var allowed =
                 Safelist.relaxed()

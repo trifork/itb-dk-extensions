@@ -142,9 +142,11 @@ API identifiers and artifact mappings; [versioning](docs/versioning.md) explains
 release identity. `GET /rest/cda-dk/api/info` lists deployed selections.
 
 **View CDA** on the upload page and ITB XML report attachments renders the CDA
-header and narrative. Preview also works for documents that fail validation;
-structured questionnaire fields may not be displayed. It preserves the original
-XML and does not change the validation result.
+header and narrative, followed by a generic list of the document's structured
+entries (measurements, results, goals, appointments, registrations) or, for a
+questionnaire, its questions and answers. Preview also works for documents that
+fail validation. It preserves the original XML and does not change the validation
+result.
 The [ITB UI extension](itb-ui/README.md) serves compiled frontend
 assets compiled from pinned ITB release source with the Angular preview extension. Stock ITB
 images remain unchanged; there are no generated host asset mounts.

@@ -49,11 +49,22 @@ day, year" for everything but Dutch, so `CdaRenderer.withDanishDates` also inser
 to a stylesheet it does not fit. The wording is a draft that a Danish speaker should review. To see
 what a new stylesheet needs, the keys it requests can be logged while rendering the sample documents.
 
-That stylesheet shows the header and the narrative only. For a questionnaire form definition (QFDD)
-or response (QRD) the preview therefore adds a list of the structured entries, written by our own
-`questionnaire.xsl`: each answer of a response, or each question of a form with its options,
-limits, ranges and preconditions. It uses only `xsl:value-of`, so document text can never become
-markup, and the output passes through the same sanitiser, CSP and sandbox.
+That stylesheet shows the header and the narrative only, so the preview adds a list of the
+structured entries after the narrative, written by two stylesheets of our own. Both use only
+`xsl:value-of`, so document text can never become markup, and the output passes through the same
+sanitiser, CSP and sandbox:
+
+- `questionnaire.xsl` for a questionnaire form definition (QFDD) or response (QRD): each answer of
+  a response, or each question of a form with its options, limits, ranges and preconditions.
+- `entries.xsl` for every other document, with no knowledge of a particular profile: each section
+  with entries gets a table with one row per observation, group, procedure, medication, encounter,
+  act or supply, nested through components and entry relationships (to 12 levels). A row shows the
+  code (with its translations), the values formatted by data type (quantities with units, coded
+  values with code system, intervals including open ones, identifiers, names, addresses, telephone
+  numbers, dates at their own precision), the time, status, mood, negation, reference ranges,
+  products and the authors, performers, participants and devices involved. Entries are shown as
+  encoded: nothing is derived, translated or validated, and embedded binary data is not dumped.
+  Labels are English. A document without entries (for example PHAD) gets no list.
 
 Docker builds `validator-plugin-cda-dk.jar` and installs it inside the domain.
 Do not commit plugin binaries or bind-mount over the image's domain directory.
@@ -110,7 +121,7 @@ and calls this service’s rendering endpoint.
 It checks well-formed XML and the CDA root/namespace; DOCTYPEs and external XML/XSLT
 resources are blocked. Output uses no-store responses and a sandboxed iframe.
 Preview preserves the original bytes and can display documents that fail validation.
-It shows header and narrative; structured questionnaire fields may not appear.
+It shows the header, the narrative and the structured entries (see Display stylesheet).
 `CdaPreviewIT` exercises the renderer in the actual image.
 
 The same upload-page script groups repeated findings in the **Detailed report** into one

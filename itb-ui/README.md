@@ -1,8 +1,8 @@
 # CDA preview in ITB reports
 
-**View CDA** beside an XML attachment renders its header and narrative through
-`/cda-preview`. Preview preserves original bytes and validation findings;
-structured questionnaire fields may not appear.
+**View CDA** beside an XML attachment renders its header, narrative and structured
+entries through `/cda-preview`. Preview preserves original bytes and validation
+findings.
 
 Validation reports show **Click an error or warning for more details** above
 selectable findings when errors or warnings are visible.
