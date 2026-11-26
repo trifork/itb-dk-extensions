@@ -1,0 +1,2712 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<!--
+........................................................................
+ SkemaId: bf0be351-827d-4e98-8e03-111b0dccf50f
+ Titel:   Spørgeskema i forbindelse med KOL
+ Version: 1
+ Build:   001, PRO-sekretariatet, https://pro-danmark.dk/da
+ Dato:    20250428080000+0200
+........................................................................
+
+
+=================================================
+*** Visualisering af de nationale PRO-skemaer ***
+=================================================
+Denne XML-fil er publiceret som del af en national PRO-pakke. I samme
+pakke foreligger der to HTML-filer - en statisk og en dynamisk - der
+gengiver PRO-spørgeskemaets intenderede udseende og funktionalitet. For
+systemer, der ikke i tilstrækkeligt omfang kan udnytte XML-filens højt
+strukturerede indhold, er dele af spørgeskemaet, som en slags sikker-
+hedsnet, gengivet i form af narrativ tekst.
+
+PRO-sekretariatet anbefaler i enhver henseende, at man anvender PRO-
+pakkens to HTML-filer i forhold, der vedrører udseende og funktionalitet
+af spørgeskemaer og/eller besvarelser.
+
+
+
+Datotid             Ver Bld Sign
+=================== === === ============================================
+20250428080000+0200  1  001 KIAJ
+20250919075100+0200  1  002 KIAJ - Fejl i 8 items [3192-3199] er rettet
+........................................................................
+
+-->
+
+<ClinicalDocument xsi:schemaLocation="urn:hl7-org:v3 /xmlschema/QFD/CDA_SDTC.xsd" classCode="DOCCLIN" moodCode="EVN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc">
+	<realmCode code="UV"/>
+	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+	<templateId root="1.2.208.184.12.1" assigningAuthorityName="MedCom"/>
+	<templateId root="1.2.208.184.12.1.1.1"/><!-- Spørgeskema i forbindelse med KOL -->
+	<id root="1.2.208.176.7.3.1" extension="bf0be351-827d-4e98-8e03-111b0dccf50f" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+	<code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="74468-0" displayName="Form Definition Document"/>
+	<title>Spørgeskema i forbindelse med KOL</title>
+	<sdtc:statusCode code="NEW"/>
+	<effectiveTime value="20210721214509+0200"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<versionNumber value="2"/>
+	<recordTarget nullFlavor="NI">
+		<patientRole nullFlavor="NI">
+			<id nullFlavor="NI"/>
+		</patientRole>
+	</recordTarget><!-- FORFATTERORGANISATION: Sundhedsdatastyrelsen -->
+	<author typeCode="AUT" contextControlCode="OP">
+		<time value="20201205215959+0100"/>
+		<assignedAuthor classCode="ASSIGNED">
+			<id nullFlavor="NA"/>
+			<addr use="WP">
+				<streetAddressLine>PRO-sekretariatet</streetAddressLine>
+				<streetAddressLine>Ørestads Boulevard 5</streetAddressLine>
+				<postalCode>2300</postalCode>
+				<city>København</city>
+				<country>Danmark</country>
+			</addr>
+			<telecom value="tel:+4591334808" use="WP"/>
+			<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+				<name>Sundhedsdatastyrelsen</name>
+				<telecom nullFlavor="NI"/>
+				<addr use="WP">
+					<streetAddressLine nullFlavor="NI"/>
+				</addr>
+			</representedOrganization>
+		</assignedAuthor>
+	</author><!-- FORVALTERORGANISATION: Sundhedsdatastyrelsen -->
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+				<name>Sundhedsdatastyrelsen</name>
+				<telecom value="tel:+4591334808" use="WP"/>
+				<addr use="WP">
+					<streetAddressLine>PRO-sekretariatet</streetAddressLine>
+					<streetAddressLine>Ørestads Boulevard 5</streetAddressLine>
+					<postalCode>2300</postalCode>
+					<city>København</city>
+					<country>Danmark</country>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<component typeCode="COMP" contextConductionInd="true">
+		<structuredBody classCode="DOCBODY" moodCode="EVN">
+		
+<!-- INFO-SEKTION
+==========================================
+ Her er en info-sektion
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Hvordan har du det?</title>
+					<text><paragraph>Du har modtaget dette spørgeskema, fordi vi gerne vil vide, hvordan du har det. Dine svar vil være et udgangspunkt for vores videre samtale, når vi mødes næste gang.</paragraph>Inden du svarer, skal du være opmærksom på at:<br/><br/>Oplysningerne betragtes som en del af din journal, og det er de sundhedsfaglige personer, der tager del i din behandling, der har adgang til den.<br/><br/>Dine svar vil først blive set af en sundhedsfaglig person lige op til dit næste besøg. Hvis din tilstand forværres inden da, eller hvis din tilstand kræver akut behandling, skal du tage kontakt til sundhedsvæsenet på samme måde, som du ville gøre, hvis du har valgt ikke at svare på spørgeskemaet. <br/><br/>Dine svar vil kunne blive brugt til kvalitetssikring og –udvikling i sundhedsvæsenet.<br/><br/><paragraph>Det kan være at der er nogle af spørgsmålene, som du synes er svære at svare på, men prøv at svare så godt du kan ud fra hvordan du har det i øjeblikket. Bemærk, der er ikke nogen rigtige eller forkerte svar.</paragraph></text>
+				</section>
+			</component><!--Slut INFO-Sektion-->
+<!-- SPRGSMLSEKTION_1-INTRO
+==========================================
+ Generelt om dit helbred og livskvalitet
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 1-INTRO-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Generelt om dit helbred og livskvalitet</title>
+					<text>
+						<paragraph>De følgende spørgsmål handler om dit generelle helbred og livskvalitet.</paragraph>
+					</text>
+				</section>
+			</component><!--Slut sektion 1-INTRO-->
+<!-- SPRGSMLSEKTION_1-SPM
+==========================================
+  Generelt om dit helbred og livskvalitet
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 1-SPM-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<!-- S1 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">Hvordan synes du dit helbred er alt i alt?</th>
+								</tr>
+								<tr>
+									<td>Fremragende</td>
+									<td><!-- A30_1 --></td>
+								</tr>
+								<tr>
+									<td>Vældig godt</td>
+									<td><!-- A30_2 --></td>
+								</tr>
+								<tr>
+									<td>Godt</td>
+									<td><!-- A30_3 --></td>
+								</tr>
+								<tr>
+									<td>Mindre godt</td>
+									<td><!-- A30_4 --></td>
+								</tr>
+								<tr>
+									<td>Dårligt</td>
+									<td><!-- A30_5 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvordan vil du vurdere din samlede livskvalitet i den forløbne uge?</th>
+								</tr>
+								<tr>
+									<td>1 Meget dårlig</td>
+									<td><!-- A2750_1 --></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><!-- A2750_2 --></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><!-- A2750_3 --></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><!-- A2750_4 --></td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td><!-- A2750_5 --></td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td><!-- A2750_6 --></td>
+								</tr>
+								<tr>
+									<td>7 Særdeles god</td>
+									<td><!-- A2750_7 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_7009 -->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7009 spm30-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7009" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G7009" codeSystemName="Sundhedsdatastyrelsen">
+								<originalText>Vi er interesserede i at vide noget om dig og dit helbred. Vær venlig at besvare alle spørgsmålene selv, ved at markere det svar, som passer bedst på dig. Der er ingen "rigtige" eller "forkerte" svar. De oplysninger, som du giver os, vil forblive strengt fortrolige.</originalText>							
+							</code>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_30
+							*********************************************************
+							* Hvordan synes du dit helbred er alt i alt?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="30" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q30" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvordan synes du dit helbred er alt i alt?</originalText>
+									</code>
+									<value code="A30_1" displayName="Fremragende" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A30_2" displayName="Vældig godt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A30_3" displayName="Godt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A30_4" displayName="Mindre godt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A30_5" displayName="Dårligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--slut gruppe 7009-->
+					<!-- GRUPPE_7025 -->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7025 spm2750-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7025" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G7025" codeSystemName="Sundhedsdatastyrelsen">
+								<originalText>Ved det næste spørgsmål bedes du markere det tal mellem 1 og 7, som passer bedst på dig:</originalText>							
+							</code>
+							<statusCode code="COMPLETED"/>
+							<!-- MCskyder_2750
+							*********************************************************
+							* Hvordan vil du vurdere din samlede livskvalitet i den ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<templateId root="2.16.840.1.113883.10.20.32.4.11"/>
+									<id root="1.2.208.176.1.5" extension="2750" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2750" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvordan vil du vurdere din samlede livskvalitet i den forløbne uge?</originalText>
+									</code>
+									<value code="A2750_1" displayName="1 Meget dårlig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2750_2" displayName="2" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2750_3" displayName="3" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2750_4" displayName="4" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2750_5" displayName="5" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2750_6" displayName="6" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2750_7" displayName="7 Særdeles god" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--slut gruppe 7025-->
+				</section>
+			</component><!--Slut sektion 1-SPM-->
+<!-- SPRGSMLSEKTION_2-INTRO
+==========================================
+ KOL’s betydning for din hverdag
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 2-INTRO-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>KOL’s betydning for din hverdag</title>
+					<text>
+						<paragraph>De næste spørgsmål vil hjælpe dig og den sundhedsprofessionelle med at måle den effekt, som KOL (Kronisk obstruktiv lungesygdom) har på dit velbefindende og din hverdag. Dine svar kan bruges af dig og den sundhedsprofessionelle til at hjælpe med at forbedre behandlingen af din KOL, så du får størst mulig gavn af den.</paragraph>
+					</text>
+				</section>
+			</component><!--Slut sektion 2-INTRO-->
+<!-- SPRGSMLSEKTION_2-SPM
+==========================================
+  KOL’s betydning for din hverdag
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 2-SPM-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<!-- S2 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<td colspan="2">
+										<paragraph>CAT™ © Copyright 2009 GlaxoSmithKline koncernen.</paragraph>
+                        			</td>
+								</tr>	
+								<tr>
+									<th colspan="2" align="left">Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. hoste:</th>
+								</tr>
+								<tr>
+									<td>0 Jeg hoster aldrig</td>
+									<td><!-- A3192_1 --></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><!-- A3192_2 --></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><!-- A3192_3 --></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><!-- A3192_4 --></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><!-- A3192_5 --></td>
+								</tr>
+								<tr>
+									<td>5 Jeg hoster hele tiden</td>
+									<td><!-- A3192_6 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. slim i lungerne:</th>
+								</tr>
+								<tr>
+									<td>0 Jeg har slet ikke noget slim i lungerne</td>
+									<td><!-- A3193_1 --></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><!-- A3193_2 --></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><!-- A3193_3 --></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><!-- A3193_4 --></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><!-- A3193_5 --></td>
+								</tr>
+								<tr>
+									<td>5 Mine lunger er helt fyldte med slim</td>
+									<td><!-- A3193_6 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. trykken for brystet:</th>
+								</tr>
+								<tr>
+									<td>0 Jeg har slet ikke trykken for brystet</td>
+									<td><!-- A3194_1 --></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><!-- A3194_2 --></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><!-- A3194_3 --></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><!-- A3194_4 --></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><!-- A3194_5 --></td>
+								</tr>
+								<tr>
+									<td>5 Jeg har meget trykken for brystet</td>
+									<td><!-- A3194_6 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. at blive forpustet:</th>
+								</tr>
+								<tr>
+									<td>0 Når jeg går op ad bakke eller går én etage op, bliver jeg ikke forpustet</td>
+									<td><!-- A3195_1 --></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><!-- A3195_2 --></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><!-- A3195_3 --></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><!-- A3195_4 --></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><!-- A3195_5 --></td>
+								</tr>
+								<tr>
+									<td>5 Når jeg går op ad bakke eller går én etage op, bliver jeg meget forpustet</td>
+									<td><!-- A3195_6 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. aktiviteter hjemme:</th>
+								</tr>
+								<tr>
+									<td>0 Jeg er ikke begrænset i nogen aktiviteter hjemme</td>
+									<td><!-- A3196_1 --></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><!-- A3196_2 --></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><!-- A3196_3 --></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><!-- A3196_4 --></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><!-- A3196_5 --></td>
+								</tr>
+								<tr>
+									<td>5 Jeg er meget begrænset i alle aktiviteter hjemme</td>
+									<td><!-- A3196_6 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. at forlade hjemmet:</th>
+								</tr>
+								<tr>
+									<td>0 Jeg er tryg ved at forlade mit hjem på trods af min lungesygdom </td>
+									<td><!-- A3197_1 --></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><!-- A3197_2 --></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><!-- A3197_3 --></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><!-- A3197_4 --></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><!-- A3197_5 --></td>
+								</tr>
+								<tr>
+									<td>5 Jeg er slet ikke tryg ved at forlade mit hjem på grund af min lungesygdom</td>
+									<td><!-- A3197_6 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. søvn:</th>
+								</tr>
+								<tr>
+									<td>0 Jeg sover dybt</td>
+									<td><!-- A3198_1 --></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><!-- A3198_2 --></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><!-- A3198_3 --></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><!-- A3198_4 --></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><!-- A3198_5 --></td>
+								</tr>
+								<tr>
+									<td>5 Jeg sover ikke dybt på grund af min lungesygdom</td>
+									<td><!-- A3198_6 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. energi:</th>
+								</tr>
+								<tr>
+									<td>0 Jeg har masser af energi </td>
+									<td><!-- A3199_1 --></td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><!-- A3199_2 --></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><!-- A3199_3 --></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><!-- A3199_4 --></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><!-- A3199_5 --></td>
+								</tr>
+								<tr>
+									<td>5 Jeg har slet ingen energi</td>
+									<td><!-- A3199_6 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_7010 -->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7010 [CAT]spm3192-3199-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7010" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G7010" codeSystemName="Sundhedsdatastyrelsen">
+								<originalText>De næste spørgsmål vil hjælpe dig og den sundhedsprofessionelle med at måle den effekt, som KOL (Kronisk obstruktiv lungesygdom) har på dit velbefindende og din hverdag. Dine svar kan bruges af dig og den sundhedsprofessionelle til at hjælpe med at forbedre behandlingen af din KOL, så du får størst mulig gavn af den.</originalText>							
+							</code>
+							<statusCode code="COMPLETED"/>
+							<!-- MCskyder_3192
+							*********************************************************
+							* Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. hoste:
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<templateId root="2.16.840.1.113883.10.20.32.4.11"/>
+									<id root="1.2.208.176.1.5" extension="3192" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3192" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. hoste:</originalText>
+									</code>
+									<value code="A3192_1" displayName="0 Jeg hoster aldrig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3192_2" displayName="1" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3192_3" displayName="2" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3192_4" displayName="3" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3192_5" displayName="4" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3192_6" displayName="5 Jeg hoster hele tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MCskyder_3193
+							*********************************************************
+							* Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. slim i lungerne:
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<templateId root="2.16.840.1.113883.10.20.32.4.11"/>
+									<id root="1.2.208.176.1.5" extension="3193" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3193" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. slim i lungerne:</originalText>
+									</code>
+									<value code="A3193_1" displayName="0 Jeg har slet ikke noget slim i lungerne" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3193_2" displayName="1" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3193_3" displayName="2" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3193_4" displayName="3" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3193_5" displayName="4" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3193_6" displayName="5 Mine lunger er helt fyldte med slim" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MCskyder_3194
+							*********************************************************
+							* Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. trykken for brystet:
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<templateId root="2.16.840.1.113883.10.20.32.4.11"/>
+									<id root="1.2.208.176.1.5" extension="3194" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3194" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. trykken for brystet:</originalText>
+									</code>
+									<value code="A3194_1" displayName="0 Jeg har slet ikke trykken for brystet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3194_2" displayName="1" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3194_3" displayName="2" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3194_4" displayName="3" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3194_5" displayName="4" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3194_6" displayName="5 Jeg har meget trykken for brystet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MCskyder_3195
+							*********************************************************
+							* Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. at blive forpustet:
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="4"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<templateId root="2.16.840.1.113883.10.20.32.4.11"/>
+									<id root="1.2.208.176.1.5" extension="3195" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3195" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. at blive forpustet:</originalText>
+									</code>
+									<value code="A3195_1" displayName="0 Når jeg går op ad bakke eller går én etage op, bliver jeg ikke forpustet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3195_2" displayName="1" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3195_3" displayName="2" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3195_4" displayName="3" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3195_5" displayName="4" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3195_6" displayName="5 Når jeg går op ad bakke eller går én etage op, bliver jeg meget forpustet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MCskyder_3196
+							*********************************************************
+							* Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. aktiviteter hjemme:
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="5"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<templateId root="2.16.840.1.113883.10.20.32.4.11"/>
+									<id root="1.2.208.176.1.5" extension="3196" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3196" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. aktiviteter hjemme:</originalText>
+									</code>
+									<value code="A3196_1" displayName="0 Jeg er ikke begrænset i nogen aktiviteter hjemme" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3196_2" displayName="1" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3196_3" displayName="2" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3196_4" displayName="3" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3196_5" displayName="4" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3196_6" displayName="5 Jeg er meget begrænset i alle aktiviteter hjemme" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MCskyder_3197
+							*********************************************************
+							* Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. at forlade hjemmet:
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="6"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<templateId root="2.16.840.1.113883.10.20.32.4.11"/>
+									<id root="1.2.208.176.1.5" extension="3197" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3197" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. at forlade hjemmet:</originalText>
+									</code>
+									<value code="A3197_1" displayName="0 Jeg er tryg ved at forlade mit hjem på trods af min lungesygdom " codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3197_2" displayName="1" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3197_3" displayName="2" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3197_4" displayName="3" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3197_5" displayName="4" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3197_6" displayName="5 Jeg er slet ikke tryg ved at forlade mit hjem på grund af min lungesygdom" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MCskyder_3198
+							*********************************************************
+							* Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. søvn:
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="7"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<templateId root="2.16.840.1.113883.10.20.32.4.11"/>
+									<id root="1.2.208.176.1.5" extension="3198" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3198" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. søvn:</originalText>
+									</code>
+									<value code="A3198_1" displayName="0 Jeg sover dybt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3198_2" displayName="1" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3198_3" displayName="2" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3198_4" displayName="3" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3198_5" displayName="4" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3198_6" displayName="5 Jeg sover ikke dybt på grund af min lungesygdom" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MCskyder_3199
+							*********************************************************
+							* Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. energi:
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="8"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<templateId root="2.16.840.1.113883.10.20.32.4.11"/>
+									<id root="1.2.208.176.1.5" extension="3199" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3199" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Vælg det tal fra 0-5, som bedst beskriver din nuværende situation ift. energi:</originalText>
+									</code>
+									<value code="A3199_1" displayName="0 Jeg har masser af energi" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3199_2" displayName="1" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3199_3" displayName="2" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3199_4" displayName="3" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3199_5" displayName="4" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3199_6" displayName="5 Jeg har slet ingen energi" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--slut gruppe 7010-->
+				</section>
+			</component><!--Slut sektion 2-SPM-->
+<!-- SPRGSMLSEKTION_2-COPYRIGHT
+==========================================
+  COPYRIGHT-SEKTION CAT 
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 2-COPYRIGHT-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.2"/>
+					<text>CAT™ © Copyright 2009 GlaxoSmithKline koncernen. Alle rettigheder forbeholdes. Hvis du har behov for information om brugen af CAT™, kontakt da venligst Mapi Research: eprovide.mapi-trust.org</text>
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.21"/>
+							<code code="COPY" codeSystem="2.16.840.1.113883.6.1" displayName="Code for Copyright" codeSystemName="LOINC"/>
+							<value xsi:type="ST">CAT™ © Copyright 2009 GlaxoSmithKline koncernen. Alle rettigheder forbeholdes. Hvis du har behov for information om brugen af CAT™, kontakt da venligst Mapi Research: eprovide.mapi-trust.org</value>
+						</observation>
+					</entry>
+				</section>
+			</component><!--Slut sektion 2-COPYRIGHT-->
+<!-- SPRGSMLSEKTION_2-Ikke-CAT-SPM
+==========================================
+  Øvrige spørgsmål (ikke CAT-copyright) SPM 3200-3204
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 2-Ikke-CAT-SPM-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<!-- S2 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<td colspan="2"><paragraph>De næste spørgsmål handler om, hvor meget din KOL har begrænset dig i forskellige aktiviteter i den seneste uge. Hvis du har undgået eller ikke været i stand til at udføre aktiviteterne på grund af din KOL, skal du svare ”Meget”.</paragraph></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor begrænset har du været i anstrengende fysiske aktiviteter (såsom at gå op ad trapper, skynde sig, dyrke sport) inden for den seneste uge?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A3200_1 --></td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A3200_2 --></td>
+								</tr>
+								<tr>
+								<td>En del</td>
+									<td><!-- A3200_3 --></td>
+									</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A3200_4 --></td>
+								</tr>
+								<tr>
+									<td>Ikke relevant</td>
+									<td><!-- A3200_5 --></td>
+								</tr>								
+								<tr>
+									<th colspan="2" align="left">Hvor begrænset har du været i moderate fysiske aktiviteter (såsom at gå, udføre husarbejde, bære ting) inden for den seneste uge?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A3201_1 --></td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A3201_2 --></td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A3201_3 --></td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A3201_4 --></td>
+								</tr>
+								<tr>
+									<td>Ikke relevant</td>
+									<td><!-- A3201_5 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor begrænset har du været i daglige aktiviteter hjemme (såsom at tage tøj på, vaske dig selv) inden for den seneste uge?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A3202_1 --></td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A3202_2 --></td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A3202_3 --></td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A3202_4 --></td>
+								</tr>
+								<tr>
+									<td>Ikke relevant</td>
+									<td><!-- A3202_5 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor begrænset har du været i sociale aktiviteter (såsom at tale, være sammen med børn, besøge venner/familie) inden for den seneste uge?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A3203_1 --></td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A3203_2 --></td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A3203_3 --></td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A3203_4 --></td>
+								</tr>
+								<tr>
+									<td>Ikke relevant</td>
+									<td><!-- A3203_5 --></td>
+								</tr>
+								<tr>
+									<td colspan="2"><paragraph>Mange mennesker med KOL oplever udfordringer med vandladning eller afføring i forbindelse med fx hoste eller anfald af åndenød.</paragraph></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Har du problemer med vandladning eller afføring?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A3204_1 --></td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A3204_2 --></td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A3204_3 --></td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A3204_4 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_7011 -->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7011 spm3200,3201,3202,3203-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7011" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G7011" codeSystemName="Sundhedsdatastyrelsen">
+							<originalText>De næste spørgsmål handler om, hvor meget din KOL har begrænset dig i forskellige aktiviteter i den seneste uge. Hvis du har undgået eller ikke været i stand til at udføre aktiviteterne på grund af din KOL, skal du svare ”Meget”.</originalText></code>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_3200
+							*********************************************************
+							* Hvor begrænset har du været i anstrengende fysiske aktiviteter (såsom at gå op ad trapper, skynde sig, dyrke sport) inden for den seneste uge?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3200" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3200" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor begrænset har du været i anstrengende fysiske aktiviteter (såsom at gå op ad trapper, skynde sig, dyrke sport) inden for den seneste uge?</originalText>
+									</code>
+									<value code="A3200_1" displayName="Slet ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3200_2" displayName="Lidt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3200_3" displayName="En del" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3200_4" displayName="Meget" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3200_5" displayName="Ikke relevant" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3201
+							*********************************************************
+							* Hvor begrænset har du været i moderate fysiske aktiviteter (såsom at gå, udføre husarbejde, bære ting) inden for den seneste uge?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3201" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3201" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor begrænset har du været i moderate fysiske aktiviteter (såsom at gå, udføre husarbejde, bære ting) inden for den seneste uge?</originalText>
+									</code>
+									<value code="A3201_1" displayName="Slet ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3201_2" displayName="Lidt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3201_3" displayName="En del" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3201_4" displayName="Meget" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3201_5" displayName="Ikkerelevant" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3202
+							*********************************************************
+							* Hvor begrænset har du været i daglige aktiviteter hjemme (såsom at tage tøj på, vaske dig selv) inden for den seneste uge?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3202" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3202" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor begrænset har du været i daglige aktiviteter hjemme (såsom at tage tøj på, vaske dig selv) inden for den seneste uge?</originalText>
+									</code>
+									<value code="A3202_1" displayName="Slet ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3202_2" displayName="Lidt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3202_3" displayName="En del" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3202_4" displayName="Meget" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3202_5" displayName="Ikke relevant" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3203
+							*********************************************************
+							* Hvor begrænset har du været i sociale aktiviteter (såsom at tale, være sammen med børn, besøge venner/familie) inden for den seneste uge?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="4"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3203" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3203" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor begrænset har du været i sociale aktiviteter (såsom at tale, være sammen med børn, besøge venner/familie) inden for den seneste uge?</originalText>
+									</code>
+									<value code="A3203_1" displayName="Slet ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3203_2" displayName="Lidt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3203_3" displayName="En del" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3203_4" displayName="Meget" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3203_5" displayName="Ikke relevant" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--slut gruppe 7011-->
+					<!-- GRUPPE_7012 -->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7012 spm3204-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7012" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G7012" codeSystemName="Sundhedsdatastyrelsen">
+							<originalText>Mange mennesker med KOL oplever udfordringer med vandladning eller afføring i forbindelse med fx hoste eller anfald af åndenød.</originalText>
+							</code>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_3204
+							*********************************************************
+							* Har du problemer med vandladning eller afføring?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3204" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3204" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du problemer med vandladning eller afføring?</originalText>
+									</code>
+									<value code="A3204_1" displayName="Slet ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3204_2" displayName="Lidt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3204_3" displayName="En del" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3204_4" displayName="Meget" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--slut gruppe 7012-->
+				</section>
+			</component><!--Slut sektion 12-SPM-->
+<!-- SPRGSMLSEKTION_3-INTRO
+==========================================
+ Inhalationsmedicin
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 3-INTRO-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Inhalationsmedicin</title>
+					<text>
+						<paragraph>De næste spørgsmål handler om den medicin, du tager gennem en inhalator.</paragraph>
+					</text>
+				</section>
+			</component><!--Slut sektion 3-INTRO-->
+<!-- SPRGSMLSEKTION_3-SPM
+==========================================
+  Inhalationsmedicin
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 3-SPM-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<!-- S3 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">Virker din inhalationsmedicin på dine KOL-symptomer?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A3205_1 --></td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A3205_2 --></td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A3205_3 --></td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A3205_4 --></td>
+								</tr>
+								<tr>
+									<td>Ved ikke</td>
+									<td><!-- A3205_5 --></td>
+								</tr>
+								<tr>
+									<td>Tager ikke inhalationsmedicin</td>
+									<td><!-- A3205_6 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Oplever du bivirkninger, når du har brugt din inhalationsmedicin, som fx ubehag i mund og svælg, muskelkramper eller rysten?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A3206_1 --></td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A3206_2 --></td>
+								</tr>
+								<tr>
+									<td>Ved ikke</td>
+									<td><!-- A3206_3 --></td>
+								</tr>
+								<tr>
+									<td>Ikke relevant</td>
+									<td><!-- A3206_4 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_7013 -->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7013 spm3205-3206-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7013" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G7013" codeSystemName="Sundhedsdatastyrelsen">
+							</code>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_3205
+							*********************************************************
+							* Virker din inhalationsmedicin på dine KOL-symptomer?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3205" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3205" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Virker din inhalationsmedicin på dine KOL-symptomer?</originalText>
+									</code>
+									<value code="A3205_1" displayName="Slet ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3205_2" displayName="Lidt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3205_3" displayName="En del" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3205_4" displayName="Meget" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3205_5" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3205_6" displayName="Tager ikke inhalationsmedicin" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3206
+							*********************************************************
+							* Oplever du bivirkninger, når du har brugt din inhalationsmedicin, som fx ubehag i mund og svælg, muskelkramper eller rysten?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3206" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3206" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Oplever du bivirkninger, når du har brugt din inhalationsmedicin, som fx ubehag i mund og svælg, muskelkramper eller rysten?</originalText>
+									</code>
+									<value code="A3206_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3206_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3206_3" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3206_4" displayName="Ikke relevant" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--slut gruppe 7013-->
+				</section>
+			</component><!--Slut sektion 3-SPM-->
+<!-- SPRGSMLSEKTION_4
+==========================================
+  Livet med KOL
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 4-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<!-- S4 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Livet med KOL</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">Ved du, hvad du skal gøre ved forværring af dit helbred?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A3208_1 --></td>
+								</tr>
+								<tr>
+									<td>I tvivl</td>
+									<td><!-- A3208_2 --></td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A3208_3 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Har du problemer i dit liv lige nu, der gør det svært for dig at tage vare på din KOL fx i forhold til familie, venner, bolig, arbejde, transport, økonomi eller andre helbredsproblemer?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A3209_1 --></td>
+								</tr>
+								<tr>
+									<td>I mindre grad</td>
+									<td><!-- A3209_2 --></td>
+								</tr>
+								<tr>
+									<td>I nogen grad</td>
+									<td><!-- A3209_3 --></td>
+								</tr>
+								<tr>
+									<td>I høj grad</td>
+									<td><!-- A3209_4 --></td>
+								</tr>
+								<tr>
+									<td>I meget høj grad</td>
+									<td><!-- A3209_5 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_7014 -->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7014 spm3208-3209-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7014" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G7014" codeSystemName="Sundhedsdatastyrelsen">
+							</code>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_3208
+							*********************************************************
+							* Ved du, hvad du skal gøre ved forværring af dit helbred?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3208" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3208" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Ved du, hvad du skal gøre ved forværring af dit helbred?</originalText>
+									</code>
+									<value code="A3208_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3208_2" displayName="I tvivl" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3208_3" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3209
+							*********************************************************
+							* Har du problemer i dit liv lige nu, der gør det svært for dig at tage vare på din KOL fx i forhold til familie, venner, bolig, arbejde, transport, økonomi eller andre helbredsproblemer?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3209" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3209" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du problemer i dit liv lige nu, der gør det svært for dig at tage vare på din KOL fx i forhold til familie, venner, bolig, arbejde, transport, økonomi eller andre helbredsproblemer?</originalText>
+									</code>
+									<value code="A3209_1" displayName="Slet ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3209_2" displayName="I mindre grad" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3209_3" displayName="I nogen grad" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3209_4" displayName="I høj grad" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3209_5" displayName="I meget høj grad" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--slut gruppe 7014-->
+				</section>
+			</component><!--Slut sektion 4-SPM-->
+<!-- SPRGSMLSEKTION_5-INTRO
+==========================================
+ Sociale relationer
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 5-INTRO-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Sociale relationer</title>
+					<text>
+						<paragraph>De næste spørgsmål handler om sociale relationer. Der er sammenhæng mellem menneskers sociale relationer i forhold til støtte i hverdagslivet og fysisk og psykisk helbred.</paragraph>
+					</text>
+				</section>
+			</component><!--Slut sektion 5-INTRO-->
+<!-- SPRGSMLSEKTION_5-SPM
+==========================================
+  Sociale relationer
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 5-SPM-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<!-- S5 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">Har du nogen at tale med, hvis du har problemer eller brug for støtte?  </th>
+								</tr>
+								<tr>
+									<td>Ja, altid</td>
+									<td><!-- A2823_1 --></td>
+								</tr>
+								<tr>
+									<td>Ja, for det meste</td>
+									<td><!-- A2823_2 --></td>
+								</tr>
+								<tr>
+									<td>Ja, nogle gange</td>
+									<td><!-- A2823_3 --></td>
+								</tr>
+								<tr>
+									<td>Nej, aldrig eller næsten aldrig</td>
+									<td><!-- A2823_4 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Føler du, at din rolle overfor familie eller venner har ændret sig?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A3207_1 --></td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A3207_2 --></td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A3207_3 --></td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A3207_4 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Har du følt dig ensom i den forløbne uge?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A2754_1 --></td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A2754_2 --></td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A2754_3 --></td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A2754_4 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Har du savnet intimitet (eksempelvis nærhed, ømhed, sex) i den forløbne uge?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A2822_1 --></td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A2822_2 --></td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A2822_3 --></td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A2822_4 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_7015 -->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7015 spm 2823/3207-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7015" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="7015G" codeSystemName="Sundhedsdatastyrelsen">
+							</code>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_2823
+							*********************************************************
+							* Har du nogen at tale med, hvis du har problemer eller brug for støtte?  
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2823" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2823" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du nogen at tale med, hvis du har problemer eller brug for støtte?  </originalText>
+									</code>
+									<value code="A2823_1" displayName="Ja, altid" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2823_2" displayName="Ja, for det meste" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2823_3" displayName="Ja, nogle gange" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2823_4" displayName="Nej, eller næsten aldrig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3207
+							*********************************************************
+							* Føler du, at din rolle overfor familie eller venner har ændret sig?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3207" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3207" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Føler du, at din rolle overfor familie eller venner har ændret sig?</originalText>
+									</code>
+									<value code="A3207_1" displayName="Slet ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3207_2" displayName="Lidt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3207_3" displayName="En del" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3207_4" displayName="Meget" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--slut gruppe 7015-->
+					<!-- GRUPPE_7016 -->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7016 spm 2754-2822-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7016" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="7016G" codeSystemName="Sundhedsdatastyrelsen">
+							</code>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_2754
+							*********************************************************
+							* Har du følt dig ensom i den forløbne uge?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2754" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2754" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du følt dig ensom i den forløbne uge?</originalText>
+									</code>
+									<value code="A2754_1" displayName="Slet ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2754_2" displayName="Lidt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2754_3" displayName="En del" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2754_4" displayName="Meget" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_2822
+							*********************************************************
+							* Har du savnet intimitet (eksempelvis nærhed, ømhed, sex) i den forløbne uge?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2822" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2822" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du savnet intimitet (eksempelvis nærhed, ømhed, sex) i den forløbne uge?</originalText>
+									</code>
+									<value code="A2822_1" displayName="Slet ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2822_2" displayName="Lidt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2822_3" displayName="En del" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2822_4" displayName="Meget" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--slut gruppe 7016-->
+				</section>
+			</component><!--Slut sektion 5-SPM-->
+<!-- SPRGSMLSEKTION_6-INTRO
+==========================================
+ Mental trivsel
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 6-INTRO-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Mental trivsel</title>
+					<text>
+						<paragraph>De næste spørgsmål handler om din generelle mentale trivsel.</paragraph>
+					</text>
+				</section>
+			</component><!--Slut sektion 7-INTRO-->
+<!-- SPRGSMLSEKTION_6
+==========================================
+  Mental trivsel 167/168/2316/2317
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<!-- S6 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<td colspan="2">
+										<paragraph>De følgende spørgsmål går på, hvorledes du har haft det gennem de sidste 2 uger. Besvar venligst spørgsmålene ved at markere det felt der svarer til, hvorledes du har følt det.</paragraph>
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor meget af tiden inden for de sidste 2 uger har du følt dig trist til mode, ked af det?</th>
+								</tr>
+								<tr>
+									<td>Hele tiden </td>
+									<td><!-- A167_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Det meste af tiden</td>
+									<td><!-- A167_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt over halvdelen af tiden</td>
+									<td><!-- A167_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt under halvdelen af tiden</td>
+									<td><!-- A167_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt af tiden </td>
+									<td><!-- A167_5 -->
+									</td>
+								</tr>
+								<tr>
+									<td>På intet tidspunkt</td>
+									<td><!-- A167_6 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor meget af tiden inden for de sidste 2 uger har du manglet interesse for dine daglige gøremål?</th>
+								</tr>
+								<tr>
+									<td>Hele tiden </td>
+									<td><!-- A168_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Det meste af tiden</td>
+									<td><!-- A168_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt over halvdelen af tiden</td>
+									<td><!-- A168_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt under halvdelen af tiden</td>
+									<td><!-- A168_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt af tiden </td>
+									<td><!-- A168_5 -->
+									</td>
+								</tr>
+								<tr>
+									<td>På intet tidspunkt</td>
+									<td><!-- A168_6 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor stor en del af tiden har du de sidste 2 uger været nervøs, anspændt eller følt indre uro?</th>
+								</tr>
+								<tr>
+									<td>Hele tiden</td>
+									<td><!-- A2316_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Det meste af tiden</td>
+									<td><!-- A2316_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt over halvdelen af tiden</td>
+									<td><!-- A2316_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt under halvdelen af tiden</td>
+									<td><!-- A2316_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt af tiden</td>
+									<td><!-- A2316_5 -->
+									</td>
+								</tr>
+								<tr>
+									<td>På intet tidspunkt</td>
+									<td><!-- A2316_6 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor stor en del af tiden har du de sidste 2 uger været meget bekymret over selv de mindste ting i din dagligdag?</th>
+								</tr>
+								<tr>
+									<td>Hele tiden</td>
+									<td><!-- A2317_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Det meste af tiden</td>
+									<td><!-- A2317_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt over halvdelen af tiden</td>
+									<td><!-- A2317_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt under halvdelen af tiden</td>
+									<td><!-- A2317_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt af tiden</td>
+									<td><!-- A2317_5 -->
+									</td>
+								</tr>
+								<tr>
+									<td>På intet tidspunkt</td>
+									<td><!-- A2317_6 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_7018 spm 167-168-->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7018 spm 167-168-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7018" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G7018" codeSystemName="Sundhedsdatastyrelsen">
+								<originalText>De følgende spørgsmål går på, hvorledes du har haft det gennem de sidste 2 uger. Besvar venligst spørgsmålene ved at markere det felt der svarer til, hvorledes du har følt det.</originalText>
+							</code>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_167
+							*********************************************************
+							* Hvor meget af tiden inden for de sidste 2 uger har du følt ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="167" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q167" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor meget af tiden inden for de sidste 2 uger har du følt dig trist til mode, ked af det?</originalText>
+									</code>
+									<value code="A167_1" displayName="Hele tiden " codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A167_2" displayName="Det meste af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A167_3" displayName="Lidt over halvdelen af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A167_4" displayName="Lidt under halvdelen af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A167_5" displayName="Lidt af tiden " codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A167_6" displayName="På intet tidspunkt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_168
+							*********************************************************
+							* Hvor meget af tiden inden for de sidste 2 uger har du ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="168" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q168" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor meget af tiden inden for de sidste 2 uger har du manglet interesse for dine daglige gøremål?</originalText>
+									</code>
+									<value code="A168_1" displayName="Hele tiden " codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A168_2" displayName="Det meste af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A168_3" displayName="Lidt over halvdelen af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A168_4" displayName="Lidt under halvdelen af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A168_5" displayName="Lidt af tiden " codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A168_6" displayName="På intet tidspunkt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--SLUT gruppe 7018-->
+					<!-- GRUPPE_7019 spm 2316-2317-->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7019 spm 2316/2317-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7019" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G7019" codeSystemName="Sundhedsdatastyrelsen"/>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_2316
+							*********************************************************
+							* Hvor stor en del af tiden har du de sidste 2 uger været ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2316" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2316" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor stor en del af tiden har du de sidste 2 uger været nervøs, anspændt eller følt indre uro?</originalText>
+									</code>
+									<value code="A2316_1" displayName="Hele tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2316_2" displayName="Det meste af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2316_3" displayName="Lidt over halvdelen af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2316_4" displayName="Lidt under halvdelen af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2316_5" displayName="Lidt af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2316_6" displayName="På intet tidspunkt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_2317
+							*********************************************************
+							* Hvor stor en del af tiden har du de sidste 2 uger været ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2317" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2317" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor stor en del af tiden har du de sidste 2 uger været meget bekymret over selv de mindste ting i din dagligdag?</originalText>
+									</code>
+									<value code="A2317_1" displayName="Hele tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2317_2" displayName="Det meste af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2317_3" displayName="Lidt over halvdelen af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2317_4" displayName="Lidt under halvdelen af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2317_5" displayName="Lidt af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2317_6" displayName="På intet tidspunkt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--SLUT gruppe 7019-->
+				</section>
+			</component><!--Slut SEKTION_6-->
+<!-- SPRGSMLSEKTION_7
+==========================================
+  Fysisk aktivitet
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 7-SPM-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<!-- S7 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Fysisk aktivitet</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">Hvilken beskrivelse passer bedst på din fysiske aktivitet?</th>
+								</tr>
+								<tr>
+									<td>Jeg læser, ser fjernsyn, laver anden stillesiddende beskæftigelse eller lignende</td>
+									<td><!-- A3210_1 --></td>
+								</tr>
+								<tr>
+									<td>Jeg dyrker let motion, går, cykler, udfører let havearbejde eller lignende mindst 4 timer om ugen</td>
+									<td><!-- A3210_2 --></td>
+								</tr>
+								<tr>
+									<td>Jeg dyrker moderat motion, løber, udfører tungt havearbejde eller lignende mindst 4 timer om ugen</td>
+									<td><!-- A3210_3 --></td>
+								</tr>
+								<tr>
+									<td>Jeg dyrker hård motion, træner hårdt, dyrker konkurrenceidræt eller lignende flere gange om ugen</td>
+									<td><!-- A3210_4 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_7020 -->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7020 spm 3210-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7020" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="7020G" codeSystemName="Sundhedsdatastyrelsen">
+							</code>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_3210
+							*********************************************************
+							* Hvilken beskrivelse passer bedst på din fysiske aktivitet?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3210" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3210" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvilken beskrivelse passer bedst på din fysiske aktivitet?</originalText>
+									</code>
+									<value code="A3210_1" displayName="Jeg læser, ser fjernsyn, laver anden stillesiddende beskæftigelse eller lignende" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3210_2" displayName="Jeg dyrker let motion, går, cykler, udfører let havearbejde eller lignende mindst 4 timer om ugen" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3210_3" displayName="Jeg dyrker moderat motion, løber, udfører tungt havearbejde eller lignende mindst 4 timer om ugen" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3210_4" displayName="Jeg dyrker hård motion, træner hårdt, dyrker konkurrenceidræt eller lignende flere gange om ugen" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--slut gruppe 7020-->
+				</section>
+			</component><!--Slut sektion 7-SPM-->
+<!-- SPRGSMLSEKTION_8
+==========================================
+  Mad- og spisevaner
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 8-SPM-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<!-- S8 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Mad- og spisevaner</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">Har din vægt ændret sig inden for de seneste 3 måneder?</th>
+								</tr>
+								<tr>
+									<td>Min vægt er gået op</td>
+									<td><!-- A3211_1 --></td>
+								</tr>
+								<tr>
+									<td>Min vægt er uændret</td>
+									<td><!-- A3211_2 --></td>
+								</tr>
+								<tr>
+									<td>Min vægt er uændret</td>
+									<td><!-- A3211_3 --></td>
+								</tr>
+								<tr>
+									<td>Ved ikke</td>
+									<td><!-- A3211_4 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Har din appetit ændret sig i løbet af de seneste 3 måneder?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A3188_1 --></td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A3188_2 --></td>
+								</tr>
+								<tr>
+									<td>Ved ikke</td>
+									<td><!-- A3188_3 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_7021 -->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7021 spm 3211-3188-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7021" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="7021G" codeSystemName="Sundhedsdatastyrelsen">
+							</code>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_3211
+							*********************************************************
+							* Har din vægt ændret sig inden for de seneste 3 måneder?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3211" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3211" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har din vægt ændret sig inden for de seneste 3 måneder?</originalText>
+									</code>
+									<value code="A3211_1" displayName="Min vægt er gået op" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3211_2" displayName="Min vægt er uændret" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3211_3" displayName="Min vægt er gået ned" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3211_4" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3188
+							*********************************************************
+							* Har din appetit ændret sig i løbet af de seneste 3 måneder?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3188" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3188" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har din appetit ændret sig i løbet af de seneste 3 måneder?</originalText>
+									</code>
+									<value code="A3188_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3188_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3188_3" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Med appetit menes lysten til mad.</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--slut gruppe 7021-->
+				</section>
+			</component><!--Slut sektion 8-SPM-->
+<!-- SPRGSMLSEKTION_9
+==========================================
+  Alkohol
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S9 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Alkohol</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">Hvor tit drikker du noget, der indeholder alkohol?</th>
+								</tr>
+								<tr>
+									<td>Aldrig</td>
+									<td><!-- A3190_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Højst én gang om måneden</td>
+									<td><!-- A3190_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>2-4 gange om måneden</td>
+									<td><!-- A3190_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>2-3 gange om ugen</td>
+									<td><!-- A3190_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>4 gange om ugen eller oftere</td>
+									<td><!-- A3190_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor mange genstande drikker du almindeligvis, når du drikker noget?</th>
+								</tr>
+								<tr>
+									<td>1-2 genstande</td>
+									<td><!-- A3062_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>3-4 genstande</td>
+									<td><!-- A3062_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>5-6 genstande</td>
+									<td><!-- A3062_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>7-9 genstande</td>
+									<td><!-- A3062_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>10 eller flere genstande</td>
+									<td><!-- A3062_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor tit drikker du fem genstande eller flere ved samme lejlighed?</th>
+								</tr>
+								<tr>
+									<td>Aldrig</td>
+									<td><!-- A3191_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Sjældent</td>
+									<td><!-- A3191_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Månedligt</td>
+									<td><!-- A3191_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ugentligt</td>
+									<td><!-- A3191_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Dagligt eller næsten dagligt</td>
+									<td><!-- A3191_5 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_7022 -->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7022 spm 3190/3062/3191-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7022" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G7022" codeSystemName="Sundhedsdatastyrelsen"/>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_3190
+							*********************************************************
+							* Hvor tit drikker du noget, der indeholder alkohol?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3190" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3190" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor tit drikker du noget, der indeholder alkohol?</originalText>
+									</code>
+									<value code="A3190_1" displayName="Aldrig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3190_2" displayName="Højst én gang om måneden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3190_3" displayName="2-4 gange om måneden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3190_4" displayName="2-3 gange om ugen" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3190_5" displayName="4 gange om ugen eller oftere" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3062
+							*********************************************************
+							* Hvor mange genstande drikker du almindeligvis, når du drikker noget?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3062" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3062" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor mange genstande drikker du almindeligvis, når du drikker noget?</originalText>
+									</code>
+									<value code="A3062_1" displayName="1-2 genstande" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3062_2" displayName="3-4 genstande" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3062_3" displayName="5-6 genstande" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3062_4" displayName="7-9 genstande" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3062_5" displayName="10 eller flere genstande" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">En genstand svarer til 1 almindelig øl, 1 glas rød-/hvidvin, 1 glas hedvin, 1 drink/cocktail, 1 snaps/shot, 1 alkoholsodavand eller 1 alkoholcider</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q3190 :A3190_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="S11" assigningAuthorityName="Sundhedsdatastyrelsen"/><!-- MC-kriterie Q3190:A3190_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q3190:A3190_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q3190:A3190_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q3190:A3190_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3191
+							*********************************************************
+							* Hvor tit drikker du fem genstande eller flere ved samme lejlighed?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3191" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3191" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor tit drikker du fem genstande eller flere ved samme lejlighed?</originalText>
+									</code>
+									<value code="A3191_1" displayName="Aldrig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3191_2" displayName="Sjældent" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3191_3" displayName="Månedligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3191_4" displayName="Ugentligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3191_5" displayName="Dagligt eller næsten dagligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">En genstand svarer til 1 almindelig øl, 1 glas rød-/hvidvin, 1 glas hedvin, 1 drink/cocktail, 1 snaps/shot, 1 alkoholsodavand eller 1 alkoholcider</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q3190 :A3190_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="S11" assigningAuthorityName="Sundhedsdatastyrelsen"/><!-- MC-kriterie Q3190:A3190_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q3190:A3190_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q3190:A3190_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q3190:A3190_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--SLUT gruppe 7022-->
+				</section>
+			</component><!--Slut SEKTION_9-->
+<!-- SPRGSMLSEKTION_10
+==========================================
+  Nikotin og rygevaner 
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S10 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Nikotin og rygevaner</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">Ryger du tobak?</th>
+								</tr>
+								<tr>
+									<td>Ja, dagligt</td>
+									<td><!-- A3247_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja, ved særlige lejligheder</td>
+									<td><!-- A3247_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A3247_3 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Har du tidligere røget tobak?</th>
+								</tr>
+								<tr>
+									<td>Nej, aldrig</td>
+									<td><!-- A3249_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Er stoppet og har været røgfri i mere end 6 måneder</td>
+									<td><!-- A3249_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Er stoppet og har været røgfri i mere end 1 måned men mindre end 6 måneder</td>
+									<td><!-- A3249_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Er stoppet og har været røgfri i mindre end 1 måned</td>
+									<td><!-- A3249_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Anvender du andre nikotinprodukter?</th>
+								</tr>
+								<tr>
+									<td>Ja, dagligt</td>
+									<td><!-- A3248_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja, ved særlige lejligheder</td>
+									<td><!-- A3248_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A3248_3 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_7023 -->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7023 spm 3247/3249/3248-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7023" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G7023" codeSystemName="Sundhedsdatastyrelsen"/>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_3247
+							*********************************************************
+							* Ryger du tobak?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3247" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3247" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Ryger du tobak?</originalText>
+									</code>
+									<value code="A3247_1" displayName="Ja, dagligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3247_2" displayName="Ja, ved særlige lejligheder" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3247_3" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">F.eks. cigaretter, pibe eller anden tobak.</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3249
+							*********************************************************
+							* Har du tidligere røget tobak?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3249" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3249" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du tidligere røget tobak?</originalText>
+									</code>
+									<value code="A3249_1" displayName="Nej, aldrig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3249_2" displayName="Er stoppet og har været røgfri i mere end 6 måneder" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3249_3" displayName="Er stoppet og har været røgfri i mere end 1 måned men mindre end 6 måneder" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3249_4" displayName="Er stoppet og har været røgfri i mindre end 1 måned" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Fx cigaretter, pibe eller anden tobak.</value>
+										</observation>
+									</entryRelationship><!-- Betingelse --><!-- MC-kriterie Q3247:A3247_3 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q3247" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+											<value code="A3247_3" xsi:type="CE"/>
+										</sdtc:criterion>
+									</sdtc:precondition>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3248
+							*********************************************************
+							* Anvender du andre nikotinprodukter?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3248" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3248" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Anvender du andre nikotinprodukter?</originalText>
+									</code>
+									<value code="A3248_1" displayName="Ja, dagligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3248_2" displayName="Ja, ved særlige lejligheder" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<value code="A3248_3" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">F.eks. snus, e-cigaretter, nikotintyggegummi og -plastre.</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--SLUT gruppe 7023-->
+				</section>
+			</component><!--Slut SEKTION_10-->
+<!-- SPRGSMLSEKTION_11-INTRO
+==========================================
+ Ønsker til samtalen
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 11-INTRO-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Ønsker til samtalen</title>
+					<text>
+						<paragraph>Nu er der ikke flere spørgsmål i spørgeskemaet. Du kan skrive i feltet, hvis der er andet du synes vi skal vide – eller tanker du har lyst til at dele. Det kan eksempelvis være nogle af emnerne fra spørgeskemaet eller andre emner som fylder for dig.</paragraph>
+					</text>
+				</section>
+			</component><!--Slut sektion 11-INTRO-->
+<!-- SPRGSMLSEKTION_11-SPM
+==========================================
+  Ønsker til samtalen
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true"><!--Start sektion 11-SPM-->
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<!-- S11 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">Er der andet, du synes vi skal vide eller emner, der er vigtige for dig at vi taler om?</th>							
+									<td><!-- A3212 --></td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_7024 -->
+					<entry typeCode="DRIV" contextConductionInd="true"><!--Start gruppe 7024 spm 3212-->
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7024" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="7024G" codeSystemName="Sundhedsdatastyrelsen">
+							</code>
+							<statusCode code="COMPLETED"/>
+							<!-- TXT-SPRGSML_3212
+							*********************************************************
+							* Er der andet, du synes vi skal vide eller emner, der er vigtige for dig at vi taler om?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+									<id root="1.2.208.176.1.5" extension="3212" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3212" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Er der andet, du synes vi skal vide eller emner, der er vigtige for dig at vi taler om?</originalText>
+									</code>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--slut gruppe 7024-->
+				</section>
+			</component><!--Slut sektion 11-SPM-->
+		</structuredBody>
+	</component><!-- XML by PRO-sekretariatet, https://pro-danmark.dk-->
+</ClinicalDocument>

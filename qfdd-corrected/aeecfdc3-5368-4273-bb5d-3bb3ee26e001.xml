@@ -1,0 +1,3116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<!-- Corrected copy of https://spgdef.dk/qfdd/aeecfdc3-5368-4273-bb5d-3bb3ee26e001. Each change is marked by a comment starting with FIXED. -->
+<!--
+........................................................................
+ SkemaId: aeecfdc3-5368-4273-bb5d-3bb3ee26e001
+ Titel:   Blødersygdom
+ Version: 3
+ Build:   003, SundIT, https://sundit.dk
+ Dato:    20220221113250+0100
+........................................................................
+
+
+=================================================
+*** Visualisering af de nationale PRO-skemaer ***
+=================================================
+Denne XML-fil er publiceret som del af en national PRO-pakke. I samme
+pakke foreligger der to HTML-filer - en statisk og en dynamisk - der
+gengiver PRO-spørgeskemaets intenderede udseende og funktionalitet. For
+systemer, der ikke i tilstrækkeligt omfang kan udnytte XML-filens højt
+strukturerede indhold, er dele af spørgeskemaet, som en slags sikker-
+hedsnet, gengivet i form af narrativ tekst.
+
+PRO-sekretariatet anbefaler i enhver henseende, at man anvender PRO-
+pakkens to HTML-filer i forhold, der vedrører udseende og funktionalitet
+af spørgeskemaer og/eller besvarelser.
+
+
+
+Datotid             Ver Bld Sign
+=================== === === ============================================
+20220221113250+0100  3  003 GAL
+  Præcision af betingelser vedr. ankelblødninger.
+........................................................................
+20220125154416+0100  3  002 GAL
+  I item-2200 (køn) fortolkes 'Andet' som 'Kvinde'.
+  SOR-kode for Ambuflex rettet: 1124771000016003 iflg mail 20220126_0922
+........................................................................
+20220122162205+0100  3  001 GAL
+  Nyt ID-format
+  Nyt item-2200 styrer visning kun til kvinder
+........................................................................
+
+
+-->
+<ClinicalDocument xsi:schemaLocation="urn:hl7-org:v3 /xmlschema/QFD/CDA_SDTC.xsd" classCode="DOCCLIN" moodCode="EVN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc">
+	<realmCode code="UV"/>
+	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+	<templateId root="1.2.208.184.12.1" assigningAuthorityName="MedCom"/>
+	<templateId root="1.2.208.184.12.1.1.1"/><!-- Blødersygdom -->
+	<id root="1.2.208.176.7.3.1" extension="aeecfdc3-5368-4273-bb5d-3bb3ee26e001" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+	<code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="74468-0" displayName="Form Definition Document"/>
+	<title>Blødersygdom</title>
+	<sdtc:statusCode code="NEW"/>
+	<effectiveTime value="20220221113250+0100"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<versionNumber value="3"/>
+	<recordTarget nullFlavor="NI">
+		<patientRole nullFlavor="NI">
+			<id nullFlavor="NI"/>
+		</patientRole>
+	</recordTarget><!-- FORFATTERORGANISATION: AmbuFlex -->
+	<author typeCode="AUT" contextControlCode="OP">
+		<time value="20220217100731+0100"/>
+		<assignedAuthor classCode="ASSIGNED">
+			<id nullFlavor="NA"/>
+			<addr use="WP">
+				<streetAddressLine>Regionshospitalet Herning</streetAddressLine>
+				<streetAddressLine>Gl. Landevej 61</streetAddressLine>
+				<postalCode>7400</postalCode>
+				<city>Herning</city>
+				<country>Danmark</country>
+			</addr>
+			<telecom value="tel:+4578433567" use="WP"/>
+			<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id extension="1124771000016000" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+				<name>AmbuFlex</name>
+				<telecom nullFlavor="NI"/>
+				<addr use="WP">
+					<streetAddressLine nullFlavor="NI"/>
+				</addr>
+			</representedOrganization>
+		</assignedAuthor>
+	</author><!-- FORVALTERORGANISATION: Sundhedsdatastyrelsen -->
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+				<name>Sundhedsdatastyrelsen</name>
+				<telecom value="tel:+4591334808" use="WP"/>
+				<addr use="WP">
+					<streetAddressLine>PRO-sekretariatet</streetAddressLine>
+					<streetAddressLine>Ørestads Boulevard 5</streetAddressLine>
+					<postalCode>2300</postalCode>
+					<city>København</city>
+					<country>Danmark</country>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<component typeCode="COMP" contextConductionInd="true">
+		<structuredBody classCode="DOCBODY" moodCode="EVN"><!-- INFO-SEKTION
+==========================================
+ Hvordan har du det?
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Hvordan har du det?</title>
+					<text>
+						<paragraph>Du har modtaget dette spørgeskema, fordi vi gerne vil vide, hvordan du har det. Dine svar vil være et udgangspunkt for vores videre samtale, når vi mødes næste gang.</paragraph>Inden du svarer, skal du være opmærksom på, at:<br/>
+						<br/>Oplysningerne betragtes som en del af din journal, og det er de sundhedsfaglige personer, der tager del i din behandling, der har adgang til den.<br/>
+						<br/>Dine svar vil først blive set af en sundhedsfaglig person lige op til dit næste besøg. Hvis din tilstand forværres inden da, eller hvis din tilstand kræver akut behandling, skal du tage kontakt til sundhedsvæsenet på samme måde, som du ville gøre, hvis du ikke havde modtaget dette skema.<br/>
+						<br/>Dine svar vil kunne blive brugt til kvalitetssikring og –udvikling i sundhedsvæsenet. Du vil forblive anonym.<br/>
+						<br/>
+						<paragraph>Det kan være at der er nogle af spørgsmålene, som du synes er svære at svare på, men prøv at svare så godt du kan ud fra hvordan du har det i øjeblikket. Bemærk, der er ikke nogen rigtige eller forkerte svar.</paragraph>
+						<paragraph>Vi bruger dine svar til at forberede samtalen i ambulatoriet, så samtalen tager udgangspunkt i dine behov.</paragraph>
+					</text>
+				</section>
+			</component><!-- SPRGSMLSEKTION_1
+==========================================
+  Om dit helbred
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S1 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Om dit helbred</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Hvad er dit køn?</th>
+								</tr>
+								<tr>
+									<td>Mand</td>
+									<td><!-- A2200_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Kvinde</td>
+									<td><!-- A2200_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Andet</td>
+									<td><!-- A2200_3 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Hvordan synes du dit helbred er alt i alt?</th>
+								</tr>
+								<tr>
+									<td>Fremragende</td>
+									<td><!-- A30_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Vældig godt</td>
+									<td><!-- A30_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Godt</td>
+									<td><!-- A30_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Mindre godt</td>
+									<td><!-- A30_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Dårligt</td>
+									<td><!-- A30_5 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Sammenlignet med for ét år siden, hvordan er dit helbred alt i alt nu?</th>
+								</tr>
+								<tr>
+									<td>Meget bedre nu end for ét år siden</td>
+									<td><!-- A31_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Noget bedre nu end for ét år siden</td>
+									<td><!-- A31_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nogenlunde det samme</td>
+									<td><!-- A31_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Noget dårligere nu end for ét år siden</td>
+									<td><!-- A31_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget dårligere nu end for ét år siden</td>
+									<td><!-- A31_5 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du andre sygdomme eller lidelser end din blødersygdom, som påvirker dit helbred?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2002_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2002_2 -->
+									</td>
+								</tr>
+								<tr>
+									<th align="left">Udover din blødersygdom, hvilke andre sygdomme eller lidelser har du, som påvirker dit helbred?</th>
+									<td><!-- Q2003 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text><!-- GRUPPE_1 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="1" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G1" codeSystemName="Sundhedsdatastyrelsen"/>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- MC-SPRGSML_2200
+							*********************************************************
+							* Hvad er dit køn?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2200" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2200" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvad er dit køn?</originalText>
+									</code>
+									<value code="A2200_1" displayName="Mand" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2200_2" displayName="Kvinde" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2200_3" displayName="Andet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_30
+							*********************************************************
+							* Hvordan synes du dit helbred er alt i alt?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="30" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q30" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvordan synes du dit helbred er alt i alt?</originalText>
+									</code>
+									<value code="A30_1" displayName="Fremragende" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A30_2" displayName="Vældig godt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A30_3" displayName="Godt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A30_4" displayName="Mindre godt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A30_5" displayName="Dårligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_31
+							*********************************************************
+							* Sammenlignet med for ét år siden, hvordan er dit helbred ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="31" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q31" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Sammenlignet med for ét år siden, hvordan er dit helbred alt i alt nu?</originalText>
+									</code>
+									<value code="A31_1" displayName="Meget bedre nu end for ét år siden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A31_2" displayName="Noget bedre nu end for ét år siden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A31_3" displayName="Nogenlunde det samme" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A31_4" displayName="Noget dårligere nu end for ét år siden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A31_5" displayName="Meget dårligere nu end for ét år siden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2002
+							*********************************************************
+							* Har du andre sygdomme eller lidelser end din blødersygdom, ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="4"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2002" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2002" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du andre sygdomme eller lidelser end din blødersygdom, som påvirker dit helbred?</originalText>
+									</code>
+									<value code="A2002_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2002_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- ASSOC-SPØRGSMÅL-2003
+									*********************************************************
+									* Udover din blødersygdom, hvilke andre sygdomme eller ...
+									********************************************************* -->
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="DEF">
+											<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+											<id root="1.2.208.176.1.5" extension="2003" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+											<code codeSystem="1.2.208.176.1.5" code="Q2003" codeSystemName="Sundhedsdatastyrelsen">
+												<originalText>Udover din blødersygdom, hvilke andre sygdomme eller lidelser har du, som påvirker dit helbred?</originalText>
+											</code><!-- Betingelse --><!-- MC-kriterie Q2002:A2002_1 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q2002" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A2002_1" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component><!-- INFO-SEKTION
+==========================================
+ Livskvalitet
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Livskvalitet</title>
+					<text>
+						<paragraph>© EuroQol Research Foundation. EQ-5D™ is a trade mark of the EuroQol Research Foundation</paragraph>
+					</text>
+				</section>
+			</component><!-- SPRGSMLSEKTION_2
+==========================================
+  Livskvalitet
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S2 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Hvordan vil du bedst beskrive din bevægelighed i dag?</th>
+								</tr>
+								<tr>
+									<td>Jeg har ingen problemer med at gå omkring</td>
+									<td><!-- A2590_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har lidt problemer med at gå omkring</td>
+									<td><!-- A2590_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har moderate problemer med at gå omkring</td>
+									<td><!-- A2590_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har store problemer med at gå omkring</td>
+									<td><!-- A2590_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg kan ikke gå omkring</td>
+									<td><!-- A2590_5 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Hvordan vil du bedst beskrive din mulighed for at udføre personlig pleje i dag?</th>
+								</tr>
+								<tr>
+									<td>Jeg har ingen problemer med at vaske mig eller klæde mig på</td>
+									<td><!-- A2591_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har lidt problemer med at vaske mig eller klæde mig på</td>
+									<td><!-- A2591_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har moderate problemer med at vaske mig eller klæde mig på</td>
+									<td><!-- A2591_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har store problemer med at vaske mig eller klæde mig på</td>
+									<td><!-- A2591_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg kan ikke vaske mig eller klæde mig på</td>
+									<td><!-- A2591_5 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Hvordan vil du bedst beskrive din mulighed for at udføre dine sædvanlige aktiviteter i dag? (fx arbejde, studie, husarbejde, familie- eller fritidsaktiviteter)</th>
+								</tr>
+								<tr>
+									<td>Jeg har ingen problemer med at udføre mine sædvanlige aktiviteter</td>
+									<td><!-- A2592_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har lidt problemer med at udføre mine sædvanlige aktiviteter</td>
+									<td><!-- A2592_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har moderate problemer med at udføre mine sædvanlige aktiviteter</td>
+									<td><!-- A2592_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har store problemer med at udføre mine sædvanlige aktiviteter</td>
+									<td><!-- A2592_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg kan ikke udføre mine sædvanlige aktiviteter</td>
+									<td><!-- A2592_5 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Hvordan vil du bedst beskrive dine smerter/ ubehag i dag?</th>
+								</tr>
+								<tr>
+									<td>Jeg har ingen smerter eller ubehag</td>
+									<td><!-- A2593_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har lidt smerter eller ubehag</td>
+									<td><!-- A2593_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har moderate smerter eller ubehag</td>
+									<td><!-- A2593_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har stærke smerter eller ubehag</td>
+									<td><!-- A2593_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har ekstreme smerter eller ubehag</td>
+									<td><!-- A2593_5 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Hvordan vil du bedst beskrive din følelse af angst/ depression i dag?</th>
+								</tr>
+								<tr>
+									<td>Jeg er ikke ængstelig eller deprimeret</td>
+									<td><!-- A2594_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg er lidt ængstelig eller deprimeret</td>
+									<td><!-- A2594_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg er moderat ængstelig eller deprimeret</td>
+									<td><!-- A2594_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg er meget ængstelig eller deprimeret</td>
+									<td><!-- A2594_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg er ekstremt ængstelig eller deprimeret</td>
+									<td><!-- A2594_5 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th align="left">Hvordan er dit helbred i dag?</th>
+									<td><!-- Q2595 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text><!-- GRUPPE_2 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="2" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G2" codeSystemName="Sundhedsdatastyrelsen"/>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- MC-SPRGSML_2590
+							*********************************************************
+							* Hvordan vil du bedst beskrive din bevægelighed i dag?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2590" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2590" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvordan vil du bedst beskrive din bevægelighed i dag?</originalText>
+									</code>
+									<value code="A2590_1" displayName="Jeg har ingen problemer med at gå omkring" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2590_2" displayName="Jeg har lidt problemer med at gå omkring" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2590_3" displayName="Jeg har moderate problemer med at gå omkring" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2590_4" displayName="Jeg har store problemer med at gå omkring" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2590_5" displayName="Jeg kan ikke gå omkring" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2591
+							*********************************************************
+							* Hvordan vil du bedst beskrive din mulighed for at udføre ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2591" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2591" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvordan vil du bedst beskrive din mulighed for at udføre personlig pleje i dag?</originalText>
+									</code>
+									<value code="A2591_1" displayName="Jeg har ingen problemer med at vaske mig eller klæde mig på" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2591_2" displayName="Jeg har lidt problemer med at vaske mig eller klæde mig på" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2591_3" displayName="Jeg har moderate problemer med at vaske mig eller klæde mig på" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2591_4" displayName="Jeg har store problemer med at vaske mig eller klæde mig på" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2591_5" displayName="Jeg kan ikke vaske mig eller klæde mig på" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2592
+							*********************************************************
+							* Hvordan vil du bedst beskrive din mulighed for at udføre ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2592" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2592" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvordan vil du bedst beskrive din mulighed for at udføre dine sædvanlige aktiviteter i dag? (fx arbejde, studie, husarbejde, familie- eller fritidsaktiviteter)</originalText>
+									</code>
+									<value code="A2592_1" displayName="Jeg har ingen problemer med at udføre mine sædvanlige aktiviteter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2592_2" displayName="Jeg har lidt problemer med at udføre mine sædvanlige aktiviteter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2592_3" displayName="Jeg har moderate problemer med at udføre mine sædvanlige aktiviteter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2592_4" displayName="Jeg har store problemer med at udføre mine sædvanlige aktiviteter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2592_5" displayName="Jeg kan ikke udføre mine sædvanlige aktiviteter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2593
+							*********************************************************
+							* Hvordan vil du bedst beskrive dine smerter/ ubehag i dag?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="4"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2593" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2593" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvordan vil du bedst beskrive dine smerter/ ubehag i dag?</originalText>
+									</code>
+									<value code="A2593_1" displayName="Jeg har ingen smerter eller ubehag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2593_2" displayName="Jeg har lidt smerter eller ubehag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2593_3" displayName="Jeg har moderate smerter eller ubehag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2593_4" displayName="Jeg har stærke smerter eller ubehag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2593_5" displayName="Jeg har ekstreme smerter eller ubehag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2594
+							*********************************************************
+							* Hvordan vil du bedst beskrive din følelse af angst/ ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="5"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2594" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2594" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvordan vil du bedst beskrive din følelse af angst/ depression i dag?</originalText>
+									</code>
+									<value code="A2594_1" displayName="Jeg er ikke ængstelig eller deprimeret" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2594_2" displayName="Jeg er lidt ængstelig eller deprimeret" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2594_3" displayName="Jeg er moderat ængstelig eller deprimeret" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2594_4" displayName="Jeg er meget ængstelig eller deprimeret" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2594_5" displayName="Jeg er ekstremt ængstelig eller deprimeret" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- NUM-SKYDER_2595
+							*********************************************************
+							* Hvordan er dit helbred i dag?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="6"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+									<templateId root="2.16.840.1.113883.10.20.32.4.10"/>
+									<id root="1.2.208.176.1.5" extension="2595" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2595" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvordan er dit helbred i dag?</originalText>
+									</code><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Vi vil gerne vide, hvor godt eller dårligt dit helbred er I DAG.  Denne skala er nummereret fra 0 til 100.  100 svarer til det bedste helbred, du kan forestille dig. 0 svarer til det dårligste helbred, du kan forestille dig.  Klik med musen på det sted på skalaen, der viser, hvordan dit helbred er I DAG.  </value>
+										</observation>
+									</entryRelationship><!-- Værdisæt og -type for spørgsmål-2595 -->
+									<referenceRange typeCode="REFV">
+										<observationRange classCode="OBS">
+											<value denominator="100" xsi:type="GLIST_PQ">
+												<head value="0"/>
+												<increment value="1"/>
+											</value>
+										</observationRange>
+									</referenceRange>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component><!-- SPRGSMLSEKTION_3
+==========================================
+  Om smerter i muskler og led
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S3 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Om smerter i muskler og led</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du, i løbet af de sidste 4 uger, været plaget af smerter i dine muskler og/eller led?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2004_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2004_2 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">I løbet af de sidste 4 uger, i hvilken grad har du været plaget af smerter i dine led?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A2005_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A2005_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A2005_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A2005_4 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">I løbet af de sidste 4 uger, i hvilken grad har du været plaget af smerter i dine muskler?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A2006_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A2006_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A2006_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A2006_4 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">I løbet af de sidste 4 uger, i hvilken grad har du været plaget af, at smerter forstyrrer din nattesøvn?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A2007_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A2007_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A2007_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A2007_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">Hvis du har været plaget af smerter, kan du uddybe herunder.</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Hvordan vil du vurdere styrken af dine smerter nu?</th>
+								</tr>
+								<tr>
+									<td>0 Ingen</td>
+									<td><!-- A2008_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><!-- A2008_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><!-- A2008_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><!-- A2008_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><!-- A2008_5 -->
+									</td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td><!-- A2008_6 -->
+									</td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td><!-- A2008_7 -->
+									</td>
+								</tr>
+								<tr>
+									<td>7</td>
+									<td><!-- A2008_8 -->
+									</td>
+								</tr>
+								<tr>
+									<td>8</td>
+									<td><!-- A2008_9 -->
+									</td>
+								</tr>
+								<tr>
+									<td>9</td>
+									<td><!-- A2008_A -->
+									</td>
+								</tr>
+								<tr>
+									<td>10 Værst mulige</td>
+									<td><!-- A2008_B -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Hvor stærke har dine stærkeste smerter været indenfor de sidste 4 uger?</th>
+								</tr>
+								<tr>
+									<td>0 Ingen</td>
+									<td><!-- A2009_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><!-- A2009_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><!-- A2009_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><!-- A2009_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><!-- A2009_5 -->
+									</td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td><!-- A2009_6 -->
+									</td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td><!-- A2009_7 -->
+									</td>
+								</tr>
+								<tr>
+									<td>7</td>
+									<td><!-- A2009_8 -->
+									</td>
+								</tr>
+								<tr>
+									<td>8</td>
+									<td><!-- A2009_9 -->
+									</td>
+								</tr>
+								<tr>
+									<td>9</td>
+									<td><!-- A2009_A -->
+									</td>
+								</tr>
+								<tr>
+									<td>10 Værst mulige</td>
+									<td><!-- A2009_B -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Tager du smertestillende medicin nu?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2010_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2010_2 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Hvor ofte tager du smertestillende medicin?</th>
+								</tr>
+								<tr>
+									<td>Flere gange dagligt</td>
+									<td><!-- A2011_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Dagligt</td>
+									<td><!-- A2011_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ugentligt</td>
+									<td><!-- A2011_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Sjældent</td>
+									<td><!-- A2011_4 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text><!-- GRUPPE_3 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="3" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G3" codeSystemName="Sundhedsdatastyrelsen"/>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- MC-SPRGSML_2004
+							*********************************************************
+							* Har du, i løbet af de sidste 4 uger, været plaget af ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2004" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2004" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du, i løbet af de sidste 4 uger, været plaget af smerter i dine muskler og/eller led?</originalText>
+									</code>
+									<value code="A2004_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2004_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!-- GRUPPE_4 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="4" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G4" codeSystemName="Sundhedsdatastyrelsen"/>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- Betingelse --><!-- MC-kriterie Q2004:A2004_1 -->
+							<sdtc:precondition typeCode="PRCN">
+								<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+								<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+									<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+									<code code="Q2004" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+									<value code="A2004_1" xsi:type="CE"/>
+								</sdtc:criterion>
+							</sdtc:precondition><!-- MC-SPRGSML_2005
+							*********************************************************
+							* I løbet af de sidste 4 uger, i hvilken grad har du været ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2005" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2005" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>I løbet af de sidste 4 uger, i hvilken grad har du været plaget af smerter i dine led?</originalText>
+									</code>
+									<value code="A2005_1" displayName="Slet ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2005_2" displayName="Lidt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2005_3" displayName="En del" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2005_4" displayName="Meget" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2006
+							*********************************************************
+							* I løbet af de sidste 4 uger, i hvilken grad har du været ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2006" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2006" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>I løbet af de sidste 4 uger, i hvilken grad har du været plaget af smerter i dine muskler?</originalText>
+									</code>
+									<value code="A2006_1" displayName="Slet ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2006_2" displayName="Lidt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2006_3" displayName="En del" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2006_4" displayName="Meget" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2007
+							*********************************************************
+							* I løbet af de sidste 4 uger, i hvilken grad har du været ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2007" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2007" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>I løbet af de sidste 4 uger, i hvilken grad har du været plaget af, at smerter forstyrrer din nattesøvn?</originalText>
+									</code>
+									<value code="A2007_1" displayName="Slet ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2007_2" displayName="Lidt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2007_3" displayName="En del" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2007_4" displayName="Meget" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!-- GRUPPE_5 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="5" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G5" codeSystemName="Sundhedsdatastyrelsen">
+								<originalText>Hvis du har været plaget af smerter, kan du uddybe herunder.</originalText>
+							</code>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- Betingelse --><!-- MC-kriterie Q2004:A2004_1 -->
+							<sdtc:precondition typeCode="PRCN">
+								<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+								<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+									<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+									<code code="Q2004" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+									<value code="A2004_1" xsi:type="CE"/>
+								</sdtc:criterion>
+							</sdtc:precondition><!-- MCskyder_2008
+							*********************************************************
+							* Hvordan vil du vurdere styrken af dine smerter nu?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<templateId root="2.16.840.1.113883.10.20.32.4.11"/>
+									<id root="1.2.208.176.1.5" extension="2008" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2008" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvordan vil du vurdere styrken af dine smerter nu?</originalText>
+									</code>
+									<value code="A2008_1" displayName="0 Ingen" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2008_2" displayName="1" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2008_3" displayName="2" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2008_4" displayName="3" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2008_5" displayName="4" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2008_6" displayName="5" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2008_7" displayName="6" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2008_8" displayName="7" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2008_9" displayName="8" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2008_A" displayName="9" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2008_B" displayName="10 Værst mulige" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<!-- FIXED QFDD-DK-1.2-SHARED-C130 and C229: added high/@value="1". The options template of a discrete slider must have a maximum of 1 selection; the form only stated the minimum. -->
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MCskyder_2009
+							*********************************************************
+							* Hvor stærke har dine stærkeste smerter været indenfor de ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<templateId root="2.16.840.1.113883.10.20.32.4.11"/>
+									<id root="1.2.208.176.1.5" extension="2009" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2009" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor stærke har dine stærkeste smerter været indenfor de sidste 4 uger?</originalText>
+									</code>
+									<value code="A2009_1" displayName="0 Ingen" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2009_2" displayName="1" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2009_3" displayName="2" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2009_4" displayName="3" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2009_5" displayName="4" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2009_6" displayName="5" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2009_7" displayName="6" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2009_8" displayName="7" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2009_9" displayName="8" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2009_A" displayName="9" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2009_B" displayName="10 Værst mulige" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<!-- FIXED QFDD-DK-1.2-SHARED-C130 and C229: added high/@value="1". The options template of a discrete slider must have a maximum of 1 selection; the form only stated the minimum. -->
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2010
+							*********************************************************
+							* Tager du smertestillende medicin nu?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2010" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2010" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Tager du smertestillende medicin nu?</originalText>
+									</code>
+									<value code="A2010_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2010_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2011
+							*********************************************************
+							* Hvor ofte tager du smertestillende medicin?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="4"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2011" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2011" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor ofte tager du smertestillende medicin?</originalText>
+									</code>
+									<value code="A2011_1" displayName="Flere gange dagligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2011_2" displayName="Dagligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2011_3" displayName="Ugentligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2011_4" displayName="Sjældent" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse --><!-- MC-kriterie Q2010:A2010_1 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q2010" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+											<value code="A2010_1" xsi:type="CE"/>
+										</sdtc:criterion>
+									</sdtc:precondition>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component><!-- SPRGSMLSEKTION_4
+==========================================
+  Om blødninger
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S4 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Om blødninger</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Registrerer du dine blødninger og medicin?</th>
+								</tr>
+								<tr>
+									<td>Ja, jeg anvender app’en</td>
+									<td><!-- A2012_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja, jeg anvender registreringsskema</td>
+									<td><!-- A2012_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej, jeg registrerer ikke mine blødninger og behandlinger</td>
+									<td><!-- A2012_3 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text><!-- GRUPPE_6 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="6" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G6" codeSystemName="Sundhedsdatastyrelsen"/>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- MC-SPRGSML_2012
+							*********************************************************
+							* Registrerer du dine blødninger og medicin?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2012" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2012" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Registrerer du dine blødninger og medicin?</originalText>
+									</code>
+									<value code="A2012_1" displayName="Ja, jeg anvender app’en" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2012_2" displayName="Ja, jeg anvender registreringsskema" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2012_3" displayName="Nej, jeg registrerer ikke mine blødninger og behandlinger" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component><!-- INFO-SEKTION
+==========================================
+ Om blødninger i dine led
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Om blødninger i dine led</title>
+					<text>På denne side kan du angive, om du har haft blødninger i dine led siden sidste konsultation.</text>
+				</section>
+			</component><!-- SPRGSMLSEKTION_5
+==========================================
+  Om blødninger i dine led
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S5 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<td colspan="2">Spørgsmål om albueleddene</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th align="left">Hvor mange blødninger har du haft i albueleddene siden sidste konsultation?</th>
+									<td><!-- Q2013 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du haft spontane blødninger i albueleddene siden sidste konsultation?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2014_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2014_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">Spørgsmål om knæleddene</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th align="left">Hvor mange blødninger har du haft i knæleddene siden sidste konsultation?</th>
+									<td><!-- Q2015 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du haft spontane blødninger i knæleddene siden sidste konsultation?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2016_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2016_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">Spørgsmål om ankelleddene</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th align="left">Hvor mange blødninger har du haft i ankelleddene siden sidste konsultation?</th>
+									<td><!-- Q2017 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du haft spontane blødninger i ankelleddene siden sidste konsultation?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2018_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2018_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">Spørgsmål om andre led</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th align="left">Hvor mange blødninger har du haft i andre led siden sidste konsultation?</th>
+									<td><!-- Q2019 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du haft spontane blødninger i andre led siden sidste konsultation?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2020_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2020_2 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text><!-- GRUPPE_7 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="7" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G7" codeSystemName="Sundhedsdatastyrelsen">
+								<originalText>Spørgsmål om albueleddene</originalText>
+							</code>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- Betingelse --><!-- MC-kriterie Q2012:A2012_3 -->
+							<sdtc:precondition typeCode="PRCN">
+								<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+								<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+									<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+									<code code="Q2012" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+									<value code="A2012_3" xsi:type="CE"/>
+								</sdtc:criterion>
+							</sdtc:precondition><!-- NUM-SPRGSML_2013
+							*********************************************************
+							* Hvor mange blødninger har du haft i albueleddene siden ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+									<id root="1.2.208.176.1.5" extension="2013" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2013" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor mange blødninger har du haft i albueleddene siden sidste konsultation?</originalText>
+									</code><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Skriv 0, hvis ingen</value>
+										</observation>
+									</entryRelationship><!-- Værdisæt og -type for spørgsmål-2013 -->
+									<referenceRange typeCode="REFV">
+										<templateId root="2.16.840.1.113883.10.20.32.4.5"/>
+										<observationRange classCode="OBS">
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="100"/>
+											</value>
+										</observationRange>
+									</referenceRange>
+								</observation>
+							</component><!-- MC-SPRGSML_2014
+							*********************************************************
+							* Har du haft spontane blødninger i albueleddene siden sidste ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2014" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2014" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du haft spontane blødninger i albueleddene siden sidste konsultation?</originalText>
+									</code>
+									<value code="A2014_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2014_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse --><!-- NUM-kriterie Q2013:1..100 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q2013" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+												<high value="100"/>
+											</value>
+										</sdtc:criterion>
+									</sdtc:precondition>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!-- GRUPPE_8 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="8" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G8" codeSystemName="Sundhedsdatastyrelsen">
+								<originalText>Spørgsmål om knæleddene</originalText>
+							</code>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- Betingelse --><!-- MC-kriterie Q2012:A2012_3 -->
+							<sdtc:precondition typeCode="PRCN">
+								<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+								<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+									<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+									<code code="Q2012" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+									<value code="A2012_3" xsi:type="CE"/>
+								</sdtc:criterion>
+							</sdtc:precondition><!-- NUM-SPRGSML_2015
+							*********************************************************
+							* Hvor mange blødninger har du haft i knæleddene siden sidste ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+									<id root="1.2.208.176.1.5" extension="2015" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2015" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor mange blødninger har du haft i knæleddene siden sidste konsultation?</originalText>
+									</code><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Skriv 0, hvis ingen</value>
+										</observation>
+									</entryRelationship><!-- Værdisæt og -type for spørgsmål-2015 -->
+									<referenceRange typeCode="REFV">
+										<templateId root="2.16.840.1.113883.10.20.32.4.5"/>
+										<observationRange classCode="OBS">
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="100"/>
+											</value>
+										</observationRange>
+									</referenceRange>
+								</observation>
+							</component><!-- MC-SPRGSML_2016
+							*********************************************************
+							* Har du haft spontane blødninger i knæleddene siden sidste ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2016" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2016" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du haft spontane blødninger i knæleddene siden sidste konsultation?</originalText>
+									</code>
+									<value code="A2016_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2016_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse --><!-- NUM-kriterie Q2015:1..100 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q2015" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+												<high value="100"/>
+											</value>
+										</sdtc:criterion>
+									</sdtc:precondition>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!-- GRUPPE_9 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="9" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G9" codeSystemName="Sundhedsdatastyrelsen">
+								<originalText>Spørgsmål om ankelleddene</originalText>
+							</code>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- Betingelse --><!-- MC-kriterie Q2012:A2012_3 -->
+							<sdtc:precondition typeCode="PRCN">
+								<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+								<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+									<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+									<code code="Q2012" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+									<value code="A2012_3" xsi:type="CE"/>
+								</sdtc:criterion>
+							</sdtc:precondition><!-- NUM-SPRGSML_2017
+							*********************************************************
+							* Hvor mange blødninger har du haft i ankelleddene siden ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+									<id root="1.2.208.176.1.5" extension="2017" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2017" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor mange blødninger har du haft i ankelleddene siden sidste konsultation?</originalText>
+									</code><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Skriv 0, hvis ingen</value>
+										</observation>
+									</entryRelationship><!-- Værdisæt og -type for spørgsmål-2017 -->
+									<referenceRange typeCode="REFV">
+										<templateId root="2.16.840.1.113883.10.20.32.4.5"/>
+										<observationRange classCode="OBS">
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="100"/>
+											</value>
+										</observationRange>
+									</referenceRange>
+								</observation>
+							</component><!-- MC-SPRGSML_2018
+							*********************************************************
+							* Har du haft spontane blødninger i ankelleddene siden sidste ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2018" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2018" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du haft spontane blødninger i ankelleddene siden sidste konsultation?</originalText>
+									</code>
+									<value code="A2018_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2018_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse --><!-- NUM-kriterie Q2017:1..100 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q2017" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+												<high value="100"/>
+											</value>
+										</sdtc:criterion>
+									</sdtc:precondition>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!-- GRUPPE_10 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="10" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G10" codeSystemName="Sundhedsdatastyrelsen">
+								<originalText>Spørgsmål om andre led</originalText>
+							</code>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- Betingelse --><!-- MC-kriterie Q2012:A2012_3 -->
+							<sdtc:precondition typeCode="PRCN">
+								<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+								<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+									<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+									<code code="Q2012" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+									<value code="A2012_3" xsi:type="CE"/>
+								</sdtc:criterion>
+							</sdtc:precondition><!-- NUM-SPRGSML_2019
+							*********************************************************
+							* Hvor mange blødninger har du haft i andre led siden sidste ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+									<id root="1.2.208.176.1.5" extension="2019" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2019" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor mange blødninger har du haft i andre led siden sidste konsultation?</originalText>
+									</code><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Skriv 0, hvis ingen</value>
+										</observation>
+									</entryRelationship><!-- Værdisæt og -type for spørgsmål-2019 -->
+									<referenceRange typeCode="REFV">
+										<templateId root="2.16.840.1.113883.10.20.32.4.5"/>
+										<observationRange classCode="OBS">
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="100"/>
+											</value>
+										</observationRange>
+									</referenceRange>
+								</observation>
+							</component><!-- MC-SPRGSML_2020
+							*********************************************************
+							* Har du haft spontane blødninger i andre led siden sidste ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2020" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2020" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du haft spontane blødninger i andre led siden sidste konsultation?</originalText>
+									</code>
+									<value code="A2020_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2020_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse --><!-- NUM-kriterie Q2019:1..100 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q2019" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+											<value xsi:type="IVL_INT">
+												<low value="1"/>
+												<high value="100"/>
+											</value>
+										</sdtc:criterion>
+									</sdtc:precondition>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component><!-- SPRGSMLSEKTION_6
+==========================================
+  Om blødninger i muskler
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S6 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Om blødninger i muskler</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du haft blødninger i dine muskler siden sidste konsultation?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2021_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2021_2 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th align="left">Hvor mange blødninger har du haft i dine muskler siden sidste konsultation?</th>
+									<td><!-- Q2022 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th align="left">Hvordan vil du beskrive blødning i dine muskler siden sidste konsultation?</th>
+									<td><!-- Q2023 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text><!-- GRUPPE_11 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="11" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G11" codeSystemName="Sundhedsdatastyrelsen"/>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- Betingelse --><!-- MC-kriterie Q2012:A2012_3 -->
+							<sdtc:precondition typeCode="PRCN">
+								<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+								<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+									<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+									<code code="Q2012" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+									<value code="A2012_3" xsi:type="CE"/>
+								</sdtc:criterion>
+							</sdtc:precondition><!-- MC-SPRGSML_2021
+							*********************************************************
+							* Har du haft blødninger i dine muskler siden sidste ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2021" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2021" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du haft blødninger i dine muskler siden sidste konsultation?</originalText>
+									</code>
+									<value code="A2021_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2021_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- NUM-SPRGSML_2022
+							*********************************************************
+							* Hvor mange blødninger har du haft i dine muskler siden ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+									<id root="1.2.208.176.1.5" extension="2022" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2022" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor mange blødninger har du haft i dine muskler siden sidste konsultation?</originalText>
+									</code><!-- Betingelse --><!-- MC-kriterie Q2021:A2021_1 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q2021" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+											<value code="A2021_1" xsi:type="CE"/>
+										</sdtc:criterion>
+									</sdtc:precondition><!-- Værdisæt og -type for spørgsmål-2022 -->
+									<referenceRange typeCode="REFV">
+										<templateId root="2.16.840.1.113883.10.20.32.4.5"/>
+										<observationRange classCode="OBS">
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="100"/>
+											</value>
+										</observationRange>
+									</referenceRange>
+								</observation>
+							</component><!-- TXT-SPRGSML_2023
+							*********************************************************
+							* Hvordan vil du beskrive blødning i dine muskler siden ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+									<id root="1.2.208.176.1.5" extension="2023" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2023" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvordan vil du beskrive blødning i dine muskler siden sidste konsultation?</originalText>
+									</code><!-- Betingelse --><!-- MC-kriterie Q2021:A2021_1 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q2021" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+											<value code="A2021_1" xsi:type="CE"/>
+										</sdtc:criterion>
+									</sdtc:precondition>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component><!-- SPRGSMLSEKTION_7
+==========================================
+  Om andre blødninger
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S7 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Om andre blødninger</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du siden sidste konsultation været plaget af næseblod?</th>
+								</tr>
+								<tr>
+									<td>Dagligt</td>
+									<td><!-- A2024_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ugentligt</td>
+									<td><!-- A2024_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Månedligt</td>
+									<td><!-- A2024_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Aldrig/sjældent</td>
+									<td><!-- A2024_4 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du siden sidste konsultation været plaget af længerevarende blødninger fra tandkødet, når du børster tænder?</th>
+								</tr>
+								<tr>
+									<td>Dagligt</td>
+									<td><!-- A2025_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ugentligt</td>
+									<td><!-- A2025_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Månedligt</td>
+									<td><!-- A2025_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Aldrig/sjældent</td>
+									<td><!-- A2025_4 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du siden sidste konsultation haft blødning ved seksuel aktivitet?</th>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2026_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2026_2 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du siden sidste konsultation været plaget af andre blødninger (fx blod i urin, afføring, opspyt, opkast)?</th>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2027_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2027_2 -->
+									</td>
+								</tr>
+								<tr>
+									<th align="left">Her kan beskrive andre blødninger du har haft</th>
+									<td><!-- Q2028 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text><!-- GRUPPE_12 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="12" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G12" codeSystemName="Sundhedsdatastyrelsen"/>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- MC-SPRGSML_2024
+							*********************************************************
+							* Har du siden sidste konsultation været plaget af næseblod?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2024" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2024" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du siden sidste konsultation været plaget af næseblod?</originalText>
+									</code>
+									<value code="A2024_1" displayName="Dagligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2024_2" displayName="Ugentligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2024_3" displayName="Månedligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2024_4" displayName="Aldrig/sjældent" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2025
+							*********************************************************
+							* Har du siden sidste konsultation været plaget af længerev...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2025" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2025" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du siden sidste konsultation været plaget af længerevarende blødninger fra tandkødet, når du børster tænder?</originalText>
+									</code>
+									<value code="A2025_1" displayName="Dagligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2025_2" displayName="Ugentligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2025_3" displayName="Månedligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2025_4" displayName="Aldrig/sjældent" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!-- GRUPPE_13 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="13" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G13" codeSystemName="Sundhedsdatastyrelsen"/>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- MC-SPRGSML_2026
+							*********************************************************
+							* Har du siden sidste konsultation haft blødning ved seksuel ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2026" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2026" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du siden sidste konsultation haft blødning ved seksuel aktivitet?</originalText>
+									</code>
+									<value code="A2026_1" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2026_2" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2027
+							*********************************************************
+							* Har du siden sidste konsultation været plaget af andre ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2027" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2027" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du siden sidste konsultation været plaget af andre blødninger (fx blod i urin, afføring, opspyt, opkast)?</originalText>
+									</code>
+									<value code="A2027_1" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2027_2" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">fx blod i urin, afføring, opspyt, opkast</value>
+										</observation>
+									</entryRelationship><!-- ASSOC-SPØRGSMÅL-2028
+									*********************************************************
+									* Her kan beskrive andre blødninger du har haft
+									********************************************************* -->
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="DEF">
+											<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+											<id root="1.2.208.176.1.5" extension="2028" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+											<code codeSystem="1.2.208.176.1.5" code="Q2028" codeSystemName="Sundhedsdatastyrelsen">
+												<originalText>Her kan beskrive andre blødninger du har haft</originalText>
+											</code><!-- Betingelse --><!-- MC-kriterie Q2027:A2027_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q2027" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A2027_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component><!-- SPRGSMLSEKTION_8
+==========================================
+  Besvares kun af kvinder
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S8 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Besvares kun af kvinder</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Er du gravid?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A42_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A42_2 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Planlægger du graviditet inden for de næste 12 måneder?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A43_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A43_2 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Anvender du hormonspiral?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2029_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2029_2 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du kraftige menstruationer?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2030_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2030_2 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th align="left">Hvor mange dage bløder du kraftigt?</th>
+									<td><!-- Q2031 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Hvor ofte skifter du bind/tampon, når du har allerkraftigst menstruation?</th>
+								</tr>
+								<tr>
+									<td>Hver time</td>
+									<td><!-- A2032_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Hver 2. - 3. time</td>
+									<td><!-- A2032_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Hver 4. - 6. time</td>
+									<td><!-- A2032_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Hver 7. - 8. time</td>
+									<td><!-- A2032_4 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Er du nødt til at blive hjemme fra skole/arbejde på grund af menstruation?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2033_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2033_2 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text><!-- GRUPPE_14 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="14" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G14" codeSystemName="Sundhedsdatastyrelsen"/>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- Betingelse --><!-- atLeastOneTrue -->
+							<sdtc:precondition typeCode="PRCN">
+								<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+								<sdtc:atLeastOneTrue>
+									<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+									<sdtc:id root="1.2.208.176.7.3.2" extension="C1_1" assigningAuthorityName="Sundhedsdatastyrelsen"/><!-- MC-kriterie Q2200:A2200_2 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q2200" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+											<value code="A2200_2" xsi:type="CE"/>
+										</sdtc:criterion>
+									</sdtc:precondition><!-- MC-kriterie Q2200:A2200_3 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q2200" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+											<value code="A2200_3" xsi:type="CE"/>
+										</sdtc:criterion>
+									</sdtc:precondition>
+								</sdtc:atLeastOneTrue>
+							</sdtc:precondition><!-- MC-SPRGSML_42
+							*********************************************************
+							* Er du gravid?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="42" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q42" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Er du gravid?</originalText>
+									</code>
+									<value code="A42_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A42_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_43
+							*********************************************************
+							* Planlægger du graviditet inden for de næste 12 måneder?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="43" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q43" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Planlægger du graviditet inden for de næste 12 måneder?</originalText>
+									</code>
+									<value code="A43_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A43_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2029
+							*********************************************************
+							* Anvender du hormonspiral?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2029" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2029" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Anvender du hormonspiral?</originalText>
+									</code>
+									<value code="A2029_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2029_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2030
+							*********************************************************
+							* Har du kraftige menstruationer?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="4"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2030" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2030" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du kraftige menstruationer?</originalText>
+									</code>
+									<value code="A2030_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2030_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- NUM-SPRGSML_2031
+							*********************************************************
+							* Hvor mange dage bløder du kraftigt?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="5"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+									<id root="1.2.208.176.1.5" extension="2031" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2031" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor mange dage bløder du kraftigt?</originalText>
+									</code><!-- Betingelse --><!-- MC-kriterie Q2030:A2030_1 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q2030" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+											<value code="A2030_1" xsi:type="CE"/>
+										</sdtc:criterion>
+									</sdtc:precondition><!-- Værdisæt og -type for spørgsmål-2031 -->
+									<referenceRange typeCode="REFV">
+										<templateId root="2.16.840.1.113883.10.20.32.4.5"/>
+										<observationRange classCode="OBS">
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="100"/>
+											</value>
+										</observationRange>
+									</referenceRange>
+								</observation>
+							</component><!-- MC-SPRGSML_2032
+							*********************************************************
+							* Hvor ofte skifter du bind/tampon, når du har allerkraftigst ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="6"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2032" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2032" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor ofte skifter du bind/tampon, når du har allerkraftigst menstruation?</originalText>
+									</code>
+									<value code="A2032_1" displayName="Hver time" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2032_2" displayName="Hver 2. - 3. time" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2032_3" displayName="Hver 4. - 6. time" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2032_4" displayName="Hver 7. - 8. time" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2033
+							*********************************************************
+							* Er du nødt til at blive hjemme fra skole/arbejde på grund ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="7"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2033" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2033" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Er du nødt til at blive hjemme fra skole/arbejde på grund af menstruation?</originalText>
+									</code>
+									<value code="A2033_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2033_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component><!-- SPRGSMLSEKTION_9
+==========================================
+  Om operationer og indlæggelser
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S9 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Om operationer og indlæggelser</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th align="left">Hvis du er blevet opereret, vil vi gerne vide, hvis du har oplevet blødninger efter operationen - du kan uddybe her</th>
+									<td><!-- Q2035 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du planlagte operationer?</th>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2036_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2036_2 -->
+									</td>
+								</tr>
+								<tr>
+									<th align="left">Hvilke operationer er planlagt for dig?</th>
+									<td><!-- Q2037 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du været indlagt siden sidste konsultation?</th>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2038_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2038_2 -->
+									</td>
+								</tr>
+								<tr>
+									<th align="left">Hvilke indlæggelser har du haft siden sidste konsultation?</th>
+									<td><!-- Q2039 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text><!-- GRUPPE_15 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="15" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G15" codeSystemName="Sundhedsdatastyrelsen"/>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- TXT-SPRGSML_2035
+							*********************************************************
+							* Hvis du er blevet opereret, vil vi gerne vide, hvis du har ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+									<id root="1.2.208.176.1.5" extension="2035" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2035" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvis du er blevet opereret, vil vi gerne vide, hvis du har oplevet blødninger efter operationen - du kan uddybe her</originalText>
+									</code>
+								</observation>
+							</component><!-- MC-SPRGSML_2036
+							*********************************************************
+							* Har du planlagte operationer?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2036" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2036" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du planlagte operationer?</originalText>
+									</code>
+									<value code="A2036_1" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2036_2" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- ASSOC-SPØRGSMÅL-2037
+									*********************************************************
+									* Hvilke operationer er planlagt for dig?
+									********************************************************* -->
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="DEF">
+											<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+											<id root="1.2.208.176.1.5" extension="2037" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+											<code codeSystem="1.2.208.176.1.5" code="Q2037" codeSystemName="Sundhedsdatastyrelsen">
+												<originalText>Hvilke operationer er planlagt for dig?</originalText>
+											</code><!-- Betingelse --><!-- MC-kriterie Q2036:A2036_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q2036" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A2036_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2038
+							*********************************************************
+							* Har du været indlagt siden sidste konsultation?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2038" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2038" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du været indlagt siden sidste konsultation?</originalText>
+									</code>
+									<value code="A2038_1" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2038_2" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- ASSOC-SPØRGSMÅL-2039
+									*********************************************************
+									* Hvilke indlæggelser har du haft siden sidste konsultation?
+									********************************************************* -->
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="DEF">
+											<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+											<id root="1.2.208.176.1.5" extension="2039" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+											<code codeSystem="1.2.208.176.1.5" code="Q2039" codeSystemName="Sundhedsdatastyrelsen">
+												<originalText>Hvilke indlæggelser har du haft siden sidste konsultation?</originalText>
+											</code><!-- Betingelse --><!-- MC-kriterie Q2038:A2038_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q2038" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A2038_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component><!-- SPRGSMLSEKTION_10
+==========================================
+  Om arbejde
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S10 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Om arbejde</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<td colspan="2">Spørgsmål om din arbejdssituation. Hvis du er studerende, regnes dette som arbejde.</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Er du i arbejde?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2040_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2040_2 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du siden sidste konsultation, haft problemer med at udføre dit arbejde?</th>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2041_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2041_2 -->
+									</td>
+								</tr>
+								<tr>
+									<th align="left">Hvilke problemer har du siden sidste konsultation haft med at udføre dit arbejde?</th>
+									<td><!-- Q2042 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text><!-- GRUPPE_16 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="16" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G16" codeSystemName="Sundhedsdatastyrelsen">
+								<originalText>Spørgsmål om din arbejdssituation. Hvis du er studerende, regnes dette som arbejde.</originalText>
+							</code>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- MC-SPRGSML_2040
+							*********************************************************
+							* Er du i arbejde?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2040" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2040" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Er du i arbejde?</originalText>
+									</code>
+									<value code="A2040_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2040_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Hvis du er studerende, regnes dette som arbejde.</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2041
+							*********************************************************
+							* Har du siden sidste konsultation, haft problemer med at ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2041" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2041" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du siden sidste konsultation, haft problemer med at udføre dit arbejde?</originalText>
+									</code>
+									<value code="A2041_1" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2041_2" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- ASSOC-SPØRGSMÅL-2042
+									*********************************************************
+									* Hvilke problemer har du siden sidste konsultation haft med ...
+									********************************************************* -->
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="DEF">
+											<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+											<id root="1.2.208.176.1.5" extension="2042" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+											<code codeSystem="1.2.208.176.1.5" code="Q2042" codeSystemName="Sundhedsdatastyrelsen">
+												<originalText>Hvilke problemer har du siden sidste konsultation haft med at udføre dit arbejde?</originalText>
+											</code><!-- Betingelse --><!-- MC-kriterie Q2041:A2041_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q2041" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A2041_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</observation>
+									</entryRelationship><!-- Betingelse --><!-- MC-kriterie Q2040:A2040_1 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q2040" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+											<value code="A2040_1" xsi:type="CE"/>
+										</sdtc:criterion>
+									</sdtc:precondition>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component><!-- SPRGSMLSEKTION_11
+==========================================
+  Afsluttende spørgsmål
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S11 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Afsluttende spørgsmål</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Har du et bløder-ID?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2043_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2043_2 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th align="left">Hvor meget blødermedicin har du derhjemme, og hvad er udløbsdatoen på medicinen?</th>
+									<td><!-- Q2044 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Tager du kosttilskud eller naturmedicin (fx fiskeolie, hvidløgskapsler, ingefær)?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2045_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2045_2 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th colspan="2" align="left">Ryger du?</th>
+								</tr>
+								<tr>
+									<td>Ja, hver dag</td>
+									<td><!-- A2047_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja, mindst én gang om ugen</td>
+									<td><!-- A2047_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja, men sjældnere end hver uge</td>
+									<td><!-- A2047_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej, jeg ryger ikke</td>
+									<td><!-- A2047_4 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th align="left">Hvor meget alkohol drikker du i gennemsnit om ugen?</th>
+									<td><!-- Q40 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th align="left">Hvilket telefonnummer kan vi kontakte dig på?</th>
+									<td><!-- Q2048 -->
+									</td>
+								</tr><!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+								<tr>
+									<th align="left">Her kan du skrive vigtige emner, som du vil drøfte til den planlagte konsultation</th>
+									<td><!-- Q2049 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text><!-- GRUPPE_17 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="17" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G17" codeSystemName="Sundhedsdatastyrelsen"/>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/><!-- MC-SPRGSML_2043
+							*********************************************************
+							* Har du et bløder-ID?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2043" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2043" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du et bløder-ID?</originalText>
+									</code>
+									<value code="A2043_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2043_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- TXT-SPRGSML_2044
+							*********************************************************
+							* Hvor meget blødermedicin har du derhjemme, og hvad er ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+									<id root="1.2.208.176.1.5" extension="2044" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2044" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor meget blødermedicin har du derhjemme, og hvad er udløbsdatoen på medicinen?</originalText>
+									</code><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Du kan også medbringe din blødermedicin til den planlagte konsultation i ambulatoriet.</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2045
+							*********************************************************
+							* Tager du kosttilskud eller naturmedicin (fx fiskeolie, ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2045" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2045" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Tager du kosttilskud eller naturmedicin (fx fiskeolie, hvidløgskapsler, ingefær)?</originalText>
+									</code>
+									<value code="A2045_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2045_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">fx fiskeolie, hvidløgskapsler, ingefær</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_2047
+							*********************************************************
+							* Ryger du?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="4"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2047" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2047" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Ryger du?</originalText>
+									</code>
+									<value code="A2047_1" displayName="Ja, hver dag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2047_2" displayName="Ja, mindst én gang om ugen" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2047_3" displayName="Ja, men sjældnere end hver uge" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2047_4" displayName="Nej, jeg ryger ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- NUM-SPRGSML_40
+							*********************************************************
+							* Hvor meget alkohol drikker du i gennemsnit om ugen?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="5"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+									<id root="1.2.208.176.1.5" extension="40" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q40" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor meget alkohol drikker du i gennemsnit om ugen?</originalText>
+									</code><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Gælder både øl, vin og spiritus. Skriv 0 hvis du drikker under 1 genstand om ugen.</value>
+										</observation>
+									</entryRelationship><!-- Værdisæt og -type for spørgsmål-40 -->
+									<referenceRange typeCode="REFV">
+										<templateId root="2.16.840.1.113883.10.20.32.4.5"/>
+										<observationRange classCode="OBS">
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="100"/>
+											</value>
+										</observationRange>
+									</referenceRange>
+								</observation>
+							</component><!-- TXT-SPRGSML_2048
+							*********************************************************
+							* Hvilket telefonnummer kan vi kontakte dig på?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="6"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+									<id root="1.2.208.176.1.5" extension="2048" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2048" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvilket telefonnummer kan vi kontakte dig på?</originalText>
+									</code>
+								</observation>
+							</component><!-- TXT-SPRGSML_2049
+							*********************************************************
+							* Her kan du skrive vigtige emner, som du vil drøfte til den ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="7"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+									<id root="1.2.208.176.1.5" extension="2049" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2049" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Her kan du skrive vigtige emner, som du vil drøfte til den planlagte konsultation</originalText>
+									</code>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+		</structuredBody>
+	</component><!-- XML by SundIT - https://sundit.dk -->
+</ClinicalDocument>

@@ -1,0 +1,1346 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<!--
+........................................................................
+ SkemaId: 04dc989d-8425-41db-a620-e5ca94b58320
+ Titel:   Knæartrose 3mdr - Venstre
+ Version: 1
+ Build:   001, PRO-sekretariatet, SDS, www.prodanmark.dk
+ Dato:    20221005141500+0200
+........................................................................
+
+
+=================================================
+*** Visualisering af de nationale PRO-skemaer ***
+=================================================
+Denne XML-fil er publiceret som del af en national PRO-pakke. I samme
+pakke foreligger der to HTML-filer - en statisk og en dynamisk - der
+gengiver PRO-spørgeskemaets intenderede udseende og funktionalitet. For
+systemer, der ikke i tilstrækkeligt omfang kan udnytte XML-filens højt
+strukturerede indhold, er dele af spørgeskemaet, som en slags sikker-
+hedsnet, gengivet i form af narrativ tekst.
+
+PRO-sekretariatet anbefaler i enhver henseende, at man anvender PRO-
+pakkens to HTML-filer i forhold, der vedrører udseende og funktionalitet
+af spørgeskemaer og/eller besvarelser.
+
+
+
+Datotid             Ver Bld Sign
+=================== === === ============================================
+20221005141500+0200  1  001 SGPD
+	Efter justering af PRO-poakken for knæ-/hoftearttrose v2 er 3mdr 
+    post-operation blevet udviklet.  Dette er første version af 
+    3 mdr. post-operationsskemaet.Dette skema hænger sammen med de 
+    resterende PRO-pakker oprindt fra justering. Se beskrivelsesdokument for
+    sammenhæng.
+........................................................................
+-->
+<ClinicalDocument xsi:schemaLocation="urn:hl7-org:v3 /xmlschema/QFD/CDA_SDTC.xsd" classCode="DOCCLIN" moodCode="EVN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc">
+    <realmCode code="UV"/>
+    <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+    <templateId root="1.2.208.184.12.1" assigningAuthorityName="MedCom"/>
+    <templateId root="1.2.208.184.12.1.1.1"/>
+    <!-- Knæartrose 3mdr - Venstre -->
+    <id root="1.2.208.176.7.3.1" extension="04dc989d-8425-41db-a620-e5ca94b58320" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+    <code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="74468-0" displayName="Form Definition Document"/>
+    <title>Knæartrose 3mdr - Venstre</title>
+    <sdtc:statusCode code="NEW"/>
+    <effectiveTime value="20221005141500+0200"/>
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+    <languageCode code="da-DK"/>
+    <versionNumber value="1"/>
+    <recordTarget nullFlavor="NI">
+        <patientRole nullFlavor="NI">
+            <id nullFlavor="NI"/>
+        </patientRole>
+    </recordTarget>
+    <!-- FORFATTERORGANISATION: Sundhedsdatastyrelsen - er det stadig PRO-sekretariatet? eller er det regioner? -->
+    <author typeCode="AUT" contextControlCode="OP">
+        <time value="20221005141500+0200"/>
+        <assignedAuthor classCode="ASSIGNED">
+            <id nullFlavor="NA"/>
+            <addr use="WP">
+                <streetAddressLine>PRO-sekretariatet</streetAddressLine>
+                <streetAddressLine>Ørestads Boulevard 5</streetAddressLine>
+                <postalCode>2300</postalCode>
+                <city>København</city>
+                <country>Danmark</country>
+            </addr>
+            <telecom value="tel:+4591334808" use="WP"/>
+            <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+                <name>Sundhedsdatastyrelsen</name>
+                <telecom nullFlavor="NI"/>
+                <addr use="WP">
+                    <streetAddressLine nullFlavor="NI"/>
+                </addr>
+            </representedOrganization>
+        </assignedAuthor>
+    </author>
+    <!-- FORVALTERORGANISATION: Sundhedsdatastyrelsen -->
+    <custodian typeCode="CST">
+        <assignedCustodian classCode="ASSIGNED">
+            <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+                <name>Sundhedsdatastyrelsen</name>
+                <telecom value="tel:+4591334808" use="WP"/>
+                <addr use="WP">
+                    <streetAddressLine>PRO-sekretariatet</streetAddressLine>
+                    <streetAddressLine>Ørestads Boulevard 5</streetAddressLine>
+                    <postalCode>2300</postalCode>
+                    <city>København</city>
+                    <country>Danmark</country>
+                </addr>
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian>
+    <component typeCode="COMP" contextConductionInd="true">
+        <structuredBody classCode="DOCBODY" moodCode="EVN">
+        <!--Infosektion
+        ===================================================
+        Spørgeskema i forbindelse med slidgigt i venstre knæ
+        ===================================================
+        -->
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+                    <title>Spørgeskema i forbindelse med slidgigt i venstre knæ</title>
+                    <text>
+                        <paragraph>Vi håber, alt er godt efter operationen for 3 måneder siden. Vi beder vi dig besvare spørgeskemaet, som handler om gener og smerter i dit knæ.
+                            <br/>Hvis dine svar tyder på, der ikke er den forventede fremgang, kontakter vi dig.  
+                            <br/>Du kan også markere i spørgeskemaet, hvis du ønsker at vi kontakter dig.
+                        </paragraph>
+                        <paragraph>Svarene bliver gemt i din journal og kan ses af de sundhedsfaglige personer, der deltager i din behandling.
+                            <br/>Skemaet tager ca. 5 minutter at udfylde og det er frivilligt at besvare det.
+                            <br/>Hvis svarmulighederne ikke passer helt på din situation, så vælg det svar, som passer bedst. 
+                        </paragraph>
+                        <paragraph>Har du spørgsmål til spørgeskemaet, kan du kontakte [Indsæt lokale kontaktoplysninger].
+                            <br/>Ved akut behov for hjælp skal du ringe: [Indsæt lokale kontaktoplysninger].
+                        </paragraph>
+                        <paragraph>Med venlig hilsen
+                            <br/>Ortopædkirurgisk afdeling
+                        </paragraph>
+                    </text>
+                </section>
+            </component>
+        <!--MC 2825
+        ================
+        Om dine knæ
+        ================-->          
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+                    <!-- S2117 -->
+                    <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <title>Om dine knæ</title>
+                    <text>
+                        <table>
+                            <colgroup>
+                                <col width="70%"/>
+                                <col width="30%"/>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th colspan="2" align="left">Bekræft venligst hvilket knæ du har fået opereret for 3 måneder siden:</th>
+                                </tr>
+                                <tr>
+                                    <td>Højre knæ</td>
+                                    <td>
+                                        <!-- A2825_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Venstre knæ</td>
+                                    <td>
+                                        <!-- A2825_2 -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>              
+                <!--
+                *********************************************************
+                * Bekræft venligst hvilket knæ du snart skal opereres i:
+                ********************************************************* -->
+                    <entry typeCode="DRIV" contextConductionInd="true">
+                        <organizer classCode="BATTERY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+                            <id root="1.2.208.176.7.3.3" extension="2227" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                            <code codeSystem="1.2.208.176.7.3.3" code="G2227" codeSystemName="Sundhedsdatastyrelsen"/>
+                            <statusCode code="COMPLETED"/>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="1"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2829" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2825" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Bekræft venligst hvilket knæ du har fået opereret for 3 måneder siden:</originalText>
+                                    </code>
+                                    <value code="A2825_1" displayName="Højre knæ" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2825_2" displayName="Venstre knæ" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        </organizer>
+                    </entry>
+                </section>
+            </component>
+        <!-- SPRGSMLSEKTION_2118
+        ==========================================
+        Funktionsniveau - Oxford
+       ========================================== -->
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+                    <!-- S2118 -->
+                    <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <title>Hvordan går det med dit knæ?</title>
+                    <text>
+                        <table>
+                            <colgroup>
+                                <col width="70%"/>
+                                <col width="30%"/>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">
+                                        <paragraph>De næste spørgsmål handler om dit VENSTRE knæ</paragraph>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <paragraph>Oxford Knæ Score</paragraph>
+                                        <paragraph>© Oxford University Innovation Limited, 1998. All rights reserved. Oxford Knee Score – Danish for Denmark</paragraph>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvordan vil du beskrive de smerter, som du i de sidste fire uger har haft i knæet?</th>
+                                </tr>
+                                <tr>
+                                    <td>Ingen smerter</td>
+                                    <td>
+                                        <!-- A2570_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Meget lette smerter</td>
+                                    <td>
+                                        <!-- A2570_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lette smerter</td>
+                                    <td>
+                                        <!-- A2570_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderate smerter</td>
+                                    <td>
+                                        <!-- A2570_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Stærke smerter</td>
+                                    <td>
+                                        <!-- A2570_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger haft problemer med at vaske og tørre dig (over det hele) på grund af dit knæ?</th>
+                                </tr>
+                                <tr>
+                                    <td>Nej, slet ingen problemer</td>
+                                    <td>
+                                        <!-- A2571_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Meget lidt besvær</td>
+                                    <td>
+                                        <!-- A2571_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ja, moderat besvær</td>
+                                    <td>
+                                        <!-- A2571_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ja, meget store problemer</td>
+                                    <td>
+                                        <!-- A2571_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Det er helt umuligt</td>
+                                    <td>
+                                        <!-- A2571_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger haft problemer med at komme ind i eller ud af en bil eller bruge offentlig transport på grund af knæet?</th>
+                                </tr>
+                                <tr>
+                                    <td>Nej, ingen problemer</td>
+                                    <td>
+                                        <!-- A2572_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Meget lidt besvær</td>
+                                    <td>
+                                        <!-- A2572_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ja, moderat besvær</td>
+                                    <td>
+                                        <!-- A2572_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ja, meget store problemer</td>
+                                    <td>
+                                        <!-- A2572_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Det er helt umuligt</td>
+                                    <td>
+                                        <!-- A2572_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor lang tid har du i de sidste fire uger kunnet gå, før du har fået stærke smerter i knæet (med eller uden stok)?</th>
+                                </tr>
+                                <tr>
+                                    <td>Ingen smerter/jeg kan gå mere end 30 minutter</td>
+                                    <td>
+                                        <!-- A2573_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>16 til 30 minutter</td>
+                                    <td>
+                                        <!-- A2573_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5 til 15 minutter</td>
+                                    <td>
+                                        <!-- A2573_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Kun meget korte afstande</td>
+                                    <td>
+                                        <!-- A2573_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Det er helt umuligt at gå</td>
+                                    <td>
+                                        <!-- A2573_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Hvor stærke smerter har du i de sidste fire uger haft i knæet, når du har skullet rejse dig op efter at have siddet ned (f.eks. ved middagsbordet)?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ingen smerter</td>
+                                    <td>
+                                        <!-- A2574_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lette smerter</td>
+                                    <td>
+                                        <!-- A2574_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderate smerter</td>
+                                    <td>
+                                        <!-- A2574_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Stærke smerter</td>
+                                    <td>
+                                        <!-- A2574_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Uudholdelige smerter</td>
+                                    <td>
+                                        <!-- A2574_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger haltet på grund af dit knæ?</th>
+                                </tr>
+                                <tr>
+                                    <td>Sjældent/aldrig</td>
+                                    <td>
+                                        <!-- A2575_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Sommetider eller kun når jeg begynder at gå</td>
+                                    <td>
+                                        <!-- A2575_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ja, en hel del, og ikke kun når jeg begynder at gå</td>
+                                    <td>
+                                        <!-- A2575_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ja, det meste af tiden</td>
+                                    <td>
+                                        <!-- A2575_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ja, hele tiden</td>
+                                    <td>
+                                        <!-- A2575_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger kunnet gå ned på knæ og rejse dig op igen?</th>
+                                </tr>
+                                <tr>
+                                    <td>Ja, nemt</td>
+                                    <td>
+                                        <!-- A2576_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Næsten uden besvær</td>
+                                    <td>
+                                        <!-- A2576_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Med moderat besvær</td>
+                                    <td>
+                                        <!-- A2576_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Med meget stort besvær</td>
+                                    <td>
+                                        <!-- A2576_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nej, umuligt</td>
+                                    <td>
+                                        <!-- A2576_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger været plaget af smerter i knæet, når du ligger i sengen om natten?</th>
+                                </tr>
+                                <tr>
+                                    <td>Nej, ikke på noget tidspunkt</td>
+                                    <td>
+                                        <!-- A2577_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Kun en enkelt nat eller to</td>
+                                    <td>
+                                        <!-- A2577_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nogle nætter</td>
+                                    <td>
+                                        <!-- A2577_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>De fleste nætter</td>
+                                    <td>
+                                        <!-- A2577_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Hver nat</td>
+                                    <td>
+                                        <!-- A2577_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">I hvor høj grad har smerter i knæet i de sidste fire uger besværliggjort dit sædvanlige arbejde (inkl. husarbejde)?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>
+                                        <!-- A2578_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>En lille smule</td>
+                                    <td>
+                                        <!-- A2578_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>
+                                        <!-- A2578_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>
+                                        <!-- A2578_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at arbejde</td>
+                                    <td>
+                                        <!-- A2578_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger følt, at dit knæ pludselig kunne give efter eller svigte?</th>
+                                </tr>
+                                <tr>
+                                    <td>Sjældent/aldrig</td>
+                                    <td>
+                                        <!-- A2579_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Sommetider eller kun når jeg rejser mig</td>
+                                    <td>
+                                        <!-- A2579_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ofte, ikke kun når jeg rejser mig</td>
+                                    <td>
+                                        <!-- A2579_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Det meste af tiden</td>
+                                    <td>
+                                        <!-- A2579_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Hele tiden</td>
+                                    <td>
+                                        <!-- A2579_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger selv kunnet klare indkøb?</th>
+                                </tr>
+                                <tr>
+                                    <td>Ja, nemt</td>
+                                    <td>
+                                        <!-- A2580_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Næsten uden besvær</td>
+                                    <td>
+                                        <!-- A2580_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Med moderat besvær</td>
+                                    <td>
+                                        <!-- A2580_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Med meget stort besvær</td>
+                                    <td>
+                                        <!-- A2580_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nej, det har været umuligt</td>
+                                    <td>
+                                        <!-- A2580_5 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger kunnet gå ned ad trapper?</th>
+                                </tr>
+                                <tr>
+                                    <td>Ja, nemt</td>
+                                    <td>
+                                        <!-- A2581_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Næsten uden besvær</td>
+                                    <td>
+                                        <!-- A2581_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Med moderat besvær</td>
+                                    <td>
+                                        <!-- A2581_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Med meget stort besvær</td>
+                                    <td>
+                                        <!-- A2581_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nej, det har været umuligt</td>
+                                    <td>
+                                        <!-- A2581_5 -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    <!-- GRUPPE_2228 -->
+                    <!--Her starter Oxford-->
+                    <entry typeCode="DRIV" contextConductionInd="true">
+                        <organizer classCode="BATTERY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+                            <id root="1.2.208.176.7.3.3" extension="2228" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                            <code codeSystem="1.2.208.176.7.3.3" code="G2228" codeSystemName="Sundhedsdatastyrelsen">
+                                <originalText>Oxford Knæ Score© Oxford University Innovation Limited, 1998. All rights reserved. Oxford Knee Score – Danish for Denmark</originalText>
+                            </code>
+                            <statusCode code="COMPLETED"/>
+                        <!-- MC-SPRGSML_2570
+                        *********************************************************
+                        * Hvordan vil du beskrive de smerter, som du i de sidste fire ...
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="1"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2570" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2570" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Hvordan vil du beskrive de smerter, som du i de sidste fire uger har haft i knæet?</originalText>
+                                    </code>
+                                    <value code="A2570_1" displayName="Ingen smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2570_2" displayName="Meget lette smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2570_3" displayName="Lette smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2570_4" displayName="Moderate smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2570_5" displayName="Stærke smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        <!-- MC-SPRGSML_2571
+                        *********************************************************
+                        * Har du i de sidste fire uger haft problemer med at vaske og ...
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="2"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2571" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2571" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger haft problemer med at vaske og tørre dig (over det hele) på grund af dit knæ?</originalText>
+                                    </code>
+                                    <value code="A2571_1" displayName="Nej, slet ingen problemer" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2571_2" displayName="Meget lidt besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2571_3" displayName="Ja, moderat besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2571_4" displayName="Ja, meget store problemer" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2571_5" displayName="Det er helt umuligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        <!-- MC-SPRGSML_2572
+                        *********************************************************
+                        * Har du i de sidste fire uger haft problemer med at komme ...
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="3"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2572" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2572" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger haft problemer med at komme ind i eller ud af en bil eller bruge offentlig transport på grund af knæet?</originalText>
+                                    </code>
+                                    <value code="A2572_1" displayName="Nej, ingen problemer" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2572_2" displayName="Meget lidt besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2572_3" displayName="Ja, moderat besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2572_4" displayName="Ja, meget store problemer" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2572_5" displayName="Det er helt umuligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        <!-- MC-SPRGSML_2573
+                        *********************************************************
+                        * Hvor lang tid har du i de sidste fire uger kunnet gå, før ...
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="4"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2573" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2573" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Hvor lang tid har du i de sidste fire uger kunnet gå, før du har fået stærke smerter i knæet (med eller uden stok)?</originalText>
+                                    </code>
+                                    <value code="A2573_1" displayName="Ingen smerter/jeg kan gå mere end 30 minutter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2573_2" displayName="16 til 30 minutter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2573_3" displayName="5 til 15 minutter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2573_4" displayName="Kun meget korte afstande" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2573_5" displayName="Det er helt umuligt at gå" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        <!-- MC-SPRGSML_2574
+                        *********************************************************
+                        * Hvor stærke smerter har du i de sidste fire uger haft i ...
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="5"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2574" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2574" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Hvor stærke smerter har du i de sidste fire uger haft i knæet, når du har skullet rejse dig op efter at have siddet ned (f.eks. ved middagsbordet)?</originalText>
+                                    </code>
+                                    <value code="A2574_1" displayName="Slet ingen smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2574_2" displayName="Lette smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2574_3" displayName="Moderate smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2574_4" displayName="Stærke smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2574_5" displayName="Uudholdelige smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        <!-- MC-SPRGSML_2575
+                        *********************************************************
+                        * Har du i de sidste fire uger haltet på grund af dit knæ?
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="6"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2575" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2575" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger haltet på grund af dit knæ?</originalText>
+                                    </code>
+                                    <value code="A2575_1" displayName="Sjældent/aldrig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2575_2" displayName="Sommetider eller kun når jeg begynder at gå" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2575_3" displayName="Ja, en hel del, og ikke kun når jeg begynder at gå" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2575_4" displayName="Ja, det meste af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2575_5" displayName="Ja, hele tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        <!-- MC-SPRGSML_2576
+                        *********************************************************
+                        * Har du i de sidste fire uger kunnet gå ned på knæ og rejse ...
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="7"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2576" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2576" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger kunnet gå ned på knæ og rejse dig op igen?</originalText>
+                                    </code>
+                                    <value code="A2576_1" displayName="Ja, nemt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2576_2" displayName="Næsten uden besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2576_3" displayName="Med moderat besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2576_4" displayName="Med meget stort besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2576_5" displayName="Nej, umuligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        <!-- MC-SPRGSML_2577
+                        *********************************************************
+                        * Har du i de sidste fire uger været plaget af smerter i ...
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="8"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2577" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2577" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger været plaget af smerter i knæet, når du ligger i sengen om natten?</originalText>
+                                    </code>
+                                    <value code="A2577_1" displayName="Nej, ikke på noget tidspunkt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2577_2" displayName="Kun en enkelt nat eller to" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2577_3" displayName="Nogle nætter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2577_4" displayName="De fleste nætter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2577_5" displayName="Hver nat" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        <!-- MC-SPRGSML_2578
+                        *********************************************************
+                        * I hvor høj grad har smerter i knæet i de sidste fire uger ...
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="9"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2578" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2578" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>I hvor høj grad har smerter i knæet i de sidste fire uger besværliggjort dit sædvanlige arbejde (inkl. husarbejde)?</originalText>
+                                    </code>
+                                    <value code="A2578_1" displayName="Slet ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2578_2" displayName="En lille smule" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2578_3" displayName="En del" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2578_4" displayName="Meget" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2578_5" displayName="Umuligt at arbejde" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        <!-- MC-SPRGSML_2579
+                        *********************************************************
+                        * Har du i de sidste fire uger følt, at dit knæ pludselig ...
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="10"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2579" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2579" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger følt, at dit knæ pludselig kunne give efter eller svigte?</originalText>
+                                    </code>
+                                    <value code="A2579_1" displayName="Sjældent/aldrig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2579_2" displayName="Sommetider eller kun når jeg rejser mig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2579_3" displayName="Ofte, ikke kun når jeg rejser mig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2579_4" displayName="Det meste af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2579_5" displayName="Hele tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        <!-- MC-SPRGSML_2580
+                        *********************************************************
+                        * Har du i de sidste fire uger selv kunnet klare indkøb?
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="11"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2580" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2580" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger selv kunnet klare indkøb?</originalText>
+                                    </code>
+                                    <value code="A2580_1" displayName="Ja, nemt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2580_2" displayName="Næsten uden besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2580_3" displayName="Med moderat besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2580_4" displayName="Med meget stort besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2580_5" displayName="Nej, det har været umuligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        <!-- MC-SPRGSML_2581
+                        *********************************************************
+                        * Har du i de sidste fire uger kunnet gå ned ad trapper?
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="12"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2581" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2581" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger kunnet gå ned ad trapper?</originalText>
+                                    </code>
+                                    <value code="A2581_1" displayName="Ja, nemt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2581_2" displayName="Næsten uden besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2581_3" displayName="Med moderat besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2581_4" displayName="Med meget stort besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2581_5" displayName="Nej, det har været umuligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        </organizer>
+                    </entry>
+                </section>
+            </component>
+         <!-- SPRGSMLSEKTION_2119
+        ==========================================
+          Bevægelighed (Copenhagen Knee Rom Scale)
+        ========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S2119 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Bevægelighed</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">Synes du, at du kan bøje dit venstre knæ tilstrækkeligt?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2586_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2586_2 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor meget kan du bøje dit venstre knæ?<renderMultiMedia referencedObject="img_2587"/>
+									</th>
+								</tr>
+								<tr>
+									<td>1 Som på billedet</td>
+									<td><!-- A2587_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>2 Som på billedet</td>
+									<td><!-- A2587_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>3 Som på billedet</td>
+									<td><!-- A2587_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>4 Som på billedet</td>
+									<td><!-- A2587_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>5 Som på billedet</td>
+									<td><!-- A2587_5 -->
+									</td>
+								</tr>
+								<tr>
+									<td>6 Som på billedet</td>
+									<td><!-- A2587_6 -->
+									</td>
+								</tr>
+								<tr>
+									<td>0 Umuligt. Jeg kan slet ikke bøje mit knæ så meget, som det første billede viser</td>
+									<td><!-- A2587_7 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Synes du, at du kan strække dit venstre knæ tilstrækkeligt?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2588_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2588_2 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor meget kan du strække dit venstre knæ?<renderMultiMedia referencedObject="img_2589"/>
+									</th>
+								</tr>
+								<tr>
+									<td>1 Som på billedet</td>
+									<td><!-- A2589_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>2 Som på billedet</td>
+									<td><!-- A2589_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>3 Som på billedet</td>
+									<td><!-- A2589_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>4 Som på billedet</td>
+									<td><!-- A2589_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>5 Som på billedet</td>
+									<td><!-- A2589_5 -->
+									</td>
+								</tr>
+								<tr>
+									<td>0 Umuligt. Jeg kan slet ikke strække mit knæ så meget, som det første billede viser</td>
+									<td><!-- A2589_6 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+				<!-- Gruppe 2 - 2586-2589 -->
+				<!--Her starter Copenhagen Knee Rom Scale for venstre knæ-->
+                    <entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="2" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="2" codeSystemName="Sundhedsdatastyrelsen"/>
+							<statusCode code="COMPLETED"/>
+                        <!-- MC-SPRGSML_2586 - VENSTRE knæ starter her
+                        *********************************************************
+                        * Synes du, at du kan bøje dit venstre knæ tilstrækkeligt?
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="1"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2586" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2586" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Synes du, at du kan bøje dit venstre knæ tilstrækkeligt?</originalText>
+                                    </code>
+                                    <value code="A2586_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2586_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        <!-- MC-SPRGSML_2587
+                        *********************************************************
+                        * Hvor meget kan du bøje dit venstre knæ?
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="2"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2587" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2587" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Hvor meget kan du bøje dit venstre knæ?</originalText>
+                                    </code>
+                                    <value code="A2587_1" displayName="1 Som på billedet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2587_2" displayName="2 Som på billedet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2587_3" displayName="3 Som på billedet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2587_4" displayName="4 Som på billedet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2587_5" displayName="5 Som på billedet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2587_6" displayName="6 Som på billedet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2587_7" displayName="0 Umuligt. Jeg kan slet ikke bøje mit knæ så meget, som det første billede viser" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                    <!-- Hjælpetekst -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+                                            <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="ST">Pres underbenet længst muligt bagud, f.eks. ved at trække med hånden i pilens retning. Markér den boks, der passer bedst.</value>
+                                        </observation>
+                                    </entryRelationship>
+                                    <!-- Grafik - flex-700A.png -->
+                                    <entryRelationship typeCode="REFR">
+                                        <observationMedia classCode="OBS" moodCode="DEF" ID="img_2587">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.2"/>
+                                            <value representation="B64" mediaType="image/png">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</value>
+                                        </observationMedia>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        <!-- MC-SPRGSML_2588
+                        *********************************************************
+                        * Synes du, at du kan strække dit venstre knæ tilstrækkeligt?
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="3"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2588" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2588" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Synes du, at du kan strække dit venstre knæ tilstrækkeligt?</originalText>
+                                    </code>
+                                    <value code="A2588_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2588_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        <!-- MC-SPRGSML_2589
+                        *********************************************************
+                        * Hvor meget kan du strække dit venstre knæ?
+                        ********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="4"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2589" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2589" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Hvor meget kan du strække dit venstre knæ?</originalText>
+                                    </code>
+                                    <value code="A2589_1" displayName="1 Som på billedet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2589_2" displayName="2 Som på billedet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2589_3" displayName="3 Som på billedet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2589_4" displayName="4 Som på billedet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2589_5" displayName="5 Som på billedet" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2589_6" displayName="0 Umuligt. Jeg kan slet ikke strække mit knæ så meget, som det første billede viser" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                    <!-- Hjælpetekst -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+                                            <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="ST">Brug hånden til at presse knæet bagud i pilens retning. Marker den boks, der passer bedst.</value>
+                                        </observation>
+                                    </entryRelationship>
+                                    <!-- Grafik - ext-428A.png  -->
+                                    <entryRelationship typeCode="REFR">
+                                        <observationMedia classCode="OBS" moodCode="DEF" ID="img_2589">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.2"/>
+                                            <value representation="B64" mediaType="image/png">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</value>
+                                        </observationMedia>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        </organizer>
+                    </entry>
+                </section>
+            </component>
+        <!-- SPRGSMLSEKTION_2122
+        ==========================================
+        Tak for din besvarelse
+        ========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S2121 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Tak for din besvarelse</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">Ønsker du at blive kontaktet af afdelingen uanset din besvarelse af spørgeskemaet?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A2834_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A2834_2 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text><!-- GRUPPE_2232 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="2232" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G2232" codeSystemName="Sundhedsdatastyrelsen"/>
+							<statusCode code="COMPLETED"/>
+                        <!-- MC-SPRGSML_2834
+                        *********************************************************
+                        * Ønsker du at blive kontaktet af afdelingen uanset din besvarelse af spørgeskemaet?
+                        ********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2834" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2834" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Ønsker du at blive kontaktet af afdelingen uanset din besvarelse af spørgeskemaet?</originalText>
+									</code>
+									<value code="A2834_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2834_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+            </component>
+        </structuredBody>
+    </component>
+</ClinicalDocument><!-- XML by SDS: PRO-sekretariatet -->

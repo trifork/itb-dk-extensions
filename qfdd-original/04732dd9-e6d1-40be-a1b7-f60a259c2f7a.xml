@@ -1,0 +1,1700 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<!--
+........................................................................
+ SkemaId: 04732dd9-e6d1-40be-a1b7-f60a259c2f7a
+ Titel:   Moduler Om Sundhedsvaner
+ Version: 2
+ Build:   003, KIAJ, https://pro-danmark.dk/da 
+ Dato:    20250312090000+0100
+........................................................................
+
+=================================================
+*** Visualisering af de nationale PRO-skemaer ***
+=================================================
+Denne XML-fil er publiceret som del af en national PRO-pakke. I samme
+pakke foreligger der to HTML-filer - en statisk og en dynamisk - der
+gengiver PRO-spørgeskemaets intenderede udseende og funktionalitet. For
+systemer, der ikke i tilstrækkeligt omfang kan udnytte XML-filens højt
+strukturerede indhold, er dele af spørgeskemaet, som en slags sikker-
+hedsnet, gengivet i form af narrativ tekst.
+
+PRO-sekretariatet anbefaler i enhver henseende, at man anvender PRO-
+pakkens to HTML-filer i forhold, der vedrører udseende og funktionalitet
+af spørgeskemaer og/eller besvarelser.
+
+
+Datotid             Ver Bld Sign
+=================== === === ============================================
+20250312090000+0100  2  001 KIAJ
+20250407090000+0100	 2	002	KIAJ - Originaltekst i 3181 og 3120 manglede. Fejlen rettet
+202508201102300+200	 2  003 KIAJ - Skemaid rettet til det korrekte der ender på f60a259c2f7a (det var kun i toppen det var forkert i selve koden var det korrekt)
+........................................................................* -->
+
+<ClinicalDocument xsi:schemaLocation="urn:hl7-org:v3 /xmlschema/QFD/CDA_SDTC.xsd" classCode="DOCCLIN" moodCode="EVN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc">
+	<realmCode code="UV"/>
+	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+	<templateId root="1.2.208.184.12.1" assigningAuthorityName="MedCom"/>
+	<templateId root="1.2.208.184.12.1.1.1"/><!-- Spørgeskema om sundhedsvaner -->
+	<id root="1.2.208.176.7.3.1" extension="04732dd9-e6d1-40be-a1b7-f60a259c2f7a" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+	<code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="74468-0" displayName="Form Definition Document"/>
+	<title>Spørgeskema om sundhedsvaner</title>
+	<sdtc:statusCode code="NEW"/>
+	<effectiveTime value="20250312090000+0100"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<versionNumber value="2"/>
+	<recordTarget nullFlavor="NI">
+		<patientRole nullFlavor="NI">
+			<id nullFlavor="NI"/>
+		</patientRole>
+	</recordTarget><!-- FORFATTERORGANISATION: Sundhedsdatastyrelsen -->
+	<author typeCode="AUT" contextControlCode="OP">
+		<time value="20250312090000+0100"/>
+		<assignedAuthor classCode="ASSIGNED">
+			<id nullFlavor="NA"/>
+			<addr use="WP">
+				<streetAddressLine>PRO-sekretariatet</streetAddressLine>
+				<streetAddressLine>Ørestads Boulevard 5</streetAddressLine>
+				<postalCode>2300</postalCode>
+				<city>København</city>
+				<country>Danmark</country>
+			</addr>
+			<telecom value="tel:+4591334808" use="WP"/>
+			<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+				<name>Sundhedsdatastyrelsen</name>
+				<telecom nullFlavor="NI"/>
+				<addr use="WP">
+					<streetAddressLine nullFlavor="NI"/>
+				</addr>
+			</representedOrganization>
+		</assignedAuthor>
+	</author><!-- FORVALTERORGANISATION: Sundhedsdatastyrelsen -->
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+				<name>Sundhedsdatastyrelsen</name>
+				<telecom value="tel:+4591334808" use="WP"/>
+				<addr use="WP">
+					<streetAddressLine>PRO-sekretariatet</streetAddressLine>
+					<streetAddressLine>Ørestads Boulevard 5</streetAddressLine>
+					<postalCode>2300</postalCode>
+					<city>København</city>
+					<country>Danmark</country>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<component typeCode="COMP" contextConductionInd="true">
+		<structuredBody classCode="DOCBODY" moodCode="EVN">
+			<!-- SPRGSMLSEKTION_10
+			==========================================
+			Fysisk aktivitet GRP 3312 SPM 3155/3182/3183/3184/3141/3142
+			========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S10 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Fysisk aktivitet</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">På en typisk uge, hvor mange dage er du fysisk aktiv i mindst 30 minutter? Fx ved at gå, cykle, lave havearbejde, gøre rent eller lignende.</th>
+								</tr>
+								<tr>
+									<td>Ingen dage</td>
+									<td><!-- A3155_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>1 dag</td>
+									<td><!-- A3155_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>2 dage</td>
+									<td><!-- A3155_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>3 dage</td>
+									<td><!-- A3155_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>4 dage</td>
+									<td><!-- A3155_5 -->
+									</td>
+								</tr>
+								<tr>
+									<td>5 dage</td>
+									<td><!-- A3155_6 -->
+									</td>
+								</tr>
+								<tr>
+									<td>6 dage</td>
+									<td><!-- A3155_7 -->
+									</td>
+								</tr>
+								<tr>
+									<td>7 dage</td>
+									<td><!-- A3155_8 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">På en typisk uge, hvor mange dage er du fysisk aktiv, hvor du bliver let forpustet? Fx gymnastik, sport, cykling, rask gang, hus-/havearbejde eller lignende.</th>
+								</tr>
+								<tr>
+									<td>Ingen dage</td>
+									<td><!-- A3182_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>1 dag</td>
+									<td><!-- A3182_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>2 dage</td>
+									<td><!-- A3182_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>3 dage</td>
+									<td><!-- A3182_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>4 dage</td>
+									<td><!-- A3182_5 -->
+									</td>
+								</tr>
+								<tr>
+									<td>5 dage</td>
+									<td><!-- A3182_6 -->
+									</td>
+								</tr>
+								<tr>
+									<td>6 dage</td>
+									<td><!-- A3182_7 -->
+									</td>
+								</tr>
+								<tr>
+									<td>7 dage</td>
+									<td><!-- A3182_8 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">På en typisk uge, hvor mange dage er du fysisk aktiv, hvor du styrker dine muskler? Fx styrketræning, fitness, tungt hus-/havearbejde eller lignende</th>
+								</tr>
+								<tr>
+									<td>Ingen dage</td>
+									<td><!-- A3183_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>1 dag</td>
+									<td><!-- A3183_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>2 dage</td>
+									<td><!-- A3183_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>3 dage</td>
+									<td><!-- A3183_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>4 dage</td>
+									<td><!-- A3183_5 -->
+									</td>
+								</tr>
+								<tr>
+									<td>5 dage</td>
+									<td><!-- A3183_6 -->
+									</td>
+								</tr>
+								<tr>
+									<td>6 dage</td>
+									<td><!-- A3183_7 -->
+									</td>
+								</tr>
+								<tr>
+									<td>7 dage</td>
+									<td><!-- A3183_8 -->
+									</td>
+								</tr>
+								<tr>
+									<th align="left">Uddyb evt. med andre oplysninger om din nuværende fysiske aktivitet:</th>
+									<td><!-- Q3184 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Ønsker du at ændre din nuværende fysiske aktivitet?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A3141_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A3141_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ved ikke</td>
+									<td><!-- A3141_3 -->
+									</td>
+								</tr>
+								<tr>
+									<th align="left">Hvordan kunne du tænke dig at ændre din nuværende fysiske aktivitet?</th>
+									<td><!-- Q3142 -->
+									</td>
+								</tr>
+
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_3312 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="3312" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G3312" codeSystemName="Sundhedsdatastyrelsen"/>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_3155
+							*********************************************************
+							* På en typisk uge, hvor mange dage laver du hverdagsaktivi...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3155" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3155" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>På en typisk uge, hvor mange dage er du fysisk aktiv i mindst 30 minutter? Fx ved at gå, cykle, lave havearbejde, gøre rent eller lignende.</originalText>
+									</code>
+									<value code="A3155_1" displayName="Ingen dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3155_2" displayName="1 dag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3155_3" displayName="2 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3155_4" displayName="3 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3155_5" displayName="4 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3155_6" displayName="5 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3155_7" displayName="6 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3155_8" displayName="7 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_3182
+							*********************************************************
+							* På en typisk uge, hvor mange dage er du fysisk aktiv, hvor du bliver let forpustet? Fx gymnastik, sport, cykling, rask gang, hus-/havearbejde eller lignende.
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3182" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3182" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>På en typisk uge, hvor mange dage er du fysisk aktiv, hvor du bliver let forpustet? Fx gymnastik, sport, cykling, rask gang, hus-/havearbejde eller lignende.</originalText>
+									</code>
+									<value code="A3182_1" displayName="Ingen dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3182_2" displayName="1 dag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3182_3" displayName="2 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3182_4" displayName="3 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3182_5" displayName="4 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3182_6" displayName="5 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3182_7" displayName="6 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3182_8" displayName="7 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component><!-- MC-SPRGSML_3183
+							*********************************************************
+							* På en typisk uge, hvor mange dage er du fysisk aktiv, hvor du styrker dine muskler? Fx styrketræning, fitness, tungt hus-/havearbejde eller lignende
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3183" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3183" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>På en typisk uge, hvor mange dage er du fysisk aktiv, hvor du styrker dine muskler? Fx styrketræning, fitness, tungt hus-/havearbejde eller lignende</originalText>
+									</code>
+									<value code="A3183_1" displayName="Ingen dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3183_2" displayName="1 dag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3183_3" displayName="2 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3183_4" displayName="3 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3183_5" displayName="4 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3183_6" displayName="5 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3183_7" displayName="6 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3183_8" displayName="7 dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Aktiviteter, der styrker dine muskler, er fx øvelser, hvor du bruger vægte eller din egen kropsvægt, og som involverer alle de store muskler. Det vil sige ben, baller, mave, ryg og arme.</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- TXT-SPRGSML_3184
+							*********************************************************
+							* Uddyb evt. med andre oplysninger om din nuværende fysiske aktivitet:
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+									<id root="1.2.208.176.1.5" extension="3184" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3184" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Uddyb evt. med andre oplysninger om din nuværende fysiske aktivitet:</originalText>
+									</code>
+								</observation>
+							</component>							
+							<!-- MC-SPRGSML_3141
+							*********************************************************
+							* Ønsker du at ændre din nuværende fysiske aktivitet?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="4"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3141" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3141" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Ønsker du at ændre din nuværende fysiske aktivitet?</originalText>
+									</code>
+									<value code="A3141_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3141_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3141_3" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<!-- ASSOC-SPØRGSMÅL-3142
+									*********************************************************
+									* Hvordan kunne du tænke dig at ændre din nuværende fysiske aktivitet?
+									********************************************************* -->
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="DEF">
+											<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+											<id root="1.2.208.176.1.5" extension="3142" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+											<code codeSystem="1.2.208.176.1.5" code="Q3142" codeSystemName="Sundhedsdatastyrelsen">
+												<originalText>Hvordan kunne du tænke dig at ændre din nuværende fysiske aktivitet?</originalText>
+											</code><!-- Betingelse --><!-- MC-kriterie Q3141:A3141_1 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3141" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3141_1" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--SLUT gruppe 3312-->
+				</section>
+			</component><!--Slut SEKTION_10-->
+
+			<!-- SPRGSMLSEKTION_11
+			==========================================
+			Mad- og spisevaner GRP 3316 SPM 3110/3111/3188/3189/3136/3137 GRP 3308 3185/3108/3109
+			========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S11 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Mad- og spisevaner</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">Hvordan vurderer du dine madvaner alt i alt?</th>
+								</tr>
+								<tr>
+									<td>Meget gode</td>
+									<td><!-- A3110_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Gode</td>
+									<td><!-- A3110_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nogenlunde</td>
+									<td><!-- A3110_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Mindre gode</td>
+									<td><!-- A3110_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ikke gode</td>
+									<td><!-- A3110_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor mange hoved- og mellemmåltider spiser du på en typisk dag?</th>
+								</tr>
+								<tr>
+									<td>1</td>
+									<td><!-- A3111_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><!-- A3111_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><!-- A3111_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><!-- A3111_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td><!-- A3111_5 -->
+									</td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td><!-- A3111_6 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Flere end 6</td>
+									<td><!-- A3111_7 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Har din appetit ændret sig i løbet af de seneste 3 måneder?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A3188_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A3188_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ved ikke</td>
+									<td><!-- A3188_3 -->
+									</td>
+								</tr>
+								<tr>
+									<th align="left">Beskriv hvordan din appetit har ændret sig:</th>
+									<td><!-- Q3136 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Har dine spisevaner ændret sig i løbet af de seneste 3 måneder?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A3189_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A3189_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ved ikke</td>
+									<td><!-- A3189_3 -->
+									</td>
+								</tr>
+								<tr>
+									<th align="left">Beskriv hvordan dine spisevaner har ændret sig:</th>
+									<td><!-- Q3137 -->
+									</td>
+								</tr>
+								<tr>
+									<th align="left">Uddyb evt. med andre oplysninger om dine nuværende mad- og spisevaner:</th>
+									<td><!-- Q3185 -->
+									</td>
+								</tr>								
+								<tr>
+									<th colspan="2" align="left">Ønsker du at ændre dine nuværende spisevaner?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A3108_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A3108_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ved ikke</td>
+									<td><!-- A3108_3 -->
+									</td>
+								</tr>
+								<tr>
+									<th align="left">Hvordan kunne du tænke dig at ændre dine nuværende spisevaner?</th>
+									<td><!-- Q3109 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_3316 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="3316" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G3316" codeSystemName="Sundhedsdatastyrelsen"/>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_3110
+							*********************************************************
+							* Hvordan vurderer du dine madvaner alt i alt?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3110" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3110" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvordan vurderer du dine madvaner alt i alt?</originalText>
+									</code>
+									<value code="A3110_1" displayName="Meget gode" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3110_2" displayName="Gode" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3110_3" displayName="Nogenlunde" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3110_4" displayName="Mindre gode" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3110_5" displayName="Ikke gode" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->		
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<!--Hjælpetekst-->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Er dine madvaner sunde og varierede i forhold til dine egne behov (fx sygdom eller vægt).</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+
+							<!-- MC-SPRGSML_3111
+							*********************************************************
+							* Hvor mange hoved- og mellemmåltider spiser du på en typisk dag?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3111" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3111" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor mange hoved- og mellemmåltider spiser du på en typisk dag?</originalText>
+									</code>
+									<value code="A3111_1" displayName="1" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3111_2" displayName="2" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3111_3" displayName="3" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3111_4" displayName="4" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3111_5" displayName="5" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3111_6" displayName="6" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3111_7" displayName="Flere end 6" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Både små og store måltider.</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3188
+							*********************************************************
+							* Har din appetit ændret sig i løbet af de seneste 3 måneder?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3188" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3188" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har din appetit ændret sig i løbet af de seneste 3 måneder?</originalText>
+									</code>
+									<value code="A3188_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3188_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3188_3" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Med appetit menes lysten til mad.</value>
+										</observation>
+									</entryRelationship>
+									<!-- ASSOC-SPØRGSMÅL-3136
+									*********************************************************
+									* Beskriv hvordan din appetit har ændret sig:
+									********************************************************* -->
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="DEF">
+											<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+											<id root="1.2.208.176.1.5" extension="3136" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+											<code codeSystem="1.2.208.176.1.5" code="Q3136" codeSystemName="Sundhedsdatastyrelsen">
+												<originalText>Beskriv hvordan din appetit har ændret sig:</originalText>
+											</code><!-- Betingelse --><!-- MC-kriterie Q3188:A3188_1 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3188" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3188_1" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3189
+							*********************************************************
+							* Har dine spisevaner ændret sig i løbet af de seneste 3 måneder?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3189" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3189" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har dine spisevaner ændret sig i løbet af de seneste 3 måneder?</originalText>
+									</code>
+									<value code="A3189_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3189_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3189_3" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Med spisevaner menes fx madtype, mere eller mindre mad, spise på andre tidspunkter, størrelsen af måltider, antallet af måltider pr. døgn m.m.</value>
+										</observation>
+									</entryRelationship>
+									<!-- ASSOC-SPØRGSMÅL-3137
+									*********************************************************
+									* Beskriv hvordan dine spisevaner har ændret sig:
+									********************************************************* -->
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="DEF">
+											<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+											<id root="1.2.208.176.1.5" extension="3137" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+											<code codeSystem="1.2.208.176.1.5" code="Q3137" codeSystemName="Sundhedsdatastyrelsen">
+												<originalText>Beskriv hvordan dine spisevaner har ændret sig:</originalText>
+											</code><!-- Betingelse --><!-- MC-kriterie Q3189:A3189_1 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3189" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3189_1" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--Her slutter gruppe 3316-->
+					<!-- GRUPPE_3308 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="3308" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G3308" codeSystemName="Sundhedsdatastyrelsen"/>
+							<statusCode code="COMPLETED"/>
+							<!-- TXT-SPRGSML_3185
+							*********************************************************
+							* Uddyb evt. med andre oplysninger om dine nuværende mad- og spisevaner:
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+									<id root="1.2.208.176.1.5" extension="3185" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3185" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Uddyb evt. med andre oplysninger om dine nuværende mad- og spisevaner:</originalText>
+									</code>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3108
+							*********************************************************
+							* Ønsker du at ændre dine nuværende spisevaner?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="4"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3108" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3108" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Ønsker du at ændre dine nuværende spisevaner?</originalText>
+									</code>
+									<value code="A3108_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3108_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3108_3" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<!-- ASSOC-SPØRGSMÅL-3109
+									*********************************************************
+									* Hvordan kunne du tænke dig at ændre dine nuværende spisevaner?
+									********************************************************* -->
+									<entryRelationship typeCode="REFR">
+										<observation classCode="OBS" moodCode="DEF">
+											<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+											<id root="1.2.208.176.1.5" extension="3109" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+											<code codeSystem="1.2.208.176.1.5" code="Q3109" codeSystemName="Sundhedsdatastyrelsen">
+												<originalText>Hvordan kunne du tænke dig at ændre dine nuværende spisevaner</originalText>
+											</code><!-- Betingelse --><!-- MC-kriterie Q3108:A3108_1 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3108" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3108_1" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--SLUT gruppe 3308-->
+				</section> 
+			</component><!--Slut SEKTION_11-->
+
+			<!-- SPRGSMLSEKTION_12
+			==========================================
+			Alkohol GRP 3314 AUDIT-C SPM 3190/3062/3191 samt SPM 3186/3085
+			========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S12 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Alkohol</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">Hvor tit drikker du noget, der indeholder alkohol?</th>
+								</tr>
+								<tr>
+									<td>Aldrig</td>
+									<td><!-- A3190_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Højst én gang om måneden</td>
+									<td><!-- A3190_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>2-4 gange om måneden</td>
+									<td><!-- A3190_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>2-3 gange om ugen</td>
+									<td><!-- A3190_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>4 gange om ugen eller oftere</td>
+									<td><!-- A3190_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor mange genstande drikker du almindeligvis, når du drikker noget?</th>
+								</tr>
+								<tr>
+									<td>1-2 genstande</td>
+									<td><!-- A3062_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>3-4 genstande</td>
+									<td><!-- A3062_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>5-6 genstande</td>
+									<td><!-- A3062_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>7-9 genstande</td>
+									<td><!-- A3062_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>10 eller flere genstande</td>
+									<td><!-- A3062_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor tit drikker du fem genstande eller flere ved samme lejlighed?</th>
+								</tr>
+								<tr>
+									<td>Aldrig</td>
+									<td><!-- A3191_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Sjældent</td>
+									<td><!-- A3191_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Månedligt</td>
+									<td><!-- A3191_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ugentligt</td>
+									<td><!-- A3191_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Dagligt eller næsten dagligt</td>
+									<td><!-- A3191_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th align="left">Uddyb evt. med andre oplysninger om dine nuværende alkoholvaner:</th>
+									<td><!-- Q3186 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Ønsker du at ændre dine nuværende alkoholvaner?</th>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A3085_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A3085_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ved ikke</td>
+									<td><!-- A3085_3 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_3314
+					::::::::::::::::::::::::::::::::::::::::::
+					AUDIT-C SPM 3190-3062-3191 samt SPM 3186-3085
+					:::::::::::::::::::::::::::::::::::::::::: -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="3314" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G3314" codeSystemName="Sundhedsdatastyrelsen"/>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_3190
+							*********************************************************
+							* Hvor tit drikker du noget, der indeholder alkohol?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3190" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3190" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor tit drikker du noget, der indeholder alkohol?</originalText>
+									</code>
+									<value code="A3190_1" displayName="Aldrig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3190_2" displayName="Højst én gang om måneden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3190_3" displayName="2-4 gange om måneden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3190_4" displayName="2-3 gange om ugen" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3190_5" displayName="4 gange om ugen eller oftere" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3062
+							*********************************************************
+							* Hvor mange genstande drikker du almindeligvis, når du drikker noget?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3062" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3062" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor mange genstande drikker du almindeligvis, når du drikker noget?</originalText>
+									</code>
+									<value code="A3062_1" displayName="1-2 genstande" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3062_2" displayName="3-4 genstande" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3062_3" displayName="5-6 genstande" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3062_4" displayName="7-9 genstande" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3062_5" displayName="10 eller flere genstande" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">En genstand svarer til 1 almindelig øl, 1 glas rød-/hvidvin, 1 glas hedvin, 1 drink/cocktail, 1 snaps/shot, 1 alkoholsodavand eller 1 alkoholcider</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q3190 :A3190_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="C2053_1" assigningAuthorityName="Sundhedsdatastyrelsen"/><!-- MC-kriterie Q3190:A3190_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q3190:A3190_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q3190:A3190_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q3190:A3190_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3191
+							*********************************************************
+							* Hvor tit drikker du fem genstande eller flere ved samme lejlighed?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3191" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3191" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor tit drikker du fem genstande eller flere ved samme lejlighed?</originalText>
+									</code>
+									<value code="A3191_1" displayName="Aldrig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3191_2" displayName="Sjældent" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3191_3" displayName="Månedligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3191_4" displayName="Ugentligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3191_5" displayName="Dagligt eller næsten dagligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">En genstand svarer til 1 almindelig øl, 1 glas rød-/hvidvin, 1 glas hedvin, 1 drink/cocktail, 1 snaps/shot, 1 alkoholsodavand eller 1 alkoholcider.</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q3190 :A3190_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="C2053_1" assigningAuthorityName="Sundhedsdatastyrelsen"/><!-- MC-kriterie Q3190:A3190_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q3190:A3190_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q3190:A3190_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q3190:A3190_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+							<!-- TXT-SPRGSML_3186
+							*********************************************************
+							* Uddyb evt. med andre oplysninger om dine nuværende alkoholvaner:
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+									<id root="1.2.208.176.1.5" extension="3186" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3186" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Uddyb evt. med andre oplysninger om dine nuværende alkoholvaner:</originalText>
+									</code>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3085
+							*********************************************************
+							* Ønsker du at ændre dine nuværende alkoholvaner?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="4"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3085" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3085" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Ønsker du at ændre dine nuværende alkoholvaner?</originalText>
+									</code>
+									<value code="A3085_1" displayName="Ja" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3085_2" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3085_3" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q3190 :A3190_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="C2053_1" assigningAuthorityName="Sundhedsdatastyrelsen"/><!-- MC-kriterie Q3190:A3190_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q3190:A3190_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q3190:A3190_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q3190:A3190_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3190" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3190_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--SLUT gruppe 3314-->
+				</section>
+			</component><!--Slut SEKTION_12-->
+
+			<!-- SPRGSMLSEKTION_13
+			==========================================
+			Nikotin- og rygevaner GRP 3305 MATRIX-SPM 3181/3120/3213/3214 - GRP 3307 SPM 3187/3123
+			========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S13 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Nikotin- og rygevaner</title>
+					<text>
+						<table>
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">Hvor ofte bruger du cigaretter, cerutter, cigarer, pibe, vandpibe?</th>
+								</tr>
+								<tr>
+									<td>Hver dag</td>
+									<td><!-- A3181_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En gang i mellem</td>
+									<td><!-- A3181_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Slet ikke, men jeg har tidligere brugt det</td>
+									<td><!-- A3181_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har aldrig brugt det</td>
+									<td><!-- A3181_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor ofte bruger du snus, nikotinposer, tyggetobak, tobakspastiller?</th>
+								</tr>
+								<tr>
+									<td>Hver dag</td>
+									<td><!-- A3120_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En gang i mellem</td>
+									<td><!-- A3120_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Slet ikke, men jeg har tidligere brugt det</td>
+									<td><!-- A3120_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har aldrig brugt det</td>
+									<td><!-- A3120_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor ofte bruger du e-cigaretter, vapes, pod-systemer?</th>
+								</tr>
+								<tr>
+									<td>Hver dag</td>
+									<td><!-- A3213_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En gang i mellem</td>
+									<td><!-- A3213_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Slet ikke, men jeg har tidligere brugt det</td>
+									<td><!-- A3213_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har aldrig brugt det</td>
+									<td><!-- A3213_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Hvor ofte bruger du opvarmet tobak (heat-not-burn-produkter)?</th>
+								</tr>
+								<tr>
+									<td>Hver dag</td>
+									<td><!-- A3214_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En gang i mellem</td>
+									<td><!-- A3214_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Slet ikke, men jeg har tidligere brugt det</td>
+									<td><!-- A3214_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har aldrig brugt det</td>
+									<td><!-- A3214_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th align="left">Uddyb evt. med andre oplysninger om dine nuværende nikotin- og rygevaner:</th>
+									<td><!-- Q3187 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Ønsker du at ændre dine nuværende nikotin-/rygevaner?</th>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A3123_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja, men jeg har ikke planlagt hvornår</td>
+									<td><!-- A3123_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja, jeg planlægger at stoppe og/eller reducere nikotinforbrug/rygning inden for 6 måneder</td>
+									<td><!-- A3123_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja, jeg planlægger at stoppe og/eller reducere nikotinforbrug/rygning inden for 1 måned</td>
+									<td><!-- A3123_4 -->
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</text>
+					<!-- GRUPPE_3305 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="3305" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G3305" codeSystemName="Sundhedsdatastyrelsen"/>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_3181
+							*********************************************************
+							* Hvor ofte bruger du cigaretter, cerutter, cigarer, pibe, vandpibe?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3181" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3181" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor ofte bruger du cigaretter, cerutter, cigarer, pibe, vandpibe?</originalText>
+									</code>									
+									<value code="A3181_1" displayName="Hver dag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3181_2" displayName="En gang i mellem" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3181_3" displayName="Slet ikke, men jeg har tidligere brugt det" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3181_4" displayName="Jeg har aldrig brugt det " codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Markér for hvert nikotin- eller tobaksprodukt, hvor ofte du bruger det.</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3120
+							*********************************************************
+							* Hvor ofte bruger du snus, nikotinposer, tyggetobak, tobakspastiller?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3120" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3120" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor ofte bruger du snus, nikotinposer, tyggetobak, tobakspastiller?</originalText>
+									</code>
+									<value code="A3120_1" displayName="Hver dag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3120_2" displayName="En gang i mellem" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3120_3" displayName="Slet ikke, men jeg har tidligere brugt det" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3120_4" displayName="Jeg har aldrig brugt det " codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Markér for hvert nikotin- eller tobaksprodukt, hvor ofte du bruger det.</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3213
+							*********************************************************
+							* Hvor ofte bruger du e-cigaretter, vapes, pod-systemer?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3213" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3213" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor ofte bruger du e-cigaretter, vapes, pod-systemer?</originalText>
+									</code>
+									<value code="A3213_1" displayName="Hver dag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3213_2" displayName="En gang i mellem" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3213_3" displayName="Slet ikke, men jeg har tidligere brugt det" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3213_4" displayName="Jeg har aldrig brugt det " codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Markér for hvert nikotin- eller tobaksprodukt, hvor ofte du bruger det.</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_3214
+							*********************************************************
+							* Hvor ofte bruger du opvarmet tobak (heat-not-burn-produkter)?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3214" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3214" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvor ofte bruger du opvarmet tobak (heat-not-burn-produkter)?</originalText>
+									</code>
+									<value code="A3214_1" displayName="Hver dag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3214_2" displayName="En gang i mellem" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3214_3" displayName="Slet ikke, men jeg har tidligere brugt det" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3214_4" displayName="Jeg har aldrig brugt det " codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Markér for hvert nikotin- eller tobaksprodukt, hvor ofte du bruger det.</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry><!-- SLUT GRUPPE_3305 -->
+					<!-- GRUPPE_3307 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="3307" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G3307" codeSystemName="Sundhedsdatastyrelsen"/>
+							<statusCode code="COMPLETED"/>
+							<!-- TXT-SPRGSML_3187
+							*********************************************************
+							* Uddyb evt. med andre oplysninger om din nuværende fysiske aktivitet:
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+									<id root="1.2.208.176.1.5" extension="3187" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3187" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Uddyb evt. med andre oplysninger om dine nuværende nikotin- og rygevaner:</originalText>
+									</code>
+								</observation>
+							</component>	
+							<!-- MC-SPRGSML_3123
+							*********************************************************
+							* Ønsker du at ændre dine nuværende nikotin-/rygevaner?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="4"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="3123" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q3123" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Ønsker du at ændre dine nuværende nikotin-/rygevaner?</originalText>
+									</code>
+									<value code="A3123_1" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3123_2" displayName="Ja, men jeg har ikke planlagt hvornår" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3123_3" displayName="Ja, jeg planlægger at stoppe og/eller reducere nikotinforbrug/rygning inden for 6 måneder" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A3123_4" displayName="Ja, jeg planlægger at stoppe og/eller reducere nikotinforbrug/rygning inden for 1 måned" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+									<!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q3181 :A3181_1,2 OG MC kriterie Q3120 :A3120_1,2 OG MC kriterie Q3213 :A3213_1,2 OG MC kriterie Q3214 :A3214_1,2-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="C2053_1" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+											<!-- MC-kriterie Q3181:A3181_1 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3181" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3181_1" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+											<!-- MC-kriterie Q3181:A3181_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3181" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3181_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+											<!-- MC-kriterie Q3120:A3120_1 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3120" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3120_1" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+											<!-- MC-kriterie Q3120:A3120_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3120" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3120_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+											<!-- MC-kriterie Q3213:A3213_1 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3213" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3213_1" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+											<!-- MC-kriterie Q3213:A3213_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3213" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3213_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+											<!-- MC-kriterie Q3214:A3214_1 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3214" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3214_1" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+											<!-- MC-kriterie Q3214:A3214_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q3214" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen"/>
+													<value code="A3214_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->	
+								</observation>
+							</component>
+						</organizer>
+					</entry><!--Her slutter gruppe 3307-->
+				</section> 
+			</component><!--Slut SEKTION_13-->
+		</structuredBody>
+	</component><!-- XML by https://pro-danmark.dk/da-->
+</ClinicalDocument>

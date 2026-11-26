@@ -1,0 +1,1187 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<!--
+........................................................................
+ SkemaId: 898cba44-c668-41e8-ac25-c2b880ac7090
+ Titel:   Kort spørgeskema i forbindelse med hjerterehabilitering, Vejle, start
+ Version: 3
+ Build:   001, PRO-sekretariatet, https://pro-danmark.dk/da 
+ Dato:    20220610124800+0200
+........................................................................
+
+
+
+*** Visualisering af de nationale PRO-skemaer ***
+=================================================
+Denne XML-fil er publiceret som del af en national PRO-pakke. I samme
+pakke foreligger der to HTML-filer - en statisk og en dynamisk - der
+gengiver PRO-spørgeskemaets intenderede udseende og funktionalitet. For
+systemer, der ikke i tilstrækkeligt omfang kan udnytte XML-filens højt
+strukturerede indhold, er dele af spørgeskemaet, som en slags sikker-
+hedsnet, gengivet i form af narrativ tekst.
+
+PRO-sekretariatet anbefaler i enhver henseende, at man anvender PRO-
+pakkens to HTML-filer i forhold, der vedrører udseende og funktionalitet
+af spørgeskemaer og/eller besvarelser.
+
+
+
+Datotid             Ver Bld Sign
+=================== === === ==============================================
+20220610124800+0200  3  001 SGPD
+  Ny version grundet indsættelse af UUID.
+20210620163700+0200  2  001 GAL
+  Re-versionering foranlediget af den i flere omgange opdaterede danske
+  QFD-profilering. Denne version af spørgeskemaet er formateret i henhold
+  til den danske profilering af 'HL7 Implementation Guide for CDA Release
+  2' som den kommer til udtryk i flg dokumentation:
+      Questionnaire Form Definition Document (Danish profile – DK QDFF)
+        Release 1.1 Updated May 11th 2021
+      Implementation Guideline: Narrative Block
+        Release 1.0 May 6th, 2021
+      Implementation Guidance: Narrative Block QFDD
+        Release 1.0 May 6th, 2021
+  Ændringer i spørgeskemaets indhold i forhold til tidligere versioner
+    er angivet i PRO-pakkens skemaspecifikation.
+20201221204800+0100  1  004 GAL
+  Dette skema er primært lavet med henblik på demonstration og test af
+  nye tiltag i den danske QFD-profilering, herunder introduktion af
+  maskinlæsbare svarkoder skjult i kommentarer for alle typer spørgsmål.
+........................................................................
+
+
+-->
+<ClinicalDocument xsi:schemaLocation="urn:hl7-org:v3 /xmlschema/QFD/CDA_SDTC.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc" classCode="DOCCLIN" moodCode="EVN">
+	<realmCode code="UV"/>
+	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+	<templateId root="1.2.208.184.12.1" assigningAuthorityName="MedCom"/>
+	<templateId root="1.2.208.184.12.1.1.1"/>
+	<!-- Kort spørgeskema i forbindelse med hjerterehabilitering, Vejle, start -->
+	<id root="1.2.208.176.7.3.1" extension="898cba44-c668-41e8-ac25-c2b880ac7090" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+	<code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="74468-0" displayName="Form Definition Document"/>
+	<title>Kort spørgeskema i forbindelse med hjerterehabilitering, Vejle, start</title>
+	<sdtc:statusCode code="NEW"/>
+	<effectiveTime value="20220610124800+0200"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<versionNumber value="3"/>
+	<recordTarget nullFlavor="NI">
+		<patientRole nullFlavor="NI">
+			<id nullFlavor="NI"/>
+		</patientRole>
+	</recordTarget>
+	<!-- FORFATTERORGANISATION: Sundhedsdatastyrelsen -->
+	<author typeCode="AUT" contextControlCode="OP">
+		<time value="20201207000000+0100"/>
+		<assignedAuthor classCode="ASSIGNED">
+			<id nullFlavor="NA"/>
+			<addr use="WP">
+				<streetAddressLine>PRO-sekretariatet</streetAddressLine>
+				<streetAddressLine>Ørestads Boulevard 5</streetAddressLine>
+				<postalCode>2300</postalCode>
+				<city>København</city>
+				<country>Danmark</country>
+			</addr>
+			<telecom value="tel:+4591334808" use="WP"/>
+			<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+				<name>Sundhedsdatastyrelsen</name>
+				<telecom nullFlavor="NI"/>
+				<addr use="WP">
+					<streetAddressLine nullFlavor="NI"/>
+				</addr>
+			</representedOrganization>
+		</assignedAuthor>
+	</author>
+	<!-- FORVALTERORGANISATION: Sundhedsdatastyrelsen -->
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+				<name>Sundhedsdatastyrelsen</name>
+				<telecom value="tel:+4591334808" use="WP"/>
+				<addr use="WP">
+					<streetAddressLine>PRO-sekretariatet</streetAddressLine>
+					<streetAddressLine>Ørestads Boulevard 5</streetAddressLine>
+					<postalCode>2300</postalCode>
+					<city>København</city>
+					<country>Danmark</country>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<component typeCode="COMP" contextConductionInd="true">
+		<structuredBody classCode="DOCBODY" moodCode="EVN">
+<!-- INFO-SEKTION
+==========================================
+ Hvordan har du det?
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Hvordan har du det?</title>
+					<text><paragraph>Du har modtaget dette spørgeskema, fordi vi gerne vil vide, hvordan du har det. Dine svar vil være et udgangspunkt for vores videre samtale, når vi mødes næste gang.</paragraph>
+<paragraph>Inden du svarer, skal du være opmærksom på at:</paragraph>
+<br/>
+	<br/>Oplysningerne betragtes som en del af din journal, og det er de sundhedsfaglige personer, der tager del i din behandling, der har adgang til den.<br/>
+	<br/>Dine svar vil først blive set af en sundhedsfaglig person lige op til dit næste besøg. Hvis din tilstand forværres inden da, eller hvis din tilstand kræver akut behandling, skal du tage kontakt til sundhedsvæsenet på samme måde, som du ville gøre, hvis du har valgt ikke at svare på spørgeskemaet.<br/>
+	<br/>Dine svar vil kunne blive brugt til kvalitetssikring og –udvikling i sundhedsvæsenet.<br/>
+<br/>
+<paragraph>Det kan være at der er nogle af spørgsmålene, som du synes er svære at svare på, men prøv at svare så godt du kan ud fra hvordan du har det i øjeblikket. Bemærk, der er ikke nogen rigtige eller forkerte svar.</paragraph></text>
+				</section>
+			</component>
+<!-- SPRGSMLSEKTION_2081
+==========================================
+  Indledende oplysninger om dig
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<!-- S2081 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Indledende oplysninger om dig</title>
+					<text><table>
+<colgroup>
+	<col width="70%"/>
+	<col width="30%"/>
+</colgroup>
+<tbody>
+<tr>
+<td colspan="2">For at målrette spørgeskemaet til dig, kommer først et spørgsmål om dit køn.</td>
+</tr>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Hvad er dit køn?</th>
+</tr>
+<tr>
+<td>Mand</td>
+<td><!-- A2200_1 --></td>
+</tr>
+<tr>
+<td>Kvinde</td>
+<td><!-- A2200_2 --></td>
+</tr>
+</tbody>
+</table>
+</text>
+					<!-- GRUPPE_2174 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="2174" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G2174" codeSystemName="Sundhedsdatastyrelsen">
+							<originalText>For at målrette spørgeskemaet til dig, kommer først et spørgsmål om dit køn.</originalText>							</code>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_2200
+							*********************************************************
+							* Hvad er dit køn?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2200" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2200" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvad er dit køn?</originalText>
+									</code>
+									<value code="A2200_1" displayName="Mand" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2200_2" displayName="Kvinde" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+<!-- SPRGSMLSEKTION_2070
+==========================================
+  Generelt om dit helbred
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<!-- S2070 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Generelt om dit helbred</title>
+					<text><table>
+<colgroup>
+	<col width="70%"/>
+	<col width="30%"/>
+</colgroup>
+<tbody>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Hvordan synes du dit helbred er alt i alt?</th>
+</tr>
+<tr>
+<td>Fremragende</td>
+<td><!-- A30_1 --></td>
+</tr>
+<tr>
+<td>Vældig godt</td>
+<td><!-- A30_2 --></td>
+</tr>
+<tr>
+<td>Godt</td>
+<td><!-- A30_3 --></td>
+</tr>
+<tr>
+<td>Mindre godt</td>
+<td><!-- A30_4 --></td>
+</tr>
+<tr>
+<td>Dårligt</td>
+<td><!-- A30_5 --></td>
+</tr>
+</tbody>
+</table>
+</text>
+					<!-- GRUPPE_2140 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="2140" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G2140" codeSystemName="Sundhedsdatastyrelsen">
+														</code>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_30
+							*********************************************************
+							* Hvordan synes du dit helbred er alt i alt?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="30" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q30" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Hvordan synes du dit helbred er alt i alt?</originalText>
+									</code>
+									<value code="A30_1" displayName="Fremragende" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A30_2" displayName="Vældig godt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A30_3" displayName="Godt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A30_4" displayName="Mindre godt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A30_5" displayName="Dårligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+<!-- SPRGSMLSEKTION_2074
+==========================================
+  Samvær og netværk
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<!-- S2074 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<title>Samvær og netværk</title>
+					<text><table>
+<colgroup>
+	<col width="70%"/>
+	<col width="30%"/>
+</colgroup>
+<tbody>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Sker det nogensinde, at du er alene, selvom du mest har lyst til at være sammen med andre?</th>
+</tr>
+<tr>
+<td>Ja, ofte</td>
+<td><!-- A2203_1 --></td>
+</tr>
+<tr>
+<td>Ja, en gang imellem</td>
+<td><!-- A2203_2 --></td>
+</tr>
+<tr>
+<td>Ja, men sjældent</td>
+<td><!-- A2203_3 --></td>
+</tr>
+<tr>
+<td>Nej</td>
+<td><!-- A2203_4 --></td>
+</tr>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Har du nogen at tale med, hvis du har problemer eller brug for støtte?</th>
+</tr>
+<tr>
+<td>Ja, altid</td>
+<td><!-- A2204_1 --></td>
+</tr>
+<tr>
+<td>Ja, for det meste</td>
+<td><!-- A2204_2 --></td>
+</tr>
+<tr>
+<td>Ja, nogle gange</td>
+<td><!-- A2204_3 --></td>
+</tr>
+<tr>
+<td>Nej, aldrig eller næsten aldrig</td>
+<td><!-- A2204_4 --></td>
+</tr>
+</tbody>
+</table>
+</text>
+					<!-- GRUPPE_2149 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="2149" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G2149" codeSystemName="Sundhedsdatastyrelsen">
+														</code>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_2203
+							*********************************************************
+							* Sker det nogensinde, at du er alene, selvom du mest har ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2203" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2203" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Sker det nogensinde, at du er alene, selvom du mest har lyst til at være sammen med andre?</originalText>
+									</code>
+									<value code="A2203_1" displayName="Ja, ofte" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2203_2" displayName="Ja, en gang imellem" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2203_3" displayName="Ja, men sjældent" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2203_4" displayName="Nej" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_2204
+							*********************************************************
+							* Har du nogen at tale med, hvis du har problemer eller brug ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2204" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2204" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Har du nogen at tale med, hvis du har problemer eller brug for støtte?</originalText>
+									</code>
+									<value code="A2204_1" displayName="Ja, altid" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2204_2" displayName="Ja, for det meste" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2204_3" displayName="Ja, nogle gange" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2204_4" displayName="Nej, aldrig eller næsten aldrig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+<!-- INFO-SEKTION
+==========================================
+ Håndtering af sygdom
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Håndtering af sygdom</title>
+					<text><paragraph>Nedenfor er der nogle udsagn, som folk sommetider kommer med, når de taler om deres helbred. Du bedes venligst angive, hvor enig eller uenig du er i, at udsagnene passer på dig personligt.</paragraph>
+<paragraph>Du skal svare, hvad der føles rigtigt for dig og ikke blot, hvad du tror, lægen eller andet sundhedspersonale gerne vil have dig til at sige.</paragraph>
+<paragraph>Hvis udsagnet ikke passer på dig, så marker venligst “ved ikke”.</paragraph></text>
+				</section>
+			</component>
+<!-- SPRGSMLSEKTION_2076
+==========================================
+  Håndtering af sygdom
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<!-- S2076 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text><table>
+<colgroup>
+	<col width="70%"/>
+	<col width="30%"/>
+</colgroup>
+<tbody>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Når alt kommer til alt, er det mig, der har ansvaret for at tage vare på mit helbred</th>
+</tr>
+<tr>
+<td>Meget enig</td>
+<td><!-- A2321_1 --></td>
+</tr>
+<tr>
+<td>Enig</td>
+<td><!-- A2321_2 --></td>
+</tr>
+<tr>
+<td>Uenig</td>
+<td><!-- A2321_3 --></td>
+</tr>
+<tr>
+<td>Meget uenig</td>
+<td><!-- A2321_4 --></td>
+</tr>
+<tr>
+<td>Ved ikke</td>
+<td><!-- A2321_5 --></td>
+</tr>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Min egen aktive rolle i behandlingen er den vigtigste faktor for mit helbred og evne til at fungere</th>
+</tr>
+<tr>
+<td>Meget enig</td>
+<td><!-- A2322_1 --></td>
+</tr>
+<tr>
+<td>Enig</td>
+<td><!-- A2322_2 --></td>
+</tr>
+<tr>
+<td>Uenig</td>
+<td><!-- A2322_3 --></td>
+</tr>
+<tr>
+<td>Meget uenig</td>
+<td><!-- A2322_4 --></td>
+</tr>
+<tr>
+<td>Ved ikke</td>
+<td><!-- A2322_5 --></td>
+</tr>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Jeg er sikker på, at jeg selv kan gøre noget for at forebygge eller mindske nogle af de symptomer eller problemer, der er forbundet med min helbredstilstand</th>
+</tr>
+<tr>
+<td>Meget enig</td>
+<td><!-- A2323_1 --></td>
+</tr>
+<tr>
+<td>Enig</td>
+<td><!-- A2323_2 --></td>
+</tr>
+<tr>
+<td>Uenig</td>
+<td><!-- A2323_3 --></td>
+</tr>
+<tr>
+<td>Meget uenig</td>
+<td><!-- A2323_4 --></td>
+</tr>
+<tr>
+<td>Ved ikke</td>
+<td><!-- A2323_5 --></td>
+</tr>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Jeg ved, hvordan de forskellige slags lægeordinerede medicin jeg får, virker</th>
+</tr>
+<tr>
+<td>Meget enig</td>
+<td><!-- A2324_1 --></td>
+</tr>
+<tr>
+<td>Enig</td>
+<td><!-- A2324_2 --></td>
+</tr>
+<tr>
+<td>Uenig</td>
+<td><!-- A2324_3 --></td>
+</tr>
+<tr>
+<td>Meget uenig</td>
+<td><!-- A2324_4 --></td>
+</tr>
+<tr>
+<td>Ved ikke</td>
+<td><!-- A2324_5 --></td>
+</tr>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Jeg er sikker på, at jeg selv kan afgøre, hvornår jeg har brug for at søge behandling, og hvornår jeg selv kan klare det</th>
+</tr>
+<tr>
+<td>Meget enig</td>
+<td><!-- A2325_1 --></td>
+</tr>
+<tr>
+<td>Enig</td>
+<td><!-- A2325_2 --></td>
+</tr>
+<tr>
+<td>Uenig</td>
+<td><!-- A2325_3 --></td>
+</tr>
+<tr>
+<td>Meget uenig</td>
+<td><!-- A2325_4 --></td>
+</tr>
+<tr>
+<td>Ved ikke</td>
+<td><!-- A2325_5 --></td>
+</tr>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Jeg er sikker på, at jeg kan fortælle lægen om mine bekymringer, selvom lægen ikke spørger</th>
+</tr>
+<tr>
+<td>Meget enig</td>
+<td><!-- A2326_1 --></td>
+</tr>
+<tr>
+<td>Enig</td>
+<td><!-- A2326_2 --></td>
+</tr>
+<tr>
+<td>Uenig</td>
+<td><!-- A2326_3 --></td>
+</tr>
+<tr>
+<td>Meget uenig</td>
+<td><!-- A2326_4 --></td>
+</tr>
+<tr>
+<td>Ved ikke</td>
+<td><!-- A2326_5 --></td>
+</tr>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Jeg er sikker på, at jeg derhjemme kan gennemføre den anbefalede behandling</th>
+</tr>
+<tr>
+<td>Meget enig</td>
+<td><!-- A2327_1 --></td>
+</tr>
+<tr>
+<td>Enig</td>
+<td><!-- A2327_2 --></td>
+</tr>
+<tr>
+<td>Uenig</td>
+<td><!-- A2327_3 --></td>
+</tr>
+<tr>
+<td>Meget uenig</td>
+<td><!-- A2327_4 --></td>
+</tr>
+<tr>
+<td>Ved ikke</td>
+<td><!-- A2327_5 --></td>
+</tr>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Jeg forstår, hvad min helbredstilstand indebærer, og hvad der er årsagen til den</th>
+</tr>
+<tr>
+<td>Meget enig</td>
+<td><!-- A2328_1 --></td>
+</tr>
+<tr>
+<td>Enig</td>
+<td><!-- A2328_2 --></td>
+</tr>
+<tr>
+<td>Uenig</td>
+<td><!-- A2328_3 --></td>
+</tr>
+<tr>
+<td>Meget uenig</td>
+<td><!-- A2328_4 --></td>
+</tr>
+<tr>
+<td>Ved ikke</td>
+<td><!-- A2328_5 --></td>
+</tr>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Jeg kender de forskellige behandlingsmuligheder, der findes for min helbredstilstand</th>
+</tr>
+<tr>
+<td>Meget enig</td>
+<td><!-- A2329_1 --></td>
+</tr>
+<tr>
+<td>Enig</td>
+<td><!-- A2329_2 --></td>
+</tr>
+<tr>
+<td>Uenig</td>
+<td><!-- A2329_3 --></td>
+</tr>
+<tr>
+<td>Meget uenig</td>
+<td><!-- A2329_4 --></td>
+</tr>
+<tr>
+<td>Ved ikke</td>
+<td><!-- A2329_5 --></td>
+</tr>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Jeg har været i stand til at fastholde de ændringer i livsstil, jeg har foretaget af hensyn til mit helbred</th>
+</tr>
+<tr>
+<td>Meget enig</td>
+<td><!-- A2330_1 --></td>
+</tr>
+<tr>
+<td>Enig</td>
+<td><!-- A2330_2 --></td>
+</tr>
+<tr>
+<td>Uenig</td>
+<td><!-- A2330_3 --></td>
+</tr>
+<tr>
+<td>Meget uenig</td>
+<td><!-- A2330_4 --></td>
+</tr>
+<tr>
+<td>Ved ikke</td>
+<td><!-- A2330_5 --></td>
+</tr>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Jeg ved, hvordan jeg skal forhindre yderligere problemer med min sygdom</th>
+</tr>
+<tr>
+<td>Meget enig</td>
+<td><!-- A2331_1 --></td>
+</tr>
+<tr>
+<td>Enig</td>
+<td><!-- A2331_2 --></td>
+</tr>
+<tr>
+<td>Uenig</td>
+<td><!-- A2331_3 --></td>
+</tr>
+<tr>
+<td>Meget uenig</td>
+<td><!-- A2331_4 --></td>
+</tr>
+<tr>
+<td>Ved ikke</td>
+<td><!-- A2331_5 --></td>
+</tr>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Jeg er sikker på, at jeg kan finde en løsning, når der opstår en ny situation eller nye problemer med mit helbred</th>
+</tr>
+<tr>
+<td>Meget enig</td>
+<td><!-- A2332_1 --></td>
+</tr>
+<tr>
+<td>Enig</td>
+<td><!-- A2332_2 --></td>
+</tr>
+<tr>
+<td>Uenig</td>
+<td><!-- A2332_3 --></td>
+</tr>
+<tr>
+<td>Meget uenig</td>
+<td><!-- A2332_4 --></td>
+</tr>
+<tr>
+<td>Ved ikke</td>
+<td><!-- A2332_5 --></td>
+</tr>
+<!-- 1e79c266eec5fb6a434ed0efd7901cb5 46de9c90cbe497a7a64738d750fc9775 3273321c19d14fb9d1df7d470fe70988 75d7ab0988520e5d9daed0e9b0160799 7590e1410a1cfbdc8e991f0fe67840ba -->
+<tr>
+<th colspan="2" align="left">Jeg er sikker på, at jeg selv i stressede perioder kan fastholde ændringer i min livsstil fx kost og motion</th>
+</tr>
+<tr>
+<td>Meget enig</td>
+<td><!-- A2333_1 --></td>
+</tr>
+<tr>
+<td>Enig</td>
+<td><!-- A2333_2 --></td>
+</tr>
+<tr>
+<td>Uenig</td>
+<td><!-- A2333_3 --></td>
+</tr>
+<tr>
+<td>Meget uenig</td>
+<td><!-- A2333_4 --></td>
+</tr>
+<tr>
+<td>Ved ikke</td>
+<td><!-- A2333_5 --></td>
+</tr>
+</tbody>
+</table>
+</text>
+					<!-- GRUPPE_2151 -->
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<organizer classCode="BATTERY" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.176.7.3.3" extension="2151" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+							<code codeSystem="1.2.208.176.7.3.3" code="G2151" codeSystemName="Sundhedsdatastyrelsen">
+														</code>
+							<statusCode code="COMPLETED"/>
+							<!-- MC-SPRGSML_2321
+							*********************************************************
+							* Når alt kommer til alt, er det mig, der har ansvaret for at ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2321" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2321" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Når alt kommer til alt, er det mig, der har ansvaret for at tage vare på mit helbred</originalText>
+									</code>
+									<value code="A2321_1" displayName="Meget enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2321_2" displayName="Enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2321_3" displayName="Uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2321_4" displayName="Meget uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2321_5" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_2322
+							*********************************************************
+							* Min egen aktive rolle i behandlingen er den vigtigste ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="2"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2322" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2322" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Min egen aktive rolle i behandlingen er den vigtigste faktor for mit helbred og evne til at fungere</originalText>
+									</code>
+									<value code="A2322_1" displayName="Meget enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2322_2" displayName="Enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2322_3" displayName="Uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2322_4" displayName="Meget uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2322_5" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_2323
+							*********************************************************
+							* Jeg er sikker på, at jeg selv kan gøre noget for at ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="3"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2323" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2323" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Jeg er sikker på, at jeg selv kan gøre noget for at forebygge eller mindske nogle af de symptomer eller problemer, der er forbundet med min helbredstilstand</originalText>
+									</code>
+									<value code="A2323_1" displayName="Meget enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2323_2" displayName="Enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2323_3" displayName="Uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2323_4" displayName="Meget uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2323_5" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_2324
+							*********************************************************
+							* Jeg ved, hvordan de forskellige slags lægeordinerede ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="4"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2324" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2324" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Jeg ved, hvordan de forskellige slags lægeordinerede medicin jeg får, virker</originalText>
+									</code>
+									<value code="A2324_1" displayName="Meget enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2324_2" displayName="Enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2324_3" displayName="Uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2324_4" displayName="Meget uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2324_5" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_2325
+							*********************************************************
+							* Jeg er sikker på, at jeg selv kan afgøre, hvornår jeg har ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="5"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2325" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2325" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Jeg er sikker på, at jeg selv kan afgøre, hvornår jeg har brug for at søge behandling, og hvornår jeg selv kan klare det</originalText>
+									</code>
+									<value code="A2325_1" displayName="Meget enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2325_2" displayName="Enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2325_3" displayName="Uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2325_4" displayName="Meget uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2325_5" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_2326
+							*********************************************************
+							* Jeg er sikker på, at jeg kan fortælle lægen om mine ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="6"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2326" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2326" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Jeg er sikker på, at jeg kan fortælle lægen om mine bekymringer, selvom lægen ikke spørger</originalText>
+									</code>
+									<value code="A2326_1" displayName="Meget enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2326_2" displayName="Enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2326_3" displayName="Uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2326_4" displayName="Meget uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2326_5" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_2327
+							*********************************************************
+							* Jeg er sikker på, at jeg derhjemme kan gennemføre den ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="7"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2327" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2327" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Jeg er sikker på, at jeg derhjemme kan gennemføre den anbefalede behandling</originalText>
+									</code>
+									<value code="A2327_1" displayName="Meget enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2327_2" displayName="Enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2327_3" displayName="Uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2327_4" displayName="Meget uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2327_5" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_2328
+							*********************************************************
+							* Jeg forstår, hvad min helbredstilstand indebærer, og hvad ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="8"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2328" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2328" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Jeg forstår, hvad min helbredstilstand indebærer, og hvad der er årsagen til den</originalText>
+									</code>
+									<value code="A2328_1" displayName="Meget enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2328_2" displayName="Enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2328_3" displayName="Uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2328_4" displayName="Meget uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2328_5" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_2329
+							*********************************************************
+							* Jeg kender de forskellige behandlingsmuligheder, der findes ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="9"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2329" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2329" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Jeg kender de forskellige behandlingsmuligheder, der findes for min helbredstilstand</originalText>
+									</code>
+									<value code="A2329_1" displayName="Meget enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2329_2" displayName="Enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2329_3" displayName="Uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2329_4" displayName="Meget uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2329_5" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_2330
+							*********************************************************
+							* Jeg har været i stand til at fastholde de ændringer i ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="10"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2330" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2330" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Jeg har været i stand til at fastholde de ændringer i livsstil, jeg har foretaget af hensyn til mit helbred</originalText>
+									</code>
+									<value code="A2330_1" displayName="Meget enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2330_2" displayName="Enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2330_3" displayName="Uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2330_4" displayName="Meget uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2330_5" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_2331
+							*********************************************************
+							* Jeg ved, hvordan jeg skal forhindre yderligere problemer ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="11"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2331" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2331" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Jeg ved, hvordan jeg skal forhindre yderligere problemer med min sygdom</originalText>
+									</code>
+									<value code="A2331_1" displayName="Meget enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2331_2" displayName="Enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2331_3" displayName="Uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2331_4" displayName="Meget uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2331_5" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_2332
+							*********************************************************
+							* Jeg er sikker på, at jeg kan finde en løsning, når der ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="12"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2332" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2332" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Jeg er sikker på, at jeg kan finde en løsning, når der opstår en ny situation eller nye problemer med mit helbred</originalText>
+									</code>
+									<value code="A2332_1" displayName="Meget enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2332_2" displayName="Enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2332_3" displayName="Uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2332_4" displayName="Meget uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2332_5" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_2333
+							*********************************************************
+							* Jeg er sikker på, at jeg selv i stressede perioder kan ...
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="13"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.176.1.5" extension="2333" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+									<code codeSystem="1.2.208.176.1.5" code="Q2333" codeSystemName="Sundhedsdatastyrelsen">
+										<originalText>Jeg er sikker på, at jeg selv i stressede perioder kan fastholde ændringer i min livsstil fx kost og motion</originalText>
+									</code>
+									<value code="A2333_1" displayName="Meget enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2333_2" displayName="Enig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2333_3" displayName="Uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2333_4" displayName="Meget uenig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<value code="A2333_5" displayName="Ved ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+									<!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer>
+					</entry>
+				</section>
+			</component>
+<!-- COPYRIGHT-SEKTION
+==========================================
+  Tak for din besvarelse
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.2"/>
+					<title>Tak for din besvarelse</title>
+					<text><paragraph> </paragraph>
+<paragraph>Det ovenstående spørgeskema indeholder spørgsmål beskyttet af ophavsret:<br/>© Copyright Insignia Health ® “Patient Activation Measure; Copyright © 2003-2010, University of Oregon. All Rights reserved”</paragraph></text>
+					<entry typeCode="DRIV" contextConductionInd="true">
+						<observation classCode="OBS" moodCode="EVN">
+							<templateId root="2.16.840.1.113883.10.20.32.4.21"/>
+							<code code="COPY" codeSystem="2.16.840.1.113883.6.1" displayName="Code for Copyright" codeSystemName="LOINC"/>
+							<value xsi:type="ST"> 
+Det ovenstående spørgeskema indeholder spørgsmål beskyttet af ophavsret: © Copyright Insignia Health ® “Patient Activation Measure; Copyright © 2003-2010, University of Oregon. All Rights reserved”</value>
+						</observation>
+					</entry>
+				</section>
+			</component>
+		</structuredBody>
+	</component>
+	<!-- XML by SundIT - https://sundit.dk -->
+</ClinicalDocument>

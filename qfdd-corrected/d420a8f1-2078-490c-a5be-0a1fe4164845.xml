@@ -1,0 +1,3197 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<!-- Corrected copy of https://spgdef.dk/qfdd/d420a8f1-2078-490c-a5be-0a1fe4164845. Each change is marked by a comment starting with FIXED. -->
+<!--
+........................................................................
+ SkemaId: d420a8f1-2078-490c-a5be-0a1fe4164845
+ Titel:   Prostatacancer
+ Version: 1
+ Build:   001, PRO-sekretariatet, https://pro-danmark.dk/da for: RKKP Videncenter, https://rkkp.dk
+ Dato:    20230725100008+0100
+........................................................................
+
+=================================================
+*** Visualisering af PRO-skema ***
+=================================================
+Denne XML-fil er bygget til RKKP PRO-pakke. I samme
+pakke foreligger der to HTML-filer - en statisk og en dynamisk - der
+gengiver PRO-spørgeskemaets intenderede udseende og funktionalitet. For
+systemer, der ikke i tilstrækkeligt omfang kan udnytte XML-filens højt
+strukturerede indhold, er dele af spørgeskemaet, som en slags sikker-
+hedsnet, gengivet i form af narrativ tekst.
+
+PRO-sekretariatet anbefaler i enhver henseende, at man anvender RKKP's to HTML-filer i forhold, der vedrører udseende og funktionalitet
+af spørgeskemaer og/eller besvarelser.
+
+Datotid             Ver Bld Sign
+=================== === === ============================================
+20230725100008+0100  1  001 KIAJ
+  Første version baseret på specifikation fra RKKP 25/7-2023
+........................................................................
+
+-->
+<ClinicalDocument xsi:schemaLocation="urn:hl7-org:v3 /xmlschema/QFD/CDA_SDTC.xsd" classCode="DOCCLIN" moodCode="EVN" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc">
+	<realmCode code="UV"/>
+	<typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+	<templateId root="1.2.208.184.12.1" assigningAuthorityName="MedCom"/>
+	<templateId root="1.2.208.184.12.1.1.1"/><!-- Prostatacancer -->
+	<id root="1.2.208.195.1.1.1" extension="d420a8f1-2078-490c-a5be-0a1fe4164845" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+	<code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="74468-0" displayName="Form Definition Document"/>
+	<title>Prostatacancer</title>
+	<sdtc:statusCode code="NEW"/>
+	<effectiveTime value="20230725100008+0100"/>
+	<confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+	<languageCode code="da-DK"/>
+	<versionNumber value="3"/>
+	<recordTarget nullFlavor="NI">
+		<patientRole nullFlavor="NI">
+			<id nullFlavor="NI"/>
+		</patientRole>
+	</recordTarget><!-- FORFATTERORGANISATION: RKKP -->
+	<author typeCode="AUT" contextControlCode="OP">
+		<time value="20230613091300+0200"/>
+		<assignedAuthor classCode="ASSIGNED">
+			<id nullFlavor="NA"/>
+			<addr use="WP">
+				<streetAddressLine>Regionernes Kliniske Kvalitetsudviklingsprogram</streetAddressLine>
+				<streetAddressLine>Hedeager 3</streetAddressLine>
+				<postalCode>8200</postalCode>
+				<city>Aarhus N</city>
+				<country>Danmark</country>
+			</addr>
+			<telecom value="tel:+4561247406" use="WP"/>
+			<representedOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+				<name>Regionernes Kliniske Kvalitetsudviklingsprogram </name>
+				<telecom nullFlavor="NI"/>
+				<addr use="WP">
+					<streetAddressLine nullFlavor="NI"/>
+				</addr>
+			</representedOrganization>
+		</assignedAuthor>
+	</author><!-- FORVALTERORGANISATION: Regionernes Kliniske Kvalitetsudviklingsprogram  -->
+	<custodian typeCode="CST">
+		<assignedCustodian classCode="ASSIGNED">
+			<representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+				<id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+				<name>Regionernes Kliniske Kvalitetsudviklingsprogram</name>
+				<telecom value="tel:+4561247406" use="WP"/>
+				<addr use="WP">
+					<streetAddressLine>Regionernes Kliniske Kvalitetsudviklingsprogram</streetAddressLine>
+					<streetAddressLine>Hedeager 3</streetAddressLine>
+					<postalCode>8200</postalCode>
+					<city>Aarhus N</city>
+					<country>Danmark</country>
+				</addr>
+			</representedCustodianOrganization>
+		</assignedCustodian>
+	</custodian>
+	<component typeCode="COMP" contextConductionInd="true">
+		<structuredBody classCode="DOCBODY" moodCode="EVN">
+<!-- INFO-SEKTION
+==========================================
+ Prostata spørgeskema
+========================================== -->
+	<component typeCode="COMP" contextConductionInd="true">
+		<section classCode="DOCSECT" moodCode="EVN">
+			<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+			<title>Prostata spørgeskema</title> <text></text>
+		</section>
+	</component>
+<!-- 
+==========================================
+ Om dette spørgeskema
+========================================== -->
+	<component typeCode="COMP" contextConductionInd="true">
+		<section classCode="DOCSECT" moodCode="EVN">
+			<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+			<title>Om dette spørgeskema</title> 
+					<text>
+						<paragraph>Introduktionstekst til spørgeskema udarbejdes lokalt.</paragraph>
+					</text>
+		</section>
+	</component>
+<!-- 
+==========================================
+Copyright-sektion
+========================================== -->
+	<component typeCode="COMP" contextConductionInd="true">
+		<section classCode="DOCSECT" moodCode="EVN">
+			<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+			<title>Copyright-sektion</title> <text></text>
+		</section>
+	</component>
+<!-- SPRGSMLSEKTION_2001 
+==========================================
+ 1. Om din almene trivsel - indeholder 18 spm fra Q1001 til Q1018 - sytten MS-spm og et TXT-spm
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>1. Om din almene trivsel</title> <text></text>
+				</section>
+			</component>
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN"> <!--START SECTION 2001-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S2001 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text>
+						<table> <!--START TABEL - Her er alle spm i sektion 1 første gang -->
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody> <!--START BODY - Her er alle spm i sektion 1 første gang -->
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 1:
+									<br/>I de sidste 4 uger var du begrænset i udførelsen af enten dit arbejde eller andre daglige aktiviteter?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1001_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1001_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1001_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1001_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 2:
+									<br/>I de sidste 4 uger var du begrænset i at dyrke dine hobbyer eller andre fritidsaktiviteter?</th>
+								</tr>	
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1002_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1002_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1002_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1002_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 3:
+									<br/>I de sidste 4 uger var du træt?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1003_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1003_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1003_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1003_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 4:
+									<br/>I de sidste 4 uger havde du brug for at hvile dig?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1004_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1004_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1004_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1004_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 5:
+									<br/>I de sidste 4 uger har du haft smerter?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1005_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1005_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1005_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1005_4 -->
+									</td>
+								</tr>								
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 6:
+									<br/>I de sidste 4 uger vanskeliggjorde smerter dine daglige gøremål?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1006_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1006_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1006_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1006_4 -->
+									</td>
+								</tr>								
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 7:
+									<br/>I de sidste 4 uger har du savnet appetit?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1007_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1007_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1007_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1007_4 -->
+									</td>
+								</tr>								
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 8:
+									<br/>I de sidste 4 uger har du haft kvalme?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1008_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1008_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1008_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1008_4 -->
+									</td>
+								</tr>								
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 9:
+									<br/>I de sidste 4 uger følte du dig deprimeret?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1009_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1009_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1009_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1009_4 -->
+									</td>
+								</tr>								
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 10:
+									<br/>I de sidste 4 uger er du bekymret for, at din tilstand vil forværres?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1010_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1010_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1010_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1010_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 11:
+									<br/>I de sidste fire uger har du haft hedeture?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1011_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1011_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1011_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1011_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 12:
+									<br/>I de sidste fire uger har du haft ømme eller hævede brystvorter eller bryster?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1012_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1012_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1012_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1012_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 13:
+									<br/>I de sidste fire uger har du haft hævelser i ben eller ankler?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1013_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1013_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1013_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1013_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 14:
+									<br/>I de sidste fire uger har du haft stikken/prikken eller nedsat følsomhed i hænder eller fødder?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1014_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1014_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1014_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1014_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 15:
+									<br/>I de sidste fire uger har du nedsat muskelkraft?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1015_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1015_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1015_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1015_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 16:
+									<br/>I de sidste fire uger har du tabt dig?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1016_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1016_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1016_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1016_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 17:
+									<br/>I de sidste fire uger har du taget på?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1017_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1017_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1017_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1017_4 -->
+									</td>
+								</tr>
+
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 18:
+									<br/>Hvad er din vægt i dag?
+									<br/>Angiv vægt i kilo</th><td><!-- Q1018--></td>
+								</tr>
+							</tbody> <!--SLUT BODY - Her er alle spm i sektion 1 første gang -->
+						</table> <!--SLUT TABEL - Her er alle spm i sektion 1 første gang -->
+					</text>
+					<!-- GRUPPE_G3001 --> 
+					<entry typeCode="DRIV" contextConductionInd="true"><!--START GRUPPE 3001 -->
+						<organizer classCode="BATTERY" moodCode="EVN"> 
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.195.1.1.3" extension="3001" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+							<code codeSystem="1.2.208.195.1.1.3" code="G3001" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+								<!--<originalText></originalText>-->
+							</code>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/>
+							<!-- MC-SPRGSML_1001
+							*********************************************************
+							* Spørgsmål 1:
+							I de sidste 4 uger var du begrænset i udførelsen af enten dit arbejde eller andre daglige aktiviteter?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1001" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1001" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 1: <!--<br/>-->I de sidste 4 uger var du begrænset i udførelsen af enten dit arbejde eller andre daglige aktiviteter?
+										</originalText>
+									</code>
+									<value code="A1001_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1001_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1001_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1001_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1002
+							*********************************************************
+							* Spørgsmål 2:
+							I de sidste 4 uger var du begrænset i at dyrke dine hobbyer eller andre fritidsaktiviteter?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1002" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1002" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 2:
+										<!--<br/>-->I de sidste 4 uger var du begrænset i at dyrke dine hobbyer eller andre fritidsaktiviteter?</originalText>
+									</code>
+									<value code="A1002_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1002_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1002_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1002_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1003
+							*********************************************************
+							* Spørgsmål 3:
+							I de sidste 4 uger var du træt?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1003" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1003" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 3:
+										<!--<br/>-->I de sidste 4 uger var du træt?</originalText>
+									</code>
+									<value code="A1003_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1003_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1003_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1003_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1004
+							*********************************************************
+							* Spørgsmål 4:
+							I de sidste 4 uger havde du brug for at hvile dig?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1004" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1004" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 4:
+										<!--<br/>-->I de sidste 4 uger havde du brug for at hvile dig?</originalText>
+									</code>
+									<value code="A1004_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1004_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1004_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1004_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1005
+							*********************************************************
+							* Spørgsmål 5:
+							I de sidste 4 uger har du haft smerter?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1005" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1005" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 5:
+										<!--<br/>-->I de sidste 4 uger har du haft smerter?</originalText>
+									</code>
+									<value code="A1005_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1005_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1005_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1005_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1006
+							*********************************************************
+							* Spørgsmål 6:
+							I de sidste 4 uger vanskeliggjorde smerter dine daglige gøremål?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1006" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1006" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 6:
+										<!--<br/>-->I de sidste 4 uger vanskeliggjorde smerter dine daglige gøremål?</originalText>
+									</code>
+									<value code="A1006_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1006_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1006_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1006_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1007
+							*********************************************************
+							* Spørgsmål 7:
+							I de sidste 4 uger har du savnet appetit?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1007" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1007" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 7:
+										<!--<br/>-->I de sidste 4 uger har du savnet appetit?</originalText>
+									</code>
+									<value code="A1007_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1007_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1007_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1007_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1008
+							*********************************************************
+							* Spørgsmål 8:
+							I de sidste 4 uger har du haft kvalme?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1008" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1008" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 8:
+										<!--<br/>-->I de sidste 4 uger har du haft kvalme?</originalText>
+									</code>
+									<value code="A1008_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1008_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1008_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1008_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_100z
+							*********************************************************
+							* Spørgsmål 9:
+							I de sidste 4 uger følte du dig deprimeret?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1009" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1009" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 9:
+										<!--<br/>-->I de sidste 4 uger følte du dig deprimeret?</originalText>
+									</code>
+									<value code="A1009_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1009_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1009_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1009_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1010
+							*********************************************************
+							* Spørgsmål 10:
+							I de sidste 4 uger er du bekymret for, at din tilstand vil forværres?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1010" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1010" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 10:
+										<!--<br/>-->I de sidste 4 uger er du bekymret for, at din tilstand vil forværres?</originalText>
+									</code>
+									<value code="A1010_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1010_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1010_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1010_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1011
+							*********************************************************
+							* Spørgsmål 11:
+							I de sidste fire uger har du haft hedeture?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1011" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1011" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 11:
+										<!--<br/>-->I de sidste fire uger har du haft hedeture?</originalText>
+									</code>
+									<value code="A1011_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1011_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1011_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1011_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1012
+							*********************************************************
+							* Spørgsmål 12:
+							I de sidste fire uger har du haft ømme eller hævede brystvorter eller bryster?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1012" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1012" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 12:
+										<!--<br/>-->I de sidste fire uger har du haft ømme eller hævede brystvorter eller bryster?</originalText>
+									</code>
+									<value code="A1012_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1012_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1012_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1012_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1013
+							*********************************************************
+							* Spørgsmål 13:
+							I de sidste fire uger har du haft hævelser i ben eller ankler?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1013" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1013" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 13:
+										<!--<br/>-->I de sidste fire uger har du haft hævelser i ben eller ankler?</originalText>
+									</code>
+									<value code="A1013_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1013_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1013_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1013_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1014
+							*********************************************************
+							* Spørgsmål 14:
+							I de sidste fire uger har du haft stikken/prikken eller nedsat følsomhed i hænder eller fødder?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1014" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1014" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 14:
+										<!--<br/>-->I de sidste fire uger har du haft stikken/prikken eller nedsat følsomhed i hænder eller fødder?</originalText>
+									</code>
+									<value code="A1014_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1014_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1014_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1014_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1015
+							*********************************************************
+							* Spørgsmål 15:
+							I de sidste fire uger har du nedsat muskelkraft?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1015" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1015" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 15:
+										<!--<br/>-->I de sidste fire uger har du nedsat muskelkraft?</originalText>
+									</code>
+									<value code="A1015_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1015_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1015_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1015_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1016
+							*********************************************************
+							* Spørgsmål 16:
+							I de sidste fire uger har du tabt dig?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1016" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1016" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 16:
+										<!--<br/>-->I de sidste fire uger har du tabt dig?</originalText>
+									</code>
+									<value code="A1016_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1016_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1016_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1016_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1017
+							*********************************************************
+							* Spørgsmål 17:
+							I de sidste fire uger har du taget på?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1017" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1017" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 17:
+										<!--<br/>-->I de sidste fire uger har du taget på?</originalText>
+									</code>
+									<value code="A1017_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1017_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1017_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1017_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- NUM-SPRGSML_1018
+							*********************************************************
+							* Spørgsmål 18:
+							Hvad er din vægt i dag?
+							Angiv vægt i kilo
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<!-- FIXED QFDD-DK-1.2-C178: question 1018 has no answer options, so it cannot be a multiple-choice question (templateId 2.16.840.1.113883.10.20.32.4.8, 2 or more values required); templateId changed to the numeric question template 2.16.840.1.113883.10.20.32.4.7. -->
+									<templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+									<id root="1.2.208.195.1.1.4" extension="1018" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1018" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " displayName="Hvad er din vægt i dag?">
+										<originalText>Spørgsmål 18:
+										<!--<br/>-->Hvad er din vægt i dag?</originalText>
+									</code>									
+									<!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">Angiv vægt i kilo.</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer> 
+					</entry> <!--SLUT GRUPPE 3001  -->
+				</section> <!--SLUT SECTION 2001-->
+			</component>
+<!-- SPRGSMLSEKTION_2002 
+==========================================
+ 2. Om din seksualfunktion - indeholder 5 spm fra Q1019 til Q1024 - alle MC-spm
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>2. Om din seksualfunktion</title> <text></text>
+				</section>
+			</component>
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN"> <!--START SECTION 2002-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S2002 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text>
+						<table> <!--START TABEL - Her er alle spm i sektion 2 første gang -->
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 19:
+									<br/>Har du behov for en samtale om seksuelle problemer?</th>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A1019_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A1019_2 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 20:
+									<br/>I de sidste fire uger har du følt dig mindre maskulin som følge af din sygdom eller behandling?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1020_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1020_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1020_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1020_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 21:
+									<br/>I de sidste fire uger i hvor høj grad har du haft lyst til sex?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1021_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1021_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1021_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1021_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 22:
+									<br/>I de sidste fire uger i hvor høj grad har du været seksuelt aktiv (med eller uden samleje)?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1022_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1022_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1022_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1022_4 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 23:
+									<br/>I de sidste fire uger har du haft problemer med at få eller bevare en erektion?</th>
+								</tr>
+								<tr>
+									<td>Slet ikke</td>
+									<td><!-- A1023_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Lidt</td>
+									<td><!-- A1023_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>En del</td>
+									<td><!-- A1023_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget</td>
+									<td><!-- A1023_4 -->
+									</td>
+								</tr>								
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 24:
+									<br/>Har du brugt potensfremmende medicin eller hjælpemidler?</th>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A1024_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A1024_2 -->
+									</td>
+								</tr>
+							</tbody> <!--SLUT BODY - Her er alle spm i sektion 2 første gang -->
+						</table> <!--SLUT TABEL - Her er alle spm i sektion 2 første gang -->
+					</text>
+					<!-- GRUPPE_G3002 --> 
+					<entry typeCode="DRIV" contextConductionInd="true"><!--START GRUPPE 3002-->
+						<organizer classCode="BATTERY" moodCode="EVN"> 
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.195.1.1.3" extension="3001" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+							<code codeSystem="1.2.208.195.1.1.3" code="G3001" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+								<!--<originalText></originalText>-->
+							</code>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/>
+							<!-- MC-SPRGSML_1019
+							*********************************************************
+							* Spørgsmål 19:
+							Har du behov for en samtale om seksuelle problemer?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1019" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1019" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 19:
+										<!--<br/>-->Har du behov for en samtale om seksuelle problemer?</originalText>
+									</code>
+									<value code="A1019_1" displayName="Nej" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1019_2" displayName="Ja" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1020
+							*********************************************************
+							* Spørgsmål 20:
+							I de sidste fire uger har du følt dig mindre maskulin som følge af din sygdom eller behandling?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1020" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1020" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 20:
+										<!--<br/>-->I de sidste fire uger har du følt dig mindre maskulin som følge af din sygdom eller behandling?</originalText>
+									</code>
+									<value code="A1020_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1020_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1020_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1020_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse --><!-- MC-kriterie Q1019:A1019_2 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q1019" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+											<value code="A1019_2" xsi:type="CE"/>
+										</sdtc:criterion>
+									</sdtc:precondition>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1021
+							*********************************************************
+							* Spørgsmål 21:
+							I de sidste fire uger i hvor høj grad har du haft lyst til sex?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1021" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1021" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 21:
+										<!--<br/>-->I de sidste fire uger i hvor høj grad har du haft lyst til sex?</originalText>
+									</code>
+									<value code="A1021_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1021_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1021_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1021_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse --><!-- MC-kriterie Q1019:A1019_2 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q1019" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+											<value code="A1019_2" xsi:type="CE"/>
+										</sdtc:criterion>
+									</sdtc:precondition>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1022
+							*********************************************************
+							* Spørgsmål 22:
+							I de sidste fire uger i hvor høj grad har du været seksuelt aktiv (med eller uden samleje)?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1022" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1022" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 22:
+										<!--<br/>-->I de sidste fire uger i hvor høj grad har du været seksuelt aktiv (med eller uden samleje)?</originalText>
+									</code>
+									<value code="A1022_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1022_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1022_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1022_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse --><!-- MC-kriterie Q1019:A1019_2 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q1019" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+											<value code="A1019_2" xsi:type="CE"/>
+										</sdtc:criterion>
+									</sdtc:precondition>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1023
+							*********************************************************
+							* Spørgsmål 23:
+							I de sidste fire uger har du haft problemer med at få eller bevare en erektion?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1023" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1023" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 23:
+										<!--<br/>-->I de sidste fire uger har du haft problemer med at få eller bevare en erektion?</originalText>
+									</code>
+									<value code="A1023_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1023_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1023_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1023_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse --><!-- MC-kriterie Q1019:A1019_2 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q1019" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+											<value code="A1019_2" xsi:type="CE"/>
+										</sdtc:criterion>
+									</sdtc:precondition>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1024
+							*********************************************************
+							* Spørgsmål 24:
+							Har du brugt potensfremmende medicin eller hjælpemidler?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1024" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1024" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 24:
+										<!--<br/>-->Har du brugt potensfremmende medicin eller hjælpemidler?</originalText>
+									</code>
+									<value code="A1024_1" displayName="Nej" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1024_2" displayName="Ja" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse --><!-- MC-kriterie Q1019:A1019_2 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q1019" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+											<value code="A1019_2" xsi:type="CE"/>
+										</sdtc:criterion>
+									</sdtc:precondition>
+								</observation>
+							</component>
+						</organizer> 
+					</entry> <!--SLUT GRUPPE 3002 -->
+				</section> <!--SLUT SECTION 2002-->
+			</component>
+<!-- SPRGSMLSEKTION_2003
+==========================================
+ 3. Om din vandladning - indeholder 7 spm fra Q1025 til Q1031 - alle MC-spm
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>2. Om din vandladning</title> <text></text>
+				</section>
+			</component>
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN"> <!--START SECTION 2003-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S2003 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text>
+						<table> <!--START TABEL -->
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody> 
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 25:
+									<br/>Samlet set, hvor store problemer har du haft med din vandladning?</th>
+								</tr>
+								<tr>
+									<td>Ingen problemer</td>
+									<td><!-- A1025_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget små problemer</td>
+									<td><!-- A1025_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Små problemer</td>
+									<td><!-- A1025_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Moderate problemer</td>
+									<td><!-- A1025_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Store problemer</td>
+									<td><!-- A1025_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 26:
+									<br/>Har du haft blødning ved vandladning?</th>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A1026_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A1026_2 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 27:
+									<br/>Hvor store problemer har du haft med at dryppe eller holde på vandet?</th>
+								</tr>
+								<tr>
+									<td>Ingen problemer</td>
+									<td><!-- A1027_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget små problemer</td>
+									<td><!-- A1027_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Små problemer</td>
+									<td><!-- A1027_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Moderate problemer</td>
+									<td><!-- A1027_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Store problemer</td>
+									<td><!-- A1027_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 28:
+									<br/>Hvor store problemer har du haft med smerte eller svien ved vandladning?</th>
+								</tr>
+								<tr>
+									<td>Ingen problemer</td>
+									<td><!-- A1028_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget små problemer</td>
+									<td><!-- A1028_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Små problemer</td>
+									<td><!-- A1028_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Moderate problemer</td>
+									<td><!-- A1028_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Store problemer</td>
+									<td><!-- A1028_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 29:
+									<br/>Hvor store problemer har du haft med svag urinstråle?</th>
+								</tr>
+								<tr>
+									<td>Ingen problemer</td>
+									<td><!-- A1029_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget små problemer</td>
+									<td><!-- A1029_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Små problemer</td>
+									<td><!-- A1029_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Moderate problemer</td>
+									<td><!-- A1029_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Store problemer</td>
+									<td><!-- A1029_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 30:
+									<br/>Hvor store problemer har du haft med behov for hyppig vandladning i løbet af dagen?</th>
+								</tr>
+								<tr>
+									<td>Ingen problemer</td>
+									<td><!-- A1030_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget små problemer</td>
+									<td><!-- A1030_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Små problemer</td>
+									<td><!-- A1030_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Moderate problemer</td>
+									<td><!-- A1030_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Store problemer</td>
+									<td><!-- A1030_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 31:
+									<br/>I de sidste fire uger hvor mange bleer eller indlæg har du brugt pr. dag for at kunne kontrollere din utæthed for urin?</th>
+								</tr>
+								<tr>
+									<td>Jeg har ikke brugt bleer/indlæg</td>
+									<td><!-- A1031_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har brugt 1 ble/indlæg per dag</td>
+									<td><!-- A1031_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har brugt 2 bleer/indlæg per dag</td>
+									<td><!-- A1031_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Jeg har brugt 3 eller flere bleer/indlæg per dag</td>
+									<td><!-- A1031_4 -->
+									</td>
+								</tr>
+							</tbody> <!--SLUT BODY - Her er alle spm i sektion 3 første gang -->
+						</table> <!--SLUT TABEL - Her er alle spm i sektion 3 første gang -->
+					</text>
+					<!-- GRUPPE_G3003 --> 
+					<entry typeCode="DRIV" contextConductionInd="true"><!--START GRUPPE 3003-->
+						<organizer classCode="BATTERY" moodCode="EVN"> 
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.195.1.1.3" extension="3003" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+							<code codeSystem="1.2.208.195.1.1.3" code="G3003" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+								<!--<originalText></originalText>-->
+							</code>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/>
+							<!-- MC-SPRGSML_1025
+							*********************************************************
+							* Spørgsmål 25:
+							Samlet set, hvor store problemer har du haft med din vandladning?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1025" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1025" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 25:
+										<!--<br/>-->Samlet set, hvor store problemer har du haft med din vandladning?</originalText>
+									</code>
+									<value code="A1025_1" displayName="Ingen problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1025_2" displayName="Meget små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1025_3" displayName="Små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1025_4" displayName="Moderate problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1025_5" displayName="Store problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1026
+							*********************************************************
+							* Spørgsmål 26:
+							Har du haft blødning ved vandladning?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1026" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1026" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 26:
+										<!--<br/>-->Har du haft blødning ved vandladning?</originalText>
+									</code>
+									<value code="A1026_1" displayName="Nej" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1026_2" displayName="Ja" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1027
+							*********************************************************
+							* Spørgsmål 27:
+							Hvor store problemer har du haft med at dryppe eller holde på vandet?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1027" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1027" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 27:
+										<!--<br/>-->Hvor store problemer har du haft med at dryppe eller holde på vandet?</originalText>
+									</code>
+									<value code="A1027_1" displayName="Ingen problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1027_2" displayName="Meget små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1027_3" displayName="Små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1027_4" displayName="Moderate problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1027_5" displayName="Store problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q1025 :A1025_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="C2053_1" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/><!-- MC-kriterie Q1025:A1025_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1025:A1025_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1025:A1025_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1025:A1025_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1028
+							*********************************************************
+							* Spørgsmål 28:
+							Hvor store problemer har du haft med smerte eller svien ved vandladning?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1028" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1028" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 28:
+										<!--<br/>-->Hvor store problemer har du haft med smerte eller svien ved vandladning?</originalText>
+									</code>
+									<value code="A1028_1" displayName="Ingen problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1028_2" displayName="Meget små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1028_3" displayName="Små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1028_4" displayName="Moderate problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1028_5" displayName="Store problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q1025 :A1025_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="C2053_1" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/><!-- MC-kriterie Q1025:A1025_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1025:A1025_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1025:A1025_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1025:A1025_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1029
+							*********************************************************
+							* Spørgsmål 29:
+							Hvor store problemer har du haft med svag urinstråle?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1029" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1029" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 29:
+										<!--<br/>-->Hvor store problemer har du haft med svag urinstråle?</originalText>
+									</code>
+									<value code="A1029_1" displayName="Ingen problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1029_2" displayName="Meget små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1029_3" displayName="Små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1029_4" displayName="Moderate problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1029_5" displayName="Store problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q1025 :A1025_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="C2053_1" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/><!-- MC-kriterie Q1025:A1025_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1025:A1025_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1025:A1025_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1025:A1025_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1030
+							*********************************************************
+							* Spørgsmål 30:
+							Hvor store problemer har du haft med behov for hyppig vandladning i løbet af dagen?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1030" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1030" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 30:
+										<!--<br/>-->Hvor store problemer har du haft med behov for hyppig vandladning i løbet af dagen?</originalText>
+									</code>
+									<value code="A1030_1" displayName="Ingen problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1030_2" displayName="Meget små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1030_3" displayName="Små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1030_4" displayName="Moderate problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1030_5" displayName="Store problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q1025 :A1025_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="C2053_1" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/><!-- MC-kriterie Q1025:A1025_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1025:A1025_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1025:A1025_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1025:A1025_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1031
+							*********************************************************
+							* Spørgsmål 31:
+							I de sidste fire uger hvor mange bleer eller indlæg har du brugt pr. dag for at kunne kontrollere din utæthed for urin?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1031" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1031" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 31:
+										<!--<br/>-->I de sidste fire uger hvor mange bleer eller indlæg har du brugt pr. dag for at kunne kontrollere din utæthed for urin?</originalText>
+									</code>
+									<value code="A1031_1" displayName="Jeg har ikke brugt bleer/indlæg" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1031_2" displayName="Jeg har brugt 1 ble/indlæg per dag" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1031_3" displayName="Jeg har brugt 2 bleer/indlæg per dag" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1031_4" displayName="Jeg har brugt 3 eller flere bleer/indlæg per dag" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q1025 :A1025_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="C2053_1" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/><!-- MC-kriterie Q1025:A1025_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1025:A1025_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1025:A1025_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1025:A1025_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1025" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1025_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+						</organizer> 
+					</entry> <!--SLUT GRUPPE 3003-->
+				</section> <!--SLUT SECTION 2003-->
+			</component>
+<!-- SPRGSMLSEKTION_2004
+==========================================
+ 4. Om din afføring - indeholder 7 spm fra Q1032 til Q1038 - alle MC-spm
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>4. Om din afføring</title> <text></text>
+				</section>
+			</component>
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN"> <!--START SECTION 2004-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S2004 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text>
+						<table> 
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody> 
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 32:
+									<br/>Samlet set, hvor store problemer har du haft med din afføring inden for de sidste fire uger?</th>
+								</tr>
+								<tr>
+									<td>Ingen problemer</td>
+									<td><!-- A1032_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget små problemer</td>
+									<td><!-- A1032_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Små problemer</td>
+									<td><!-- A1032_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Moderate problemer</td>
+									<td><!-- A1032_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Store problemer</td>
+									<td><!-- A1032_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 33:
+									<br/>Hvor store problemer har du haft med forstoppelse?</th>
+								</tr>
+								<tr>
+									<td>Ingen problemer</td>
+									<td><!-- A1033_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget små problemer</td>
+									<td><!-- A1033_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Små problemer</td>
+									<td><!-- A1033_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Moderate problemer</td>
+									<td><!-- A1033_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Store problemer</td>
+									<td><!-- A1033_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 34:
+									<br/>Hvor store problemer har du haft med stærk afføringstrang?</th>
+								</tr>
+								<tr>
+									<td>Ingen problemer</td>
+									<td><!-- A1034_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget små problemer</td>
+									<td><!-- A1034_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Små problemer</td>
+									<td><!-- A1034_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Moderate problemer</td>
+									<td><!-- A1034_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Store problemer</td>
+									<td><!-- A1034_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 35:
+									<br/>Hvor store problemer har du haft med forøget afføringshyppighed?</th>
+								</tr>
+								<tr>
+									<td>Ingen problemer</td>
+									<td><!-- A1035_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget små problemer</td>
+									<td><!-- A1035_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Små problemer</td>
+									<td><!-- A1035_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Moderate problemer</td>
+									<td><!-- A1035_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Store problemer</td>
+									<td><!-- A1035_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 36:
+									<br/>Hvor store problemer har du haft med mistet kontrol over afføringen?</th>
+								</tr>
+								<tr>
+									<td>Ingen problemer</td>
+									<td><!-- A1036_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget små problemer</td>
+									<td><!-- A1036_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Små problemer</td>
+									<td><!-- A1036_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Moderate problemer</td>
+									<td><!-- A1036_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Store problemer</td>
+									<td><!-- A1036_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 37:
+									<br/>Hvor store problemer har du haft med blod i afføringen?</th>
+								</tr>
+								<tr>
+									<td>Ingen problemer</td>
+									<td><!-- A1037_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget små problemer</td>
+									<td><!-- A1037_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Små problemer</td>
+									<td><!-- A1037_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Moderate problemer</td>
+									<td><!-- A1037_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Store problemer</td>
+									<td><!-- A1037_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 38:
+									<br/>Hvor store problemer har du haft med smerter i endetarm?</th>
+								</tr>
+								<tr>
+									<td>Ingen problemer</td>
+									<td><!-- A1038_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget små problemer</td>
+									<td><!-- A1038_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Små problemer</td>
+									<td><!-- A1038_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Moderate problemer</td>
+									<td><!-- A1038_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Store problemer</td>
+									<td><!-- A1038_5 -->
+									</td>
+								</tr>
+								</tbody> <!--SLUT BODY - Her er alle spm i sektion 4 første gang -->
+						</table> <!--SLUT TABEL - Her er alle spm i sektion 4 første gang -->
+					</text>
+					<!-- GRUPPE_G3004 --> 
+					<entry typeCode="DRIV" contextConductionInd="true"><!--START GRUPPE 3004-->
+						<organizer classCode="BATTERY" moodCode="EVN"> 
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.195.1.1.3" extension="3004" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+							<code codeSystem="1.2.208.195.1.1.3" code="G3004" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+								<!--<originalText></originalText>-->
+							</code>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/>
+							<!-- MC-SPRGSML_1032
+							*********************************************************
+							* Spørgsmål 32:
+							Samlet set, hvor store problemer har du haft med din afføring inden for de sidste fire uger ?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1032" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1032" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 32:
+										<!--<br/>-->Samlet set, hvor store problemer har du haft med din afføring inden for de sidste fire uger?</originalText>
+									</code>
+									<value code="A1032_1" displayName="Ingen problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1032_2" displayName="Meget små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1032_3" displayName="Små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1032_4" displayName="Moderate problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1032_5" displayName="Store problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1033
+							*********************************************************
+							* Spørgsmål 33:
+							Hvor store problemer har du haft med forstoppelse?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1033" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1033" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 33:
+										<!--<br/>-->Hvor store problemer har du haft med forstoppelse?</originalText>
+									</code>
+									<value code="A1033_1" displayName="Ingen problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1033_2" displayName="Meget små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1033_3" displayName="Små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1033_4" displayName="Moderate problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1033_5" displayName="Store problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q1032 :A1032_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="C2053_1" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/><!-- MC-kriterie Q1032:A1032_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1034
+							*********************************************************
+							* Spørgsmål 34:
+							Hvor store problemer har du haft med stærk afføringstrang?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1034" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1034" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 34:
+										<!--<br/>-->Hvor store problemer har du haft med stærk afføringstrang?</originalText>
+									</code>
+									<value code="A1034_1" displayName="Ingen problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1034_2" displayName="Meget små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1034_3" displayName="Små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1034_4" displayName="Moderate problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1034_5" displayName="Store problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q1032 :A1032_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="C2053_1" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/><!-- MC-kriterie Q1032:A1032_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1035
+							*********************************************************
+							* Spørgsmål 35:
+							Hvor store problemer har du haft med forøget afføringshyppighed?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1035" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1035" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 35:
+										<!--<br/>-->Hvor store problemer har du haft med forøget afføringshyppighed?</originalText>
+									</code>
+									<value code="A1035_1" displayName="Ingen problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1035_2" displayName="Meget små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1035_3" displayName="Små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1035_4" displayName="Moderate problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1035_5" displayName="Store problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q1032 :A1032_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="C2053_1" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/><!-- MC-kriterie Q1032:A1032_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1036
+							*********************************************************
+							* Spørgsmål 36:
+							Hvor store problemer har du haft med mistet kontrol over afføringen?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1036" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1036" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 36:
+										<!--<br/>-->Hvor store problemer har du haft med mistet kontrol over afføringen?</originalText>
+									</code>
+									<value code="A1036_1" displayName="Ingen problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1036_2" displayName="Meget små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1036_3" displayName="Små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1036_4" displayName="Moderate problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1036_5" displayName="Store problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q1032 :A1032_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="C2053_1" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/><!-- MC-kriterie Q1032:A1032_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1037
+							*********************************************************
+							* Spørgsmål 37:
+							Hvor store problemer har du haft med blod i afføringen?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1037" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1037" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 37:
+										<!--<br/>-->Hvor store problemer har du haft med blod i afføringen?</originalText>
+									</code>
+									<value code="A1037_1" displayName="Ingen problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1037_2" displayName="Meget små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1037_3" displayName="Små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1037_4" displayName="Moderate problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1037_5" displayName="Store problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q1032 :A1032_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="C2053_1" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/><!-- MC-kriterie Q1032:A1032_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1038
+							*********************************************************
+							* Spørgsmål 38:
+							Hvor store problemer har du haft med smerter i endetarm?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1038" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1038" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 38:
+										<!--<br/>-->Hvor store problemer har du haft med smerter i endetarm?</originalText>
+									</code>
+									<value code="A1038_1" displayName="Ingen problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1038_2" displayName="Meget små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1038_3" displayName="Små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1038_4" displayName="Moderate problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1038_5" displayName="Store problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship><!-- Betingelse START på atLeastOneTrue --><!--MC kriterie Q1032 :A1032_2,3,4,5-->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:atLeastOneTrue>
+											<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+											<sdtc:id root="1.2.208.176.7.3.2" extension="C2053_1" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/><!-- MC-kriterie Q1032:A1032_2 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_2" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_3 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_3" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_4 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_4" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition><!-- MC-kriterie Q1032:A1032_5 -->
+											<sdtc:precondition typeCode="PRCN">
+												<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+												<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+													<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+													<code code="Q1032" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+													<value code="A1032_5" xsi:type="CE"/>
+												</sdtc:criterion>
+											</sdtc:precondition>
+										</sdtc:atLeastOneTrue>
+									</sdtc:precondition><!--SLUT på betingelse atLeastOneTrue-->
+								</observation>
+							</component>
+						</organizer> 
+					</entry> <!--SLUT GRUPPE 3004-->
+				</section> <!--SLUT SECTION 2004-->
+			</component>					
+<!-- SPRGSMLSEKTION_2005
+==========================================
+ 5. Generelt - indeholder 7spm fra Q1039 til Q1043 - tre MC-spm og 2 MCslide
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>5. Generelt</title> <text></text>
+				</section> 
+			</component>
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN"> <!--START SECTION 2005-->
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/><!-- S2005 -->
+					<code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+					<text>
+						<table> 
+							<colgroup>
+								<col width="70%"/>
+								<col width="30%"/>
+							</colgroup>
+							<tbody> 
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 39:
+									<br/>I de sidste fire uger hvor meget påvirker prostatakræft dit helbred?</th>
+								</tr>
+								<tr>
+									<td>Ingen problemer</td>
+									<td><!-- A1039_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Meget små problemer</td>
+									<td><!-- A1039_2 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Små problemer</td>
+									<td><!-- A1039_3 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Moderate problemer</td>
+									<td><!-- A1039_4 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Store problemer</td>
+									<td><!-- A1039_5 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 40:
+									<br/>Har du andre sygdomme eller lidelser end prostatakræft, som påvirker dit helbred?</th>
+								</tr>
+								<tr>
+									<td>Nej</td>
+									<td><!-- A1040_1 -->
+									</td>
+								</tr>
+								<tr>
+									<td>Ja</td>
+									<td><!-- A1040_2 -->
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 41:
+									<br/>Uddyb hvilke?</th>
+									<td><!-- Q1041--></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 42:
+									<br/>Hvordan vil du vurdere din samlede livskvalitet i den forløbne uge?
+									<br/>På en skala fra 1-7
+									<br/>1 er lig med meget dårlig og 7 er lig med særdeles god</th>
+								</tr>
+								<tr>
+									<td>1 Meget dårlig</td>
+									<td><!-- A1042_1 --></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><!-- A1042_2 --></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><!-- A1042_3 --></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><!-- A1042_4 --></td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td><!-- A1042_5 --></td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td><!-- A1042_6 --></td>
+								</tr>
+								<tr>
+									<td>7 Særdeles god</td>
+									<td><!-- A1042_7 --></td>
+								</tr>
+								<tr>
+									<th colspan="2" align="left">Spørgsmål 43:
+									<br/>Hvordan vil du vurdere dit samlede helbred i den forløbne uge?
+									<br/>På en skala fra 1-7
+									<br/>1 er lig med meget dårligt og 7 er lig med særdeles godt</th>
+								</tr>
+								<tr>
+									<td>1 Meget dårligt</td>
+									<td><!-- A1043_1 --></td>
+								</tr>
+								<tr>
+									<td>2</td>
+									<td><!-- A1043_2 --></td>
+								</tr>
+								<tr>
+									<td>3</td>
+									<td><!-- A1043_3 --></td>
+								</tr>
+								<tr>
+									<td>4</td>
+									<td><!-- A1043_4 --></td>
+								</tr>
+								<tr>
+									<td>5</td>
+									<td><!-- A1043_5 --></td>
+								</tr>
+								<tr>
+									<td>6</td>
+									<td><!-- A1043_6 --></td>
+								</tr>
+								<tr>
+									<td>7 Særdeles godt</td>
+									<td><!-- A1043_7 --></td>
+								</tr>
+							</tbody> <!--SLUT BODY - Her er alle spm i sektion 5 første gang -->
+						</table> <!--SLUT TABEL - Her er alle spm i sektion 5 første gang -->
+					</text>
+					<!-- GRUPPE_G3005 --> 
+					<entry typeCode="DRIV" contextConductionInd="true"><!--START GRUPPE 3005-->
+						<organizer classCode="BATTERY" moodCode="EVN"> 
+							<templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+							<id root="1.2.208.195.1.1.3" extension="3005" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+							<code codeSystem="1.2.208.195.1.1.3" code="G3005" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+								<!--<originalText></originalText>-->
+							</code>
+							<!-- FIXED QFDD-DK-1.2-C76: statusCode/@code changed from "COMPLETED" to "completed" (HL7 ActStatus codes are lower case). -->
+							<statusCode code="completed"/>
+							<!-- MC-SPRGSML_1039
+							*********************************************************
+							* Spørgsmål 39:
+							I de sidste fire uger hvor meget påvirker prostatakræft dit helbred?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1039" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1039" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 39:
+										<!--<br/>-->I de sidste fire uger hvor meget påvirker prostatakræft dit helbred?</originalText>
+									</code>
+									<value code="A1039_1" displayName="Ingen problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1039_2" displayName="Meget små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1039_3" displayName="Små problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1039_4" displayName="Moderate problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1039_5" displayName="Store problemer" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/><!-- Antal svar -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+							<!-- MC-SPRGSML_1040
+							*********************************************************
+							* Spørgsmål 40:
+							Har du andre sygdomme eller lidelser end prostatakræft, som påvirker dit helbred?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+									<id root="1.2.208.195.1.1.4" extension="1040" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1040" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 40:
+										<!--<br/>-->Har du andre sygdomme eller lidelser end prostatakræft, som påvirker dit helbred?</originalText>
+									</code>
+									<value code="A1040_1" displayName="Nej" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<value code="A1040_2" displayName="Ja" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+											<!-- FIXED QFDD-DK-1.2-SHARED-C125: options code/@code changed from "744467-2" to "74467-2" (typo; LOINC code required by QFDD 5.7). -->
+											<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="IVL_INT">
+												<low value="0"/>
+												<high value="1"/>
+											</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+
+							<!-- TXT-SPRGSML_1041
+							*********************************************************
+							* Spørgsmål 41:
+							Uddyb hvilke?
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+									<!-- FIXED QFDD-DK-1.2-C178: question 1041 has no answer options, so it cannot be a multiple-choice question (templateId 2.16.840.1.113883.10.20.32.4.8, 2 or more values required); templateId changed to the free-text question template 2.16.840.1.113883.10.20.32.4.9. -->
+									<templateId root="2.16.840.1.113883.10.20.32.4.9"/>
+									<id root="1.2.208.195.1.1.4" extension="1041" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+									<code codeSystem="1.2.208.195.1.1.4" code="Q1041" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram ">
+										<originalText>Spørgsmål 41:
+										<!--<br/>-->Uddyb hvilke?</originalText>
+									</code><!-- Betingelse --><!-- MC-kriterie Q1040:A1040_2 -->
+									<sdtc:precondition typeCode="PRCN">
+										<sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+										<sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
+											<templateId root="2.16.840.1.113883.10.20.32.4.3"/>
+											<code code="Q1040" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+											<value code="A1040_2" xsi:type="CE"/>
+										</sdtc:criterion>
+									</sdtc:precondition>								
+								</observation>									
+							</component>
+ 							<!-- NUMslide-SPRGSML_1042
+							*********************************************************
+							* Spørgsmål 42:
+							Hvordan vil du vurdere din samlede livskvalitet i den forløbne uge?
+							På en skala fra 1-7
+							1 er lig med meget dårlig og 7 er lig med særdeles god
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+								<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+								<templateId root="2.16.840.1.113883.10.20.32.4.11"/>
+								<id root="1.2.208.195.1.1.4" extension="1042" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+								<code codeSystem="1.2.208.195.1.1.4" code="Q1042" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " displayName="Hvordan vil du vurdere din samlede livskvalitet i den forløbne uge?">
+										<originalText>Spørgsmål 42:
+										<!--<br/>-->Hvordan vil du vurdere din samlede livskvalitet i den forløbne uge?
+										<!--<br/>-->På en skala fra 1-7</originalText>
+								</code>
+								<languageCode code="da-DK"/>
+								<value code="1042_1" displayName="1 Meget dårlig" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+								<value code="1042_2" displayName="2" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+								<value code="1042_3" displayName="3" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+								<value code="1042_4" displayName="4" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+								<value code="1042_5" displayName="5" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+								<value code="1042_6" displayName="6" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+								<value code="1042_7" displayName="7 Særdeles god" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+								<!-- Antal svar -->
+								<entryRelationship typeCode="SUBJ">
+									<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+									<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+									<value xsi:type="IVL_INT">
+										<low value="0"/>
+										<!-- FIXED QFDD-DK-1.2-SHARED-C130 and C229: added high/@value="1". The options template of a discrete slider must have a maximum of 1 selection; the form only stated the minimum. -->
+										<high value="1"/>
+									</value>
+									</observation>
+								</entryRelationship>
+								<!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">1 er lig med meget dårlig og 7 er lig med særdeles god.</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+ 							<!-- NUMslide-SPRGSML_1043
+							*********************************************************
+							* Spørgsmål 43:
+							Hvordan vil du vurdere dit samlede helbred i den forløbne uge?
+							På en skala fra 1-7
+							1 er lig med meget dårligt og 7 er lig med særdeles godt
+							********************************************************* -->
+							<component typeCode="COMP" contextConductionInd="true">
+								<sequenceNumber value="1"/>
+								<observation classCode="OBS" moodCode="DEF">
+								<templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+								<templateId root="2.16.840.1.113883.10.20.32.4.11"/>
+								<id root="1.2.208.195.1.1.4" extension="1043" assigningAuthorityName="Regionernes Kliniske Kvalitetsudviklingsprogram "/>
+								<code codeSystem="1.2.208.195.1.1.4" code="Q1043" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " displayName="Hvordan vil du vurdere dit samlede helbred i den forløbne uge?">
+										<originalText>Spørgsmål 43:
+										<!--<br/>-->Hvordan vil du vurdere dit samlede helbred i den forløbne uge?
+										<!--<br/>-->På en skala fra 1-7</originalText>
+								</code>
+								<languageCode code="da-DK"/>
+								<value code="1043_1" displayName="1 Meget dårligt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+								<value code="1043_2" displayName="2" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+								<value code="1043_3" displayName="3" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+								<value code="1043_4" displayName="4" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+								<value code="1043_5" displayName="5" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+								<value code="1043_6" displayName="6" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+								<value code="1043_7" displayName="7 Særdeles godt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Regionernes Kliniske Kvalitetsudviklingsprogram " xsi:type="CE"/>
+								<!-- Antal svar -->
+								<entryRelationship typeCode="SUBJ">
+									<observation classCode="OBS" moodCode="EVN">
+									<templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+									<code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+									<value xsi:type="IVL_INT">
+										<low value="0"/>
+										<!-- FIXED QFDD-DK-1.2-SHARED-C130 and C229: added high/@value="1". The options template of a discrete slider must have a maximum of 1 selection; the form only stated the minimum. -->
+										<high value="1"/>
+									</value>
+									</observation>
+								</entryRelationship>
+								<!-- Hjælpetekst -->
+									<entryRelationship typeCode="SUBJ">
+										<observation classCode="OBS" moodCode="EVN">
+											<templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+											<code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+											<value xsi:type="ST">1 er lig med meget dårlig og 7 er lig med særdeles god.</value>
+										</observation>
+									</entryRelationship>
+								</observation>
+							</component>
+						</organizer> 
+					</entry> <!--SLUT GRUPPE 3005-->
+				</section> <!--SLUT SECTION 2005-->
+			</component>
+<!-- INFO-SEKTION
+==========================================
+ Tak for din besvarelse
+========================================== -->
+			<component typeCode="COMP" contextConductionInd="true">
+				<section classCode="DOCSECT" moodCode="EVN">
+					<templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+					<title>Tak for besvarelsen</title> 
+					<text>Outrotekst til spørgeskema udarbejdes lokalt</text>
+				</section>
+			</component>
+		</structuredBody>
+	</component><!-- XML by Regionernes Kliniske Kvalitetsudviklingsprogram/KIAJ - https://pro-danmark.dk/da -->
+</ClinicalDocument>

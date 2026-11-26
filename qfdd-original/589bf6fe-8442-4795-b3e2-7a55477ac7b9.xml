@@ -1,0 +1,1444 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<!--
+........................................................................
+ SkemaId: 589bf6fe-8442-4795-b3e2-7a55477ac7b9
+ Titel:   Hofteartrose 0-skema, højre
+ Version: 1
+ Build:   001, PRO-sekretariatet, SDS, www.prodanmark.dk
+  Dato:   20221129105700+0200
+........................................................................
+
+
+=================================================
+*** Visualisering af de nationale PRO-skemaer ***
+=================================================
+Denne XML-fil er publiceret som del af en national PRO-pakke. I samme
+pakke foreligger der to HTML-filer - en statisk og en dynamisk - der
+gengiver PRO-spørgeskemaets intenderede udseende og funktionalitet. For
+systemer, der ikke i tilstrækkeligt omfang kan udnytte XML-filens højt
+strukturerede indhold, er dele af spørgeskemaet, som en slags sikker-
+hedsnet, gengivet i form af narrativ tekst.
+
+PRO-sekretariatet anbefaler i enhver henseende, at man anvender PRO-
+pakkens to HTML-filer i forhold, der vedrører udseende og funktionalitet
+af spørgeskemaer og/eller besvarelser.
+
+
+
+Datotid             Ver Bld Sign
+=================== === === ============================================
+20221129105700+0200  1  001 SGPD
+  Efter justering af PRO-pakken for knæ-/hoftearttrose v2 er 
+    0-skemaet blevet udviklet.  Dette er første version af 
+    0-skemaet. Dette skema hænger sammen med de resterende 
+    PRO-pakker oprindt fra justering. Se beskrivelsesdokument for
+    sammenhæng. 
+........................................................................
+
+-->
+<ClinicalDocument xsi:schemaLocation="urn:hl7-org:v3 /xmlschema/QFD/CDA_SDTC.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xmlns:sdtc="urn:hl7-org:sdtc" xmlns:voc="urn:hl7-org:v3/voc" classCode="DOCCLIN" moodCode="EVN">
+    <realmCode code="UV"/>
+    <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+    <templateId root="1.2.208.184.12.1" assigningAuthorityName="MedCom"/>
+    <templateId root="1.2.208.184.12.1.1.1"/>
+    <!-- Hofteartrose 0-skema, højre -->
+    <id root="1.2.208.176.7.3.1" extension="589bf6fe-8442-4795-b3e2-7a55477ac7b9" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+    <code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="74468-0" displayName="Form Definition Document"/>
+    <title>Spørgeskema i forbindelse med slidgigt i højre hofte</title>
+    <sdtc:statusCode code="NEW"/>
+    <effectiveTime value="20221129105700+0200"/>
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+    <languageCode code="da-DK"/>
+    <versionNumber value="1"/>
+    <recordTarget nullFlavor="NI">
+        <patientRole nullFlavor="NI">
+            <id nullFlavor="NI"/>
+        </patientRole>
+    </recordTarget>
+    <author typeCode="AUT" contextControlCode="OP">
+        <time value="20221129105700+0200"/>
+        <assignedAuthor classCode="ASSIGNED">
+            <id nullFlavor="NA"/>
+            <addr use="WP">
+                <streetAddressLine>PRO-sekretariatet</streetAddressLine>
+                <streetAddressLine>Ørestads Boulevard 5</streetAddressLine>
+                <postalCode>2300</postalCode>
+                <city>København</city>
+                <country>Danmark</country>
+            </addr>
+            <telecom value="tel:+4591334808" use="WP"/>
+            <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+                <name>Sundhedsdatastyrelsen</name>
+                <telecom nullFlavor="NI"/>
+                <addr use="WP">
+                    <streetAddressLine nullFlavor="NI"/>
+                </addr>
+            </representedOrganization>
+        </assignedAuthor>
+    </author>
+    <!-- FORVALTERORGANISATION: Sundhedsdatastyrelsen -->
+    <custodian typeCode="CST">
+        <assignedCustodian classCode="ASSIGNED">
+            <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+                <name>Sundhedsdatastyrelsen</name>
+                <telecom value="tel:+4591334808" use="WP"/>
+                <addr use="WP">
+                    <streetAddressLine>PRO-sekretariatet</streetAddressLine>
+                    <streetAddressLine>Ørestads Boulevard 5</streetAddressLine>
+                    <postalCode>2300</postalCode>
+                    <city>København</city>
+                    <country>Danmark</country>
+                </addr>
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian>
+    <component typeCode="COMP" contextConductionInd="true">
+        <structuredBody classCode="DOCBODY" moodCode="EVN">
+            <!-- INFO-SEKTION
+            ==========================================
+            Spørgeskema i forbindelse med slidgigt i hoften - 0-skema - højre
+            ========================================== -->
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+                    <title>Spørgeskema i forbindelse med slidgigt i højre hofte</title>
+                    <text>
+                        <paragraph>Du skal snart opereres i din hofte. Vi beder dig derfor besvare dette spørgeskema.
+                        <br/>Spørgeskemaet handler blandt andet om gener og smerter i din hofte.
+                        <br/>Spørgsmålene har du også svaret på inden forundersøgelsen, men det er vigtigt at vide, hvordan du har det lige nu. Vi sammenligner dine svar med resultatet efter operationen.
+                        </paragraph>
+                        <paragraph>Du får et nyt spørgeskema 3 og 12 måneder efter operationen. Det er for at sikre os, at alt går som planlagt, og for at dokumentere kvaliteten af operationen.
+                        </paragraph>
+                        <br/>Svarene bliver gemt i din journal og kan ses af de sundhedsfaglige personer, der deltager i din behandling.
+                        <br/>Skemaet tager ca. 5 minutter at udfylde og det er frivilligt at besvare det.
+                        <br/>Hvis svarmulighederne ikke passer helt på din situation, så vælg det svar, som passer bedst. 
+                        <paragraph>Har du spørgsmål til spørgeskemaet, kan du kontakte [Indsæt lokale kontaktoplysninger].
+                        <br/>Ved akut behov for hjælp skal du ringe: [Indsæt lokale kontaktoplysninger].
+                        </paragraph>
+                        <paragraph>Vi ønsker dig en god operation.
+                        </paragraph>
+                        <paragraph>Med venlig hilsen
+                        <br/>Ortopædkirurgisk afdeling  
+                        </paragraph>
+                    </text>
+                </section>
+            </component>
+            <!-- SPRGSMLSEKTION_2125 - skal der stadig være sektions-ID på?
+            ==========================================
+            Baggrundsinformation
+            ========================================== -->
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+                    <!-- S2125 -->
+                    <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <title>Om dine hofter</title>
+                    <text>
+                        <table>
+                            <colgroup>
+                                <col width="70%"/>
+                                <col width="30%"/>
+                            </colgroup>
+                            <tbody>
+                            <!--2829-->
+                                <tr>
+                                    <th colspan="2" align="left">Bekræft venligst hvilken hofte du snart skal opereres i:</th>
+                                </tr>
+                                <tr>
+                                    <td>Højre hofte</td>
+                                    <td>
+                                        <!-- A2829_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Venstre hofte</td>
+                                    <td>
+                                        <!-- A2829_2 -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    <!-- GRUPPE_2235 - om dine hofter -->
+                    <entry typeCode="DRIV" contextConductionInd="true">
+                        <organizer classCode="BATTERY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+                            <id root="1.2.208.176.7.3.3" extension="2235" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                            <code codeSystem="1.2.208.176.7.3.3" code="G2235" codeSystemName="Sundhedsdatastyrelsen">
+														</code>
+                            <statusCode code="COMPLETED"/>
+                            <!-- MC-SPRGSML_2829 - 0-skema højre+venstre
+							*********************************************************
+							* Bekræft venligst hvilken hofte du snart skal opereres i:
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="1"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2829" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2829" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Bekræft venligst hvilken hofte du snart skal opereres i:</originalText>
+                                    </code>
+                                    <value code="A2829_1" displayName="Højre hofte" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2829_2" displayName="Venstre hofte" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        </organizer>
+                    </entry>
+                </section>
+            </component>
+            <!-- SPRGSMLSEKTION_2126
+            ==========================================
+            Funktionsniveau
+            ========================================== -->
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+                    <!-- S2126 -->
+                    <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <title>Funktionsniveau</title>
+                    <text>
+                        <table>
+                            <colgroup>
+                                <col width="70%"/>
+                                <col width="30%"/>
+                            </colgroup>
+                            <tbody>
+                            <!--HØJRE-->
+                                <tr>
+                                    <td colspan="2">
+                                        <paragraph>De næste spørgsmål handler om dit HØJRE hofte</paragraph>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <paragraph>Oxford Hofte Score</paragraph>
+                                        <paragraph>© Oxford University Innovation Limited, 1998. All rights reserved. Oxford Hip Score – Danish for Denmark</paragraph>
+                                    </td>
+                                </tr>
+                                <!--2611-->
+                                <tr>
+                                    <th colspan="2" align="left">Hvordan vil du beskrive de smerter, som du i de sidste fire uger har haft i hoften?</th>
+                                </tr>
+                                <tr>
+                                    <td>Ingen smerter</td>
+                                    <td>
+                                        <!-- A2611_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Meget lette smerter</td>
+                                    <td>
+                                        <!-- A2611_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lette smerter</td>
+                                    <td>
+                                        <!-- A2611_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderate smerter</td>
+                                    <td>
+                                        <!-- A2611_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Stærke smerter</td>
+                                    <td>
+                                        <!-- A2611_5 -->
+                                    </td>
+                                </tr>
+                                <!--2612-->
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger haft problemer med at vaske og tørre dig (over det hele) på grund af din hofte?</th>
+                                </tr>
+                                <tr>
+                                    <td>Nej, slet ingen problemer</td>
+                                    <td>
+                                        <!-- A2612_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Meget lidt besvær</td>
+                                    <td>
+                                        <!-- A2612_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ja, moderat besvær</td>
+                                    <td>
+                                        <!-- A2612_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ja, meget store problemer</td>
+                                    <td>
+                                        <!-- A2612_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Det er helt umuligt</td>
+                                    <td>
+                                        <!-- A2612_5 -->
+                                    </td>
+                                </tr>
+                                <!--2613-->
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger haft problemer med at komme ind i eller ud af en bil eller bruge offentlig transport på grund af hoften?</th>
+                                </tr>
+                                <tr>
+                                    <td>Nej, ingen problemer</td>
+                                    <td>
+                                        <!-- A2613_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Meget lidt besvær</td>
+                                    <td>
+                                        <!-- A2613_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ja, moderat besvær</td>
+                                    <td>
+                                        <!-- A2613_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ja, meget store problemer</td>
+                                    <td>
+                                        <!-- A2613_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Det er helt umuligt</td>
+                                    <td>
+                                        <!-- A2613_5 -->
+                                    </td>
+                                </tr>
+                                <!--2614-->
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger selv kunnet tage sokker, strømper eller strømpebukser på?</th>
+                                </tr>
+                                <tr>
+                                    <td>Ja, nemt</td>
+                                    <td>
+                                        <!-- A2614_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Næsten uden besvær</td>
+                                    <td>
+                                        <!-- A2614_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Med moderat besvær</td>
+                                    <td>
+                                        <!-- A2614_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Med meget stort besvær</td>
+                                    <td>
+                                        <!-- A2614_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nej, umuligt</td>
+                                    <td>
+                                        <!-- A2614_5 -->
+                                    </td>
+                                </tr>
+                                <!--2615-->
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger selv kunnet klare indkøb?</th>
+                                </tr>
+                                <tr>
+                                    <td>Ja, nemt</td>
+                                    <td>
+                                        <!-- A2615_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Næsten uden besvær</td>
+                                    <td>
+                                        <!-- A2615_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Med moderat besvær</td>
+                                    <td>
+                                        <!-- A2615_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Med meget stort besvær</td>
+                                    <td>
+                                        <!-- A2615_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nej, det har været umuligt</td>
+                                    <td>
+                                        <!-- A2615_5 -->
+                                    </td>
+                                </tr>
+                                <!--2616-->
+                                <tr>
+                                    <th colspan="2" align="left">Hvor lang tid har du i de sidste fire uger kunnet gå, før du har fået stærke smerter i hoften (med eller uden stok)?</th>
+                                </tr>
+                                <tr>
+                                    <td>Ingen smerter/jeg kan gå mere end 30 minutter</td>
+                                    <td>
+                                        <!-- A2616_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>16 til 30 minutter</td>
+                                    <td>
+                                        <!-- A2616_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>5 til 15 minutter</td>
+                                    <td>
+                                        <!-- A2616_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Kun meget korte afstande</td>
+                                    <td>
+                                        <!-- A2616_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Det er helt umuligt at gå</td>
+                                    <td>
+                                        <!-- A2616_5 -->
+                                    </td>
+                                </tr>
+                                <!--2617-->
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger kunnet gå op ad trapper?</th>
+                                </tr>
+                                <tr>
+                                    <td>Ja, nemt</td>
+                                    <td>
+                                        <!-- A2617_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Næsten uden besvær</td>
+                                    <td>
+                                        <!-- A2617_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Med moderat besvær</td>
+                                    <td>
+                                        <!-- A2617_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Med meget stort besvær</td>
+                                    <td>
+                                        <!-- A2617_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nej, det har været umuligt</td>
+                                    <td>
+                                        <!-- A2617_5 -->
+                                    </td>
+                                </tr>
+                                <!--2618-->
+                                <tr>
+                                    <th colspan="2" align="left">Hvor stærke smerter har du i de sidste fire uger haft i hoften, når du har skullet rejse dig op efter at have siddet ned (f.eks. ved middagsbordet)?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ingen smerter</td>
+                                    <td>
+                                        <!-- A2618_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Lette smerter</td>
+                                    <td>
+                                        <!-- A2618_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Moderate smerter</td>
+                                    <td>
+                                        <!-- A2618_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Stærke smerter</td>
+                                    <td>
+                                        <!-- A2618_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Uudholdelige smerter</td>
+                                    <td>
+                                        <!-- A2618_5 -->
+                                    </td>
+                                </tr>
+                                <!--2619-->
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger haltet på grund af din hofte?</th>
+                                </tr>
+                                <tr>
+                                    <td>Sjældent/aldrig</td>
+                                    <td>
+                                        <!-- A2619_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Sommetider eller kun når jeg begynder at gå</td>
+                                    <td>
+                                        <!-- A2619_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ja, en hel del, og ikke kun når jeg begynder at gå</td>
+                                    <td>
+                                        <!-- A2619_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ja, det meste af tiden</td>
+                                    <td>
+                                        <!-- A2619_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ja, hele tiden</td>
+                                    <td>
+                                        <!-- A2619_5 -->
+                                    </td>
+                                </tr>
+                                <!--2620-->
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger følt pludselig eller kraftig smerte (jagende, stikkende eller krampe-lignende) fra den dårlige hofte?</th>
+                                </tr>
+                                <tr>
+                                    <td>Nej, ikke på noget tidspunkt</td>
+                                    <td>
+                                        <!-- A2620_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Kun en enkelt dag eller to</td>
+                                    <td>
+                                        <!-- A2620_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nogle dage</td>
+                                    <td>
+                                        <!-- A2620_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>De fleste dage</td>
+                                    <td>
+                                        <!-- A2620_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Hver dag</td>
+                                    <td>
+                                        <!-- A2620_5 -->
+                                    </td>
+                                </tr>
+                                <!--2621-->
+                                <tr>
+                                    <th colspan="2" align="left">I hvor høj grad har smerter i hoften besværliggjort dit sædvanlige arbejde i de sidste fire uger (inkl. husarbejde)?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>
+                                        <!-- A2621_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>En lille smule</td>
+                                    <td>
+                                        <!-- A2621_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>
+                                        <!-- A2621_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>
+                                        <!-- A2621_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Umuligt at arbejde</td>
+                                    <td>
+                                        <!-- A2621_5 -->
+                                    </td>
+                                </tr>
+                                <!--2622-->
+                                <tr>
+                                    <th colspan="2" align="left">Har du i de sidste fire uger været plaget af smerter i hoften, når du ligger i sengen om natten?</th>
+                                </tr>
+                                <tr>
+                                    <td>Nej, ikke på noget tidspunkt</td>
+                                    <td>
+                                        <!-- A2622_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Kun en enkelt nat eller to</td>
+                                    <td>
+                                        <!-- A2622_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Nogle nætter</td>
+                                    <td>
+                                        <!-- A2622_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>De fleste nætter</td>
+                                    <td>
+                                        <!-- A2622_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Hver nat</td>
+                                    <td>
+                                        <!-- A2622_5 -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    <!-- GRUPPE_2336 -->
+                    <entry typeCode="DRIV" contextConductionInd="true">
+                        <organizer classCode="BATTERY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+                            <id root="1.2.208.176.7.3.3" extension="2336" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                            <code codeSystem="1.2.208.176.7.3.3" code="G2336" codeSystemName="Sundhedsdatastyrelsen">
+                                <originalText>Oxford Hofte Score
+                                © Oxford University Innovation Limited, 1998. All rights reserved. Oxford Hip Score – Danish for Denmark</originalText>
+                            </code>
+                            <statusCode code="COMPLETED"/>
+                            <!-- MC-SPRGSML_2611
+							*********************************************************
+							* Hvordan vil du beskrive de smerter, som du i de sidste fire ...
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="1"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2611" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2611" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Hvordan vil du beskrive de smerter, som du i de sidste fire uger har haft i hoften?</originalText>
+                                    </code>
+                                    <value code="A2611_1" displayName="Ingen smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2611_2" displayName="Meget lette smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2611_3" displayName="Lette smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2611_4" displayName="Moderate smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2611_5" displayName="Stærke smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- MC-SPRGSML_2612 - Alle skemaer
+							*********************************************************
+							* Har du i de sidste fire uger haft problemer med at vaske og ...
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="2"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2612" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2612" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger haft problemer med at vaske og tørre dig (over det hele) på grund af din hofte?</originalText>
+                                    </code>
+                                    <value code="A2612_1" displayName="Nej, slet ingen problemer" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2612_2" displayName="Meget lidt besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2612_3" displayName="Ja, moderat besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2612_4" displayName="Ja, meget store problemer" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2612_5" displayName="Det er helt umuligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- MC-SPRGSML_2613 - Alle skemaer
+							*********************************************************
+							* Har du i de sidste fire uger haft problemer med at komme ...
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="3"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2613" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2613" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger haft problemer med at komme ind i eller ud af en bil eller bruge offentlig transport på grund af hoften?</originalText>
+                                    </code>
+                                    <value code="A2613_1" displayName="Nej, ingen problemer" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2613_2" displayName="Meget lidt besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2613_3" displayName="Ja, moderat besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2613_4" displayName="Ja, meget store problemer" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2613_5" displayName="Det er helt umuligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- MC-SPRGSML_2614 - Alle skemaer
+							*********************************************************
+							* Har du i de sidste fire uger selv kunnet tage sokker, ...
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="4"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2614" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2614" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger selv kunnet tage sokker, strømper eller strømpebukser på?</originalText>
+                                    </code>
+                                    <value code="A2614_1" displayName="Ja, nemt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2614_2" displayName="Næsten uden besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2614_3" displayName="Med moderat besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2614_4" displayName="Med meget stort besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2614_5" displayName="Nej, umuligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- MC-SPRGSML_2615 - Alle skemaer
+							*********************************************************
+							* Har du i de sidste fire uger selv kunnet klare indkøb?
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="5"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2615" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2615" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger selv kunnet klare indkøb?</originalText>
+                                    </code>
+                                    <value code="A2615_1" displayName="Ja, nemt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2615_2" displayName="Næsten uden besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2615_3" displayName="Med moderat besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2615_4" displayName="Med meget stort besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2615_5" displayName="Nej, det har været umuligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- MC-SPRGSML_2616 - Alle skemaer
+							*********************************************************
+							* Hvor lang tid har du i de sidste fire uger kunnet gå, før ...
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="6"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2616" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2616" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Hvor lang tid har du i de sidste fire uger kunnet gå, før du har fået stærke smerter i hoften (med eller uden stok)?</originalText>
+                                    </code>
+                                    <value code="A2616_1" displayName="Ingen smerter/jeg kan gå mere end 30 minutter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2616_2" displayName="16 til 30 minutter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2616_3" displayName="5 til 15 minutter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2616_4" displayName="Kun meget korte afstande" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2616_5" displayName="Det er helt umuligt at gå" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- MC-SPRGSML_2617 - Alle skemaer
+							*********************************************************
+							* Har du i de sidste fire uger kunnet gå op ad trapper?
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="7"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2617" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2617" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger kunnet gå op ad trapper?</originalText>
+                                    </code>
+                                    <value code="A2617_1" displayName="Ja, nemt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2617_2" displayName="Næsten uden besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2617_3" displayName="Med moderat besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2617_4" displayName="Med meget stort besvær" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2617_5" displayName="Nej, det har været umuligt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- MC-SPRGSML_2618 - Alle skemaer
+							*********************************************************
+							* Hvor stærke smerter har du i de sidste fire uger haft i ...
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="8"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2618" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2618" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Hvor stærke smerter har du i de sidste fire uger haft i hoften, når du har skullet rejse dig op efter at have siddet ned (f.eks. ved middagsbordet)?</originalText>
+                                    </code>
+                                    <value code="A2618_1" displayName="Slet ingen smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2618_2" displayName="Lette smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2618_3" displayName="Moderate smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2618_4" displayName="Stærke smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2618_5" displayName="Uudholdelige smerter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- MC-SPRGSML_2619 - Alle skemaer
+							*********************************************************
+							* Har du i de sidste fire uger haltet på grund af din hofte?
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="9"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2619" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2619" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger haltet på grund af din hofte?</originalText>
+                                    </code>
+                                    <value code="A2619_1" displayName="Sjældent/aldrig" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2619_2" displayName="Sommetider eller kun når jeg begynder at gå" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2619_3" displayName="Ja, en hel del, og ikke kun når jeg begynder at gå" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2619_4" displayName="Ja, det meste af tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2619_5" displayName="Ja, hele tiden" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- MC-SPRGSML_2620 - Alle skemaer
+							*********************************************************
+							* Har du i de sidste fire uger følt pludselig eller kraftig ...
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="10"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2620" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2620" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger følt pludselig eller kraftig smerte (jagende, stikkende eller krampe-lignende) fra den dårlige hofte?</originalText>
+                                    </code>
+                                    <value code="A2620_1" displayName="Nej, ikke på noget tidspunkt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2620_2" displayName="Kun en enkelt dag eller to" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2620_3" displayName="Nogle dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2620_4" displayName="De fleste dage" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2620_5" displayName="Hver dag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- MC-SPRGSML_2621 - Alle skemaer
+							*********************************************************
+							* I hvor høj grad har smerter i hoften besværliggjort dit ...
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="11"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2621" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2621" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>I hvor høj grad har smerter i hoften besværliggjort dit sædvanlige arbejde i de sidste fire uger (inkl. husarbejde)?</originalText>
+                                    </code>
+                                    <value code="A2621_1" displayName="Slet ikke" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2621_2" displayName="En lille smule" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2621_3" displayName="En del" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2621_4" displayName="Meget" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2621_5" displayName="Umuligt at arbejde" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- MC-SPRGSML_2622 - Alle skemaer
+							*********************************************************
+							* Har du i de sidste fire uger været plaget af smerter i ...
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="12"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2622" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2622" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Har du i de sidste fire uger været plaget af smerter i hoften, når du ligger i sengen om natten?</originalText>
+                                    </code>
+                                    <value code="A2622_1" displayName="Nej, ikke på noget tidspunkt" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2622_2" displayName="Kun en enkelt nat eller to" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2622_3" displayName="Nogle nætter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2622_4" displayName="De fleste nætter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2622_5" displayName="Hver nat" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        </organizer>
+                    </entry>
+                </section>
+            </component>
+            <!-- INFO-SEKTION
+            ==========================================
+            Livskvalitet
+            ========================================== -->
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+                    <title>Livskvalitet</title>
+                    <text>
+                        <paragraph>© EuroQol Research Foundation. EQ-5D™ is a trade mark of the EuroQol Research Foundation</paragraph>
+                        <paragraph>Du bedes klikke med musen i DEN kasse, der bedst beskriver dit helbred I DAG.</paragraph>
+                    </text>
+                </section>
+            </component>
+            <!-- SPRGSMLSEKTION_2120
+            ==========================================
+            Livskvalitet
+            ========================================== -->
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+                    <!-- S2120 -->
+                    <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <text>
+                        <table>
+                            <colgroup>
+                                <col width="70%"/>
+                                <col width="30%"/>
+                            </colgroup>
+                            <tbody>
+                                <!--2590-->
+                                <tr>
+                                    <th colspan="2" align="left">Hvordan vil du bedst beskrive din bevægelighed i dag?</th>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har ingen problemer med at gå omkring</td>
+                                    <td>
+                                        <!-- A2590_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har lidt problemer med at gå omkring</td>
+                                    <td>
+                                        <!-- A2590_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har moderate problemer med at gå omkring</td>
+                                    <td>
+                                        <!-- A2590_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har store problemer med at gå omkring</td>
+                                    <td>
+                                        <!-- A2590_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg kan ikke gå omkring</td>
+                                    <td>
+                                        <!-- A2590_5 -->
+                                    </td>
+                                </tr>
+                                <!--2591-->
+                                <tr>
+                                    <th colspan="2" align="left">Hvordan vil du bedst beskrive din mulighed for at udføre personlig pleje i dag?</th>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har ingen problemer med at vaske mig eller klæde mig på</td>
+                                    <td>
+                                        <!-- A2591_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har lidt problemer med at vaske mig eller klæde mig på</td>
+                                    <td>
+                                        <!-- A2591_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har moderate problemer med at vaske mig eller klæde mig på</td>
+                                    <td>
+                                        <!-- A2591_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har store problemer med at vaske mig eller klæde mig på</td>
+                                    <td>
+                                        <!-- A2591_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg kan ikke vaske mig eller klæde mig på</td>
+                                    <td>
+                                        <!-- A2591_5 -->
+                                    </td>
+                                </tr>
+                                <!--2592-->
+                                <tr>
+                                    <th colspan="2" align="left">Hvordan vil du bedst beskrive din mulighed for at udføre dine sædvanlige aktiviteter i dag? (fx arbejde, studie, husarbejde, familie- eller fritidsaktiviteter)</th>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har ingen problemer med at udføre mine sædvanlige aktiviteter</td>
+                                    <td>
+                                        <!-- A2592_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har lidt problemer med at udføre mine sædvanlige aktiviteter</td>
+                                    <td>
+                                        <!-- A2592_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har moderate problemer med at udføre mine sædvanlige aktiviteter</td>
+                                    <td>
+                                        <!-- A2592_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har store problemer med at udføre mine sædvanlige aktiviteter</td>
+                                    <td>
+                                        <!-- A2592_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg kan ikke udføre mine sædvanlige aktiviteter</td>
+                                    <td>
+                                        <!-- A2592_5 -->
+                                    </td>
+                                </tr>
+                                <!--2593-->
+                                <tr>
+                                    <th colspan="2" align="left">Hvordan vil du bedst beskrive dine smerter/ ubehag i dag?</th>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har ingen smerter eller ubehag</td>
+                                    <td>
+                                        <!-- A2593_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har lidt smerter eller ubehag</td>
+                                    <td>
+                                        <!-- A2593_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har moderate smerter eller ubehag</td>
+                                    <td>
+                                        <!-- A2593_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har stærke smerter eller ubehag</td>
+                                    <td>
+                                        <!-- A2593_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg har ekstreme smerter eller ubehag</td>
+                                    <td>
+                                        <!-- A2593_5 -->
+                                    </td>
+                                </tr>
+                                <!--2594-->
+                                <tr>
+                                    <th colspan="2" align="left">Hvordan vil du bedst beskrive din følelse af angst/ depression i dag?</th>
+                                </tr>
+                                <tr>
+                                    <td>Jeg er ikke ængstelig eller deprimeret</td>
+                                    <td>
+                                        <!-- A2594_1 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg er lidt ængstelig eller deprimeret</td>
+                                    <td>
+                                        <!-- A2594_2 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg er moderat ængstelig eller deprimeret</td>
+                                    <td>
+                                        <!-- A2594_3 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg er meget ængstelig eller deprimeret</td>
+                                    <td>
+                                        <!-- A2594_4 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jeg er ekstremt ængstelig eller deprimeret</td>
+                                    <td>
+                                        <!-- A2594_5 -->
+                                    </td>
+                                </tr>
+                                <!--2595-->
+                                <tr>
+                                    <th align="left">Hvordan er dit helbred i dag?</th>
+                                    <td>
+                                        <!-- Q2595 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Vi vil gerne vide, hvor godt eller dårligt dit helbred er I DAG. Denne skala er nummereret fra 0 til 100. 100 svarer til det bedste helbred, du kan forestille dig. 0 svarer til det dårligste helbred, du kan forestille dig. Klik med musen på det sted på skalaen, der viser, hvordan dit helbred er I DAG.</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    <!-- GRUPPE_2230 -->
+                    <entry typeCode="DRIV" contextConductionInd="true">
+                        <organizer classCode="BATTERY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+                            <id root="1.2.208.176.7.3.3" extension="2230" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                            <code codeSystem="1.2.208.176.7.3.3" code="G2230" codeSystemName="Sundhedsdatastyrelsen"></code>
+                            <statusCode code="COMPLETED"/>
+                            <!-- MC-SPRGSML_2590
+							*********************************************************
+							* Hvordan vil du bedst beskrive din bevægelighed i dag?
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="1"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2590" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2590" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Hvordan vil du bedst beskrive din bevægelighed i dag?</originalText>
+                                    </code>
+                                    <value code="A2590_1" displayName="Jeg har ingen problemer med at gå omkring" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2590_2" displayName="Jeg har lidt problemer med at gå omkring" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2590_3" displayName="Jeg har moderate problemer med at gå omkring" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2590_4" displayName="Jeg har store problemer med at gå omkring" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2590_5" displayName="Jeg kan ikke gå omkring" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- MC-SPRGSML_2591
+							*********************************************************
+							* Hvordan vil du bedst beskrive din mulighed for at udføre ...
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="2"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2591" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2591" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Hvordan vil du bedst beskrive din mulighed for at udføre personlig pleje i dag?</originalText>
+                                    </code>
+                                    <value code="A2591_1" displayName="Jeg har ingen problemer med at vaske mig eller klæde mig på" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2591_2" displayName="Jeg har lidt problemer med at vaske mig eller klæde mig på" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2591_3" displayName="Jeg har moderate problemer med at vaske mig eller klæde mig på" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2591_4" displayName="Jeg har store problemer med at vaske mig eller klæde mig på" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2591_5" displayName="Jeg kan ikke vaske mig eller klæde mig på" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- MC-SPRGSML_2592
+							*********************************************************
+							* Hvordan vil du bedst beskrive din mulighed for at udføre ...
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="3"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2592" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2592" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Hvordan vil du bedst beskrive din mulighed for at udføre dine sædvanlige aktiviteter i dag? (fx arbejde, studie, husarbejde, familie- eller fritidsaktiviteter)</originalText>
+                                    </code>
+                                    <value code="A2592_1" displayName="Jeg har ingen problemer med at udføre mine sædvanlige aktiviteter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2592_2" displayName="Jeg har lidt problemer med at udføre mine sædvanlige aktiviteter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2592_3" displayName="Jeg har moderate problemer med at udføre mine sædvanlige aktiviteter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2592_4" displayName="Jeg har store problemer med at udføre mine sædvanlige aktiviteter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2592_5" displayName="Jeg kan ikke udføre mine sædvanlige aktiviteter" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- MC-SPRGSML_2593
+							*********************************************************
+							* Hvordan vil du bedst beskrive dine smerter/ ubehag i dag?
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="4"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2593" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2593" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Hvordan vil du bedst beskrive dine smerter/ ubehag i dag?</originalText>
+                                    </code>
+                                    <value code="A2593_1" displayName="Jeg har ingen smerter eller ubehag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2593_2" displayName="Jeg har lidt smerter eller ubehag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2593_3" displayName="Jeg har moderate smerter eller ubehag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2593_4" displayName="Jeg har stærke smerter eller ubehag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2593_5" displayName="Jeg har ekstreme smerter eller ubehag" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- MC-SPRGSML_2594
+							*********************************************************
+							* Hvordan vil du bedst beskrive din følelse af angst/ ...
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="5"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.176.1.5" extension="2594" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2594" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Hvordan vil du bedst beskrive din følelse af angst/ depression i dag?</originalText>
+                                    </code>
+                                    <value code="A2594_1" displayName="Jeg er ikke ængstelig eller deprimeret" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2594_2" displayName="Jeg er lidt ængstelig eller deprimeret" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2594_3" displayName="Jeg er moderat ængstelig eller deprimeret" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2594_4" displayName="Jeg er meget ængstelig eller deprimeret" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <value code="A2594_5" displayName="Jeg er ekstremt ængstelig eller deprimeret" codeSystem="1.2.208.176.1.5" codeSystemName="Sundhedsdatastyrelsen" xsi:type="CE"/>
+                                    <!-- Antal svar -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="744467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <!-- NUM-SKYDER_2595
+							*********************************************************
+							* Hvordan er dit helbred i dag?
+							********************************************************* -->
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="6"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10"/>
+                                    <id root="1.2.208.176.1.5" extension="2595" assigningAuthorityName="Sundhedsdatastyrelsen"/>
+                                    <code codeSystem="1.2.208.176.1.5" code="Q2595" codeSystemName="Sundhedsdatastyrelsen">
+                                        <originalText>Hvordan er dit helbred i dag?</originalText>
+                                    </code>
+                                    <!-- Hjælpetekst -->
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.19"/>
+                                            <code code="48767-8" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="ST"> 
+                                            Vi vil gerne vide, hvor godt eller dårligt dit helbred er I DAG.
+                                            Denne skala er nummereret fra 0 til 100.
+                                            100 svarer til det bedste helbred, du kan forestille dig.
+                                            0 svarer til det dårligste helbred, du kan forestille dig.
+                                            Klik med musen på det sted på skalaen, der viser, hvordan dit helbred er I DAG.
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                    <!-- Værdisæt og -type for spørgsmål-2595 -->
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0"/>
+                                                <increment value="1"/>
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                        </organizer>
+                    </entry>
+                </section>
+            </component>
+            <!-- SPRGSMLSEKTION_2122
+            ==========================================
+            Tak for din besvarelse
+            ========================================== -->
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+                    <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <title>Tak for din besvarelse</title>
+                    <text>  </text>
+                </section>
+            </component>
+        </structuredBody>
+    </component>
+</ClinicalDocument><!-- XML by SDS: PRO-sekretariatet -->

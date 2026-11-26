@@ -1,0 +1,770 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:sdtc="urn:hl7-org:sdtc"
+    xsi:schemaLocation="urn:hl7-org:v3 /xmlschema/QFD/CDA_SDTC.xsd" xmlns:voc="urn:hl7-org:v3/voc"
+    classCode="DOCCLIN" moodCode="EVN">
+    <realmCode code="UV" />
+    <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+    <templateId root="1.2.208.184.12.1" assigningAuthorityName="MedCom" />
+    <templateId root="1.2.208.184.12.1.1.1" />
+    <id root="1.2.208.195.1.1.1" extension="ccdb4c9e-dfa2-44d6-b6ca-084ceabb53d9"
+        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+    <code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="74468-0"
+        displayName="Form Definition Document" />
+    <title>Spørgeskema om slidgigt i skulderen</title>
+    <sdtc:statusCode code="NEW" />
+    <effectiveTime value="20250922000000+0200" />
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25" />
+    <languageCode code="da-DK" />
+    <versionNumber value="1" />
+    <recordTarget nullFlavor="NI">
+        <patientRole nullFlavor="NI">
+            <id nullFlavor="NI" />
+        </patientRole>
+    </recordTarget>
+    <author typeCode="AUT" contextControlCode="OP">
+        <time value="20250922000000+0200" />
+        <assignedAuthor classCode="ASSIGNED">
+            <id nullFlavor="NA" />
+            <addr use="WP">
+                <streetAddressLine>Sundhedsvæsenets Kvalitetsinstitut</streetAddressLine>
+                <streetAddressLine>Hedeager 3</streetAddressLine>
+                <postalCode>8200</postalCode>
+                <city>Aarhus N</city>
+                <country>Danmark</country>
+            </addr>
+            <telecom value="tel:+4523661511" use="WP" />
+            <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR" />
+                <name>Sundhedsvæsenets Kvalitetsinstitut</name>
+                <telecom nullFlavor="NI" />
+                <addr use="WP">
+                    <streetAddressLine nullFlavor="NI" />
+                </addr>
+            </representedOrganization>
+        </assignedAuthor>
+    </author>
+    <custodian typeCode="CST">
+        <assignedCustodian classCode="ASSIGNED">
+            <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR" />
+                <name>Sundhedsvæsenets Kvalitetsinstitut</name>
+                <telecom value="tel:+4523661511" use="WP" />
+                <addr use="WP">
+                    <streetAddressLine>Sundhedsvæsenets Kvalitetsinstitut</streetAddressLine>
+                    <streetAddressLine>Hedeager 3</streetAddressLine>
+                    <postalCode>8200</postalCode>
+                    <city>Aarhus N</city>
+                    <country>Danmark</country>
+                </addr>
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian>
+    <component typeCode="COMP" contextConductionInd="true">
+        <structuredBody classCode="DOCBODY" moodCode="EVN">
+            <component typeCode="COMP" contextConductionInd="true"><!--INFOsektion - Introduktionstekst-->
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1" />
+                    <title>Introduktionstekst</title>
+					<text><paragraph>Introduktionstekst til spørgeskema udarbejdes lokalt. Denne kan eksempelvis indeholde:</paragraph>
+                    <paragraph> </paragraph>
+                    <paragraph>Du har modtaget dette spørgeskema, som du skal udfylde med informationer om din funktionsevne. Når du svarer på spørgeskemaet, får du mulighed for at oplyse os om, hvordan du har det. Vi vil tale med dig om dine svar til dit næste besøg. Hvis svarmulighederne i spørgeskemaet ikke passer helt på din situation, så markér det svar, som passer bedst. Det er frivilligt at besvare spørgeskemaet. Har du spørgsmål til spørgeskemaet, kan du stille dem til din afdeling.</paragraph>
+                    </text>
+                </section>
+            </component>
+            <component typeCode="COMP" contextConductionInd="true"><!--Copyright sektion-->
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.2" />
+                    <title>Western Ontario Osteoarthritis of the the shoulder index (WOOS)</title>
+                    <text><paragraph>Et redskab til måling af livskvalitet ved patienter med gigtlidelse eller kunstigt led i skulderen.</paragraph></text>
+                    <entry contextConductionInd="true" typeCode="DRIV">
+                        <observation classCode="OBS" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.32.4.21" />
+                            <code code="COPY" codeSystem="2.16.840.1.113883.6.1"
+                                codeSystemName="LOINC" displayName="Code for Copyright" />
+                            <value xsi:type="ST">Copyright © 1998, A. Kirkley, MD, S.Griffin CSS, I. Lo, MDOversættelse 2003, John Jakobsen, Ortopædkirurgisk Klinik, Aalborg</value>
+                        </observation>
+                    </entry>
+                </section>
+            </component>
+            <component typeCode="COMP" contextConductionInd="true"><!--Sektion A-->
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1" />
+                    <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                    <title>Afsnit A: Fysiske symptomer</title>
+                    <text>
+                        <table>
+                            <colgroup>
+                                <col width="70%" />
+                                <col width="30%" />
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">De følgende spørgsmål omhandler de fysiske symptomer, du har på grund af dit skulderproblem. Ved hvert spørgsmål skal du markere omfanget af dine symptomer indenfor den seneste uge.</td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor megen smerte føler du i din skulder, når du bevæger den?</th>
+                                    <td><!-- Q00110 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor megen konstant vedvarende smerte føler du i din skulder?</th>
+                                    <td><!-- Q00111 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor meget kraftnedsættelse føler du i din skulder?</th>
+                                    <td><!-- Q00112 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor megen stivhed føler du i din skulder?</th>
+                                    <td><!-- Q00113 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor meget skurren føler du i din skulder?</th>
+                                    <td><!-- Q00114 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor meget er din skulder påvirket af vejret?</th>
+                                    <td><!-- Q00115 -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    <entry typeCode="DRIV" contextConductionInd="true">
+                        <organizer classCode="BATTERY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.32.4.1" />
+                            <id root="1.2.208.195.1.1.3" extension="00005"
+                                assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                            <code codeSystem="1.2.208.195.1.1.3" code="G00005"
+                                codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                <originalText>De følgende spørgsmål omhandler de fysiske symptomer, du har på grund af dit skulderproblem. Ved hvert spørgsmål skal du markere omfanget af dine symptomer indenfor den seneste uge.</originalText>
+                            </code>
+                            <statusCode code="COMPLETED" />
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="1" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00110"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00110"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor megen smerte føler du i din skulder, når du bevæger den?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="2" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00111"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00111"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor megen konstant vedvarende smerte føler du i din skulder?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="3" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00112"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00112"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor meget kraftnedsættelse føler du i din skulder?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="4" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00113"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00113"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor megen stivhed føler du i din skulder?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="5" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00114"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00114"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor meget skurren føler du i din skulder?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="6" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00115"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00115"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor meget er din skulder påvirket af vejret?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                        </organizer>
+                    </entry>
+                </section>
+            </component>
+            <component typeCode="COMP" contextConductionInd="true"><!--Sektion B-->
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1" />
+                    <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                    <title>Afsnit B: Sport/fritid/arbejde</title>
+                    <text>
+                        <table>
+                            <colgroup>
+                                <col width="70%" />
+                                <col width="30%" />
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">Følgende afsnit handler om, hvor meget dit skulderproblem har påvirket dine sports- og fritidsaktiviteter indenfor den seneste uge. Du skal markere omfanget af dine symptomer.</td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor meget besvær har du med at arbejde eller nå noget over skulderhøjde?</th>
+                                    <td><!-- Q00116 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor meget besvær har du ved at løfte ting (fx. indkøbsposer, affaldsposer osv.) under skulderhøjde?</th>
+                                    <td><!-- Q00117 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor meget besvær har du med at gøre gentagne bevægelser under skulderhøjde som fx. at rive, feje eller vaske gulv på grund af din skulder?</th>
+                                    <td><!-- Q00118 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor meget besvær har du med at skubbe eller trække noget tungt på grund af din skulder?</th>
+                                    <td><!-- Q00119 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor besværet er du af forværring af skuldersmerterne, når du har brugt den?</th>
+                                    <td><!-- Q00120 -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    <entry typeCode="DRIV" contextConductionInd="true">
+                        <organizer classCode="BATTERY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.32.4.1" />
+                            <id root="1.2.208.195.1.1.3" extension="00006"
+                                assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                            <code codeSystem="1.2.208.195.1.1.3" code="G00006"
+                                codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                <originalText>Følgende afsnit handler om, hvor meget dit skulderproblem har påvirket dine sports- og fritidsaktiviteter indenfor den seneste uge. Du skal markere omfanget af dine symptomer.</originalText>
+                            </code>
+                            <statusCode code="COMPLETED" />
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="1" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00116"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00116"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor meget besvær har du med at arbejde eller nå noget over skulderhøjde?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="2" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00117"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00117"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor meget besvær har du ved at løfte ting (fx. indkøbsposer, affaldsposer osv.) under skulderhøjde?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="3" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00118"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00118"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor meget besvær har du med at gøre gentagne bevægelser under skulderhøjde som fx. at rive, feje eller vaske gulv på grund af din skulder?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="4" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00119"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00119"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor meget besvær har du med at skubbe eller trække noget tungt på grund af din skulder?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="5" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00120"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00120"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor besværet er du af forværring af skuldersmerterne, når du har brugt den?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                        </organizer>
+                    </entry>
+                </section>
+            </component>
+            <component typeCode="COMP" contextConductionInd="true"><!--Sektion C-->
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1" />
+                    <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                    <title>AFSNIT C: Livsstil</title>
+                    <text>
+                        <table>
+                            <colgroup>
+                                <col width="70%" />
+                                <col width="30%" />
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">Dette afsnit handler om, hvordan dit skulderproblem har påvirket eller ændret din livsstil. Marker omfanget som i de foregående afsnit.</td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor meget besvær har du med at sove på grund af din skulder?</th>
+                                    <td><!-- Q00121 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor meget besvær har du med at ordne dit hår på grund af skulderen?</th>
+                                    <td><!-- Q00122 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor meget besvær har du med at holde dig I form i det niveau du ønsker på grund af din skulder?</th>
+                                    <td><!-- Q00123 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor meget besvær har du ved at række bagud og stoppe en skjorte ned, tage en pung fra baglommen eller ordne dit tøj?</th>
+                                    <td><!-- Q00124 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor meget besvær har du med af- og påklædning på grund af din skulder?</th>
+                                    <td><!-- Q00125 -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    <entry typeCode="DRIV" contextConductionInd="true">
+                        <organizer classCode="BATTERY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.32.4.1" />
+                            <id root="1.2.208.195.1.1.3" extension="00007"
+                                assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                            <code codeSystem="1.2.208.195.1.1.3" code="G00007"
+                                codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                <originalText>Dette afsnit handler om, hvordan dit skulderproblem har påvirket eller ændret din livsstil. Marker omfanget som i de foregående afsnit.</originalText>
+                            </code>
+                            <statusCode code="COMPLETED" />
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="1" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00121"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00121"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor meget besvær har du med at sove på grund af din skulder?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="2" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00122"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00122"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor meget besvær har du med at ordne dit hår på grund af skulderen?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="3" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00123"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00123"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor meget besvær har du med at holde dig I form i det niveau du ønsker på grund af din skulder?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="4" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00124"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00124"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor meget besvær har du ved at række bagud og stoppe en skjorte ned, tage en pung fra baglommen eller ordne dit tøj?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="5" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00125"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00125"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor meget besvær har du med af- og påklædning på grund af din skulder?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                        </organizer>
+                    </entry>
+                </section>
+            </component>
+            <component typeCode="COMP" contextConductionInd="true"><!--Sektion D-->
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1" />
+                    <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                    <title>AFSNIT D: Følelser</title>
+                    <text>
+                        <table>
+                            <colgroup>
+                                <col width="70%" />
+                                <col width="30%" />
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">De følgende spørgsmål handler om, hvordan du har følt det den sidste uge med hensyn til dit skulderproblem. Marker omfanget.</td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor megen frustration eller modløshed føler du på grund af din skulder?</th>
+                                    <td><!-- Q00126 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor bekymret er du for, hvad der vil ske med din skulder i fremtiden?</th>
+                                    <td><!-- Q00127 -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvor meget til besvær føler du, at du er for andre?</th>
+                                    <td><!-- Q00128 -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    <entry typeCode="DRIV" contextConductionInd="true">
+                        <organizer classCode="BATTERY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.32.4.1" />
+                            <id root="1.2.208.195.1.1.3" extension="00008"
+                                assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                            <code codeSystem="1.2.208.195.1.1.3" code="G00008"
+                                codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                <originalText>De følgende spørgsmål handler om, hvordan du har følt det den sidste uge med hensyn til dit skulderproblem. Marker omfanget.</originalText>
+                            </code>
+                            <statusCode code="COMPLETED" />
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="1" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00126"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00126"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor megen frustration eller modløshed føler du på grund af din skulder?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="2" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00127"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00127"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor bekymret er du for, hvad der vil ske med din skulder i fremtiden?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="3" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10" />
+                                    <id root="1.2.208.195.1.1.4" extension="00128"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00128"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvor meget til besvær føler du, at du er for andre?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="100" xsi:type="GLIST_PQ">
+                                                <head value="0" />
+                                                <increment value="1" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                        </organizer>
+                    </entry>
+                </section>
+            </component>
+            <component typeCode="COMP" contextConductionInd="true"><!--Sektion Supplerende spm-->
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1" />
+                    <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                    <title>Supplerende spørgsmål</title>
+                    <text>
+                        <table>
+                            <colgroup>
+                                <col width="70%" />
+                                <col width="30%" />
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <th align="left">Hvis en ”normal” skulder fungerer 100%, hvordan fungerer din skulder så?</th>
+                                    <td><!-- Q00129 -->
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    <entry typeCode="DRIV" contextConductionInd="true">
+                        <organizer classCode="BATTERY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.32.4.1" />
+                            <id root="1.2.208.195.1.1.3" extension="00009"
+                                assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                            <code codeSystem="1.2.208.195.1.1.3" code="G00009"
+                                codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" />
+                            <statusCode code="COMPLETED" />
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="1" />
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7" />
+                                    <id root="1.2.208.195.1.1.4" extension="00129"
+                                        assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut" />
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00129"
+                                        codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvis en ”normal” skulder fungerer 100%, hvordan fungerer din skulder så?</originalText>
+                                    </code>
+                                    <methodCode code="ANSWERISOPTIONAL" displayName="false"
+                                        codeSystem="1.2.208.184.100.1"
+                                        codeSystemName="MedCom Message Codes" />
+                                    <referenceRange typeCode="REFV">
+                                        <templateId root="2.16.840.1.113883.10.20.32.4.5" />
+                                        <observationRange classCode="OBS">
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0" />
+                                                <high value="100" />
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                        </organizer>
+                    </entry>
+                </section>
+            </component>
+        </structuredBody>
+    </component>
+</ClinicalDocument>

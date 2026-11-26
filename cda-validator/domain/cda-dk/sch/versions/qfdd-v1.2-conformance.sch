@@ -931,31 +931,31 @@
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C91-92-pattern">
     <sch:p>Source: qfdd, section 5.3, PDF page 26, C91-92. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]">
+    <sch:rule context="v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']] | sdtc:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]">
       <sch:assert id="QFDD-DK-1.2-C91-92" test="count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=26">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.3'] cardinality must be 1..1. Source: qfdd 5.3, p. 26, C91-92.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C93-pattern">
     <sch:p>Source: qfdd, section 5.3, PDF page 26, C93. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]">
+    <sch:rule context="v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']] | sdtc:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]">
       <sch:assert id="QFDD-DK-1.2-C93" test="@classCode = 'OBS'" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=26">QFDD-DK 1.2: @classCode must be OBS. Source: qfdd 5.3, p. 26, C93.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C94-pattern">
     <sch:p>Source: qfdd, section 5.3, PDF page 26, C94. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]">
+    <sch:rule context="v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']] | sdtc:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]">
       <sch:assert id="QFDD-DK-1.2-C94" test="@moodCode = 'EVN.CRT'" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=26">QFDD-DK 1.2: @moodCode must be EVN.CRT. Source: qfdd 5.3, p. 26, C94.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C95-pattern">
     <sch:p>Source: qfdd, section 5.3, PDF page 26, C95. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]">
+    <sch:rule context="v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']] | sdtc:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]">
       <sch:assert id="QFDD-DK-1.2-C95" test="count(v3:code) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=26">QFDD-DK 1.2: code cardinality must be 1..1. Source: qfdd 5.3, p. 26, C95.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C96-pattern">
     <sch:p>Source: qfdd, section 5.3, PDF page 26, C96. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]">
+    <sch:rule context="v3:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']] | sdtc:criterion[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.3']]">
       <sch:assert id="QFDD-DK-1.2-C96" test="count(v3:value) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=26">QFDD-DK 1.2: value cardinality must be 1..1. Source: qfdd 5.3, p. 26, C96.</sch:assert>
     </sch:rule>
   </sch:pattern>
@@ -1021,134 +1021,134 @@
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C230-pattern">
     <sch:p>Source: qfdd, section 6.1, PDF page 51, C230. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']">
+    <sch:rule context="sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']">
       <sch:assert id="QFDD-DK-1.2-C230" test="@typeCode = 'PRCN'" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: @typeCode must be PRCN. Source: qfdd 6.1, p. 51, C230.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C231-232-pattern">
     <sch:p>Source: qfdd, section 6.1, PDF page 51, C231-232. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']">
-      <sch:assert id="QFDD-DK-1.2-C231-232" test="count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 6.1, p. 51, C231-232.</sch:assert>
+    <sch:rule context="sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']">
+      <sch:assert id="QFDD-DK-1.2-C231-232" test="count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 6.1, p. 51, C231-232.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C233-pattern">
     <sch:p>Source: qfdd, section 6.1, PDF page 51, C233. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']">
-      <sch:assert id="QFDD-DK-1.2-C233" test="count(v3:conjunctionCode) &lt;= 1" flag="warning" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: conjunctionCode cardinality must be 0..1. Source: qfdd 6.1, p. 51, C233.</sch:assert>
+    <sch:rule context="sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']">
+      <sch:assert id="QFDD-DK-1.2-C233" test="count(sdtc:conjunctionCode) &lt;= 1" flag="warning" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: conjunctionCode cardinality must be 0..1. Source: qfdd 6.1, p. 51, C233.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C234-241-pattern">
     <sch:p>Source: qfdd, section 6.1, PDF page 51, C234-241. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']">
-      <sch:assert id="QFDD-DK-1.2-C234-241" test="count(v3:criterion[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.3'] | v3:allTrue[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.13'] | v3:allFalse[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.14'] | v3:atLeastOneTrue[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.15'] | v3:atLeastOneFalse[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.16'] | v3:onlyOneTrue[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.17'] | v3:onlyOneFalse[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.18']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: criterion[templateId/@root='2.16.840.1.113883.10.20.32.4.3'] | allTrue[templateId/@root='2.16.840.1.113883.10.20.32.4.13'] | allFalse[templateId/@root='2.16.840.1.113883.10.20.32.4.14'] | atLeastOneTrue[templateId/@root='2.16.840.1.113883.10.20.32.4.15'] | atLeastOneFalse[templateId/@root='2.16.840.1.113883.10.20.32.4.16'] | onlyOneTrue[templateId/@root='2.16.840.1.113883.10.20.32.4.17'] | onlyOneFalse[templateId/@root='2.16.840.1.113883.10.20.32.4.18'] cardinality must be 1..1. Source: qfdd 6.1, p. 51, C234-241.</sch:assert>
+    <sch:rule context="sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']">
+      <sch:assert id="QFDD-DK-1.2-C234-241" test="count(sdtc:criterion[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.3'] | sdtc:allTrue[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.13'] | sdtc:allFalse[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.14'] | sdtc:atLeastOneTrue[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.15'] | sdtc:atLeastOneFalse[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.16'] | sdtc:onlyOneTrue[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.17'] | sdtc:onlyOneFalse[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.18']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: criterion[templateId/@root='2.16.840.1.113883.10.20.32.4.3'] | allTrue[templateId/@root='2.16.840.1.113883.10.20.32.4.13'] | allFalse[templateId/@root='2.16.840.1.113883.10.20.32.4.14'] | atLeastOneTrue[templateId/@root='2.16.840.1.113883.10.20.32.4.15'] | atLeastOneFalse[templateId/@root='2.16.840.1.113883.10.20.32.4.16'] | onlyOneTrue[templateId/@root='2.16.840.1.113883.10.20.32.4.17'] | onlyOneFalse[templateId/@root='2.16.840.1.113883.10.20.32.4.18'] cardinality must be 1..1. Source: qfdd 6.1, p. 51, C234-241.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C243-244-pattern">
     <sch:p>Source: qfdd, section 6.2, PDF page 51, C243-244. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:allTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.13']]">
-      <sch:assert id="QFDD-DK-1.2-C243-244" test="count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.13']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.13'] cardinality must be 1..1. Source: qfdd 6.2, p. 51, C243-244.</sch:assert>
+    <sch:rule context="sdtc:allTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.13']]">
+      <sch:assert id="QFDD-DK-1.2-C243-244" test="count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.13']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.13'] cardinality must be 1..1. Source: qfdd 6.2, p. 51, C243-244.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C245-pattern">
     <sch:p>Source: qfdd, section 6.2, PDF page 51, C245. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:allTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.13']]">
-      <sch:assert id="QFDD-DK-1.2-C245" test="count(v3:id) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.2, p. 51, C245.</sch:assert>
+    <sch:rule context="sdtc:allTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.13']]">
+      <sch:assert id="QFDD-DK-1.2-C245" test="count(sdtc:id) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.2, p. 51, C245.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C246-pattern">
     <sch:p>Source: qfdd, section 6.2, PDF page 51, C246. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:allTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.13']]">
-      <sch:assert id="QFDD-DK-1.2-C246" test="count(sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) &gt;= 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.2, p. 51, C246.</sch:assert>
+    <sch:rule context="sdtc:allTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.13']]">
+      <sch:assert id="QFDD-DK-1.2-C246" test="count(sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) &gt;= 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.2, p. 51, C246.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C247-248-pattern">
     <sch:p>Source: qfdd, section 6.3, PDF page 51, C247-248. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:allFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.14']]">
-      <sch:assert id="QFDD-DK-1.2-C247-248" test="count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.14']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.14'] cardinality must be 1..1. Source: qfdd 6.3, p. 51, C247-248.</sch:assert>
+    <sch:rule context="sdtc:allFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.14']]">
+      <sch:assert id="QFDD-DK-1.2-C247-248" test="count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.14']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.14'] cardinality must be 1..1. Source: qfdd 6.3, p. 51, C247-248.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C249-pattern">
     <sch:p>Source: qfdd, section 6.3, PDF page 51, C249. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:allFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.14']]">
-      <sch:assert id="QFDD-DK-1.2-C249" test="count(v3:id) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.3, p. 51, C249.</sch:assert>
+    <sch:rule context="sdtc:allFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.14']]">
+      <sch:assert id="QFDD-DK-1.2-C249" test="count(sdtc:id) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.3, p. 51, C249.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C250-pattern">
     <sch:p>Source: qfdd, section 6.3, PDF page 51, C250. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:allFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.14']]">
-      <sch:assert id="QFDD-DK-1.2-C250" test="count(sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) &gt;= 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.3, p. 51, C250.</sch:assert>
+    <sch:rule context="sdtc:allFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.14']]">
+      <sch:assert id="QFDD-DK-1.2-C250" test="count(sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) &gt;= 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.3, p. 51, C250.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C251-252-pattern">
     <sch:p>Source: qfdd, section 6.4, PDF page 51, C251-252. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:atLeastOneTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.15']]">
-      <sch:assert id="QFDD-DK-1.2-C251-252" test="count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.15']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.15'] cardinality must be 1..1. Source: qfdd 6.4, p. 51, C251-252.</sch:assert>
+    <sch:rule context="sdtc:atLeastOneTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.15']]">
+      <sch:assert id="QFDD-DK-1.2-C251-252" test="count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.15']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.15'] cardinality must be 1..1. Source: qfdd 6.4, p. 51, C251-252.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C253-pattern">
     <sch:p>Source: qfdd, section 6.4, PDF page 51, C253. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:atLeastOneTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.15']]">
-      <sch:assert id="QFDD-DK-1.2-C253" test="count(v3:id) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.4, p. 51, C253.</sch:assert>
+    <sch:rule context="sdtc:atLeastOneTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.15']]">
+      <sch:assert id="QFDD-DK-1.2-C253" test="count(sdtc:id) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.4, p. 51, C253.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C254-pattern">
     <sch:p>Source: qfdd, section 6.4, PDF page 51, C254. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:atLeastOneTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.15']]">
-      <sch:assert id="QFDD-DK-1.2-C254" test="count(sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) &gt;= 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.4, p. 51, C254.</sch:assert>
+    <sch:rule context="sdtc:atLeastOneTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.15']]">
+      <sch:assert id="QFDD-DK-1.2-C254" test="count(sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) &gt;= 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=51">QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.4, p. 51, C254.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C255-256-pattern">
     <sch:p>Source: qfdd, section 6.5, PDF page 52, C255-256. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:atLeastOneFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.16']]">
-      <sch:assert id="QFDD-DK-1.2-C255-256" test="count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.16']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.16'] cardinality must be 1..1. Source: qfdd 6.5, p. 52, C255-256.</sch:assert>
+    <sch:rule context="sdtc:atLeastOneFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.16']]">
+      <sch:assert id="QFDD-DK-1.2-C255-256" test="count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.16']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.16'] cardinality must be 1..1. Source: qfdd 6.5, p. 52, C255-256.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C257-pattern">
     <sch:p>Source: qfdd, section 6.5, PDF page 52, C257. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:atLeastOneFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.16']]">
-      <sch:assert id="QFDD-DK-1.2-C257" test="count(v3:id) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.5, p. 52, C257.</sch:assert>
+    <sch:rule context="sdtc:atLeastOneFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.16']]">
+      <sch:assert id="QFDD-DK-1.2-C257" test="count(sdtc:id) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.5, p. 52, C257.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C258-pattern">
     <sch:p>Source: qfdd, section 6.5, PDF page 52, C258. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:atLeastOneFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.16']]">
-      <sch:assert id="QFDD-DK-1.2-C258" test="count(sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) &gt;= 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.5, p. 52, C258.</sch:assert>
+    <sch:rule context="sdtc:atLeastOneFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.16']]">
+      <sch:assert id="QFDD-DK-1.2-C258" test="count(sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) &gt;= 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.5, p. 52, C258.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C259-260-pattern">
     <sch:p>Source: qfdd, section 6.6, PDF page 52, C259-260. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:onlyOneTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.17']]">
-      <sch:assert id="QFDD-DK-1.2-C259-260" test="count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.17']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.17'] cardinality must be 1..1. Source: qfdd 6.6, p. 52, C259-260.</sch:assert>
+    <sch:rule context="sdtc:onlyOneTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.17']]">
+      <sch:assert id="QFDD-DK-1.2-C259-260" test="count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.17']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.17'] cardinality must be 1..1. Source: qfdd 6.6, p. 52, C259-260.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C261-pattern">
     <sch:p>Source: qfdd, section 6.6, PDF page 52, C261. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:onlyOneTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.17']]">
-      <sch:assert id="QFDD-DK-1.2-C261" test="count(v3:id) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.6, p. 52, C261.</sch:assert>
+    <sch:rule context="sdtc:onlyOneTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.17']]">
+      <sch:assert id="QFDD-DK-1.2-C261" test="count(sdtc:id) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.6, p. 52, C261.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C262-pattern">
     <sch:p>Source: qfdd, section 6.6, PDF page 52, C262. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:onlyOneTrue[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.17']]">
-      <sch:assert id="QFDD-DK-1.2-C262" test="count(sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) &gt;= 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.6, p. 52, C262.</sch:assert>
+    <sch:rule context="sdtc:onlyOneTrue[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.17']]">
+      <sch:assert id="QFDD-DK-1.2-C262" test="count(sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) &gt;= 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.6, p. 52, C262.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C263-264-pattern">
     <sch:p>Source: qfdd, section 6.7, PDF page 52, C263-264. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:onlyOneFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.18']]">
-      <sch:assert id="QFDD-DK-1.2-C263-264" test="count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.18']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.18'] cardinality must be 1..1. Source: qfdd 6.7, p. 52, C263-264.</sch:assert>
+    <sch:rule context="sdtc:onlyOneFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.18']]">
+      <sch:assert id="QFDD-DK-1.2-C263-264" test="count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.18']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.18'] cardinality must be 1..1. Source: qfdd 6.7, p. 52, C263-264.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C265-pattern">
     <sch:p>Source: qfdd, section 6.7, PDF page 52, C265. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:onlyOneFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.18']]">
-      <sch:assert id="QFDD-DK-1.2-C265" test="count(v3:id) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.7, p. 52, C265.</sch:assert>
+    <sch:rule context="sdtc:onlyOneFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.18']]">
+      <sch:assert id="QFDD-DK-1.2-C265" test="count(sdtc:id) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: id cardinality must be 1..1. Source: qfdd 6.7, p. 52, C265.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-C266-pattern">
     <sch:p>Source: qfdd, section 6.7, PDF page 52, C266. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
-    <sch:rule context="v3:onlyOneFalse[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.18']]">
-      <sch:assert id="QFDD-DK-1.2-C266" test="count(sdtc:precondition[v3:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) &gt;= 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.7, p. 52, C266.</sch:assert>
+    <sch:rule context="sdtc:onlyOneFalse[sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.18']]">
+      <sch:assert id="QFDD-DK-1.2-C266" test="count(sdtc:precondition[sdtc:templateId/@root='2.16.840.1.113883.10.20.32.4.12']) &gt;= 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=52">QFDD-DK 1.2: sdtc:precondition[templateId/@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..*. Source: qfdd 6.7, p. 52, C266.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-REL-C159-pattern">
@@ -1340,7 +1340,7 @@
   <sch:pattern id="QFDD-DK-1.2-SDTC-C77-pattern">
     <sch:p>Source: qfdd, section 5.1, PDF page 23, SDTC-C77. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
     <sch:rule context="v3:organizer[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.1']]/sdtc:precondition">
-      <sch:assert id="QFDD-DK-1.2-SDTC-C77" test="count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=23">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 5.1, p. 23, SDTC-C77.</sch:assert>
+      <sch:assert id="QFDD-DK-1.2-SDTC-C77" test="count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=23">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 5.1, p. 23, SDTC-C77.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-PRE-C138-pattern">
@@ -1352,7 +1352,7 @@
   <sch:pattern id="QFDD-DK-1.2-SDTC-C138-pattern">
     <sch:p>Source: qfdd, section 5.8, PDF page 31, SDTC-C138. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
     <sch:rule context="v3:observation[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.6']]/sdtc:precondition">
-      <sch:assert id="QFDD-DK-1.2-SDTC-C138" test="count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=31">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 5.8, p. 31, SDTC-C138.</sch:assert>
+      <sch:assert id="QFDD-DK-1.2-SDTC-C138" test="count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=31">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 5.8, p. 31, SDTC-C138.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-PRE-C166-pattern">
@@ -1364,7 +1364,7 @@
   <sch:pattern id="QFDD-DK-1.2-SDTC-C166-pattern">
     <sch:p>Source: qfdd, section 5.10, PDF page 35, SDTC-C166. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
     <sch:rule context="v3:observation[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.7']]/sdtc:precondition">
-      <sch:assert id="QFDD-DK-1.2-SDTC-C166" test="count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=35">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 5.10, p. 35, SDTC-C166.</sch:assert>
+      <sch:assert id="QFDD-DK-1.2-SDTC-C166" test="count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=35">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 5.10, p. 35, SDTC-C166.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-PRE-C196-pattern">
@@ -1376,7 +1376,7 @@
   <sch:pattern id="QFDD-DK-1.2-SDTC-C196-pattern">
     <sch:p>Source: qfdd, section 5.11, PDF page 39, SDTC-C196. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
     <sch:rule context="v3:observation[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.8']]/sdtc:precondition">
-      <sch:assert id="QFDD-DK-1.2-SDTC-C196" test="count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=39">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 5.11, p. 39, SDTC-C196.</sch:assert>
+      <sch:assert id="QFDD-DK-1.2-SDTC-C196" test="count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=39">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 5.11, p. 39, SDTC-C196.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern id="QFDD-DK-1.2-PRE-C213-pattern">
@@ -1388,7 +1388,7 @@
   <sch:pattern id="QFDD-DK-1.2-SDTC-C213-pattern">
     <sch:p>Source: qfdd, section 5.12, PDF page 44, SDTC-C213. See docs/pro-conformance.md for interpretation and limitations.</sch:p>
     <sch:rule context="v3:observation[v3:templateId[@root='2.16.840.1.113883.10.20.32.4.9']]/sdtc:precondition">
-      <sch:assert id="QFDD-DK-1.2-SDTC-C213" test="count(v3:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=44">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 5.12, p. 44, SDTC-C213.</sch:assert>
+      <sch:assert id="QFDD-DK-1.2-SDTC-C213" test="count(sdtc:templateId[@root='2.16.840.1.113883.10.20.32.4.12']) = 1" flag="error" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=44">QFDD-DK 1.2: templateId[@root='2.16.840.1.113883.10.20.32.4.12'] cardinality must be 1..1. Source: qfdd 5.12, p. 44, SDTC-C213.</sch:assert>
     </sch:rule>
   </sch:pattern>
-<sch:pattern id="QFDD-DK-1.2-GROUPER-allTrue-classCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="v3:allTrue"><sch:assert id="QFDD-DK-1.2-GROUPER-allTrue-classCode" flag="error" test="@classCode='GROUPER'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-allTrue-moodCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="v3:allTrue"><sch:assert id="QFDD-DK-1.2-GROUPER-allTrue-moodCode" flag="error" test="@moodCode='EVN'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-allFalse-classCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="v3:allFalse"><sch:assert id="QFDD-DK-1.2-GROUPER-allFalse-classCode" flag="error" test="@classCode='GROUPER'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-allFalse-moodCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="v3:allFalse"><sch:assert id="QFDD-DK-1.2-GROUPER-allFalse-moodCode" flag="error" test="@moodCode='EVN'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-atLeastOneTrue-classCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="v3:atLeastOneTrue"><sch:assert id="QFDD-DK-1.2-GROUPER-atLeastOneTrue-classCode" flag="error" test="@classCode='GROUPER'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-atLeastOneTrue-moodCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="v3:atLeastOneTrue"><sch:assert id="QFDD-DK-1.2-GROUPER-atLeastOneTrue-moodCode" flag="error" test="@moodCode='EVN'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-atLeastOneFalse-classCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="v3:atLeastOneFalse"><sch:assert id="QFDD-DK-1.2-GROUPER-atLeastOneFalse-classCode" flag="error" test="@classCode='GROUPER'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-atLeastOneFalse-moodCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="v3:atLeastOneFalse"><sch:assert id="QFDD-DK-1.2-GROUPER-atLeastOneFalse-moodCode" flag="error" test="@moodCode='EVN'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-onlyOneTrue-classCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="v3:onlyOneTrue"><sch:assert id="QFDD-DK-1.2-GROUPER-onlyOneTrue-classCode" flag="error" test="@classCode='GROUPER'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-onlyOneTrue-moodCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="v3:onlyOneTrue"><sch:assert id="QFDD-DK-1.2-GROUPER-onlyOneTrue-moodCode" flag="error" test="@moodCode='EVN'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-onlyOneFalse-classCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="v3:onlyOneFalse"><sch:assert id="QFDD-DK-1.2-GROUPER-onlyOneFalse-classCode" flag="error" test="@classCode='GROUPER'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-onlyOneFalse-moodCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="v3:onlyOneFalse"><sch:assert id="QFDD-DK-1.2-GROUPER-onlyOneFalse-moodCode" flag="error" test="@moodCode='EVN'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern></sch:schema>
+<sch:pattern id="QFDD-DK-1.2-GROUPER-allTrue-classCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="sdtc:allTrue"><sch:assert id="QFDD-DK-1.2-GROUPER-allTrue-classCode" flag="error" test="not(@classCode) or @classCode='GROUPER'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-allTrue-moodCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="sdtc:allTrue"><sch:assert id="QFDD-DK-1.2-GROUPER-allTrue-moodCode" flag="error" test="not(@moodCode) or @moodCode='EVN'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-allFalse-classCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="sdtc:allFalse"><sch:assert id="QFDD-DK-1.2-GROUPER-allFalse-classCode" flag="error" test="not(@classCode) or @classCode='GROUPER'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-allFalse-moodCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="sdtc:allFalse"><sch:assert id="QFDD-DK-1.2-GROUPER-allFalse-moodCode" flag="error" test="not(@moodCode) or @moodCode='EVN'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-atLeastOneTrue-classCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="sdtc:atLeastOneTrue"><sch:assert id="QFDD-DK-1.2-GROUPER-atLeastOneTrue-classCode" flag="error" test="not(@classCode) or @classCode='GROUPER'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-atLeastOneTrue-moodCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="sdtc:atLeastOneTrue"><sch:assert id="QFDD-DK-1.2-GROUPER-atLeastOneTrue-moodCode" flag="error" test="not(@moodCode) or @moodCode='EVN'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-atLeastOneFalse-classCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="sdtc:atLeastOneFalse"><sch:assert id="QFDD-DK-1.2-GROUPER-atLeastOneFalse-classCode" flag="error" test="not(@classCode) or @classCode='GROUPER'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-atLeastOneFalse-moodCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="sdtc:atLeastOneFalse"><sch:assert id="QFDD-DK-1.2-GROUPER-atLeastOneFalse-moodCode" flag="error" test="not(@moodCode) or @moodCode='EVN'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-onlyOneTrue-classCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="sdtc:onlyOneTrue"><sch:assert id="QFDD-DK-1.2-GROUPER-onlyOneTrue-classCode" flag="error" test="not(@classCode) or @classCode='GROUPER'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-onlyOneTrue-moodCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="sdtc:onlyOneTrue"><sch:assert id="QFDD-DK-1.2-GROUPER-onlyOneTrue-moodCode" flag="error" test="not(@moodCode) or @moodCode='EVN'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-onlyOneFalse-classCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="sdtc:onlyOneFalse"><sch:assert id="QFDD-DK-1.2-GROUPER-onlyOneFalse-classCode" flag="error" test="not(@classCode) or @classCode='GROUPER'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @classCode must be GROUPER. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern><sch:pattern id="QFDD-DK-1.2-GROUPER-onlyOneFalse-moodCode-pattern"><sch:p>Source: QFDD-DK 1.2, appendix A, PDF page 49: Grouper Attributes.</sch:p><sch:rule context="sdtc:onlyOneFalse"><sch:assert id="QFDD-DK-1.2-GROUPER-onlyOneFalse-moodCode" flag="error" test="not(@moodCode) or @moodCode='EVN'" see="https://svn.medcom.dk/svn/releases/Standarder/HL7/PRO/QFDD/Dokumentation/DK-QFDD-v1.2.pdf#page=49">QFDD-DK 1.2: grouper @moodCode must be EVN. Source: appendix A, p. 49, Grouper Attributes.</sch:assert></sch:rule></sch:pattern></sch:schema>

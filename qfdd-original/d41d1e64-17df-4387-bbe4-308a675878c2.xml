@@ -1,0 +1,1407 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ClinicalDocument xmlns="urn:hl7-org:v3"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:sdtc="urn:hl7-org:sdtc" xsi:schemaLocation="urn:hl7-org:v3 /xmlschema/QFD/CDA_SDTC.xsd"
+    xmlns:voc="urn:hl7-org:v3/voc" classCode="DOCCLIN" moodCode="EVN">
+    <realmCode code="UV"/>
+    <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040"/>
+    <templateId root="1.2.208.184.12.1" assigningAuthorityName="MedCom"/>
+    <templateId root="1.2.208.184.12.1.1.1"/>
+    <id root="1.2.208.195.1.1.1" extension="d41d1e64-17df-4387-bbe4-308a675878c2" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+    <code codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" code="74468-0" displayName="Form Definition Document"/>
+    <title>Spørgeskema Palliativ</title>
+    <sdtc:statusCode code="NEW"/>
+    <effectiveTime value="20240515000000+0200"/>
+    <confidentialityCode code="N" codeSystem="2.16.840.1.113883.5.25"/>
+    <languageCode code="da-DK"/>
+    <versionNumber value="1"/>
+    <recordTarget nullFlavor="NI">
+        <patientRole nullFlavor="NI">
+            <id nullFlavor="NI"/>
+        </patientRole>
+    </recordTarget>
+    <author typeCode="AUT" contextControlCode="OP">
+        <time value="20240515000000+0200"/>
+        <assignedAuthor classCode="ASSIGNED">
+            <id nullFlavor="NA"/>
+            <addr use="WP">
+                <streetAddressLine>Sundhedsvæsenets Kvalitetsinstitut</streetAddressLine>
+                <streetAddressLine>Hedeager 3</streetAddressLine>
+                <postalCode>8200</postalCode>
+                <city>Aarhus N</city>
+                <country>Danmark</country>
+            </addr>
+            <telecom value="tel:+4523661511" use="WP"/>
+            <representedOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+                <name>Sundhedsvæsenets Kvalitetsinstitut</name>
+                <telecom nullFlavor="NI"/>
+                <addr use="WP">
+                    <streetAddressLine nullFlavor="NI"/>
+                </addr>
+            </representedOrganization>
+        </assignedAuthor>
+    </author>
+    <custodian typeCode="CST">
+        <assignedCustodian classCode="ASSIGNED">
+            <representedCustodianOrganization classCode="ORG" determinerCode="INSTANCE">
+                <id extension="634491000016008" root="1.2.208.176.1.1" assigningAuthorityName="SOR"/>
+                <name>Sundhedsvæsenets Kvalitetsinstitut</name>
+                <telecom value="tel:+4523661511" use="WP"/>
+                <addr use="WP">
+                    <streetAddressLine>Sundhedsvæsenets Kvalitetsinstitut</streetAddressLine>
+                    <streetAddressLine>Hedeager 3</streetAddressLine>
+                    <postalCode>8200</postalCode>
+                    <city>Aarhus N</city>
+                    <country>Danmark</country>
+                </addr>
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian>
+    <component typeCode="COMP" contextConductionInd="true">
+        <structuredBody classCode="DOCBODY" moodCode="EVN">
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.2"/>
+                    <title>EORTC QLQ-C30 </title>
+                    <text>Navnet på instrumentet (EORTC QLQ-C30) samt EORTC's logo skal fremgå før de spørgsmål, som indgår i EORTC QLQ-C30 instrumentet. Versionsnummer skal ligeledes fremgå, fx sammen med copyright notits.</text>
+                    <entry contextConductionInd="true" typeCode="DRIV">
+                        <observation classCode="OBS" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.32.4.21"/>
+                            <code code="COPY" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Code for Copyright"/>
+                            <value xsi:type="ST">Navnet på instrumentet (EORTC QLQ-C30) samt EORTC's logo skal fremgå før de spørgsmål, som indgår i EORTC QLQ-C30 instrumentet. Versionsnummer skal ligeledes fremgå, fx sammen med copyright notits.</value>
+                        </observation>
+                    </entry>
+                </section>
+            </component>
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+                    <title>Spørgeskema om sundhedsrelateret livskvalitet</title>
+                    <text>Introduktionstekst til spørgeskema udarbejdes lokalt. Denne kan eksempelvis indeholde:"Du har modtaget dette spørgeskema, som du skal udfylde med informationer om din livskvalitet. Når du svarer på spørgeskemaet, får du mulighed for at oplyse os om, hvordan du har det. Vi vil tale med dig om dine svar til dit næste besøg. Hvis svarmulighederne i spørgeskemaet ikke passer helt på din situation, så markér det svar, som passer bedst. Det er frivilligt at besvare spørgeskemaet. Har du spørgsmål til spørgeskemaet, kan du stille dem til din afdeling."                    </text>
+                </section>
+            </component>
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+                    <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <text>
+                        <table>
+                            <colgroup>
+                                <col width="70%"/>
+                                <col width="30%"/>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">Vi er interesserede i at vide noget om dig og dit helbred. Vær venlig at besvare alle spørgsmålene selv ved at vælge det svar, som passer bedst på dig. Der er ingen "rigtige" eller "forkerte" svar. De oplysninger, som du giver os, vil forblive strengt fortrolige.</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du nogen vanskeligheder ved at udføre anstrengende aktiviteter, som f.eks. at bære en tung indkøbstaske eller en kuffert?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00080_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00080_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00080_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00080_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du nogen vanskeligheder ved at gå en lang tur?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00081_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00081_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00081_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00081_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du nogen vanskeligheder ved at gå en kort tur udendørs?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00082_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00082_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00082_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00082_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Er du nødt til at ligge i sengen eller at sidde i en stol om dagen?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00083_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00083_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00083_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00083_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du brug for hjælp til at spise, tage tøj på, vaske dig eller gå på toilettet?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00084_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00084_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00084_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00084_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Var du begrænset i udførelsen af enten dit arbejde eller andre daglige aktiviteter i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00085_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00085_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00085_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00085_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Var du begrænset i at dyrke dine hobbyer eller andre fritidsaktiviteter i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00086_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00086_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00086_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00086_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Havde du åndenød i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00087_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00087_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00087_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00087_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du haft smerter i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00088_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00088_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00088_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00088_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Havde du brug for at hvile dig i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00089_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00089_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00089_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00089_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du haft besvær med at sove i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00090_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00090_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00090_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00090_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du følt dig svag i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00091_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00091_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00091_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00091_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du savnet appetit i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00092_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00092_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00092_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00092_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du haft kvalme i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00093_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00093_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00093_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00093_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du kastet op i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00094_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00094_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00094_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00094_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du haft forstoppelse i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00095_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00095_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00095_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00095_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du haft diarré (tynd mave) i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00096_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00096_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00096_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00096_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Var du træt i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00097_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00097_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00097_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00097_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Vanskeliggjorde smerter dine daglige gøremål i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00098_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00098_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00098_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00098_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du haft svært ved koncentrere dig om ting som f.eks. at læse avis eller se fjernsyn i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00099_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00099_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00099_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00099_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Følte du dig anspændt i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00100_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00100_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00100_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00100_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Var du bekymret i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00101_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00101_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00101_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00101_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Følte du dig irritabel i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00102_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00102_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00102_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00102_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Følte du dig deprimeret i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00103_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00103_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00103_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00103_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har du haft svært ved at huske i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00104_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00104_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00104_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00104_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har din fysiske tilstand eller medicinske behandling vanskeliggjort dit familieliv i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00105_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00105_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00105_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00105_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har din fysiske tilstand eller medicinske behandling vanskeliggjort din omgang med andre mennesker i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00106_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00106_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00106_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00106_4 --></td>
+                                </tr>
+                                <tr>
+                                    <th colspan="2" align="left">Har din fysiske tilstand eller medicinske behandling medført økonomiske vanskeligheder for dig i den forløbne uge?</th>
+                                </tr>
+                                <tr>
+                                    <td>Slet ikke</td>
+                                    <td>                                        <!-- A00107_1 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Lidt</td>
+                                    <td>                                        <!-- A00107_2 --></td>
+                                </tr>
+                                <tr>
+                                    <td>En del</td>
+                                    <td>                                        <!-- A00107_3 --></td>
+                                </tr>
+                                <tr>
+                                    <td>Meget</td>
+                                    <td>                                        <!-- A00107_4 --></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    <entry typeCode="DRIV" contextConductionInd="true">
+                        <organizer classCode="BATTERY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+                            <id root="1.2.208.195.1.1.3" extension="00003" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                            <code codeSystem="1.2.208.195.1.1.3" code="G00003" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                <originalText>Vi er interesserede i at vide noget om dig og dit helbred. Vær venlig at besvare alle spørgsmålene selv ved at vælge det svar, som passer bedst på dig. Der er ingen "rigtige" eller "forkerte" svar. De oplysninger, som du giver os, vil forblive strengt fortrolige.</originalText>
+                            </code>
+                            <statusCode code="COMPLETED"/>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="1"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00080" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00080" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har du nogen vanskeligheder ved at udføre anstrengende aktiviteter, som f.eks. at bære en tung indkøbstaske eller en kuffert?</originalText>
+                                    </code>
+                                    <value code="A00080_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00080_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00080_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00080_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="2"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00081" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00081" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har du nogen vanskeligheder ved at gå en lang tur?</originalText>
+                                    </code>
+                                    <value code="A00081_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00081_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00081_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00081_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="3"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00082" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00082" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har du nogen vanskeligheder ved at gå en kort tur udendørs?</originalText>
+                                    </code>
+                                    <value code="A00082_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00082_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00082_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00082_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="4"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00083" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00083" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Er du nødt til at ligge i sengen eller at sidde i en stol om dagen?</originalText>
+                                    </code>
+                                    <value code="A00083_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00083_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00083_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00083_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="5"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00084" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00084" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har du brug for hjælp til at spise, tage tøj på, vaske dig eller gå på toilettet?</originalText>
+                                    </code>
+                                    <value code="A00084_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00084_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00084_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00084_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="6"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00085" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00085" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Var du begrænset i udførelsen af enten dit arbejde eller andre daglige aktiviteter i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00085_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00085_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00085_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00085_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="7"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00086" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00086" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Var du begrænset i at dyrke dine hobbyer eller andre fritidsaktiviteter i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00086_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00086_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00086_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00086_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="8"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00087" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00087" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Havde du åndenød i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00087_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00087_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00087_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00087_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="9"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00088" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00088" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har du haft smerter i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00088_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00088_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00088_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00088_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="10"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00089" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00089" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Havde du brug for at hvile dig i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00089_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00089_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00089_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00089_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="11"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00090" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00090" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har du haft besvær med at sove i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00090_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00090_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00090_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00090_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="12"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00091" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00091" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har du følt dig svag i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00091_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00091_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00091_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00091_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="13"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00092" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00092" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har du savnet appetit i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00092_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00092_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00092_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00092_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="14"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00093" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00093" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har du haft kvalme i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00093_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00093_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00093_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00093_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="15"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00094" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00094" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har du kastet op i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00094_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00094_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00094_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00094_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="16"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00095" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00095" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har du haft forstoppelse i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00095_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00095_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00095_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00095_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="17"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00096" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00096" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har du haft diarré (tynd mave) i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00096_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00096_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00096_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00096_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="18"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00097" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00097" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Var du træt i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00097_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00097_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00097_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00097_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="19"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00098" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00098" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Vanskeliggjorde smerter dine daglige gøremål i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00098_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00098_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00098_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00098_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="20"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00099" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00099" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har du haft svært ved koncentrere dig om ting som f.eks. at læse avis eller se fjernsyn i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00099_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00099_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00099_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00099_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="21"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00100" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00100" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Følte du dig anspændt i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00100_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00100_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00100_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00100_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="22"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00101" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00101" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Var du bekymret i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00101_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00101_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00101_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00101_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="23"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00102" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00102" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Følte du dig irritabel i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00102_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00102_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00102_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00102_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="24"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00103" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00103" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Følte du dig deprimeret i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00103_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00103_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00103_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00103_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="25"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00104" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00104" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har du haft svært ved at huske i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00104_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00104_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00104_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00104_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="26"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00105" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00105" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har din fysiske tilstand eller medicinske behandling vanskeliggjort dit familieliv i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00105_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00105_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00105_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00105_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="27"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00106" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00106" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har din fysiske tilstand eller medicinske behandling vanskeliggjort din omgang med andre mennesker i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00106_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00106_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00106_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00106_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="28"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.8"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00107" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00107" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Har din fysiske tilstand eller medicinske behandling medført økonomiske vanskeligheder for dig i den forløbne uge?</originalText>
+                                    </code>
+                                    <value code="A00107_1" displayName="Slet ikke" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00107_2" displayName="Lidt" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00107_3" displayName="En del" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <value code="A00107_4" displayName="Meget" codeSystem="1.2.208.195.1.1.4" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut" xsi:type="CE"/>
+                                    <entryRelationship typeCode="SUBJ">
+                                        <observation classCode="OBS" moodCode="EVN">
+                                            <templateId root="2.16.840.1.113883.10.20.32.4.20"/>
+                                            <code code="74467-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                                            <value xsi:type="IVL_INT">
+                                                <low value="0"/>
+                                                <high value="1"/>
+                                            </value>
+                                        </observation>
+                                    </entryRelationship>
+                                </observation>
+                            </component>
+                        </organizer>
+                    </entry>
+                </section>
+            </component>
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+                    <code code="74468-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"/>
+                    <text>
+                        <table>
+                            <colgroup>
+                                <col width="70%"/>
+                                <col width="30%"/>
+                            </colgroup>
+                            <tbody>
+                                <tr>
+                                    <td colspan="2">Ved de næste spørgsmål bedes du vælge det tal mellem 1 og 7, som passer bedst på dig:</td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvordan vil du vurdere dit samlede helbred i den forløbne uge?</th>
+                                    <td>                                        <!-- Q00108 --></td>
+                                </tr>
+                                <tr>
+                                    <th align="left">Hvordan vil du vurdere din samlede livskvalitet i den forløbne uge?</th>
+                                    <td>                                        <!-- Q10109 --></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    <entry typeCode="DRIV" contextConductionInd="true">
+                        <organizer classCode="BATTERY" moodCode="EVN">
+                            <templateId root="2.16.840.1.113883.10.20.32.4.1"/>
+                            <id root="1.2.208.195.1.1.3" extension="00004" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                            <code codeSystem="1.2.208.195.1.1.3" code="G00004" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                <originalText>Ved de næste spørgsmål bedes du vælge det tal mellem 1 og 7, som passer bedst på dig:</originalText>
+                            </code>
+                            <statusCode code="COMPLETED"/>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="1"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10"/>
+                                    <id root="1.2.208.195.1.1.4" extension="00108" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q00108" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvordan vil du vurdere dit samlede helbred i den forløbne uge?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="7" xsi:type="GLIST_PQ">
+                                                <head value="1"/>
+                                                <increment value="1"/>
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                            <component typeCode="COMP" contextConductionInd="true">
+                                <sequenceNumber value="2"/>
+                                <observation classCode="OBS" moodCode="DEF">
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.7"/>
+                                    <templateId root="2.16.840.1.113883.10.20.32.4.10"/>
+                                    <id root="1.2.208.195.1.1.4" extension="10109" assigningAuthorityName="Sundhedsvæsenets Kvalitetsinstitut"/>
+                                    <code codeSystem="1.2.208.195.1.1.4" code="Q10109" codeSystemName="Sundhedsvæsenets Kvalitetsinstitut">
+                                        <originalText>Hvordan vil du vurdere din samlede livskvalitet i den forløbne uge?</originalText>
+                                    </code>
+                                    <referenceRange typeCode="REFV">
+                                        <observationRange classCode="OBS">
+                                            <value denominator="7" xsi:type="GLIST_PQ">
+                                                <head value="1"/>
+                                                <increment value="1"/>
+                                            </value>
+                                        </observationRange>
+                                    </referenceRange>
+                                </observation>
+                            </component>
+                        </organizer>
+                    </entry>
+                </section>
+            </component>
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+                    <text>© Copyright 1995 EORTC Quality of Life Group. Alle rettigheder forbeholdes. Version 3.0.</text>
+                </section>
+            </component>
+            <component typeCode="COMP" contextConductionInd="true">
+                <section classCode="DOCSECT" moodCode="EVN">
+                    <templateId root="2.16.840.1.113883.10.20.32.2.1"/>
+                    <title>Tak for besvarelsen</title>
+                    <text>Afslutningstekst til spørgeskema udarbejdes lokalt f.eks. "Lægen vil bruge din besvarelse til næste besøg".</text>
+                </section>
+            </component>
+        </structuredBody>
+    </component>
+</ClinicalDocument>

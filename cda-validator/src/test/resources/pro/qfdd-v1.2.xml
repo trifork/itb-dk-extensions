@@ -340,94 +340,94 @@
                 </observation>
               </component>
               <sdtc:precondition typeCode="PRCN">
-                <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
-                <allTrue classCode="GROUPER" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.32.4.13"/>
-                  <id root="1.2.3" extension="allTrue"/>
+                <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                <sdtc:allTrue classCode="GROUPER" moodCode="EVN">
+                  <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.13"/>
+                  <sdtc:id root="1.2.3" extension="allTrue"/>
                   <sdtc:precondition typeCode="PRCN">
-                    <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
-                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                    <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                    <sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
                       <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
                       <code code="question" codeSystem="1.2.3"/>
                       <value value="1" xsi:type="INT"/>
-                    </criterion>
+                    </sdtc:criterion>
                   </sdtc:precondition>
-                </allTrue>
+                </sdtc:allTrue>
               </sdtc:precondition>
               <sdtc:precondition typeCode="PRCN">
-                <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
-                <allFalse classCode="GROUPER" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.32.4.14"/>
-                  <id root="1.2.3" extension="allFalse"/>
+                <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                <sdtc:allFalse classCode="GROUPER" moodCode="EVN">
+                  <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.14"/>
+                  <sdtc:id root="1.2.3" extension="allFalse"/>
                   <sdtc:precondition typeCode="PRCN">
-                    <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
-                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                    <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                    <sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
                       <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
                       <code code="question" codeSystem="1.2.3"/>
                       <value value="1" xsi:type="INT"/>
-                    </criterion>
+                    </sdtc:criterion>
                   </sdtc:precondition>
-                </allFalse>
+                </sdtc:allFalse>
               </sdtc:precondition>
               <sdtc:precondition typeCode="PRCN">
-                <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
-                <atLeastOneTrue classCode="GROUPER" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.32.4.15"/>
-                  <id root="1.2.3" extension="atLeastOneTrue"/>
+                <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                <sdtc:atLeastOneTrue classCode="GROUPER" moodCode="EVN">
+                  <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.15"/>
+                  <sdtc:id root="1.2.3" extension="atLeastOneTrue"/>
                   <sdtc:precondition typeCode="PRCN">
-                    <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
-                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                    <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                    <sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
                       <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
                       <code code="question" codeSystem="1.2.3"/>
                       <value value="1" xsi:type="INT"/>
-                    </criterion>
+                    </sdtc:criterion>
                   </sdtc:precondition>
-                </atLeastOneTrue>
+                </sdtc:atLeastOneTrue>
               </sdtc:precondition>
               <sdtc:precondition typeCode="PRCN">
-                <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
-                <atLeastOneFalse classCode="GROUPER" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.32.4.16"/>
-                  <id root="1.2.3" extension="atLeastOneFalse"/>
+                <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                <sdtc:atLeastOneFalse classCode="GROUPER" moodCode="EVN">
+                  <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.16"/>
+                  <sdtc:id root="1.2.3" extension="atLeastOneFalse"/>
                   <sdtc:precondition typeCode="PRCN">
-                    <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
-                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                    <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                    <sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
                       <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
                       <code code="question" codeSystem="1.2.3"/>
                       <value value="1" xsi:type="INT"/>
-                    </criterion>
+                    </sdtc:criterion>
                   </sdtc:precondition>
-                </atLeastOneFalse>
+                </sdtc:atLeastOneFalse>
               </sdtc:precondition>
               <sdtc:precondition typeCode="PRCN">
-                <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
-                <onlyOneTrue classCode="GROUPER" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.32.4.17"/>
-                  <id root="1.2.3" extension="onlyOneTrue"/>
+                <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                <sdtc:onlyOneTrue classCode="GROUPER" moodCode="EVN">
+                  <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.17"/>
+                  <sdtc:id root="1.2.3" extension="onlyOneTrue"/>
                   <sdtc:precondition typeCode="PRCN">
-                    <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
-                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                    <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                    <sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
                       <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
                       <code code="question" codeSystem="1.2.3"/>
                       <value value="1" xsi:type="INT"/>
-                    </criterion>
+                    </sdtc:criterion>
                   </sdtc:precondition>
-                </onlyOneTrue>
+                </sdtc:onlyOneTrue>
               </sdtc:precondition>
               <sdtc:precondition typeCode="PRCN">
-                <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
-                <onlyOneFalse classCode="GROUPER" moodCode="EVN">
-                  <templateId root="2.16.840.1.113883.10.20.32.4.18"/>
-                  <id root="1.2.3" extension="onlyOneFalse"/>
+                <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                <sdtc:onlyOneFalse classCode="GROUPER" moodCode="EVN">
+                  <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.18"/>
+                  <sdtc:id root="1.2.3" extension="onlyOneFalse"/>
                   <sdtc:precondition typeCode="PRCN">
-                    <templateId root="2.16.840.1.113883.10.20.32.4.12"/>
-                    <criterion classCode="OBS" moodCode="EVN.CRT">
+                    <sdtc:templateId root="2.16.840.1.113883.10.20.32.4.12"/>
+                    <sdtc:criterion classCode="OBS" moodCode="EVN.CRT">
                       <templateId root="2.16.840.1.113883.10.20.32.4.3"/>
                       <code code="question" codeSystem="1.2.3"/>
                       <value value="1" xsi:type="INT"/>
-                    </criterion>
+                    </sdtc:criterion>
                   </sdtc:precondition>
-                </onlyOneFalse>
+                </sdtc:onlyOneFalse>
               </sdtc:precondition>
             </organizer>
           </entry>
