@@ -6,7 +6,10 @@ WORKDIR /build/cda-validator
 COPY pom.xml ./
 COPY src ./src
 COPY domain ./domain
-RUN --mount=type=cache,id=cda-validator-maven,target=/root/.m2,sharing=locked mvn --batch-mode --no-transfer-progress clean verify
+# Unit tests run by default. CI sets this to true only after the same commit passed them in the
+# build job; compilation, formatting and packaging are still checked.
+ARG CDA_SKIP_TESTS=false
+RUN --mount=type=cache,id=cda-validator-maven,target=/root/.m2,sharing=locked mvn --batch-mode --no-transfer-progress -DskipTests="$CDA_SKIP_TESTS" clean verify
 
 FROM ${CDA_VALIDATOR_IMAGE} AS runtime
 COPY domain/cda-dk /validator/resources/cda-dk

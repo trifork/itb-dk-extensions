@@ -53,9 +53,14 @@ jobs:
           node-version: '24'
           cache: npm
           cache-dependency-path: itb-ui/package-lock.json
+      # The quality job (needs: quality) already ran the lint build, tests and coverage gate for this
+      # commit. Reuse its JUnit reports for the summary and artifact instead of running them again.
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          name: xds-quality-reports
+          path: xds-service/target
       - name: Test combined service and suite packaging
         run: |
-          mvn --batch-mode --no-transfer-progress -f xds-service/pom.xml -Plint verify
           python3 tests/check-rulesets.py
           python3 tests/test_xds_packaging.py
           python3 tests/test_session_catalogue.py
@@ -79,11 +84,11 @@ jobs:
             docker tag "$cda_image_id" itb-dk-cda:local
           else
             printf '%s\n' 'CDA dependency built from the current checkout.' > test-results/xds/cda-image.txt
-            docker compose build cda-validator
+            docker compose -f docker-compose.yml -f xds-service/tests/compose.ci.yml build cda-validator
           fi
           docker image inspect itb-dk-cda:local --format 'Image: {{.Id}} Digests: {{json .RepoDigests}}' >> test-results/xds/cda-image.txt
-          docker compose --profile xds build xds-api
-          docker compose -f docker-compose.yml -f xds-service/tests/compose.mock.yml --profile xds build xds-api
+          docker compose -f docker-compose.yml -f xds-service/tests/compose.ci.yml --profile xds build xds-api
+          docker compose -f docker-compose.yml -f xds-service/tests/compose.mock.yml -f xds-service/tests/compose.ci.yml --profile xds build xds-api
       - name: Check combined service starts without live credentials
         run: |
           docker compose --profile xds up -d --no-build xds-api

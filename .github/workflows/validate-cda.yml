@@ -28,15 +28,94 @@ concurrency:
   group: cda-validation-${{ github.workflow }}-${{ github.ref }}-${{ inputs.validator_image }}
   cancel-in-progress: true
 
+# Three stages: static checks and unit tests run first, then two container-test shards that
+# split the Cda*IT classes (core, locations) so the slow location checks do not queue behind
+# the rest. A failing build skips the container tests. The final job keeps the original name;
+# it merges the reports and passes only when every stage passed, so it remains the single gate.
 jobs:
-  validate:
-    name: Validate inside isaitb/xml-validator
+  build:
+    name: Build, unit tests and Sonar
     runs-on: ubuntu-24.04
     timeout-minutes: 30
+    outputs:
+      checks: ${{ steps.checks.outcome }}
+      build: ${{ steps.build.outcome }}
+      sonar_install: ${{ steps.sonar_install.outcome }}
+      sonar: ${{ steps.sonar.outcome }}
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ inputs.source_ref || github.sha }}
+
+      - uses: actions/setup-java@v6.0.1
+        with:
+          distribution: temurin
+          java-version: '25'
+
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Check release configuration and test coverage
+        id: checks
+        run: |
+          python3 tests/check-rulesets.py
+          python3 scripts/conformance-rule-inventory.py --check
+          python3 tests/test_validator_image.py
+          python3 tests/test_startup.py
+          python3 cda-validator/tests/test_reporting_summary.py
+          python3 cda-validator/tests/test_example_report.py
+
+      - name: Use a fresh Maven cache
+        run: |
+          CDA_MAVEN_CACHE=$(mktemp -d "$RUNNER_TEMP/cda-maven.XXXXXX")
+          printf 'MAVEN_OPTS=%s -Dmaven.repo.local=%s\n' "${MAVEN_OPTS:-}" "$CDA_MAVEN_CACHE" >> "$GITHUB_ENV"
+
+      - name: Build, unit-test and check Java formatting
+        id: build
+        run: mvn --batch-mode --no-transfer-progress -f cda-validator/pom.xml clean verify
+
+      - name: Install pinned Sonar Java analyzers
+        id: sonar_install
+        run: python3 xds-service/scripts/install-sonar.py
+
+      - name: Sonar Java gate (zero findings and no failed files)
+        id: sonar
+        run: python3 xds-service/scripts/sonar-java.py --project cda-validator --extension xds-service/target/sonar-analyzer --java-home "$JAVA_HOME"
+
+      - name: Collect unit-test and Sonar reports
+        if: always()
+        run: |
+          mkdir -p build-out
+          [[ ! -d cda-validator/target/surefire-reports ]] || cp -R cda-validator/target/surefire-reports build-out/surefire-reports
+          [[ ! -f cda-validator/target/reports/sonar-java.json ]] || { mkdir -p build-out/reports; cp cda-validator/target/reports/sonar-java.json build-out/reports/; }
+
+      - name: Upload unit-test and Sonar reports
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: cda-build-results
+          path: build-out/
+          if-no-files-found: warn
+          retention-days: 14
+
+  container-tests:
+    name: Container tests (${{ matrix.suite }})
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    strategy:
+      # Both shards finish so a failure in one still leaves the other's diagnostics.
+      fail-fast: false
+      matrix:
+        suite: [core, locations]
     env:
       CDA_VALIDATOR_MEMORY: 4g
       CDA_VALIDATOR_JAVA_OPTIONS: -Xms256m -Xmx3g
       CDA_TEST_RESULTS_DIR: ${{ github.workspace }}/test-results
+      # The build job (needs: build) has already run the unit tests for this commit.
+      CDA_SKIP_TESTS: 'true'
     steps:
       - uses: actions/checkout@v7.0.1
         with:
@@ -67,36 +146,69 @@ jobs:
           printf 'CDA_VALIDATOR_IMAGE=%s\n' "$CDA_SELECTED_IMAGE" >> "$GITHUB_ENV"
           printf 'Testing validator image: %s\n' "$CDA_SELECTED_IMAGE"
 
-      - name: Check release configuration and test coverage
-        id: checks
-        run: |
-          python3 tests/check-rulesets.py
-          python3 scripts/conformance-rule-inventory.py --check
-          python3 tests/test_validator_image.py
-          python3 tests/test_startup.py
-          python3 cda-validator/tests/test_reporting_summary.py
-          python3 cda-validator/tests/test_example_report.py
-
       - name: Use a fresh Maven cache
         run: |
           CDA_MAVEN_CACHE=$(mktemp -d "$RUNNER_TEMP/cda-maven.XXXXXX")
           printf 'MAVEN_OPTS=%s -Dmaven.repo.local=%s\n' "${MAVEN_OPTS:-}" "$CDA_MAVEN_CACHE" >> "$GITHUB_ENV"
 
-      - name: Build, unit-test and check Java formatting
-        id: build
-        run: mvn --batch-mode --no-transfer-progress -f cda-validator/pom.xml clean verify
-
-      - name: Install pinned Sonar Java analyzers
-        id: sonar_install
-        run: python3 xds-service/scripts/install-sonar.py
-
-      - name: Sonar Java gate (zero findings and no failed files)
-        id: sonar
-        run: python3 xds-service/scripts/sonar-java.py --project cda-validator --extension xds-service/target/sonar-analyzer --java-home "$JAVA_HOME"
-
       - name: Build the CDA image from source and run container tests
-        id: docker
-        run: bash cda-validator/tests/run-container-tests.sh
+        run: bash cda-validator/tests/run-container-tests.sh "$CDA_SUITE"
+        env:
+          CDA_SUITE: ${{ matrix.suite }}
+
+      - name: Collect container-test reports
+        if: always()
+        run: |
+          mkdir -p shard-out
+          [[ ! -d test-results ]] || cp -R test-results shard-out/test-results
+          [[ ! -d cda-validator/target/failsafe-reports ]] || cp -R cda-validator/target/failsafe-reports shard-out/failsafe-reports
+
+      - name: Upload container-test reports and logs
+        if: always()
+        uses: actions/upload-artifact@v7.0.1
+        with:
+          name: cda-container-results-${{ matrix.suite }}
+          path: shard-out/
+          if-no-files-found: warn
+          retention-days: 14
+
+  report:
+    name: Validate inside isaitb/xml-validator
+    needs: [build, container-tests]
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ inputs.source_ref || github.sha }}
+
+      - uses: actions/setup-python@v7.0.0
+        with:
+          python-version: '3.12'
+
+      # Missing artifacts (a job that stopped early) are simply not downloaded; the summary then
+      # reports their tests as not run, never as passed.
+      - uses: actions/download-artifact@v8.0.2
+        with:
+          pattern: cda-*-results*
+          path: shards
+
+      - name: Merge reports into the layout the summary expects
+        run: |
+          mkdir -p test-results cda-validator/target/surefire-reports cda-validator/target/failsafe-reports cda-validator/target/reports
+          copy() { [[ ! -d "$1" ]] || cp -R "$1"/. "$2"/; }
+          copy shards/cda-build-results/surefire-reports cda-validator/target/surefire-reports
+          copy shards/cda-build-results/reports cda-validator/target/reports
+          # Image, example findings and the example report come from the core shard; the
+          # location shard keeps its own logs under test-results/locations.
+          copy shards/cda-container-results-core/test-results test-results
+          mkdir -p test-results/locations
+          copy shards/cda-container-results-locations/test-results test-results/locations
+          # Failsafe report files are named per test class, so the shards never collide.
+          copy shards/cda-container-results-core/failsafe-reports cda-validator/target/failsafe-reports
+          copy shards/cda-container-results-locations/failsafe-reports cda-validator/target/failsafe-reports
 
       - name: Upload validation reports and container logs
         id: artifacts
@@ -115,10 +227,19 @@ jobs:
       - name: Publish test summary
         if: always()
         env:
-          CHECKS_OUTCOME: ${{ steps.checks.outcome }}
-          BUILD_OUTCOME: ${{ steps.build.outcome }}
-          SONAR_INSTALL_OUTCOME: ${{ steps.sonar_install.outcome }}
-          SONAR_OUTCOME: ${{ steps.sonar.outcome }}
-          DOCKER_OUTCOME: ${{ steps.docker.outcome }}
+          CHECKS_OUTCOME: ${{ needs.build.outputs.checks }}
+          BUILD_OUTCOME: ${{ needs.build.outputs.build }}
+          SONAR_INSTALL_OUTCOME: ${{ needs.build.outputs.sonar_install }}
+          SONAR_OUTCOME: ${{ needs.build.outputs.sonar }}
+          DOCKER_OUTCOME: ${{ needs.container-tests.result }}
           ARTIFACT_URL: ${{ steps.artifacts.outputs.artifact-url }}
         run: python3 cda-validator/tests/write-summary.py
+
+      - name: Fail unless every stage passed
+        if: always()
+        env:
+          BUILD_RESULT: ${{ needs.build.result }}
+          CONTAINER_RESULT: ${{ needs.container-tests.result }}
+        run: |
+          printf 'Build, unit tests and Sonar: %s\nContainer tests: %s\n' "$BUILD_RESULT" "$CONTAINER_RESULT"
+          [[ "$BUILD_RESULT" == success && "$CONTAINER_RESULT" == success ]]

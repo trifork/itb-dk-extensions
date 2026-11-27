@@ -4,7 +4,10 @@ WORKDIR /build
 COPY pom.xml ./
 COPY src ./src
 COPY scripts/sonar ./scripts/sonar
-RUN --mount=type=cache,target=/root/.m2,sharing=locked mvn --batch-mode --no-transfer-progress -Plint clean verify
+# Tests and the coverage gate run by default. CI sets this to true only after the same commit passed
+# them in the quality and packaging jobs; compilation, PMD, CPD and formatting are still checked.
+ARG XDS_SKIP_TESTS=false
+RUN --mount=type=cache,target=/root/.m2,sharing=locked mvn --batch-mode --no-transfer-progress -DskipTests="$XDS_SKIP_TESTS" -Plint clean verify
 
 # Test-only image runs the actual GITB adapter with synthetic in-process services.
 FROM build AS fixture-build

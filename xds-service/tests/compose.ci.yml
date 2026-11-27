@@ -1,6 +1,11 @@
 # Bound JVM heaps on the GitHub-hosted runner. Do not apply to a user's existing ITB.
+# Image builds also skip the unit tests: CI has already run them for this commit (CDA in the
+# validate-cda workflow, XDS in the quality and packaging steps), so the in-image copy only repeats them.
 services:
   cda-validator:
+    build:
+      args:
+        CDA_SKIP_TESTS: "true"
     mem_limit: 4g
     environment:
       JDK_JAVA_OPTIONS: -Xms256m -Xmx3g
@@ -11,5 +16,8 @@ services:
     environment:
       JAVA_TOOL_OPTIONS: -Xms128m -Xmx512m
   xds-api:
+    build:
+      args:
+        XDS_SKIP_TESTS: "true"
     environment:
       JAVA_TOOL_OPTIONS: -Xms32m -Xmx512m

@@ -3,10 +3,14 @@
 set -euo pipefail
 
 CDA_IT_SUITE=${1:-samples}
+# samples runs every Cda*IT class (local default). CI runs the two halves, core and
+# locations, in parallel jobs: together they select exactly the classes samples does.
 case "$CDA_IT_SUITE" in
     samples) CDA_IT_TESTS='Cda*IT' ;;
+    core) CDA_IT_TESTS='Cda*IT,!CdaLocationsIT' ;;
+    locations) CDA_IT_TESTS=CdaLocationsIT ;;
     spgdef-qfdd) CDA_IT_TESTS=SpgdefQfddIT ;;
-    *) printf 'Unknown suite: %s (expected samples or spgdef-qfdd)\n' "$CDA_IT_SUITE" >&2; exit 2 ;;
+    *) printf 'Unknown suite: %s (expected samples, core, locations or spgdef-qfdd)\n' "$CDA_IT_SUITE" >&2; exit 2 ;;
 esac
 
 CDA_REPOSITORY_ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)
@@ -74,7 +78,9 @@ if [[ -n "${CDA_RUNTIME_IMAGE:-}" ]]; then
 else
     # Source CI must exercise this checkout, including unpublished rule/plugin changes.
     CDA_VALIDATOR_IMAGE=${CDA_VALIDATOR_IMAGE:-$(python3 scripts/validator_image.py --print-image)}
+    # CDA_SKIP_TESTS=true (CI, after the build job passed them) skips the unit tests inside the image build.
     docker build --target runtime --build-arg "CDA_VALIDATOR_IMAGE=$CDA_VALIDATOR_IMAGE" \
+        --build-arg "CDA_SKIP_TESTS=${CDA_SKIP_TESTS:-false}" \
         --iidfile "$CDA_STAGING_DIR/image-id" "$CDA_REPOSITORY_ROOT/cda-validator"
     CDA_TEST_IMAGE=$(cat "$CDA_STAGING_DIR/image-id")
     printf 'Base reference: %s\n' "$CDA_VALIDATOR_IMAGE" | tee "$CDA_TEST_RESULTS_DIR/image.txt"
@@ -129,7 +135,8 @@ CDA_TEST_STATUS=0
 mvn --batch-mode --no-transfer-progress -f cda-validator/tests/pom.xml \
     "-Dit.test=$CDA_IT_TESTS" clean test-compile failsafe:integration-test failsafe:verify 2>&1 \
     | tee "$CDA_TEST_RESULTS_DIR/integration-tests.log" || CDA_TEST_STATUS=1
-if [[ "$CDA_IT_SUITE" == samples ]]; then
+# Only CdaSamplesIT saves example findings, so the report belongs to the suites that run it.
+if [[ "$CDA_IT_SUITE" == samples || "$CDA_IT_SUITE" == core ]]; then
     python3 scripts/example_report.py --results "$EXAMPLE_RESULTS_DIR" --output "$CDA_TEST_RESULTS_DIR/example-validation-report.md" || CDA_TEST_STATUS=1
 fi
 exit "$CDA_TEST_STATUS"
