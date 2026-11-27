@@ -20,9 +20,13 @@
         <ipf.version>6.0.0</ipf.version>
     </properties>
     <repositories>
+        <!-- dk.sosi.seal:seal 3.0.0 is not on Maven Central. It was published to the NSP Nexus,
+             which now refuses anonymous downloads (its EULA is unaccepted), so a copy of the
+             unchanged artifact is hosted on Trifork's public eHealth releases repository. -->
         <repository>
-            <id>NSP Nexus</id>
-            <url>https://nexus.nspop.dk/nexus/content/groups/public</url>
+            <id>trifork-ehealth-releases</id>
+            <url>https://nexus3.trifork.com/repository/maven-ehealth-releases-public/</url>
+            <snapshots><enabled>false</enabled></snapshots>
         </repository>
     </repositories>
     <dependencyManagement>
