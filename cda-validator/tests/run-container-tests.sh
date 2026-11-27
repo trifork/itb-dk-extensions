@@ -3,14 +3,26 @@
 set -euo pipefail
 
 CDA_IT_SUITE=${1:-samples}
-# samples runs every Cda*IT class (local default). CI runs the two halves, core and
-# locations, in parallel jobs: together they select exactly the classes samples does.
+# Only the locations-IofN suites may slice the location cases, never an inherited setting.
+unset CDA_IT_SHARD
+# samples runs every Cda*IT class (local default). CI runs core and slices of locations in
+# parallel jobs: together they select exactly the cases samples does.
 case "$CDA_IT_SUITE" in
     samples) CDA_IT_TESTS='Cda*IT' ;;
     core) CDA_IT_TESTS='Cda*IT,!CdaLocationsIT' ;;
     locations) CDA_IT_TESTS=CdaLocationsIT ;;
+    # locations-IofN runs the I-th of N round-robin slices of the location cases.
+    locations-[1-9]of[1-9])
+        CDA_IT_TESTS=CdaLocationsIT
+        CDA_IT_SHARD=${CDA_IT_SUITE#locations-}
+        CDA_IT_SHARD="${CDA_IT_SHARD%of*}/${CDA_IT_SHARD#*of}"
+        if (( ${CDA_IT_SHARD%/*} > ${CDA_IT_SHARD#*/} )); then
+            printf 'Invalid shard %s: the slice number must not exceed the slice count\n' "$CDA_IT_SUITE" >&2
+            exit 2
+        fi
+        export CDA_IT_SHARD ;;
     spgdef-qfdd) CDA_IT_TESTS=SpgdefQfddIT ;;
-    *) printf 'Unknown suite: %s (expected samples, core, locations or spgdef-qfdd)\n' "$CDA_IT_SUITE" >&2; exit 2 ;;
+    *) printf 'Unknown suite: %s (expected samples, core, locations, locations-IofN or spgdef-qfdd)\n' "$CDA_IT_SUITE" >&2; exit 2 ;;
 esac
 
 CDA_REPOSITORY_ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)

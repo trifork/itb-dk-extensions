@@ -29,8 +29,8 @@ concurrency:
   cancel-in-progress: true
 
 # Three stages: static checks and unit tests run first, then two container-test shards that
-# split the Cda*IT classes (core, locations) so the slow location checks do not queue behind
-# the rest. A failing build skips the container tests. The final job keeps the original name;
+# split the Cda*IT cases (core, and two slices of the slow location checks) so they run side
+# by side. A failing build skips the container tests. The final job keeps the original name;
 # it merges the reports and passes only when every stage passed, so it remains the single gate.
 jobs:
   build:
@@ -109,7 +109,7 @@ jobs:
       # Both shards finish so a failure in one still leaves the other's diagnostics.
       fail-fast: false
       matrix:
-        suite: [core, locations]
+        suite: [core, locations-1of2, locations-2of2]
     env:
       CDA_VALIDATOR_MEMORY: 4g
       CDA_VALIDATOR_JAVA_OPTIONS: -Xms256m -Xmx3g
@@ -201,14 +201,23 @@ jobs:
           copy() { [[ ! -d "$1" ]] || cp -R "$1"/. "$2"/; }
           copy shards/cda-build-results/surefire-reports cda-validator/target/surefire-reports
           copy shards/cda-build-results/reports cda-validator/target/reports
-          # Image, example findings and the example report come from the core shard; the
-          # location shard keeps its own logs under test-results/locations.
+          # Image, example findings and the example report come from the core shard; each location
+          # slice keeps its own logs under test-results/<suite>.
           copy shards/cda-container-results-core/test-results test-results
-          mkdir -p test-results/locations
-          copy shards/cda-container-results-locations/test-results test-results/locations
-          # Failsafe report files are named per test class, so the shards never collide.
           copy shards/cda-container-results-core/failsafe-reports cda-validator/target/failsafe-reports
-          copy shards/cda-container-results-locations/failsafe-reports cda-validator/target/failsafe-reports
+          for shard_dir in shards/cda-container-results-locations-*; do
+            [[ -d "$shard_dir" ]] || continue
+            suite=${shard_dir#shards/cda-container-results-}
+            mkdir -p "test-results/$suite"
+            copy "$shard_dir/test-results" "test-results/$suite"
+            # Slices of one class write identically named report files, so tag each with its suite.
+            if [[ -d "$shard_dir/failsafe-reports" ]]; then
+              for report in "$shard_dir"/failsafe-reports/*; do
+                name=${report##*/}
+                cp "$report" "cda-validator/target/failsafe-reports/${name%.*}.$suite.${name##*.}"
+              done
+            fi
+          done
 
       - name: Upload validation reports and container logs
         id: artifacts

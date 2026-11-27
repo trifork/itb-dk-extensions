@@ -17,6 +17,7 @@ class CdaLocationsIT {
     private static final String BODY = "PHMR-DK-2.1.0-83";
     private static final String ROOT_LOCATION = "/ClinicalDocument[1]";
 
+    // CI runs this slow class in parallel shards (CDA_IT_SHARD=i/n); unset runs every case.
     public static Iterable<Object[]> cases() throws Exception {
         List<Object[]> cases = new ArrayList<>();
         for (String[] pair :
@@ -118,7 +119,7 @@ class CdaLocationsIT {
         addOtherReleaseCases(cases);
         addProhibitedCases(cases);
         addPhmrPresenceCases(cases);
-        return cases;
+        return ShardSelection.select(cases, System.getenv("CDA_IT_SHARD"));
     }
 
     private static void addPdcCases(List<Object[]> cases) throws Exception {

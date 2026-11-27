@@ -97,8 +97,9 @@ The container runner builds an isolated service without replacing local ITB.
 Set `CDA_RUNTIME_IMAGE` to test a complete prebuilt image, or `CDA_VALIDATOR_IMAGE`
 to override the upstream base for a source build. Do not combine them.
 The runner takes an optional suite: `samples` (default, every `Cda*IT` class), or
-the halves CI runs in parallel jobs: `core` (everything except `CdaLocationsIT`,
-plus the example report) and `locations` (`CdaLocationsIT`, the slowest class).
+the parts CI runs in parallel jobs: `core` (everything except `CdaLocationsIT`, plus the
+example report) and `locations` (`CdaLocationsIT`, the slowest class), which can be sliced
+as `locations-1of2` and `locations-2of2` (round-robin over its cases via `CDA_IT_SHARD=i/n`).
 The image build runs the unit tests by default; CI sets `CDA_SKIP_TESTS=true` (a Docker build
 argument, also read by the runner) once the same commit has passed them in the build job.
 For an already running validator (`BASE_URL` defaults to `http://localhost:8091`):
