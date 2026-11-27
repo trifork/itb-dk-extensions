@@ -5,7 +5,8 @@ import com.gitb.core.AnyContent;
 import com.gitb.core.ValueEmbeddingEnumeration;
 import com.gitb.ps.*;
 import com.gitb.tr.*;
-import com.trifork.ihexdsapi.service.CdaMetadata;
+import com.trifork.ihexdsapi.service.DocumentMetadata;
+import com.trifork.ihexdsapi.service.MediaTypes;
 import com.trifork.ihexdsapi.xds.QueryDates;
 import jakarta.jws.WebService;
 import java.io.ByteArrayInputStream;
@@ -43,6 +44,10 @@ public class XdsProcessingService implements ProcessingService {
     private static final String REGISTRY_LABEL = "Registry";
     private static final String DOCUMENT_TYPE = "documentType";
     private static final String DOCUMENT_FIELD = "document";
+    private static final String NAME = "name";
+    private static final String MIME_SUFFICIENT = "urn:ihe:iti:xds:2017:mimeTypeSufficient";
+    private static final String PMD_STACK = "PMD.PreserveStackTrace";
+    private static final String CONTENT_ERROR = "XDS-CONTENT";
     private static final String ENTRY_UUID = "entryUuid";
     private static final String UPLOAD_TEXT = "documentText";
     private final GitbXdsAccess client;
@@ -113,9 +118,9 @@ public class XdsProcessingService implements ProcessingService {
     private static final class Upload {
         static final Upload NONE = new Upload(new byte[0], null);
         private final byte[] content;
-        private final CdaMetadata header;
+        private final DocumentMetadata header;
 
-        Upload(byte[] content, CdaMetadata header) {
+        Upload(byte[] content, DocumentMetadata header) {
             this.content = content.clone();
             this.header = header;
         }
@@ -124,12 +129,16 @@ public class XdsProcessingService implements ProcessingService {
             return content.clone();
         }
 
-        CdaMetadata metadata() {
+        DocumentMetadata metadata() {
             return header;
         }
 
         boolean present() {
             return header != null;
+        }
+
+        boolean loaded() {
+            return content.length > 0;
         }
     }
 
@@ -192,6 +201,7 @@ public class XdsProcessingService implements ProcessingService {
                     case "filter" -> filter(session, values, response);
                     case RETRIEVE_OPERATION -> retrieve(session, values, response);
                     case "prepareUpload" -> prepareUpload(session, values, response);
+                    case "describeUpload" -> describeUpload(session, values, response);
                     case "submit" -> submit(session, values, response);
                     case "deprecate" -> deprecate(session, response);
                     default -> throw new XdsFailure(INPUT_ERROR, "Unsupported XDS operation.");
@@ -214,7 +224,7 @@ public class XdsProcessingService implements ProcessingService {
         if (REPOSITORIES.equals(name)) return 131072;
         // An uploaded CDA arrives Base64-encoded (4/3 of 10 MiB); pasted text is limited to 10 MiB.
         if (DOCUMENT_FIELD.equals(name)) return 14 * 1024 * 1024 + 4;
-        if (UPLOAD_TEXT.equals(name)) return CdaMetadata.MAX_BYTES;
+        if (UPLOAD_TEXT.equals(name)) return DocumentMetadata.MAX_BYTES;
         if (Set.of(TYPE_CODE, FORMAT_CODE).contains(Objects.toString(name, ""))) return 4096;
         return 1024;
     }
@@ -253,7 +263,7 @@ public class XdsProcessingService implements ProcessingService {
                 s.submitRegistries.add(required(registry, "id"));
             if (registry.path("canDeprecate").asBoolean())
                 s.deprecateRegistries.add(required(registry, "id"));
-            if (s.registries.put(required(registry, "id"), required(registry, "name")) != null)
+            if (s.registries.put(required(registry, "id"), required(registry, NAME)) != null)
                 throw new XdsFailure(RESPONSE_ERROR, "Duplicate XDS registry IDs are configured.");
         }
         selectionLabels(s.registrySelections, s.registries, name -> name);
@@ -342,7 +352,7 @@ public class XdsProcessingService implements ProcessingService {
                 .forEach(
                         code ->
                                 lines.add(
-                                        code.path("name").asText()
+                                        code.path(NAME).asText()
                                                 + " ("
                                                 + code.path(CODE).asText()
                                                 + "; scheme: "
@@ -368,7 +378,7 @@ public class XdsProcessingService implements ProcessingService {
                 selections,
                 codes,
                 node ->
-                        node.path("name").asText()
+                        node.path(NAME).asText()
                                 + " ("
                                 + node.path(CODE).asText()
                                 + "; scheme: "
@@ -539,7 +549,7 @@ public class XdsProcessingService implements ProcessingService {
     }
 
     // The CDA parser's message is curated and safe; its cause is dropped so no content can leak.
-    @SuppressWarnings("PMD.PreserveStackTrace")
+    @SuppressWarnings(PMD_STACK)
     private void prepareUpload(Session s, Map<String, String> v, ProcessResponse out) {
         byte[] bytes;
         String encoded = v.getOrDefault(DOCUMENT_FIELD, "");
@@ -552,28 +562,80 @@ public class XdsProcessingService implements ProcessingService {
         } else if (!v.getOrDefault(UPLOAD_TEXT, "").isEmpty()) {
             bytes = v.get(UPLOAD_TEXT).getBytes(java.nio.charset.StandardCharsets.UTF_8);
         } else {
-            throw new XdsFailure(INPUT_ERROR, "Upload a CDA file or paste the CDA contents.");
+            throw new XdsFailure(INPUT_ERROR, "Upload a file or paste its contents.");
         }
         s.upload = Upload.NONE;
         s.submitted = Submitted.NONE;
-        CdaMetadata metadata;
+        if (bytes.length == 0 || bytes.length > DocumentMetadata.MAX_BYTES)
+            throw new XdsFailure(
+                    CONTENT_ERROR,
+                    "The document is empty or larger than 10 MiB. Nothing was uploaded.");
+        if (DocumentMetadata.looksLikeCda(bytes)) {
+            DocumentMetadata metadata;
+            try {
+                metadata = DocumentMetadata.parse(bytes);
+            } catch (IllegalArgumentException e) {
+                throw new XdsFailure(CONTENT_ERROR, e.getMessage() + " Nothing was uploaded.");
+            }
+            s.upload = new Upload(bytes, metadata);
+            out.getOutput().add(value("uploadIsCda", STRING, "true"));
+            presentUpload(s, out, bytes, metadata, true);
+        } else {
+            // Any other file is stored as it is; its metadata comes from the person uploading it.
+            s.upload = new Upload(bytes, null);
+            out.getOutput().add(value("uploadIsCda", STRING, "false"));
+            out.getOutput().add(value("uploadMimeDetected", STRING, MediaTypes.detect(bytes)));
+            list(out, "uploadTypeLabels", s.typeSelections.keySet());
+            presentUpload(s, out, bytes, null, false);
+        }
+    }
+
+    /** A file that is not a CDA: the uploader supplies what a CDA header would have said. */
+    // The messages come from DocumentMetadata and are curated; the cause is not needed.
+    @SuppressWarnings(PMD_STACK)
+    private void describeUpload(Session s, Map<String, String> v, ProcessResponse out) {
+        if (!s.upload.loaded() || s.upload.present())
+            throw new XdsFailure("XDS-STATE", "Provide a file before describing it.");
+        String typeId = s.typeSelections.get(v.getOrDefault(TYPE_CODE, ""));
+        JsonNode type = typeId == null ? null : s.types.get(typeId);
+        if (type == null) throw new XdsFailure(INPUT_ERROR, "Choose the document type code.");
+        byte[] bytes = s.upload.bytes();
+        DocumentMetadata metadata;
         try {
-            metadata = CdaMetadata.parse(bytes);
+            metadata =
+                    DocumentMetadata.forFile(
+                            bytes,
+                            v.getOrDefault(PATIENT_ID, ""),
+                            v.getOrDefault("title", ""),
+                            v.getOrDefault("mimeType", ""),
+                            type.path(CODE).asText(),
+                            type.path(SCHEME).asText(),
+                            type.path(NAME).asText(),
+                            v.getOrDefault("author", ""));
         } catch (IllegalArgumentException e) {
-            throw new XdsFailure("XDS-CONTENT", e.getMessage() + " Nothing was uploaded.");
+            throw new XdsFailure(INPUT_ERROR, e.getMessage());
         }
         s.upload = new Upload(bytes, metadata);
-        // ITB shows an instruction as one block of text and collapses line breaks, so each field is
-        // also returned on its own for the test to show as separate, labelled lines.
+        presentUpload(s, out, bytes, metadata, false);
+    }
+
+    /** The values the confirm step shows, as separate outputs because ITB collapses line breaks. */
+    private void presentUpload(
+            Session s, ProcessResponse out, byte[] bytes, DocumentMetadata metadata, boolean cda) {
         var fields = new LinkedHashMap<String, String>();
-        fields.put("uploadPatient", metadata.patientId());
-        fields.put("uploadId", metadata.uniqueId());
-        fields.put("uploadType", metadata.typeCode() + " (scheme " + metadata.typeScheme() + ")");
-        fields.put("uploadTitle", metadata.title().isEmpty() ? "-" : metadata.title());
+        boolean known = metadata != null;
+        fields.put("uploadPatient", known ? metadata.patientId() : "-");
+        fields.put("uploadId", known ? metadata.uniqueId() : "(generated when you continue)");
+        fields.put(
+                "uploadType",
+                known ? metadata.typeCode() + " (scheme " + metadata.typeScheme() + ")" : "-");
+        fields.put("uploadTitle", known && !metadata.title().isEmpty() ? metadata.title() : "-");
         fields.put(
                 "uploadCreated",
-                metadata.creationTime().isEmpty() ? "now" : metadata.creationTime());
+                known && !metadata.creationTime().isEmpty() ? metadata.creationTime() : "now");
         fields.put("uploadSize", bytes.length + " bytes");
+        fields.put("uploadMime", known ? metadata.mimeType() : MediaTypes.detect(bytes));
+        fields.put("uploadAuthor", known ? authorName(metadata) : "-");
         fields.forEach((name, text) -> out.getOutput().add(value(name, STRING, text)));
         String summary =
                 "Patient (CPR): "
@@ -586,11 +648,16 @@ public class XdsProcessingService implements ProcessingService {
                         + fields.get("uploadTitle")
                         + "\nCreated: "
                         + fields.get("uploadCreated")
+                        + "\nAuthor: "
+                        + fields.get("uploadAuthor")
+                        + "\nMedia type: "
+                        + fields.get("uploadMime")
                         + "\nSize: "
                         + fields.get("uploadSize");
         out.getOutput().add(value("uploadSummary", STRING, summary));
-        out.getOutput().add(value(PATIENT_ID, STRING, metadata.patientId()));
-        out.getOutput().add(value("uploadFormatDefault", STRING, defaultFormatLabel(s, metadata)));
+        if (known) out.getOutput().add(value(PATIENT_ID, STRING, metadata.patientId()));
+        out.getOutput()
+                .add(value("uploadFormatDefault", STRING, defaultFormatLabel(s, metadata, cda)));
         list(out, "uploadFormatLabels", s.formatSelections.keySet());
         var context = new AnyContent();
         context.getItem().add(value("Upload", STRING, summary));
@@ -600,7 +667,10 @@ public class XdsProcessingService implements ProcessingService {
     }
 
     /** CDA types with one obvious MedCom format; for any other type the user must choose. */
-    private static String defaultFormatLabel(Session s, CdaMetadata metadata) {
+    private static String defaultFormatLabel(Session s, DocumentMetadata metadata, boolean cda) {
+        if (metadata == null) return "";
+        // A file that is not a CDA takes IHE's "media type is sufficient" code, not a CDA format.
+        if (!cda) return formatLabel(s, MIME_SUFFICIENT);
         String wanted =
                 switch (metadata.typeCode()) {
                     case "74468-0" -> "urn:ad:dk:medcom:qfdd-v1.2:full";
@@ -608,6 +678,10 @@ public class XdsProcessingService implements ProcessingService {
                     case "53576-5" -> "urn:ad:dk:medcom:phmr-v2.1:full";
                     default -> "";
                 };
+        return formatLabel(s, wanted);
+    }
+
+    private static String formatLabel(Session s, String wanted) {
         for (var entry : s.formatSelections.entrySet()) {
             var code = s.formats.get(entry.getValue());
             if (code != null && wanted.equals(code.path(CODE).asText())) return entry.getKey();
@@ -615,9 +689,16 @@ public class XdsProcessingService implements ProcessingService {
         return "";
     }
 
+    private static String authorName(DocumentMetadata metadata) {
+        String name = (metadata.authorGivenName() + " " + metadata.authorFamilyName()).trim();
+        return name.isEmpty() ? "-" : name;
+    }
+
     private void submit(Session s, Map<String, String> v, ProcessResponse out) {
         if (!s.upload.present())
-            throw new XdsFailure("XDS-STATE", "Provide a CDA before uploading it.");
+            throw new XdsFailure(
+                    "XDS-STATE",
+                    "Provide a file, and describe it if it is not a CDA, before uploading it.");
         selectRegistry(s, v);
         var report = new TAR();
         report.setContext(new AnyContent());
@@ -638,13 +719,14 @@ public class XdsProcessingService implements ProcessingService {
         JsonNode format = formatId == null ? null : s.formats.get(formatId);
         if (format == null)
             throw new XdsFailure(INPUT_ERROR, "Choose a format code for the upload.");
-        CdaMetadata metadata = s.upload.metadata();
+        DocumentMetadata metadata = s.upload.metadata();
         s.patient = metadata.patientId();
         s.credential = credential;
         s.context = newContext();
         Map<String, Object> submission = new LinkedHashMap<>();
         submission.put(FORMAT_CODE, format.path(CODE).asText());
         submission.put("documentBase64", Base64.getEncoder().encodeToString(s.upload.bytes()));
+        submission.put("metadata", metadata);
         var result = client.submit(envelope(s, submission));
         // Everything ITI-57 needs is known now, so the deprecation never has to look it up again.
         s.submitted =
@@ -898,7 +980,7 @@ public class XdsProcessingService implements ProcessingService {
     }
 
     // Keep sensitive input and upstream payloads out of exception causes and SOAP faults.
-    @SuppressWarnings("PMD.PreserveStackTrace")
+    @SuppressWarnings(PMD_STACK)
     private static void dates(
             Map<String, Object> query, Map<String, String> v, String from, String to) {
         try {
@@ -916,7 +998,7 @@ public class XdsProcessingService implements ProcessingService {
     }
 
     // Keep sensitive input and upstream payloads out of exception causes and SOAP faults.
-    @SuppressWarnings("PMD.PreserveStackTrace")
+    @SuppressWarnings(PMD_STACK)
     private void retrieve(Session s, Map<String, String> v, ProcessResponse out) {
         String selection = v.get(DOCUMENT_FIELD);
         String handle = s.documentSelections.getOrDefault(selection, selection);
@@ -982,7 +1064,7 @@ public class XdsProcessingService implements ProcessingService {
     static void checkCda(byte[] bytes) {
         if (bytes.length == 0 || bytes.length > 10 * 1024 * 1024)
             throw new XdsFailure(
-                    "XDS-CONTENT", "The retrieved document is empty or exceeds 10 MiB.");
+                    CONTENT_ERROR, "The retrieved document is empty or exceeds 10 MiB.");
         try {
             var factory = DocumentBuilderFactory.newInstance();
             factory.setNamespaceAware(true);
@@ -999,7 +1081,7 @@ public class XdsProcessingService implements ProcessingService {
                 throw new org.xml.sax.SAXException("Not a CDA document");
         } catch (Exception _) {
             throw new XdsFailure(
-                    "XDS-CONTENT",
+                    CONTENT_ERROR,
                     "The selected document is not well-formed CDA XML. CDA conformance validation has not run.");
         }
     }

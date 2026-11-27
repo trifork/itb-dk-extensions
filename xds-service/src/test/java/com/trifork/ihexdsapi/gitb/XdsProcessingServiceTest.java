@@ -25,6 +25,7 @@ class XdsProcessingServiceTest {
     private org.openehealth.ipf.commons.ihe.xds.core.responses.Response writeResponse;
     private int status;
     private int searchCalls;
+    private boolean withMimeSufficient;
     private long delay;
     private String error;
     private String errorBody;
@@ -52,6 +53,7 @@ class XdsProcessingServiceTest {
         clock = new MutableClock();
         lastSubmit = null;
         lastDeprecate = null;
+        withMimeSufficient = false;
         writeResponse =
                 new org.openehealth.ipf.commons.ihe.xds.core.responses.Response(
                         org.openehealth.ipf.commons.ihe.xds.core.responses.Status.SUCCESS);
@@ -102,15 +104,24 @@ class XdsProcessingServiceTest {
                     }
 
                     public java.util.List<org.openapitools.model.Code> codes(boolean format) {
-                        return java.util.List.of(
+                        var codes = new java.util.ArrayList<org.openapitools.model.Code>();
+                        codes.add(
                                 new org.openapitools.model.Code()
                                         .code("code-1")
                                         .name("Test, with comma")
-                                        .scheme("scheme-1"),
+                                        .scheme("scheme-1"));
+                        codes.add(
                                 new org.openapitools.model.Code()
                                         .code("code-2")
                                         .name("Second code")
                                         .scheme("scheme-2"));
+                        if (format && withMimeSufficient)
+                            codes.add(
+                                    new org.openapitools.model.Code()
+                                            .code("urn:ihe:iti:xds:2017:mimeTypeSufficient")
+                                            .name("IHE media type is sufficient")
+                                            .scheme("1.3.6.1.4.1.19376.1.2.3"));
+                        return codes;
                     }
 
                     public org.openehealth.ipf.commons.ihe.xds.core.responses.QueryResponse search(
@@ -1416,6 +1427,172 @@ class XdsProcessingServiceTest {
         writableRegistry(true, true);
         var ready = prepared(cda(CPR, "1c04299e"));
         assertEquals(TestResultType.SUCCESS, ready.getReport().getResult());
+        assertPreparedFields(ready);
+        var done = submitFirstFormat(ready);
+        assertEquals(TestResultType.SUCCESS, done.getReport().getResult());
+        assertEquals(CDA_ID, output(done, "submittedUniqueId").getValue());
+        assertEquals("urn:uuid:entry-1", output(done, "submittedEntryUuid").getValue());
+        assertEquals("none", output(done, "submittedWarnings").getValue());
+        assertUploadReport(done);
+        assertSubmittedRequest();
+        var gone = call("deprecate");
+        assertEquals(TestResultType.SUCCESS, gone.getReport().getResult());
+        assertEquals(CDA_ID, output(gone, "deprecatedUniqueId").getValue());
+        assertEquals("urn:uuid:entry-1", output(gone, "deprecatedEntryUuid").getValue());
+        assertEquals("none", output(gone, "deprecatedWarnings").getValue());
+        assertEquals(CPR, lastDeprecate.patientId());
+        assertEquals("urn:uuid:entry-1", lastDeprecate.entryUuid());
+        assertEquals("74468-0", lastDeprecate.typeCode());
+        assertEquals("2.16.840.1.113883.6.1", lastDeprecate.typeScheme());
+        // Deprecating again needs a new upload, and no search is ever needed.
+        failure(call("deprecate"), "XDS-STATE");
+        assertEquals(0, searchCalls);
+    }
+
+    @Test
+    void anyOtherFileIsStoredAsItIsOnceItsMetadataIsGiven() {
+        writableRegistry(true, true);
+        call("choices");
+        call("queryChoices", "registry", "Configured XDS registry");
+        byte[] pdf = "%PDF-1.7 test".getBytes(StandardCharsets.UTF_8);
+        var prepared = call("prepareUpload", "document", Base64.getEncoder().encodeToString(pdf));
+        assertEquals(TestResultType.SUCCESS, prepared.getReport().getResult());
+        assertEquals("false", output(prepared, "uploadIsCda").getValue());
+        assertEquals("application/pdf", output(prepared, "uploadMimeDetected").getValue());
+        assertEquals("-", output(prepared, "uploadPatient").getValue());
+        assertEquals("13 bytes", output(prepared, "uploadSize").getValue());
+        String type = output(prepared, "uploadTypeLabels").getItem().get(0).getValue();
+        String format = output(prepared, "uploadFormatLabels").getItem().get(0).getValue();
+        // Not described yet: nothing can be sent.
+        failure(
+                call(
+                        "submit",
+                        "registry",
+                        "Configured XDS registry",
+                        "professional",
+                        "professional-1",
+                        "formatCode",
+                        format),
+                "XDS-STATE");
+        var described =
+                call(
+                        "describeUpload",
+                        "patientId",
+                        CPR,
+                        "title",
+                        "Scan",
+                        "mimeType",
+                        "application/pdf",
+                        "typeCode",
+                        type);
+        assertEquals(TestResultType.SUCCESS, described.getReport().getResult());
+        assertEquals(CPR, output(described, "uploadPatient").getValue());
+        assertTrue(output(described, "uploadId").getValue().startsWith("2.25."));
+        assertEquals("Scan", output(described, "uploadTitle").getValue());
+        assertEquals("ITB upload test", output(described, "uploadAuthor").getValue());
+        assertEquals("-", output(prepared, "uploadAuthor").getValue());
+        assertEquals("application/pdf", output(described, "uploadMime").getValue());
+        var done =
+                call(
+                        "submit",
+                        "registry",
+                        "Configured XDS registry",
+                        "professional",
+                        "professional-1",
+                        "formatCode",
+                        format);
+        assertEquals(TestResultType.SUCCESS, done.getReport().getResult());
+        assertArrayEquals(pdf, lastSubmit.document());
+        assertEquals("application/pdf", lastSubmit.metadata().mimeType());
+        assertEquals(CPR, lastSubmit.metadata().patientId());
+        assertEquals(
+                output(described, "uploadId").getValue(),
+                output(done, "submittedUniqueId").getValue());
+        // It can still be deprecated like any other upload.
+        assertEquals(TestResultType.SUCCESS, call("deprecate").getReport().getResult());
+    }
+
+    @Test
+    void aFileThatIsNotACdaDefaultsToIhesMediaTypeSufficientFormat() {
+        withMimeSufficient = true;
+        writableRegistry(true, true);
+        call("choices");
+        call("queryChoices", "registry", "Configured XDS registry");
+        var prepared = call("prepareUpload", "documentText", "{\"resourceType\":\"Bundle\"}");
+        assertEquals("application/fhir+json", output(prepared, "uploadMimeDetected").getValue());
+        String type = output(prepared, "uploadTypeLabels").getItem().get(0).getValue();
+        var described =
+                call(
+                        "describeUpload",
+                        "patientId",
+                        CPR,
+                        "mimeType",
+                        "application/fhir+json",
+                        "typeCode",
+                        type);
+        assertTrue(
+                output(described, "uploadFormatDefault").getValue().contains("mimeTypeSufficient"),
+                output(described, "uploadFormatDefault").getValue());
+        // A CDA keeps the format chosen from its own type, never the media-type code.
+        var cda = call("prepareUpload", "documentText", cda(CPR, "1c04299e"));
+        assertEquals("", output(cda, "uploadFormatDefault").getValue());
+    }
+
+    @Test
+    void aFileThatIsNotACdaNeedsAValidDescription() {
+        writableRegistry(true, true);
+        call("choices");
+        call("queryChoices", "registry", "Configured XDS registry");
+        failure(call("describeUpload", "patientId", CPR), "XDS-STATE");
+        var prepared = call("prepareUpload", "documentText", "just some text");
+        assertEquals("text/plain", output(prepared, "uploadMimeDetected").getValue());
+        String type = output(prepared, "uploadTypeLabels").getItem().get(0).getValue();
+        failure(
+                call(
+                        "describeUpload",
+                        "patientId",
+                        "12345",
+                        "mimeType",
+                        "text/plain",
+                        "typeCode",
+                        type),
+                "XDS-INPUT");
+        failure(
+                call(
+                        "describeUpload",
+                        "patientId",
+                        CPR,
+                        "mimeType",
+                        "not a type",
+                        "typeCode",
+                        type),
+                "XDS-INPUT");
+        failure(
+                call(
+                        "describeUpload",
+                        "patientId",
+                        CPR,
+                        "mimeType",
+                        "text/plain",
+                        "typeCode",
+                        "nope"),
+                "XDS-INPUT");
+        failure(
+                call(
+                        "describeUpload",
+                        "patientId",
+                        CPR,
+                        "mimeType",
+                        "text/plain",
+                        "typeCode",
+                        type,
+                        "title",
+                        "x".repeat(300)),
+                "XDS-INPUT");
+        assertNull(lastSubmit);
+    }
+
+    private static void assertPreparedFields(ProcessResponse ready) {
         assertEquals(CPR, output(ready, "patientId").getValue());
         assertTrue(output(ready, "uploadSummary").getValue().contains(CDA_ID));
         assertEquals(CDA_ID, output(ready, "uploadId").getValue());
@@ -1425,38 +1602,15 @@ class XdsProcessingServiceTest {
         assertEquals("Test form", output(ready, "uploadTitle").getValue());
         assertEquals("20250513120000+0200", output(ready, "uploadCreated").getValue());
         assertTrue(output(ready, "uploadSize").getValue().endsWith(" bytes"));
-        var done = submitFirstFormat(ready);
-        assertEquals(TestResultType.SUCCESS, done.getReport().getResult());
-        assertEquals(CDA_ID, output(done, "submittedUniqueId").getValue());
-        assertEquals("urn:uuid:entry-1", output(done, "submittedEntryUuid").getValue());
-        assertEquals("none", output(done, "submittedWarnings").getValue());
-        var shown = new java.util.LinkedHashMap<String, String>();
-        done.getReport()
-                .getContext()
-                .getItem()
-                .forEach(item -> shown.put(item.getName(), item.getValue()));
-        assertEquals(CPR, shown.get("Patient"));
-        assertEquals("urn:uuid:entry-1", shown.get("Entry UUID"));
-        assertTrue(shown.get("Signed as").contains("Test professional"));
-        assertEquals("Success. Warnings: none", shown.get("Registry response"));
+    }
+
+    private void assertSubmittedRequest() {
         assertEquals("default", lastSubmit.registryId());
         assertEquals("professional-1", lastSubmit.credentialId());
         assertEquals("code-1", lastSubmit.formatCode());
         assertEquals(Boolean.FALSE, lastSubmit.context().getConsentOverride());
         assertEquals(
                 cda(CPR, "1c04299e"), new String(lastSubmit.document(), StandardCharsets.UTF_8));
-        var gone = call("deprecate");
-        assertEquals(TestResultType.SUCCESS, gone.getReport().getResult());
-        assertEquals(CDA_ID, output(gone, "deprecatedUniqueId").getValue());
-        assertEquals("urn:uuid:entry-1", output(gone, "deprecatedEntryUuid").getValue());
-        assertEquals("none", output(gone, "deprecatedWarnings").getValue());
-        assertEquals(CPR, lastDeprecate.patientId());
-        assertEquals("urn:uuid:entry-1", lastDeprecate.entryUuid());
-        assertEquals("74468-0", lastDeprecate.typeCode());
-        failure(call("deprecate"), "XDS-STATE");
-        // ITI-57 is built from what the upload recorded; no search is needed to deprecate.
-        assertEquals(0, searchCalls);
-        assertEquals("2.16.840.1.113883.6.1", lastDeprecate.typeScheme());
     }
 
     @Test
@@ -1468,7 +1622,9 @@ class XdsProcessingServiceTest {
         assertTrue(output(file, "uploadSummary").getValue().contains("1.2.3.4.5^from-file"));
         failure(call("prepareUpload"), "XDS-INPUT");
         failure(call("prepareUpload", "document", "***not base64***"), "XDS-INPUT");
-        failure(call("prepareUpload", "documentText", "<html/>"), "XDS-CONTENT");
+        failure(
+                call("prepareUpload", "documentText", "<ClinicalDocument xmlns=\"urn:hl7-org:v3\""),
+                "XDS-CONTENT");
         failure(call("prepareUpload", "documentText", cda("12345", "x")), "XDS-CONTENT");
         failure(
                 call(
@@ -1571,6 +1727,18 @@ class XdsProcessingServiceTest {
         failure(call("deprecate"), "XDS-INPUT");
         assertNull(lastDeprecate);
         assertEquals(0, searchCalls);
+    }
+
+    private static void assertUploadReport(ProcessResponse done) {
+        var shown = new java.util.LinkedHashMap<String, String>();
+        done.getReport()
+                .getContext()
+                .getItem()
+                .forEach(item -> shown.put(item.getName(), item.getValue()));
+        assertEquals(CPR, shown.get("Patient"));
+        assertEquals("urn:uuid:entry-1", shown.get("Entry UUID"));
+        assertTrue(shown.get("Signed as").contains("Test professional"));
+        assertEquals("Success. Warnings: none", shown.get("Registry response"));
     }
 
     @Test

@@ -3,12 +3,9 @@ package com.trifork.ihexdsapi.service;
 import com.trifork.ihexdsapi.configuration.SubmissionProperties;
 import com.trifork.ihexdsapi.xds.Codes;
 import jakarta.activation.DataHandler;
-import java.math.BigInteger;
-import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HexFormat;
-import java.util.UUID;
 import org.apache.cxf.attachment.ByteDataSource;
 import org.openehealth.ipf.commons.ihe.xds.core.metadata.*;
 import org.openehealth.ipf.commons.ihe.xds.core.requests.ProvideAndRegisterDocumentSet;
@@ -19,7 +16,10 @@ public final class Submissions {
     private Submissions() {}
 
     public static ProvideAndRegisterDocumentSet provide(
-            byte[] document, CdaMetadata cda, Code formatCode, SubmissionProperties properties) {
+            byte[] document,
+            DocumentMetadata cda,
+            Code formatCode,
+            SubmissionProperties properties) {
         var entry = new DocumentEntry();
         entry.assignEntryUuid();
         entry.setUniqueId(cda.uniqueId());
@@ -27,7 +27,7 @@ public final class Submissions {
         entry.setSourcePatientId(cpr(cda.patientId()));
         entry.setAvailabilityStatus(AvailabilityStatus.APPROVED);
         entry.setType(DocumentEntryType.STABLE);
-        entry.setMimeType("text/xml");
+        entry.setMimeType(cda.mimeType());
         entry.setLanguageCode(cda.languageCode());
         if (!cda.title().isEmpty()) entry.setTitle(new LocalizedString(cda.title()));
         var type = typeCode(cda);
@@ -61,7 +61,7 @@ public final class Submissions {
         var submission =
                 submissionSet(cda.patientId(), type, properties, "ITB document submission");
         var attachment =
-                new Document(entry, new DataHandler(new ByteDataSource(document, "text/xml")));
+                new Document(entry, new DataHandler(new ByteDataSource(document, cda.mimeType())));
         var member = new Association();
         member.assignEntryUuid();
         member.setAssociationType(AssociationType.HAS_MEMBER);
@@ -92,7 +92,7 @@ public final class Submissions {
             String patientId, Code contentType, SubmissionProperties properties, String title) {
         var set = new SubmissionSet();
         set.assignEntryUuid();
-        set.setUniqueId(oid());
+        set.setUniqueId(DocumentMetadata.newOid());
         set.setSourceId(properties.sourceId());
         set.setPatientId(cpr(patientId));
         set.setSubmissionTime(Timestamp.now());
@@ -102,7 +102,7 @@ public final class Submissions {
         return set;
     }
 
-    private static Code typeCode(CdaMetadata cda) {
+    private static Code typeCode(DocumentMetadata cda) {
         return named(
                 new Code(
                         cda.typeCode(),
@@ -125,16 +125,6 @@ public final class Submissions {
 
     private static Identifiable cpr(String id) {
         return new Identifiable(id, new AssigningAuthority(Codes.DK_CPR_CLASSIFICAION_OID));
-    }
-
-    /** A fresh globally unique OID under the 2.25 (UUID) arc. */
-    private static String oid() {
-        var uuid = UUID.randomUUID();
-        var bytes =
-                ByteBuffer.allocate(16)
-                        .putLong(uuid.getMostSignificantBits())
-                        .putLong(uuid.getLeastSignificantBits());
-        return "2.25." + new BigInteger(1, bytes.array());
     }
 
     // XDS defines DocumentEntry.hash as a SHA-1 digest; it is an integrity check, not a security

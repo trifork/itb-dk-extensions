@@ -23,7 +23,8 @@ class DefaultXdsOperationsWriteTest {
     private final CodesService codes = mock(CodesService.class);
     private final HealthcareProfessionalContext context =
             new HealthcareProfessionalContext().role("Læge").consentOverride(false);
-    private static final byte[] DOCUMENT = CdaMetadataTest.HEADER.getBytes(StandardCharsets.UTF_8);
+    private static final byte[] DOCUMENT =
+            DocumentMetadataTest.HEADER.getBytes(StandardCharsets.UTF_8);
 
     private DefaultXdsOperations operations(boolean stamkort, boolean writable) {
         var target =
@@ -65,6 +66,7 @@ class DefaultXdsOperationsWriteTest {
                                 "me",
                                 context,
                                 DOCUMENT,
+                                DocumentMetadata.parse(DOCUMENT),
                                 "urn:ad:dk:medcom:qfdd-v1.2:full"));
 
         assertSame(accepted, result.response());
@@ -83,16 +85,23 @@ class DefaultXdsOperationsWriteTest {
     void refusesToWriteWhereWritingIsNotConfiguredOrTheFormatIsUnknown() throws Exception {
         var request =
                 new SubmitRequest(
-                        "test2", "me", context, DOCUMENT, "urn:ad:dk:medcom:qfdd-v1.2:full");
+                        "test2",
+                        "me",
+                        context,
+                        DOCUMENT,
+                        DocumentMetadata.parse(DOCUMENT),
+                        "urn:ad:dk:medcom:qfdd-v1.2:full");
         var readOnly = operations(false, false);
         assertThrows(IllegalArgumentException.class, () -> readOnly.submit(request));
         var stamkort = operations(true, true);
         assertThrows(IllegalArgumentException.class, () -> stamkort.submit(request));
         var writable = operations(false, true);
-        var unknown = new SubmitRequest("test2", "me", context, DOCUMENT, "nope");
+        var unknown =
+                new SubmitRequest(
+                        "test2", "me", context, DOCUMENT, DocumentMetadata.parse(DOCUMENT), "nope");
         assertThrows(IllegalArgumentException.class, () -> writable.submit(unknown));
-        var notCda = new SubmitRequest("test2", "me", context, "<html/>".getBytes(), "x");
-        assertThrows(IllegalArgumentException.class, () -> writable.submit(notCda));
+        var noMetadata = new SubmitRequest("test2", "me", context, "<html/>".getBytes(), null, "x");
+        assertThrows(IllegalArgumentException.class, () -> writable.submit(noMetadata));
         verifyNoInteractions(submission);
         verify(dgws, never()).getHealthCareProfessionalClientInfo(any(), any(), any());
     }

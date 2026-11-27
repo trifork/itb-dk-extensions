@@ -23,7 +23,7 @@ models, transformers, `ErrorCode`/`ErrorInfo`, and CXF clients. SEAL and the DOM
 ITI-41 submission, upload-metadata generation and submission-repository discovery
 were removed from the REST API and OpenAPI schema, and stay removed. The in-process
 `XdsOperations` now offers `submit` (ITI-41) and `deprecate` (ITI-57) for the GITB
-upload test only: `CdaMetadata` reads the CDA header, `Submissions` builds the IPF
+upload test only: `DocumentMetadata` reads the CDA header, `Submissions` builds the IPF
 payloads, and a registry offers them only when it has an `iti41-endpoint` or
 `iti57-endpoint`. Local file uploads in ITB still go directly to CDA validation.
 The credential API remains: search and retrieval require signing identities and STS.

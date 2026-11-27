@@ -22,7 +22,7 @@ class Packaging(unittest.TestCase):
         types = properties['type.code.codes'].split(';')
         formats = properties['format.code.codes'].split(';')
         self.assertEqual(18, len(set(types)))
-        self.assertEqual(28, len(set(formats)))
+        self.assertEqual(29, len(set(formats)))
         self.assertEqual(len(types), len(set(types)))
         self.assertEqual(len(formats), len(set(formats)))
         for kind in ('type', 'format'):
@@ -144,7 +144,7 @@ class Packaging(unittest.TestCase):
         root = suite['testCases/upload-cda-to-xds.xml']
         self.assertEqual('$DOMAIN{xdsConnector}', root.find('.//t:bptxn', NS).get('handler'))
         self.assertEqual([], root.findall('.//t:verify', NS), 'upload must not select a CDA release')
-        self.assertEqual(['choices', 'queryChoices', 'prepareUpload', 'submit', 'deprecate'],
+        self.assertEqual(['choices', 'queryChoices', 'prepareUpload', 'describeUpload', 'submit', 'deprecate'],
                          [e.text for e in root.findall('.//t:operation', NS)])
         steps = [e.get('id') for e in root.find('t:steps', NS) if e.tag.endswith('interact')]
         self.assertEqual(['uploadSource', 'uploadConfirm', 'uploadScreenshot', 'uploadDeprecate', 'finalize'], steps)
@@ -158,13 +158,22 @@ class Packaging(unittest.TestCase):
             self.assertNotEqual('true', source[name].get('required'), 'either one may be used')
         # ITB collapses line breaks inside one instruction, so each field is its own instruction.
         shown = [i.text for i in root.findall('.//t:interact[@id="uploadConfirm"]/t:instruct', NS)[1:]]
-        self.assertEqual(['$xdsPrepare{uploadPatient}', '$xdsPrepare{uploadId}', '$xdsPrepare{uploadType}',
-                          '$xdsPrepare{uploadTitle}', '$xdsPrepare{uploadCreated}', '$xdsPrepare{uploadSize}'], shown)
+        self.assertEqual(['$uploadPatient', '$uploadId', '$uploadType', '$uploadTitle', '$uploadCreated',
+                          '$uploadAuthor', '$uploadMime', '$uploadSize'], shown)
+        # A file that is not a CDA is described by the uploader before the common confirm step.
+        describe = root.find('.//t:interact[@id="uploadDescribe"]', NS)
+        self.assertEqual(['patientId', 'title', 'author', 'mimeType', 'typeCode'],
+                         [r.get('name') for r in describe.findall('t:request', NS)])
+        self.assertEqual('$xdsPrepare{uploadMimeDetected}', describe.find('t:request[@name="mimeType"]', NS).get('default'))
+        gate = [i for i in root.findall('.//t:if', NS) if i.find('t:cond', NS) is not None
+                and "uploadIsCda} = 'false'" in i.find('t:cond', NS).text]
+        self.assertEqual(1, len(gate))
+        self.assertIsNotNone(gate[0].find('.//t:interact[@id="uploadDescribe"]', NS))
         identity = root.find('.//t:interact[@id="uploadConfirm"]/t:request[@name="professional"]', NS)
         self.assertEqual('$xdsQueryChoices{defaultWriter}', identity.get('default'))
         self.assertEqual(identity.get('options'), identity.get('optionLabels'))
         confirm = root.find('.//t:interact[@id="uploadConfirm"]/t:request[@name="formatCode"]', NS)
-        self.assertEqual('$xdsPrepare{uploadFormatDefault}', confirm.get('default'))
+        self.assertEqual('$uploadFormatDefault', confirm.get('default'))
         self.assertEqual(confirm.get('options'), confirm.get('optionLabels'))
         screenshot = root.find('.//t:interact[@id="uploadScreenshot"]/t:request[@name="screenshot"]', NS)
         self.assertEqual('UPLOAD', screenshot.get('inputType'))

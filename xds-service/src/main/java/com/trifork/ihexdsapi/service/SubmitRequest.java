@@ -8,6 +8,7 @@ public record SubmitRequest(
         String credentialId,
         HealthcareProfessionalContext context,
         byte[] document,
+        DocumentMetadata metadata,
         String formatCode) {
     public SubmitRequest {
         document = copy(document);
@@ -27,17 +28,19 @@ public record SubmitRequest(
                                 String otherCredential,
                                 HealthcareProfessionalContext otherContext,
                                 byte[] otherDocument,
+                                DocumentMetadata otherMetadata,
                                 String otherFormat)
                 && java.util.Objects.equals(registryId, otherRegistry)
                 && java.util.Objects.equals(credentialId, otherCredential)
                 && java.util.Objects.equals(context, otherContext)
                 && java.util.Arrays.equals(document, otherDocument)
+                && java.util.Objects.equals(metadata, otherMetadata)
                 && java.util.Objects.equals(formatCode, otherFormat);
     }
 
     @Override
     public int hashCode() {
-        return 31 * java.util.Objects.hash(registryId, credentialId, context, formatCode)
+        return 31 * java.util.Objects.hash(registryId, credentialId, context, metadata, formatCode)
                 + java.util.Arrays.hashCode(document);
     }
 

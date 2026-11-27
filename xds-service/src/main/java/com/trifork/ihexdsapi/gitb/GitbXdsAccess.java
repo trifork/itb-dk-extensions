@@ -112,6 +112,8 @@ final class GitbXdsAccess implements AutoCloseable {
                                             HealthcareProfessionalContext.class),
                                     Base64.getDecoder()
                                             .decode((String) query.get("documentBase64")),
+                                    (com.trifork.ihexdsapi.service.DocumentMetadata)
+                                            query.get("metadata"),
                                     (String) query.get("formatCode"));
                     var result = operations.submit(request);
                     XdsErrors.checkWrite("DDS document upload (ITI-41)", result.response());

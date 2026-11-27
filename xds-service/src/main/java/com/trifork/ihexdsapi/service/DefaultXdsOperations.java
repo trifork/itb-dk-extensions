@@ -81,7 +81,9 @@ public class DefaultXdsOperations implements XdsOperations {
             throw new IllegalArgumentException(
                     "ITI-41 upload is not configured for the chosen registry");
         byte[] document = request.document();
-        var cda = CdaMetadata.parse(document);
+        var cda = request.metadata();
+        if (cda == null || document == null)
+            throw new IllegalArgumentException("A document and its metadata are required");
         var format = formatCode(request.formatCode());
         var identity =
                 target.authenticateWriter(

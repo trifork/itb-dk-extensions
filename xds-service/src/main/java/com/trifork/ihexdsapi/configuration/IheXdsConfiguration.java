@@ -31,6 +31,7 @@ import org.springframework.web.context.annotation.RequestScope;
     RegistryProperties.class,
     SubmissionProperties.class,
     TypeCodeProperties.class,
+    FormatCodeProperties.class,
     HsuidOrganisationProperties.class
 })
 public class IheXdsConfiguration {
@@ -223,6 +224,11 @@ public class IheXdsConfiguration {
         return client;
     }
 
+    private Iti41ServiceImpl submissionService(RegistryProperties.Registry registry) {
+        return new Iti41ServiceImpl(
+                (Iti41PortType) plainClient(XDS.Interactions.ITI_41, registry.iti41Endpoint()));
+    }
+
     /**
      * Write transactions: no SOAP logging, so documents and patient identifiers are never cached.
      */
@@ -271,13 +277,7 @@ public class IheXdsConfiguration {
                                     registryClient(registry.iti18Endpoint(), cache, ids)),
                             new Iti43ServiceImpl(retrievalClient(registry.iti43Endpoint())),
                             registry.stamkort(),
-                            registry.canSubmit()
-                                    ? new Iti41ServiceImpl(
-                                            (Iti41PortType)
-                                                    plainClient(
-                                                            XDS.Interactions.ITI_41,
-                                                            registry.iti41Endpoint()))
-                                    : null,
+                            registry.canSubmit() ? submissionService(registry) : null,
                             registry.canDeprecate()
                                     ? new Iti57ServiceImpl(
                                             (Iti57PortType)
@@ -290,12 +290,16 @@ public class IheXdsConfiguration {
     }
 
     @Bean
-    public CodesService codesService(TypeCodeProperties typeCodes) throws CodesExecption {
+    public CodesService codesService(TypeCodeProperties typeCodes, FormatCodeProperties formatCodes)
+            throws CodesExecption {
         return new CodesServiceImpl(
                 new CodesServiceImpl.CodeListDefinition(
                         typeCodeCodes, typeCodeNames, typeCodeScheme, typeCodes.schemeOverrides()),
                 new CodesServiceImpl.CodeListDefinition(
-                        formatCodeCodes, formatCodeNames, formatCodeScheme),
+                        formatCodeCodes,
+                        formatCodeNames,
+                        formatCodeScheme,
+                        formatCodes.schemeOverrides()),
                 new CodesServiceImpl.CodeListDefinition(
                         eventCodeSchemeCodes, eventCodeSchemeNames, ""),
                 new CodesServiceImpl.CodeListDefinition(

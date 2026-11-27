@@ -104,11 +104,11 @@ class WriteTransactionsTest {
     void uploadSendsTheDocumentAsAMultipartAttachmentToTheRepositoryEndpoint() throws Exception {
         start(SUCCESS);
         var target = routing(true).target("test2");
-        var document = CdaMetadataTest.HEADER.getBytes(StandardCharsets.UTF_8);
+        var document = DocumentMetadataTest.HEADER.getBytes(StandardCharsets.UTF_8);
         var request =
                 Submissions.provide(
                         document,
-                        CdaMetadata.parse(document),
+                        DocumentMetadata.parse(document),
                         new Code("urn:ad:dk:medcom:qfdd-v1.2:full", null, "1.2.208.184.100.10"),
                         SubmissionProperties.defaults());
 

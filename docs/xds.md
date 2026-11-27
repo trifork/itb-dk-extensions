@@ -80,7 +80,7 @@ With no `xds.registries` entries, the existing `STSURL`, `xdsIti18Endpoint` and
 `xdsIti43Endpoint` settings remain in use. A configured list replaces these for
 search and retrieval. The REST API has no write endpoints. ITI-41 upload and ITI-57
 deprecation exist only for the ITB upload test (see
-[Upload a CDA to DDS](#upload-a-cda-to-dds-and-deprecate-it)) and only for registries
+[Upload a document to DDS](#upload-a-document-to-dds-and-deprecate-it)) and only for registries
 with an explicit `iti41-endpoint` / `iti57-endpoint`; SFSK (Stamkort) routes reject them
 at startup.
 The REST endpoint `GET /v1/registries` returns IDs, names and the `stamkort` capability, without endpoint URLs. Supply the same
@@ -111,18 +111,28 @@ matches, or when the chosen registry is a Stamkort (SFSK) route, where document 
 The last step's report attaches the retrieved XML: open **Review the retrieved CDA** in the session diagram and choose **View CDA** to see it rendered with the HL7 CDA stylesheet.
 It is deployed with the XDS option, in its own `cda-dk-xds-lookup` suite, and has its own pending session.
 
-## Upload a CDA to DDS and deprecate it
+## Upload a document to DDS and deprecate it
 
-The separate **Upload a CDA to DDS and check it appears in your system** test is deployed
+The separate **Upload a document to DDS and check it appears in your system** test is deployed
 with the XDS option, in its own `cda-dk-xds-upload` suite and with its own pending session. It
 **writes to the chosen DDS environment**, so use test patients and documents built for testing.
 
-1. **Provide the CDA.** Upload a file or paste its contents, and choose the registry (default
-   **DDS TEST2**). The service reads the document ID, the patient's CPR
+1. **Provide the document.** Upload any file or paste its contents, and choose the registry (default
+   **DDS TEST2**). A CDA (or XML clearly meant to be one) supplies its own metadata. Any other file (text, JSON, FHIR;
+   binary files such as PDF or images are rejected by DROS Sandbox, see below) is stored as it is: you give the test CPR, an optional title, the media type
+   (detected from the first bytes, and editable) and the document type code, and it gets a newly generated
+   document ID, so it can be uploaded repeatedly. For a CDA the service reads the document ID, the patient's CPR
    (`recordTarget/patientRole/id`, root `1.2.208.176.1.2`), type code, title, creation time,
-   language, confidentiality and author from the CDA header. A document that is not CDA, has no
-   CPR or has no document ID stops the test before anything is sent.
-2. **Confirm.** The metadata read from the CDA is shown. Choose the XDS format code (preselected
+   language, confidentiality and author from the CDA header. A CDA with no CPR or no document
+   ID stops the test before anything is sent.
+
+   **Binary files.** DROS Sandbox reads the document as text (the OpenXDS repository it is built on
+   stores it as a Java `String`), so any byte above 0x7F is counted wrongly and the upload fails
+   with "Size attribute … does not match supplied document". Sending the same bytes as a raw MTOM
+   attachment, as inline base64 or with a base64 transfer encoding was rejected each time
+   (a 10,488-byte test file counted as 20,736 inline and 13,984 with base64 encoding), so this cannot be
+   fixed on our side.
+2. **Confirm.** The values that will be uploaded are shown. Choose the XDS format code (preselected
    for QFDD, QRD and PHMR types). The upload then runs as the default MOCES identity, with consent
    override disabled, as ITI-41 (Provide and Register Document Set-b) with the CDA as an MTOM
    attachment. DDS refuses a document ID that is already registered.

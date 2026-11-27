@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testcase id="upload-cda-to-xds" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/">
     <metadata>
-        <gitb:name>Upload a CDA to DDS and check it appears in your system</gitb:name>
-        <gitb:version>1.0.3</gitb:version>
-        <gitb:description>Provide a CDA (file or pasted contents) and it is uploaded to DDS (ITI-41) using metadata read from the CDA. You then upload a screenshot showing that your system found and displayed the document. A final optional step marks the document as deprecated (ITI-57).</gitb:description>
+        <gitb:name>Upload a document to DDS and check it appears in your system</gitb:name>
+        <gitb:version>1.2.1</gitb:version>
+        <gitb:description>Provide a document (a CDA, or any other file) and it is uploaded to DDS (ITI-41). A CDA supplies its own metadata; for any other file you describe it. You then upload a screenshot showing that your system found and displayed the document. A final optional step marks the document as deprecated (ITI-57).</gitb:description>
         <gitb:update updateMetadata="true" resetTestHistory="false"/>
     </metadata>
     <actors>
-        <gitb:actor id="cda-producer" name="CDA producer" role="SUT"/>
+        <gitb:actor id="cda-producer" name="Document producer" role="SUT"/>
     </actors>
     <steps>
         <bptxn handlerTimeout="150000" txnId="xds" handler="$DOMAIN{xdsConnector}" stopOnError="true"/>
@@ -21,11 +21,11 @@
                 <exit success="false" desc="Stopped: XDS operation failed"/>
             </then>
         </if>
-        <interact id="uploadSource" with="cda-producer" desc="Provide the CDA" inputTitle="Provide the CDA to upload" timeout="604800000">
-            <instruct desc="Step 1" level="INFO" forceDisplay="true">"Upload a CDA file, or paste its contents in the second field. The registry defaults to DDS TEST2. The document is stored in the chosen DDS test environment for the test patient named in the CDA (recordTarget CPR) and stays there until it is deprecated, so use a document built for testing. The next step shows the metadata read from your CDA before anything is sent. DDS refuses a document whose unique ID is already registered, so each upload needs a CDA with a new document ID."</instruct>
+        <interact id="uploadSource" with="cda-producer" desc="Provide the document" inputTitle="Provide the document to upload" timeout="604800000">
+            <instruct desc="Step 1" level="INFO" forceDisplay="true">"Upload a file, or paste its contents in the second field. A CDA supplies its own metadata, including the test patient (recordTarget CPR) and its document ID. Any other file (PDF, image, text, JSON) is stored as it is, and you will be asked for the patient, title, media type and document type code. The registry defaults to DDS TEST2. The document is stored in the chosen DDS test environment and stays there until it is deprecated, so use a document built for testing. DDS refuses a CDA whose unique ID is already registered; other files get a new ID each time."</instruct>
             <request name="registry" desc="Registry" inputType="SELECT_SINGLE" options="$xdsChoices{registryLabels}" optionLabels="$xdsChoices{registryLabels}" default="DDS TEST2"/>
-            <request name="document" desc="CDA file" inputType="UPLOAD" accept="application/xml,text/xml" required="false"/>
-            <request name="documentText" desc="or paste the CDA contents" inputType="MULTILINE_TEXT" required="false"/>
+            <request name="document" desc="File" inputType="UPLOAD" accept="application/xml,text/xml" required="false"/>
+            <request name="documentText" desc="or paste the contents" inputType="MULTILINE_TEXT" required="false"/>
         </interact>
         <assign to="selectedRegistry" type="string">$xdsChoices{defaultRegistry}</assign>
         <if hidden="true">
@@ -51,7 +51,7 @@
                 <exit success="false" desc="Stopped: Stamkort registries cannot receive uploads"/>
             </then>
         </if>
-        <process id="xdsPrepare" txnId="xds" desc="Read the metadata from the CDA" hidden="false" stopOnError="false">
+        <process id="xdsPrepare" txnId="xds" desc="Read the document's metadata" hidden="false" stopOnError="false">
             <operation>prepareUpload</operation>
             <input name="document">$uploadSource{document}</input>
             <input name="documentText">$uploadSource{documentText}</input>
@@ -60,23 +60,73 @@
             <cond>$STEP_STATUS{xdsPrepare} = 'ERROR'</cond>
             <then>
                 <log level="ERROR">$xdsPrepare{errorCode} || ": " || $xdsPrepare{errorMessage}</log>
-                <exit success="false" desc="Stopped: the CDA cannot be uploaded"/>
+                <exit success="false" desc="Stopped: the document cannot be uploaded"/>
             </then>
         </if>
-        <log level="INFO">"CDA read: document " || $xdsPrepare{uploadId} || " for patient " || $xdsPrepare{uploadPatient} || ", type " || $xdsPrepare{uploadType} || ", " || $xdsPrepare{uploadSize} || ", title " || $xdsPrepare{uploadTitle} || "."</log>
+        <assign to="uploadPatient" type="string">$xdsPrepare{uploadPatient}</assign>
+        <assign to="uploadId" type="string">$xdsPrepare{uploadId}</assign>
+        <assign to="uploadType" type="string">$xdsPrepare{uploadType}</assign>
+        <assign to="uploadTitle" type="string">$xdsPrepare{uploadTitle}</assign>
+        <assign to="uploadCreated" type="string">$xdsPrepare{uploadCreated}</assign>
+        <assign to="uploadSize" type="string">$xdsPrepare{uploadSize}</assign>
+        <assign to="uploadMime" type="string">$xdsPrepare{uploadMime}</assign>
+        <assign to="uploadAuthor" type="string">$xdsPrepare{uploadAuthor}</assign>
+        <assign to="uploadFormatDefault" type="string">$xdsPrepare{uploadFormatDefault}</assign>
+        <if hidden="true">
+            <cond>$xdsPrepare{uploadIsCda} = 'false'</cond>
+            <then>
+                <log level="INFO">"Not a CDA (detected " || $xdsPrepare{uploadMimeDetected} || ", " || $xdsPrepare{uploadSize} || "): asking for the metadata a CDA header would have given."</log>
+                <interact id="uploadDescribe" with="cda-producer" desc="Describe the document" inputTitle="Describe the document" timeout="604800000">
+                    <instruct desc="Step 1b" level="INFO" forceDisplay="true">"This file is not a CDA, so DDS needs to be told what it is. It is stored for the test patient below under a newly generated document ID."</instruct>
+                    <instruct desc="Note" level="INFO" forceDisplay="true">"The DROS Sandbox registry reads a document as text, so only text-based files (CDA, FHIR JSON or XML, plain text) are stored intact. A binary file such as a PDF or an image is rejected with a size mismatch."</instruct>
+                    <request name="patientId" desc="Test CPR (10 digits)" inputType="TEXT" required="true"/>
+                    <request name="title" desc="Title (optional)" inputType="TEXT" required="false"/>
+                    <request name="author" desc="Author (optional)" inputType="TEXT" required="false" default="ITB upload test"/>
+                    <request name="mimeType" desc="Media type" inputType="TEXT" required="true" default="$xdsPrepare{uploadMimeDetected}"/>
+                    <request name="typeCode" desc="Document type code" inputType="SELECT_SINGLE" required="true" options="$xdsPrepare{uploadTypeLabels}" optionLabels="$xdsPrepare{uploadTypeLabels}"/>
+                </interact>
+                <process id="xdsDescribe" txnId="xds" desc="Check the description" hidden="false" stopOnError="false">
+                    <operation>describeUpload</operation>
+                    <input name="patientId">$uploadDescribe{patientId}</input>
+                    <input name="title">$uploadDescribe{title}</input>
+                    <input name="author">$uploadDescribe{author}</input>
+                    <input name="mimeType">$uploadDescribe{mimeType}</input>
+                    <input name="typeCode">$uploadDescribe{typeCode}</input>
+                </process>
+                <if hidden="true">
+                    <cond>$STEP_STATUS{xdsDescribe} = 'ERROR'</cond>
+                    <then>
+                        <log level="ERROR">$xdsDescribe{errorCode} || ": " || $xdsDescribe{errorMessage}</log>
+                        <exit success="false" desc="Stopped: the document description is not valid"/>
+                    </then>
+                </if>
+                <assign to="uploadPatient" type="string">$xdsDescribe{uploadPatient}</assign>
+                <assign to="uploadId" type="string">$xdsDescribe{uploadId}</assign>
+                <assign to="uploadType" type="string">$xdsDescribe{uploadType}</assign>
+                <assign to="uploadTitle" type="string">$xdsDescribe{uploadTitle}</assign>
+                <assign to="uploadCreated" type="string">$xdsDescribe{uploadCreated}</assign>
+                <assign to="uploadSize" type="string">$xdsDescribe{uploadSize}</assign>
+                <assign to="uploadMime" type="string">$xdsDescribe{uploadMime}</assign>
+                <assign to="uploadAuthor" type="string">$xdsDescribe{uploadAuthor}</assign>
+                <assign to="uploadFormatDefault" type="string">$xdsDescribe{uploadFormatDefault}</assign>
+            </then>
+        </if>
+        <log level="INFO">"Document ready: " || $uploadMime || ", ID " || $uploadId || " for patient " || $uploadPatient || ", type " || $uploadType || ", " || $uploadSize || ", title " || $uploadTitle || "."</log>
         <interact id="uploadConfirm" with="cda-producer" desc="Confirm the upload" inputTitle="Confirm the upload to DDS" timeout="604800000">
-            <instruct desc="Step 2" level="INFO" forceDisplay="true">"These are the values read from your CDA, which will be uploaded to DDS and registered for the patient. Choose the signing identity (a system certificate is preselected when one is configured) and the XDS format code that describes the document, then continue. Class, facility and practice-setting codes come from the service configuration; they are not taken from the CDA."</instruct>
-            <instruct desc="Patient (CPR)" level="INFO" forceDisplay="true">$xdsPrepare{uploadPatient}</instruct>
-            <instruct desc="Document unique ID" level="INFO" forceDisplay="true">$xdsPrepare{uploadId}</instruct>
-            <instruct desc="Type code" level="INFO" forceDisplay="true">$xdsPrepare{uploadType}</instruct>
-            <instruct desc="Title" level="INFO" forceDisplay="true">$xdsPrepare{uploadTitle}</instruct>
-            <instruct desc="Created" level="INFO" forceDisplay="true">$xdsPrepare{uploadCreated}</instruct>
-            <instruct desc="Size" level="INFO" forceDisplay="true">$xdsPrepare{uploadSize}</instruct>
+            <instruct desc="Step 2" level="INFO" forceDisplay="true">"These are the values that will be uploaded to DDS and registered for the patient. Choose the signing identity (a system certificate is preselected when one is configured) and the XDS format code that describes the document, then continue. Class, facility and practice-setting codes come from the service configuration; they are not taken from the CDA."</instruct>
+            <instruct desc="Patient (CPR)" level="INFO" forceDisplay="true">$uploadPatient</instruct>
+            <instruct desc="Document unique ID" level="INFO" forceDisplay="true">$uploadId</instruct>
+            <instruct desc="Type code" level="INFO" forceDisplay="true">$uploadType</instruct>
+            <instruct desc="Title" level="INFO" forceDisplay="true">$uploadTitle</instruct>
+            <instruct desc="Created" level="INFO" forceDisplay="true">$uploadCreated</instruct>
+            <instruct desc="Author" level="INFO" forceDisplay="true">$uploadAuthor</instruct>
+            <instruct desc="Media type" level="INFO" forceDisplay="true">$uploadMime</instruct>
+            <instruct desc="Size" level="INFO" forceDisplay="true">$uploadSize</instruct>
             <request name="professional" desc="Signing identity" inputType="SELECT_SINGLE" required="true" options="$xdsQueryChoices{professionalLabels}" optionLabels="$xdsQueryChoices{professionalLabels}" default="$xdsQueryChoices{defaultWriter}"/>
-            <request name="formatCode" desc="Format code" inputType="SELECT_SINGLE" required="true" options="$xdsPrepare{uploadFormatLabels}" optionLabels="$xdsPrepare{uploadFormatLabels}" default="$xdsPrepare{uploadFormatDefault}"/>
+            <request name="formatCode" desc="Format code" inputType="SELECT_SINGLE" required="true" options="$xdsPrepare{uploadFormatLabels}" optionLabels="$xdsPrepare{uploadFormatLabels}" default="$uploadFormatDefault"/>
         </interact>
         <log level="INFO">"Uploading (ITI-41) to " || $selectedRegistry || " as " || $uploadConfirm{professional} || " with format " || $uploadConfirm{formatCode} || "."</log>
-        <process id="xdsSubmit" txnId="xds" desc="Upload the CDA to DDS (ITI-41)" hidden="false" stopOnError="false">
+        <process id="xdsSubmit" txnId="xds" desc="Upload the document to DDS (ITI-41)" hidden="false" stopOnError="false">
             <operation>submit</operation>
             <input name="registry">$selectedRegistry</input>
             <input name="professional">$uploadConfirm{professional}</input>
@@ -90,8 +140,8 @@
             </then>
         </if>
         <log level="INFO">"DDS accepted the upload (ITI-41): document " || $xdsSubmit{submittedUniqueId} || " for patient " || $xdsSubmit{patientId} || ", entry UUID " || $xdsSubmit{submittedEntryUuid} || ". Registry warnings: " || $xdsSubmit{submittedWarnings} || "."</log>
-        <interact id="uploadScreenshot" with="cda-producer" desc="Upload a screenshot" inputTitle="Show that your system found the CDA" timeout="604800000">
-            <instruct desc="Step 3" level="INFO" forceDisplay="true">"DDS accepted the document. Now open it in your own system, searching as the patient from the CDA, and upload a screenshot that shows the system found and displayed it. The screenshot is kept with this test session as evidence; this test does not inspect it."</instruct>
+        <interact id="uploadScreenshot" with="cda-producer" desc="Upload a screenshot" inputTitle="Show that your system found the document" timeout="604800000">
+            <instruct desc="Step 3" level="INFO" forceDisplay="true">"DDS accepted the document. Now open it in your own system, searching as the patient the document is registered for, and upload a screenshot that shows the system found and displayed it. The screenshot is kept with this test session as evidence; this test does not inspect it."</instruct>
             <instruct desc="Uploaded document" level="INFO" forceDisplay="true">"Document unique ID: " || $xdsSubmit{submittedUniqueId} || " (patient " || $xdsSubmit{patientId} || ")"</instruct>
             <request name="screenshot" desc="Screenshot" inputType="UPLOAD" accept="image/png,image/jpeg,image/webp" required="true" report="true"/>
         </interact>
@@ -122,11 +172,11 @@
         <eptxn txnId="xds"/>
         <interact id="finalize" with="cda-producer" title="Review the upload"
                   desc="Review the upload" inputTitle="Upload test completed" timeout="604800000">
-            <instruct desc="Instructions" level="INFO" forceDisplay="true" report="true">"The CDA was uploaded to DDS and you provided a screenshot showing your system found it. Finish the session to record the result."</instruct>
+            <instruct desc="Instructions" level="INFO" forceDisplay="true" report="true">"The document was uploaded to DDS and you provided a screenshot showing your system found it. Finish the session to record the result."</instruct>
         </interact>
     </steps>
     <output>
-        <success><default>"The CDA was uploaded to DDS and its retrieval in the producer's system was evidenced by a screenshot."</default></success>
-        <failure><default>"The upload test failed. Open the failed step to distinguish an unreadable CDA, a DDS rejection or a deprecation error."</default></failure>
+        <success><default>"The document was uploaded to DDS and its retrieval in the producer's system was evidenced by a screenshot."</default></success>
+        <failure><default>"The upload test failed. Open the failed step to distinguish an unreadable document, a DDS rejection or a deprecation error."</default></failure>
     </output>
 </testcase>

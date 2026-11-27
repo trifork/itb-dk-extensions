@@ -42,7 +42,7 @@ public final class FixtureApplication {
 
         public SubmissionResult submit(SubmitRequest request) {
             context(request.registryId(), request.credentialId(), request.context());
-            var cda = CdaMetadata.parse(request.document());
+            var cda = request.metadata();
             if (!List.of("test-code", "second-code").contains(request.formatCode()))
                 throw new IllegalArgumentException("Unknown fixture format");
             String key = request.registryId() + "|" + cda.patientId() + "|" + cda.uniqueId();

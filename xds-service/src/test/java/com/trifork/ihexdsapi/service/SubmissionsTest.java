@@ -18,7 +18,8 @@ import org.openehealth.ipf.commons.ihe.xds.core.validate.requests.SubmitObjectsR
 
 /** The payloads are checked against IPF's own XDS.b validators for ITI-41 and ITI-57. */
 class SubmissionsTest {
-    private static final byte[] DOCUMENT = CdaMetadataTest.HEADER.getBytes(StandardCharsets.UTF_8);
+    private static final byte[] DOCUMENT =
+            DocumentMetadataTest.HEADER.getBytes(StandardCharsets.UTF_8);
     private static final SubmissionProperties PROPERTIES = SubmissionProperties.defaults();
 
     private static ValidationProfile profile(XDS.Interactions interaction) {
@@ -39,7 +40,7 @@ class SubmissionsTest {
 
     @Test
     void provideAndRegisterCarriesTheCdaAndItsHeaderMetadata() {
-        var cda = CdaMetadata.parse(DOCUMENT);
+        var cda = DocumentMetadata.parse(DOCUMENT);
         var format = new Code("urn:ad:dk:medcom:qfdd-v1.2:full", null, "1.2.208.184.100.10");
         var request = Submissions.provide(DOCUMENT, cda, format, PROPERTIES);
 
@@ -96,8 +97,8 @@ class SubmissionsTest {
     @Test
     void everyCodedValueCarriesADisplayNameBecauseDrosRequiresOne() {
         var cda =
-                CdaMetadata.parse(
-                        CdaMetadataTest.HEADER
+                DocumentMetadata.parse(
+                        DocumentMetadataTest.HEADER
                                 .replace(" displayName=\"QFDD\"", "")
                                 .getBytes(StandardCharsets.UTF_8));
         var entry =
@@ -130,7 +131,7 @@ class SubmissionsTest {
 
     @Test
     void everySubmissionGetsFreshIdentifiers() {
-        var cda = CdaMetadata.parse(DOCUMENT);
+        var cda = DocumentMetadata.parse(DOCUMENT);
         var format = new Code("f", null, "s");
         var first = Submissions.provide(DOCUMENT, cda, format, PROPERTIES);
         var second = Submissions.provide(DOCUMENT, cda, format, PROPERTIES);

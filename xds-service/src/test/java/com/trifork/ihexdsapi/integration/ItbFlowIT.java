@@ -266,8 +266,8 @@ class ItbFlowIT {
         createdSessions.add(session);
         byte[] cda = Files.readAllBytes(ROOT.resolve("samples/phmr/phmr_example01.xml"));
         submit(
-                "Provide the CDA to upload",
-                Map.of("Registry", "Synthetic registry One", "CDA file", cda));
+                "Provide the document to upload",
+                Map.of("Registry", "Synthetic registry One", "File", cda));
         JsonNode confirm = interaction("Confirm the upload to DDS");
         assertEquals("instruct", field(confirm, "Document unique ID").path("type").asText());
         client.submit(
@@ -290,17 +290,60 @@ class ItbFlowIT {
     }
 
     @Test
+    void uploadTestStoresAnyOtherFileOnceTheUploaderDescribesIt() throws Exception {
+        org.junit.jupiter.api.Assumptions.assumeTrue(
+                client.uploadTestCase() != null, "The XDS upload test is not deployed");
+        session = client.start(client.uploadTestCase());
+        createdSessions.add(session);
+        submit(
+                "Provide the document to upload",
+                Map.of(
+                        "Registry",
+                        "Synthetic registry One",
+                        "File",
+                        "%PDF-1.7 synthetic".getBytes()));
+        JsonNode describe = interaction("Describe the document");
+        assertEquals("application/pdf", field(describe, "Media type").path("default").asText());
+        client.submit(
+                session,
+                describe,
+                Map.of(
+                        "Test CPR (10 digits)",
+                        "0103660140",
+                        "Title (optional)",
+                        "Synthetic scan",
+                        "Document type code",
+                        option(describe, "Document type code", "PHMR test code")));
+        JsonNode confirm = interaction("Confirm the upload to DDS");
+        assertEquals("instruct", field(confirm, "Media type").path("type").asText());
+        client.submit(
+                session,
+                confirm,
+                Map.of(
+                        "Signing identity",
+                        option(confirm, "Signing identity", "Synthetic test professional"),
+                        "Format code",
+                        option(confirm, "Format code", "PHMR test code")));
+        submit("Show that your system found the CDA", Map.of("Screenshot", SCREENSHOT));
+        submit(
+                "Deprecate the uploaded document?",
+                Map.of("Deprecate the uploaded document?", "Leave the document approved"));
+        submit("Upload test completed", Map.of());
+        assertEquals("SUCCESS", client.ended(session, 30).get("result").asText());
+    }
+
+    @Test
     void uploadTestStopsBeforeSendingAnythingWhenTheCdaHasNoPatient() throws Exception {
         org.junit.jupiter.api.Assumptions.assumeTrue(
                 client.uploadTestCase() != null, "The XDS upload test is not deployed");
         session = client.start(client.uploadTestCase());
         createdSessions.add(session);
         submit(
-                "Provide the CDA to upload",
+                "Provide the document to upload",
                 Map.of(
                         "Registry",
                         "Synthetic registry One",
-                        "CDA file",
+                        "File",
                         "<ClinicalDocument xmlns=\"urn:hl7-org:v3\"/>".getBytes()));
         assertEquals("FAILURE", client.ended(session, 30).get("result").asText());
         assertTrue(client.logs(session).contains("XDS-CONTENT"));
