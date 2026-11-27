@@ -1,6 +1,8 @@
 package com.trifork.ihexdsapi.gitb;
 
 import com.fasterxml.jackson.databind.*;
+import com.trifork.ihexdsapi.service.DeprecateRequest;
+import com.trifork.ihexdsapi.service.SubmitRequest;
 import com.trifork.ihexdsapi.service.XdsOperations;
 import java.time.Duration;
 import java.util.*;
@@ -66,36 +68,81 @@ final class GitbXdsAccess implements AutoCloseable {
                             result.getErrors(),
                             result.getDocumentEntries().size());
                     var rows = JSON.createArrayNode();
-                    for (var entry : result.getDocumentEntries()) {
-                        var row = rows.addObject();
-                        row.put(
-                                "patientId",
-                                entry.getPatientId() == null ? null : entry.getPatientId().getId());
-                        row.put("documentId", entry.getUniqueId());
-                        row.put("repositoryID", entry.getRepositoryUniqueId());
-                        row.put("homeCommunityId", entry.getHomeCommunityId());
-                        row.put(
-                                "documentType",
-                                entry.getTypeCode() == null
-                                                || entry.getTypeCode().getDisplayName() == null
-                                        ? "CDA"
-                                        : entry.getTypeCode().getDisplayName().getValue());
-                        if (entry.getServiceStartTime() != null)
-                            row.put(
-                                    "serviceStart",
-                                    entry.getServiceStartTime()
-                                            .getDateTime()
-                                            .toInstant()
-                                            .toEpochMilli());
-                        if (entry.getServiceStopTime() != null)
-                            row.put(
-                                    "serviceEnd",
-                                    entry.getServiceStopTime()
-                                            .getDateTime()
-                                            .toInstant()
-                                            .toEpochMilli());
-                    }
+                    for (var entry : result.getDocumentEntries()) addRow(rows, entry);
                     return rows;
+                });
+    }
+
+    private static void addRow(
+            com.fasterxml.jackson.databind.node.ArrayNode rows,
+            org.openehealth.ipf.commons.ihe.xds.core.metadata.DocumentEntry entry) {
+        var row = rows.addObject();
+        row.put("patientId", entry.getPatientId() == null ? null : entry.getPatientId().getId());
+        row.put("documentId", entry.getUniqueId());
+        row.put("entryUuid", entry.getEntryUuid());
+        var type = entry.getTypeCode();
+        if (type != null) {
+            row.put("typeCode", type.getCode());
+            row.put("typeScheme", type.getSchemeName());
+        }
+        row.put("repositoryID", entry.getRepositoryUniqueId());
+        row.put("homeCommunityId", entry.getHomeCommunityId());
+        row.put(
+                "documentType",
+                type == null || type.getDisplayName() == null
+                        ? "CDA"
+                        : type.getDisplayName().getValue());
+        if (entry.getServiceStartTime() != null)
+            row.put(
+                    "serviceStart",
+                    entry.getServiceStartTime().getDateTime().toInstant().toEpochMilli());
+        if (entry.getServiceStopTime() != null)
+            row.put(
+                    "serviceEnd",
+                    entry.getServiceStopTime().getDateTime().toInstant().toEpochMilli());
+    }
+
+    /** ITI-41. Findings stop the flow; nothing is reported as stored unless DDS accepted it. */
+    void submit(Map<String, Object> values) {
+        execute(
+                "DDS document upload (ITI-41)",
+                () -> {
+                    var query = (Map<?, ?>) values.get("queryParameters");
+                    var request =
+                            new SubmitRequest(
+                                    (String) values.get("registryId"),
+                                    (String) values.get("credentialId"),
+                                    JSON.convertValue(
+                                            values.get("context"),
+                                            HealthcareProfessionalContext.class),
+                                    Base64.getDecoder()
+                                            .decode((String) query.get("documentBase64")),
+                                    (String) query.get("formatCode"));
+                    XdsErrors.checkWrite(
+                            "DDS document upload (ITI-41)", operations.submit(request));
+                    return Boolean.TRUE;
+                });
+    }
+
+    /** ITI-57. Same contract as {@link #submit}. */
+    void deprecate(Map<String, Object> values) {
+        execute(
+                "DDS deprecation (ITI-57)",
+                () -> {
+                    var query = (Map<?, ?>) values.get("queryParameters");
+                    var request =
+                            new DeprecateRequest(
+                                    (String) values.get("registryId"),
+                                    (String) values.get("credentialId"),
+                                    JSON.convertValue(
+                                            values.get("context"),
+                                            HealthcareProfessionalContext.class),
+                                    (String) query.get("patientId"),
+                                    (String) query.get("entryUuid"),
+                                    (String) query.get("typeCode"),
+                                    (String) query.get("typeScheme"));
+                    XdsErrors.checkWrite("DDS deprecation (ITI-57)", operations.deprecate(request));
+                    return Boolean.TRUE;
                 });
     }
 

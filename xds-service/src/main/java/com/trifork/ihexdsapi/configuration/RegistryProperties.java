@@ -29,7 +29,17 @@ public record RegistryProperties(List<Registry> registries) {
             endpoint(registry.iti18Endpoint());
             endpoint(registry.iti43Endpoint());
             endpoint(registry.stsEndpoint());
+            optionalEndpoint(registry.iti41Endpoint());
+            optionalEndpoint(registry.iti57Endpoint());
+            if (registry.stamkort() && (registry.canSubmit() || registry.canDeprecate()))
+                throw new IllegalArgumentException(
+                        "Stamkort registries are generated, so ITI-41 and ITI-57 cannot be configured for them");
         }
+    }
+
+    /** Write endpoints are opt-in: a blank value leaves the operation unavailable for the route. */
+    private static void optionalEndpoint(String value) {
+        if (value != null && !value.isBlank()) endpoint(value);
     }
 
     private static void endpoint(String value) {
@@ -53,7 +63,9 @@ public record RegistryProperties(List<Registry> registries) {
             String iti18Endpoint,
             String iti43Endpoint,
             String stsEndpoint,
-            boolean stamkort) {
+            boolean stamkort,
+            String iti41Endpoint,
+            String iti57Endpoint) {
         @org.springframework.boot.context.properties.bind.ConstructorBinding
         public Registry {}
 
@@ -62,8 +74,28 @@ public record RegistryProperties(List<Registry> registries) {
                 String name,
                 String iti18Endpoint,
                 String iti43Endpoint,
+                String stsEndpoint,
+                boolean stamkort) {
+            this(id, name, iti18Endpoint, iti43Endpoint, stsEndpoint, stamkort, null, null);
+        }
+
+        public Registry(
+                String id,
+                String name,
+                String iti18Endpoint,
+                String iti43Endpoint,
                 String stsEndpoint) {
             this(id, name, iti18Endpoint, iti43Endpoint, stsEndpoint, false);
+        }
+
+        /** True when an operator has configured an ITI-41 endpoint for this registry. */
+        public boolean canSubmit() {
+            return iti41Endpoint != null && !iti41Endpoint.isBlank();
+        }
+
+        /** True when an operator has configured an ITI-57 endpoint for this registry. */
+        public boolean canDeprecate() {
+            return iti57Endpoint != null && !iti57Endpoint.isBlank();
         }
     }
 }

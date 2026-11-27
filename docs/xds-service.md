@@ -21,9 +21,11 @@ models, transformers, `ErrorCode`/`ErrorInfo`, and CXF clients. SEAL and the DOM
 `HsuidHeaderBuilder` retain the Danish authentication implementation.
 
 ITI-41 submission, upload-metadata generation and submission-repository discovery
-have been removed from the REST API and OpenAPI schema. Their SOAP clients,
-custom outbound attachment serializer and CDA metadata builder dependency are
-also removed. Local file uploads in ITB still go directly to CDA validation.
+were removed from the REST API and OpenAPI schema, and stay removed. The in-process
+`XdsOperations` now offers `submit` (ITI-41) and `deprecate` (ITI-57) for the GITB
+upload test only: `CdaMetadata` reads the CDA header, `Submissions` builds the IPF
+payloads, and a registry offers them only when it has an `iti41-endpoint` or
+`iti57-endpoint`. Local file uploads in ITB still go directly to CDA validation.
 The credential API remains: search and retrieval require signing identities and STS.
 
 `RegistryRouting` holds immutable per-registry bundles of DGWS/STS, ITI-18 and
@@ -117,7 +119,7 @@ self-contained Sonar Java and symbolic-execution analysis. It requires zero find
 and zero failed analysis files, scans production and test sources, and excludes
 generated sources. The analyzer version and SHA-256 are pinned in
 [`sonar-analyzer.json`](../xds-service/scripts/sonar-analyzer.json), downloaded from
-the official [SonarSource release](https://github.com/SonarSource/sonarlint-vscode/releases/tag/5.10.0%2B80769).
+the official [SonarSource release](https://github.com/SonarSource/sonarlint-vscode/releases/tag/6.4.0%2B91328).
 This is a local Sonar engine gate, without a hosted SonarQube server or dashboard.
 
 Both pull-request integration and image publication depend on the same quality

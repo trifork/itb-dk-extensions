@@ -34,7 +34,7 @@ python3 xds-service/scripts/sonar-java.py --extension xds-service/target/sonar-a
 docker compose --profile xds build xds-api
 ```
 
-Quality gates: JUnit 5, Spotless, compiler warnings as errors, PMD/CPD (`lint`
+Quality gates: JUnit 6, Spotless, compiler warnings as errors, PMD/CPD (`lint`
 profile), JaCoCo (80% lines / 60% branches), and zero-finding self-contained Sonar.
 The [shared quality workflow](../.github/workflows/xds-quality.yml) gates integration
 and publication. Reports are under `target/reports/`, `target/site/jacoco/` and

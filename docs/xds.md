@@ -78,8 +78,11 @@ operator configuration and cannot be supplied through a user selection.
 
 With no `xds.registries` entries, the existing `STSURL`, `xdsIti18Endpoint` and
 `xdsIti43Endpoint` settings remain in use. A configured list replaces these for
-search and retrieval. ITI-41 document submission and its upload-metadata preview
-and repository-list endpoints have been removed. No ITI-41 endpoint setting is required.
+search and retrieval. The REST API has no write endpoints. ITI-41 upload and ITI-57
+deprecation exist only for the ITB upload test (see
+[Upload a CDA to DDS](#upload-a-cda-to-dds-and-deprecate-it)) and only for registries
+with an explicit `iti41-endpoint` / `iti57-endpoint`; SFSK (Stamkort) routes reject them
+at startup.
 The REST endpoint `GET /v1/registries` returns IDs, names and the `stamkort` capability, without endpoint URLs. Supply the same
 optional top-level `registryId` to `POST /v1/iti18`, `/v1/iti18/uniqueID` and
 `/v1/iti43`. Omission selects the first configured entry for REST compatibility;
@@ -107,6 +110,44 @@ use a release test for that. It stops with a distinct error when no document mat
 matches, or when the chosen registry is a Stamkort (SFSK) route, where document IDs do not apply.
 The last step's report attaches the retrieved XML: open **Review the retrieved CDA** in the session diagram and choose **View CDA** to see it rendered with the HL7 CDA stylesheet.
 It is deployed with the XDS option, in its own `cda-dk-xds-lookup` suite, and has its own pending session.
+
+## Upload a CDA to DDS and deprecate it
+
+The separate **Upload a CDA to DDS and check it appears in your system** test is deployed
+with the XDS option, in its own `cda-dk-xds-upload` suite and with its own pending session. It
+**writes to the chosen DDS environment**, so use test patients and documents built for testing.
+
+1. **Provide the CDA.** Upload a file or paste its contents, and choose the registry (default
+   **DDS TEST2**). The service reads the document ID, the patient's CPR
+   (`recordTarget/patientRole/id`, root `1.2.208.176.1.2`), type code, title, creation time,
+   language, confidentiality and author from the CDA header. A document that is not CDA, has no
+   CPR or has no document ID stops the test before anything is sent.
+2. **Confirm.** The metadata read from the CDA is shown. Choose the XDS format code (preselected
+   for QFDD, QRD and PHMR types). The upload then runs as the default MOCES identity, with consent
+   override disabled, as ITI-41 (Provide and Register Document Set-b) with the CDA as an MTOM
+   attachment. DDS refuses a document ID that is already registered.
+3. **Screenshot.** Upload an image that shows your own system found and displayed the document.
+   The test stores it as evidence and does not inspect it.
+4. **Deprecate (optional).** Choose whether to mark the document as deprecated. The service
+   searches for the document it uploaded in this session, takes the registry's own entry UUID and
+   sends ITI-57 (Update Document Set, availability status Approved to Deprecated). It never
+   accepts a typed ID, so it can only deprecate that one upload.
+
+Writing is opt-in per registry. `application.properties` enables it for DDS TEST1 and TEST2:
+`iti41-endpoint` defaults to the ITI-43 repository URL and `iti57-endpoint` to the ITI-18
+registry URL, with overrides `XDS_SUBMISSION_URL`, `XDS_UPDATE_URL`, `XDS_TEST2_SUBMISSION_URL`
+and `XDS_TEST2_UPDATE_URL`. Clear a value to switch writing off for that route. The class,
+healthcare-facility and practice-setting codes a CDA cannot supply, and the submission source ID,
+come from `xds.submission.*` (`XDS_SUBMISSION_SOURCE_ID`, `XDS_SUBMISSION_FACILITY_TYPE_CODE`,
+`XDS_SUBMISSION_PRACTICE_SETTING_CODE`, form `code^display name^scheme OID`). The class code is the
+CDA's type code.
+
+**Not verified against a live DDS.** The endpoint defaults assume ITI-41 and ITI-57 are served on
+the same hosts as ITI-43 and ITI-18, and the facility, practice-setting and source-ID defaults are
+placeholders, not MedCom-published values. The payloads pass IPF's own ITI-41 and ITI-57 request
+validators and a loopback test sends them through the real CXF clients (multipart upload and
+plain SOAP update), but no document has been sent to DDS. Expect to adjust the endpoints and codes
+after the first real run.
 
 ## Searching and selecting
 
@@ -559,7 +600,7 @@ For an unlisted type or format, leave **both** code fields empty or select **Any
 in each field, then choose the desired document from the results. Restart
 `xds-api` and start a new search session after changing the lists.
 
-The service runs on Java 25 with IPF 5.3 and SEAL 3. TEST1 still returns
+The service runs on Java 25 with IPF 6.0, Spring Boot 4.1 and SEAL 3. TEST1 still returns
 RSA-SHA1-signed DGWS cards, so Compose enables `ALLOW_TEST1_LEGACY_SHA1`, retaining
 signature and trust verification. Set `XDS_ALLOW_TEST1_LEGACY_SHA1=false` when the
 STS uses modern signatures. The service's default outside this setup is strict.

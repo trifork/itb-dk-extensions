@@ -176,7 +176,7 @@ mvn --batch-mode --no-transfer-progress -f xds-service/pom.xml -Plint clean veri
 
 | Gate | CDA | XDS |
 | --- | --- | --- |
-| JUnit 5 unit/integration tests | Yes | Yes |
+| JUnit 6 unit/integration tests | Yes | Yes |
 | Spotless and compiler warnings as errors | Yes | Yes |
 | Self-contained Sonar Java, zero findings | Yes | Yes |
 | PMD / CPD | No | Yes (`lint` profile) |

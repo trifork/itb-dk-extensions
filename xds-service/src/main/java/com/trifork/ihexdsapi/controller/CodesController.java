@@ -19,7 +19,7 @@ public class CodesController
                 HealthCareFacilityTypeCodesApi,
                 ObjectTypeCodeApi,
                 PracticeSettingCodeApi {
-    private CodesService codesService;
+    private final CodesService codesService;
 
     public CodesController(CodesService codesService) {
         this.codesService = codesService;

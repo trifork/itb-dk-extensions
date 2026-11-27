@@ -1,5 +1,11 @@
 # Maven dependency review — 17 September 2026
 
+> **Update, 27 November 2026.** XDS now runs on IPF 6.0.0 with Spring Boot 4.1.1, CXF 4.2.4
+> (managed by the IPF BOM) and JUnit Jupiter 6.1.3, which Spring Framework 7 requires; CDA moved to JUnit 6.1.3 too (both POMs of the CDA project). The
+> OpenAPI generator uses `useSpringBoot4` and `useJspecify`; the GITB adapter still uses Jackson 2
+> (`jackson-datatype-jsr310` 2.21.5 added) while Spring MVC uses Jackson 3. Item 2 below and the
+> XDS rows for Boot, IPF, CXF and JUnit describe the earlier 3.5/5.3 state and are superseded.
+
 This is a review of both POMs, their effective dependency versions, and build
 plugins (including XDS's `lint` profile). Versions below were checked against
 Maven Central or the configured NSP repository metadata. The inventory includes

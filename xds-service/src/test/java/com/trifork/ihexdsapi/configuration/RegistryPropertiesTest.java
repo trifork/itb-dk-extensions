@@ -99,4 +99,47 @@ class RegistryPropertiesTest {
                         .registries()
                         .size());
     }
+
+    @Test
+    void writeEndpointsAreOptInAndNeverForStamkort() {
+        var bound =
+                new Binder(
+                                new MapConfigurationPropertySource(
+                                        Map.of(
+                                                "xds.registries[0].id",
+                                                "test2",
+                                                "xds.registries[0].name",
+                                                "DDS TEST2",
+                                                "xds.registries[0].iti18-endpoint",
+                                                URL,
+                                                "xds.registries[0].iti43-endpoint",
+                                                URL,
+                                                "xds.registries[0].sts-endpoint",
+                                                URL,
+                                                "xds.registries[0].iti41-endpoint",
+                                                URL + "/41",
+                                                "xds.registries[0].iti57-endpoint",
+                                                " ")))
+                        .bind("xds", RegistryProperties.class)
+                        .get()
+                        .registries()
+                        .getFirst();
+        assertTrue(bound.canSubmit());
+        assertFalse(bound.canDeprecate());
+        assertFalse(registry("plain", "DDS", URL).canSubmit());
+        invalid(new RegistryProperties.Registry("s", "S", URL, URL, URL, true, URL, null));
+        invalid(new RegistryProperties.Registry("s", "S", URL, URL, URL, true, null, URL));
+        invalid(
+                new RegistryProperties.Registry(
+                        "s", "S", URL, URL, URL, false, "ftp://x.invalid", null));
+        invalid(
+                new RegistryProperties.Registry(
+                        "s", "S", URL, URL, URL, false, null, "https://u:p@x.invalid/57"));
+        assertDoesNotThrow(
+                () ->
+                        new RegistryProperties(
+                                List.of(
+                                        new RegistryProperties.Registry(
+                                                "s", "S", URL, URL, URL, true, " ", ""))));
+    }
 }

@@ -51,7 +51,8 @@ public class ErrorController {
             error.setError(fieldError.getField() + " " + fieldError.getDefaultMessage());
         } else {
             var globalError = e.getBindingResult().getGlobalError();
-            error.setError(globalError == null ? BAD_REQUEST : globalError.getDefaultMessage());
+            String message = globalError == null ? null : globalError.getDefaultMessage();
+            error.setError(message != null ? message : BAD_REQUEST);
         }
 
         return ResponseEntity.badRequest().body(error);

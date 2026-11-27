@@ -31,9 +31,49 @@ public final class FixtureApplication {
     private static final class Operations implements XdsOperations {
         public List<RegistryRouting.Choice> registries() {
             return List.of(
-                    new RegistryRouting.Choice("one", "Synthetic registry One"),
-                    new RegistryRouting.Choice("two", "Synthetic registry Two"),
+                    new RegistryRouting.Choice("one", "Synthetic registry One", false, true, true),
+                    new RegistryRouting.Choice("two", "Synthetic registry Two", false, true, true),
                     new RegistryRouting.Choice("sfsk", "Synthetic Stamkort", true));
+        }
+
+        /** Synthetic registry state for uploads: key is registry|patient|uniqueId. */
+        private final java.util.Map<String, String[]> uploaded =
+                new java.util.concurrent.ConcurrentHashMap<>();
+
+        public Response submit(SubmitRequest request) {
+            context(request.registryId(), request.credentialId(), request.context());
+            var cda = CdaMetadata.parse(request.document());
+            if (!List.of("test-code", "second-code").contains(request.formatCode()))
+                throw new IllegalArgumentException("Unknown fixture format");
+            String key = request.registryId() + "|" + cda.patientId() + "|" + cda.uniqueId();
+            var response = new Response(Status.SUCCESS);
+            if (uploaded.putIfAbsent(
+                            key,
+                            new String[] {"urn:uuid:" + java.util.UUID.randomUUID(), "Approved"})
+                    != null) {
+                response.setStatus(Status.FAILURE);
+                response.getErrors()
+                        .add(
+                                FixtureData.error(
+                                        ErrorCode.DOCUMENT_UNIQUE_ID_ERROR, "duplicate", false));
+            }
+            return response;
+        }
+
+        public Response deprecate(DeprecateRequest request) {
+            context(request.registryId(), request.credentialId(), request.context());
+            for (var entry : uploaded.entrySet()) {
+                if (entry.getKey()
+                                .startsWith(request.registryId() + "|" + request.patientId() + "|")
+                        && entry.getValue()[0].equals(request.entryUuid())) {
+                    entry.getValue()[1] = "Deprecated";
+                    return new Response(Status.SUCCESS);
+                }
+            }
+            var response = new Response(Status.FAILURE);
+            response.getErrors()
+                    .add(FixtureData.error(ErrorCode.UNKNOWN_PATIENT_ID, "missing entry", false));
+            return response;
         }
 
         private static void registry(String id, String patient) {
@@ -137,6 +177,19 @@ public final class FixtureApplication {
                         .put("documentType", "Personal Health Monitoring Report")
                         .put("serviceStart", 1704067200000L)
                         .put("serviceEnd", 1704153600000L);
+            for (var entry : uploaded.entrySet()) {
+                var parts = entry.getKey().split("\\|", 3);
+                if (parts[0].equals(request.getRegistryId())
+                        && parts[1].equals(patient)
+                        && "Approved".equals(entry.getValue()[1]))
+                    rows.addObject()
+                            .put("patientId", patient)
+                            .put("documentId", parts[2])
+                            .put("entryUuid", entry.getValue()[0])
+                            .put("repositoryID", "mock-repository")
+                            .put("homeCommunityId", "urn:oid:1.2.3.6")
+                            .put("documentType", "Uploaded test document");
+            }
             return FixtureData.search(value);
         }
 

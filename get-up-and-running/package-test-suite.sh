@@ -9,6 +9,7 @@ case "$ITB_SUITE_KIND" in
     upload) ITB_SUITE_DIR="$ITB_SCRIPT_DIR/test-suite" ;;
     setup-check) ITB_SUITE_DIR="$ITB_SCRIPT_DIR/setup-check" ;;
     xds-lookup) ITB_SUITE_DIR="$ITB_SCRIPT_DIR/xds-lookup" ;;
+    xds-upload) ITB_SUITE_DIR="$ITB_SCRIPT_DIR/xds-upload" ;;
     *) printf 'Unknown suite kind: %s\n' "$ITB_SUITE_KIND" >&2; exit 1 ;;
 esac
 ITB_BUILD_DIR=$(mktemp -d "${TMPDIR:-/tmp}/cda-dk-test-suite.XXXXXX")

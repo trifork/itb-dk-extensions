@@ -2,15 +2,15 @@ package com.trifork.ihexdsapi.dao.entity;
 
 public class CredentialInfoEntity {
 
-    private String owner;
-    private String id;
-    private String displayName;
-    private String publicCertStr;
+    private final String owner;
+    private final String id;
+    private final String displayName;
+    private final String publicCertStr;
 
-    private String privateKeyStr;
+    private final String privateKeyStr;
 
-    private String serialNumber;
-    private String type;
+    private final String serialNumber;
+    private final String type;
 
     public CredentialInfoEntity(
             String owner,

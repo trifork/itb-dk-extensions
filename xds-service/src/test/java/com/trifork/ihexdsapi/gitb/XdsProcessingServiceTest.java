@@ -20,6 +20,9 @@ class XdsProcessingServiceTest {
     private String rows;
     private byte[] document;
     private JsonNode lastSearch, lastRetrieve;
+    private com.trifork.ihexdsapi.service.SubmitRequest lastSubmit;
+    private com.trifork.ihexdsapi.service.DeprecateRequest lastDeprecate;
+    private org.openehealth.ipf.commons.ihe.xds.core.responses.Response writeResponse;
     private int status;
     private int searchCalls;
     private long delay;
@@ -47,6 +50,11 @@ class XdsProcessingServiceTest {
         rows =
                 "[{\"patientId\":\"2512489996\",\"documentId\":\"doc-1\",\"repositoryID\":\"repo-1\",\"documentType\":\"PHMR\",\"serviceStart\":1704067200000}]";
         clock = new MutableClock();
+        lastSubmit = null;
+        lastDeprecate = null;
+        writeResponse =
+                new org.openehealth.ipf.commons.ihe.xds.core.responses.Response(
+                        org.openehealth.ipf.commons.ihe.xds.core.responses.Status.SUCCESS);
         var operations =
                 new com.trifork.ihexdsapi.service.XdsOperations() {
                     public java.util.List<com.trifork.ihexdsapi.service.RegistryRouting.Choice>
@@ -112,6 +120,18 @@ class XdsProcessingServiceTest {
                         lastSearch = GitbXdsAccess.JSON.valueToTree(request);
                         before("search");
                         return FixtureData.search("{\"queryResponse\":" + rows + error + "}");
+                    }
+
+                    public org.openehealth.ipf.commons.ihe.xds.core.responses.Response submit(
+                            com.trifork.ihexdsapi.service.SubmitRequest request) {
+                        lastSubmit = request;
+                        return writeResponse;
+                    }
+
+                    public org.openehealth.ipf.commons.ihe.xds.core.responses.Response deprecate(
+                            com.trifork.ihexdsapi.service.DeprecateRequest request) {
+                        lastDeprecate = request;
+                        return writeResponse;
                     }
 
                     public com.trifork.ihexdsapi.service.RetrievedBytes retrieve(
@@ -1339,6 +1359,188 @@ class XdsProcessingServiceTest {
         } finally {
             endpoint.stop();
         }
+    }
+
+    private static final String CPR = "0103660140";
+    private static final String CDA_ID = "1.2.3.4.5^1c04299e";
+
+    private static String cda(String patientId, String documentId) {
+        return "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+                + "<ClinicalDocument xmlns=\"urn:hl7-org:v3\">"
+                + "<id root=\"1.2.3.4.5\" extension=\""
+                + documentId
+                + "\"/>"
+                + "<code code=\"74468-0\" codeSystem=\"2.16.840.1.113883.6.1\"/>"
+                + "<title>Test form</title><effectiveTime value=\"20250513120000+0200\"/>"
+                + "<recordTarget><patientRole><id root=\"1.2.208.176.1.2\" extension=\""
+                + patientId
+                + "\"/>"
+                + "</patientRole></recordTarget></ClinicalDocument>";
+    }
+
+    private static String base64(String text) {
+        return Base64.getEncoder().encodeToString(text.getBytes(StandardCharsets.UTF_8));
+    }
+
+    private void writableRegistry(boolean submit, boolean deprecate) {
+        registryChoices =
+                List.of(
+                        new com.trifork.ihexdsapi.service.RegistryRouting.Choice(
+                                "default", "Configured XDS registry", false, submit, deprecate));
+    }
+
+    /** Runs choices, queryChoices and prepareUpload for a pasted CDA; returns the form labels. */
+    private ProcessResponse prepared(String xml) {
+        call("choices");
+        call("queryChoices", "registry", "Configured XDS registry");
+        return call("prepareUpload", "documentText", xml);
+    }
+
+    private ProcessResponse submitFirstFormat(ProcessResponse prepared) {
+        return call(
+                "submit",
+                "registry",
+                "Configured XDS registry",
+                "professional",
+                "professional-1",
+                "formatCode",
+                output(prepared, "uploadFormatLabels").getItem().get(0).getValue());
+    }
+
+    @Test
+    void uploadedCdaIsSubmittedFromItsOwnHeaderAndLaterDeprecated() {
+        writableRegistry(true, true);
+        var ready = prepared(cda(CPR, "1c04299e"));
+        assertEquals(TestResultType.SUCCESS, ready.getReport().getResult());
+        assertEquals(CPR, output(ready, "patientId").getValue());
+        assertTrue(output(ready, "uploadSummary").getValue().contains(CDA_ID));
+        var done = submitFirstFormat(ready);
+        assertEquals(TestResultType.SUCCESS, done.getReport().getResult());
+        assertEquals(CDA_ID, output(done, "submittedUniqueId").getValue());
+        assertEquals("default", lastSubmit.registryId());
+        assertEquals("professional-1", lastSubmit.credentialId());
+        assertEquals("code-1", lastSubmit.formatCode());
+        assertEquals(Boolean.FALSE, lastSubmit.context().getConsentOverride());
+        assertEquals(
+                cda(CPR, "1c04299e"), new String(lastSubmit.document(), StandardCharsets.UTF_8));
+        rows =
+                "[{\"patientId\":\""
+                        + CPR
+                        + "\",\"documentId\":\""
+                        + CDA_ID
+                        + "\",\"repositoryID\":\"repo\",\"entryUuid\":\"urn:uuid:entry-1\",\"typeCode\":\"74468-0\",\"typeScheme\":\"2.16.840.1.113883.6.1\"}]";
+        var gone = call("deprecate");
+        assertEquals(TestResultType.SUCCESS, gone.getReport().getResult());
+        assertEquals(CDA_ID, output(gone, "deprecatedUniqueId").getValue());
+        assertEquals(CPR, lastDeprecate.patientId());
+        assertEquals("urn:uuid:entry-1", lastDeprecate.entryUuid());
+        assertEquals("74468-0", lastDeprecate.typeCode());
+        failure(call("deprecate"), "XDS-STATE");
+        assertEquals(1, searchCalls);
+        assertEquals(
+                List.of("STABLE"),
+                List.of(lastSearch.path("queryParameters").path("documentType").get(0).asText()));
+    }
+
+    @Test
+    void uploadAcceptsUploadedFilesAndPastedTextAndRejectsEverythingElse() {
+        writableRegistry(true, true);
+        call("choices");
+        call("queryChoices", "registry", "Configured XDS registry");
+        var file = call("prepareUpload", "document", base64(cda(CPR, "from-file")));
+        assertTrue(output(file, "uploadSummary").getValue().contains("1.2.3.4.5^from-file"));
+        failure(call("prepareUpload"), "XDS-INPUT");
+        failure(call("prepareUpload", "document", "***not base64***"), "XDS-INPUT");
+        failure(call("prepareUpload", "documentText", "<html/>"), "XDS-CONTENT");
+        failure(call("prepareUpload", "documentText", cda("12345", "x")), "XDS-CONTENT");
+        failure(
+                call(
+                        "prepareUpload",
+                        "documentText",
+                        "<!DOCTYPE a [<!ENTITY e \"x\">]><ClinicalDocument xmlns=\"urn:hl7-org:v3\"/>"),
+                "XDS-CONTENT");
+        failure(
+                submitFirstFormat(file),
+                "XDS-STATE"); // a rejected document clears the prepared one
+    }
+
+    @Test
+    void submitNeedsAPreparedCdaAnEnabledRegistryAndAConfiguredFormat() {
+        writableRegistry(true, true);
+        call("choices");
+        failure(call("submit"), "XDS-STATE");
+        writableRegistry(false, false);
+        var ready = prepared(cda(CPR, "1c04299e"));
+        failure(submitFirstFormat(ready), "XDS-INPUT");
+        assertNull(lastSubmit);
+        writableRegistry(true, true);
+        ready = prepared(cda(CPR, "1c04299e"));
+        failure(
+                call(
+                        "submit",
+                        "registry",
+                        "Configured XDS registry",
+                        "professional",
+                        "professional-1",
+                        "formatCode",
+                        "not a listed format"),
+                "XDS-INPUT");
+        failure(
+                call(
+                        "submit",
+                        "registry",
+                        "Configured XDS registry",
+                        "professional",
+                        "someone-else",
+                        "formatCode",
+                        output(ready, "uploadFormatLabels").getItem().get(0).getValue()),
+                "XDS-INPUT");
+        assertNull(lastSubmit);
+    }
+
+    @Test
+    void registryRejectionIsReportedAndLeavesNothingToDeprecate() {
+        writableRegistry(true, true);
+        writeResponse =
+                new org.openehealth.ipf.commons.ihe.xds.core.responses.Response(
+                        org.openehealth.ipf.commons.ihe.xds.core.responses.Status.FAILURE);
+        writeResponse
+                .getErrors()
+                .add(
+                        FixtureData.error(
+                                org.openehealth.ipf.commons.ihe.xds.core.responses.ErrorCode
+                                        .DOCUMENT_UNIQUE_ID_ERROR,
+                                "private-context",
+                                false));
+        var failed = submitFirstFormat(prepared(cda(CPR, "1c04299e")));
+        failure(failed, "XDS-REGISTRY");
+        assertTrue(output(failed, "errorMessage").getValue().contains("The change was not made."));
+        assertFalse(output(failed, "errorMessage").getValue().contains("private-context"));
+        failure(call("deprecate"), "XDS-STATE");
+        // A failure status without a usable error must still stop the flow.
+        writeResponse.getErrors().clear();
+        failure(submitFirstFormat(prepared(cda(CPR, "1c04299e"))), "XDS-REGISTRY");
+    }
+
+    @Test
+    void deprecationNeedsTheDocumentToBeRegisteredAndTheRegistryToAllowIt() {
+        writableRegistry(true, false);
+        submitFirstFormat(prepared(cda(CPR, "1c04299e")));
+        assertNotNull(lastSubmit);
+        failure(call("deprecate"), "XDS-INPUT");
+        assertNull(lastDeprecate);
+        writableRegistry(true, true);
+        submitFirstFormat(prepared(cda(CPR, "1c04299e")));
+        rows = "[]";
+        failure(call("deprecate"), "XDS-NOT-FOUND");
+        rows =
+                "[{\"patientId\":\""
+                        + CPR
+                        + "\",\"documentId\":\""
+                        + CDA_ID
+                        + "\",\"repositoryID\":\"repo\"}]";
+        failure(call("deprecate"), "XDS-NOT-FOUND");
+        assertNull(lastDeprecate);
     }
 
     private static final class MutableClock extends Clock {

@@ -19,7 +19,7 @@ import java.time.*;
 import java.util.Map;
 import org.junit.jupiter.api.*;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.http.converter.json.JacksonJsonHttpMessageConverter;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -78,7 +78,9 @@ class StorageRestContractTest {
         http =
                 MockMvcBuilders.standaloneSetup(credentialController, xdsController)
                         .setControllerAdvice(new ErrorController())
-                        .setMessageConverters(new MappingJackson2HttpMessageConverter(json))
+                        .setMessageConverters(
+                                new JacksonJsonHttpMessageConverter(
+                                        tools.jackson.databind.json.JsonMapper.builder().build()))
                         .build();
         var cert =
                 OcesCredentialTest.certificate(

@@ -5,6 +5,7 @@ import com.gitb.core.AnyContent;
 import com.gitb.core.ValueEmbeddingEnumeration;
 import com.gitb.ps.*;
 import com.gitb.tr.*;
+import com.trifork.ihexdsapi.service.CdaMetadata;
 import com.trifork.ihexdsapi.xds.QueryDates;
 import jakarta.jws.WebService;
 import java.io.ByteArrayInputStream;
@@ -41,6 +42,9 @@ public class XdsProcessingService implements ProcessingService {
     private static final String REGISTRY = "registry";
     private static final String REGISTRY_LABEL = "Registry";
     private static final String DOCUMENT_TYPE = "documentType";
+    private static final String DOCUMENT_FIELD = "document";
+    private static final String ENTRY_UUID = "entryUuid";
+    private static final String UPLOAD_TEXT = "documentText";
     private final GitbXdsAccess client;
     private final String role;
     private final String authorizationCode;
@@ -75,11 +79,55 @@ public class XdsProcessingService implements ProcessingService {
         final Map<String, Integer> documentNumbers = new LinkedHashMap<>();
         final Set<String> visibleDocuments = new LinkedHashSet<>();
         boolean searched;
+        final Set<String> submitRegistries = new HashSet<>();
+        final Set<String> deprecateRegistries = new HashSet<>();
+        Upload upload = Upload.NONE;
+        Submitted submitted = Submitted.NONE;
         Map<String, Object> context;
         String patient;
         String credential;
         String registry;
         String registryLabel;
+    }
+
+    /**
+     * The one document an ITB session has stored, so the optional deprecation can find it again.
+     */
+    private record Submitted(
+            String patient,
+            String uniqueId,
+            String registry,
+            String registryLabel,
+            String credential) {
+        static final Submitted NONE = new Submitted("", "", "", "", "");
+
+        boolean present() {
+            return !uniqueId.isEmpty();
+        }
+    }
+
+    /** A CDA read for upload. {@link #NONE} stands for "nothing prepared yet". */
+    private static final class Upload {
+        static final Upload NONE = new Upload(new byte[0], null);
+        private final byte[] content;
+        private final CdaMetadata header;
+
+        Upload(byte[] content, CdaMetadata header) {
+            this.content = content.clone();
+            this.header = header;
+        }
+
+        byte[] bytes() {
+            return content.clone();
+        }
+
+        CdaMetadata metadata() {
+            return header;
+        }
+
+        boolean present() {
+            return header != null;
+        }
     }
 
     @Override
@@ -140,6 +188,9 @@ public class XdsProcessingService implements ProcessingService {
                     case "search" -> search(session, values, response);
                     case "filter" -> filter(session, values, response);
                     case RETRIEVE_OPERATION -> retrieve(session, values, response);
+                    case "prepareUpload" -> prepareUpload(session, values, response);
+                    case "submit" -> submit(session, values, response);
+                    case "deprecate" -> deprecate(session, response);
                     default -> throw new XdsFailure(INPUT_ERROR, "Unsupported XDS operation.");
                 }
             }
@@ -158,6 +209,9 @@ public class XdsProcessingService implements ProcessingService {
 
     private static int inputLimit(String name) {
         if (REPOSITORIES.equals(name)) return 131072;
+        // An uploaded CDA arrives Base64-encoded (4/3 of 10 MiB); pasted text is limited to 10 MiB.
+        if (DOCUMENT_FIELD.equals(name)) return 14 * 1024 * 1024 + 4;
+        if (UPLOAD_TEXT.equals(name)) return CdaMetadata.MAX_BYTES;
         if (Set.of(TYPE_CODE, FORMAT_CODE).contains(Objects.toString(name, ""))) return 4096;
         return 1024;
     }
@@ -184,12 +238,18 @@ public class XdsProcessingService implements ProcessingService {
         clearResults(s);
         s.registries.clear();
         s.stamkortRegistries.clear();
+        s.submitRegistries.clear();
+        s.deprecateRegistries.clear();
         JsonNode registries = client.registries();
         if (!registries.isArray() || registries.isEmpty())
             throw new XdsFailure(RESPONSE_ERROR, "No XDS registries are configured.");
         for (JsonNode registry : registries) {
             if (registry.path("stamkort").asBoolean())
                 s.stamkortRegistries.add(required(registry, "id"));
+            if (registry.path("canSubmit").asBoolean())
+                s.submitRegistries.add(required(registry, "id"));
+            if (registry.path("canDeprecate").asBoolean())
+                s.deprecateRegistries.add(required(registry, "id"));
             if (s.registries.put(required(registry, "id"), required(registry, "name")) != null)
                 throw new XdsFailure(RESPONSE_ERROR, "Duplicate XDS registry IDs are configured.");
         }
@@ -418,10 +478,7 @@ public class XdsProcessingService implements ProcessingService {
         }
         s.patient = patient;
         s.credential = credential;
-        s.context = new LinkedHashMap<>();
-        s.context.put("role", role);
-        s.context.put("consentOverride", false);
-        if (!authorizationCode.isBlank()) s.context.put("authorizationCode", authorizationCode);
+        s.context = newContext();
         JsonNode rows = client.search(envelope(s, query));
         if (!rows.isArray())
             throw new XdsFailure(RESPONSE_ERROR, "XDS did not return a document list.");
@@ -460,6 +517,169 @@ public class XdsProcessingService implements ProcessingService {
                                 + XdsRepositories.describe(repository));
         s.searched = true;
         presentResults(s, s.documents, ALL_REPOSITORIES, out);
+    }
+
+    // The CDA parser's message is curated and safe; its cause is dropped so no content can leak.
+    @SuppressWarnings("PMD.PreserveStackTrace")
+    private void prepareUpload(Session s, Map<String, String> v, ProcessResponse out) {
+        byte[] bytes;
+        String encoded = v.getOrDefault(DOCUMENT_FIELD, "");
+        if (!encoded.isEmpty()) {
+            try {
+                bytes = Base64.getMimeDecoder().decode(encoded);
+            } catch (IllegalArgumentException _) {
+                throw new XdsFailure(INPUT_ERROR, "The uploaded file could not be read.");
+            }
+        } else if (!v.getOrDefault(UPLOAD_TEXT, "").isEmpty()) {
+            bytes = v.get(UPLOAD_TEXT).getBytes(java.nio.charset.StandardCharsets.UTF_8);
+        } else {
+            throw new XdsFailure(INPUT_ERROR, "Upload a CDA file or paste the CDA contents.");
+        }
+        s.upload = Upload.NONE;
+        s.submitted = Submitted.NONE;
+        CdaMetadata metadata;
+        try {
+            metadata = CdaMetadata.parse(bytes);
+        } catch (IllegalArgumentException e) {
+            throw new XdsFailure("XDS-CONTENT", e.getMessage() + " Nothing was uploaded.");
+        }
+        s.upload = new Upload(bytes, metadata);
+        String summary =
+                "Patient (CPR): "
+                        + metadata.patientId()
+                        + "\nDocument unique ID: "
+                        + metadata.uniqueId()
+                        + "\nType code: "
+                        + metadata.typeCode()
+                        + " (scheme "
+                        + metadata.typeScheme()
+                        + ")\nTitle: "
+                        + (metadata.title().isEmpty() ? "-" : metadata.title())
+                        + "\nCreated: "
+                        + (metadata.creationTime().isEmpty() ? "now" : metadata.creationTime())
+                        + "\nSize: "
+                        + bytes.length
+                        + " bytes";
+        out.getOutput().add(value("uploadSummary", STRING, summary));
+        out.getOutput().add(value(PATIENT_ID, STRING, metadata.patientId()));
+        out.getOutput().add(value("uploadFormatDefault", STRING, defaultFormatLabel(s, metadata)));
+        list(out, "uploadFormatLabels", s.formatSelections.keySet());
+        var context = new AnyContent();
+        context.getItem().add(value("Upload", STRING, summary));
+        var report = new TAR();
+        report.setContext(context);
+        out.setReport(report);
+    }
+
+    /** CDA types with one obvious MedCom format; for any other type the user must choose. */
+    private static String defaultFormatLabel(Session s, CdaMetadata metadata) {
+        String wanted =
+                switch (metadata.typeCode()) {
+                    case "74468-0" -> "urn:ad:dk:medcom:qfdd-v1.2:full";
+                    case "74465-6" -> "urn:ad:dk:medcom:qrd-v1.3";
+                    case "53576-5" -> "urn:ad:dk:medcom:phmr-v2.1:full";
+                    default -> "";
+                };
+        for (var entry : s.formatSelections.entrySet()) {
+            var code = s.formats.get(entry.getValue());
+            if (code != null && wanted.equals(code.path(CODE).asText())) return entry.getKey();
+        }
+        return "";
+    }
+
+    private void submit(Session s, Map<String, String> v, ProcessResponse out) {
+        if (!s.upload.present())
+            throw new XdsFailure("XDS-STATE", "Provide a CDA before uploading it.");
+        selectRegistry(s, v);
+        var report = new TAR();
+        report.setContext(new AnyContent());
+        report.getContext().getItem().add(value(REGISTRY_LABEL, STRING, s.registryLabel));
+        out.setReport(report);
+        if (s.stamkortRegistries.contains(s.registry) || !s.submitRegistries.contains(s.registry))
+            throw new XdsFailure(
+                    INPUT_ERROR,
+                    "Upload (ITI-41) is not enabled for this registry. Choose a DDS registry that has an ITI-41 endpoint configured.");
+        String selectedProfessional = v.getOrDefault("professional", "");
+        String credential =
+                s.professionalSelections.getOrDefault(selectedProfessional, selectedProfessional);
+        if (!s.credentials.containsKey(credential))
+            throw new XdsFailure(INPUT_ERROR, "Choose a configured signing identity.");
+        s.credentials.get(credential).requireSearchIdentity(clock.instant(), false);
+        String selectedFormat = v.getOrDefault(FORMAT_CODE, "");
+        String formatId = s.formatSelections.get(selectedFormat);
+        JsonNode format = formatId == null ? null : s.formats.get(formatId);
+        if (format == null)
+            throw new XdsFailure(INPUT_ERROR, "Choose a format code for the upload.");
+        CdaMetadata metadata = s.upload.metadata();
+        s.patient = metadata.patientId();
+        s.credential = credential;
+        s.context = newContext();
+        Map<String, Object> submission = new LinkedHashMap<>();
+        submission.put(FORMAT_CODE, format.path(CODE).asText());
+        submission.put("documentBase64", Base64.getEncoder().encodeToString(s.upload.bytes()));
+        client.submit(envelope(s, submission));
+        s.submitted =
+                new Submitted(
+                        s.patient, metadata.uniqueId(), s.registry, s.registryLabel, credential);
+        out.getOutput().add(value("submittedUniqueId", STRING, metadata.uniqueId()));
+        out.getOutput().add(value(PATIENT_ID, STRING, s.patient));
+        s.upload = Upload.NONE; // The bytes are no longer needed; do not keep them for the session
+        // TTL.
+    }
+
+    private void deprecate(Session s, ProcessResponse out) {
+        Submitted done = s.submitted;
+        if (!done.present())
+            throw new XdsFailure(
+                    "XDS-STATE",
+                    "No document has been uploaded in this session, so there is nothing to deprecate.");
+        s.registry = done.registry();
+        s.registryLabel = done.registryLabel();
+        s.patient = done.patient();
+        s.credential = done.credential();
+        s.context = newContext();
+        var report = new TAR();
+        report.setContext(new AnyContent());
+        report.getContext().getItem().add(value(REGISTRY_LABEL, STRING, s.registryLabel));
+        out.setReport(report);
+        if (!s.deprecateRegistries.contains(s.registry))
+            throw new XdsFailure(
+                    INPUT_ERROR,
+                    "Deprecation (ITI-57) is not enabled for this registry. Ask the operator to configure its ITI-57 endpoint.");
+        // The registry's own entry UUID is needed, so look the document up again rather than assume
+        // it.
+        Map<String, Object> query = new LinkedHashMap<>();
+        query.put(PATIENT_ID, s.patient);
+        query.put("availabilityStatus", "Approved");
+        query.put(DOCUMENT_TYPE, List.of("STABLE"));
+        JsonNode rows = client.search(envelope(s, query));
+        JsonNode match = null;
+        for (JsonNode row : rows) {
+            if (done.uniqueId().equals(row.path(DOCUMENT_ID).asText())) {
+                match = row;
+                break;
+            }
+        }
+        if (match == null || match.path(ENTRY_UUID).asText("").isBlank())
+            throw new XdsFailure(
+                    "XDS-NOT-FOUND",
+                    "The uploaded document is not registered as Approved for this patient, so it cannot be deprecated.");
+        Map<String, Object> change = new LinkedHashMap<>();
+        change.put(PATIENT_ID, s.patient);
+        change.put(ENTRY_UUID, match.path(ENTRY_UUID).asText());
+        change.put(TYPE_CODE, match.path(TYPE_CODE).asText(""));
+        change.put("typeScheme", match.path("typeScheme").asText(""));
+        client.deprecate(envelope(s, change));
+        out.getOutput().add(value("deprecatedUniqueId", STRING, done.uniqueId()));
+        s.submitted = Submitted.NONE;
+    }
+
+    private Map<String, Object> newContext() {
+        Map<String, Object> context = new LinkedHashMap<>();
+        context.put("role", role);
+        context.put("consentOverride", false);
+        if (!authorizationCode.isBlank()) context.put("authorizationCode", authorizationCode);
+        return context;
     }
 
     private static void clearResults(Session s) {
@@ -656,7 +876,7 @@ public class XdsProcessingService implements ProcessingService {
     // Keep sensitive input and upstream payloads out of exception causes and SOAP faults.
     @SuppressWarnings("PMD.PreserveStackTrace")
     private void retrieve(Session s, Map<String, String> v, ProcessResponse out) {
-        String selection = v.get("document");
+        String selection = v.get(DOCUMENT_FIELD);
         String handle = s.documentSelections.getOrDefault(selection, selection);
         JsonNode document = s.visibleDocuments.contains(handle) ? s.documents.get(handle) : null;
         if (document == null)
@@ -708,7 +928,8 @@ public class XdsProcessingService implements ProcessingService {
             out.getOutput().add(value(DOCUMENT_LOG, STRING, DocumentPreview.format(bytes)));
         }
         checkCda(bytes);
-        AnyContent content = value("document", "binary", Base64.getEncoder().encodeToString(bytes));
+        AnyContent content =
+                value(DOCUMENT_FIELD, "binary", Base64.getEncoder().encodeToString(bytes));
         content.setEmbeddingMethod(ValueEmbeddingEnumeration.BASE_64);
         content.setMimeType("application/xml");
         out.getOutput().add(content);

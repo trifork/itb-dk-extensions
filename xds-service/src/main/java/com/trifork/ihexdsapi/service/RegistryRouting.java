@@ -20,7 +20,16 @@ public final class RegistryRouting {
     }
 
     public List<Choice> choices() {
-        return targets.stream().map(t -> new Choice(t.id(), t.name(), t.stamkort())).toList();
+        return targets.stream()
+                .map(
+                        t ->
+                                new Choice(
+                                        t.id(),
+                                        t.name(),
+                                        t.stamkort(),
+                                        t.submission() != null,
+                                        t.update() != null))
+                .toList();
     }
 
     public Target target(String id) {
@@ -32,7 +41,12 @@ public final class RegistryRouting {
                         () -> new IllegalArgumentException("Choose a configured XDS registry ID"));
     }
 
-    public record Choice(String id, String name, boolean stamkort) {
+    public record Choice(
+            String id, String name, boolean stamkort, boolean canSubmit, boolean canDeprecate) {
+        public Choice(String id, String name, boolean stamkort) {
+            this(id, name, stamkort, false, false);
+        }
+
         public Choice(String id, String name) {
             this(id, name, false);
         }
@@ -44,7 +58,19 @@ public final class RegistryRouting {
             DgwsService dgws,
             Iti18Service search,
             Iti43Service retrieval,
-            boolean stamkort) {
+            boolean stamkort,
+            Iti41Service submission,
+            Iti57Service update) {
+        public Target(
+                String id,
+                String name,
+                DgwsService dgws,
+                Iti18Service search,
+                Iti43Service retrieval,
+                boolean stamkort) {
+            this(id, name, dgws, search, retrieval, stamkort, null, null);
+        }
+
         public Target(
                 String id,
                 String name,

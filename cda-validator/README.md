@@ -89,7 +89,7 @@ python3 xds-service/scripts/install-sonar.py
 python3 xds-service/scripts/sonar-java.py --project cda-validator --extension xds-service/target/sonar-analyzer
 ```
 
-Maven runs JUnit 5 unit tests, Spotless and compiler warning checks. CI additionally
+Maven runs JUnit 6 unit tests, Spotless and compiler warning checks. CI additionally
 requires zero-finding Sonar analysis and actual-image integration tests. CDA has
 no PMD/CPD or JaCoCo gate; see the [quality comparison](../README.md#development-and-quality-gates).
 

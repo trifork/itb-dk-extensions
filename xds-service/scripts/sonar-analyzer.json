@@ -1,5 +1,5 @@
 {
-  "version": "5.10.0+80769",
-  "url": "https://github.com/SonarSource/sonarlint-vscode/releases/download/5.10.0%2B80769/sonarlint-vscode-5.10.0.vsix",
-  "sha256": "896808a2394010208341c1f06cdc14a110c36c08cf54957eb1322df12ec638fe"
+  "version": "6.4.0+91328",
+  "url": "https://github.com/SonarSource/sonarlint-vscode/releases/download/6.4.0%2B91328/sonarlint-vscode-6.4.0.vsix",
+  "sha256": "d04e656ece5a9470f75cd9c0316b0d6a933f9c0ab27460865a6cc8435c1d2127"
 }

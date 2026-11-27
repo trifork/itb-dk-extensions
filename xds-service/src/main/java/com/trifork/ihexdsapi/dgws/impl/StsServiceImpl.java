@@ -26,12 +26,12 @@ import org.w3c.dom.Document;
 
 public class StsServiceImpl implements StsService {
 
-    private String stsUrl;
+    private final String stsUrl;
     private final HsuidOrganisationProperties organisation;
 
     private RestTemplate restTemplate = new RestTemplate();
 
-    private String itSystem;
+    private final String itSystem;
 
     public StsServiceImpl(String stsUrl) {
         this(stsUrl, 45000);
@@ -236,7 +236,7 @@ public class StsServiceImpl implements StsService {
     }
 
     private String sendRequest(String postBody) throws IOException {
-        org.springframework.util.MultiValueMap<String, String> headers = new HttpHeaders();
+        HttpHeaders headers = new HttpHeaders();
         headers.set("Content-Type", "text/xml; charset=utf-8");
         headers.set("SOAPAction", "\"Issue\"");
 

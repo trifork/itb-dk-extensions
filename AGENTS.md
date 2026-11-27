@@ -67,7 +67,7 @@ source/input/asset provenance and CI publishes build attestations. See the [exte
 ## Development and verification
 
 Use checks appropriate to the change; documentation-only edits need link/path and
-diff checks. Both projects use Java 25, JUnit 5 Jupiter, Spotless AOSP formatting
+diff checks. Both projects use Java 25, JUnit 6 Jupiter, Spotless AOSP formatting
 and compiler warnings as errors. XDS additionally gates PMD/CPD and JaCoCo at
 80% lines / 60% branches. Both require zero-finding self-contained Sonar Java scans.
 Fix findings; do not skip unavailable analyzers. Generated OpenAPI sources are

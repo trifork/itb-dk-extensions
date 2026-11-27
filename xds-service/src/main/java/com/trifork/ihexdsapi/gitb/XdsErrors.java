@@ -102,7 +102,29 @@ final class XdsErrors {
         return code == null ? null : EXPLANATIONS.get(code);
     }
 
+    /** ITI-41/ITI-57 outcome: any error or a FAILURE status means nothing was changed. */
+    static void checkWrite(String operation, Response response) {
+        if (response == null)
+            throw new XdsFailure("XDS-RESPONSE", operation + " returned no response.");
+        check(operation, response.getErrors(), null, "The change was not made. ");
+        if (response.getStatus() == Status.FAILURE)
+            throw new XdsFailure(
+                    "XDS-REGISTRY",
+                    operation + " failed without a usable error. The change was not made.");
+    }
+
     static void check(String operation, List<ErrorInfo> findings, Integer documents) {
+        check(
+                operation,
+                findings,
+                documents,
+                documents == null
+                        ? "Document retrieval stopped. "
+                        : "Search stopped because results may be incomplete. ");
+    }
+
+    private static void check(
+            String operation, List<ErrorInfo> findings, Integer documents, String consequence) {
         var reasons = new LinkedHashSet<String>();
         var advice = new LinkedHashSet<String>();
         int count = 0;
@@ -137,9 +159,7 @@ final class XdsErrors {
                             + " registry error(s): "
                             + String.join(" ", reasons)
                             + " "
-                            + (documents == null
-                                    ? "Document retrieval stopped. "
-                                    : "Search stopped because results may be incomplete. ")
+                            + consequence
                             + String.join(" ", advice));
     }
 

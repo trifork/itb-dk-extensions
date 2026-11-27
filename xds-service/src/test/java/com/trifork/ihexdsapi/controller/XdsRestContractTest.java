@@ -21,7 +21,7 @@ import java.util.*;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.junit.jupiter.api.*;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.http.converter.json.JacksonJsonHttpMessageConverter;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.*;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -125,7 +125,9 @@ class XdsRestContractTest {
         http =
                 MockMvcBuilders.standaloneSetup(controller)
                         .setControllerAdvice(new ErrorController())
-                        .setMessageConverters(new MappingJackson2HttpMessageConverter(json))
+                        .setMessageConverters(
+                                new JacksonJsonHttpMessageConverter(
+                                        tools.jackson.databind.json.JsonMapper.builder().build()))
                         .build();
     }
 

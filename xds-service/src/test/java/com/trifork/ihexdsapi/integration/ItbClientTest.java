@@ -49,7 +49,7 @@ class ItbClientTest {
     @Test
     void externalBinaryDownloadsOriginalBytes() {
         String reference = "b1179c46-103a-4965-a933-d707f714d8be";
-        byte[] original = new byte[] {0, (byte) 255};
+        byte[] original = {0, (byte) 255};
         assertArrayEquals(
                 original,
                 attachment(

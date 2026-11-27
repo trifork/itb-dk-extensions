@@ -252,6 +252,57 @@ class ItbFlowIT {
         assertEquals(upload, client.signature(session));
     }
 
+    // A 1x1 PNG, enough for ITB to accept an image upload.
+    private static final byte[] SCREENSHOT =
+            java.util.Base64.getDecoder()
+                    .decode(
+                            "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGP4z8DwHwAFAAH/q842iQAAAABJRU5ErkJggg==");
+
+    @Test
+    void uploadTestStoresTheCdaThenTakesEvidenceThenDeprecatesIt() throws Exception {
+        org.junit.jupiter.api.Assumptions.assumeTrue(
+                client.uploadTestCase() != null, "The XDS upload test is not deployed");
+        session = client.start(client.uploadTestCase());
+        createdSessions.add(session);
+        byte[] cda = Files.readAllBytes(ROOT.resolve("samples/phmr/phmr_example01.xml"));
+        submit(
+                "Provide the CDA to upload",
+                Map.of("Registry", "Synthetic registry One", "CDA file", cda));
+        JsonNode confirm = interaction("Confirm the upload to DDS");
+        assertEquals(
+                "instruct", field(confirm, "Metadata read from the CDA").path("type").asText());
+        client.submit(
+                session,
+                confirm,
+                Map.of("Format code", option(confirm, "Format code", "PHMR test code")));
+        Map<String, String> upload = context(step("Upload the CDA to DDS (ITI-41)"));
+        assertEquals("Synthetic registry One", upload.get("Registry"));
+        submit("Show that your system found the CDA", Map.of("Screenshot", SCREENSHOT));
+        submit(
+                "Deprecate the uploaded document?",
+                Map.of("Deprecate the uploaded document?", "Deprecate the uploaded document"));
+        assertNotNull(step("Mark the document as deprecated (ITI-57)"));
+        submit("Upload test completed", Map.of());
+        assertEquals("SUCCESS", client.ended(session, 30).get("result").asText());
+    }
+
+    @Test
+    void uploadTestStopsBeforeSendingAnythingWhenTheCdaHasNoPatient() throws Exception {
+        org.junit.jupiter.api.Assumptions.assumeTrue(
+                client.uploadTestCase() != null, "The XDS upload test is not deployed");
+        session = client.start(client.uploadTestCase());
+        createdSessions.add(session);
+        submit(
+                "Provide the CDA to upload",
+                Map.of(
+                        "Registry",
+                        "Synthetic registry One",
+                        "CDA file",
+                        "<ClinicalDocument xmlns=\"urn:hl7-org:v3\"/>".getBytes()));
+        assertEquals("FAILURE", client.ended(session, 30).get("result").asText());
+        assertTrue(client.logs(session).contains("XDS-CONTENT"));
+    }
+
     @Test
     void upload() throws Exception {
         submit("Document source", Map.of("Document source", "Local file upload"));

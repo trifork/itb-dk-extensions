@@ -1,9 +1,9 @@
 package com.trifork.ihexdsapi.dao.entity;
 
 public class LogEntry {
-    private String id;
+    private final String id;
 
-    private String payload;
+    private final String payload;
 
     public LogEntry(String id, String payload) {
         this.id = id;

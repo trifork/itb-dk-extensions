@@ -138,6 +138,67 @@ class Packaging(unittest.TestCase):
         self.assertEqual('application/xml', cda.get('mimeType'))
         self.assertEqual('true', cda.get('report'))
 
+    def test_upload_suite_runs_upload_screenshot_and_optional_deprecation_in_order(self):
+        suite = self.package(True, 'xds-upload')
+        self.assertEqual({'testSuite.xml', 'testCases/upload-cda-to-xds.xml'}, set(suite))
+        root = suite['testCases/upload-cda-to-xds.xml']
+        self.assertEqual('$DOMAIN{xdsConnector}', root.find('.//t:bptxn', NS).get('handler'))
+        self.assertEqual([], root.findall('.//t:verify', NS), 'upload must not select a CDA release')
+        self.assertEqual(['choices', 'queryChoices', 'prepareUpload', 'submit', 'deprecate'],
+                         [e.text for e in root.findall('.//t:operation', NS)])
+        steps = [e.get('id') for e in root.find('t:steps', NS) if e.tag.endswith('interact')]
+        self.assertEqual(['uploadSource', 'uploadConfirm', 'uploadScreenshot', 'uploadDeprecate', 'finalize'], steps)
+        source = {r.get('name'): r for r in root.find('.//t:interact[@id="uploadSource"]', NS).findall('t:request', NS)}
+        self.assertEqual(['registry', 'document', 'documentText'], list(source))
+        self.assertEqual('DDS TEST2', source['registry'].get('default'))
+        self.assertEqual(source['registry'].get('options'), source['registry'].get('optionLabels'))
+        self.assertEqual('UPLOAD', source['document'].get('inputType'))
+        self.assertEqual('MULTILINE_TEXT', source['documentText'].get('inputType'))
+        for name in ('document', 'documentText'):
+            self.assertNotEqual('true', source[name].get('required'), 'either one may be used')
+        confirm = root.find('.//t:interact[@id="uploadConfirm"]/t:request[@name="formatCode"]', NS)
+        self.assertEqual('$xdsPrepare{uploadFormatDefault}', confirm.get('default'))
+        self.assertEqual(confirm.get('options'), confirm.get('optionLabels'))
+        screenshot = root.find('.//t:interact[@id="uploadScreenshot"]/t:request[@name="screenshot"]', NS)
+        self.assertEqual('UPLOAD', screenshot.get('inputType'))
+        self.assertEqual('true', screenshot.get('required'))
+        self.assertTrue(all(t.startswith('image/') for t in screenshot.get('accept').split(',')))
+        optional = root.find('.//t:interact[@id="uploadDeprecate"]/t:request[@name="choice"]', NS)
+        self.assertEqual(optional.get('options'), optional.get('optionLabels'))
+        self.assertEqual(2, len(optional.get('options').split(',')), 'labels must not contain commas')
+        self.assertEqual(optional.get('options').split(',')[0], optional.get('default'))
+        # Deprecation sits inside the choice, so declining the step runs no ITI-57.
+        guard = [i for i in root.findall('.//t:if', NS) if i.find('.//t:operation', NS) is not None
+                 and i.find('.//t:operation', NS).text == 'deprecate'][0]
+        self.assertIn(optional.get('default'), guard.find('t:cond', NS).text)
+
+    def test_upload_suite_sends_only_what_the_user_chose(self):
+        root = self.package(True, 'xds-upload')['testCases/upload-cda-to-xds.xml']
+        inputs = lambda pid: {i.get('name'): i.text for i in root.findall(f'.//t:process[@id="{pid}"]/t:input', NS)}
+        self.assertEqual({'document': '$uploadSource{document}', 'documentText': '$uploadSource{documentText}'},
+                         inputs('xdsPrepare'))
+        self.assertEqual({'registry': '$selectedRegistry', 'professional': '$xdsQueryChoices{defaultProfessional}',
+                          'formatCode': '$uploadConfirm{formatCode}'}, inputs('xdsSubmit'))
+        self.assertEqual({}, inputs('xdsDeprecate'), 'deprecation targets the session\'s own upload, never a typed ID')
+        conditions = ''.join(c.text for c in root.findall('.//t:cond', NS))
+        self.assertIn('$xdsQueryChoices{stamkort}', conditions)
+        for step in ('xdsChoices', 'xdsQueryChoices', 'xdsPrepare', 'xdsSubmit', 'xdsDeprecate'):
+            self.assertIn(f"$STEP_STATUS{{{step}}} = 'ERROR'", conditions)
+
+    def test_upload_suite_is_not_part_of_the_release_suite(self):
+        for enabled in (False, True):
+            self.assertFalse(any('upload-cda' in key for key in self.package(enabled)))
+
+    def test_default_dds_routes_enable_writes_and_stamkort_routes_never_do(self):
+        properties = dict(line.split('=', 1) for line in
+                          (ROOT/'xds-service/application.properties').read_text().splitlines()
+                          if '=' in line and not line.startswith('#'))
+        for index in (0, 1):
+            self.assertIn('iti41-endpoint', ''.join(k for k in properties if k.startswith(f'xds.registries[{index}].')))
+            self.assertIn('iti57-endpoint', ''.join(k for k in properties if k.startswith(f'xds.registries[{index}].')))
+        for index in (2, 3):
+            self.assertFalse([k for k in properties if k.startswith(f'xds.registries[{index}].iti41') or k.startswith(f'xds.registries[{index}].iti57')])
+
     def test_lookup_suite_is_not_part_of_the_release_suite(self):
         for enabled in (False, True):
             self.assertFalse(any('lookup' in key for key in self.package(enabled)))

@@ -2,6 +2,7 @@ package com.trifork.ihexdsapi.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.openapitools.model.CodeQuery;
 import org.openehealth.ipf.commons.ihe.xds.core.metadata.Code;
 
@@ -14,7 +15,7 @@ final class CodeQueryValues {
     static List<Code> combine(CodeQuery single, List<CodeQuery> multiple) {
         List<Code> result = new ArrayList<>();
         // Preserve the legacy convention that an empty single code means no filter.
-        if (single != null && single.getCode() != null && !single.getCode().isEmpty()) {
+        if (single != null && StringUtils.isNotEmpty(single.getCode())) {
             add(result, single);
         }
         if (multiple != null) {
@@ -23,10 +24,8 @@ final class CodeQueryValues {
             }
             for (CodeQuery value : multiple) {
                 if (value == null
-                        || value.getCode() == null
-                        || value.getCode().isBlank()
-                        || value.getCodeScheme() == null
-                        || value.getCodeScheme().isBlank()) {
+                        || StringUtils.isBlank(value.getCode())
+                        || StringUtils.isBlank(value.getCodeScheme())) {
                     throw new IllegalArgumentException(
                             "Each filter code needs a code and codeScheme");
                 }

@@ -4,7 +4,6 @@ import static com.trifork.itb.integration.ValidatorClient.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -430,9 +429,9 @@ class CdaLocationsIT {
         for (Element finding : findings(report))
             if ("error".equals(finding.getLocalName()) && rule.equals(text(finding, "assertionID")))
                 actual.add(text(finding, "location"));
-        Collections.sort(actual);
+        actual.sort(null);
         List<String> sortedExpected = new ArrayList<>(expected);
-        Collections.sort(sortedExpected);
+        sortedExpected.sort(null);
         assertEquals(sortedExpected, actual, rule);
     }
 }

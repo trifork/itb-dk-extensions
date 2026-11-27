@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testcase id="upload-cda-to-xds" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/">
+    <metadata>
+        <gitb:name>Upload a CDA to DDS and check it appears in your system</gitb:name>
+        <gitb:version>1.0.0</gitb:version>
+        <gitb:description>Provide a CDA (file or pasted contents) and it is uploaded to DDS (ITI-41) using metadata read from the CDA. You then upload a screenshot showing that your system found and displayed the document. A final optional step marks the document as deprecated (ITI-57).</gitb:description>
+        <gitb:update updateMetadata="true" resetTestHistory="false"/>
+    </metadata>
+    <actors>
+        <gitb:actor id="cda-producer" name="CDA producer" role="SUT"/>
+    </actors>
+    <steps>
+        <bptxn handlerTimeout="150000" txnId="xds" handler="$DOMAIN{xdsConnector}" stopOnError="true"/>
+        <process id="xdsChoices" txnId="xds" desc="Load XDS identities and codes" hidden="false" stopOnError="false">
+            <operation>choices</operation>
+        </process>
+        <if hidden="true">
+            <cond>$STEP_STATUS{xdsChoices} = 'ERROR'</cond>
+            <then>
+                <log level="ERROR">$xdsChoices{errorCode} || ": " || $xdsChoices{errorMessage} || " Nothing was uploaded."</log>
+                <exit success="false" desc="Stopped: XDS operation failed"/>
+            </then>
+        </if>
+        <interact id="uploadSource" with="cda-producer" desc="Provide the CDA" inputTitle="Provide the CDA to upload" timeout="604800000">
+            <instruct desc="Step 1" level="INFO" forceDisplay="true">"Upload a CDA file, or paste its contents in the second field. The registry defaults to DDS TEST2. The document is stored in the chosen DDS test environment for the test patient named in the CDA (recordTarget CPR) and stays there until it is deprecated, so use a document built for testing. The next step shows the metadata read from your CDA before anything is sent. DDS refuses a document whose unique ID is already registered, so each upload needs a CDA with a new document ID."</instruct>
+            <request name="registry" desc="Registry" inputType="SELECT_SINGLE" options="$xdsChoices{registryLabels}" optionLabels="$xdsChoices{registryLabels}" default="DDS TEST2"/>
+            <request name="document" desc="CDA file" inputType="UPLOAD" accept="application/xml,text/xml" required="false"/>
+            <request name="documentText" desc="or paste the CDA contents" inputType="MULTILINE_TEXT" required="false"/>
+        </interact>
+        <assign to="selectedRegistry" type="string">$xdsChoices{defaultRegistry}</assign>
+        <if hidden="true">
+            <cond>string-length(normalize-space($uploadSource{registry})) &gt; 0</cond>
+            <then><assign to="selectedRegistry" type="string">$uploadSource{registry}</assign></then>
+        </if>
+        <log level="INFO">"Selected XDS registry: " || $selectedRegistry</log>
+        <process id="xdsQueryChoices" txnId="xds" desc="Prepare upload" hidden="true" stopOnError="false">
+            <operation>queryChoices</operation>
+            <input name="registry">$selectedRegistry</input>
+        </process>
+        <if hidden="true">
+            <cond>$STEP_STATUS{xdsQueryChoices} = 'ERROR'</cond>
+            <then>
+                <log level="ERROR">$xdsQueryChoices{errorCode} || ": " || $xdsQueryChoices{errorMessage} || " Nothing was uploaded."</log>
+                <exit success="false" desc="Stopped: upload configuration failed"/>
+            </then>
+        </if>
+        <if hidden="true">
+            <cond>$xdsQueryChoices{stamkort}</cond>
+            <then>
+                <log level="ERROR">"XDS-INPUT: " || $selectedRegistry || " is a Stamkort registry, which generates its documents. Choose a DDS registry."</log>
+                <exit success="false" desc="Stopped: Stamkort registries cannot receive uploads"/>
+            </then>
+        </if>
+        <process id="xdsPrepare" txnId="xds" desc="Read the metadata from the CDA" hidden="false" stopOnError="false">
+            <operation>prepareUpload</operation>
+            <input name="document">$uploadSource{document}</input>
+            <input name="documentText">$uploadSource{documentText}</input>
+        </process>
+        <if hidden="true">
+            <cond>$STEP_STATUS{xdsPrepare} = 'ERROR'</cond>
+            <then>
+                <log level="ERROR">$xdsPrepare{errorCode} || ": " || $xdsPrepare{errorMessage}</log>
+                <exit success="false" desc="Stopped: the CDA cannot be uploaded"/>
+            </then>
+        </if>
+        <interact id="uploadConfirm" with="cda-producer" desc="Confirm the upload" inputTitle="Confirm the upload to DDS" timeout="604800000">
+            <instruct desc="Step 2" level="INFO" forceDisplay="true">"This is what will be uploaded to DDS and registered for the patient. Choose the XDS format code that describes the document, then continue. Class, facility and practice-setting codes come from the service configuration; they are not taken from the CDA."</instruct>
+            <instruct desc="Metadata read from the CDA" level="INFO" forceDisplay="true">$xdsPrepare{uploadSummary}</instruct>
+            <request name="formatCode" desc="Format code" inputType="SELECT_SINGLE" required="true" options="$xdsPrepare{uploadFormatLabels}" optionLabels="$xdsPrepare{uploadFormatLabels}" default="$xdsPrepare{uploadFormatDefault}"/>
+        </interact>
+        <process id="xdsSubmit" txnId="xds" desc="Upload the CDA to DDS (ITI-41)" hidden="false" stopOnError="false">
+            <operation>submit</operation>
+            <input name="registry">$selectedRegistry</input>
+            <input name="professional">$xdsQueryChoices{defaultProfessional}</input>
+            <input name="formatCode">$uploadConfirm{formatCode}</input>
+        </process>
+        <if hidden="true">
+            <cond>$STEP_STATUS{xdsSubmit} = 'ERROR'</cond>
+            <then>
+                <log level="ERROR">$xdsSubmit{errorCode} || ": " || $xdsSubmit{errorMessage}</log>
+                <exit success="false" desc="Stopped: DDS did not accept the upload"/>
+            </then>
+        </if>
+        <interact id="uploadScreenshot" with="cda-producer" desc="Upload a screenshot" inputTitle="Show that your system found the CDA" timeout="604800000">
+            <instruct desc="Step 3" level="INFO" forceDisplay="true">"DDS accepted the document. Now open it in your own system, searching as the patient from the CDA, and upload a screenshot that shows the system found and displayed it. The screenshot is kept with this test session as evidence; this test does not inspect it."</instruct>
+            <instruct desc="Uploaded document" level="INFO" forceDisplay="true">"Document unique ID: " || $xdsSubmit{submittedUniqueId} || " (patient " || $xdsSubmit{patientId} || ")"</instruct>
+            <request name="screenshot" desc="Screenshot" inputType="UPLOAD" accept="image/png,image/jpeg,image/webp" required="true" report="true"/>
+        </interact>
+        <interact id="uploadDeprecate" with="cda-producer" desc="Optionally deprecate the document" inputTitle="Deprecate the uploaded document?" timeout="604800000">
+            <instruct desc="Step 4 (optional)" level="INFO" forceDisplay="true">"Optionally mark the uploaded document as deprecated (ITI-57), so it no longer appears in searches for Approved documents. A deprecated document stays in the registry and cannot be uploaded again with the same ID."</instruct>
+            <request name="choice" desc="Deprecate the uploaded document?" inputType="SELECT_SINGLE" required="true" options="Deprecate the uploaded document,Leave the document approved" optionLabels="Deprecate the uploaded document,Leave the document approved" default="Deprecate the uploaded document"/>
+        </interact>
+        <if hidden="true">
+            <cond>$uploadDeprecate{choice} = 'Deprecate the uploaded document'</cond>
+            <then>
+                <process id="xdsDeprecate" txnId="xds" desc="Mark the document as deprecated (ITI-57)" hidden="false" stopOnError="false">
+                    <operation>deprecate</operation>
+                </process>
+                <if hidden="true">
+                    <cond>$STEP_STATUS{xdsDeprecate} = 'ERROR'</cond>
+                    <then>
+                        <log level="ERROR">$xdsDeprecate{errorCode} || ": " || $xdsDeprecate{errorMessage}</log>
+                        <exit success="false" desc="Stopped: the document could not be deprecated"/>
+                    </then>
+                </if>
+            </then>
+        </if>
+        <eptxn txnId="xds"/>
+        <interact id="finalize" with="cda-producer" title="Review the upload"
+                  desc="Review the upload" inputTitle="Upload test completed" timeout="604800000">
+            <instruct desc="Instructions" level="INFO" forceDisplay="true" report="true">"The CDA was uploaded to DDS and you provided a screenshot showing your system found it. Finish the session to record the result."</instruct>
+        </interact>
+    </steps>
+    <output>
+        <success><default>"The CDA was uploaded to DDS and its retrieval in the producer's system was evidenced by a screenshot."</default></success>
+        <failure><default>"The upload test failed. Open the failed step to distinguish an unreadable CDA, a DDS rejection or a deprecation error."</default></failure>
+    </output>
+</testcase>

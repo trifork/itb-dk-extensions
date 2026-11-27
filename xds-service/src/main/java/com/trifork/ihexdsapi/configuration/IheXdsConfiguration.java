@@ -16,7 +16,9 @@ import org.apache.cxf.frontend.ClientProxy;
 import org.openehealth.ipf.commons.ihe.ws.JaxWsClientFactory;
 import org.openehealth.ipf.commons.ihe.xds.XDS;
 import org.openehealth.ipf.commons.ihe.xds.iti18.Iti18PortType;
+import org.openehealth.ipf.commons.ihe.xds.iti41.Iti41PortType;
 import org.openehealth.ipf.commons.ihe.xds.iti43.Iti43PortType;
+import org.openehealth.ipf.commons.ihe.xds.iti57.Iti57PortType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -27,6 +29,7 @@ import org.springframework.web.context.annotation.RequestScope;
 @Import(StorageConfiguration.class)
 @org.springframework.boot.context.properties.EnableConfigurationProperties({
     RegistryProperties.class,
+    SubmissionProperties.class,
     TypeCodeProperties.class,
     HsuidOrganisationProperties.class
 })
@@ -220,6 +223,21 @@ public class IheXdsConfiguration {
         return client;
     }
 
+    /**
+     * Write transactions: no SOAP logging, so documents and patient identifiers are never cached.
+     */
+    private Object plainClient(XDS.Interactions interaction, String endpoint) {
+        LOGGER.info("Creating {} client for url: {}", interaction, endpoint);
+        Object client = clientFactory(interaction, endpoint).getClient();
+        register(client);
+        var conduit =
+                (org.apache.cxf.transport.http.HTTPConduit)
+                        ClientProxy.getClient(client).getConduit();
+        conduit.getClient().setConnectionTimeout(timeoutSeconds * 1000L);
+        conduit.getClient().setReceiveTimeout(timeoutSeconds * 1000L);
+        return client;
+    }
+
     @Bean
     public Iti43Service iti43Service(Iti43PortType iti43PortType) {
         return new Iti43ServiceImpl(iti43PortType);
@@ -252,7 +270,21 @@ public class IheXdsConfiguration {
                             new Iti18ServiceImpl(
                                     registryClient(registry.iti18Endpoint(), cache, ids)),
                             new Iti43ServiceImpl(retrievalClient(registry.iti43Endpoint())),
-                            registry.stamkort()));
+                            registry.stamkort(),
+                            registry.canSubmit()
+                                    ? new Iti41ServiceImpl(
+                                            (Iti41PortType)
+                                                    plainClient(
+                                                            XDS.Interactions.ITI_41,
+                                                            registry.iti41Endpoint()))
+                                    : null,
+                            registry.canDeprecate()
+                                    ? new Iti57ServiceImpl(
+                                            (Iti57PortType)
+                                                    plainClient(
+                                                            XDS.Interactions.ITI_57,
+                                                            registry.iti57Endpoint()))
+                                    : null));
         }
         return new RegistryRouting(targets);
     }

@@ -4,6 +4,7 @@ import com.trifork.ihexdsapi.dgws.ItiException;
 import com.trifork.ihexdsapi.xds.Codes;
 import com.trifork.ihexdsapi.xds.QueryDates;
 import java.util.*;
+import org.apache.commons.lang3.StringUtils;
 import org.openapitools.model.*;
 import org.openehealth.ipf.commons.ihe.xds.core.metadata.*;
 import org.openehealth.ipf.commons.ihe.xds.core.metadata.Code;
@@ -19,7 +20,7 @@ final class Iti18Mapper {
         FindDocumentsQuery fdq = new FindDocumentsQuery();
 
         // Patient ID
-        if (iti18Request.getPatientId() != null && !iti18Request.getPatientId().isEmpty()) {
+        if (StringUtils.isNotEmpty(iti18Request.getPatientId())) {
             AssigningAuthority authority = new AssigningAuthority(Codes.DK_CPR_CLASSIFICAION_OID);
             Identifiable patientIdentifiable =
                     new Identifiable(iti18Request.getPatientId(), authority);
@@ -69,8 +70,7 @@ final class Iti18Mapper {
         var practiceSettingCode = iti18Request.getPracticeSettingCode();
         var healthcareFacilityTypeCode = iti18Request.getHealthcareFacilityTypeCode();
         // Availability status
-        if (iti18Request.getAvailabilityStatus() != null
-                && !iti18Request.getAvailabilityStatus().trim().isEmpty()) {
+        if (StringUtils.isNotBlank(iti18Request.getAvailabilityStatus())) {
             List<AvailabilityStatus> status = new ArrayList<>();
             status.add(AvailabilityStatus.valueOfOpcode(iti18Request.getAvailabilityStatus()));
             fdq.setStatus(status);
@@ -118,17 +118,18 @@ final class Iti18Mapper {
     private void applyDocumentTypes(Iti18QueryParameter iti18Request, FindDocumentsQuery fdq)
             throws ItiException {
         // Document Type
-        if (iti18Request.getDocumentType() == null) {
+        var documentTypes = iti18Request.getDocumentType();
+        if (documentTypes == null) {
 
             throw new ItiException(1000, "List is null", null);
         }
-        if (iti18Request.getDocumentType().contains("STABLE")) {
+        if (documentTypes.contains("STABLE")) {
             if (fdq.getDocumentEntryTypes() == null) {
                 fdq.setDocumentEntryTypes(new LinkedList<>());
             }
             fdq.getDocumentEntryTypes().add(DocumentEntryType.STABLE);
         }
-        if (iti18Request.getDocumentType().contains("ON-DEMAND")) {
+        if (documentTypes.contains("ON-DEMAND")) {
             if (fdq.getDocumentEntryTypes() == null) {
                 fdq.setDocumentEntryTypes(new LinkedList<>());
             }
@@ -140,9 +141,8 @@ final class Iti18Mapper {
         var eventCode = iti18Request.getEventCode();
         // Event code
         if (eventCode != null
-                && !eventCode.getCode().isEmpty()
-                && eventCode.getCodeScheme() != null
-                && !eventCode.getCodeScheme().isEmpty()) {
+                && StringUtils.isNotEmpty(eventCode.getCode())
+                && StringUtils.isNotEmpty(eventCode.getCodeScheme())) {
 
             fdq.setEventCodes(new QueryList<Code>());
             fdq.getEventCodes()

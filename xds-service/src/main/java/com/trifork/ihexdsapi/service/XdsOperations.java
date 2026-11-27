@@ -19,4 +19,14 @@ public interface XdsOperations {
     RetrievedBytes retrieve(Iti43Request request)
             throws com.trifork.ihexdsapi.dgws.DgwsSecurityException,
                     com.trifork.ihexdsapi.dgws.ItiException;
+
+    /** ITI-41: stores and registers a CDA. Findings are returned, never thrown. */
+    org.openehealth.ipf.commons.ihe.xds.core.responses.Response submit(SubmitRequest request)
+            throws com.trifork.ihexdsapi.dgws.DgwsSecurityException,
+                    com.trifork.ihexdsapi.dgws.ItiException;
+
+    /** ITI-57: marks one registered entry as deprecated. */
+    org.openehealth.ipf.commons.ihe.xds.core.responses.Response deprecate(DeprecateRequest request)
+            throws com.trifork.ihexdsapi.dgws.DgwsSecurityException,
+                    com.trifork.ihexdsapi.dgws.ItiException;
 }

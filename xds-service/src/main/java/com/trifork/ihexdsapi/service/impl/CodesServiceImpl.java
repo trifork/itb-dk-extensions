@@ -20,15 +20,15 @@ public class CodesServiceImpl implements CodesService {
         }
     }
 
-    private List<Code> typeCodesList;
-    private List<Code> formatCodesList;
-    private List<Code> healthcareFacilityTypeCodesList;
-    private List<Code> eventCodesList;
-    private List<Code> practiseSettingCodesList;
-    private List<Code> availabilityStatusList;
-    private List<Code> documentTypeList;
+    private final List<Code> typeCodesList;
+    private final List<Code> formatCodesList;
+    private final List<Code> healthcareFacilityTypeCodesList;
+    private final List<Code> eventCodesList;
+    private final List<Code> practiseSettingCodesList;
+    private final List<Code> availabilityStatusList;
+    private final List<Code> documentTypeList;
 
-    private List<Code> classCodeList;
+    private final List<Code> classCodeList;
 
     public CodesServiceImpl(
             CodeListDefinition type,

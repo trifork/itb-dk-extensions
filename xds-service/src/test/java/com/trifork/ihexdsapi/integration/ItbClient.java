@@ -157,6 +157,16 @@ final class ItbClient {
     }
 
     String start() throws Exception {
+        return start(state.get("ITB_INTERACTIVE_TEST_CASE_API_KEY"));
+    }
+
+    /** The deployed XDS upload test case, or null when the XDS option was not deployed. */
+    String uploadTestCase() {
+        String key = state.get("ITB_XDS_UPLOAD_TEST_CASE_API_KEY");
+        return key == null || key.isBlank() ? null : key;
+    }
+
+    String start(String testCase) throws Exception {
         return request(
                         "/rest/tests/start",
                         Map.of(
@@ -165,7 +175,7 @@ final class ItbClient {
                                 "actor",
                                 state.get("ITB_ACTOR_API_KEY"),
                                 "testCase",
-                                List.of(state.get("ITB_INTERACTIVE_TEST_CASE_API_KEY")),
+                                List.of(testCase),
                                 "waitForCompletion",
                                 false),
                         false,

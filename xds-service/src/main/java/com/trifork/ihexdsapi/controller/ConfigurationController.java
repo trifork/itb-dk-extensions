@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ConfigurationController implements ConfigApi {
 
-    private ConfigsService configsService;
+    private final ConfigsService configsService;
 
     public ConfigurationController(ConfigsService configsService) {
         this.configsService = configsService;

@@ -9,11 +9,7 @@ import java.util.Map;
  * downlod the previous request or ide as a file.
  */
 public class IDContextServiceImpl implements IDContextService {
-    private Map<String, String> temporaryIdMap;
-
-    public IDContextServiceImpl() {
-        temporaryIdMap = new HashMap<>();
-    }
+    private final Map<String, String> temporaryIdMap = new HashMap<>();
 
     @Override
     public Map<String, String> getIds() {

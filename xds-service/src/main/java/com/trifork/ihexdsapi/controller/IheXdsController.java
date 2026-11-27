@@ -21,9 +21,9 @@ public class IheXdsController implements IhexdsApi, RequestResultApi, ResponseRe
 
     private final RegistryRouting registries;
 
-    private CacheRequestResponseHandle cacheRequestResponseHandle;
+    private final CacheRequestResponseHandle cacheRequestResponseHandle;
 
-    private IDContextService iDContextService;
+    private final IDContextService iDContextService;
 
     public IheXdsController(
             RegistryRouting registries,

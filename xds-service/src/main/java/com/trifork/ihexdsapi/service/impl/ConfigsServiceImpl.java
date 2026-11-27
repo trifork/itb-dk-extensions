@@ -7,9 +7,9 @@ import org.openapitools.model.ConfigResponse;
 
 public class ConfigsServiceImpl implements ConfigsService {
 
-    private String sts;
-    private String xdsIti18;
-    private String xdsIti43;
+    private final String sts;
+    private final String xdsIti18;
+    private final String xdsIti43;
 
     private List<ConfigResponse> configResponseList;
 
@@ -29,7 +29,7 @@ public class ConfigsServiceImpl implements ConfigsService {
         list.add(createResponseObject("iti-18.url", xdsIti18));
         list.add(createResponseObject("iti-43.url", xdsIti43));
 
-        Collections.sort(list, new SortbyKey());
+        list.sort(new SortbyKey());
 
         configResponseList = list;
     }
