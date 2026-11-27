@@ -1414,6 +1414,13 @@ class XdsProcessingServiceTest {
         assertEquals(TestResultType.SUCCESS, ready.getReport().getResult());
         assertEquals(CPR, output(ready, "patientId").getValue());
         assertTrue(output(ready, "uploadSummary").getValue().contains(CDA_ID));
+        assertEquals(CDA_ID, output(ready, "uploadId").getValue());
+        assertEquals(CPR, output(ready, "uploadPatient").getValue());
+        assertEquals(
+                "74468-0 (scheme 2.16.840.1.113883.6.1)", output(ready, "uploadType").getValue());
+        assertEquals("Test form", output(ready, "uploadTitle").getValue());
+        assertEquals("20250513120000+0200", output(ready, "uploadCreated").getValue());
+        assertTrue(output(ready, "uploadSize").getValue().endsWith(" bytes"));
         var done = submitFirstFormat(ready);
         assertEquals(TestResultType.SUCCESS, done.getReport().getResult());
         assertEquals(CDA_ID, output(done, "submittedUniqueId").getValue());

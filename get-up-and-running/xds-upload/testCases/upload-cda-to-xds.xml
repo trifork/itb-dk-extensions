@@ -2,7 +2,7 @@
 <testcase id="upload-cda-to-xds" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/">
     <metadata>
         <gitb:name>Upload a CDA to DDS and check it appears in your system</gitb:name>
-        <gitb:version>1.0.0</gitb:version>
+        <gitb:version>1.0.1</gitb:version>
         <gitb:description>Provide a CDA (file or pasted contents) and it is uploaded to DDS (ITI-41) using metadata read from the CDA. You then upload a screenshot showing that your system found and displayed the document. A final optional step marks the document as deprecated (ITI-57).</gitb:description>
         <gitb:update updateMetadata="true" resetTestHistory="false"/>
     </metadata>
@@ -64,8 +64,13 @@
             </then>
         </if>
         <interact id="uploadConfirm" with="cda-producer" desc="Confirm the upload" inputTitle="Confirm the upload to DDS" timeout="604800000">
-            <instruct desc="Step 2" level="INFO" forceDisplay="true">"This is what will be uploaded to DDS and registered for the patient. Choose the XDS format code that describes the document, then continue. Class, facility and practice-setting codes come from the service configuration; they are not taken from the CDA."</instruct>
-            <instruct desc="Metadata read from the CDA" level="INFO" forceDisplay="true">$xdsPrepare{uploadSummary}</instruct>
+            <instruct desc="Step 2" level="INFO" forceDisplay="true">"These are the values read from your CDA, which will be uploaded to DDS and registered for the patient. Choose the XDS format code that describes the document, then continue. Class, facility and practice-setting codes come from the service configuration; they are not taken from the CDA."</instruct>
+            <instruct desc="Patient (CPR)" level="INFO" forceDisplay="true">$xdsPrepare{uploadPatient}</instruct>
+            <instruct desc="Document unique ID" level="INFO" forceDisplay="true">$xdsPrepare{uploadId}</instruct>
+            <instruct desc="Type code" level="INFO" forceDisplay="true">$xdsPrepare{uploadType}</instruct>
+            <instruct desc="Title" level="INFO" forceDisplay="true">$xdsPrepare{uploadTitle}</instruct>
+            <instruct desc="Created" level="INFO" forceDisplay="true">$xdsPrepare{uploadCreated}</instruct>
+            <instruct desc="Size" level="INFO" forceDisplay="true">$xdsPrepare{uploadSize}</instruct>
             <request name="formatCode" desc="Format code" inputType="SELECT_SINGLE" required="true" options="$xdsPrepare{uploadFormatLabels}" optionLabels="$xdsPrepare{uploadFormatLabels}" default="$xdsPrepare{uploadFormatDefault}"/>
         </interact>
         <process id="xdsSubmit" txnId="xds" desc="Upload the CDA to DDS (ITI-41)" hidden="false" stopOnError="false">

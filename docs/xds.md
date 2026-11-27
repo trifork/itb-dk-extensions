@@ -134,16 +134,25 @@ with the XDS option, in its own `cda-dk-xds-upload` suite and with its own pendi
    accepts a typed ID, so it can only deprecate that one upload.
 
 Writing is opt-in per registry. `application.properties` enables it for DDS TEST1 and TEST2:
-`iti41-endpoint` defaults to the ITI-43 repository URL and `iti57-endpoint` to the ITI-18
-registry URL, with overrides `XDS_SUBMISSION_URL`, `XDS_UPDATE_URL`, `XDS_TEST2_SUBMISSION_URL`
-and `XDS_TEST2_UPDATE_URL`. Clear a value to switch writing off for that route. The class,
+`iti41-endpoint` and `iti57-endpoint` default to NSP's **DROS Sandbox**
+(`https://<env>-cnsp.ekstern-test.nspop.dk:8443/dros_sandbox/iti41` and `/iti57`; TEST1 is assumed to
+mirror TEST2), with overrides `XDS_SUBMISSION_URL`, `XDS_UPDATE_URL`, `XDS_TEST2_SUBMISSION_URL` and
+`XDS_TEST2_UPDATE_URL`. Clear a value to switch writing off for that route. NSP serves writes from DROS,
+one instance per repository. On TEST2 the NSP page lists DROS Graviditetsmappen (`/dros_gm/…`, types
+PRF, PSCR, PMR), DROS Sandbox (`/dros_sandbox/…`, any CDA) and KIH (ITI-41 at
+`https://kih.test.xdsrepositoryb.medcom.dk/kih-iti41/iti41`, ITI-57 at `/dros/iti57`, types 53576-5,
+74465-6 and 74468-0). A deprecation must go to the DROS that owns the document, so the two endpoints
+of a route must name the same repository. The class,
 healthcare-facility and practice-setting codes a CDA cannot supply, and the submission source ID,
 come from `xds.submission.*` (`XDS_SUBMISSION_SOURCE_ID`, `XDS_SUBMISSION_FACILITY_TYPE_CODE`,
 `XDS_SUBMISSION_PRACTICE_SETTING_CODE`, form `code^display name^scheme OID`). The class code is the
 CDA's type code.
 
-**Not verified against a live DDS.** The endpoint defaults assume ITI-41 and ITI-57 are served on
-the same hosts as ITI-43 and ITI-18, and the facility, practice-setting and source-ID defaults are
+**Not yet accepted by a live DDS.** A first run sent ITI-41 to the DDS repository (`/ddsrepository`),
+which answered "Message part ProvideAndRegisterDocumentSetRequest was not recognized", because writes
+belong to DROS. The Sandbox paths come from the registry list on the NSP document-sharing page; DROS
+access rules (whitelisting, ID card type) and the exact repository metadata DROS expects are
+unconfirmed. The facility, practice-setting and source-ID defaults are
 placeholders, not MedCom-published values. The payloads pass IPF's own ITI-41 and ITI-57 request
 validators and a loopback test sends them through the real CXF clients (multipart upload and
 plain SOAP update), but no document has been sent to DDS. Expect to adjust the endpoints and codes

@@ -269,8 +269,7 @@ class ItbFlowIT {
                 "Provide the CDA to upload",
                 Map.of("Registry", "Synthetic registry One", "CDA file", cda));
         JsonNode confirm = interaction("Confirm the upload to DDS");
-        assertEquals(
-                "instruct", field(confirm, "Metadata read from the CDA").path("type").asText());
+        assertEquals("instruct", field(confirm, "Document unique ID").path("type").asText());
         client.submit(
                 session,
                 confirm,

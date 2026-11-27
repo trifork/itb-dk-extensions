@@ -156,6 +156,10 @@ class Packaging(unittest.TestCase):
         self.assertEqual('MULTILINE_TEXT', source['documentText'].get('inputType'))
         for name in ('document', 'documentText'):
             self.assertNotEqual('true', source[name].get('required'), 'either one may be used')
+        # ITB collapses line breaks inside one instruction, so each field is its own instruction.
+        shown = [i.text for i in root.findall('.//t:interact[@id="uploadConfirm"]/t:instruct', NS)[1:]]
+        self.assertEqual(['$xdsPrepare{uploadPatient}', '$xdsPrepare{uploadId}', '$xdsPrepare{uploadType}',
+                          '$xdsPrepare{uploadTitle}', '$xdsPrepare{uploadCreated}', '$xdsPrepare{uploadSize}'], shown)
         confirm = root.find('.//t:interact[@id="uploadConfirm"]/t:request[@name="formatCode"]', NS)
         self.assertEqual('$xdsPrepare{uploadFormatDefault}', confirm.get('default'))
         self.assertEqual(confirm.get('options'), confirm.get('optionLabels'))

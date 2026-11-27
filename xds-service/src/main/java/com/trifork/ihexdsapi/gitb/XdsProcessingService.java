@@ -544,22 +544,31 @@ public class XdsProcessingService implements ProcessingService {
             throw new XdsFailure("XDS-CONTENT", e.getMessage() + " Nothing was uploaded.");
         }
         s.upload = new Upload(bytes, metadata);
+        // ITB shows an instruction as one block of text and collapses line breaks, so each field is
+        // also returned on its own for the test to show as separate, labelled lines.
+        var fields = new LinkedHashMap<String, String>();
+        fields.put("uploadPatient", metadata.patientId());
+        fields.put("uploadId", metadata.uniqueId());
+        fields.put("uploadType", metadata.typeCode() + " (scheme " + metadata.typeScheme() + ")");
+        fields.put("uploadTitle", metadata.title().isEmpty() ? "-" : metadata.title());
+        fields.put(
+                "uploadCreated",
+                metadata.creationTime().isEmpty() ? "now" : metadata.creationTime());
+        fields.put("uploadSize", bytes.length + " bytes");
+        fields.forEach((name, text) -> out.getOutput().add(value(name, STRING, text)));
         String summary =
                 "Patient (CPR): "
-                        + metadata.patientId()
+                        + fields.get("uploadPatient")
                         + "\nDocument unique ID: "
-                        + metadata.uniqueId()
+                        + fields.get("uploadId")
                         + "\nType code: "
-                        + metadata.typeCode()
-                        + " (scheme "
-                        + metadata.typeScheme()
-                        + ")\nTitle: "
-                        + (metadata.title().isEmpty() ? "-" : metadata.title())
+                        + fields.get("uploadType")
+                        + "\nTitle: "
+                        + fields.get("uploadTitle")
                         + "\nCreated: "
-                        + (metadata.creationTime().isEmpty() ? "now" : metadata.creationTime())
+                        + fields.get("uploadCreated")
                         + "\nSize: "
-                        + bytes.length
-                        + " bytes";
+                        + fields.get("uploadSize");
         out.getOutput().add(value("uploadSummary", STRING, summary));
         out.getOutput().add(value(PATIENT_ID, STRING, metadata.patientId()));
         out.getOutput().add(value("uploadFormatDefault", STRING, defaultFormatLabel(s, metadata)));
