@@ -41,6 +41,7 @@ class DefaultXdsOperationsWriteTest {
                         List.of(
                                 new Code()
                                         .code("urn:ad:dk:medcom:qfdd-v1.2:full")
+                                        .name("QFDD 1.2 format")
                                         .scheme("1.2.208.184.100.10")));
         return new DefaultXdsOperations(
                 mock(CredentialService.class),
@@ -53,8 +54,7 @@ class DefaultXdsOperationsWriteTest {
     void submitsAsTheCdaPatientWithTheChosenFormatAndReturnsTheRegistryResponse() throws Exception {
         var ops = operations(false, true);
         var info = mock(DgwsClientInfo.class);
-        when(dgws.getHealthCareProfessionalClientInfo("0103660140", "me", context))
-                .thenReturn(info);
+        when(dgws.getStamkortClientInfo("0103660140", "me", context)).thenReturn(info);
         var accepted = new Response(Status.SUCCESS);
         when(submission.submit(any(), eq(info))).thenReturn(accepted);
 
@@ -67,11 +67,15 @@ class DefaultXdsOperationsWriteTest {
                                 DOCUMENT,
                                 "urn:ad:dk:medcom:qfdd-v1.2:full"));
 
-        assertSame(accepted, result);
+        assertSame(accepted, result.response());
+        assertTrue(result.entryUuid().startsWith("urn:uuid:"));
+        assertEquals("74468-0", result.typeCode());
+        assertEquals("2.16.840.1.113883.6.1", result.typeScheme());
         var sent = org.mockito.ArgumentCaptor.forClass(ProvideAndRegisterDocumentSet.class);
         verify(submission).submit(sent.capture(), eq(info));
         var entry = sent.getValue().getDocuments().getFirst().getDocumentEntry();
         assertEquals("1.2.208.184.100.10", entry.getFormatCode().getSchemeName());
+        assertEquals("QFDD 1.2 format", entry.getFormatCode().getDisplayName().getValue());
         assertEquals("0103660140", entry.getPatientId().getId());
     }
 
@@ -97,8 +101,7 @@ class DefaultXdsOperationsWriteTest {
     void deprecatesOneEntryForItsPatientOnlyWhereTheRegistryAllowsIt() throws Exception {
         var ops = operations(false, true);
         var info = mock(DgwsClientInfo.class);
-        when(dgws.getHealthCareProfessionalClientInfo("0103660140", "me", context))
-                .thenReturn(info);
+        when(dgws.getStamkortClientInfo("0103660140", "me", context)).thenReturn(info);
         var accepted = new Response(Status.SUCCESS);
         when(update.update(any(), eq(info))).thenReturn(accepted);
 

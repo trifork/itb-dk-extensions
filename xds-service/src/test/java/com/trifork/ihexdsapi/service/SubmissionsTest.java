@@ -56,7 +56,8 @@ class SubmissionsTest {
         assertEquals("text/xml", entry.getMimeType());
         assertEquals("74468-0", entry.getTypeCode().getCode());
         assertEquals(entry.getTypeCode(), entry.getClassCode());
-        assertEquals(format, entry.getFormatCode());
+        assertEquals(format.getCode(), entry.getFormatCode().getCode());
+        assertEquals(format.getSchemeName(), entry.getFormatCode().getSchemeName());
         assertEntryDetails(entry);
 
         var set = request.getSubmissionSet();
@@ -90,6 +91,41 @@ class SubmissionsTest {
         assertEquals(PROPERTIES.facilityType(), entry.getHealthcareFacilityTypeCode());
         assertEquals(PROPERTIES.practiceSetting(), entry.getPracticeSettingCode());
         assertNotNull(entry.getEntryUuid());
+    }
+
+    @Test
+    void everyCodedValueCarriesADisplayNameBecauseDrosRequiresOne() {
+        var cda =
+                CdaMetadata.parse(
+                        CdaMetadataTest.HEADER
+                                .replace(" displayName=\"QFDD\"", "")
+                                .getBytes(StandardCharsets.UTF_8));
+        var entry =
+                Submissions.provide(DOCUMENT, cda, new Code("fmt", null, "1.2"), PROPERTIES)
+                        .getDocuments()
+                        .getFirst()
+                        .getDocumentEntry();
+        for (var code :
+                java.util.List.of(
+                        entry.getTypeCode(),
+                        entry.getClassCode(),
+                        entry.getFormatCode(),
+                        entry.getHealthcareFacilityTypeCode(),
+                        entry.getPracticeSettingCode(),
+                        entry.getConfidentialityCodes().getFirst())) {
+            assertNotNull(code.getDisplayName(), code.toString());
+            assertFalse(code.getDisplayName().getValue().isBlank(), code.toString());
+        }
+        // A missing name falls back to the code; a given name is kept.
+        assertEquals("fmt", entry.getFormatCode().getDisplayName().getValue());
+        assertEquals("74468-0", entry.getTypeCode().getDisplayName().getValue());
+        var named = new Code("c", new LocalizedString("Readable"), "1.2");
+        assertEquals("Readable", Submissions.named(named).getDisplayName().getValue());
+        var update =
+                Submissions.deprecate(
+                        "0103660140", "urn:uuid:e", new Code("c", null, "1.2"), PROPERTIES);
+        assertEquals(
+                "c", update.getSubmissionSet().getContentTypeCode().getDisplayName().getValue());
     }
 
     @Test

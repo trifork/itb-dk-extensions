@@ -2,7 +2,7 @@
 <testcase id="upload-cda-to-xds" xmlns="http://www.gitb.com/tdl/v1/" xmlns:gitb="http://www.gitb.com/core/v1/">
     <metadata>
         <gitb:name>Upload a CDA to DDS and check it appears in your system</gitb:name>
-        <gitb:version>1.0.1</gitb:version>
+        <gitb:version>1.0.3</gitb:version>
         <gitb:description>Provide a CDA (file or pasted contents) and it is uploaded to DDS (ITI-41) using metadata read from the CDA. You then upload a screenshot showing that your system found and displayed the document. A final optional step marks the document as deprecated (ITI-57).</gitb:description>
         <gitb:update updateMetadata="true" resetTestHistory="false"/>
     </metadata>
@@ -63,20 +63,23 @@
                 <exit success="false" desc="Stopped: the CDA cannot be uploaded"/>
             </then>
         </if>
+        <log level="INFO">"CDA read: document " || $xdsPrepare{uploadId} || " for patient " || $xdsPrepare{uploadPatient} || ", type " || $xdsPrepare{uploadType} || ", " || $xdsPrepare{uploadSize} || ", title " || $xdsPrepare{uploadTitle} || "."</log>
         <interact id="uploadConfirm" with="cda-producer" desc="Confirm the upload" inputTitle="Confirm the upload to DDS" timeout="604800000">
-            <instruct desc="Step 2" level="INFO" forceDisplay="true">"These are the values read from your CDA, which will be uploaded to DDS and registered for the patient. Choose the XDS format code that describes the document, then continue. Class, facility and practice-setting codes come from the service configuration; they are not taken from the CDA."</instruct>
+            <instruct desc="Step 2" level="INFO" forceDisplay="true">"These are the values read from your CDA, which will be uploaded to DDS and registered for the patient. Choose the signing identity (a system certificate is preselected when one is configured) and the XDS format code that describes the document, then continue. Class, facility and practice-setting codes come from the service configuration; they are not taken from the CDA."</instruct>
             <instruct desc="Patient (CPR)" level="INFO" forceDisplay="true">$xdsPrepare{uploadPatient}</instruct>
             <instruct desc="Document unique ID" level="INFO" forceDisplay="true">$xdsPrepare{uploadId}</instruct>
             <instruct desc="Type code" level="INFO" forceDisplay="true">$xdsPrepare{uploadType}</instruct>
             <instruct desc="Title" level="INFO" forceDisplay="true">$xdsPrepare{uploadTitle}</instruct>
             <instruct desc="Created" level="INFO" forceDisplay="true">$xdsPrepare{uploadCreated}</instruct>
             <instruct desc="Size" level="INFO" forceDisplay="true">$xdsPrepare{uploadSize}</instruct>
+            <request name="professional" desc="Signing identity" inputType="SELECT_SINGLE" required="true" options="$xdsQueryChoices{professionalLabels}" optionLabels="$xdsQueryChoices{professionalLabels}" default="$xdsQueryChoices{defaultWriter}"/>
             <request name="formatCode" desc="Format code" inputType="SELECT_SINGLE" required="true" options="$xdsPrepare{uploadFormatLabels}" optionLabels="$xdsPrepare{uploadFormatLabels}" default="$xdsPrepare{uploadFormatDefault}"/>
         </interact>
+        <log level="INFO">"Uploading (ITI-41) to " || $selectedRegistry || " as " || $uploadConfirm{professional} || " with format " || $uploadConfirm{formatCode} || "."</log>
         <process id="xdsSubmit" txnId="xds" desc="Upload the CDA to DDS (ITI-41)" hidden="false" stopOnError="false">
             <operation>submit</operation>
             <input name="registry">$selectedRegistry</input>
-            <input name="professional">$xdsQueryChoices{defaultProfessional}</input>
+            <input name="professional">$uploadConfirm{professional}</input>
             <input name="formatCode">$uploadConfirm{formatCode}</input>
         </process>
         <if hidden="true">
@@ -86,11 +89,13 @@
                 <exit success="false" desc="Stopped: DDS did not accept the upload"/>
             </then>
         </if>
+        <log level="INFO">"DDS accepted the upload (ITI-41): document " || $xdsSubmit{submittedUniqueId} || " for patient " || $xdsSubmit{patientId} || ", entry UUID " || $xdsSubmit{submittedEntryUuid} || ". Registry warnings: " || $xdsSubmit{submittedWarnings} || "."</log>
         <interact id="uploadScreenshot" with="cda-producer" desc="Upload a screenshot" inputTitle="Show that your system found the CDA" timeout="604800000">
             <instruct desc="Step 3" level="INFO" forceDisplay="true">"DDS accepted the document. Now open it in your own system, searching as the patient from the CDA, and upload a screenshot that shows the system found and displayed it. The screenshot is kept with this test session as evidence; this test does not inspect it."</instruct>
             <instruct desc="Uploaded document" level="INFO" forceDisplay="true">"Document unique ID: " || $xdsSubmit{submittedUniqueId} || " (patient " || $xdsSubmit{patientId} || ")"</instruct>
             <request name="screenshot" desc="Screenshot" inputType="UPLOAD" accept="image/png,image/jpeg,image/webp" required="true" report="true"/>
         </interact>
+        <log level="INFO">"Screenshot received."</log>
         <interact id="uploadDeprecate" with="cda-producer" desc="Optionally deprecate the document" inputTitle="Deprecate the uploaded document?" timeout="604800000">
             <instruct desc="Step 4 (optional)" level="INFO" forceDisplay="true">"Optionally mark the uploaded document as deprecated (ITI-57), so it no longer appears in searches for Approved documents. A deprecated document stays in the registry and cannot be uploaded again with the same ID."</instruct>
             <request name="choice" desc="Deprecate the uploaded document?" inputType="SELECT_SINGLE" required="true" options="Deprecate the uploaded document,Leave the document approved" optionLabels="Deprecate the uploaded document,Leave the document approved" default="Deprecate the uploaded document"/>
@@ -108,7 +113,11 @@
                         <exit success="false" desc="Stopped: the document could not be deprecated"/>
                     </then>
                 </if>
+                <log level="INFO">"DDS accepted the deprecation (ITI-57): document " || $xdsDeprecate{deprecatedUniqueId} || ", entry UUID " || $xdsDeprecate{deprecatedEntryUuid} || " is now Deprecated. Registry warnings: " || $xdsDeprecate{deprecatedWarnings} || "."</log>
             </then>
+            <else>
+                <log level="INFO">"Deprecation skipped: the document stays Approved in " || $selectedRegistry || "."</log>
+            </else>
         </if>
         <eptxn txnId="xds"/>
         <interact id="finalize" with="cda-producer" title="Review the upload"

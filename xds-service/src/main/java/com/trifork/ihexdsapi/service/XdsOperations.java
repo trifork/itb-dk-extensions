@@ -21,7 +21,7 @@ public interface XdsOperations {
                     com.trifork.ihexdsapi.dgws.ItiException;
 
     /** ITI-41: stores and registers a CDA. Findings are returned, never thrown. */
-    org.openehealth.ipf.commons.ihe.xds.core.responses.Response submit(SubmitRequest request)
+    SubmissionResult submit(SubmitRequest request)
             throws com.trifork.ihexdsapi.dgws.DgwsSecurityException,
                     com.trifork.ihexdsapi.dgws.ItiException;
 

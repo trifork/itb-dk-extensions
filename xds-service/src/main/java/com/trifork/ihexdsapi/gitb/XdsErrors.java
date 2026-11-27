@@ -102,15 +102,47 @@ final class XdsErrors {
         return code == null ? null : EXPLANATIONS.get(code);
     }
 
+    /**
+     * Registry warnings on a successful write, flattened and bounded; empty when there are none.
+     */
+    static List<String> warnings(Response response) {
+        var result = new ArrayList<String>();
+        for (var finding : response.getErrors()) {
+            if (finding.getSeverity() != Severity.WARNING) continue;
+            String detail = detail(finding);
+            String code = finding.getErrorCode() == null ? "" : finding.getErrorCode().getOpcode();
+            result.add((code + (detail == null ? "" : ": " + detail)).trim());
+        }
+        return result;
+    }
+
     /** ITI-41/ITI-57 outcome: any error or a FAILURE status means nothing was changed. */
     static void checkWrite(String operation, Response response) {
         if (response == null)
             throw new XdsFailure("XDS-RESPONSE", operation + " returned no response.");
-        check(operation, response.getErrors(), null, "The change was not made. ");
+        check(operation, response.getErrors(), null, "The change was not made. ", true);
         if (response.getStatus() == Status.FAILURE)
             throw new XdsFailure(
                     "XDS-REGISTRY",
                     operation + " failed without a usable error. The change was not made.");
+    }
+
+    private static void classify(ErrorInfo finding, Set<String> reasons, Set<String> advice) {
+        var code = finding.getErrorCode();
+        var explanation = explanation(code);
+        if (explanation != null) {
+            reasons.add(code.getOpcode() + ": " + explanation.explanation());
+            advice.add(explanation.advice());
+        } else if (EXTRACTION_ERROR.equals(finding.getCodeContext())) {
+            reasons.add("DDS reports information withheld due to an extraction error.");
+            advice.add("Try another test patient or contact the DDS operator.");
+        } else if (code != null && code != ErrorCode._USER_DEFINED) {
+            reasons.add(code.getOpcode() + ": DDS reported a registry/repository error.");
+            advice.add("Ask the DDS operator to check the request and service diagnostics.");
+        } else {
+            reasons.add("Unrecognised registry/repository error (details withheld).");
+            advice.add("Ask the integration maintainer to check service diagnostics.");
+        }
     }
 
     static void check(String operation, List<ErrorInfo> findings, Integer documents) {
@@ -120,32 +152,38 @@ final class XdsErrors {
                 documents,
                 documents == null
                         ? "Document retrieval stopped. "
-                        : "Search stopped because results may be incomplete. ");
+                        : "Search stopped because results may be incomplete. ",
+                false);
+    }
+
+    private static final int MAX_DETAIL = 300;
+
+    /** The registry's own wording for one finding, flattened and bounded for the session log. */
+    private static String detail(ErrorInfo finding) {
+        String context = finding.getCodeContext();
+        if (context == null || context.isBlank()) return null;
+        String flat = context.replaceAll("\\p{Cntrl}+", " ").replaceAll("\\s+", " ").trim();
+        return flat.length() > MAX_DETAIL ? flat.substring(0, MAX_DETAIL) + "…" : flat;
     }
 
     private static void check(
-            String operation, List<ErrorInfo> findings, Integer documents, String consequence) {
+            String operation,
+            List<ErrorInfo> findings,
+            Integer documents,
+            String consequence,
+            boolean withDetail) {
         var reasons = new LinkedHashSet<String>();
+        var details = new LinkedHashSet<String>();
         var advice = new LinkedHashSet<String>();
         int count = 0;
         for (var finding : findings) {
             if (finding.getSeverity() == Severity.WARNING) continue;
             count++;
-            var code = finding.getErrorCode();
-            var explanation = explanation(code);
-            if (explanation != null) {
-                reasons.add(code.getOpcode() + ": " + explanation.explanation());
-                advice.add(explanation.advice());
-            } else if (EXTRACTION_ERROR.equals(finding.getCodeContext())) {
-                reasons.add("DDS reports information withheld due to an extraction error.");
-                advice.add("Try another test patient or contact the DDS operator.");
-            } else if (code != null && code != ErrorCode._USER_DEFINED) {
-                reasons.add(code.getOpcode() + ": DDS reported a registry/repository error.");
-                advice.add("Ask the DDS operator to check the request and service diagnostics.");
-            } else {
-                reasons.add("Unrecognised registry/repository error (details withheld).");
-                advice.add("Ask the integration maintainer to check service diagnostics.");
-            }
+            // Only uploads and deprecations show the registry's wording: it names the rejected
+            // field. Searches and retrievals keep withholding it, as it can echo patient context.
+            String detail = withDetail ? detail(finding) : null;
+            if (detail != null && details.size() < 5) details.add(detail);
+            classify(finding, reasons, advice);
         }
         if (count > 0)
             throw new XdsFailure(
@@ -158,6 +196,9 @@ final class XdsErrors {
                             + count
                             + " registry error(s): "
                             + String.join(" ", reasons)
+                            + (details.isEmpty()
+                                    ? ""
+                                    : " Registry detail: " + String.join(" | ", details) + ".")
                             + " "
                             + consequence
                             + String.join(" ", advice));

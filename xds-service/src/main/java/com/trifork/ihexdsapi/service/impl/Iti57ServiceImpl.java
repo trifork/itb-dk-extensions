@@ -25,7 +25,8 @@ public class Iti57ServiceImpl implements Iti57Service {
 
     @Override
     public Response update(RegisterDocumentSet request, DgwsClientInfo clientInfo) {
-        decorator.setDgwsClientInfo(clientInfo, !clientInfo.isSystemIdentity());
+        // DROS takes no HSUID header (the original ihe-xds-api sent none with ITI-41 either).
+        decorator.setDgwsClientInfo(clientInfo, false);
         try {
             var wire = new RegisterDocumentSetTransformer(FACTORY).toEbXML(request);
             var response = port.documentRegistryUpdateDocumentSet(wire.getInternal());

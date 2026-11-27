@@ -98,8 +98,11 @@ public class XdsProcessingService implements ProcessingService {
             String uniqueId,
             String registry,
             String registryLabel,
-            String credential) {
-        static final Submitted NONE = new Submitted("", "", "", "", "");
+            String credential,
+            String entryUuid,
+            String typeCode,
+            String typeScheme) {
+        static final Submitted NONE = new Submitted("", "", "", "", "", "", "", "");
 
         boolean present() {
             return !uniqueId.isEmpty();
@@ -430,7 +433,23 @@ public class XdsProcessingService implements ProcessingService {
             }
         }
         out.getOutput().add(value("defaultProfessional", STRING, preferred));
+        out.getOutput().add(value("defaultWriter", STRING, preferredWriter(s)));
         codeLists(out, "format", stamkort ? stamkortFormats(s) : s.formats, s.formatSelections);
+    }
+
+    /**
+     * Uploads default to a current system identity (as the original ihe-xds-api used), else an
+     * employee.
+     */
+    private String preferredWriter(Session s) {
+        String employee = "";
+        for (var entry : s.professionalSelections.entrySet()) {
+            var identity = s.credentials.get(entry.getValue());
+            if (identity.currentSystem(clock.instant())) return entry.getKey();
+            if (employee.isEmpty() && identity.currentEmployee(clock.instant()))
+                employee = entry.getKey();
+        }
+        return employee;
     }
 
     private static Map<String, JsonNode> stamkortFormats(Session s) {
@@ -613,7 +632,7 @@ public class XdsProcessingService implements ProcessingService {
                 s.professionalSelections.getOrDefault(selectedProfessional, selectedProfessional);
         if (!s.credentials.containsKey(credential))
             throw new XdsFailure(INPUT_ERROR, "Choose a configured signing identity.");
-        s.credentials.get(credential).requireSearchIdentity(clock.instant(), false);
+        s.credentials.get(credential).requireWriteIdentity(clock.instant());
         String selectedFormat = v.getOrDefault(FORMAT_CODE, "");
         String formatId = s.formatSelections.get(selectedFormat);
         JsonNode format = formatId == null ? null : s.formats.get(formatId);
@@ -626,12 +645,31 @@ public class XdsProcessingService implements ProcessingService {
         Map<String, Object> submission = new LinkedHashMap<>();
         submission.put(FORMAT_CODE, format.path(CODE).asText());
         submission.put("documentBase64", Base64.getEncoder().encodeToString(s.upload.bytes()));
-        client.submit(envelope(s, submission));
+        var result = client.submit(envelope(s, submission));
+        // Everything ITI-57 needs is known now, so the deprecation never has to look it up again.
         s.submitted =
                 new Submitted(
-                        s.patient, metadata.uniqueId(), s.registry, s.registryLabel, credential);
+                        s.patient,
+                        metadata.uniqueId(),
+                        s.registry,
+                        s.registryLabel,
+                        credential,
+                        result.entryUuid(),
+                        result.typeCode(),
+                        result.typeScheme());
+        String warnings = warningText(result.response());
+        String identity = s.credentials.get(credential).label(clock.instant());
         out.getOutput().add(value("submittedUniqueId", STRING, metadata.uniqueId()));
+        out.getOutput().add(value("submittedEntryUuid", STRING, result.entryUuid()));
+        out.getOutput().add(value("submittedWarnings", STRING, warnings));
         out.getOutput().add(value(PATIENT_ID, STRING, s.patient));
+        // The step report shows what was sent and what DDS answered, not only that it passed.
+        var shown = report.getContext().getItem();
+        shown.add(value("Patient", STRING, s.patient));
+        shown.add(value("Document unique ID", STRING, metadata.uniqueId()));
+        shown.add(value("Entry UUID", STRING, result.entryUuid()));
+        shown.add(value("Signed as", STRING, identity));
+        shown.add(value("Registry response", STRING, "Success. Warnings: " + warnings));
         s.upload = Upload.NONE; // The bytes are no longer needed; do not keep them for the session
         // TTL.
     }
@@ -655,32 +693,27 @@ public class XdsProcessingService implements ProcessingService {
             throw new XdsFailure(
                     INPUT_ERROR,
                     "Deprecation (ITI-57) is not enabled for this registry. Ask the operator to configure its ITI-57 endpoint.");
-        // The registry's own entry UUID is needed, so look the document up again rather than assume
-        // it.
-        Map<String, Object> query = new LinkedHashMap<>();
-        query.put(PATIENT_ID, s.patient);
-        query.put("availabilityStatus", "Approved");
-        query.put(DOCUMENT_TYPE, List.of("STABLE"));
-        JsonNode rows = client.search(envelope(s, query));
-        JsonNode match = null;
-        for (JsonNode row : rows) {
-            if (done.uniqueId().equals(row.path(DOCUMENT_ID).asText())) {
-                match = row;
-                break;
-            }
-        }
-        if (match == null || match.path(ENTRY_UUID).asText("").isBlank())
-            throw new XdsFailure(
-                    "XDS-NOT-FOUND",
-                    "The uploaded document is not registered as Approved for this patient, so it cannot be deprecated.");
         Map<String, Object> change = new LinkedHashMap<>();
         change.put(PATIENT_ID, s.patient);
-        change.put(ENTRY_UUID, match.path(ENTRY_UUID).asText());
-        change.put(TYPE_CODE, match.path(TYPE_CODE).asText(""));
-        change.put("typeScheme", match.path("typeScheme").asText(""));
-        client.deprecate(envelope(s, change));
+        change.put(ENTRY_UUID, done.entryUuid());
+        change.put(TYPE_CODE, done.typeCode());
+        change.put("typeScheme", done.typeScheme());
+        var response = client.deprecate(envelope(s, change));
+        String warnings = warningText(response);
         out.getOutput().add(value("deprecatedUniqueId", STRING, done.uniqueId()));
+        out.getOutput().add(value("deprecatedEntryUuid", STRING, done.entryUuid()));
+        out.getOutput().add(value("deprecatedWarnings", STRING, warnings));
+        var shown = report.getContext().getItem();
+        shown.add(value("Document unique ID", STRING, done.uniqueId()));
+        shown.add(value("Entry UUID", STRING, done.entryUuid()));
+        shown.add(value("Registry response", STRING, "Success. Warnings: " + warnings));
         s.submitted = Submitted.NONE;
+    }
+
+    private static String warningText(
+            org.openehealth.ipf.commons.ihe.xds.core.responses.Response response) {
+        var warnings = XdsErrors.warnings(response);
+        return warnings.isEmpty() ? "none" : String.join(" | ", warnings);
     }
 
     private Map<String, Object> newContext() {

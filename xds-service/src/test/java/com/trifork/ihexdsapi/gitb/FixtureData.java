@@ -31,14 +31,13 @@ public final class FixtureData {
                             row.path("patientId").asText(""),
                             new AssigningAuthority("1.2.208.176.1.2")));
             entry.setUniqueId(row.path("documentId").asText(""));
-            entry.setEntryUuid(row.path("entryUuid").asText(null));
             entry.setRepositoryUniqueId(row.path("repositoryID").asText(""));
             entry.setHomeCommunityId(row.path("homeCommunityId").asText(null));
             entry.setTypeCode(
                     new Code(
-                            row.path("typeCode").asText("code"),
+                            "code",
                             new LocalizedString(row.path("documentType").asText("CDA")),
-                            row.path("typeScheme").asText("scheme")));
+                            "scheme"));
             if (row.has("serviceStart"))
                 entry.setServiceStartTime(
                         new Timestamp(

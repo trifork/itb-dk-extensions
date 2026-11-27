@@ -273,7 +273,11 @@ class ItbFlowIT {
         client.submit(
                 session,
                 confirm,
-                Map.of("Format code", option(confirm, "Format code", "PHMR test code")));
+                Map.of(
+                        "Signing identity",
+                        option(confirm, "Signing identity", "Synthetic test professional"),
+                        "Format code",
+                        option(confirm, "Format code", "PHMR test code")));
         Map<String, String> upload = context(step("Upload the CDA to DDS (ITI-41)"));
         assertEquals("Synthetic registry One", upload.get("Registry"));
         submit("Show that your system found the CDA", Map.of("Screenshot", SCREENSHOT));

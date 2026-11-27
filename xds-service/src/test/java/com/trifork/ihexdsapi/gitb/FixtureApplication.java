@@ -40,24 +40,22 @@ public final class FixtureApplication {
         private final java.util.Map<String, String[]> uploaded =
                 new java.util.concurrent.ConcurrentHashMap<>();
 
-        public Response submit(SubmitRequest request) {
+        public SubmissionResult submit(SubmitRequest request) {
             context(request.registryId(), request.credentialId(), request.context());
             var cda = CdaMetadata.parse(request.document());
             if (!List.of("test-code", "second-code").contains(request.formatCode()))
                 throw new IllegalArgumentException("Unknown fixture format");
             String key = request.registryId() + "|" + cda.patientId() + "|" + cda.uniqueId();
             var response = new Response(Status.SUCCESS);
-            if (uploaded.putIfAbsent(
-                            key,
-                            new String[] {"urn:uuid:" + java.util.UUID.randomUUID(), "Approved"})
-                    != null) {
+            String entryUuid = "urn:uuid:" + java.util.UUID.randomUUID();
+            if (uploaded.putIfAbsent(key, new String[] {entryUuid, "Approved"}) != null) {
                 response.setStatus(Status.FAILURE);
                 response.getErrors()
                         .add(
                                 FixtureData.error(
                                         ErrorCode.DOCUMENT_UNIQUE_ID_ERROR, "duplicate", false));
             }
-            return response;
+            return new SubmissionResult(response, entryUuid, cda.typeCode(), cda.typeScheme());
         }
 
         public Response deprecate(DeprecateRequest request) {
@@ -177,19 +175,6 @@ public final class FixtureApplication {
                         .put("documentType", "Personal Health Monitoring Report")
                         .put("serviceStart", 1704067200000L)
                         .put("serviceEnd", 1704153600000L);
-            for (var entry : uploaded.entrySet()) {
-                var parts = entry.getKey().split("\\|", 3);
-                if (parts[0].equals(request.getRegistryId())
-                        && parts[1].equals(patient)
-                        && "Approved".equals(entry.getValue()[1]))
-                    rows.addObject()
-                            .put("patientId", patient)
-                            .put("documentId", parts[2])
-                            .put("entryUuid", entry.getValue()[0])
-                            .put("repositoryID", "mock-repository")
-                            .put("homeCommunityId", "urn:oid:1.2.3.6")
-                            .put("documentType", "Uploaded test document");
-            }
             return FixtureData.search(value);
         }
 

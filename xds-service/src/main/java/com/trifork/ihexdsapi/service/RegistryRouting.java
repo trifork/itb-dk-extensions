@@ -80,6 +80,18 @@ public final class RegistryRouting {
             this(id, name, dgws, search, retrieval, false);
         }
 
+        /**
+         * Uploads and deprecations accept either an employee or a system identity. The DGWS service
+         * issues a system ID card for a system credential and a professional card otherwise.
+         */
+        public com.trifork.ihexdsapi.dgws.DgwsClientInfo authenticateWriter(
+                String patient,
+                String credential,
+                org.openapitools.model.HealthcareProfessionalContext context)
+                throws com.trifork.ihexdsapi.dgws.DgwsSecurityException {
+            return dgws.getStamkortClientInfo(patient, credential, context);
+        }
+
         public com.trifork.ihexdsapi.dgws.DgwsClientInfo authenticate(
                 String patient,
                 String credential,

@@ -33,11 +33,11 @@ public final class Submissions {
         var type = typeCode(cda);
         entry.setTypeCode(type);
         entry.setClassCode(type);
-        entry.setFormatCode(formatCode);
-        entry.setHealthcareFacilityTypeCode(properties.facilityType());
-        entry.setPracticeSettingCode(properties.practiceSetting());
+        entry.setFormatCode(named(formatCode));
+        entry.setHealthcareFacilityTypeCode(named(properties.facilityType()));
+        entry.setPracticeSettingCode(named(properties.practiceSetting()));
         entry.getConfidentialityCodes()
-                .add(new Code(cda.confidentialityCode(), null, cda.confidentialityScheme()));
+                .add(named(new Code(cda.confidentialityCode(), null, cda.confidentialityScheme())));
         entry.setCreationTime(
                 cda.creationTime().isEmpty()
                         ? Timestamp.now()
@@ -96,17 +96,31 @@ public final class Submissions {
         set.setSourceId(properties.sourceId());
         set.setPatientId(cpr(patientId));
         set.setSubmissionTime(Timestamp.now());
-        set.setContentTypeCode(contentType);
+        set.setContentTypeCode(named(contentType));
         set.setTitle(new LocalizedString(title));
         set.setAvailabilityStatus(AvailabilityStatus.APPROVED);
         return set;
     }
 
     private static Code typeCode(CdaMetadata cda) {
-        return new Code(
-                cda.typeCode(),
-                cda.typeDisplayName().isEmpty() ? null : new LocalizedString(cda.typeDisplayName()),
-                cda.typeScheme());
+        return named(
+                new Code(
+                        cda.typeCode(),
+                        cda.typeDisplayName().isEmpty()
+                                ? null
+                                : new LocalizedString(cda.typeDisplayName()),
+                        cda.typeScheme()));
+    }
+
+    /**
+     * DROS requires a display name on every coded value, even when the source gave none. As the
+     * original ihe-xds-api did, a missing name falls back to the code itself.
+     */
+    static Code named(Code code) {
+        if (code.getDisplayName() != null
+                && code.getDisplayName().getValue() != null
+                && !code.getDisplayName().getValue().isBlank()) return code;
+        return new Code(code.getCode(), new LocalizedString(code.getCode()), code.getSchemeName());
     }
 
     private static Identifiable cpr(String id) {

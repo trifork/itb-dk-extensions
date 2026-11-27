@@ -74,7 +74,8 @@ public class DefaultXdsOperations implements XdsOperations {
     }
 
     @Override
-    public Response submit(SubmitRequest request) throws DgwsSecurityException, ItiException {
+    public SubmissionResult submit(SubmitRequest request)
+            throws DgwsSecurityException, ItiException {
         var target = routing.target(request.registryId());
         if (target.submission() == null || target.stamkort())
             throw new IllegalArgumentException(
@@ -83,9 +84,15 @@ public class DefaultXdsOperations implements XdsOperations {
         var cda = CdaMetadata.parse(document);
         var format = formatCode(request.formatCode());
         var identity =
-                target.authenticate(cda.patientId(), request.credentialId(), request.context());
-        return target.submission()
-                .submit(Submissions.provide(document, cda, format, submission), identity);
+                target.authenticateWriter(
+                        cda.patientId(), request.credentialId(), request.context());
+        var payload = Submissions.provide(document, cda, format, submission);
+        var entry = payload.getDocuments().getFirst().getDocumentEntry();
+        return new SubmissionResult(
+                target.submission().submit(payload, identity),
+                entry.getEntryUuid(),
+                entry.getTypeCode().getCode(),
+                entry.getTypeCode().getSchemeName());
     }
 
     @Override
@@ -101,7 +108,8 @@ public class DefaultXdsOperations implements XdsOperations {
                         : new org.openehealth.ipf.commons.ihe.xds.core.metadata.Code(
                                 request.typeCode(), null, request.typeScheme());
         var identity =
-                target.authenticate(request.patientId(), request.credentialId(), request.context());
+                target.authenticateWriter(
+                        request.patientId(), request.credentialId(), request.context());
         return target.update()
                 .update(
                         Submissions.deprecate(
@@ -116,7 +124,12 @@ public class DefaultXdsOperations implements XdsOperations {
                 .map(
                         c ->
                                 new org.openehealth.ipf.commons.ihe.xds.core.metadata.Code(
-                                        c.getCode(), null, c.getScheme()))
+                                        c.getCode(),
+                                        c.getName() == null
+                                                ? null
+                                                : new org.openehealth.ipf.commons.ihe.xds.core
+                                                        .metadata.LocalizedString(c.getName()),
+                                        c.getScheme()))
                 .orElseThrow(() -> new IllegalArgumentException("Choose a configured format code"));
     }
 }

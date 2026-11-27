@@ -49,6 +49,11 @@ record SigningIdentity(
                 && (validUntil == null || !now.isAfter(validUntil));
     }
 
+    /** Writes accept a current employee or system identity; STS and DROS still decide trust. */
+    void requireWriteIdentity(Instant now) {
+        requireSearchIdentity(now, true);
+    }
+
     void requireSearchIdentity(Instant now) {
         requireSearchIdentity(now, false);
     }

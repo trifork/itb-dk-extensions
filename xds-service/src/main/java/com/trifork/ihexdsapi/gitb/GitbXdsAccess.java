@@ -79,12 +79,7 @@ final class GitbXdsAccess implements AutoCloseable {
         var row = rows.addObject();
         row.put("patientId", entry.getPatientId() == null ? null : entry.getPatientId().getId());
         row.put("documentId", entry.getUniqueId());
-        row.put("entryUuid", entry.getEntryUuid());
         var type = entry.getTypeCode();
-        if (type != null) {
-            row.put("typeCode", type.getCode());
-            row.put("typeScheme", type.getSchemeName());
-        }
         row.put("repositoryID", entry.getRepositoryUniqueId());
         row.put("homeCommunityId", entry.getHomeCommunityId());
         row.put(
@@ -103,8 +98,8 @@ final class GitbXdsAccess implements AutoCloseable {
     }
 
     /** ITI-41. Findings stop the flow; nothing is reported as stored unless DDS accepted it. */
-    void submit(Map<String, Object> values) {
-        execute(
+    com.trifork.ihexdsapi.service.SubmissionResult submit(Map<String, Object> values) {
+        return execute(
                 "DDS document upload (ITI-41)",
                 () -> {
                     var query = (Map<?, ?>) values.get("queryParameters");
@@ -118,15 +113,16 @@ final class GitbXdsAccess implements AutoCloseable {
                                     Base64.getDecoder()
                                             .decode((String) query.get("documentBase64")),
                                     (String) query.get("formatCode"));
-                    XdsErrors.checkWrite(
-                            "DDS document upload (ITI-41)", operations.submit(request));
-                    return Boolean.TRUE;
+                    var result = operations.submit(request);
+                    XdsErrors.checkWrite("DDS document upload (ITI-41)", result.response());
+                    return result;
                 });
     }
 
     /** ITI-57. Same contract as {@link #submit}. */
-    void deprecate(Map<String, Object> values) {
-        execute(
+    org.openehealth.ipf.commons.ihe.xds.core.responses.Response deprecate(
+            Map<String, Object> values) {
+        return execute(
                 "DDS deprecation (ITI-57)",
                 () -> {
                     var query = (Map<?, ?>) values.get("queryParameters");
@@ -141,8 +137,9 @@ final class GitbXdsAccess implements AutoCloseable {
                                     (String) query.get("entryUuid"),
                                     (String) query.get("typeCode"),
                                     (String) query.get("typeScheme"));
-                    XdsErrors.checkWrite("DDS deprecation (ITI-57)", operations.deprecate(request));
-                    return Boolean.TRUE;
+                    var response = operations.deprecate(request);
+                    XdsErrors.checkWrite("DDS deprecation (ITI-57)", response);
+                    return response;
                 });
     }
 

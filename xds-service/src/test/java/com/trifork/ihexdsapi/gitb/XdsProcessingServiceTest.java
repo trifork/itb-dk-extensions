@@ -122,10 +122,14 @@ class XdsProcessingServiceTest {
                         return FixtureData.search("{\"queryResponse\":" + rows + error + "}");
                     }
 
-                    public org.openehealth.ipf.commons.ihe.xds.core.responses.Response submit(
+                    public com.trifork.ihexdsapi.service.SubmissionResult submit(
                             com.trifork.ihexdsapi.service.SubmitRequest request) {
                         lastSubmit = request;
-                        return writeResponse;
+                        return new com.trifork.ihexdsapi.service.SubmissionResult(
+                                writeResponse,
+                                "urn:uuid:entry-1",
+                                "74468-0",
+                                "2.16.840.1.113883.6.1");
                     }
 
                     public org.openehealth.ipf.commons.ihe.xds.core.responses.Response deprecate(
@@ -1424,29 +1428,35 @@ class XdsProcessingServiceTest {
         var done = submitFirstFormat(ready);
         assertEquals(TestResultType.SUCCESS, done.getReport().getResult());
         assertEquals(CDA_ID, output(done, "submittedUniqueId").getValue());
+        assertEquals("urn:uuid:entry-1", output(done, "submittedEntryUuid").getValue());
+        assertEquals("none", output(done, "submittedWarnings").getValue());
+        var shown = new java.util.LinkedHashMap<String, String>();
+        done.getReport()
+                .getContext()
+                .getItem()
+                .forEach(item -> shown.put(item.getName(), item.getValue()));
+        assertEquals(CPR, shown.get("Patient"));
+        assertEquals("urn:uuid:entry-1", shown.get("Entry UUID"));
+        assertTrue(shown.get("Signed as").contains("Test professional"));
+        assertEquals("Success. Warnings: none", shown.get("Registry response"));
         assertEquals("default", lastSubmit.registryId());
         assertEquals("professional-1", lastSubmit.credentialId());
         assertEquals("code-1", lastSubmit.formatCode());
         assertEquals(Boolean.FALSE, lastSubmit.context().getConsentOverride());
         assertEquals(
                 cda(CPR, "1c04299e"), new String(lastSubmit.document(), StandardCharsets.UTF_8));
-        rows =
-                "[{\"patientId\":\""
-                        + CPR
-                        + "\",\"documentId\":\""
-                        + CDA_ID
-                        + "\",\"repositoryID\":\"repo\",\"entryUuid\":\"urn:uuid:entry-1\",\"typeCode\":\"74468-0\",\"typeScheme\":\"2.16.840.1.113883.6.1\"}]";
         var gone = call("deprecate");
         assertEquals(TestResultType.SUCCESS, gone.getReport().getResult());
         assertEquals(CDA_ID, output(gone, "deprecatedUniqueId").getValue());
+        assertEquals("urn:uuid:entry-1", output(gone, "deprecatedEntryUuid").getValue());
+        assertEquals("none", output(gone, "deprecatedWarnings").getValue());
         assertEquals(CPR, lastDeprecate.patientId());
         assertEquals("urn:uuid:entry-1", lastDeprecate.entryUuid());
         assertEquals("74468-0", lastDeprecate.typeCode());
         failure(call("deprecate"), "XDS-STATE");
-        assertEquals(1, searchCalls);
-        assertEquals(
-                List.of("STABLE"),
-                List.of(lastSearch.path("queryParameters").path("documentType").get(0).asText()));
+        // ITI-57 is built from what the upload recorded; no search is needed to deprecate.
+        assertEquals(0, searchCalls);
+        assertEquals("2.16.840.1.113883.6.1", lastDeprecate.typeScheme());
     }
 
     @Test
@@ -1506,6 +1516,25 @@ class XdsProcessingServiceTest {
     }
 
     @Test
+    void registryWarningsOnASuccessfulUploadAreShownNotHidden() {
+        writableRegistry(true, true);
+        writeResponse
+                .getErrors()
+                .add(
+                        FixtureData.error(
+                                org.openehealth.ipf.commons.ihe.xds.core.responses.ErrorCode
+                                        .REGISTRY_METADATA_ERROR,
+                                "classCode\nis   advisory",
+                                true));
+        var done = submitFirstFormat(prepared(cda(CPR, "1c04299e")));
+        assertEquals(TestResultType.SUCCESS, done.getReport().getResult());
+        String warnings = output(done, "submittedWarnings").getValue();
+        assertTrue(warnings.contains("XDSRegistryMetadataError"), warnings);
+        assertTrue(warnings.contains("classCode is advisory"), warnings);
+        assertTrue(output(call("deprecate"), "deprecatedWarnings").getValue().contains("advisory"));
+    }
+
+    @Test
     void registryRejectionIsReportedAndLeavesNothingToDeprecate() {
         writableRegistry(true, true);
         writeResponse =
@@ -1522,7 +1551,11 @@ class XdsProcessingServiceTest {
         var failed = submitFirstFormat(prepared(cda(CPR, "1c04299e")));
         failure(failed, "XDS-REGISTRY");
         assertTrue(output(failed, "errorMessage").getValue().contains("The change was not made."));
-        assertFalse(output(failed, "errorMessage").getValue().contains("private-context"));
+        // Uploads show the registry's own wording, flattened; searches and retrievals never do.
+        assertTrue(
+                output(failed, "errorMessage")
+                        .getValue()
+                        .contains("Registry detail: private-context."));
         failure(call("deprecate"), "XDS-STATE");
         // A failure status without a usable error must still stop the flow.
         writeResponse.getErrors().clear();
@@ -1530,24 +1563,61 @@ class XdsProcessingServiceTest {
     }
 
     @Test
-    void deprecationNeedsTheDocumentToBeRegisteredAndTheRegistryToAllowIt() {
+    void deprecationNeedsAnUploadAndARegistryThatAllowsIt() {
+        failure(call("deprecate"), "XDS-STATE");
         writableRegistry(true, false);
         submitFirstFormat(prepared(cda(CPR, "1c04299e")));
         assertNotNull(lastSubmit);
         failure(call("deprecate"), "XDS-INPUT");
         assertNull(lastDeprecate);
+        assertEquals(0, searchCalls);
+    }
+
+    @Test
+    void uploadsDefaultToACurrentSystemIdentityAndAcceptEitherKind() {
         writableRegistry(true, true);
-        submitFirstFormat(prepared(cda(CPR, "1c04299e")));
-        rows = "[]";
-        failure(call("deprecate"), "XDS-NOT-FOUND");
-        rows =
-                "[{\"patientId\":\""
-                        + CPR
-                        + "\",\"documentId\":\""
-                        + CDA_ID
-                        + "\",\"repositoryID\":\"repo\"}]";
-        failure(call("deprecate"), "XDS-NOT-FOUND");
-        assertNull(lastDeprecate);
+        identities =
+                "[{\"id\":\"professional-1\",\"displayName\":\"Test professional\",\"credentialType\":\"HEALTHCAREPROFESSIONAL\",\"certificateKind\":\"MOCES\",\"validFrom\":\"2025-01-01T00:00:00Z\",\"validUntil\":\"2028-01-01T00:00:00Z\"},"
+                        + "{\"id\":\"service-1\",\"displayName\":\"NSP service\",\"credentialType\":\"SYSTEM\",\"certificateKind\":\"FOCES\",\"validFrom\":\"2025-01-01T00:00:00Z\",\"validUntil\":\"2028-01-01T00:00:00Z\"},"
+                        + "{\"id\":\"old-service\",\"displayName\":\"Old service\",\"credentialType\":\"SYSTEM\",\"certificateKind\":\"FOCES\",\"validFrom\":\"2020-01-01T00:00:00Z\",\"validUntil\":\"2024-01-01T00:00:00Z\"}]";
+        call("choices");
+        var choices = call("queryChoices", "registry", "Configured XDS registry");
+        String writer = output(choices, "defaultWriter").getValue();
+        assertTrue(writer.contains("NSP service"), writer);
+        assertTrue(output(choices, "defaultProfessional").getValue().contains("Test professional"));
+        var ready = call("prepareUpload", "documentText", cda(CPR, "1c04299e"));
+        String format = output(ready, "uploadFormatLabels").getItem().get(0).getValue();
+        assertEquals(
+                TestResultType.SUCCESS,
+                call(
+                                "submit",
+                                "registry",
+                                "Configured XDS registry",
+                                "professional",
+                                writer,
+                                "formatCode",
+                                format)
+                        .getReport()
+                        .getResult());
+        assertEquals("service-1", lastSubmit.credentialId());
+        // An expired certificate is still refused, whatever its kind.
+        String expired =
+                output(choices, "professionalLabels").getItem().stream()
+                        .map(AnyContent::getValue)
+                        .filter(label -> label.contains("Old service"))
+                        .findFirst()
+                        .orElseThrow();
+        call("prepareUpload", "documentText", cda(CPR, "other"));
+        failure(
+                call(
+                        "submit",
+                        "registry",
+                        "Configured XDS registry",
+                        "professional",
+                        expired,
+                        "formatCode",
+                        format),
+                "XDS-CERTIFICATE-EXPIRED");
     }
 
     private static final class MutableClock extends Clock {

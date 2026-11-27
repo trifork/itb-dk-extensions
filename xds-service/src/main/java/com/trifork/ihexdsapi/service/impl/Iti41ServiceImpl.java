@@ -25,7 +25,8 @@ public class Iti41ServiceImpl implements Iti41Service {
 
     @Override
     public Response submit(ProvideAndRegisterDocumentSet request, DgwsClientInfo clientInfo) {
-        decorator.setDgwsClientInfo(clientInfo, !clientInfo.isSystemIdentity());
+        // DROS takes no HSUID header (the original ihe-xds-api sent none with ITI-41 either).
+        decorator.setDgwsClientInfo(clientInfo, false);
         try {
             var wire = new ProvideAndRegisterDocumentSetTransformer(FACTORY).toEbXML(request);
             var response =

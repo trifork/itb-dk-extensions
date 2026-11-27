@@ -160,6 +160,9 @@ class Packaging(unittest.TestCase):
         shown = [i.text for i in root.findall('.//t:interact[@id="uploadConfirm"]/t:instruct', NS)[1:]]
         self.assertEqual(['$xdsPrepare{uploadPatient}', '$xdsPrepare{uploadId}', '$xdsPrepare{uploadType}',
                           '$xdsPrepare{uploadTitle}', '$xdsPrepare{uploadCreated}', '$xdsPrepare{uploadSize}'], shown)
+        identity = root.find('.//t:interact[@id="uploadConfirm"]/t:request[@name="professional"]', NS)
+        self.assertEqual('$xdsQueryChoices{defaultWriter}', identity.get('default'))
+        self.assertEqual(identity.get('options'), identity.get('optionLabels'))
         confirm = root.find('.//t:interact[@id="uploadConfirm"]/t:request[@name="formatCode"]', NS)
         self.assertEqual('$xdsPrepare{uploadFormatDefault}', confirm.get('default'))
         self.assertEqual(confirm.get('options'), confirm.get('optionLabels'))
@@ -181,7 +184,7 @@ class Packaging(unittest.TestCase):
         inputs = lambda pid: {i.get('name'): i.text for i in root.findall(f'.//t:process[@id="{pid}"]/t:input', NS)}
         self.assertEqual({'document': '$uploadSource{document}', 'documentText': '$uploadSource{documentText}'},
                          inputs('xdsPrepare'))
-        self.assertEqual({'registry': '$selectedRegistry', 'professional': '$xdsQueryChoices{defaultProfessional}',
+        self.assertEqual({'registry': '$selectedRegistry', 'professional': '$uploadConfirm{professional}',
                           'formatCode': '$uploadConfirm{formatCode}'}, inputs('xdsSubmit'))
         self.assertEqual({}, inputs('xdsDeprecate'), 'deprecation targets the session\'s own upload, never a typed ID')
         conditions = ''.join(c.text for c in root.findall('.//t:cond', NS))

@@ -128,10 +128,10 @@ with the XDS option, in its own `cda-dk-xds-upload` suite and with its own pendi
    attachment. DDS refuses a document ID that is already registered.
 3. **Screenshot.** Upload an image that shows your own system found and displayed the document.
    The test stores it as evidence and does not inspect it.
-4. **Deprecate (optional).** Choose whether to mark the document as deprecated. The service
-   searches for the document it uploaded in this session, takes the registry's own entry UUID and
-   sends ITI-57 (Update Document Set, availability status Approved to Deprecated). It never
-   accepts a typed ID, so it can only deprecate that one upload.
+4. **Deprecate (optional).** Choose whether to mark the document as deprecated. The service sends
+   ITI-57 (Update Document Set, availability status Approved to Deprecated) from what it recorded
+   at upload: the entry UUID it assigned to the document, the patient and the type code. No search
+   is needed. It never accepts a typed ID, so it can only deprecate that one upload.
 
 Writing is opt-in per registry. `application.properties` enables it for DDS TEST1 and TEST2:
 `iti41-endpoint` and `iti57-endpoint` default to NSP's **DROS Sandbox**
@@ -147,6 +147,10 @@ healthcare-facility and practice-setting codes a CDA cannot supply, and the subm
 come from `xds.submission.*` (`XDS_SUBMISSION_SOURCE_ID`, `XDS_SUBMISSION_FACILITY_TYPE_CODE`,
 `XDS_SUBMISSION_PRACTICE_SETTING_CODE`, form `code^display name^scheme OID`). The class code is the
 CDA's type code.
+
+When DDS rejects an upload or deprecation, the session log appends the registry's own wording
+(`Registry detail: …`, flattened and cut at 300 characters, at most five findings), because it names
+the rejected field. Search and retrieval errors still withhold it, as it can echo patient context.
 
 **Not yet accepted by a live DDS.** A first run sent ITI-41 to the DDS repository (`/ddsrepository`),
 which answered "Message part ProvideAndRegisterDocumentSetRequest was not recognized", because writes
