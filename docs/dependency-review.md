@@ -8,7 +8,7 @@
 
 This is a review of both POMs, their effective dependency versions, and build
 plugins (including XDS's `lint` profile). Versions below were checked against
-Maven Central or the configured Trifork eHealth repository metadata. The inventory includes
+Maven Central or the configured NSP repository metadata. The inventory includes
 the implemented Java/test migration, which uses JDK 25 in both projects, JUnit Jupiter 5.14.4 without Vintage,
 and test-only `ph-schematron-isosch` 10.0.2 plus Saxon-HE 13.0 in CDA, whose compiler and
 Surefire/Failsafe plugins are now 3.16.0 and 3.5.6. Other candidates remain
@@ -183,7 +183,7 @@ parent-managed version. Failsafe in CDA's `container-it` profile is 3.5.6, with
 | dependency | `dk.kvalitetsit:spring-request-id-logger` | 2.0.1 | [3.0.0](https://repo.maven.apache.org/maven2/dk/kvalitetsit/spring-request-id-logger/maven-metadata.xml) |
 | dependency | `org.apache.cxf:cxf-rt-frontend-jaxws` | 4.1.8 | [4.2.3](https://repo.maven.apache.org/maven2/org/apache/cxf/cxf-rt-frontend-jaxws/maven-metadata.xml) |
 | dependency | `org.apache.cxf:cxf-rt-features-logging` | 4.1.8 | [4.2.3](https://repo.maven.apache.org/maven2/org/apache/cxf/cxf-rt-features-logging/maven-metadata.xml) |
-| dependency | `dk.sosi.seal:seal` | 3.0.0 | [3.0.0](https://nexus3.trifork.com/repository/maven-ehealth-releases-public/dk/sosi/seal/seal/maven-metadata.xml) |
+| dependency | `dk.sosi.seal:seal` | 3.0.0 | [3.0.0](https://nexus.nspop.dk/nexus/content/groups/public/dk/sosi/seal/seal/maven-metadata.xml) |
 | dependency | `org.openehealth.ipf.commons:ipf-commons-ihe-xds` | 5.3.0 | [5.3.0](https://repo.maven.apache.org/maven2/org/openehealth/ipf/commons/ipf-commons-ihe-xds/maven-metadata.xml) |
 | dependency | `org.glassfish.jaxb:jaxb-runtime` | 4.0.6 | [4.0.9](https://repo.maven.apache.org/maven2/org/glassfish/jaxb/jaxb-runtime/maven-metadata.xml) |
 | dependency | `org.openapitools:jackson-databind-nullable` | 0.2.11 | [0.2.11](https://repo.maven.apache.org/maven2/org/openapitools/jackson-databind-nullable/maven-metadata.xml) |
