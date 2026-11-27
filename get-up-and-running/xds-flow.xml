@@ -29,7 +29,7 @@
                         <then>
                             <interact id="xdsRegistry" with="cda-producer" desc="Choose XDS registry" inputTitle="Choose XDS registry" timeout="1800000">
                                 <instruct desc="Registry selection" level="INFO" forceDisplay="true">"Choose where to search. Retrieval and authentication use the services configured for this registry. Repository filtering is available after the search."</instruct>
-                                <request name="registry" desc="Registry" inputType="SELECT_SINGLE" required="true" options="$xdsChoices{registryLabels}" optionLabels="$xdsChoices{registryLabels}"/>
+                                <request name="registry" desc="Registry" inputType="SELECT_SINGLE" required="true" options="$xdsChoices{registryLabels}" optionLabels="$xdsChoices{registryLabels}" default="DDS TEST2"/>
                             </interact>
                             <assign to="selectedRegistry" type="string">$xdsRegistry{registry}</assign>
                         </then>

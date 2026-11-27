@@ -33,7 +33,8 @@ Each named registry bundles an ITI-18 search endpoint, an ITI-43 retrieval gatew
 and its own STS endpoint. The maintained `xds-service/application.properties`
 offers **DDS TEST1**, **DDS TEST2**, **SFSK TEST1 (Stamkort)** and
 **SFSK TEST2 (Stamkort)**. Choose an SFSK route for Stamkort; choose DDS for other
-CDA document categories. TEST1 references the existing `STSURL`,
+CDA document categories. The registry choice in the release tests is preselected
+as **DDS TEST2**. TEST1 references the existing `STSURL`,
 `xdsIti18Endpoint` and `xdsIti43Endpoint` settings, preserving their local overrides;
 TEST2 has separate `XDS_TEST2_STS_URL`, `XDS_TEST2_REGISTRY_URL` and
 `XDS_TEST2_REPOSITORY_URL` placeholders with published HTTPS defaults.

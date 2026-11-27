@@ -167,6 +167,8 @@ class Packaging(unittest.TestCase):
         conditional = root.find('.//t:if[@desc="Choose a configured registry"]', NS)
         self.assertEqual('number($xdsChoices{registryCount}) > 1', conditional.find('t:cond', NS).text)
         self.assertIsNotNone(conditional.find('t:then/t:interact[@id="xdsRegistry"]', NS))
+        picker = conditional.find('t:then/t:interact[@id="xdsRegistry"]/t:request[@name="registry"]', NS)
+        self.assertEqual('DDS TEST2', picker.get('default'))
         self.assertEqual('$xdsChoices{defaultRegistry}', root.find('.//t:assign[@to="selectedRegistry"]', NS).text)
         self.assertEqual('$selectedRegistry', root.find('.//t:process[@id="xdsResults"]/t:input[@name="registry"]', NS).text)
         self.assertIsNone(root.find('.//t:process[@id="xdsDocument"]/t:input[@name="registry"]', NS))
