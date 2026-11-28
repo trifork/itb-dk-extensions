@@ -269,7 +269,7 @@ class ItbFlowIT {
                 "Provide the document to upload",
                 Map.of("Registry", "Synthetic registry One", "File", cda));
         JsonNode confirm = interaction("Confirm the upload to DDS");
-        assertEquals("instruct", field(confirm, "Document unique ID").path("type").asText());
+        assertEquals("instruction", field(confirm, "Document unique ID").path("type").asText());
         client.submit(
                 session,
                 confirm,
@@ -278,14 +278,18 @@ class ItbFlowIT {
                         option(confirm, "Signing identity", "Synthetic test professional"),
                         "Format code",
                         option(confirm, "Format code", "PHMR test code")));
-        Map<String, String> upload = context(step("Upload the CDA to DDS (ITI-41)"));
+        // The next prompt appears only once the upload step has finished, so wait for it before
+        // reading that step's report.
+        JsonNode screenshot = interaction("Show that your system found the document");
+        Map<String, String> upload = context(step("Upload the document to DDS (ITI-41)"));
         assertEquals("Synthetic registry One", upload.get("Registry"));
-        submit("Show that your system found the CDA", Map.of("Screenshot", SCREENSHOT));
+        client.submit(session, screenshot, Map.of("Screenshot", SCREENSHOT));
         submit(
                 "Deprecate the uploaded document?",
                 Map.of("Deprecate the uploaded document?", "Deprecate the uploaded document"));
+        JsonNode completed = interaction("Upload test completed");
         assertNotNull(step("Mark the document as deprecated (ITI-57)"));
-        submit("Upload test completed", Map.of());
+        client.submit(session, completed, Map.of());
         assertEquals("SUCCESS", client.ended(session, 30).get("result").asText());
     }
 
@@ -315,7 +319,7 @@ class ItbFlowIT {
                         "Document type code",
                         option(describe, "Document type code", "PHMR test code")));
         JsonNode confirm = interaction("Confirm the upload to DDS");
-        assertEquals("instruct", field(confirm, "Media type").path("type").asText());
+        assertEquals("instruction", field(confirm, "Media type").path("type").asText());
         client.submit(
                 session,
                 confirm,
@@ -324,7 +328,7 @@ class ItbFlowIT {
                         option(confirm, "Signing identity", "Synthetic test professional"),
                         "Format code",
                         option(confirm, "Format code", "PHMR test code")));
-        submit("Show that your system found the CDA", Map.of("Screenshot", SCREENSHOT));
+        submit("Show that your system found the document", Map.of("Screenshot", SCREENSHOT));
         submit(
                 "Deprecate the uploaded document?",
                 Map.of("Deprecate the uploaded document?", "Leave the document approved"));

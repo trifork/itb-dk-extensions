@@ -325,8 +325,14 @@ final class ItbClient {
     }
 
     JsonNode stepReport(String session, String description) throws Exception {
+        List<String> seen = new ArrayList<>();
         for (Element step : nodes(report(session), "//*[local-name()='step']")) {
             List<Element> descriptions = nodes(step, "./*[local-name()='description']");
+            if (!descriptions.isEmpty())
+                seen.add(
+                        STEP_PREFIX
+                                .matcher(descriptions.getFirst().getTextContent())
+                                .replaceFirst(""));
             if (descriptions.isEmpty()
                     || !STEP_PREFIX
                             .matcher(descriptions.getFirst().getTextContent())
@@ -340,7 +346,8 @@ final class ItbClient {
                                     + "/"
                                     + encode(metadata.get("path").asText()));
         }
-        throw new AssertionError("Missing step report " + description);
+        throw new AssertionError(
+                "Missing step report " + description + "; the session has " + seen);
     }
 
     static Map<String, String> context(JsonNode report) {
